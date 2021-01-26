@@ -1,0 +1,55 @@
+#!/bin/bash
+## Do not put any commands or blank lines before the #SBATCH lines
+#SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
+#SBATCH --time=48:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
+#SBATCH --account=FY180104	          # WC ID
+#SBATCH --job-name=cpfem              # Name of job
+#SBATCH --partition=batch             # partition/queue name: short or batch
+                                      #            short: 4hrs wallclock limit
+                                      #            batch: nodes reserved for > 4hrs (default)
+#SBATCH --qos=normal                  # Quality of Service: long, large, priority or normal
+                                      #           normal: request up to 48hrs wallclock (default)
+                                      #           long:   request up to 96hrs wallclock and no larger than 64nodes
+                                      #           large:  greater than 50% of cluster (special request)
+                                      #           priority: High priority jobs (special request)
+
+
+source ~/.bashrc
+
+### add DAMASK variables -- adopted from ~/.bashrc
+
+# ---------------------------------- set DAMASK variables
+# export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
+export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2
+# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.10.5 # no longer at /data/ -- damask-2.0.3
+# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.13.6 # DAMASK-3.0.0-alpha
+export PETSC_ARCH=arch-linux2-c-opt # could be arch-linux2-c-debug
+export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
+# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
+# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
+export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
+
+source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
+# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
+
+
+
+### run DAMASK
+
+nodes=$SLURM_JOB_NUM_NODES           # Number of nodes - the number of nodes you have requested (for a list of SLURM environment variables see "man sbatch")
+cores=36                             # Number MPI processes to run on each node (a.k.a. PPN)
+                                     # CTS1 has 36 cores per node
+# # using openmpi-intel/1.10
+# # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
+sh generateMsDream3d.sh
+rm -fv single_phase_equiaxed_tension* postProc/
+geom_check single_phase_equiaxed.geom
+
+# # mpirun -np 4 /media/anhvt89/seagateRepo/DAMASK/DAMASK-v2.0.2/bin/DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
+# # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
+mpirun -np 16 $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
+
+postResults single_phase_equiaxed_tension.spectralOut --cr f,p
+cd postProc/
+filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
+cd ..

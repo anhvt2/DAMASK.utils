@@ -35,6 +35,7 @@ for file in fileList:
 
 plt.xlabel(r'$\varepsilon$ ', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
+plt.title(r'32x32x32: level-1', fontsize=30)
 
 ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
 

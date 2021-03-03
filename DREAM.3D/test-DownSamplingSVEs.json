@@ -14,20 +14,20 @@
                 },
                 "Bin Count": 32,
                 "BinNumber": [
-                    2.0137524604797363,
-                    3.0137524604797363,
-                    4.013752460479736,
-                    5.013752460479736,
-                    6.013752460479736,
-                    7.013752460479736,
-                    8.013751983642578,
-                    9.013751983642578,
-                    10.013751983642578,
-                    11.013751983642578,
-                    12.013751983642578,
-                    13.013751983642578,
-                    14.013751983642578,
-                    15.013751983642578,
+                    2.0137526988983154,
+                    3.0137526988983154,
+                    4.0137529373168945,
+                    5.0137529373168945,
+                    6.0137529373168945,
+                    7.0137529373168945,
+                    8.013752937316895,
+                    9.013752937316895,
+                    10.013752937316895,
+                    11.013752937316895,
+                    12.013752937316895,
+                    13.013752937316895,
+                    14.013752937316895,
+                    15.013752937316895,
                     16.013751983642578,
                     17.013751983642578,
                     18.013751983642578,
@@ -50,8 +50,8 @@
                 "BoundaryArea": 0,
                 "Crystal Symmetry": 1,
                 "FeatureSize Distribution": {
-                    "Average": 3.00,
-                    "Standard Deviation": 0.50
+                    "Average": 3,
+                    "Standard Deviation": 0.5
                 },
                 "FeatureSize Vs B Over A Distributions": {
                     "Alpha": [
@@ -116,7 +116,7 @@
                 "Feature_Diameter_Info": [
                     1,
                     33.11545181274414,
-                    2.0137524604797363
+                    2.0137526988983154
                 ],
                 "MDF-Weights": {
                 },
@@ -133,7 +133,7 @@
         "StatsGeneratorDataContainerName": "StatsGeneratorDataContainer"
     },
     "1": {
-        "BoxDimensions": "X Range: 0 to 32 (Delta: 32)\nY Range: 0 to 32 (Delta: 32)\nZ Range: 0 to 32 (Delta: 32)",
+        "BoxDimensions": "X Range: 0 to 64 (Delta: 64)\nY Range: 0 to 64 (Delta: 64)\nZ Range: 0 to 64 (Delta: 64)",
         "CellAttributeMatrixName": "CellData",
         "DataContainerName": "SyntheticVolumeDataContainer",
         "Dimensions": {
@@ -387,9 +387,66 @@
         "HomogenizationIndex": 1,
         "OutputPath": "/ascldap/users/anhtran/scratch/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_18Nov20/64x64x64-mu-3.00-sigma-0.50-sve-1"
     },
+    "8": {
+        "CellAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "CellFeatureAttributeMatrixPath": {
+            "Attribute Matrix Name": "Grain Data",
+            "Data Array Name": "",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "FeatureIdsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "FeatureIds",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "FilterVersion": "6.5.128",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Change Resolution",
+        "Filter_Name": "ChangeResolution",
+        "Filter_Uuid": "{1966e540-759c-5798-ae26-0c6a3abc65c0}",
+        "NewDataContainerName": "NewImageDataContainer",
+        "RenumberFeatures": 1,
+        "Resolution": {
+            "x": 2,
+            "y": 2,
+            "z": 2
+        },
+        "SaveAsNewDataContainer": 0
+    },
+    "9": {
+        "CellEulerAnglesArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "EulerAngles",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "CellPhasesArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Phases",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "CompressGeomFile": 1,
+        "DataFormat": 1,
+        "FeatureIdsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "FeatureIds",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "FilterVersion": "1.0.115",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Export DAMASK Files",
+        "Filter_Name": "ExportDAMASKFiles",
+        "Filter_Uuid": "{7c58e612-d7d6-5ec7-806b-cce0c1c211a3}",
+        "GeometryFileName": "single_phase_equiaxed",
+        "HomogenizationIndex": 1,
+        "OutputPath": "/ascldap/users/anhtran/scratch/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_18Nov20/32x32x32-mu-3.00-sigma-0.50-sve-1"
+    },
     "PipelineBuilder": {
-        "Name": "test-adoptSingleCubicPhaseEquiaxed-DAMASK_5Apr20",
-        "Number_Filters": 8,
+        "Name": "test-DownSamplingSVEs",
+        "Number_Filters": 10,
         "Version": 6
     }
 }

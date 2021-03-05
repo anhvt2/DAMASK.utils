@@ -54,10 +54,12 @@ echo
 
 export geom_check=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/processing/pre/geom_check.sh
 for dimCell in 72 60 48 36 24 18 12; do
-	cat ../material.config.preamble  | cat - material.config | sponge material.config
 	cd ${dimCell}x${dimCell}x${dimCell}
+
+	cat ../material.config.preamble  | cat - material.config | sponge material.config
 	geom_check *.geom
 	sh ../getDream3dInfo.sh
+	
 	cd ..
 done
 

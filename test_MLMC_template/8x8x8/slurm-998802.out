@@ -1,0 +1,129 @@
+Agent pid 73359
+Identity added: /ascldap/users/anhtran/.ssh/id_rsaSolo (/ascldap/users/anhtran/.ssh/id_rsaSolo)
+[1mgeom_toTable[0m: 
+grid     a b c:  8 x 8 x 8
+size     x y z:  320.0 x 320.0 x 320.0
+origin   x y z:  0.0 : 0.0 : 0.0
+homogenization:  1
+microstructures: 75
+[1mvtk_rectilinearGrid[0m: 
+[1mgeom_toTable[0m: 
+grid     a b c:  8 x 8 x 8
+size     x y z:  320.0 x 320.0 x 320.0
+origin   x y z:  0.0 : 0.0 : 0.0
+homogenization:  1
+microstructures: 75
+single_phase_equiaxed.vtk: 729 points and 512 cells...
+[1mvtk_addRectilinearGridData[0m: 
+adding scalar "microstructure"...
+/ascldap/users/anhtran/.local/lib/python2.7/site-packages/vtk/util/numpy_support.py:137: FutureWarning: Conversion of the second argument of issubdtype from `complex` to `np.complexfloating` is deprecated. In future, it will be treated as `np.complex128 == np.dtype(complex).type`.
+  assert not numpy.issubdtype(z.dtype, complex), \
+cell mode...
+
+ ┌─────────────────────────────────────────────────────────────────────┐
+ │                        error                                        │
+ │                        155                                          │
+ ├─────────────────────────────────────────────────────────────────────┤
+ │ microstructure index out of bounds                                  │
+ │ More microstructures in geometry than sections in material.config   │
+ │                                                                     │
+ └─────────────────────────────────────────────────────────────────────┘
+
+ ┌─────────────────────────────────────────────────────────────────────┐
+ │                        error                                        │
+ │                        155                                          │
+ ├─────────────────────────────────────────────────────────────────────┤
+ │ microstructure index out of bounds                                  │
+Note: The following floating-point exceptions are signalling: IEEE_INEXACT_FLAG
+STOP 1
+ │ More microstructures in geometry than sections in material.config   │
+ │                                                                     │
+ └─────────────────────────────────────────────────────────────────────┘
+Note: The following floating-point exceptions are signalling: IEEE_INEXACT_FLAG
+STOP 1
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[22342,1],1]
+  Exit code:    1
+--------------------------------------------------------------------------
+Usage: postResults options [file[s]]
+
+postResults: error: invalid file "single_phase_equiaxed_tension.spectralOut" specified...
+Usage: postResults options [file[s]]
+
+ Extract data from a .t16 (MSC.Marc) or .spectralOut results file.  List of
+output variables is given by options '--ns','--es','--et','--ho','--cr','--
+co'.  Filters and separations use 'elem','node','ip','grain', and 'x','y','z'
+as key words. Example: 1) get averaged results in slices perpendicular to x
+for all negative y coordinates --filter 'y < 0.0' --separation x --map 'avg'
+2) global sum of squared data falling into first quadrant arc between R1 and
+R2 --filter 'x >= 0.0 and y >= 0.0 and x*x + y*y >= R1*R1 and x*x + y*y <=
+R2*R2' --map 'lambda n,b,a: n*b+a*a'  User mappings need to be formulated in
+an incremental fashion for each new data point, a(dd), and may use the current
+(incremental) result, b(ase), as well as the number, n(umber), of already
+processed data points for evaluation.
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -i, --info            list contents of resultfile
+  -l, --legacy          data format of spectral solver is in legacy format (no
+                        MPI out)
+  -n, --nodal           data is extrapolated to nodal value
+  --prefix=string       prefix to result file name
+  --suffix=string       suffix to result file name
+  -d string, --dir=string
+                        name of subdirectory to hold output [postProc]
+  -s, --split           split output per increment
+  -r int int int, --range=int int int
+                        range of positions (or increments) to output (start,
+                        end, step) [all]
+  --increments          switch to increment range
+  -m string, --map=string
+                        data reduction mapping [avg] out of min, max, avg,
+                        avgabs, sum, sumabs or user-lambda
+  -p string, --type=string
+                        type of result file [auto]
+  -q, --quiet           suppress verbose output
+
+  Material identifier:
+    --homogenization=string
+                        homogenization identifier (as string or integer [1])
+    --crystallite=string
+                        crystallite identifier (as string or integer [1])
+    --phase=string      phase identifier (as string or integer [1])
+
+  General outputs:
+    --ns=<string LIST>  nodal scalars to extract
+    --es=<string LIST>  elemental scalars to extract
+    --et=<string LIST>  elemental tensors to extract
+    --ho=<string LIST>  homogenization results to extract
+    --cr=<string LIST>  crystallite results to extract
+    --co=<string LIST>  constitutive results to extract
+
+  Special outputs:
+    -t, --time          output time of increment [False]
+    -f string, --filter=string
+                        condition(s) to filter results []
+    --separation=<string LIST>
+                        properties to separate results [[]]
+    --sort=<string LIST>
+                        properties to sort results [[]]
+/var/spool/slurmd/job998802/slurm_script: line 76: cd: postProc/: No such file or directory
+/var/spool/slurmd/job998802/slurm_script: line 77: single_phase_equiaxed_tension.txt: No such file or directory
+Traceback (most recent call last):
+  File "computeYieldStress.py", line 28, in <module>
+    stress_strain_data = np.loadtxt(StressStrainFile, skiprows=4)
+  File "/ascldap/users/anhtran/.local/lib/python3.6/site-packages/numpy/lib/npyio.py", line 955, in loadtxt
+    fh = np.lib._datasource.open(fname, 'rt', encoding=encoding)
+  File "/ascldap/users/anhtran/.local/lib/python3.6/site-packages/numpy/lib/_datasource.py", line 266, in open
+    return ds.open(path, mode, encoding=encoding, newline=newline)
+  File "/ascldap/users/anhtran/.local/lib/python3.6/site-packages/numpy/lib/_datasource.py", line 624, in open
+    raise IOError("%s not found." % path)
+OSError: stress_strain.log not found.

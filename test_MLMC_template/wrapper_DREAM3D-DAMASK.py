@@ -54,9 +54,10 @@ meshSize = int(args.meshSize) # make sure meshSize is integer
 currentDirectory = os.getcwd() # get currentDirectory for reference
 os.system('sh generateMsDream3d.sh')
 os.chdir(currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
+os.system('cp ../sbatch.damask.solo .')
 
 # write down numProcessors to be picked up later by sbatch.damask.solo
-numProcessors = floor(meshSize / 4.)
+numProcessors = np.floor(meshSize / 4.)
 if numProcessors > 36:
 	numProcessors = 36 # threshold on Solo node
 

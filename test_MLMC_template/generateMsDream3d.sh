@@ -11,9 +11,15 @@ dimCell=$(cat dimCell.dat)
 
 
 ## declare paths
+hostName=$(hostname)
+if [[ ${hostName} == *"solo"* ]]; then
+	execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin"
+elif [[ ${hostName} == *"ideapad"* ]]; then
+	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # ideapad or personal computer elsewhere
+else
+	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # ideapad or personal computer elsewhere
+fi
 
-# execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin"
-execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin"
 outputPath=$(pwd)
 
 inputFile="test-DownSamplingSVEs-ideapad320-NonExact-base320.json"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-## require: sudo apt install moreutils
-
+## require: "sudo apt install moreutils" for "sponge commands"
+## run as "bash ./generateMsDream3d.sh"
 
 ## declare parameters
 # two params for controlling log-normal distribution
@@ -56,8 +56,8 @@ echo
 # sed -i "673s|.*|        \"OutputPath\": \"${outputPath}/18x18x18\"|" ${inputFile}
 # sed -i "730s|.*|        \"OutputPath\": \"${outputPath}/12x12x12\"|" ${inputFile}
 
-# sed -i "651s|.*|        \"OutputPath\": \"${outputPath}/16x16x16\"|" ${inputFile}
-# sed -i "708s|.*|        \"OutputPath\": \"${outputPath}/8x8x8\"|" ${inputFile}
+sed -i "641s|.*|        \"OutputPath\": \"${outputPath}/16x16x16\"|" ${inputFile}
+sed -i "698s|.*|        \"OutputPath\": \"${outputPath}/8x8x8\"|" ${inputFile}
 
 
 ${execPath}/PipelineRunner -p $(pwd)/${inputFile}

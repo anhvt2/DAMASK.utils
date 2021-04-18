@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## require: sudo apt install moreutils
+
 
 ## declare parameters
 # two params for controlling log-normal distribution
@@ -11,7 +13,7 @@ dimCell=$(cat dimCell.dat)
 
 
 ## declare paths
-hostName=$(hostname)
+hostName="$(echo $(hostname))"
 if [[ ${hostName} == *"solo"* ]]; then
 	execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin"
 elif [[ ${hostName} == *"ideapad"* ]]; then
@@ -72,7 +74,7 @@ for dimCell in 16 8; do
 	cd ${dimCell}x${dimCell}x${dimCell}
 
 	cat ../material.config.preamble  | cat - material.config | sponge material.config
-	geom_check *.geom
+	geom_check single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom
 	sh ../getDream3dInfo.sh
 	
 	cd ..

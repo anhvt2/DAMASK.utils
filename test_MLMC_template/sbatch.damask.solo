@@ -51,7 +51,7 @@ cp ../material.config.preamble  .
 cp ../dimCell.dat  .
 cp ../computeYieldStress.py  .
 # cp ../single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom  .
-ln -sf single_phase_equiaxed_*.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
+ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
 cp ../material.config . # NOTE: material.config is the same for ALL meshes so nothing needs to be done here
 
 ### ---------------------------------- pre-process DAMASK

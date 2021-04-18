@@ -29,20 +29,20 @@ currentPath="${inputPath}"
 echo "Running $inputFile"
 echo "Output path: $outputPath"
 echo
-echo "Parameters settings:"
-echo "mu = $mu"
-echo "sigma = $sigma"
-echo "dimCell = $dimCell"
-echo
+# echo "Parameters settings:"
+# echo "mu = $mu"
+# echo "sigma = $sigma"
+# echo "dimCell = $dimCell"
+# echo
 
 
 
 
-sed -i "53s|.*|                    \"Average\": ${mu},|" ${inputFile}
-sed -i "54s|.*|                    \"Standard Deviation\": ${sigma}|" ${inputFile}
-sed -i "140s|.*|            \"x\": ${dimCell},|" ${inputFile}
-sed -i "141s|.*|            \"y\": ${dimCell},|" ${inputFile}
-sed -i "142s|.*|            \"z\": ${dimCell}|" ${inputFile}
+# sed -i "47s|.*|                    \"Average\": ${mu},|" ${inputFile}
+# sed -i "48s|.*|                    \"Standard Deviation\": ${sigma}|" ${inputFile}
+# sed -i "363s|.*|            \"x\": ${dimCell},|" ${inputFile}
+# sed -i "364s|.*|            \"y\": ${dimCell},|" ${inputFile}
+# sed -i "365s|.*|            \"z\": ${dimCell}|" ${inputFile}
 
 
 ## NOTE: This action could be automated by (1) searching for the line number with this pattern and (2) replacing the found line number in a FOR loop
@@ -54,8 +54,8 @@ sed -i "142s|.*|            \"z\": ${dimCell}|" ${inputFile}
 # sed -i "673s|.*|        \"OutputPath\": \"${outputPath}/18x18x18\"|" ${inputFile}
 # sed -i "730s|.*|        \"OutputPath\": \"${outputPath}/12x12x12\"|" ${inputFile}
 
-sed -i "651s|.*|        \"OutputPath\": \"${outputPath}/16x16x16\"|" ${inputFile}
-sed -i "708s|.*|        \"OutputPath\": \"${outputPath}/8x8x8\"|" ${inputFile}
+# sed -i "651s|.*|        \"OutputPath\": \"${outputPath}/16x16x16\"|" ${inputFile}
+# sed -i "708s|.*|        \"OutputPath\": \"${outputPath}/8x8x8\"|" ${inputFile}
 
 
 ${execPath}/PipelineRunner -p $(pwd)/${inputFile}

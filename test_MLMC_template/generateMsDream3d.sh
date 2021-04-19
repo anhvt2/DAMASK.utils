@@ -61,7 +61,7 @@ echo
 
 # replace OutputPath as in the current directory
 defaultPath="/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_MLMC_template/"
-sed -i "s|${defaultPath}|${outputPath}|g" ${inputFile}
+sed -i "s|${defaultPath}|${outputPath}/|g" ${inputFile} # add "/" behind ${outputPath}
 
 
 ${execPath}/PipelineRunner -p $(pwd)/${inputFile}

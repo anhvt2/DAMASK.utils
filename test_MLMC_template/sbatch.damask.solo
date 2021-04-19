@@ -52,7 +52,6 @@ cp ../dimCell.dat  .
 cp ../computeYieldStress.py  .
 # cp ../single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom  .
 ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
-cp ../material.config . # NOTE: material.config is the same for ALL meshes so nothing needs to be done here
 
 ### ---------------------------------- pre-process DAMASK
 rm -fv single_phase_equiaxed_tension* postProc/
@@ -76,5 +75,5 @@ postResults single_phase_equiaxed_tension.spectralOut --cr f,p
 cd postProc/
 filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
 cp ../tension.load . 
-python3 computeYieldStress.py
+python3 ../computeYieldStress.py
 cd ..

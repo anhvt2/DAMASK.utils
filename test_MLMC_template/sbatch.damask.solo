@@ -30,7 +30,9 @@ export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
 source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
 # source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
 
-
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo "Start running simulation at"
+echo $(date +%y-%m-%d-%H-%M-%S)
 
 ### ---------------------------------- pre-set on Solo
 
@@ -77,3 +79,7 @@ filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_str
 cp ../tension.load . 
 python3 ../computeYieldStress.py
 cd ..
+
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+echo "Stop running simulation at"
+echo $(date +%y-%m-%d-%H-%M-%S)

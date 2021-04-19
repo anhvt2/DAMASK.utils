@@ -23,10 +23,13 @@ For example, the number of levels can (but not yet) be adaptively changed and co
 
 2. DREAM.3D automatically creates folder if it doesn't exist.
 
-BENCHMARK on Solo
-8x8x8: 1 minute
+BENCHMARK on Solo: (using numProcessors = int(meshSize / 4.))
+8x8x8: <1 minute
 16x16x16: 6 minutes
-32x32x32: ? minutes
+32x32x32: 51 minutes
+
+BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.))
+32x32x32: 41 minutes
 
 RUNNING COMMAND:
 rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
@@ -80,7 +83,7 @@ os.chdir(currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go i
 os.system('cp ../sbatch.damask.solo .')
 
 # write down numProcessors to be picked up later by sbatch.damask.solo
-numProcessors = np.floor(meshSize / 4.)
+numProcessors = np.floor(meshSize / 2.)
 if numProcessors > 36:
 	numProcessors = 36 # threshold on Solo node
 

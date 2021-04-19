@@ -74,7 +74,7 @@ echo
 
 export geom_check=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/processing/pre/geom_check.sh
 # for dimCell in 72 60 48 36 24 18 12; do
-for dimCell in 16 8; do
+for dimCell in 64 32 16 8; do
 	cd ${dimCell}x${dimCell}x${dimCell}
 
 	cat ../material.config.preamble  | cat - material.config | sponge material.config

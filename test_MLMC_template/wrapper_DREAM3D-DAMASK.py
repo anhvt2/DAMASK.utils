@@ -27,6 +27,9 @@ BENCHMARK on Solo
 8x8x8: 1 minute
 16x16x16: 6 minutes
 32x32x32: ? minutes
+
+RUNNING COMMAND:
+rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
 """
 
 import numpy as np
@@ -70,6 +73,7 @@ isNewMs = str2bool(args.isNewMs) # if true, then run DREAM.3D to get new microst
 currentDirectory = os.getcwd() # get currentDirectory for reference
 # only generate if isNewMs is True (default = True)
 if isNewMs:
+	print("wrapper_DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
 	os.system('sh generateMsDream3d.sh')
 
 os.chdir(currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"

@@ -22,6 +22,11 @@ NOTE:
 For example, the number of levels can (but not yet) be adaptively changed and controlled as well as the size of SVEs
 
 2. DREAM.3D automatically creates folder if it doesn't exist.
+
+BENCHMARK on Solo
+8x8x8: 1 minute
+16x16x16: 6 minutes
+32x32x32: ? minutes
 """
 
 import numpy as np
@@ -33,14 +38,25 @@ import datetime
 # adopt from Sandwich.py and Example.jl from Pieterjan Robbe (KU Leuven)
 
 ## python3 Sandwich.py --elemx $(hex) --elemy $(hey) --young $(Ed1) $(Ed2)
+def str2bool(v):
+	if isinstance(v, bool):
+	   return v
+	if v.lower() in ('yes', 'true', 't', 'y', '1'):
+		return True
+	elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+		return False
+	else:
+		raise argparse.ArgumentTypeError('Boolean value expected.')
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-meshSize", "--meshSize", type=int)
+parser.add_argument("-isNewMs", "--isNewMs", default="True", type=str)
 # parser.add_argument("-baseSize", "--baseSize", default=320, type=int) # unnecessary -- unless generateMsDream3d.sh is adaptive then this parameter is fixed for now
 # NOTE: note that "generateMsDream3d.sh" is hard-coded with a specific number of levels and a specific set of lines to change
 
 args = parser.parse_args()
 meshSize = int(args.meshSize) # make sure meshSize is integer
+isNewMs = str2bool(args.isNewMs) # if true, then run DREAM.3D to get new microstructures
 
 # generate all the meshSize but only run in the selected meshSize
 # NOTE: meshSize must be divisible by the base
@@ -52,7 +68,10 @@ meshSize = int(args.meshSize) # make sure meshSize is integer
 
 ## generate ALL microstructure approximations
 currentDirectory = os.getcwd() # get currentDirectory for reference
-os.system('sh generateMsDream3d.sh')
+# only generate if isNewMs is True (default = True)
+if isNewMs:
+	os.system('sh generateMsDream3d.sh')
+
 os.chdir(currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 os.system('cp ../sbatch.damask.solo .')
 
@@ -86,9 +105,13 @@ while not os.path.exists(currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, m
 	if (currentTime - startTime).total_seconds() > thresholdSlurmTime:
 		break
 else:
+	currentTime = datetime.datetime.now()
 	yieldData = np.loadtxt(currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/yield.out')
 	yieldStrain = float(yieldData[0])
 	yieldStress = float(yieldData[1]) / 1e9 # in GPa
+	print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
+	print("Estimated Yield Stress = %2.f GPa" % yieldStress)
+	print("Results available in %s" % (currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 
 
 

@@ -75,7 +75,7 @@ echo
 # export geom_check=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/processing/pre/geom_check.sh
 source ~/.bashrc # get geom_check environment variable
 # for dimCell in 72 60 48 36 24 18 12; do
-for dimCell in 64 32 16 8; do
+for dimCell in $(cat dimCellList.dat); do
 	cd ${dimCell}x${dimCell}x${dimCell}
 	echo ${dimCell} > dimCell.dat # update dimCell.dat
 

@@ -23,11 +23,15 @@ For example, the number of levels can (but not yet) be adaptively changed and co
 
 2. DREAM.3D automatically creates folder if it doesn't exist.
 
+300: [1; 2; 3; 4; 5; 6; 10; 12; 15; 20; 25; 30; 50; 60; 75; 100; 150; 300]
+320: [1; 2; 4; 5; 8; 10; 16; 20; 32; 40; 64; 80; 160; 320]
 
 DREAM.3D takes 3 minutes to generate ALL microstructures
 BENCHMARK on Solo: (using numProcessors = int(meshSize / 4.))
 8x8x8: <1 minute
+10x10x10: 
 16x16x16: 6 -- 10 minutes
+20x20x20: 
 32x32x32: 51 minutes
 
 BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
@@ -45,6 +49,16 @@ import os, glob
 import argparse
 import time
 import datetime
+
+## write dimCellList.dat for "generateMsDream3d.sh" to pick up
+dimCellFile = open('dimCellList.dat', 'w')
+dimCellList = [8, 10, 16, 20, 32] 
+
+for dimCell in dimCellList:
+	dimCellFile.write('%d\n' % int(dimCell))
+
+dimCellFile.close()
+
 
 # adopt from Sandwich.py and Example.jl from Pieterjan Robbe (KU Leuven)
 

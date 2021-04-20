@@ -147,14 +147,15 @@ print("##########\n")
 
 ### plot check
 
-strain_intersect_line = np.linspace(yieldStrain, maxStrain)
-stress_intersect_line = np.linspace(0, youngModulus * (maxStrain - yieldStrain))
+# strain_intersect_line = np.linspace(yieldStrain, maxStrain)
+# stress_intersect_line = np.linspace(0, youngModulus * (maxStrain - yieldStrain))
 
-plt.plot(strain, stress, 'bo-', markersize=5)
-plt.plot(strain_intersect_line, stress_intersect_line, color='r', marker='s', linestyle='-.', markersize=5)
-plt.xlabel(r'$\varepsilon$ ', fontsize=24)
-plt.ylabel(r'$\sigma$ [MPa]', fontsize=24)
-plt.title('Sanity check: Yield stress computation', fontsize=24)
-plt.show()
+
+# plt.plot(strain, stress, 'bo-', markersize=5)
+# plt.plot(strain_intersect_line, stress_intersect_line, color='r', marker='s', linestyle='-.', markersize=5)
+# plt.xlabel(r'$\varepsilon$ ', fontsize=24)
+# plt.ylabel(r'$\sigma$ [MPa]', fontsize=24)
+# plt.title('Sanity check: Yield stress computation', fontsize=24)
+# plt.show()
 
 

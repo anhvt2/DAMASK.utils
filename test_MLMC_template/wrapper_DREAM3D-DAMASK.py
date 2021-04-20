@@ -23,13 +23,18 @@ For example, the number of levels can (but not yet) be adaptively changed and co
 
 2. DREAM.3D automatically creates folder if it doesn't exist.
 
+
+DREAM.3D takes 3 minutes to generate ALL microstructures
 BENCHMARK on Solo: (using numProcessors = int(meshSize / 4.))
 8x8x8: <1 minute
-16x16x16: 6 minutes
+16x16x16: 6 -- 10 minutes
 32x32x32: 51 minutes
 
-BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.))
+BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
+8x8x8: 1.67 minutes
+16x16x16: (unstable)
 32x32x32: 41 minutes
+64x64x64: > 4 hours (est. 320 minutes ~ 6 hours)
 
 RUNNING COMMAND:
 rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
@@ -83,7 +88,7 @@ os.chdir(currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go i
 os.system('cp ../sbatch.damask.solo .')
 
 # write down numProcessors to be picked up later by sbatch.damask.solo
-numProcessors = np.floor(meshSize / 2.)
+numProcessors = np.floor(meshSize / 4.)
 if numProcessors > 36:
 	numProcessors = 36 # threshold on Solo node
 
@@ -117,7 +122,7 @@ else:
 	yieldStrain = float(yieldData[0])
 	yieldStress = float(yieldData[1]) / 1e9 # in GPa
 	print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-	print("Estimated Yield Stress = %2.f GPa" % yieldStress)
+	print("Estimated Yield Stress = %.2f GPa" % yieldStress)
 	print("Results available in %s" % (currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 
 

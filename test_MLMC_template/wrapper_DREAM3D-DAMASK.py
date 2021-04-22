@@ -29,9 +29,9 @@ For example, the number of levels can (but not yet) be adaptively changed and co
 DREAM.3D takes 3 minutes to generate ALL microstructures
 BENCHMARK on Solo: (using numProcessors = int(meshSize / 4.))
 8x8x8: <1 minute
-10x10x10: 
+10x10x10: 7.51 minutes
 16x16x16: 6 -- 10 minutes
-20x20x20: 
+20x20x20: 19 -- 20 minutes
 32x32x32: 51 minutes
 
 BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
@@ -41,7 +41,8 @@ BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
 64x64x64: > 4 hours (est. 320 minutes ~ 6 hours)
 
 RUNNING COMMAND:
-rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
+rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --level=1 --isNewMs="True"
+# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
 """
 
 import numpy as np
@@ -74,13 +75,15 @@ def str2bool(v):
 		raise argparse.ArgumentTypeError('Boolean value expected.')
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-meshSize", "--meshSize", type=int)
+# parser.add_argument("-meshSize", "--meshSize", type=int)
+parse.add_argument("-level", "--level", type=int)
 parser.add_argument("-isNewMs", "--isNewMs", default="True", type=str)
 # parser.add_argument("-baseSize", "--baseSize", default=320, type=int) # unnecessary -- unless generateMsDream3d.sh is adaptive then this parameter is fixed for now
 # NOTE: note that "generateMsDream3d.sh" is hard-coded with a specific number of levels and a specific set of lines to change
 
 args = parser.parse_args()
-meshSize = int(args.meshSize) # make sure meshSize is integer
+# meshSize = int(args.meshSize) # make sure meshSize is integer
+level = int(args.level); meshSize = int(dimCellList[level - 1]) # get the meshSize from dimCellList[level - 1]
 isNewMs = str2bool(args.isNewMs) # if true, then run DREAM.3D to get new microstructures
 
 # generate all the meshSize but only run in the selected meshSize

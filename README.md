@@ -37,4 +37,105 @@ Following the advices of [Mohammadreza Yaghoobi](https://scholar.google.com/cita
 	* `Euler 1`, `Euler 2`, `Euler 3`, `Weight`, `Sigma (ODF)`
 	* 0, 0, 0, 25, 5
 
+# MultilevelEstimators.jl
+
+From the email communication around April 22, 2021
+
+Suppose that your wrapper can be called with a script, called "my script.sh". This script would take as input the level parameter \ell. The script would then call the wrapper to compute a solution at mesh level m and mesh level m-1, extract a quantity of interest for each mesh level, and print these two numbers to screen. Let's also assume that for level \ell = 0, the script outputs the same number twice (there is no m-1 in this case). (To clarify: the "level \ell" here would be integers 0, 1, 2 … used in the MLMC method, and the "mesh level m" would correspond to the number of grid points, i.e., (m = 0) => 8x8x8, (m = 1) => 16x16x16, (m = 2) => 32x32x32, …). For example:
+
+
+terminal:
+```shell
+$ ./myscript.sh --level 2
+<QoI at mesh level 2> <QoI at mesh level 1>
+$ ./myscript.sh --level 1
+<QoI at mesh level 1> <QoI at mesh level 0>
+$ ./myscript.sh --level 0
+<QoI at mesh level 0> <QoI at mesh level 0, same number>
+```
+
+As a first step, we will look if there is variance decay. Therefore, you would need to do the following in Julia:
+
+1) Write a "sample" function that calls your wrapper. This function will look like this:
+
+julia function:
+```julia
+function my_sample_function(level, x)
+cmd = `./myscript.sh --level $(level)` # command to be executed in the terminal
+out = read(cmd, String) # execute command and read output
+Qf, Qc = parse.(Float64, split(out)) # split output into Qf and Qc (approximations at mesh level m and mesh level m-1)
+return level == 0 ? (Qf, Qf) : (Qf-Qc, Qf) # return multilevel difference and approximation at mesh level m
+end
+```
+
+
+2) Use the (simplified) function "check_variances" to check for variance decay. I had included this function in Example.jl a couple of emails back, but here it is again:
+
+
+julia function:
+```julia
+function check_variances(; max_level=3, budget=60)
+    budget_per_level = budget/(max_level + 1)
+
+    for level in 0:max_level
+        samps_dQ = []
+        samps_Qf = []
+        timer = 0
+        while timer < budget_per_level
+            timer += @elapsed dQ, Qf = my_sample_function(level, 0) # last argument is 0 because it is not used
+            push!(samps_dQ, dQ) 
+            push!(samps_Qf, Qf) 
+        end 
+        println("Level ", level, ", V = ", var(samps_Qf), ", dV = ",
+                var(samps_dQ), " (", length(samps_dQ), " samples)")
+    end 
+end
+```
+
+
+3) Write all of this in a file, and don't forget to include Statistics.jl:
+
+file `my_julia_script.jl`:
+```julia
+using Statistics
+
+function my_sample_function(level, x)
+cmd = `./myscript.sh --level $(level)` # command to be executed in the terminal
+out = read(cmd, String) # execute command and read output
+Qf, Qc = parse.(Float64, split(out)) # split output into Qf and Qc (approximations at mesh level m and mesh level m-1)
+return level == 0 ? (Qf, Qf) : (Qf-Qc, Qf) # return multilevel difference and approximation at mesh level m
+end
+
+function check_variances(; max_level=3, budget=60)
+    budget_per_level = budget/(max_level + 1)
+
+    for level in 0:max_level
+        samps_dQ = []
+        samps_Qf = []
+        timer = 0
+        while timer < budget_per_level
+            timer += @elapsed dQ, Qf = my_sample_function(level, [])
+            push!(samps_dQ, dQ) 
+            push!(samps_Qf, Qf) 
+        end 
+        println("Level ", level, ", V = ", var(samps_Qf), ", dV = ",
+                var(samps_dQ), " (", length(samps_dQ), " samples)")
+    end 
+end
+
+# parameters:
+# max_level = number of levels -1 (max_level = 2 will use level 0, 1 and 2)
+# budget = total computational budget in seconds (8*3600 = 8 hours) - function will finish in this amount of time
+check_variances(max_level=2, budget=8*3600)
+```
+
+4) Call this script from the terminal
+
+terminal:
+```shell
+$ julia my_julia_script.jl
+...
+```
+
+5) Wait for the result (will be printed to the screen)
 

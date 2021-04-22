@@ -83,7 +83,7 @@ parser.add_argument("-isNewMs", "--isNewMs", default="True", type=str)
 
 args = parser.parse_args()
 # meshSize = int(args.meshSize) # make sure meshSize is integer
-level = int(args.level); meshSize = int(dimCellList[level - 1]) # get the meshSize from dimCellList[level - 1]
+level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
 isNewMs = str2bool(args.isNewMs) # if true, then run DREAM.3D to get new microstructures
 
 # generate all the meshSize but only run in the selected meshSize

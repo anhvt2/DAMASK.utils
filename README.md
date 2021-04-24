@@ -41,14 +41,17 @@ Following the advices of [Mohammadreza Yaghoobi](https://scholar.google.com/cita
 
 ## How to install
 
-(also available at `./MultilevelEstimators.jl/README.md`)
+(also available at `./MultilevelEstimators.jl/README.md`, but this version is more comprehensive)
 
 Mostly comes from private communication with Pieterjan Robbe
 
 ```julia
 pkg> dev https://github.com/PieterjanRobbe/MultilevelEstimators.jl
+pkg> add Random
+pkg> add Statistics
 
 julia> import Pkg; Pkg.resolve()
+
 
 include("Example.jl")
 check_variances()
@@ -58,8 +61,8 @@ run_multilevel()
 
 Sometimes will need to switch the branch to `develop` in `~/.julia/dev/MultilevelEstimators/` and
 ```shell
-git pull
 git checkout develop
+git pull
 ```
 
 

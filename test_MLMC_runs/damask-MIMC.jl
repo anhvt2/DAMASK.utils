@@ -4,7 +4,7 @@ using Statistics
 function sample_damask(level, x)
 	cmd = `python3 ./wrapper_DREAM3D-DAMASK.py --level=$(level)` # command to be executed in the terminal
 	out = read(cmd, String) # execute command and read output
-	Qf, Qc = parse.(Float64, split(out)) # split output into Qf and Qc (approximations at mesh level m and mesh level m-1)
+	Qf, Qc = parse(Float64, split(out)) # split output into Qf and Qc (approximations at mesh level m and mesh level m-1)
 	return level == 0 ? (Qf, Qf) : (Qf-Qc, Qf) # return multilevel difference and approximation at mesh level m
 end
 

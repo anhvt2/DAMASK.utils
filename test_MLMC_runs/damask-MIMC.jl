@@ -1,4 +1,5 @@
-using MultilevelEstimators, Random, Statistics
+# using MultilevelEstimators, Random, Statistics
+using Statistics
 
 function sample_damask(level, x)
 	cmd = `python3 ./wrapper_DREAM3D-DAMASK.py --level=$(level)` # command to be executed in the terminal
@@ -20,7 +21,8 @@ function check_variances(; max_level=3, budget=60)
             push!(samps_Qf, Qf) 
         end 
         println("Level ", level, ", V = ", var(samps_Qf), ", dV = ",
-                var(samps_dQ), " (", length(samps_dQ), " samples)")
+                var(samps_dQ), " (", length(samps_dQ), 
+		" samples, cost per sample = ", timer / length(samps_dQ), ")")
     end 
 end
 

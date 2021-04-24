@@ -39,6 +39,33 @@ Following the advices of [Mohammadreza Yaghoobi](https://scholar.google.com/cita
 
 # MultilevelEstimators.jl
 
+## How to install
+
+(also available at `./MultilevelEstimators.jl/README.md`)
+
+Mostly comes from private communication with Pieterjan Robbe
+
+```julia
+pkg> dev https://github.com/PieterjanRobbe/MultilevelEstimators.jl
+
+julia> import Pkg; Pkg.resolve()
+
+include("Example.jl")
+check_variances()
+run_multilevel_checkpoint()
+run_multilevel()
+```
+
+Sometimes will need to switch the branch to `develop` in `~/.julia/dev/MultilevelEstimators/` and
+```shell
+git pull
+git checkout develop
+```
+
+
+
+## How to run
+
 From the email communication around April 22, 2021
 
 Suppose that your wrapper can be called with a script, called "my script.sh". This script would take as input the level parameter \ell. The script would then call the wrapper to compute a solution at mesh level m and mesh level m-1, extract a quantity of interest for each mesh level, and print these two numbers to screen. Let's also assume that for level \ell = 0, the script outputs the same number twice (there is no m-1 in this case). (To clarify: the "level \ell" here would be integers 0, 1, 2 … used in the MLMC method, and the "mesh level m" would correspond to the number of grid points, i.e., (m = 0) => 8x8x8, (m = 1) => 16x16x16, (m = 2) => 32x32x32, …). For example:

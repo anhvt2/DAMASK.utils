@@ -138,9 +138,9 @@ else:
 	yieldData = np.loadtxt(currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/yield.out')
 	yieldStrain = float(yieldData[0])
 	yieldStress = float(yieldData[1]) / 1e9 # in GPa
+	print("Results available in %s" % (currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 	print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
 	print("Estimated Yield Stress = %.2f GPa" % yieldStress)
-	print("Results available in %s" % (currentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 
 
 

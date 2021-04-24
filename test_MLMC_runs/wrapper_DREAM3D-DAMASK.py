@@ -76,7 +76,7 @@ def str2bool(v):
 
 parser = argparse.ArgumentParser()
 # parser.add_argument("-meshSize", "--meshSize", type=int)
-parse.add_argument("-level", "--level", type=int)
+parser.add_argument("-level", "--level", type=int)
 parser.add_argument("-isNewMs", "--isNewMs", default="True", type=str)
 # parser.add_argument("-baseSize", "--baseSize", default=320, type=int) # unnecessary -- unless generateMsDream3d.sh is adaptive then this parameter is fixed for now
 # NOTE: note that "generateMsDream3d.sh" is hard-coded with a specific number of levels and a specific set of lines to change

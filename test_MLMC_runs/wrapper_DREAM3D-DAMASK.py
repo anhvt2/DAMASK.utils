@@ -116,7 +116,7 @@ os.system('sh generateMsDream3d.sh')
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
 ## WITHOUT generating a new microstructure
-def submitDAMASK(meshSize, parentDirectory):
+def submitDAMASK(meshSize, parentDirectory, level):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	os.system('cp ../sbatch.damask.solo .')
 
@@ -190,10 +190,10 @@ def submitDAMASK(meshSize, parentDirectory):
 ## if level > 0 then submit a DAMASK job at [level - 1]
 
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
-submitDAMASK(meshSize, parentDirectory)
+submitDAMASK(meshSize, parentDirectory, level)
 if level > 0:
 	meshSize = int(dimCellList[level - 1]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
-	submitDAMASK(meshSize, parentDirectory)
+	submitDAMASK(meshSize, parentDirectory, level)
 
 
 

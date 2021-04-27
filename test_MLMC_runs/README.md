@@ -669,6 +669,6 @@ INFO:
                                       #           priority: High priority jobs (special request)
 Results available in /qscratch/anhtran/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_14Apr21/DAMASK.utils/test_MLMC_runs/8x8x8
 
- Elapsed time = 2.34 minutes on Solo
+Elapsed time = 2.34 minutes on Solo
 Estimated Yield Stress = 1.9068240000000001 GPa
 ```

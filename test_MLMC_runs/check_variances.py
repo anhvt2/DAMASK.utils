@@ -2,7 +2,8 @@ import subprocess
 import numpy as np
 
 def sample_cpfem(level):
-    cmd = ["python3", "wrapper_DREAM3D-DAMASK.py", "--level=" + str(level), "--isNewMs='False'"]
+    # cmd = ["python3", "wrapper_DREAM3D-DAMASK.py", "--level=" + str(level), "--isNewMs='False'"]
+    cmd = ["python3", "wrapper_DREAM3D-DAMASK.py", "--level=" + str(level)]
     out = subprocess.run(cmd, capture_output=True, text=True).stdout # execute command and read output
     lines = out.splitlines() # split output into lines
     Q = [] # empty array

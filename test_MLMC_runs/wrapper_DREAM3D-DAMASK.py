@@ -21,15 +21,19 @@ This script "wrapper_DREAM3D-DAMASK.py":
 
 4. Collect the QoIs and return to some Julia scripts based on "MultilevelEstimators.jl"
 
+BUGS:
+
+1. (Potentially -- not verified exist): fine mesh produces results, but coarse does not
+
 NOTE: 
 
-0. Notation: 0 = coarsest, len(dimCellList) - 1: highest -- from coarsest to finest
+2. Notation: 0 = coarsest, len(dimCellList) - 1: highest -- from coarsest to finest
 
-1. "generateMsDream3d.sh" and subsequently the .json file used by DREAM.3D can be automatically generated, but currently we assume they are fixed and hard-coded.
+3. "generateMsDream3d.sh" and subsequently the .json file used by DREAM.3D can be automatically generated, but currently we assume they are fixed and hard-coded.
 
 For example, the number of levels can (but not yet) be adaptively changed and controlled as well as the size of SVEs
 
-2. DREAM.3D automatically creates folder if it doesn't exist.
+4. DREAM.3D automatically creates folder if it doesn't exist.
 
 300: [1; 2; 3; 4; 5; 6; 10; 12; 15; 20; 25; 30; 50; 60; 75; 100; 150; 300]
 320: [1; 2; 4; 5; 8; 10; 16; 20; 32; 40; 64; 80; 160; 320]
@@ -49,7 +53,8 @@ BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
 64x64x64: > 4 hours (est. 320 minutes ~ 6 hours)
 
 RUNNING COMMAND:
-rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --level=1 --isNewMs="True"
+rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --level=1 
+# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --level=1 --isNewMs="True"
 # deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
 """
 
@@ -110,6 +115,7 @@ print("wrapper_DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
 os.system('sh generateMsDream3d.sh')
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
+## WITHOUT generating a new microstructure
 def submitDAMASK(meshSize, parentDirectory):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	os.system('cp ../sbatch.damask.solo .')
@@ -142,8 +148,36 @@ def submitDAMASK(meshSize, parentDirectory):
 		time.sleep(10)
 		currentTime = datetime.datetime.now()
 		if (currentTime - startTime).total_seconds() > thresholdSlurmTime:
-			print("Time waited > time submitted: there is something wrong with the submission!")
+			# if the previous loop does not return any output
+			# it means the microstructure was not able to return any results with DAMASK
 			break
+			print("Time waited > time submitted: there is something wrong with the submission!")
+			print("Warning: Regenerating microstructure for another try!")
+			os.chdir(parentDirectory)
+			os.system('sh generateMsDream3d.sh')
+			os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
+			os.system('cp ../sbatch.damask.solo .')
+
+			numProcessors = np.floor(meshSize / 4.)
+			if numProcessors > 36:
+				numProcessors = 36 # threshold on Solo node
+
+			f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+			f.write('%d' % numProcessors)
+			f.close()
+
+			os.system('ssubmit sbatch.damask.solo')
+			startTime = datetime.datetime.now()
+
+			slurmFile = open(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/sbatch.damask.solo')
+			slurmSubmitText = slurmFile.readlines()
+			slurmFile.close()
+			thresholdSlurmTime = slurmSubmitText[3].split('=')[1].split("#")[0].replace(" ", "") # e.g. thresholdSlurmTime = "48:00:00"
+			thresholdSlurmTime = thresholdSlurmTime.split(":")[0]
+			thresholdSlurmTime = int(thresholdSlurmTime)
+			thresholdSlurmTime *= (24*3600) # convert to seconds
+
+
 	else:
 		currentTime = datetime.datetime.now()
 		yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/yield.out')

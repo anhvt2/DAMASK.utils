@@ -177,23 +177,22 @@ def submitDAMASK(meshSize, parentDirectory):
 			thresholdSlurmTime = int(thresholdSlurmTime)
 			thresholdSlurmTime *= (24*3600) # convert to seconds
 
-
 	else:
 		currentTime = datetime.datetime.now()
 		yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/yield.out')
 		yieldStrain = float(yieldData[0])
 		yieldStress = float(yieldData[1]) / 1e9 # in GPa
+		print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 		print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
 		print("Estimated Yield Stress = %.16f GPa" % yieldStress)
-		print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 
 
 ## if level > 0 then submit a DAMASK job at [level - 1]
 
-level = int(args.level); meshSize = int(dimCellList[level + 1]) # get the meshSize from dimCellList[level]
+level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
 submitDAMASK(meshSize, parentDirectory)
 if level > 0:
-	level = int(args.level); meshSize = int(dimCellList[level + 1]) # get the meshSize from dimCellList[level]
+	meshSize = int(dimCellList[level - 1]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
 	submitDAMASK(meshSize, parentDirectory)
 
 

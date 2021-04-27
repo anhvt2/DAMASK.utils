@@ -1,7 +1,7 @@
 import subprocess
 import numpy as np
 
-def my_sample_function(level):
+def sample_cpfem(level):
     cmd = ["python3", "wrapper_DREAM3D-DAMASK.py", "--level=" + str(level), "--isNewMs='False'"]
     out = subprocess.run(cmd, capture_output=True, text=True).stdout # execute command and read output
     lines = out.splitlines() # split output into lines
@@ -24,7 +24,7 @@ def check_variances(max_level=3, budget=3600):
         timer = 0
         while timer < buget_per_level:
             t = time.time()
-            dQ, Qf = my_sample_function(level)
+            dQ, Qf = sample_cpfem(level)
             timer += time.time() - t
             samps_dQ.append(dQ)
             samps_Qf.append(Qf)

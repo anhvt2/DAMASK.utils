@@ -24,7 +24,7 @@ fi
 
 outputPath=$(pwd)
 
-inputFile="test-DownSamplingSVEs-ideapad320-NonExact-base320.json"
+inputFile="test-DownSamplingSVEs-NonExact-base320.json"
 currentPath="${inputPath}"
 
 

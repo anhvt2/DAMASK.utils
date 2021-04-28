@@ -6,7 +6,7 @@ function sample_damask(level, x)
 	lines = split(out, "\n") # split output into lines
 	Q = [] # empty array
 	for line in lines # loop over all lines
-		if "Estimated Yield Stress =" in line # if line containes "Estimated Yield Stress"
+			if occursin("Estimated Yield Stress =", line) # if line containes "Estimated Yield Stress"
 			words = split(line) # split the line into words
 			yield_stress = parse(Float64, words[end-1]) # parse the yield stress value to Float64
 			push!(Q, yield_stress) # append the value of the yield stress to the array "Q"
@@ -26,21 +26,21 @@ function sample_damask(level, x)
 end
 
 function check_variances(; max_level=3, budget=60)
-    budget_per_level = budget/(max_level + 1)
+	budget_per_level = budget/(max_level + 1)
 
-    for level in 0:max_level
-        samps_dQ = []
-        samps_Qf = []
-        timer = 0
-        while timer < budget_per_level
-            timer += @elapsed dQ, Qf = sample_damask(level, [])
-            push!(samps_dQ, dQ) 
-            push!(samps_Qf, Qf) 
-        end 
-        println("Level ", level, ", V = ", var(samps_Qf), ", dV = ",
-                var(samps_dQ), " (", length(samps_dQ), 
-		" samples, cost per sample = ", timer / length(samps_dQ), ")")
-    end 
+	for level in 0:max_level
+		samps_dQ = []
+		samps_Qf = []
+		timer = 0
+		while timer < budget_per_level
+			timer += @elapsed dQ, Qf = sample_damask(level, [])
+			push!(samps_dQ, dQ) 
+			push!(samps_Qf, Qf) 
+		end 
+		println("Level ", level, ", V = ", var(samps_Qf), ", dV = ",
+				var(samps_dQ), " (", length(samps_dQ), 
+				" samples, cost per sample = ", timer / length(samps_dQ), ")")
+	end 
 end
 
 # parameters:

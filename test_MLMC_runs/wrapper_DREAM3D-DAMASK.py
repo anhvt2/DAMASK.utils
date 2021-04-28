@@ -112,6 +112,10 @@ parentDirectory = os.getcwd() # get parentDirectory for reference
 # only generate if isNewMs is True (default = True) -- deprecated
 # if isNewMs:
 print("wrapper_DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
+# clear folders before doing anything else
+for dimCell in dimCellList:
+	os.system('rm -rfv %dx%dx%d' % (int(dimCell), int(dimCell), int(dimCell)))
+
 os.system('sh generateMsDream3d.sh')
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
@@ -184,7 +188,11 @@ def submitDAMASK(meshSize, parentDirectory, level):
 		yieldStress = float(yieldData[1]) / 1e9 # in GPa
 		print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 		print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-		print("Estimated Yield Stress = %.16f GPa" % yieldStress)
+		print("Estimated Yield Stress (at level = %d) = %.16f GPa" % (level, yieldStress))
+
+		f = open(parentDirectory + 'log.MultillevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
+		f.write("Estimated Yield Stress (at level = %d, meshSize = %d) = %.16f GPa" % (level, meshSize, yieldStress))
+		f.close()
 
 
 ## if level > 0 then submit a DAMASK job at [level - 1]

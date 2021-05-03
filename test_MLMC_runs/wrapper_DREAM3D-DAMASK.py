@@ -191,7 +191,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 		print("Estimated Yield Stress (at level = %d) = %.16f GPa" % (level, yieldStress))
 
 		f = open(parentDirectory + '/' + 'log.MultillevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-		f.write("Estimated Yield Stress (at level = %d, meshSize = %d) = %.16f GPa" % (level, meshSize, yieldStress))
+		f.write("Estimated Yield Stress (at level = %d, meshSize = %d) = %.16f GPa\n" % (level, meshSize, yieldStress))
 		f.close()
 
 

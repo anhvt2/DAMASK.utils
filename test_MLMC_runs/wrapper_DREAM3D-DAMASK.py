@@ -190,7 +190,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 		print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
 		print("Estimated Yield Stress (at level = %d) = %.16f GPa" % (level, yieldStress))
 
-		f = open(parentDirectory + 'log.MultillevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
+		f = open(parentDirectory + '/' + 'log.MultillevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
 		f.write("Estimated Yield Stress (at level = %d, meshSize = %d) = %.16f GPa" % (level, meshSize, yieldStress))
 		f.close()
 

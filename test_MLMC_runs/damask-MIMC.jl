@@ -1,12 +1,16 @@
 using Statistics
 
 function sample_damask(level, x)
-	cmd = `python3 ./wrapper_DREAM3D-DAMASK.py --level=$(level)` # command to be executed in the terminal
+	#cmd = `python3 ./wrapper_DREAM3D-DAMASK.py --level=$(level)` # command to be executed in the terminal
+	cmd = `cat out.txt`
 	out = read(cmd, String) # execute command and read output
+	println("============= actual output =============")
+	println(out)
+	println("=========================================")
 	lines = split(out, "\n") # split output into lines
 	Q = [] # empty array
 	for line in lines # loop over all lines
-			if occursin("Estimated Yield Stress =", line) # if line containes "Estimated Yield Stress"
+		if occursin("Estimated Yield Stress =", line) # if line containes "Estimated Yield Stress"
 			words = split(line) # split the line into words
 			yield_stress = parse(Float64, words[end-1]) # parse the yield stress value to Float64
 			push!(Q, yield_stress) # append the value of the yield stress to the array "Q"
@@ -46,4 +50,4 @@ end
 # parameters:
 # max_level = number of levels -1 (max_level = 2 will use level 0, 1 and 2)
 # budget = total computational budget in seconds (8*3600 = 8 hours) - function will finish in this amount of time
-check_variances(max_level=2, budget=8*3600)
+check_variances(max_level=2, budget=20)# 8*3600)

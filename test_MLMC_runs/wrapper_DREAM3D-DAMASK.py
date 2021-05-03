@@ -111,11 +111,12 @@ level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize f
 parentDirectory = os.getcwd() # get parentDirectory for reference
 # only generate if isNewMs is True (default = True) -- deprecated
 # if isNewMs:
-print("wrapper_DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
 # clear folders before doing anything else
+print("wrapper_DREAM3D-DAMASK.py: removing/cleaning up ?x?x? folders")
 for dimCell in dimCellList:
 	os.system('rm -rfv %dx%dx%d' % (int(dimCell), int(dimCell), int(dimCell)))
 
+print("wrapper_DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
 os.system('sh generateMsDream3d.sh')
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters

@@ -201,7 +201,8 @@ def submitDAMASK(meshSize, parentDirectory, level):
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
 submitDAMASK(meshSize, parentDirectory, level)
 if level > 0:
-	meshSize = int(dimCellList[level - 1]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
+	level -= 1
+	meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
 	submitDAMASK(meshSize, parentDirectory, level)
 
 

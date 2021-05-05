@@ -16,7 +16,7 @@ def sample_cpfem(level):
     else:
         return Q[0] - Q[1], Q[0] # return multilevel difference and Qf
 
-def check_variances(max_level=3, budget=3600):
+def check_variances(max_level=3, budget=3600*24*3):
     buget_per_level = budget/(max_level + 1)
 
     for level in range(max_level):

@@ -154,6 +154,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 	while not os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat'):
 		time.sleep(10)
 		currentTime = datetime.datetime.now()
+		feasible = 0
 		if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible'):
 			feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
 			if feasible == 0:

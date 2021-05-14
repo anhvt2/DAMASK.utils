@@ -113,6 +113,7 @@ def generateMicrostructures(parentDirectory):
 	# only generate if isNewMs is True (default = True) -- deprecated
 	# if isNewMs:
 	# clear folders before doing anything else
+	os.chdir(parentDirectory)
 	print("wrapper_DREAM3D-DAMASK.py: removing/cleaning up ?x?x? folders")
 	for dimCell in dimCellList:
 		os.system('rm -rfv %dx%dx%d' % (int(dimCell), int(dimCell), int(dimCell)))
@@ -211,7 +212,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 feasible = 0
 
 while feasible == 0:
-	generateMicrostructures(parentDirectory);
+	generateMicrostructures(parentDirectory)
 	level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
 	feasible = submitDAMASK(meshSize, parentDirectory, level)
 	if level > 0:

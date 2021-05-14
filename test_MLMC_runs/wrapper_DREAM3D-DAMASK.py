@@ -108,16 +108,17 @@ level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize f
 
 
 ## generate ALL microstructure approximations
-parentDirectory = os.getcwd() # get parentDirectory for reference
-# only generate if isNewMs is True (default = True) -- deprecated
-# if isNewMs:
-# clear folders before doing anything else
-print("wrapper_DREAM3D-DAMASK.py: removing/cleaning up ?x?x? folders")
-for dimCell in dimCellList:
-	os.system('rm -rfv %dx%dx%d' % (int(dimCell), int(dimCell), int(dimCell)))
+def generateMicrostructures():
+	parentDirectory = os.getcwd() # get parentDirectory for reference
+	# only generate if isNewMs is True (default = True) -- deprecated
+	# if isNewMs:
+	# clear folders before doing anything else
+	print("wrapper_DREAM3D-DAMASK.py: removing/cleaning up ?x?x? folders")
+	for dimCell in dimCellList:
+		os.system('rm -rfv %dx%dx%d' % (int(dimCell), int(dimCell), int(dimCell)))
 
-print("wrapper_DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
-os.system('sh generateMsDream3d.sh')
+	print("wrapper_DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
+	os.system('sh generateMsDream3d.sh')
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
 ## WITHOUT generating a new microstructure
@@ -152,9 +153,30 @@ def submitDAMASK(meshSize, parentDirectory, level):
 	while not os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/yield.out'):
 		time.sleep(10)
 		currentTime = datetime.datetime.now()
+		if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible'):
+			feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
+			if feasible == 0:
+				yieldStress = 0 # invalid condition
+				break
+			elif feasible == 1:
+				currentTime = datetime.datetime.now()
+				yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/yield.out')
+				yieldStrain = float(yieldData[0])
+				yieldStress = float(yieldData[1]) / 1e9 # in GPa
+				print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
+				print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
+				print("Estimated Yield Stress (at level = %d) = %.16f GPa" % (level, yieldStress))
+
+				f = open(parentDirectory + '/' + 'log.MultillevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
+				f.write("Estimated Yield Stress (at level = %d, meshSize = %d) = %.16f GPa\n" % (level, meshSize, yieldStress))
+				f.close()
+
+
 		if (currentTime - startTime).total_seconds() > thresholdSlurmTime:
 			# if the previous loop does not return any output
-			# it means the microstructure was not able to return any results with DAMASK
+			# it means the microstructure was not able to return any results with DAMASK within the time requested
+			feasible = 0
+			yieldStress = 0 # invalid condition
 			break
 			print("Time waited > time submitted: there is something wrong with the submission!")
 			print("Warning: Regenerating microstructure for another try!")
@@ -182,28 +204,20 @@ def submitDAMASK(meshSize, parentDirectory, level):
 			thresholdSlurmTime = int(thresholdSlurmTime)
 			thresholdSlurmTime *= (24*3600) # convert to seconds
 
-	else:
-		currentTime = datetime.datetime.now()
-		yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/yield.out')
-		yieldStrain = float(yieldData[0])
-		yieldStress = float(yieldData[1]) / 1e9 # in GPa
-		print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
-		print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-		print("Estimated Yield Stress (at level = %d) = %.16f GPa" % (level, yieldStress))
-
-		f = open(parentDirectory + '/' + 'log.MultillevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-		f.write("Estimated Yield Stress (at level = %d, meshSize = %d) = %.16f GPa\n" % (level, meshSize, yieldStress))
-		f.close()
+	return feasible
 
 
 ## if level > 0 then submit a DAMASK job at [level - 1]
+feasible = 0
 
-level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
-submitDAMASK(meshSize, parentDirectory, level)
-if level > 0:
-	level -= 1
-	meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
-	submitDAMASK(meshSize, parentDirectory, level)
+while feasible == 0:
+	generateMicrostructures();
+	level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
+	feasible = submitDAMASK(meshSize, parentDirectory, level)
+	if level > 0:
+		level -= 1
+		meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
+		feasible = submitDAMASK(meshSize, parentDirectory, level)
 
 
 

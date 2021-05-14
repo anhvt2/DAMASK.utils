@@ -5,13 +5,13 @@
 #SBATCH --account=FY210060            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
 #SBATCH --partition=short,batch       # partition/queue name: short or batch
-                                      #            short: 4hrs wallclock limit
-                                      #            batch: nodes reserved for > 4hrs (default)
+																			#            short: 4hrs wallclock limit
+																			#            batch: nodes reserved for > 4hrs (default)
 #SBATCH --qos=normal                  # Quality of Service: long, large, priority or normal
-                                      #           normal: request up to 48hrs wallclock (default)
-                                      #           long:   request up to 96hrs wallclock and no larger than 64nodes
-                                      #           large:  greater than 50% of cluster (special request)
-                                      #           priority: High priority jobs (special request)
+																			#           normal: request up to 48hrs wallclock (default)
+																			#           long:   request up to 96hrs wallclock and no larger than 64nodes
+																			#           large:  greater than 50% of cluster (special request)
+																			#           priority: High priority jobs (special request)
 
 
 source ~/.bashrc
@@ -38,7 +38,7 @@ echo $(date +%y-%m-%d-%H-%M-%S)
 
 nodes=$SLURM_JOB_NUM_NODES           # Number of nodes - the number of nodes you have requested (for a list of SLURM environment variables see "man sbatch")
 cores=36                             # Number MPI processes to run on each node (a.k.a. PPN)
-                                     # CTS1 has 36 cores per node
+																		 # CTS1 has 36 cores per node
 # using openmpi-intel/1.10
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
 # sh generateMsDream3d.sh # call DREAM.3D for microstructure generation
@@ -74,11 +74,17 @@ fi
 ### ---------------------------------- post-processing DAMASK
 sleep 10
 postResults single_phase_equiaxed_tension.spectralOut --cr f,p
-cd postProc/
-filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
-cp ../tension.load . 
-python3 ../computeYieldStress.py
-cd ..
+if [ -f "postProc" ]; then
+	echo 1 > log.feasible
+	cd postProc/
+	filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
+	cp ../tension.load . 
+	python3 ../computeYieldStress.py
+	cd ..
+else
+	echo "Simulation does not converge!!!"
+	echo 0 > log.feasible
+fi
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 echo "Stop running simulation at"

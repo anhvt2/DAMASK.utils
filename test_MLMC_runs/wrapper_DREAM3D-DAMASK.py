@@ -179,30 +179,30 @@ def submitDAMASK(meshSize, parentDirectory, level):
 			yieldStress = 0 # invalid condition
 			break
 			print("Time waited > time submitted: there is something wrong with the submission!")
-			print("Warning: Regenerating microstructure for another try!")
-			os.chdir(parentDirectory)
-			os.system('sh generateMsDream3d.sh')
-			os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
-			os.system('cp ../sbatch.damask.solo .')
+			# print("Warning: Regenerating microstructure for another try!")
+			# os.chdir(parentDirectory)
+			# os.system('sh generateMsDream3d.sh')
+			# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
+			# os.system('cp ../sbatch.damask.solo .')
 
-			numProcessors = np.floor(meshSize / 4.)
-			if numProcessors > 36:
-				numProcessors = 36 # threshold on Solo node
+			# numProcessors = np.floor(meshSize / 4.)
+			# if numProcessors > 36:
+			# 	numProcessors = 36 # threshold on Solo node
 
-			f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
-			f.write('%d' % numProcessors)
-			f.close()
+			# f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+			# f.write('%d' % numProcessors)
+			# f.close()
 
-			os.system('ssubmit sbatch.damask.solo')
-			startTime = datetime.datetime.now()
+			# os.system('ssubmit sbatch.damask.solo')
+			# startTime = datetime.datetime.now()
 
-			slurmFile = open(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/sbatch.damask.solo')
-			slurmSubmitText = slurmFile.readlines()
-			slurmFile.close()
-			thresholdSlurmTime = slurmSubmitText[3].split('=')[1].split("#")[0].replace(" ", "") # e.g. thresholdSlurmTime = "48:00:00"
-			thresholdSlurmTime = thresholdSlurmTime.split(":")[0]
-			thresholdSlurmTime = int(thresholdSlurmTime)
-			thresholdSlurmTime *= (24*3600) # convert to seconds
+			# slurmFile = open(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/sbatch.damask.solo')
+			# slurmSubmitText = slurmFile.readlines()
+			# slurmFile.close()
+			# thresholdSlurmTime = slurmSubmitText[3].split('=')[1].split("#")[0].replace(" ", "") # e.g. thresholdSlurmTime = "48:00:00"
+			# thresholdSlurmTime = thresholdSlurmTime.split(":")[0]
+			# thresholdSlurmTime = int(thresholdSlurmTime)
+			# thresholdSlurmTime *= (24*3600) # convert to seconds
 
 	return feasible
 

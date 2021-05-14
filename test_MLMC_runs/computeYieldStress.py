@@ -134,7 +134,7 @@ for i in range(n-1):
 
 	# print('\n')
 
-outFile = open('yield.out', 'w')
+outFile = open('output.dat', 'w')
 outFile.write('%.6e\n' % computed_yieldStrain)
 outFile.write('%.6e\n' % computed_yieldStress)
 outFile.close()

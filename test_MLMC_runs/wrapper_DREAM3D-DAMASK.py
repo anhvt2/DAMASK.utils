@@ -11,7 +11,7 @@ This script "wrapper_DREAM3D-DAMASK.py":
 	-- This is done by "geom_check *.geom"
 3. Submit a DAMASK job on Solo with TWO levels of interests
 	* This includes the post-processing step
-	* Dump out the quantities of interests (e.g. "yield.out")
+	* Dump out the quantities of interests (e.g. "output.dat")
 	-- This is done by calling "ssubmit sbatch.damask.solo"
 
 	* If level 0, then only return 1 QoIs (twice -- duplicated returns)
@@ -108,8 +108,8 @@ level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize f
 
 
 ## generate ALL microstructure approximations
-def generateMicrostructures():
-	parentDirectory = os.getcwd() # get parentDirectory for reference
+parentDirectory = os.getcwd() # get parentDirectory for reference
+def generateMicrostructures(parentDirectory):
 	# only generate if isNewMs is True (default = True) -- deprecated
 	# if isNewMs:
 	# clear folders before doing anything else
@@ -150,7 +150,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 	thresholdSlurmTime = int(thresholdSlurmTime)
 	thresholdSlurmTime *= (24*3600) # convert to seconds
 
-	while not os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/yield.out'):
+	while not os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat'):
 		time.sleep(10)
 		currentTime = datetime.datetime.now()
 		if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible'):
@@ -160,7 +160,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 				break
 			elif feasible == 1:
 				currentTime = datetime.datetime.now()
-				yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/yield.out')
+				yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
 				yieldStrain = float(yieldData[0])
 				yieldStress = float(yieldData[1]) / 1e9 # in GPa
 				print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
@@ -170,7 +170,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 				f = open(parentDirectory + '/' + 'log.MultillevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
 				f.write("Estimated Yield Stress (at level = %d, meshSize = %d) = %.16f GPa\n" % (level, meshSize, yieldStress))
 				f.close()
-
+				break
 
 		if (currentTime - startTime).total_seconds() > thresholdSlurmTime:
 			# if the previous loop does not return any output
@@ -211,7 +211,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 feasible = 0
 
 while feasible == 0:
-	generateMicrostructures();
+	generateMicrostructures(parentDirectory);
 	level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
 	feasible = submitDAMASK(meshSize, parentDirectory, level)
 	if level > 0:

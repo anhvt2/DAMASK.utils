@@ -79,7 +79,7 @@ if [ -d "postProc" ]; then
 	filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
 	cp ../tension.load . 
 	python3 ../computeYieldStress.py
-	if [ -f "postProc/output.dat" ]; then
+	if [ -f "output.dat" ]; then
 		echo 1 > ../log.feasible 
 		# needed in wrapper_DREAM3D-DAMASK.py
 	fi

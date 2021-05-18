@@ -12,7 +12,7 @@ def sample_cpfem(level):
             try:
                 yield_stress = float(line.split()[-2]) # parse the yield stress value to Float64
                 Q.append(yield_stress) # append the value of the yield stress to the array "Q"
-            else:
+            except:
                 Q.append(None)
     if len(Q) == 2: # safety check if 
         if level == 0:

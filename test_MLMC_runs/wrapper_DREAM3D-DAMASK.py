@@ -212,14 +212,14 @@ def submitDAMASK(meshSize, parentDirectory, level):
 ## if level > 0 then submit a DAMASK job at [level - 1]
 feasible = 0
 
-while feasible == 0:
-	generateMicrostructures(parentDirectory)
-	level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
+# while feasible == 0:
+generateMicrostructures(parentDirectory)
+level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
+feasible = submitDAMASK(meshSize, parentDirectory, level)
+if level > 0:
+	level -= 1
+	meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
 	feasible = submitDAMASK(meshSize, parentDirectory, level)
-	if level > 0:
-		level -= 1
-		meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
-		feasible = submitDAMASK(meshSize, parentDirectory, level)
 
 
 

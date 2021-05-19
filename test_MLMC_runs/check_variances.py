@@ -36,12 +36,12 @@ def check_variances(max_level=3, budget=3600*24*2):
                 timer += time.time() - t
                 samps_dQ.append(dQ)
                 samps_Qf.append(Qf)
-            print("level =", level,
-                    ", E =", np.mean(samps_Qf),
-                    ", dE =", np.mean(samps_dQ),
-                    ", V =", np.var(samps_Qf),
-                    ", dV =", np.var(samps_dQ),
-                    ",", len(samps_dQ), "samples, time per sample is", timer/len(samps_dQ))
+                print("level =", level,
+                        ", E =", np.mean(samps_Qf),
+                        ", dE =", np.mean(samps_dQ),
+                        ", V =", np.var(samps_Qf),
+                        ", dV =", np.var(samps_dQ),
+                        ",", len(samps_dQ), "samples, time per sample is", timer/len(samps_dQ))
 
 if __name__ == "__main__":
     check_variances()

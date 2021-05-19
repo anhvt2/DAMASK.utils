@@ -14,6 +14,7 @@ def sample_cpfem(level):
                 Q.append(yield_stress) # append the value of the yield stress to the array "Q"
             except:
                 Q.append(None)
+    print(Q)
     if len(Q) == 2: # safety check if 
         if level == 0:
             return Q[0], Q[0] # return twice Qf

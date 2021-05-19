@@ -1,6 +1,8 @@
 import time
 import subprocess
 import numpy as np
+import os
+os.system('rm -fv log.check_variances')
 
 def sample_cpfem(level):
     cmd = ["python3", "wrapper_DREAM3D-DAMASK.py", "--level=" + str(level)]
@@ -19,11 +21,11 @@ def sample_cpfem(level):
     else:
         return Q[0] - Q[1], Q[0] # return multilevel difference and Qf
 
-def check_variances(max_level=3, budget=3600*24):
+def check_variances(max_level=3, budget=3600*24*2):
     buget_per_level = budget/(max_level + 1)
 
     # for level in range(max_level):
-    for level in range(1, max_level):
+    for level in range(max_level - 1, -1, -1): # reverse order
         samps_dQ = []
         samps_Qf = []
         timer = 0
@@ -40,6 +42,14 @@ def check_variances(max_level=3, budget=3600*24):
                         ", V =", np.var(samps_Qf),
                         ", dV =", np.var(samps_dQ),
                         ",", len(samps_dQ), "samples, time per sample is", timer/len(samps_dQ))
+                logFile = open('log.check_variances', 'a')
+                logFile.write("level =", level,
+                    ", E =", np.mean(samps_Qf),
+                    ", dE =", np.mean(samps_dQ),
+                    ", V =", np.var(samps_Qf),
+                    ", dV =", np.var(samps_dQ),
+                    ",", len(samps_dQ), "samples, time per sample is", timer/len(samps_dQ), '\n')
+
 
 if __name__ == "__main__":
     check_variances()

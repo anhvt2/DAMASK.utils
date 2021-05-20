@@ -43,12 +43,7 @@ def check_variances(max_level=3, budget=3600*24*2):
                         ", dV =", np.var(samps_dQ),
                         ",", len(samps_dQ), "samples, time per sample is", timer/len(samps_dQ))
                 logFile = open('log.check_variances', 'a')
-                logFile.write("level =", level,
-                    ", E =", np.mean(samps_Qf),
-                    ", dE =", np.mean(samps_dQ),
-                    ", V =", np.var(samps_Qf),
-                    ", dV =", np.var(samps_dQ),
-                    ",", len(samps_dQ), "samples, time per sample is", timer/len(samps_dQ), '\n')
+                logFile.write("level = %d, E = %.8f, dE = %.8f, V = %.8f, dV = %.8f, len(samps_dQ) = %d samples, time per sample is %.8f\n" % (level, np.mean(samps_Qf), np.mean(samps_dQ), np.var(samps_Qf), np.var(samps_dQ), len(samps_dQ), timer/len(samps_dQ)))
 
 
 if __name__ == "__main__":

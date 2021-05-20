@@ -16,10 +16,14 @@ def sample_cpfem(level):
                 Q.append(yield_stress) # append the value of the yield stress to the array "Q"
             except:
                 Q.append(None)
-    if level == 0:
-        return Q[0], Q[0] # return twice Qf
+    print(Q)
+    if len(Q) == 2: # safeguard
+        if level == 0:
+            return Q[0], Q[0] # return twice Qf
+        else:
+            return Q[0] - Q[1], Q[0] # return multilevel difference and Qf
     else:
-        return Q[0] - Q[1], Q[0] # return multilevel difference and Qf
+		return None, None # safeguard
 
 def check_variances(max_level=3, budget=3600*24*2):
     buget_per_level = budget/(max_level + 1)

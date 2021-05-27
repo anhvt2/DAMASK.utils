@@ -80,7 +80,7 @@ if [ -d "postProc" ]; then
 	cp ../tension.load . 
 	python3 ../computeYieldStress.py
 	if [ -f "output.dat" ]; then
-		echo 1 > ../log.feasible 
+		echo 1 > ../log.feasible
 		# needed in wrapper_DREAM3D-DAMASK.py
 	fi
 	cd ..

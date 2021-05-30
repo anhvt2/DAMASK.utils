@@ -25,11 +25,12 @@ def sample_cpfem(level):
     else:
         return None, None # safeguard
 
-def check_variances(max_level=3, budget=3600*24*2):
+def check_variances(max_level=3, budget=3600*24*5):
     buget_per_level = budget/(max_level + 1)
 
     # for level in range(max_level):
-    for level in range(max_level - 1, -1, -1): # reverse order
+    # for level in range(max_level - 1, -1, -1): # reverse order
+	for level in [0]: # only sample at level = 0
         samps_dQ = []
         samps_Qf = []
         timer = 0

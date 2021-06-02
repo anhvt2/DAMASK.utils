@@ -30,7 +30,7 @@ def check_variances(max_level=3, budget=3600*24*5):
 
     # for level in range(max_level):
     # for level in range(max_level - 1, -1, -1): # reverse order
-	for level in [0]: # only sample at level = 0
+    for level in [0]: # only sample at level = 0
         samps_dQ = []
         samps_Qf = []
         timer = 0

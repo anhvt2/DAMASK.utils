@@ -76,6 +76,7 @@ Estimated Yield Stress is 0.9908208613578336 GPa
 
 your wrapper should output something like
 
+```shell
 ==============================================================================
 Pieterjan@curie: python3 wrapper_DREAM3D-DAMASK.py --index="2"
 […]
@@ -84,6 +85,7 @@ Estimated Yield Stress at 2 is 0.7978621372004265 GPa
 Estimated Yield Stress at 1 is 0.9908208613578336 GPa
 […]
 ==============================================================================
+```
 
 Notice the additional "at 2" and "at 1" here!
 

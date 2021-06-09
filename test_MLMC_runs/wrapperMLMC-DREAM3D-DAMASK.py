@@ -53,8 +53,8 @@ BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
 64x64x64: > 4 hours (est. 320 minutes ~ 6 hours)
 
 RUNNING COMMAND:
-rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --level=1 
-# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --level=1 --isNewMs="True"
+rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --index=1 
+# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --index=1 --isNewMs="True"
 # deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
 """
 

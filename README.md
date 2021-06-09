@@ -61,6 +61,7 @@ run_multilevel()
 
 Sometimes will need to switch the branch to `develop` in `~/.julia/dev/MultilevelEstimators/` and
 ```shell
+cd ~/.julia/dev/MultilevelEstimators
 git checkout develop
 git pull
 ```

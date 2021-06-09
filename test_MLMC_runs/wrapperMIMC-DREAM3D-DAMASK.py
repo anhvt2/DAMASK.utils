@@ -4,20 +4,20 @@ PURPOSES:
 
 This script "wrapper_DREAM3D-DAMASK.py":
 
-1. Generates a multi-level SVE approximation of a microstructure realization by DREAM.3D
+1. Generates a multi-index SVE approximation of a microstructure realization by DREAM.3D
 	* Each folder corresponds to a unique SVE mesh size
 	-- This is done by calling "generateMsDream3d.sh"
 2. Pre-process the microstructure geometry
 	-- This is done by "geom_check *.geom"
-3. Submit a DAMASK job on Solo with TWO levels of interests
+3. Submit a DAMASK job on Solo with TWO QoIs
 	* This includes the post-processing step
 	* Dump out the quantities of interests (e.g. "output.dat")
 	-- This is done by calling "ssubmit sbatch.damask.solo"
 
-	* If level 0, then only return 1 QoIs (twice -- duplicated returns)
-	* If level > 0, then return 2 QoIs: one at the particular level, and the one right below it, e.g. if submitting at level = 2, then return level = {2,1}
+	* If index 0, then only return 1 QoIs (twice -- duplicated returns)
+	* If index > 0, then return 2 QoIs: one at the particular index, and the one right below it, e.g. if submitting at index = 2, then return index = {2,1}
 	-- See "damask-MIMC.jl" for more specifics:
-		"return level == 0 ? (Qf, Qf) : (Qf-Qc, Qf) # return multilevel difference and approximation at mesh level m"
+		"return index == 0 ? (Qf, Qf) : (Qf-Qc, Qf) # return multiindex difference and approximation at mesh index m"
 
 4. Collect the QoIs and return to some Julia scripts based on "MultilevelEstimators.jl"
 
@@ -31,7 +31,7 @@ NOTE:
 
 3. "generateMsDream3d.sh" and subsequently the .json file used by DREAM.3D can be automatically generated, but currently we assume they are fixed and hard-coded.
 
-For example, the number of levels can (but not yet) be adaptively changed and controlled as well as the size of SVEs
+For example, the number of indexs can (but not yet) be adaptively changed and controlled as well as the size of SVEs
 
 4. DREAM.3D automatically creates folder if it doesn't exist.
 
@@ -53,8 +53,8 @@ BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
 64x64x64: > 4 hours (est. 320 minutes ~ 6 hours)
 
 RUNNING COMMAND:
-rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --level=1 
-# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --level=1 --isNewMs="True"
+rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --index=1 
+# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --index=1 --isNewMs="True"
 # deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
 """
 
@@ -89,14 +89,14 @@ def str2bool(v):
 
 parser = argparse.ArgumentParser()
 # parser.add_argument("-meshSize", "--meshSize", type=int)
-parser.add_argument("-level", "--level", type=int)
+parser.add_argument("-index", "--index", type=int)
 # parser.add_argument("-isNewMs", "--isNewMs", default="True", type=str) # deprecated: always generate new microstructure
 # parser.add_argument("-baseSize", "--baseSize", default=320, type=int) # unnecessary -- unless generateMsDream3d.sh is adaptive then this parameter is fixed for now
-# NOTE: note that "generateMsDream3d.sh" is hard-coded with a specific number of levels and a specific set of lines to change
+# NOTE: note that "generateMsDream3d.sh" is hard-coded with a specific number of indices and a specific set of lines to change
 
 args = parser.parse_args()
 # meshSize = int(args.meshSize) # make sure meshSize is integer
-level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
+index = int(args.index); meshSize = int(dimCellList[index]) # get the meshSize from dimCellList[index]
 # isNewMs = str2bool(args.isNewMs) # if true, then run DREAM.3D to get new microstructures
 
 # generate all the meshSize but only run in the selected meshSize
@@ -123,7 +123,7 @@ def generateMicrostructures(parentDirectory):
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
 ## WITHOUT generating a new microstructure
-def submitDAMASK(meshSize, parentDirectory, level):
+def submitDAMASK(meshSize, parentDirectory, index):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	os.system('cp ../sbatch.damask.solo .')
 
@@ -167,10 +167,10 @@ def submitDAMASK(meshSize, parentDirectory, level):
 				yieldStress = float(yieldData[1]) / 1e9 # in GPa
 				print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 				print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-				print("Estimated Yield Stress (at level = %d) = %.16f GPa" % (level, yieldStress))
+				print("Estimated Yield Stress at %d is %.16f GPa" % (index, yieldStress))
 
-				f = open(parentDirectory + '/' + 'log.MultillevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-				f.write("Estimated Yield Stress (at level = %d, meshSize = %d) = %.16f GPa\n" % (level, meshSize, yieldStress))
+				f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
+				f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
 				f.close()
 				break
 

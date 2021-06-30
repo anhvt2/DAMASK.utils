@@ -1,4 +1,13 @@
 
+# Constitutive models order
+
+
+* ```material.config.0.preamble``` is created from ```Phase_Isotropic_Aluminum.config```
+* ```material.config.1.preamble``` is created from ```Phase_Phenopowerlaw_Aluminum.config```
+* ```material.config.2.preamble``` is created from ```Phase_Nonlocal_Aluminum.config```
+
+disable ```(output)``` in config files.
+
 # A typical results output
 
 ```

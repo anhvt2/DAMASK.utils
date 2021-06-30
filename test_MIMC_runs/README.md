@@ -1,4 +1,41 @@
 
+# Information needed for MIMC Julia
+
+
+```
+Pieterjan@curie: python3 wrapper_DREAM3D-DAMASK.py --index="(2, 3, 0)"
+[...]
+Estimated Yield Stress at (2, 3, 0) is 0.35010737298313654 GPa
+[...]
+Estimated Yield Stress at (2, 2, 0) is 0.30866029960987396 GPa
+[...]
+Estimated Yield Stress at (1, 3, 0) is 0.4955928185601899 GPa
+[...]
+Estimated Yield Stress at (1, 2, 0) is 0.8942111690664385 GPa
+[...]
+```
+
+```
+Pieterjan@curie: python3 wrapper_DREAM3D-DAMASK.py --index="(1, 1, 1)"
+[...]
+Estimated Yield Stress at (1, 1, 1) is 0.8086862342957798 GPa
+[...]
+Estimated Yield Stress at (1, 1, 0) is 0.02220030510572535 GPa
+[...]
+Estimated Yield Stress at (1, 0, 1) is 0.08552417223175368 GPa
+[...]
+Estimated Yield Stress at (1, 0, 0) is 0.06101256487316187 GPa
+[...]
+Estimated Yield Stress at (0, 1, 1) is 0.32105797242385414 GPa
+[...]
+Estimated Yield Stress at (0, 1, 0) is 0.274867472834313 GPa
+[...]
+Estimated Yield Stress at (0, 0, 1) is 0.9530657170603737 GPa
+[...]
+Estimated Yield Stress at (0, 0, 0) is 0.32493901521853585 GPa
+[...]
+```
+
 # Constitutive models order
 
 

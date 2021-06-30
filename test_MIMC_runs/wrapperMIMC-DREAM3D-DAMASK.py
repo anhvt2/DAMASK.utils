@@ -2,7 +2,7 @@
 """ 
 PURPOSES:
 
-This script "wrapper_DREAM3D-DAMASK.py":
+This script "wrapperMIMC-DREAM3D-DAMASK.py":
 
 1. Generates a multi-index SVE approximation of a microstructure realization by DREAM.3D
 	* Each folder corresponds to a unique SVE mesh size
@@ -53,9 +53,9 @@ BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
 64x64x64: > 4 hours (est. 320 minutes ~ 6 hours)
 
 RUNNING COMMAND:
-rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --index=1 
-# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --index=1 --isNewMs="True"
-# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
+rm -rfv $(ls -1dv */); python3 wrapperMIMC-DREAM3D-DAMASK.py --index=1 
+# deprecated: rm -rfv $(ls -1dv */); python3 wrapperMIMC-DREAM3D-DAMASK.py --index=1 --isNewMs="True"
+# deprecated: rm -rfv $(ls -1dv */); python3 wrapperMIMC-DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
 """
 
 import numpy as np
@@ -89,15 +89,16 @@ def str2bool(v):
 
 parser = argparse.ArgumentParser()
 # parser.add_argument("-meshSize", "--meshSize", type=int)
-parser.add_argument("-index", "--index", type=int)
+parser.add_argument("-index", "--index", nargs="*", type=int) # https://stackoverflow.com/questions/32761999/how-to-pass-an-entire-list-as-command-line-argument-in-python/32763023
 # parser.add_argument("-isNewMs", "--isNewMs", default="True", type=str) # deprecated: always generate new microstructure
 # parser.add_argument("-baseSize", "--baseSize", default=320, type=int) # unnecessary -- unless generateMsDream3d.sh is adaptive then this parameter is fixed for now
 # NOTE: note that "generateMsDream3d.sh" is hard-coded with a specific number of indices and a specific set of lines to change
 
 args = parser.parse_args()
 # meshSize = int(args.meshSize) # make sure meshSize is integer
-index = int(args.index); meshSize = int(dimCellList[index]) # get the meshSize from dimCellList[index]
-# isNewMs = str2bool(args.isNewMs) # if true, then run DREAM.3D to get new microstructures
+index = int(args.index); 
+meshSize = int(dimCellList[index[0]]) # get the meshSize from dimCellList[index]
+constitutiveModelIndex = int(index[1])
 
 # generate all the meshSize but only run in the selected meshSize
 # NOTE: meshSize must be divisible by the base
@@ -109,16 +110,16 @@ index = int(args.index); meshSize = int(dimCellList[index]) # get the meshSize f
 
 ## generate ALL microstructure approximations
 parentDirectory = os.getcwd() # get parentDirectory for reference
-def generateMicrostructures(parentDirectory):
+def generateMicrostructures(parentDirectory, constitutiveModelIndex):
 	# only generate if isNewMs is True (default = True) -- deprecated
 	# if isNewMs:
 	# clear folders before doing anything else
 	os.chdir(parentDirectory)
-	print("wrapper_DREAM3D-DAMASK.py: removing/cleaning up ?x?x? folders")
+	print("wrapperMIMC-DREAM3D-DAMASK.py: removing/cleaning up ?x?x? folders")
 	for dimCell in dimCellList:
 		os.system('rm -rfv %dx%dx%d' % (int(dimCell), int(dimCell), int(dimCell)))
 
-	print("wrapper_DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
+	print("wrapperMIMC-DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
 	os.system('sh generateMsDream3d.sh')
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters

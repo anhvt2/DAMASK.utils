@@ -2,7 +2,7 @@
 """ 
 PURPOSES:
 
-This script "wrapper_DREAM3D-DAMASK.py":
+This script "wrapperMLMC-DREAM3D-DAMASK.py":
 
 1. Generates a multi-level SVE approximation of a microstructure realization by DREAM.3D
 	* Each folder corresponds to a unique SVE mesh size
@@ -53,9 +53,9 @@ BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
 64x64x64: > 4 hours (est. 320 minutes ~ 6 hours)
 
 RUNNING COMMAND:
-rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --index=1 
-# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --index=1 --isNewMs="True"
-# deprecated: rm -rfv $(ls -1dv */); python3 wrapper_DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
+rm -rfv $(ls -1dv */); python3 wrapperMLMC-DREAM3D-DAMASK.py --index=1 
+# deprecated: rm -rfv $(ls -1dv */); python3 wrapperMLMC-DREAM3D-DAMASK.py --index=1 --isNewMs="True"
+# deprecated: rm -rfv $(ls -1dv */); python3 wrapperMLMC-DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
 """
 
 import numpy as np
@@ -114,11 +114,11 @@ def generateMicrostructures(parentDirectory):
 	# if isNewMs:
 	# clear folders before doing anything else
 	os.chdir(parentDirectory)
-	print("wrapper_DREAM3D-DAMASK.py: removing/cleaning up ?x?x? folders")
+	print("wrapperMLMC-DREAM3D-DAMASK.py: removing/cleaning up ?x?x? folders")
 	for dimCell in dimCellList:
 		os.system('rm -rfv %dx%dx%d' % (int(dimCell), int(dimCell), int(dimCell)))
 
-	print("wrapper_DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
+	print("wrapperMLMC-DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
 	os.system('sh generateMsDream3d.sh')
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters

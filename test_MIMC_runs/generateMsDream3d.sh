@@ -1,5 +1,14 @@
 #!/bin/bash
 
+
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 CONSTITUTIVE_MODEL"
+  exit 1
+fi
+
+CONSTITUTIVE_MODEL="$1" # an integer of {0,1,2} to call "material.config.{0,1,2}.preamble"
+
+
 ## require: "sudo apt install moreutils" for "sponge commands"
 ## run as "bash ./generateMsDream3d.sh"
 

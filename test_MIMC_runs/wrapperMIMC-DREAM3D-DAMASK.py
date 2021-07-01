@@ -1,4 +1,6 @@
 
+## Usage: python3 wrapperMIMC-DREAM3D-DAMASK.py --index="(2, 1)"
+
 """ 
 PURPOSES:
 
@@ -53,7 +55,7 @@ BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
 64x64x64: > 4 hours (est. 320 minutes ~ 6 hours)
 
 RUNNING COMMAND:
-rm -rfv $(ls -1dv */); python3 wrapperMIMC-DREAM3D-DAMASK.py --index=1 
+rm -rfv $(ls -1dv */); python3 wrapperMIMC-DREAM3D-DAMASK.py --index="(2, 1)" 
 # deprecated: rm -rfv $(ls -1dv */); python3 wrapperMIMC-DREAM3D-DAMASK.py --index=1 --isNewMs="True"
 # deprecated: rm -rfv $(ls -1dv */); python3 wrapperMIMC-DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
 """
@@ -89,16 +91,18 @@ def str2bool(v):
 
 parser = argparse.ArgumentParser()
 # parser.add_argument("-meshSize", "--meshSize", type=int)
-parser.add_argument("-index", "--index", nargs="*", type=int) # https://stackoverflow.com/questions/32761999/how-to-pass-an-entire-list-as-command-line-argument-in-python/32763023
+parser.add_argument("-index", "--index", type=str)
+# https://stackoverflow.com/questions/32761999/how-to-pass-an-entire-list-as-command-line-argument-in-python/32763023
 # parser.add_argument("-isNewMs", "--isNewMs", default="True", type=str) # deprecated: always generate new microstructure
 # parser.add_argument("-baseSize", "--baseSize", default=320, type=int) # unnecessary -- unless generateMsDream3d.sh is adaptive then this parameter is fixed for now
 # NOTE: note that "generateMsDream3d.sh" is hard-coded with a specific number of indices and a specific set of lines to change
 
 args = parser.parse_args()
 # meshSize = int(args.meshSize) # make sure meshSize is integer
-index = int(args.index); 
-meshSize = int(dimCellList[index[0]]) # get the meshSize from dimCellList[index]
-constitutiveModelIndex = int(index[1])
+index = np.array(args.index[1:-1].split(','), dtype=int) # reformat to dtype=int
+meshSizeIndex = index[0]
+meshSize = int(dimCellList[meshSizeIndex]) # get the meshSize from dimCellList[meshSizeIndex]
+constitutiveModelIndex = index[1] # 0 = "Isotropic", 1 = "Phenopowerlaw", 2 = "Nonlocal"
 
 # generate all the meshSize but only run in the selected meshSize
 # NOTE: meshSize must be divisible by the base
@@ -107,24 +111,34 @@ constitutiveModelIndex = int(index[1])
 
 # for testing purposes: probably best to test with small size 8x8x8 (2 procs) or 16x16x16 (4 procs)
 
+def getAllQueryIndex(meshSizeIndex, constitutiveModelIndex):
+	s = []
+	s += [[meshSizeIndex, constitutiveModelIndex]]
+	if meshSizeIndex > 0:
+		s += [[meshSizeIndex - 1, constitutiveModelIndex]]
+	if constitutiveModelIndex > 0:
+		s += [[meshSizeIndex, constitutiveModelIndex - 1]]
+	if meshSizeIndex > 0 and constitutiveModelIndex > 0:
+		s += [[meshSizeIndex - 1, constitutiveModelIndex - 1]]
+	return s
 
 ## generate ALL microstructure approximations
 parentDirectory = os.getcwd() # get parentDirectory for reference
-def generateMicrostructures(parentDirectory, constitutiveModelIndex):
+def generateMicrostructures(parentDirectory):
 	# only generate if isNewMs is True (default = True) -- deprecated
 	# if isNewMs:
 	# clear folders before doing anything else
 	os.chdir(parentDirectory)
 	print("wrapperMIMC-DREAM3D-DAMASK.py: removing/cleaning up ?x?x? folders")
 	for dimCell in dimCellList:
-		os.system('rm -rfv %dx%dx%d' % (int(dimCell), int(dimCell), int(dimCell)))
+		os.system('rm -rfv %dx%dx%d_*' % (int(dimCell), int(dimCell), int(dimCell)))
 
 	print("wrapperMIMC-DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
 	os.system('sh generateMsDream3d.sh')
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
 ## WITHOUT generating a new microstructure
-def submitDAMASK(meshSize, parentDirectory, index):
+def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelIndex):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	os.system('cp ../sbatch.damask.solo .')
 
@@ -216,11 +230,11 @@ feasible = 0
 # while feasible == 0:
 generateMicrostructures(parentDirectory)
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
-feasible = submitDAMASK(meshSize, parentDirectory, level)
+feasible = submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelIndex)
 if level > 0:
 	level -= 1
 	meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
-	feasible = submitDAMASK(meshSize, parentDirectory, level)
+	feasible = submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelIndex)
 
 
 

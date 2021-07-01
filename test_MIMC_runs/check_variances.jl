@@ -10,7 +10,7 @@ using PrettyTables
 using ProgressMeter
 
 # Command to run multi-index version of DREAM3D-DAMASK
-get_cmd(index::Index) = Cmd(["python3", "wrapperMIMC-DREAM3D-DAMASK.py", "-level", string(index)])
+get_cmd(index::Index) = Cmd(["python3", "wrapperMIMC-DREAM3D-DAMASK.py", "--index", string(index)])
 
 # Read DREAM3D-DAMASK wrapper output and return value of estimated yield
 # stress for the given level or index

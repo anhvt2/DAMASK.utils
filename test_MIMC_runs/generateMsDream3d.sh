@@ -1,12 +1,10 @@
 #!/bin/bash
 
-
-if [ $# -lt 1 ]; then
-  echo "Usage: $0 CONSTITUTIVE_MODEL"
-  exit 1
-fi
-
-CONSTITUTIVE_MODEL="$1" # an integer of {0,1,2} to call "material.config.{0,1,2}.preamble"
+# if [ $# -lt 1 ]; then
+# 	echo "Usage: $0 CONSTITUTIVE_MODEL_INDEX"
+# 	exit 1
+# fi
+# CONSTITUTIVE_MODEL_INDEX="$1" # an integer of {0,1,2} to call "material.config.{0,1,2}.preamble"
 
 
 ## require: "sudo apt install moreutils" for "sponge commands"
@@ -69,7 +67,7 @@ echo
 # sed -i "698s|.*|        \"OutputPath\": \"${outputPath}/8x8x8\"|" ${inputFile}
 
 # replace OutputPath as in the current directory
-defaultPath="/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_MLMC_template/"
+defaultPath="/qscratch/anhtran/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_14Apr21/DAMASK.utils/test_MIMC_runs"
 sed -i "s|${defaultPath}|${outputPath}/|g" ${inputFile} # add "/" behind ${outputPath}
 
 
@@ -83,15 +81,21 @@ echo
 
 # export geom_check=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/processing/pre/geom_check.sh
 source ~/.bashrc # get geom_check environment variable
-# for dimCell in 72 60 48 36 24 18 12; do
-for dimCell in $(cat dimCellList.dat); do
-	cd ${dimCell}x${dimCell}x${dimCell}
-	echo ${dimCell} > dimCell.dat # update dimCell.dat
 
-	cat ../material.config.preamble  | cat - material.config | sponge material.config
-	geom_check single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom
-	sh ../getDream3dInfo.sh
-	
-	cd ..
+for dimCell in $(cat dimCellList.dat); do
+	for constitutiveModel in Isotropic Phenopowerlaw Nonlocal; do
+		mkdir -p ${dimCell}x${dimCell}x${dimCell}_${constitutiveModel}
+
+		cd ${dimCell}x${dimCell}x${dimCell}_${constitutiveModel}
+		echo ${dimCell} > dimCell.dat # update dimCell.dat
+		cp ../${dimCell}x${dimCell}x${dimCell}/* . # copy all the geometry information
+
+		cat ../material.config.${constitutiveModel}.preamble  | cat - material.config | sponge material.config
+		geom_check single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom
+		sh ../getDream3dInfo.sh
+		cd ..
+	done
+	rm -rfv ${dimCell}x${dimCell}x${dimCell}
 done
+
 

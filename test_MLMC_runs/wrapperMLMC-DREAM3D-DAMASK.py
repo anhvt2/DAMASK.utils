@@ -63,6 +63,7 @@ import os, glob
 import argparse
 import time
 import datetime
+import socket
 
 ## write dimCellList.dat for "generateMsDream3d.sh" to pick up
 dimCellFile = open('dimCellList.dat', 'w')
@@ -124,6 +125,7 @@ def generateMicrostructures(parentDirectory):
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
 ## WITHOUT generating a new microstructure
+
 def submitDAMASK(meshSize, parentDirectory, level):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	os.system('cp ../sbatch.damask.solo .')
@@ -209,6 +211,45 @@ def submitDAMASK(meshSize, parentDirectory, level):
 
 	return feasible
 
+def run_damask_offline(meshSize, parentDirectory, level):
+	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
+	os.system('cp ../run_damask.sh .')
+
+	# write down numProcessors to be picked up later by sbatch.damask.solo
+	numProcessors = np.floor(meshSize / 4.)
+	if numProcessors > 36:
+		numProcessors = 36 # threshold on Solo node
+
+	f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+	f.write('%d' % numProcessors)
+	f.close()
+
+	startTime = datetime.datetime.now()
+	os.system('bash run_damask.sh')
+	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
+
+	currentTime = datetime.datetime.now()
+	feasible = 0
+	if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible'):
+		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
+		if feasible == 0:
+			yieldStress = 0 # invalid condition
+			break
+		elif feasible == 1:
+			currentTime = datetime.datetime.now()
+			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
+			yieldStrain = float(yieldData[0])
+			yieldStress = float(yieldData[1]) / 1e9 # in GPa
+			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
+			print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
+			print("Estimated Yield Stress at %d is %.16f GPa" % (level, yieldStress))
+
+			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
+			f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
+			f.close()
+			break
+
+	return feasible
 
 ## if level > 0 then submit a DAMASK job at [level - 1]
 feasible = 0
@@ -216,11 +257,19 @@ feasible = 0
 # while feasible == 0:
 generateMicrostructures(parentDirectory)
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
-feasible = submitDAMASK(meshSize, parentDirectory, level)
+
+if 'solo' in socket.gethostname():
+	feasible = submitDAMASK(meshSize, parentDirectory, level)
+else:
+	feasible = run_damask_offline(meshSize, parentDirectory, level)
+
 if level > 0:
 	level -= 1
 	meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
-	feasible = submitDAMASK(meshSize, parentDirectory, level)
+	if 'solo' in socket.gethostname():
+		feasible = submitDAMASK(meshSize, parentDirectory, level)
+	else:
+		feasible = run_damask_offline(meshSize, parentDirectory, level)
 
 
 

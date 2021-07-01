@@ -65,6 +65,7 @@ import os, glob
 import argparse
 import time
 import datetime
+import socket
 
 ## write dimCellList.dat for "generateMsDream3d.sh" to pick up
 dimCellFile = open('dimCellList.dat', 'w')
@@ -138,6 +139,7 @@ def generateMicrostructures(parentDirectory):
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
 ## WITHOUT generating a new microstructure
+
 def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelIndex):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	os.system('cp ../sbatch.damask.solo .')
@@ -230,11 +232,20 @@ feasible = 0
 # while feasible == 0:
 generateMicrostructures(parentDirectory)
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
-feasible = submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelIndex)
+
+if 'solo' in socket.gethostname():
+	feasible = submitDAMASK(meshSize, parentDirectory, level)
+else:
+	feasible = run_damask_offline(meshSize, parentDirectory, level)
+
 if level > 0:
 	level -= 1
 	meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
-	feasible = submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelIndex)
+	if 'solo' in socket.gethostname():
+		feasible = submitDAMASK(meshSize, parentDirectory, level)
+	else:
+		feasible = run_damask_offline(meshSize, parentDirectory, level)
+
 
 
 

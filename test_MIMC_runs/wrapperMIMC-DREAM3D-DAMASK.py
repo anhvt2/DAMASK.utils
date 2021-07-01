@@ -68,7 +68,7 @@ import datetime
 
 ## write dimCellList.dat for "generateMsDream3d.sh" to pick up
 dimCellFile = open('dimCellList.dat', 'w')
-dimCellList = [8, 10, 16, 20, 32] 
+dimCellList = [8, 10, 16, 20, 32, 64]
 
 for dimCell in dimCellList:
 	dimCellFile.write('%d\n' % int(dimCell))
@@ -134,7 +134,7 @@ def generateMicrostructures(parentDirectory):
 		os.system('rm -rfv %dx%dx%d_*' % (int(dimCell), int(dimCell), int(dimCell)))
 
 	print("wrapperMIMC-DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
-	os.system('sh generateMsDream3d.sh')
+	os.system('bash generateMsDream3d.sh')
 
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
 ## WITHOUT generating a new microstructure

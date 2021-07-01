@@ -170,3 +170,6 @@ $ julia my_julia_script.jl
 
 5) Wait for the result (will be printed to the screen)
 
+## Discussion
+
+See more at [https://groups.google.com/g/dream3d-users/c/SPCdr-BWROs?pli=1](https://groups.google.com/g/dream3d-users/c/SPCdr-BWROs?pli=1)

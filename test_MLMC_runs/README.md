@@ -5,6 +5,18 @@
 $ julia
 ```
 
+An actual example with DREAM3D+DAMASK
+```julia
+# see more in `run_check_variances.jl`
+include("check_variances.jl")
+index_set = ML()
+max_level = 3
+budget = 2*24*3600
+check_variances(index_set=index_set, max_level=max_level, budget=budget)
+```
+
+An example with `Sandwich.py`
+
 ```julia
 $ julia
                _

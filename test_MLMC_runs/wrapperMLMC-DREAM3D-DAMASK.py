@@ -211,7 +211,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 
 	return feasible
 
-def run_damask_offline(meshSize, parentDirectory, level):
+def run_DAMASK_offline(meshSize, parentDirectory, level):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	os.system('cp ../run_damask.sh .')
 
@@ -251,6 +251,14 @@ def run_damask_offline(meshSize, parentDirectory, level):
 
 	return feasible
 
+def evaluate_DAMASK(meshSize, parentDirectory, level):
+	# adaptive functional evaluation w.r.t. different platforms
+	if 'solo' in socket.gethostname():
+		feasible = submitDAMASK(meshSize, parentDirectory, level)
+	else:
+		feasible = run_DAMASK_offline(meshSize, parentDirectory, level)
+	return feasible
+
 ## if level > 0 then submit a DAMASK job at [level - 1]
 feasible = 0
 
@@ -258,18 +266,12 @@ feasible = 0
 generateMicrostructures(parentDirectory)
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
 
-if 'solo' in socket.gethostname():
-	feasible = submitDAMASK(meshSize, parentDirectory, level)
-else:
-	feasible = run_damask_offline(meshSize, parentDirectory, level)
+feasible = evaluate_DAMASK(meshSize, parentDirectory, level)
 
 if level > 0:
 	level -= 1
 	meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
-	if 'solo' in socket.gethostname():
-		feasible = submitDAMASK(meshSize, parentDirectory, level)
-	else:
-		feasible = run_damask_offline(meshSize, parentDirectory, level)
+	feasible = evaluate_DAMASK(meshSize, parentDirectory, level)
 
 
 

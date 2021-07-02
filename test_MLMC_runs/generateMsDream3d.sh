@@ -88,7 +88,7 @@ for dimCell in $(cat dimCellList.dat); do
 	cat ../material.config.preamble  | cat - material.config | sponge material.config
 	geom_check single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom
 	sh ../getDream3dInfo.sh
-	
+
 	cd ..
 done
 

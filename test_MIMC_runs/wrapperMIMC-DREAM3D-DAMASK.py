@@ -104,6 +104,10 @@ index = np.array(args.index[1:-1].split(','), dtype=int) # reformat to dtype=int
 meshSizeIndex = index[0]
 meshSize = int(dimCellList[meshSizeIndex]) # get the meshSize from dimCellList[meshSizeIndex]
 constitutiveModelIndex = index[1] # 0 = "Isotropic", 1 = "Phenopowerlaw", 2 = "Nonlocal"
+if constitutiveModelIndex == 0:
+	constitutiveModelLabel = 'Isotropic'
+elif constitutiveModelIndex == 1:
+	constitutiveModelLabel = 'Phenopowerlaw'
 
 # generate all the meshSize but only run in the selected meshSize
 # NOTE: meshSize must be divisible by the base
@@ -140,8 +144,8 @@ def generateMicrostructures(parentDirectory):
 ## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
 ## WITHOUT generating a new microstructure
 
-def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelIndex):
-	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
+def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
+	os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	os.system('cp ../sbatch.damask.solo .')
 
 	# write down numProcessors to be picked up later by sbatch.damask.solo
@@ -225,29 +229,65 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelIndex):
 
 	return feasible
 
+def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
+	os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}_${constitutiveModelLabel}"
+	os.system('cp ../run_damask.sh .')
+
+	# write down numProcessors to be picked up later by sbatch.damask.solo
+	numProcessors = np.floor(meshSize / 4.)
+	if numProcessors > 36:
+		numProcessors = 36 # threshold on Solo node
+
+	f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+	f.write('%d' % numProcessors)
+	f.close()
+
+	startTime = datetime.datetime.now()
+	os.system('bash run_damask.sh')
+	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
+
+	currentTime = datetime.datetime.now()
+	feasible = 0
+	if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible'):
+		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
+		if feasible == 0:
+			yieldStress = 0 # invalid condition
+			break
+		elif feasible == 1:
+			currentTime = datetime.datetime.now()
+			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
+			yieldStrain = float(yieldData[0])
+			yieldStress = float(yieldData[1]) / 1e9 # in GPa
+			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
+			print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
+			print("Estimated Yield Stress at %d is %.16f GPa" % (level, yieldStress))
+
+			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
+			f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
+			f.close()
+			break
+
+	return feasible
+
+def evaluate_DAMASK(meshSize, parentDirectory, level):
+	# adaptive functional evaluation w.r.t. different platforms
+	if 'solo' in socket.gethostname():
+		feasible = submitDAMASK(meshSize, parentDirectory, level)
+	else:
+		feasible = run_DAMASK_offline(meshSize, parentDirectory, level)
+	return feasible
 
 ## if level > 0 then submit a DAMASK job at [level - 1]
 feasible = 0
 
 # while feasible == 0:
 generateMicrostructures(parentDirectory)
-level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
-
-if 'solo' in socket.gethostname():
-	feasible = submitDAMASK(meshSize, parentDirectory, level)
-else:
-	feasible = run_damask_offline(meshSize, parentDirectory, level)
-
-if level > 0:
-	level -= 1
-	meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level - 1] -- coarser mesh
-	if 'solo' in socket.gethostname():
-		feasible = submitDAMASK(meshSize, parentDirectory, level)
-	else:
-		feasible = run_damask_offline(meshSize, parentDirectory, level)
-
-
-
+query_list = getAllQueryIndex(meshSizeIndex, constitutiveModelIndex)
+for s in query_list:
+	meshSizeIndex = s[0]
+	constitutiveModelIndex = s[1]
+	meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
+	feasible = evaluate_DAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel)
 
 
 

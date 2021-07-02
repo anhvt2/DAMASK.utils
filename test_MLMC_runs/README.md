@@ -1,4 +1,45 @@
 
+# Instruction on how to run
+
+```shell
+$ julia
+```
+
+```julia
+$ julia
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.4.1
+ _/ |\__'_|_|_|\__'_|  |  Ubuntu ⛬  julia/1.4.1+dfsg-1
+|__/                   |
+
+julia> include("Example.jl")
+┌───────────────────────────────────────────────────────────────────────────────────┐
+│ ***  MultilevelEstimators.jl @2021-03-23T22:36:07.194                         *** │
+│ ***  This is an Estimator{ML, MC}                                             *** │
+│ ***  Simulating Sandwich                                                      *** │
+│ ***  Tolerance on RMSE ϵ = 5.000e-04                                          *** │
+└───────────────────────────────────────────────────────────────────────────────────┘
+Currently running on level 0.
+Taking 5 warm-up samples at level 0...
+Written parameter values to /home/anhvt89/Documents/DAMASK/DAMASK.utils/MultilevelEst
+imators.jl-extras/5Mar21/samples/0/*/params.dat for sample numbers 1, 2, 3, 4, 5.
+┌───────────────────────────────────────────────────────────────────────────────────┐
+│ ***  MultilevelEstimators.jl @2021-03-23T22:36:14.193                         *** │
+│ ***  Successfull termination                                                  *** │
+└───────────────────────────────────────────────────────────────────────────────────┘
+MultilevelEstimators.jl history file
+
+julia> check_variances()
+Level 0, V = 1.7791398548598735e-6, dV = 1.7791398548598735e-6 (11 samples)
+Level 1, V = 1.3824078421392213e-6, dV = 1.1451854483978012e-9 (9 samples)
+Level 2, V = 1.4367480673397417e-6, dV = 6.787460128820753e-11 (9 samples)
+Level 3, V = 1.3906327186679272e-6, dV = 4.865231648575724e-12 (8 samples)
+```
+
 # A typical results output
 
 ```

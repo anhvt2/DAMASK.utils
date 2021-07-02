@@ -11,18 +11,18 @@ include("check_variances.jl") # load check_variances
 # ========================
 # >>> Select one of three options below:
 
-index_set = ML() # OPTION 1: multilevel
+# index_set = ML() # OPTION 1: multilevel
 
-# index_set = TD(3) # OPTION 2: multi-index, total degree
+index_set = TD(3) # OPTION 2: multi-index, total degree
 
-#index_set = FT(3) # OPTION 3: multi-index, full tensor
+# index_set = FT(3) # OPTION 3: multi-index, full tensor
 
 # ========================
 # @@@ SELECT MAX LEVEL @@@
 # ========================
 # >>> Select maximum level parameter:
 
-max_level = 3 # See note below
+max_level = 2 # See note below
 
 # @@@ NOTE @@@
 # !!! In a multilevel setting, `max_level=3` means 4 levels in total (i.e.,
@@ -55,7 +55,7 @@ max_level = 3 # See note below
 # =============================
 # >>> Specify total run time (in seconds):
 
-budget = 2*24*3600 # this means 20 seconds, should be much larger in your example
+budget = 3*24*3600 # this means 20 seconds, should be much larger in your example
 
 # @@@ NOTE @@@
 # !!! You can use for example the following specifications:

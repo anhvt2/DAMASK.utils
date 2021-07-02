@@ -25,8 +25,8 @@ if [[ ${hostName} == *"solo"* ]]; then
 	execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # solo
 elif [[ ${hostName} == *"ideapad"* ]]; then
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # ideapad
-elif [[ ${hostName} == *"s1057681"* ]]; then
-	execPath="/home/anhtran/Documents/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # s1057681
+elif [[ ${hostName} == *"1057681"* ]]; then
+	execPath="/home/anhtran/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # s1057681
 else
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # else
 fi

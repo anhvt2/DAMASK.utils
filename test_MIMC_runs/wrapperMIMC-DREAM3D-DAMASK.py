@@ -252,7 +252,6 @@ def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
 		if feasible == 0:
 			yieldStress = 0 # invalid condition
-			break
 		elif feasible == 1:
 			currentTime = datetime.datetime.now()
 			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
@@ -265,7 +264,6 @@ def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
 			f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
 			f.close()
-			break
 
 	return feasible
 

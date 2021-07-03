@@ -225,7 +225,7 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 	f.close()
 
 	startTime = datetime.datetime.now()
-	os.system('bash run_damask.sh')
+	os.system('sh run_damask.sh')
 	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
 
 	currentTime = datetime.datetime.now()
@@ -234,7 +234,6 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
 		if feasible == 0:
 			yieldStress = 0 # invalid condition
-			break
 		elif feasible == 1:
 			currentTime = datetime.datetime.now()
 			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
@@ -247,7 +246,6 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
 			f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
 			f.close()
-			break
 
 	return feasible
 
@@ -263,7 +261,7 @@ def evaluate_DAMASK(meshSize, parentDirectory, level):
 feasible = 0
 
 # while feasible == 0:
-generateMicrostructures(parentDirectory)
+# generateMicrostructures(parentDirectory)
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
 
 feasible = evaluate_DAMASK(meshSize, parentDirectory, level)

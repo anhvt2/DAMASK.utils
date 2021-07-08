@@ -261,7 +261,7 @@ def evaluate_DAMASK(meshSize, parentDirectory, level):
 feasible = 0
 
 # while feasible == 0:
-# generateMicrostructures(parentDirectory)
+generateMicrostructures(parentDirectory)
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
 
 feasible = evaluate_DAMASK(meshSize, parentDirectory, level)

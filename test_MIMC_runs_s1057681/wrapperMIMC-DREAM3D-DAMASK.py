@@ -156,7 +156,7 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	os.system('cp ../sbatch.damask.solo .')
 
 	# write down numProcessors to be picked up later by sbatch.damask.solo
-	numProcessors = np.floor(meshSize / 4.)
+	numProcessors = np.floor(meshSize / 2.)
 	if numProcessors > 36:
 		numProcessors = 36 # threshold on Solo node
 
@@ -171,7 +171,7 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 
 	## get thresholdSlurmTime adaptively from sbatch.damask.solo (or just hard-code it, e.g. 48 * 24 * 3600)
 	# return thresholdSlurmTime in seconds, read from sbatch.damask.solo
-	slurmFile = open(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/sbatch.damask.solo')
+	slurmFile = open(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/sbatch.damask.solo')
 	slurmSubmitText = slurmFile.readlines()
 	slurmFile.close()
 	thresholdSlurmTime = slurmSubmitText[3].split('=')[1].split("#")[0].replace(" ", "") # e.g. thresholdSlurmTime = "48:00:00"
@@ -278,15 +278,15 @@ def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 def evaluate_DAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	# adaptive functional evaluation w.r.t. different platforms
 	if 'solo' in socket.gethostname():
-		feasible = submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
+		feasible = submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel)
 	else:
-		feasible = run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
+		feasible = run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel)
 	return feasible
 
 ## if level > 0 then submit a DAMASK job at [level - 1]
 feasible = 0
 
-# generateMicrostructures(parentDirectory)
+generateMicrostructures(parentDirectory)
 query_list = getAllQueryIndex(meshSizeIndex, constitutiveModelIndex)
 print('Querying DAMASK at these indices:')
 print(query_list)

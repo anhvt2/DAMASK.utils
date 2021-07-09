@@ -131,7 +131,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 	os.system('cp ../sbatch.damask.solo .')
 
 	# write down numProcessors to be picked up later by sbatch.damask.solo
-	numProcessors = np.floor(meshSize / 4.)
+	numProcessors = np.floor(meshSize / 1.)
 	if numProcessors > 36:
 		numProcessors = 36 # threshold on Solo node
 

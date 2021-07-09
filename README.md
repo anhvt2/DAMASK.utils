@@ -15,6 +15,22 @@ Updates from `DAMASK-3.0.0`
 * Create heatmap: https://damask3.mpie.de/documentation/tutorials/python/create-heatmap/
 * Plot a stress-strain curve with yield point: https://damask3.mpie.de/documentation/tutorials/python/plot-a-stress-strain-curve-with-yield-point/
 
+# DAMASK
+
+## DAMASK-2.0.2
+
+## DAMASK-2.0.3
+
+* Change of keywords is not well documented but has been reported [https://www.researchgate.net/post/Did-anyone-used-DAMASK-code-for-crystal-plasticity-simulations-of-HCP-materials](https://www.researchgate.net/post/Did-anyone-used-DAMASK-code-for-crystal-plasticity-simulations-of-HCP-materials). 
+* `covera_ratio` -> `c/a`
+* require `mech            isostrain`
+* require `nconstituents   1`
+* disable a few fields such as
+    * `# (output) e              # total strain as Green-Lagrange tensor`
+    * `# (output) ee             # elastic strain as Green-Lagrange tensor`
+
+
+
 # DREAM.3D
 
 Following the advices of [Mohammadreza Yaghoobi](https://scholar.google.com/citations?user=EOO01WsAAAAJ&hl=en&oi=sra) in TMS2021, the following is adopted from PRISMS-Fatigue and PRISMS-Plasticity for Euler angles:

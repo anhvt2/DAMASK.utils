@@ -236,6 +236,7 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}_${constitutiveModelLabel}"
 	os.system('cp ../run_damask.sh .')
+	print('Running DAMASK at: %s' % os.getcwd())
 
 	# write down numProcessors to be picked up later by sbatch.damask.solo
 	numProcessors = np.floor(meshSize / 4.)
@@ -284,6 +285,9 @@ feasible = 0
 
 # generateMicrostructures(parentDirectory)
 query_list = getAllQueryIndex(meshSizeIndex, constitutiveModelIndex)
+print('Querying DAMASK at these indices:')
+print(query_list)
+
 for s in query_list:
 	meshSizeIndex = s[0]
 	constitutiveModelIndex = s[1]

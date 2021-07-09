@@ -36,14 +36,13 @@ cp ../tension.load  .
 cp ../sigma.dat  .
 cp ../mu.dat  .
 cp ../msId.dat  .
-cp ../material.config.preamble  .
 cp ../dimCell.dat  .
 cp ../computeYieldStress.py  .
 # cp ../single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom  .
 ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
 
 ### ---------------------------------- pre-process DAMASK
-rm -fv single_phase_equiaxed_tension* postProc/
+rm -rfv single_phase_equiaxed_tension* postProc/
 geom_check single_phase_equiaxed.geom
 
 ### ---------------------------------- run DAMASK

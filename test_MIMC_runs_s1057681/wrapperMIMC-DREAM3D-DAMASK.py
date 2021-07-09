@@ -108,6 +108,10 @@ if constitutiveModelIndex == 0:
 	constitutiveModelLabel = 'Isotropic'
 elif constitutiveModelIndex == 1:
 	constitutiveModelLabel = 'Phenopowerlaw'
+elif constitutiveModelIndex == 2:
+    constitutiveModelLabel = 'Nonlocal'
+else:
+	print('constitutiveModelLabel = %d is invalid.' % constitutiveModelLabel)
 
 # generate all the meshSize but only run in the selected meshSize
 # NOTE: meshSize must be divisible by the base
@@ -278,8 +282,7 @@ def evaluate_DAMASK(meshSize, parentDirectory, level):
 ## if level > 0 then submit a DAMASK job at [level - 1]
 feasible = 0
 
-# while feasible == 0:
-generateMicrostructures(parentDirectory)
+# generateMicrostructures(parentDirectory)
 query_list = getAllQueryIndex(meshSizeIndex, constitutiveModelIndex)
 for s in query_list:
 	meshSizeIndex = s[0]

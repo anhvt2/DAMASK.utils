@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import argparse
 
+print('Running computeYieldStress.py at: %s' % os.getcwd())
+
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 

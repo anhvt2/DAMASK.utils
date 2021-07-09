@@ -104,14 +104,17 @@ index = np.array(args.index[1:-1].split(','), dtype=int) # reformat to dtype=int
 meshSizeIndex = index[0]
 meshSize = int(dimCellList[meshSizeIndex]) # get the meshSize from dimCellList[meshSizeIndex]
 constitutiveModelIndex = index[1] # 0 = "Isotropic", 1 = "Phenopowerlaw", 2 = "Nonlocal"
-if constitutiveModelIndex == 0:
-	constitutiveModelLabel = 'Isotropic'
-elif constitutiveModelIndex == 1:
-	constitutiveModelLabel = 'Phenopowerlaw'
-elif constitutiveModelIndex == 2:
-    constitutiveModelLabel = 'Nonlocal'
-else:
-	print('constitutiveModelLabel = %d is invalid.' % constitutiveModelLabel)
+
+def getConstitutiveModelLabel(constitutiveModelIndex):
+	if constitutiveModelIndex == 0:
+		constitutiveModelLabel = 'Isotropic'
+	elif constitutiveModelIndex == 1:
+		constitutiveModelLabel = 'Phenopowerlaw'
+	elif constitutiveModelIndex == 2:
+	    constitutiveModelLabel = 'Nonlocal'
+	else:
+		print('constitutiveModelLabel = %d is invalid.' % constitutiveModelLabel)
+	return constitutiveModelLabel
 
 # generate all the meshSize but only run in the selected meshSize
 # NOTE: meshSize must be divisible by the base
@@ -291,6 +294,7 @@ print(query_list)
 for s in query_list:
 	meshSizeIndex = s[0]
 	constitutiveModelIndex = s[1]
+	constitutiveModelLabel = getConstitutiveModelLabel(constitutiveModelIndex)
 	meshSize = int(dimCellList[meshSizeIndex]) # get the meshSize from dimCellList[meshSizeIndex]
 	feasible = evaluate_DAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel)
 

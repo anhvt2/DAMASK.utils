@@ -1,1 +1,1 @@
-../run_damask.sh
+../run_damask_2.0.2.sh

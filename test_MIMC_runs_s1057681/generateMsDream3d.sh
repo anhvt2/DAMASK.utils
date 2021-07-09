@@ -26,7 +26,7 @@ if [[ ${hostName} == *"solo"* ]]; then
 elif [[ ${hostName} == *"ideapad"* ]]; then
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # ideapad
 elif [[ ${hostName} == *"s1057681"* ]]; then
-	execPath="/home/anhtran/Documents/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # s1057681
+	execPath="/home/anhtran/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # s1057681
 else
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # else
 fi

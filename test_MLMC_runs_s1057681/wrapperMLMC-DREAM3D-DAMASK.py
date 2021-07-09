@@ -131,7 +131,7 @@ def submitDAMASK(meshSize, parentDirectory, level):
 	os.system('cp ../sbatch.damask.solo .')
 
 	# write down numProcessors to be picked up later by sbatch.damask.solo
-	numProcessors = np.floor(meshSize / 1.)
+	numProcessors = np.floor(meshSize / 4.)
 	if numProcessors > 36:
 		numProcessors = 36 # threshold on Solo node
 
@@ -234,7 +234,6 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
 		if feasible == 0:
 			yieldStress = 0 # invalid condition
-			break
 		elif feasible == 1:
 			currentTime = datetime.datetime.now()
 			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
@@ -247,7 +246,6 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
 			f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
 			f.close()
-			break
 
 	return feasible
 

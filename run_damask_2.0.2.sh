@@ -52,9 +52,9 @@ geom_check single_phase_equiaxed.geom
 
 if [ -f "numProcessors.dat" ]; then
 	numProcessors=$(cat numProcessors.dat)
-	mpirun -np ${numProcessors} $DAMASK_spectral -g single_phase_equiaxed.geom -l tension.load 2>&1 > log.damask
+	mpirun -np ${numProcessors} $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
 else
-	mpirun -np 32 $DAMASK_spectral -g single_phase_equiaxed.geom -l tension.load 2>&1 > log.damask
+	mpirun -np 32 $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
 fi
 
 

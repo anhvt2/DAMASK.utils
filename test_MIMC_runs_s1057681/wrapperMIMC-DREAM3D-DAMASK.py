@@ -275,12 +275,12 @@ def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 
 	return feasible
 
-def evaluate_DAMASK(meshSize, parentDirectory, level):
+def evaluate_DAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	# adaptive functional evaluation w.r.t. different platforms
 	if 'solo' in socket.gethostname():
-		feasible = submitDAMASK(meshSize, parentDirectory, level)
+		feasible = submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	else:
-		feasible = run_DAMASK_offline(meshSize, parentDirectory, level)
+		feasible = run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	return feasible
 
 ## if level > 0 then submit a DAMASK job at [level - 1]

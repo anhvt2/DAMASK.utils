@@ -165,7 +165,7 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	f.close()
 
 	os.system('ssubmit sbatch.damask.solo')
-	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
+	# os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/postProc')
 
 	startTime = datetime.datetime.now()
 
@@ -179,21 +179,21 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	thresholdSlurmTime = int(thresholdSlurmTime)
 	thresholdSlurmTime *= (24*3600) # convert to seconds
 
-	while not os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat'):
+	while not os.path.exists(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/postProc/output.dat'):
 		time.sleep(10)
 		currentTime = datetime.datetime.now()
 		feasible = 0
-		if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible'):
-			feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
+		if os.path.exists(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/log.feasible'):
+			feasible = np.loadtxt(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/log.feasible')
 			if feasible == 0:
 				yieldStress = 0 # invalid condition
 				break
 			elif feasible == 1:
 				currentTime = datetime.datetime.now()
-				yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
+				yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/postProc/output.dat')
 				yieldStrain = float(yieldData[0])
 				yieldStress = float(yieldData[1]) / 1e9 # in GPa
-				print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
+				print("Results available in %s" % (parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)))
 				print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
 				print("Estimated Yield Stress at %d is %.16f GPa" % (index, yieldStress))
 
@@ -212,7 +212,7 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 			# print("Warning: Regenerating microstructure for another try!")
 			# os.chdir(parentDirectory)
 			# os.system('sh generateMsDream3d.sh')
-			# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
+			# os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 			# os.system('cp ../sbatch.damask.solo .')
 
 			# numProcessors = np.floor(meshSize / 4.)
@@ -226,7 +226,7 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 			# os.system('ssubmit sbatch.damask.solo')
 			# startTime = datetime.datetime.now()
 
-			# slurmFile = open(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/sbatch.damask.solo')
+			# slurmFile = open(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/sbatch.damask.solo')
 			# slurmSubmitText = slurmFile.readlines()
 			# slurmFile.close()
 			# thresholdSlurmTime = slurmSubmitText[3].split('=')[1].split("#")[0].replace(" ", "") # e.g. thresholdSlurmTime = "48:00:00"
@@ -252,20 +252,20 @@ def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 
 	startTime = datetime.datetime.now()
 	os.system('bash run_damask.sh')
-	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
+	# os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/postProc')
 
 	currentTime = datetime.datetime.now()
 	feasible = 0
-	if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible'):
-		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
+	if os.path.exists(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/log.feasible'):
+		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/log.feasible')
 		if feasible == 0:
 			yieldStress = 0 # invalid condition
 		elif feasible == 1:
 			currentTime = datetime.datetime.now()
-			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
+			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/postProc/output.dat')
 			yieldStrain = float(yieldData[0])
 			yieldStress = float(yieldData[1]) / 1e9 # in GPa
-			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
+			print("Results available in %s" % (parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)))
 			print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
 			print("Estimated Yield Stress at %d is %.16f GPa" % (level, yieldStress))
 

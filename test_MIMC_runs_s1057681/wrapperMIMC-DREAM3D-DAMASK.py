@@ -198,7 +198,7 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 				print("Estimated Yield Stress at %d is %.16f GPa" % (index, yieldStress))
 
 				f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-				f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
+				f.write("Estimated Yield Stress at (%d, %d) is %.16f GPa\n" % (meshSizeIndex, constitutiveModelIndex, yieldStress))
 				f.close()
 				break
 
@@ -267,10 +267,10 @@ def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 			yieldStress = float(yieldData[1]) / 1e9 # in GPa
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)))
 			print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-			print("Estimated Yield Stress at %d is %.16f GPa" % (level, yieldStress))
+			print("\n Estimated Yield Stress at (%d, %d) is %.16f GPa\n" % (meshSizeIndex, constitutiveModelIndex, yieldStress))
 
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-			f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
+			f.write("Estimated Yield Stress at (%d, %d) is %.16f GPa\n" % (meshSizeIndex, constitutiveModelIndex, yieldStress))
 			f.close()
 
 	return feasible
@@ -283,9 +283,7 @@ def evaluate_DAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 		feasible = run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel)
 	return feasible
 
-## if level > 0 then submit a DAMASK job at [level - 1]
-feasible = 0
-
+feasible = 0 # init
 generateMicrostructures(parentDirectory)
 query_list = getAllQueryIndex(meshSizeIndex, constitutiveModelIndex)
 print('Querying DAMASK at these indices:')

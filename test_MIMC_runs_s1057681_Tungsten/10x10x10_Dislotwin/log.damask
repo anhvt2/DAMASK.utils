@@ -1,0 +1,223 @@
+
+ <<<+-  DAMASK_interface init  -+>>>
+ [94m
+      _/_/_/      _/_/    _/      _/    _/_/      _/_/_/  _/    _/
+     _/    _/  _/    _/  _/_/  _/_/  _/    _/  _/        _/  _/
+    _/    _/  _/_/_/_/  _/  _/  _/  _/_/_/_/    _/_/    _/_/
+   _/    _/  _/    _/  _/      _/  _/    _/        _/  _/  _/
+  _/_/_/    _/    _/  _/      _/  _/    _/  _/_/_/    _/    _/
+ [0m
+
+ Roters et al., Computational Materials Science 158:420–478, 2019
+ https://doi.org/10.1016/j.commatsci.2018.04.030
+
+ Version: v2.0.3
+
+ Compiled with: GCC version 9.3.0
+ Compiler options: -cpp -I /usr/local/petsc-3.10.3/include -I /usr/local/petsc-3.10.3/include -I /usr/local/petsc-3.10.3/lib -imultiarch x86_64-linux-gnu -D_REENTRANT -D DAMASKVERSION="v2.0.3" -D PETSc -D Spectral -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/DAMASK_INTERFACE.dir/DAMASK_interface.f90.o -O2 -pedantic-errors -Wall -Wextra -Wcharacter-truncation -Wunderflow -Wsuggest-attribute=pure -Wsuggest-attribute=noreturn -Wconversion-extra -Wimplicit-procedure -Wno-unused-parameter -std=f2008ts -fopenmp -ffree-line-length-132 -fimplicit-none -fmodule-private -ffpe-summary=all -fdefault-real-8 -fdefault-double-8 -ffree-line-length-164
+
+ Compiled on: Jul 11 2021 at 15:08:56
+
+ Date: 11/07/2021
+ Time: 15:17:24
+
+ MPI processes:    2
+ Host name: s1057681
+ User name: anhtran
+
+ Command line call:      /home/anhtran/Documents/DAMASK/damask-2.0.3//bin/DAMASK_spectral -g single_phase_equiaxed.geom -l tension.load
+ Geometry argument:      single_phase_equiaxed.geom
+ Load case argument:     tension.load
+ Working directory:      /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Tungsten/10x10x10_Dislotwin
+ Geometry file:          single_phase_equiaxed.geom
+ Loadcase file:          tension.load
+ Solver job name:        single_phase_equiaxed_tension
+
+ <<<+-  prec init  -+>>>
+ Size of integer in bit:  32
+   Maximum value:                 2147483647
+
+ Size of float in bit:    64
+   Maximum value:         0.180+309
+   Minimum value:         0.223-307
+   Decimal precision:     15
+
+ <<<+-  IO init  -+>>>
+
+ <<<+-  numerics init  -+>>>
+ using standard values
+
+ relevantStrain:          1.0E-07
+ defgradTolerance:        1.0E-07
+ iJacoStiffness:                1
+ iJacoLpresiduum:               1
+ pert_Fg:                 1.0E-07
+ pert_method:                   1
+ nCryst:                       20
+ subStepMinCryst:         1.0E-03
+ subStepSizeCryst:        2.5E-01
+ stepIncreaseCryst:       1.5E+00
+ subStepSizeLp:           5.0E-01
+ subStepSizeLi:           5.0E-01
+ nState:                       10
+ nStress:                      40
+ rTol_crystalliteState:   1.0E-06
+ rTol_crystalliteStress:  1.0E-06
+ aTol_crystalliteStress:  1.0E-08
+ integrator:                    1
+ use ping pong scheme:          T
+ unitlength:              1.0E+00
+
+ subStepMinHomog:         1.0E-03
+ subStepSizeHomog:        2.5E-01
+ stepIncreaseHomog:       1.5E+00
+ nMPstate:                     10
+
+ aTol_RGC:                1.0E+04
+ rTol_RGC:                1.0E-03
+ aMax_RGC:                1.0E+10
+ rMax_RGC:                1.0E+02
+ perturbPenalty_RGC:      1.0E-07
+ relevantMismatch_RGC:    1.0E-05
+ viscosityrate_RGC:       1.0E+00
+ viscositymodulus_RGC:    0.0E+00
+ maxrelaxation_RGC:       1.0E+00
+ maxVolDiscrepancy_RGC:   1.0E-05
+ volDiscrepancyMod_RGC:   1.0E+12
+ discrepancyPower_RGC:    5.0E+00
+
+ random_seed:                   0
+
+ random seed will be generated!
+
+ charLength:              1.0E+00
+ residualStiffness:       1.0E-06
+ number of threads:             4
+
+ itmax:                       250
+ itmin:                         1
+ maxCutBack:                    3
+ maxStaggeredIter:             10
+ err_struct_tolAbs:       1.0E-10
+ err_struct_tolRel:       1.0E-04
+ err_thermal_tolabs:      1.0E-02
+ err_thermal_tolrel:      1.0E-06
+ err_damage_tolabs:       1.0E-02
+ err_damage_tolrel:       1.0E-06
+ continueCalculation:           F
+ memory_efficient:              T
+ divergence_correction:         2
+ spectral_derivative:    continuous
+ fftw_timelimit:                F
+ fftw_plan_mode:         FFTW_PATIENT
+ fftw_planner_flag:            32
+ update_gamma:                  F
+
+ err_stress_tolAbs:       1.0E+03
+ err_stress_tolRel:       1.0E-02
+ err_div_tolAbs:          1.0E-04
+ err_div_tolRel:          5.0E-04
+ err_curl_tolAbs:         1.0E-10
+ err_curl_tolRel:         5.0E-04
+ polarAlpha:              1.0E+00
+ polarBeta:               1.0E+00
+ spectral solver:        basic
+ PETSc_options:          -mech_snes_type ngmres -damage_snes_type ngmres -thermal_snes_type ngmres 
+
+ <<<+-  debug init  -+>>>
+
+ <<<+-  config init  -+>>>
+
+ reading material.config
+
+ <<<+-  math init  -+>>>
+ size  of random seed:    33
+ value of random seed:     1   -1427654099
+ value of random seed:     2   -1427654099
+ value of random seed:     3   -1427654099
+ value of random seed:     4   -1427654099
+ value of random seed:     5   -1427654099
+ value of random seed:     6   -1427654099
+ value of random seed:     7   -1427654099
+ value of random seed:     8   -1427654099
+ value of random seed:     9   -1427654099
+ value of random seed:    10   -1427654099
+ value of random seed:    11   -1427654099
+ value of random seed:    12   -1427654099
+ value of random seed:    13   -1427654099
+ value of random seed:    14   -1427654099
+ value of random seed:    15   -1427654099
+ value of random seed:    16   -1427654099
+ value of random seed:    17   -1427654099
+ value of random seed:    18   -1427654099
+ value of random seed:    19   -1427654099
+ value of random seed:    20   -1427654099
+ value of random seed:    21   -1427654099
+ value of random seed:    22   -1427654099
+ value of random seed:    23   -1427654099
+ value of random seed:    24   -1427654099
+ value of random seed:    25   -1427654099
+ value of random seed:    26   -1427654099
+ value of random seed:    27   -1427654099
+ value of random seed:    28   -1427654099
+ value of random seed:    29   -1427654099
+ value of random seed:    30   -1427654099
+ value of random seed:    31   -1427654099
+ value of random seed:    32   -1427654099
+ value of random seed:    33   -1427654099
+ start of random sequence: 
+                           0.40208216910474
+                           0.86261259839152
+                           0.90318505558026
+                           0.09121395166157
+
+
+ <<<+-  FEsolving init  -+>>>
+
+ <<<+-  mesh init  -+>>>
+
+ <<<+-  mesh_base_init  -+>>>
+  mesh type grid
+  # node             726
+
+ <<<+-  element_init  -+>>>
+  element type:                  10
+    geom type:                    8
+    cell type:                    4
+    # node:                       8
+    # IP:                         1
+    # cellnode:                   8
+    # cellnode/cell:              8
+    # IP neighbor:                6
+    max # node at IP:             8
+
+ <<<+-  lattice init  -+>>>
+
+ <<<+-  material init  -+>>>
+
+ <<<+-  HDF5_Utilities init  -+>>>
+
+ <<<+-  results init  -+>>>
+
+ Diehl et al., Integrating Materials and Manufacturing Innovation 6(1):83–91, 2017
+ https://doi.org/10.1007/s40192-018-0118-7
+
+ <<<+-  constitutive_dislotwin init  -+>>>
+
+ Ma and Roters, Acta Materialia 52(12):3603–3612, 2004
+ https://doi.org/10.1016/j.actamat.2004.04.012
+
+ Roters et al., Computational Materials Science 39:91–95, 2007
+ https://doi.org/10.1016/j.commatsci.2006.04.014
+
+ Wong et al., Acta Materialia 118:140–151, 2016
+ https://doi.org/10.1016/j.actamat.2016.07.032
+
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+Option left: name:-g value: single_phase_equiaxed.geom
+Option left: name:-l value: tension.load
+
+DAMASK terminated on:
+Date:               11/07/2021
+Time:               15:17:24

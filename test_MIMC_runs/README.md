@@ -1,9 +1,48 @@
 
+
+
+
 # Instruction
 
+## How to set up files
+
+* change `wrapperMIMC-DREAM3D-DAMASK.py`
+* `material.config.${constitutiveModelLabel}` must exist in parent directory
+* change `generateMsDream3d.sh`
+    ```shell
+    for constitutiveModel in Dislotwin DisloUCLA; do
+    ```
+
+## How to specify discretization along each dimension
+
+```
+Hi Anh,
+
+Sure, you can specify a weighted index set by supplying the weights (0 < weight < 1) instead of the number of dimensions, like so:
+
+julia> index_set = FT(1, 2/3)
+FT{2}
+
+julia> print(index_set, 0)
+  ◼ 
+
+julia> print(index_set, 1)
+  ◼ ◼ 
+
+julia> print(index_set, 2)
+  ◼ ◼ ◼ 
+  ◼ ◼ ◼ 
+
+julia> print(index_set, 3)
+  ◼ ◼ ◼ ◼ 
+  ◼ ◼ ◼ ◼ 
+  ◼ ◼ ◼ ◼ 
+
+So, if you just add "index_set = FT(1, 2/3)” in run_mlmc.jl, you should be good to go.
 ```
 5Jun21:
 
+```
 Hi Anh,
 
 Thank you! Attached are the updated files. 

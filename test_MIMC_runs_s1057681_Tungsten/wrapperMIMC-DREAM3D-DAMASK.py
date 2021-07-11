@@ -103,7 +103,7 @@ args = parser.parse_args()
 index = np.array(args.index[1:-1].split(','), dtype=int) # reformat to dtype=int
 meshSizeIndex = index[0]
 meshSize = int(dimCellList[meshSizeIndex]) # get the meshSize from dimCellList[meshSizeIndex]
-constitutiveModelIndex = index[1] # 0 = "Isotropic", 1 = "Phenopowerlaw", 2 = "Nonlocal"
+constitutiveModelIndex = index[1] # 0 = "Dislotwin", 1 = "DisloUCLA"
 
 def getConstitutiveModelLabel(constitutiveModelIndex):
 	if constitutiveModelIndex == 0:

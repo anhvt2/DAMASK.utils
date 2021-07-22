@@ -1,6 +1,11 @@
+# Estimation of computational cost
 
-
-
+```
+16x16x16_Nonlocal
+tension.load
+Fdot    1.0e-3 0 0    0 0 0    0 0 0    time 10.0    incs 100    freq 1
+~ 72 hours on 16 CPUs
+```
 
 # Instruction
 

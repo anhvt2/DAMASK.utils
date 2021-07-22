@@ -1,6 +1,7 @@
 # Estimation of computational cost
 
 ```
+nohup mpirun -np 16 $DAMASK_spectral -g single_phase_equiaxed.geom -l tension.load  &
 16x16x16_Nonlocal
 tension.load
 Fdot    1.0e-3 0 0    0 0 0    0 0 0    time 10.0    incs 100    freq 1

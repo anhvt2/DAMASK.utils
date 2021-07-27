@@ -56,7 +56,7 @@ print('Elastic Young modulus = %.4f GPa' % youngModulusInGPa)
 print('Intercept = %.4f' % (reg.intercept_ / 1e9))
 
 
-outFile = open('youngModulus.out', 'w')
+outFile = open('output.dat', 'w')
 outFile.write('%.6e\n' % youngModulusInGPa)
 outFile.close()
 

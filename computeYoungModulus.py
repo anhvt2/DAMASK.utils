@@ -27,6 +27,13 @@ totalTime = float(tensionLoadFile[11])
 totalIncrement = float(tensionLoadFile[13])
 strain = increment * Fdot * totalTime / totalIncrement
 
+print("#############################")
+print("Reading ../tension.load file:")
+print("Fdot = %.4f" % Fdot)
+print("totalTime = %.4f" % totalTime)
+print("totalIncrement = %.4f" % totalIncrement)
+print("#############################")
+
 
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html

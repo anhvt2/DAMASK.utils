@@ -191,7 +191,6 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 			elif feasible == 1:
 				currentTime = datetime.datetime.now()
 				youngModulus = np.loadtxt(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/postProc/output.dat')
-				youngModulus = float(yieldData[1]) / 1e9 # in GPa
 				print("Results available in %s" % (parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)))
 				print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
 				print("Estimated Young modulus at %d is %.16f GPa" % (index, youngModulus))
@@ -262,7 +261,6 @@ def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 		elif feasible == 1:
 			currentTime = datetime.datetime.now()
 			youngModulus = np.loadtxt(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/postProc/output.dat')
-			youngModulus = float(yieldData[1]) / 1e9 # in GPa
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)))
 			print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
 			print("\n Estimated Young modulus at (%d, %d) is %.16f GPa\n" % (meshSizeIndex, constitutiveModelIndex, youngModulus))

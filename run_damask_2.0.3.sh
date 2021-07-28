@@ -39,6 +39,7 @@ cp ../msId.dat  .
 cp ../material.config.preamble  .
 cp ../dimCell.dat  .
 cp ../computeYieldStress.py  .
+cp ../computeYoungModulus.py .
 # cp ../single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom  .
 ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
 

@@ -25,7 +25,8 @@ tensionLoadFile = np.loadtxt('../tension.load', dtype=str)
 Fdot = float(tensionLoadFile[1])
 totalTime = float(tensionLoadFile[11])
 totalIncrement = float(tensionLoadFile[13])
-strain = increment * Fdot * totalTime / totalIncrement
+strain = Fdot * increment * totalTime / totalIncrement
+# varepsilon (strain) = varepsilonDot (or strainDot) * time = varepsilonDot * increment / totalIncrement * totalTime
 
 print("#############################")
 print("Reading ../tension.load file:")

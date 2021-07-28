@@ -16,7 +16,7 @@ get_cmd(index::Index) = Cmd(["python3", "wrapperMIMC-DREAM3D-DAMASK.py", "--inde
 # stress for the given level or index
 function get_qoi(out, index)
     for line in split(out, "\n")
-        if occursin("Estimated Yield Stress at $(index)", line)
+        if occursin("Estimated Young modulus at $(index)", line)
             return parse(Float64, split(line)[end - 1])
         end
     end

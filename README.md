@@ -67,7 +67,8 @@ pkg> add Random
 pkg> add Statistics
 
 julia> import Pkg; Pkg.resolve()
-
+julia> Pkg.add("PrettyTables")
+julia> Pkg.add("ProgressMeter")
 
 include("Example.jl")
 check_variances()

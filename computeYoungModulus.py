@@ -17,7 +17,7 @@ mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
 
-data = np.loadtxt('log.stress_strain.txt', skiprows=7)
+data = np.loadtxt('stress_strain.log', skiprows=7)
 increment = np.atleast_2d(data[:, 0])
 stress = np.atleast_2d(data[:, 2])
 

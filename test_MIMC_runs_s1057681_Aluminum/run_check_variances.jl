@@ -16,6 +16,7 @@ include("check_variances.jl") # load check_variances
 # index_set = TD(3) # OPTION 2: multi-index, total degree
 index_set = TD(1, (3-1)/(5-1)) # weighted index set
 # index_set = TD(1, 2/4) # weighted index set
+index_set = AD(2)
 
 # index_set = FT(3) # OPTION 3: multi-index, full tensor
 
@@ -24,7 +25,7 @@ index_set = TD(1, (3-1)/(5-1)) # weighted index set
 # ========================
 # >>> Select maximum level parameter:
 
-max_level = 2 # See note below
+max_level = 4 # See note below
 
 # @@@ NOTE @@@
 # !!! In a multilevel setting, `max_level=3` means 4 levels in total (i.e.,

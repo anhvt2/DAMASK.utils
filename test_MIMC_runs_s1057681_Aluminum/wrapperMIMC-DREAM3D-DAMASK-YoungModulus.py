@@ -1,5 +1,6 @@
 
 ## Usage: python3 wrapperMIMC-DREAM3D-DAMASK.py --index="(2, 1)"
+# python3 wrapperMIMC-DREAM3D-DAMASK.py --index="(?, ?, ?, 1)"
 
 """ 
 PURPOSES:

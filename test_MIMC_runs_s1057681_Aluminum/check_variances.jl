@@ -73,6 +73,7 @@ on each index for approximately `buget` seconds.
 """
 function check_variances(; index_set=ML(), max_level=3, budget=20)
     indices = collect(get_index_set(index_set, max_level))
+    # indices = sort(collect(get_index_set(index_set, max_level)))
     nb_of_indices = length(indices)
     budget_per_level = round(Int, budget/(nb_of_indices + 1)) # split budget evenly over all levels/indices
     data = Dict{Index, Any}() # empty dictionary to hold samples
@@ -83,6 +84,7 @@ function check_variances(; index_set=ML(), max_level=3, budget=20)
         samples_dQ = [] # vector to store samples of dQ
         timer = 0
         p = Progress(budget_per_level, dt=1, barglyphs=BarGlyphs("[=> ]"), color=:none)
+        # p = Progress(budget_per_level, "Running at index $(index)", dt=1, barglyphs=BarGlyphs("[=> ]"), color=:none)
         while timer < budget_per_level # run timer until we run out of buget
             timer += @elapsed dQ, Qf = sample(index) # take a new sample
             if isfinite(dQ) && isfinite(Qf) # check if the sample is valid

@@ -62,6 +62,7 @@ Following the advices of [Mohammadreza Yaghoobi](https://scholar.google.com/cita
 Mostly comes from private communication with Pieterjan Robbe
 
 ```julia
+julia> ENV["JULIA_SSL_NO_VERIFY_HOSTS"] = "**" # useful behind Sandia firewall -- no certificate for downloading
 pkg> dev https://github.com/PieterjanRobbe/MultilevelEstimators.jl
 pkg> add Random
 pkg> add Statistics

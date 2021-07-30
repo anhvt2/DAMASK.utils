@@ -27,6 +27,8 @@ Fdot    1.0e-3 0 0    0 0 0    0 0 0    time 10.0    incs 100    freq 1
     ```shell
     for constitutiveModel in Dislotwin DisloUCLA; do
     ```
+* may have to increase `maxCutBack` in `numerics.config`
+* for advanced setup of PETSc solver, see more at [https://pages.tacc.utexas.edu/~eijkhout/pcse/html/petsc-solver.html](https://pages.tacc.utexas.edu/~eijkhout/pcse/html/petsc-solver.html)
 
 ## How to specify discretization along each dimension
 

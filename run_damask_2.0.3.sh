@@ -15,6 +15,7 @@ export DAMASK_ROOT=/home/anhtran/Documents/DAMASK/damask-2.0.3/ # s1057681
 # export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
 # export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
 export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral # s1057681
+export DAMASK_NUM_THREADS=4
 
 source $DAMASK_ROOT/env/DAMASK.sh
 # source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh

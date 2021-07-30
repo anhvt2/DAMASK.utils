@@ -18,7 +18,7 @@ file = args.file
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
-d = np.loadtxt(file, skiprows=7)
+d = np.loadtxt(file, skiprows=4)
 vareps = d[:,1] # strain
 sigma  = d[:,2] # stress
 

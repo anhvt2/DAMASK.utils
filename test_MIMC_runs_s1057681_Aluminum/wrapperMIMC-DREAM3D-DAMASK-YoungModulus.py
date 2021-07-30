@@ -235,6 +235,11 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 
 	return feasible
 
+def getNumProcessors(meshSizeIndex, constitutiveModelLabel):
+	if constitutiveModelIndex = 2
+
+	return numProcessors	
+
 def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}_${constitutiveModelLabel}"
 	os.system('cp ../run_damask.sh .')

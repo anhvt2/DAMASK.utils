@@ -50,8 +50,8 @@ try:
 
 
 	## extract elastic part
-	elasticStress = np.atleast_2d(stress[0,1:5]).T
-	elasticStrain = np.atleast_2d(strain[0,1:5]).T
+	elasticStress = np.atleast_2d(stress[0,0:2]).T
+	elasticStrain = np.atleast_2d(strain[0,0:2]).T
 
 	# print(elasticStrain.shape)
 	# print(elasticStress.shape)

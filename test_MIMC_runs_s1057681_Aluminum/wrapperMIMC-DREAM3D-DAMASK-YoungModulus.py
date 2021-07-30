@@ -156,10 +156,7 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	os.system('cp ../sbatch.damask.solo .')
 
-	# write down numProcessors to be picked up later by sbatch.damask.solo
-	numProcessors = np.floor(meshSize / 2.)
-	if numProcessors > 36:
-		numProcessors = 36 # threshold on Solo node
+	numProcessors = getNumProcessors(meshSize, constitutiveModelLabel)
 
 	f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
 	f.write('%d' % numProcessors)
@@ -214,9 +211,7 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 			# os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 			# os.system('cp ../sbatch.damask.solo .')
 
-			# numProcessors = np.floor(meshSize / 4.)
-			# if numProcessors > 36:
-			# 	numProcessors = 36 # threshold on Solo node
+			# numProcessors = getNumProcessors(meshSize, constitutiveModelLabel)
 
 			# f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
 			# f.write('%d' % numProcessors)
@@ -235,20 +230,23 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 
 	return feasible
 
-def getNumProcessors(meshSizeIndex, constitutiveModelLabel):
-	if constitutiveModelIndex = 2
-
-	return numProcessors	
+def getNumProcessors(meshSize, constitutiveModelLabel):
+	# if constitutiveModelIndex = 2:
+	if meshSize == 32:
+		numProcessors = 16
+	elif meshSize == 20:
+		numProcessors = 4
+	else:
+		numProcessors = np.floor(meshSize / 4.)	# safest option
+		# numProcessors = np.floor(meshSize / 2.)	# risky option
+	return numProcessors
 
 def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 	os.chdir(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}_${constitutiveModelLabel}"
 	os.system('cp ../run_damask.sh .')
 	print('Running DAMASK at: %s' % os.getcwd())
 
-	# write down numProcessors to be picked up later by sbatch.damask.solo
-	numProcessors = np.floor(meshSize / 4.)
-	if numProcessors > 36:
-		numProcessors = 36 # threshold on Solo node
+	numProcessors = getNumProcessors(meshSize, constitutiveModelLabel)
 
 	f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
 	f.write('%d' % numProcessors)

@@ -24,7 +24,7 @@ sigma  = d[:,2] # stress
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-ax.plot((vareps - 1), sigma / 1e6, 'bo-', markersize=2)
+ax.plot((vareps - 1), sigma / 1e6, 'bo-', markersize=4)
 plt.xlabel(r'$\varepsilon$ ', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 

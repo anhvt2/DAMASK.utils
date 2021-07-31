@@ -1,0 +1,707 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> CommentPluginExamples &lt; Sandbox &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Sandbox/CommentPluginExamples?t=1627667762" type="application/x-wiki" title="edit CommentPluginExamples" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Sandbox/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Sandbox/CommentPluginExamples" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/90df1f304e9d50c40c9f566688ca3a3f.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableCommentPluginExamples3 {border-width:0px}
+body .foswikiTable#tableCommentPluginExamples3 td {border-width:0px; border-style:solid}
+body .foswikiTable#tableCommentPluginExamples3 th {border-width:0px; border-style:solid}
+body .foswikiTable#tableCommentPluginExamples3 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableCommentPluginExamples3 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableCommentPluginExamples5 {border-width:0px}
+body .foswikiTable#tableCommentPluginExamples5 td {border-width:0px; border-style:solid}
+body .foswikiTable#tableCommentPluginExamples5 th {border-width:0px; border-style:solid}
+body .foswikiTable#tableCommentPluginExamples5 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableCommentPluginExamples5 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableCommentPluginExamples6 {border-width:0px}
+body .foswikiTable#tableCommentPluginExamples6 td {border-width:0px; border-style:solid}
+body .foswikiTable#tableCommentPluginExamples6 th {border-width:0px; border-style:solid}
+body .foswikiTable#tableCommentPluginExamples6 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableCommentPluginExamples6 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableCommentPluginExamples7 {border-width:0px}
+body .foswikiTable#tableCommentPluginExamples7 td {border-width:0px; border-style:solid}
+body .foswikiTable#tableCommentPluginExamples7 th {border-width:0px; border-style:solid}
+body .foswikiTable#tableCommentPluginExamples7 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableCommentPluginExamples7 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#FFD8AA;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "TOPIC" : "CommentPluginExamples",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATH" : "/bin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WEB" : "Sandbox",
+   "SCRIPTSUFFIX" : "",
+   "SERVERTIME" : "30 Jul 2021 - 19:56",
+   "PUBURLPATH" : "/pub",
+   "USERNAME" : "guest",
+   "USERSWEB" : "Main",
+   "SYSTEMWEB" : "System",
+   "URLHOST" : "https://damask.mpie.de",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SKIN" : "damask,famfamfam,pattern",
+   "WIKINAME" : "WikiGuest",
+   "WIKIUSERNAME" : "Main.WikiGuest"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Sandbox/CommentPluginExamples"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Sandbox/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Sandbox" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Sandbox/WebHome">Sandbox</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Sandbox/CommentPluginExamples" title='Topic revision: 1 (22 Jan 2018 - 16:53:44)'>CommentPluginExamples</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Sandbox/CommentPluginExamples?t=1627667762;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Sandbox/CommentPluginExamples' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Sandbox/CommentPluginExamples?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Sandbox/CommentPluginExamples?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Sandbox/WebCreateNewTopic?topicparent=CommentPluginExamples' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Sandbox/CommentPluginExamples?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Sandbox/CommentPluginExamples?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"> <ul>
+<li> Top comment output 2 -- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+</li> <li> Top comment output 1 -- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+</li></ul> 
+<p></p>
+
+<h1 id="CommentPlugin_examples"> CommentPlugin examples </h1>
+<p></p>
+
+See <a href="/bin/view/System/CommentPlugin">CommentPlugin</a>
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="#CommentPlugin_templates"> CommentPlugin templates </a> <ul>
+<li> <a href="#Default"> Default </a>
+</li> <li> <a href="#A_61top_61"> top </a>
+</li> <li> <a href="#A_61bottom_61"> bottom </a>
+</li> <li> <a href="#A_61above_61"> above </a>
+</li> <li> <a href="#A_61below_61"> below </a>
+</li> <li> <a href="#A_61bulletabove_61"> bulletabove </a>
+</li> <li> <a href="#A_61threadmode_61"> threadmode </a>
+</li> <li> <a href="#A_61belowthreadmode_61"> belowthreadmode </a> <ul>
+<li> <a href="#Main.ProjectContributor_45_26_Nov_2006_45_12:09"> ProjectContributor - 26 Nov 2006 - 12:09 </a>
+</li> <li> <a href="#Main.ProjectContributor_45_2_AN1"> ProjectContributor - 26 Nov 2006 - 12:09 </a>
+</li></ul> 
+</li> <li> <a href="#A_61tableprepend_61"> tableprepend </a>
+</li> <li> <a href="#A_61tableappend_61"> tableappend </a>
+</li> <li> <a href="#A_61after_61"> after </a>
+</li> <li> <a href="#A_61action_61"> action </a>
+</li> <li> <a href="#A_61table_61"> table </a>
+</li> <li> <a href="#A_61toctalk_61"> toctalk </a> <ul>
+<li> <a href="#A_26_Nov_2006_45_00:45_Main.ProjectContributor:_Toctalk_output_summary_1"> 26 Nov 2006 - 00:45 ProjectContributor: Toctalk output summary 1 </a>
+</li> <li> <a href="#A_26_Nov_2006_45_11:09_Main.ProjectContributor:_Toctalk_output_summary_2"> 26 Nov 2006 - 11:09 ProjectContributor: Toctalk output summary 2 </a>
+</li></ul> 
+</li> <li> <a href="#A_61bookmark_61"> bookmark </a>
+</li> <li> <a href="#A_61return_61"> return </a>
+</li> <li> <a href="#A_61noform_61"> noform </a>
+</li> <li> <a href="#A_61templatetopic_61"> templatetopic </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="CommentPlugin_templates"> CommentPlugin templates </h2>
+<p></p>
+
+<h3 id="Default">  Default </h3>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'>Default comment output 1</p>
+
+-- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'>Default comment output 2</p>
+
+-- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+<p></p>
+
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="above0" name="above0" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?8ffdd32281bfb4c214918b6c621d8069' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="above" /><input type="hidden" name="comment_index" value="0" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61top_61">  <code>top</code> </h3>
+<p></p>
+
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="top1" name="top1" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?672fb5a7165a98ebff07ca455c7745d6' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="top" /><input type="hidden" name="comment_index" value="1" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61bottom_61">  <code>bottom</code> </h3>
+<p></p>
+
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="bottom2" name="bottom2" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?f55c8ac62c2eb447780881c80324e376' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="bottom" /><input type="hidden" name="comment_index" value="2" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61above_61">  <code>above</code> </h3>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'>Above comment output 1</p>
+
+-- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+<p class='p'></p>
+
+<p class='p'>Above comment output 2</p>
+
+-- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="above3" name="above3" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?c8f0cb36ba9ad02e4cedd74ae40a9904' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="above" /><input type="hidden" name="comment_index" value="3" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61below_61">  <code>below</code> </h3>
+<p></p>
+
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="below4" name="below4" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?768a0ea1d188db65312a68042d467c51' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="below" /><input type="hidden" name="comment_index" value="4" /></form> <ul>
+<li> Below comment output 2 -- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+</li> <li> Below comment output 1 -- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61bulletabove_61">  <code>bulletabove</code> </h3>
+Example with <code>inputsize="20"</code>:
+<p></p>
+ <ul>
+<li> Bullet above comment output 1
+</li> <li> Bullet above comment output 2
+</li></ul> 
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="bulletabove5" name="bulletabove5" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?af99523f0bb2f5a03e3275ece616c180' /><input class="foswikiInputField" name="bullet_above_item" id="bullet_above_item" type="text" size="20" value="" />&nbsp;<input  type="button" value="Add item" class="foswikiButton commentPluginAjax" /><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="bulletabove" /><input type="hidden" name="comment_index" value="5" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61threadmode_61">  <code>threadmode</code> </h3>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'>Threadmode comment output 1</p>
+
+-- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+<p class='p'></p>
+
+<p class='p'>Threadmode comment output 2</p>
+
+-- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="threadmode6" name="threadmode6" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?0526125c4e16be1b9a9f204893557957' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="threadmode" /><input type="hidden" name="comment_index" value="6" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61belowthreadmode_61">  <code>belowthreadmode</code> </h3>
+<p></p>
+
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="belowthreadmode7" name="belowthreadmode7" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?0bdeee9a405a9502113b2bed5db3ba13' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="belowthreadmode" /><input type="hidden" name="comment_index" value="7" /></form>
+<p></p>
+
+<h4 id="Main.ProjectContributor_45_26_Nov_2006_45_12:09">  <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006 - 12:09 </h4>
+<p class='p'>Belowthreadmode comment output 2</p>
+
+<p class='p'></p>
+
+<h4 id="Main.ProjectContributor_45_2_AN1">  <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006 - 12:09 </h4>
+<p class='p'>Belowthreadmode comment output 1</p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61tableprepend_61">  <code>tableprepend</code> </h3>
+<p></p>
+
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="tableprepend8" name="tableprepend8" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?bfc3036ad5c420f6c88287b47b50f4f8' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="tableprepend" /><input type="hidden" name="comment_index" value="8" /></form>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Tablepreprend comment output 2 </td>
+			<td class="foswikiTableCol1"> <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 26 Nov 2006 - 11:03 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Tablepreprend comment output 1 </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> 26 Nov 2006 - 11:02 </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61tableappend_61">  <code>tableappend</code> </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Tableappend comment output 1 </td>
+			<td class="foswikiTableCol1"> <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 26 Nov 2006 - 10:38 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Tableappend comment output 2 </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> 26 Nov 2006 - 10:39 </td>
+		</tr>
+	</tbody></table>
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="tableappend9" name="tableappend9" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?9d0d9543f9ae65a4723a83cc605e214d' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="tableappend" /><input type="hidden" name="comment_index" value="9" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61after_61">  <code>after</code> </h3>
+<p></p>
+ <ul>
+<li> After comment output 1 -- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+</li> <li> After comment output 2 -- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+</li></ul> 
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="after10" name="after10" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?ff56032910ffaf10c79e01da64873dee' /><div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="after" /><input type="hidden" name="comment_index" value="10" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61action_61">  <code>action</code> </h3>
+<p></p>
+
+(requires <a class="interwikiLink" href="https://foswiki.org/Extensions/ActionTrackerPlugin" title="'Extensions/ActionTrackerPlugin' on foswiki.org">Foswiki:Extensions/ActionTrackerPlugin</a>)
+<p></p>
+
+%ACTION{ due="1-Dec-2007" creator="Main.ProjectContributor" uid="000001" state="open" created="26-Nov-2006" who="Main.ProjectContributor" }% &lt;&lt;EOF
+Action comment output 1
+- Created by <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a>, 26 Nov 2006 - 10:58
+EOF
+%ACTION{ due="1-Jan-2008" creator="Main.ProjectContributor" uid="000003" state="open" created="26-Nov-2006" who="Main.ProjectContributor" }% &lt;&lt;EOF
+Action comment output 2
+- Created by <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a>, 26 Nov 2006 - 10:58
+EOF
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="action11" name="action11" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?8ef0067bf7ee9260efdb867d544f301e' />
+<p></p>
+
+<table class="foswikiTable" id="tableCommentPluginExamples3" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> <label for="action_who">Action for</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <input class="foswikiInputField" name="action_who" id="action_who" type="text" size="50" value="" /> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <label for="action_due">Due date</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <input class="foswikiInputField" name="action_due" id="action_due" type="text" size="30" value="" /> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> <label for="action_comment">Comment</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <textarea  rows="3" cols="50" name="action_comment" id="action_comment" class="foswikiInputField commentPluginPromptBox" onfocus="if(this.value=='')this.value=''" onblur="if(this.value=='')this.value=''"></textarea> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"></td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <input  type="button" class="foswikiButton commentPluginAjax" value="Add action" /> </td>
+		</tr>
+	</tbody></table>
+<input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="action" /><input type="hidden" name="comment_index" value="11" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61table_61">  <code>table</code> </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 1 Dec 2007 </td>
+			<td class="foswikiTableCol1"> <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Athens </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> 1 Jan 2008 </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Beijing </td>
+		</tr>
+	</tbody></table>
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="table12" name="table12" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?0c6883dbf7480a7cebee281b359832b6' />
+<table class="foswikiTable" id="tableCommentPluginExamples5" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> <label for="comment_date">Date</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <input class="foswikiInputField"  type="text" size="40" name="comment_date" id="comment_date" /> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> <label for="comment_city">City</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <input class="foswikiInputField"  type="text" size="40" name="comment_city" id="comment_city" value="" /> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"></td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <input  type="button" class="foswikiButton commentPluginAjax" value="Add entry" /> </td>
+		</tr>
+	</tbody></table>
+<input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="table" /><input type="hidden" name="comment_index" value="12" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61toctalk_61">  <code>toctalk</code> </h3>
+<p class='p'></p>
+
+<h4 id="A_26_Nov_2006_45_00:45_Main.ProjectContributor:_Toctalk_output_summary_1">  26 Nov 2006 - 00:45 <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a>: Toctalk output summary 1 </h4>
+Toctalk output message 1
+<p class='p'></p>
+
+<h4 id="A_26_Nov_2006_45_11:09_Main.ProjectContributor:_Toctalk_output_summary_2">  26 Nov 2006 - 11:09 <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a>: Toctalk output summary 2 </h4>
+Toctalk output message 2
+<p></p>
+
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="toctalk13" name="toctalk13" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?1cdc7017d9e8542592517153f86cf8e3' />
+<table class="foswikiTable" id="tableCommentPluginExamples6" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> <label for="comment_summary">Summary</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <input class="foswikiInputField"  type="text" size="40" name="comment_summary" id="comment_summary" /> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> <label for="toctalk_comment_text">Message</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <textarea  rows="3" cols="50" name="toctalk_comment_text" id="toctalk_comment_text" class="foswikiInputField commentPluginPromptBox" onfocus="if(this.value=='')this.value=''" onblur="if(this.value=='')this.value=''"></textarea> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"></td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <input  type="button" value="Add" class="foswikiButton commentPluginAjax" /> </td>
+		</tr>
+	</tbody></table>
+<input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="toctalk" /><input type="hidden" name="comment_index" value="13" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61bookmark_61">  <code>bookmark</code> </h3>
+<p></p>
+ <ul>
+<li> <span class='externalLink'><a href="https://foswiki.org">Bookmark output link label</a></span> 
+</li> <li> <span class='externalLink'><a href="https://foswiki.org">Foswiki</a></span> - Bookmark output comment
+</li></ul> 
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="multipart/form-data" class="commentPluginForm" id="bookmark14" name="bookmark14" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?d7b7f5dd68410ebffe737826db04a3b1' />
+<table class="foswikiTable" id="tableCommentPluginExamples7" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> <label for="comment_url">Url</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <input class="foswikiInputField"  type="text" size="40" name="comment_url" id="comment_url" value="http://" /> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <label for="comment_link">Link label</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <input class="foswikiInputField"  type="text" size="40" name="comment_link" id="comment_link" /> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> <label for="bookmark_comment_text">Comment</label> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <input class="foswikiInputField"  type="text" size="40" name="bookmark_comment_text" id="bookmark_comment_text" value="" /> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"></td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <input  type="button" value="Add bookmark" class="foswikiButton commentPluginAjax" /> </td>
+		</tr>
+	</tbody></table>
+<input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="bookmark" /><input type="hidden" name="comment_index" value="14" /></form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="A_61return_61">  <code>return</code> </h3>
+Post to a different topic and return to here. In this example comments are written to <a href="/bin/view/Sandbox/CommentPluginExampleComments">CommentPluginExampleComments</a>.
+<p></p>
+
+<!-- <ul>
+<li> Set COMMENT_TOPIC = <a href="/bin/view/Sandbox/CommentPluginExampleComments">CommentPluginExampleComments</a>
+</li></ul> 
+-->
+<p></p>
+
+<em>Comments:</em>
+<blockquote>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'>Target comment output 1</p>
+
+-- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 03 Dec 2006
+<p class='p'></p>
+
+<p class='p'>Target comment output 2</p>
+
+-- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 03 Dec 2006
+</blockquote>
+<p></p>
+
+<hr />
+<span class='foswikiAlert'> No such template def 'PROMPT:return' </span> <br />
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<span id="NoForm"></span>
+<h3 id="A_61noform_61">  <code>noform</code> </h3>
+Example of a custom form to save a comment to a new or existing topic. If topic is created, the parent will not be set..
+<p></p>
+
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="application/x-www-form-urlencoded" name="noformcomment0" id="noformcomment0" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?3cac8b193fccdf8665f97fb578d22c66' />
+<input type="hidden" name="topicparent" value="CommentPluginExampleComments" />
+<input type="hidden" name="topic" value="Sandbox/CommentPluginExamples" />
+<input type="hidden" name="endPoint" value="Sandbox/CommentPluginExamples#NoForm" />
+<input type="hidden" name="comment_action" value="save" />
+<div class="foswikiFormSteps">
+<div class="foswikiFormStep">
+<strong>New topic name:</strong> <br />
+<input class="foswikiInputField" %DISABLED% type="text" size="40" name="comment_target" id="comment_target" value="" /> <span class="foswikiGrayText">Enter a WikiWord topic name</span>
+</div>
+<div class="foswikiFormStep foswikiLast">
+<strong>Topic text:</strong> <br />
+ <div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Save" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="above" /><input type="hidden" name="comment_index" value="16" />
+</div>
+</div>
+</form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<span id="TemplateTopic"></span>
+<h3 id="A_61templatetopic_61">  <code>templatetopic</code> </h3>
+Example of a form definition in a topic. The comment template is located in <a href="/bin/view/Sandbox/CommentPluginTemplateExample">CommentPluginTemplateExample</a>.
+<p class='p'></p>
+
+<span id="CommentDate1176024819"></span>
+<a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 08 Apr 2007:
+<p class='p'>templatetopic example comment output 1</p>
+
+<hr />
+<p></p>
+
+<span id="TemplateTopicPrompt"></span>
+<form method="post" action="https://damask.mpie.de/bin/rest/CommentPlugin/comment" enctype="application/x-www-form-urlencoded" name="examplecomment" id="examplecomment" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?1540aefe29dac68b401a0cc4b6041525' />
+<input type="hidden" name="endPoint" value="Sandbox.CommentPluginExamples#TemplateTopic" />
+<input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" />
+<div class="commentPlugin commentPluginPromptBox"><table border="0" cellpadding="0" cellspacing="0"><tr valign="middle"><td><textarea  rows="3" cols="70" name="comment" class="foswikiInputField commentPluginPromptBox" title=""></textarea></td><td>&nbsp;<input  type="submit" value="Add comment" class="foswikiButton commentPluginAjax" /></td></tr></table></div><input type="hidden" name="topic" value="Sandbox.CommentPluginExamples" /><input type="hidden" name="comment_action" value="save" /><input type="hidden" name="comment_type" value="example" /><input type="hidden" name="comment_templatetopic" value="Sandbox.CommentPluginTemplateExample" /><input type="hidden" name="comment_index" value="17" />
+</form>
+<p class='p'></p>
+
+<hr /> <ul>
+<li> Bottom comment output 1 -- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+</li> <li> Bottom comment output 2 -- <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> - 26 Nov 2006
+</li></ul>  </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Sandbox/CommentPluginExamples?t=1627667762' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Sandbox/CommentPluginExamples' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Sandbox/CommentPluginExamples?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Sandbox/CommentPluginExamples?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Sandbox/CommentPluginExamples?template=backlinksweb' rel='nofollow' title='Search the Sandbox Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Sandbox/CommentPluginExamples?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Sandbox/CommentPluginExamples?t=1627667762;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Sandbox/CommentPluginExamples?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 22 Jan 2018, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Sandbox/CommentPluginExamples?foswiki_origin=GET%2cview%2c/bin/view/Sandbox/CommentPluginExamples">Log In</a></li></ul>
+</div>
+<p></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Sandbox/WebCreateNewTopic?topicparent=CommentPluginExamples"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/newtopic.png' width='16' height='16' alt='newtopic' /></span> Create New Topic</a>
+</li> <li> <a href="/bin/view/Sandbox/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/Sandbox/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/Sandbox/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/Sandbox/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/Sandbox/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a>
+</li> <li>  <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/statistics.png' width='16' height='16' alt='statistics' /></span> Statistics
+</li> <li> <a href="/bin/view/Sandbox/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Sandbox.CommentPluginExamples'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

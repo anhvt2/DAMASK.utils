@@ -1,0 +1,52 @@
+%SECTION0% patchFromReconstructedBoundaries
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Produce image, spectral geometry description, and (auto) Mentat procedure from TSL/OIM reconstructed boundary file
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; patchFromReconstructedBoundaries options options] datafile[s 
+</pre>
+
+%UPTOC%
+---++ Options
+   $=-o= / =--output= ( _rcb_, _image_, _mentat_, _procedure_, _spectral_ ): 
+   types of output
+   $=-p= / =--port= [ *40007* ]: 
+   Mentat connection port
+   $=-2= / =--twodimensional=: 
+   use 2D model
+   $=-s= / =--patchsize= [ *1.0* ]: 
+   height of patch
+   $=-e= / =--strain= [ *0.2* ]: 
+   final strain to reach in simulation
+   $=--rate= [ *0.001* ]: 
+   engineering strain rate to simulate
+   $=-N= / =--increments= [ *200* ]: 
+   number of increments to take
+   $=-t= / =--tolerance= [ *0.001* ]: 
+   relative tolerance of pixel positions to be swept
+   $=-m= / =--mesh= [ *dt_planar_trimesh* ] ( _dt_planar_trimesh_, _af_planar_trimesh_, _af_planar_quadmesh_ ): 
+   algorithm and element type for automeshing
+   $=-x= / =--xmargin= [ *0.0* ]: 
+   margin in x in units of patch size
+   $=-y= / =--ymargin= [ *0.0* ]: 
+   margin in y in units of patch size
+   $=-g= / =--grid= [ *64* ]: 
+   number of Fourier points/Finite Elements across patch size + x_margin
+   $=-z= / =--extrusion= [ *2* ]: 
+   number of repetitions in z-direction
+   $=-i= / =--imagesize= [ *512* ]: 
+   size of PNG image
+   $=-M= / =--coordtransformation=[ *0.0* *1.0* *1.0* *0.0* ]: 
+   2x2 transformation from rcb to Euler coords
+   $=--scatter= [ *0.0* ]: 
+   orientation scatter
+   $=--segment= [ *9* ]: 
+   column holding the first entry for the segment end points in the rcb file
+   $=--id= [ *13* ]: 
+   column holding the right hand grain ID in the rcb file

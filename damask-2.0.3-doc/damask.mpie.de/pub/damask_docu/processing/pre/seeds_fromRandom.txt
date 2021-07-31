@@ -1,0 +1,48 @@
+%SECTION0% seeds_fromRandom
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Distribute given number of points randomly within (a fraction of) the three-dimensional cube [0.0,0.0,0.0]--[1.0,1.0,1.0]. Reports positions with random crystal orientations in seeds file format to STDOUT.
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; seeds_fromRandom options 
+</pre>
+
+%UPTOC%
+---++ Options
+
+---+++ General
+   $=-N= [ *20* ]: 
+   number of seed points
+   $=-f= / =--fraction=: 
+   fractions along x,y,z of unit cube to fill (1.0, 1.0, 1.0)
+   $=-g= / =--grid=: 
+   min a,b,c grid of hexahedral box (16, 16, 16)
+   $=-m= / =--microstructure= [ *1* ]: 
+   first microstructure index
+   $=-r= / =--rnd= [ *none* ]: 
+   seed of random number generator
+   $=--format= [ *auto* ]: 
+   output number format
+
+---+++ Laguerre Tessellation
+   $=-w= / =--weights= [ *False* ]: 
+   assign random weights to seed points for Laguerre tessellation
+   $=--max= [ *0.0* ]: 
+   max of uniform distribution for weights
+   $=--mean= [ *0.2* ]: 
+   mean of normal distribution for weights
+   $=--sigma= [ *0.05* ]: 
+   standard deviation of normal distribution for weights
+
+---+++ Selective Seeding
+   $=-s= / =--selective=: 
+   selective picking of seed points from random seed points
+   $=--distance= [ *0.2* ]: 
+   minimum distance to next neighbor
+   $=--numCandidates= [ *10* ]: 
+   size of point group to select best distance from

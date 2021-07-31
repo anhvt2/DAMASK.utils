@@ -1,0 +1,1357 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> TwistyPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/TwistyPlugin?t=1627669253" type="application/x-wiki" title="edit TwistyPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/TwistyPlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/4d5e7bf3d1c3b1b837e3edda3ee1b336.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SCRIPTURLPATH" : "/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "URLHOST" : "https://damask.mpie.de",
+   "USERNAME" : "guest",
+   "WEB" : "System",
+   "SKIN" : "damask,famfamfam,pattern",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SERVERTIME" : "30 Jul 2021 - 20:20",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "COOKIEREALM" : "",
+   "WIKINAME" : "WikiGuest",
+   "TOPIC" : "TwistyPlugin",
+   "USERSWEB" : "Main",
+   "SYSTEMWEB" : "System",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SCRIPTSUFFIX" : ""
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/TwistyPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Plugins">Plugins</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/TwistyPlugin" title='Topic revision: 1 (01 May 2016 - 13:37:09)'>TwistyPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/TwistyPlugin?t=1627669253;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/TwistyPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/TwistyPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/TwistyPlugin?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=TwistyPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/TwistyPlugin?cover=print;sortcol=1;table=1;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/TwistyPlugin?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="TwistyPlugin"> TwistyPlugin </h1>
+<p></p>
+
+<strong>A "twisty" is an interface toggle control to show and hide content.</strong>
+<p></p>
+
+TwistyPlugin gives you several options to control the appearance of a twisty: <ul>
+<li> use link text or buttons
+</li> <li> position an icon left or right
+</li> <li> remember the state at the next visit of the page
+</li> <li> start the Twisty open or closed
+</li> <li> start the Twisty open or closed for the first visit
+</li> <li> use a span or div for the content
+</li> <li> set a class for the content span or div
+</li></ul> 
+<p class='p'>Twisty has a fallback mechanism in case JavaScript is not available: all content is displayed and the control buttons are hidden.</p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=1;table=1;up=0#Usage_examples"> Usage examples </a> <ul>
+<li> <a href="?sortcol=1;table=1;up=0#Triad"> Triad </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Shorthand"> Shorthand </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Block_or_inline"> Block or inline </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Twisty_with_icons"> Twisty with icons </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Make_it_remember"> Make it remember </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Make_it_obey"> Make it obey </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Make_it_obey_only_the_first_time"> Make it obey only the first time </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Other_use:_hide_interface_parts_in_case_of_no_JavaScript"> Other use: hide interface parts in case of no JavaScript </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Styling_the_Twisty"> Styling the Twisty </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Styling_the_Twisty_link_or_button"> Styling the Twisty link or button </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#All_on_44_all_off"> All on, all off </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Twisties_inside_other_elements"> Twisties inside other elements </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=1;up=0#Special_syntax:_format_tokens"> Special syntax: format tokens </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Generation_of_the_twisty_ID"> Generation of the twisty ID </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Syntax"> Syntax </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Parameters"> Parameters </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Parameters_AN1"> Parameters </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Examples"> Examples </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Parameters_AN2"> Parameters </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Examples_AN1"> Examples </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Parameters_AN3"> Parameters </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Examples_AN2"> Examples </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Parameters_AN4"> Parameters </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Examples_AN3"> Examples </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Examples_AN4"> Examples </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Notes_for_developers"> Notes for developers </a> <ul>
+<li> <a href="?sortcol=1;table=1;up=0#CSS_classes"> CSS classes </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=1;up=0#Plugin_Settings"> Plugin Settings </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Plugin_Installation_Instructions"> Plugin Installation Instructions </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Plugin_Info"> Plugin Info </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Usage_examples">  Usage examples </h2>
+<h3 id="Triad">  Triad </h3>
+<p></p>
+
+A Twisty consists of 3 elements: <ol>
+<li> Show button
+</li> <li> Hide button
+</li> <li> Collapsing content ('Toggle')
+</li></ol> 
+<p></p>
+
+The typical TwistyPlugin triad will look like this (pseudo code):
+<pre class="tml">
+&#37;TWISTYSHOW{}&#37; &#37;TWISTYHIDE{}&#37;
+(there may be other things between buttons and content)
+&#37;TWISTYTOGGLE{}&#37; my content &#37;ENDTWISTYTOGGLE&#37;
+</pre>
+<p></p>
+
+<h3 id="Shorthand">  Shorthand </h3>
+<p></p>
+
+The Twisty triad is conveniently packed into shorthand <code>%TWISTY{some parameters}% Collapsing content %ENDTWISTY%</code>:
+<pre class="tml">
+&#37;TWISTY{}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p class='p'>Will generate:</p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin3565show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">More...</span></a></span><span id="twistyIdSystemTwistyPlugin3565hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Close</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin3565toggle" style="" class="twistyContent twistyInited">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+You may have noticed that no parameters are passed to <code>%TWISTY{}%</code> but the show and hide links <em>do</em> have text! The default values are fetched from plugin settings <code>TWISTYSHOWLINK</code> and <code>TWISTYHIDELINK</code>, see <a class="foswikiCurrentTopicLink" href="#PluginSettings">Plugin Settings</a> below.
+<p></p>
+
+<h3 id="Block_or_inline">  Block or inline </h3>
+<p></p>
+
+The default display mode of Twisty is <code>div</code>, that is, the contents is displayed as block element, displayed on the next line.
+<p></p>
+
+If you want to show the Twisty contents on the same line - inline - use <code>mode="span"</code>:
+<pre class="tml">
+&#37;TWISTY{
+mode&#61;&#34;span&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p class='p'>Will generate:</p>
+
+<span class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin9322show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">More...</span></a></span><span id="twistyIdSystemTwistyPlugin9322hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Close</span></a></span></span><span class="twistyPlugin"><span id="twistyIdSystemTwistyPlugin9322toggle" style="" class="twistyContent twistyInited">
+<span class='foswikiGreenFG'> my twisty content </span>
+</span></span>
+<p></p>
+
+Note that if animations are on (using <code>TWISTYPLUGIN_TWISTYANIMATIONSPEED</code>), you won't see animations with inline mode.
+<p></p>
+
+<h3 id="Twisty_with_icons">  Twisty with icons </h3>
+<pre class="tml">
+&#37;TWISTY{
+    showlink&#61;&#34;Show...&#34;
+    hidelink&#61;&#34;Hide&#34;
+    showimgleft&#61;&#34;&#37;ICONURLPATH{toggleopen-small}&#37;&#34;
+    hideimgleft&#61;&#34;&#37;ICONURLPATH{toggleclose-small}&#37;&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p class='p'>It will look like this:</p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin9365show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><img src="/pub/System/DocumentGraphics/toggleopen-small.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Show...</span></a></span><span id="twistyIdSystemTwistyPlugin9365hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><img src="/pub/System/DocumentGraphics/toggleclose-small.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Hide</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin9365toggle" style="" class="twistyContent twistyInited">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+To put icons at the right side, write
+<pre class="tml">
+&#37;TWISTY{
+    showlink&#61;&#34;Show&#34;
+    hidelink&#61;&#34;Hide&#34;
+    showimgright&#61;&#34;&#37;ICONURLPATH{toggleopen-small}&#37;&#34;
+    hideimgright&#61;&#34;&#37;ICONURLPATH{toggleclose-small}&#37;&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin9410show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show</span><img src="/pub/System/DocumentGraphics/toggleopen-small.png" border="0" alt="" /></a></span><span id="twistyIdSystemTwistyPlugin9410hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide</span><img src="/pub/System/DocumentGraphics/toggleclose-small.png" border="0" alt="" /></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin9410toggle" style="" class="twistyContent twistyInited">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+<h3 id="Make_it_remember">  Make it remember </h3>
+<p></p>
+
+To store the last state in a FOSWIKIPREF cookie, add the parameter <code>remember="on"</code>.<br />
+To test this, reload the page after toggling.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> WARNING: If you really want it to be remembered, best to provide an id with
+it, otherwise it might not work.
+<pre class="tml">
+&#37;TWISTY{
+    showlink&#61;&#34;Show...&#34;
+    hidelink&#61;&#34;Hide&#34;
+    remember&#61;&#34;on&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show...</span></a></span><span id="twistyIdSystemTwistyPlugin1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+If a Twisty state has been stored in a FOSWIKIPREF cookie before, it can be cleared by using <code>remember="off"</code>:
+<pre class="tml">
+&#37;TWISTY{
+    showlink&#61;&#34;Show...&#34;
+    hidelink&#61;&#34;Hide&#34;
+    remember&#61;&#34;off&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin1560show" style="display:none" class="twistyForgetSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show...</span></a></span><span id="twistyIdSystemTwistyPlugin1560hide" style="display:none" class="twistyForgetSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin1560toggle" style="" class="twistyForgetSetting twistyContent twistyInited">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+<strong>Note:</strong> Unless specified, Twisty ids are generated automatically based on web
+and topic names. If remember option is set, a counter that increments for each
+twisty is appended, otherwise a random value is, so AJAX calls will not kill
+JS, as IDs have to be unique.
+<p></p>
+
+<pre class="tml">
+&#37;TWISTY{
+    id&#61;&#34;currentCustomerList&#34;
+    showlink&#61;&#34;Show...&#34;
+    hidelink&#61;&#34;Hide&#34;
+    remember&#61;&#34;on&#34;
+}&#37;
+my customer list
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+Note that <code>id</code> sets a site wide cookie. To create a unique id, add topic or web macros:
+<p></p>
+
+<pre class="tml">
+id&#61;&#34;&#37;WEB&#37;&#95;&#37;TOPIC&#37;&#95;currentCustomerList&#34;
+</pre>
+<p></p>
+
+<h3 id="Make_it_obey">  Make it obey </h3>
+<p></p>
+
+To let the Twisty start with its content folded open, add parameter <code>start="show"</code>.
+<pre class="tml">
+&#37;TWISTY{
+    showlink&#61;&#34;Show...&#34;
+    hidelink&#61;&#34;Hide&#34;
+    start&#61;&#34;show&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin9934show" style="display:none" class="twistyStartShow twistyTrigger foswikiUnvisited twistyInited1"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show...</span></a></span><span id="twistyIdSystemTwistyPlugin9934hide" style="" class="twistyStartShow twistyTrigger foswikiUnvisited twistyInited1"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin9934toggle" style="" class="twistyStartShow twistyContent twistyInited1">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+Likewise use <code>start="hide"</code> to start with hidden content.
+<pre class="tml">
+&#37;TWISTY{
+    showlink&#61;&#34;Show...&#34;
+    hidelink&#61;&#34;Hide&#34;
+    start&#61;&#34;hide&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin7457show" style="" class="twistyStartHide twistyTrigger foswikiUnvisited twistyInited0"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show...</span></a></span><span id="twistyIdSystemTwistyPlugin7457hide" style="display:none" class="twistyStartHide twistyTrigger foswikiUnvisited twistyInited0"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin7457toggle" style="" class="twistyStartHide twistyContent twistyInited0">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+<h3 id="Make_it_obey_only_the_first_time">  Make it obey only the first time </h3>
+<p></p>
+
+To let the Twisty start with its content folded open the first time the visitor sees the Twisty, add the parameter <code>firststart="show"</code>.
+If <code>remember="on"</code> is used, subsequential visits to the page will display the Twisty according the cookie setting.
+<pre class="tml">
+&#37;TWISTY{
+    showlink&#61;&#34;Show...&#34;
+    hidelink&#61;&#34;Hide&#34;
+    firststart&#61;&#34;show&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin1944show" style="display:none" class="twistyFirstStartShow twistyTrigger foswikiUnvisited twistyInited1"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show...</span></a></span><span id="twistyIdSystemTwistyPlugin1944hide" style="" class="twistyFirstStartShow twistyTrigger foswikiUnvisited twistyInited1"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin1944toggle" style="" class="twistyFirstStartShow twistyContent twistyInited1">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+<h3 id="Other_use:_hide_interface_parts_in_case_of_no_JavaScript">  Other use: hide interface parts in case of no JavaScript </h3>
+<p></p>
+
+<div class="foswikiHelp">
+<strong>Foswiki 1.1 and higher</strong> uses the CSS class <code>foswikiJs</code> to indicate the availability of JavaScript (the class is set to the <code>html</code> tag if JavaScript is available).
+</div>
+<p class='p'>You can use Twisty to show interface elements that should only be visible with JavaScript enabled. For instance the textbox control buttons in the edit screen need JavaScript to work. If a visitor does not have JavaScript on it would not make sense to show these buttons.</p>
+
+Put the "JavaScript content" in an almost bare bones Twisty. Write <code>showlink="" hidelink=""</code> to not display any default link texts.
+<pre class="tml">
+&#37;TWISTY{
+    link&#61;&#34;&#34;
+    noscript&#61;&#34;hide&#34;
+    start&#61;&#34;show&#34;
+}&#37;
+&#60;input type&#61;&#34;submit&#34; class&#61;&#34;foswikiButton&#34; value&#61;&#34;You surely have !JavaScript&#34; /&#62;
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin5221show" style="display:none" class="twistyStartShow twistyTrigger foswikiUnvisited twistyInited1"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited"></span></a></span><span id="twistyIdSystemTwistyPlugin5221hide" style="" class="twistyStartShow twistyTrigger foswikiUnvisited twistyInited1"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited"></span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin5221toggle" style="" class="twistyStartShow twistyContent foswikiMakeVisible twistyInited1">
+<input type="submit" class="foswikiButton" value="You surely have !JavaScript" />
+</div></div>
+<p></p>
+
+Do not forget to set <code>start="show"</code> to show the Twisty content at all.
+<p class='p'>When JavaScript is off, the button should be invisible.</p>
+
+This code will show the button when JavaScript is off:
+<pre class="tml">
+&#37;TWISTY{
+    link&#61;&#34;&#34;
+    start&#61;&#34;show&#34;
+}&#37;
+&#60;input type&#61;&#34;submit&#34; class&#61;&#34;foswikiButton&#34; value&#61;&#34;You might have !JavaScript&#34; /&#62;
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin3365show" style="display:none" class="twistyStartShow twistyTrigger foswikiUnvisited twistyInited1"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited"></span></a></span><span id="twistyIdSystemTwistyPlugin3365hide" style="" class="twistyStartShow twistyTrigger foswikiUnvisited twistyInited1"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited"></span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin3365toggle" style="" class="twistyStartShow twistyContent twistyInited1">
+<input type="submit" class="foswikiButton" value="You might have !JavaScript" />
+</div></div>
+<p></p>
+
+<h3 id="Styling_the_Twisty">  Styling the Twisty </h3>
+<p></p>
+
+Use parameter <code>class</code> to style the content div or class:
+<pre class="tml">
+&#37;TWISTY{
+    showlink&#61;&#34;Show...&#34;
+    hidelink&#61;&#34;Hide&#34;
+    class&#61;&#34;foswikiHelp&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+Generates: <br />
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin7405show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show...</span></a></span><span id="twistyIdSystemTwistyPlugin7405hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin7405toggle" style="" class="foswikiHelp twistyContent twistyInited">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+<h3 id="Styling_the_Twisty_link_or_button">  Styling the Twisty link or button </h3>
+<p></p>
+
+Use parameter <code>linkclass</code> to style the twisty links:
+<pre class="tml">
+&#37;TWISTY{
+    showlink&#61;&#34;Show...&#34;
+    hidelink&#61;&#34;Hide&#34;
+    linkclass&#61;&#34;foswikiButton&#34;
+}&#37;
+my twisty content
+&#37;ENDTWISTY&#37;
+</pre>
+<p></p>
+
+Generates: <br />
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin2001show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show...</span></a></span><span id="twistyIdSystemTwistyPlugin2001hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin2001toggle" style="" class="twistyContent twistyInited">
+<span class='foswikiGreenFG'> my twisty content </span>
+</div></div>
+<p></p>
+
+<h3 id="All_on_44_all_off">  All on, all off </h3>
+<p></p>
+
+You can toggle all Twisties on or off at once by putting a link or button on the page with class <code>twistyExpandAll</code> or <code>twistyCollapseAll</code>.
+<pre class="tml">
+&#60;button class&#61;&#34;twistyExpandAll foswikiButton&#34;&#62;Expand all&#60;/button&#62;
+&#60;button class&#61;&#34;twistyCollapseAll foswikiButton&#34;&#62;Collapse all&#60;/button&#62;
+</pre>
+<p class='p'>Creates these controls:</p>
+
+<button class="twistyExpandAll foswikiButton">Expand all</button>  
+<button class="twistyCollapseAll foswikiButton">Collapse all</button>
+<p></p>
+
+When you want to use links, write:
+<pre class="tml">
+#VarTOGGLE
+
+&#60;a href&#61;&#34;#TOGGLE&#34; class&#61;&#34;twistyExpandAll&#34;&#62;Expand all&#60;/a&#62;  &#60;a href&#61;&#34;#TOGGLE&#34; class&#61;&#34;twistyCollapseAll&#34;&#62;Collapse all&#60;/a&#62;
+</pre>
+<p></p>
+
+<span id="VarTOGGLE"></span>
+<p></p>
+
+<a class="foswikiCurrentTopicLink" href="#TOGGLE">Expand all</a>  
+<a class="foswikiCurrentTopicLink" href="#TOGGLE">Collapse all</a>
+<p></p>
+
+<h3 id="Twisties_inside_other_elements">  Twisties inside other elements </h3>
+<p></p>
+
+Twisties generate a <code>&lt;div&gt;</code> or a <code>&lt;span&gt;</code> so it's important to not divide the Twisty element across other elements such as lists.   In order to use a twisty within a list,  be sure that the twisty is closed before moving to the next list entry:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/TwistyPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column"><b>Incorrect</b></a> </th>
+			<th class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/view/System/TwistyPlugin?sortcol=1;table=1;up=1#sorted_table" rel="nofollow" title="Sort by this column"><b>Correct</b></a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/TwistyPlugin?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column"><b>Example</b></a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <pre>
+   &#42; L1
+   &#42; L2 &#37;TWISTY{}&#37; Some content
+&#37;ENDTWISTY{}&#37;
+   &#42; L3</pre> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <pre>
+   &#42; L1
+   &#42; L2 &#37;TWISTY{}&#37; Some content &#37;ENDTWISTY{}
+   &#42; L3
+
+</pre> </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> <ul> <li>L1</li> <li>L2 <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin8425show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">More...</span></a></span><span id="twistyIdSystemTwistyPlugin8425hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Close</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin8425toggle" style="" class="twistyContent twistyInited"> Some content </div></div></li> <li>L3</li> </ul> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> &nbsp; </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" rowspan="1"> <pre>
+   &#42; L1
+   &#42; L2 &#37;TWISTY{mode&#61;&#34;span&#34;}&#37; Some content &#37;ENDTWISTY{}
+   &#42; L3</pre> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast" rowspan="1"> <ul> <li>L1</li> <li>L2 <span class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin9256show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">More...</span></a></span><span id="twistyIdSystemTwistyPlugin9256hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Close</span></a></span></span><span class="twistyPlugin"><span id="twistyIdSystemTwistyPlugin9256toggle" style="" class="twistyContent twistyInited"> Some content </span></span></li> <li>L3</li> </ul> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Special_syntax:_format_tokens">  Special syntax: format tokens </h2>
+<p class='p'>If you use other macros inside TWISTY parameters chances are it will mess up the macro, or the rendered html. Use format tokens to 'delay' rendering of these variables until the Twisty parameters are parsed.</p>
+
+The format tokens are the same as with <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/TwistyPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Escape:</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/TwistyPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Expands To:</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$n</code> or <code>$n()</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> New line. Use <code>$n()</code> if followed by alphanumeric character, e.g. write <code>Foo$n()Bar</code> instead of <code>Foo$nBar</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$nop</code> or <code>$nop()</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Is a "no operation". </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$quot</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Double quote (<code>"</code>) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$percnt</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Percent sign (<code>%</code>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>$dollar</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Dollar sign (<code>$</code>) </td>
+		</tr>
+	</tbody></table>
+<p class='p'>For example, to show an icon inside the link, do not write:</p>
+
+<pre class="tml">
+link&#61;&#34;&#37;Y&#37;&#34;
+</pre>
+<p></p>
+
+but use format tokens:
+<pre class="tml">
+link&#61;&#34;&#36;percntY&#36;percnt&#34;
+</pre>
+<p class='p'>... to get:</p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTwistyPlugin273show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><img src="/pub/System/DocumentGraphics/toggleopen-small.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited"><img src="/pub/System/DocumentGraphics/choice-yes.png" alt="DONE" title="DONE" width="16" height="16" /></span></a></span><span id="twistyIdSystemTwistyPlugin273hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><img src="/pub/System/DocumentGraphics/toggleclose-small.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited"><img src="/pub/System/DocumentGraphics/choice-yes.png" alt="DONE" title="DONE" width="16" height="16" /></span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemTwistyPlugin273toggle" style="" class="twistyContent twistyInited">
+my twisty content
+</div></div>
+<p></p>
+
+Or a more complex example using <a href="/bin/view/System/SpreadSheetPlugin">SpreadSheetPlugin</a>; do not write:
+<pre class="tml">
+link&#61;&#34;Count: (&#37;CALC{&#34;&#36;GET(infoCount)&#34;}&#37;)&#34;
+</pre>
+<p></p>
+
+but use format tokens:
+<pre class="tml">
+link&#61;&#34;Count: (&#36;percntCALC{&#36;quot&#36;dollarGET(infoCount)&#36;quot}&#36;percnt)&#34;
+</pre>
+<p></p>
+
+<h2 id="Generation_of_the_twisty_ID">  Generation of the twisty ID </h2>
+<p></p>
+
+If you do not define an <code>id</code>, the plugin autogenerates an ID based on web and
+topic names.
+<p class='p'>ID is then appended with either a counter that counts from 1 for each
+twisty if remember option is set, or a random number (useful for AJAX calls).</p>
+
+<h2 id="Syntax">  Syntax </h2>
+<p></p>
+
+<h1 id="TWISTY_45_45_generate_content_block_with_interactive_visibility_controls">  TWISTY -- generate content block with interactive visibility controls </h1>
+This renders the button as well as the toggled content section contained within this and the closing <code>ENDTWISTY</code> tag.
+<h2 id="Parameters">  Parameters </h2>
+                       <table class="foswikiTable" id="tableTwistyPlugin3" rules="none">    
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>    
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>id</code> </td>
+			<td class="foswikiTableCol1"> Used to link <a href="/bin/view/System/VarTWISTYBUTTON">TWISTYBUTTON</a> and <a href="/bin/view/System/VarTWISTYTOGGLE">TWISTYTOGGLE</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>link</code> </td>
+			<td class="foswikiTableCol1"> Link label for both show and hide links </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hidelink</code> </td>
+			<td class="foswikiTableCol1"> Hide link label </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>showlink</code> </td>
+			<td class="foswikiTableCol1"> Show link label </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>mode</code> </td>
+			<td class="foswikiTableCol1"> <code>"div"</code> or <code>"span"</code> Specify if the Twisty Toggle section will use a <code>&lt;div&gt;</code> or a <code>&lt;span&gt;</code> tag. Note that if the contents contains block elements such as <code>div</code>, <code>mode</code> should be <code>div</code> as well to create valid HTML markup. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>&lt;div&gt;</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>showimgleft</code> </td>
+			<td class="foswikiTableCol1"> Specify the url of an image that will be displayed with the show link at the left side of the link. <br />You may use <a href="/bin/view/System/VarICONURLPATH">ICONURLPATH</a> to display one of the <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icons. Alternatively use an image attached to the topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hideimgleft</code> </td>
+			<td class="foswikiTableCol1"> Specify the url of an image that will be displayed with the hide link at the left side of the link. <br />You may use <a href="/bin/view/System/VarICONURLPATH">ICONURLPATH</a> to display one of the <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icons. Alternatively use an image attached to the topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>showimgright</code> </td>
+			<td class="foswikiTableCol1"> Specify the url of an image that will be displayed with the show link at the right side of the link. <br />You may use <a href="/bin/view/System/VarICONURLPATH">ICONURLPATH</a> to display one of the <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icons. Alternatively use an image attached to the topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hideimgright</code> </td>
+			<td class="foswikiTableCol1"> Specify the url of an image that will be displayed with the hide link at the right side of the link. <br />You may use <a href="/bin/view/System/VarICONURLPATH">ICONURLPATH</a> to display one of the <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icons. Alternatively use an image attached to the topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>remember</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code>, the Twisty state is remembered the next time the page is shown. If <code>"off"</code>, the stored setting will be cleared.<p></p>
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Note:</strong> when used, think carefully about a unique name (id) for the Twisty, otherwise the cookie that is set might affect other Twisties with the same name. Also note that only interaction is stored, not the state of the Twisty when left unclicked.</div> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>start</code> </td>
+			<td class="foswikiTableCol1"> <code>"hide"</code> or <code>"show"</code> Initial state of the Twisty; this will override any setting stored in a cookie (see <code>remember</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>firststart</code> </td>
+			<td class="foswikiTableCol1"> <code>"hide"</code> or <code>"show"</code> Initial state of the Twisty the first time the visitor gets to see the Twisty; this will NOT override cookie settings (see <code>remember</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>noscript</code> </td>
+			<td class="foswikiTableCol1"> Make content hidden in case use does not have JavaScript on. Default content is shown in case JavaScript if off </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>class</code> </td>
+			<td class="foswikiTableCol1"> CSS class name for Twisty div or span </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>linkclass</code> </td>
+			<td class="foswikiTableCol1"> CSS class name for link </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>prefix</code> </td>
+			<td class="foswikiTableCol1"> Text to display before the show/hide links </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>suffix</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Text to display after the show/hide links </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody>    </table>
+Additional parameters <code>img</code>, <code>imgleft</code>, <code>imgright</code>, <code>hideimg</code>, <code>showimg</code> are deprecated, use <code>showimgleft</code>, <code>hideimgleft</code>, <code>showimgright</code> or <code>hideimgright</code>.
+<p class='p'></p>
+
+<h1 id="ENDTWISTY_45_45_complements_an_opening_TWISTY_tag_to_close_a_twisty">  ENDTWISTY -- complements an opening TWISTY tag to close a twisty </h1>
+Closes an open twisty
+<p></p>
+
+<h1 id="TWISTYBUTTON_45_45_Shorthand_version_for_TWISTYSHOW_38_TWISTYHIDE">  TWISTYBUTTON -- Shorthand version for TWISTYSHOW &amp; TWISTYHIDE </h1>
+This is useful if both the show and the hide button take the same arguments.
+<h2 id="Parameters_AN1">  Parameters </h2>
+All parameters supported by <a href="/bin/view/System/VarTWISTYSHOW">TWISTY</a>, except for <ul>
+<li> <code>noscript</code> and <code>class</code> (only used for 'toggle' content)
+</li> <li> <code>mode</code> button mode defaults to div
+</li></ul> 
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<pre class="tml">&#37;TWISTYBUTTON{
+    id&#61;&#34;myid&#34;
+    link&#61;&#34;more&#34;
+  }&#37;&#37;TWISTYTOGGLE{
+    id&#61;&#34;myid&#34;
+  }&#37;content&#37;ENDTWISTYTOGGLE&#37;</pre> <ul>
+<li> Expands as: <div class="twistyPlugin foswikiMakeVisible"><span id="myidshow" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">more</span></a></span><span id="myidhide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">more</span></a></span></div><div class="twistyPlugin"><div id="myidtoggle" style="" class="twistyContent twistyInited">content</div></div>
+</li></ul> 
+<h1 id="Related">  Related </h1> <ul>
+<li> <a href="/bin/view/System/VarENDTWISTY">ENDTWISTY -- complements an opening TWISTY tag to close a twisty</a>
+</li> <li> <a href="/bin/view/System/VarENDTWISTYTOGGLE">ENDTWISTYTOGGLE -- Twisty closure</a>
+</li> <li> <a href="/bin/view/System/VarTWISTY">TWISTY -- generate content block with interactive visibility controls</a>
+</li> <li> <a href="/bin/view/System/VarTWISTYHIDE">TWISTYHIDE - Hide/close link</a>
+</li> <li> <a href="/bin/view/System/VarTWISTYSHOW">TWISTYSHOW - Show/open link</a>
+</li> <li> <a href="/bin/view/System/VarTWISTYTOGGLE">TWISTYTOGGLE -- Twisty Toggle contents section</a>
+</li></ul> 
+<h1 id="TWISTYSHOW_45_Show_47open_link">  TWISTYSHOW - Show/open link </h1>
+<h2 id="Parameters_AN2">  Parameters </h2>
+               <table class="foswikiTable" id="tableTwistyPlugin4" rules="none">    
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>    
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>id</code> </td>
+			<td class="foswikiTableCol1"> Used to link <a href="/bin/view/System/VarTWISTYSHOW">TWISTYSHOW</a>, <a href="/bin/view/System/VarTWISTYHIDE">TWISTYHIDE </a> and <a href="/bin/view/System/VarTWISTYTOGGLE">TWISTYTOGGLE</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> required </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>link</code> </td>
+			<td class="foswikiTableCol1"> Show link label </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>mode</code> </td>
+			<td class="foswikiTableCol1"> <code>"div"</code> or <code>"span"</code> Specify if the Twisty Show link will use a <code>&lt;div&gt;</code> or a <code>&lt;span&gt;</code> tag. Note that if the contents contains block elements such as <code>div</code>, <code>mode</code> should be <code>div</code> as well to create valid HTML markup. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>&lt;div&gt;</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>img</code> </td>
+			<td class="foswikiTableCol1"> Specify the url of an image that will be displayed at the <strong>right side</strong> of the link. <br />You may use <a href="/bin/view/System/VarICONURLPATH">ICONURLPATH</a> to display one of the <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icons. Alternatively use an image attached to the topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>imgleft</code> </td>
+			<td class="foswikiTableCol1"> Specify the url of an image that will be displayed at the left side of the link. <br />You may use <a href="/bin/view/System/VarICONURLPATH">ICONURLPATH</a> to display one of the <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icons. Alternatively use an image attached to the topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>imgright</code> </td>
+			<td class="foswikiTableCol1"> Specify the url of an image that will be displayed at the right side of the link. <br />You may use <a href="/bin/view/System/VarICONURLPATH">ICONURLPATH</a> to display one of the <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icons. Alternatively use an image attached to the topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>remember</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code>, the Twisty state is remembered the next time the page is shown. If <code>"off"</code>, the stored setting will be cleared.<br /> <strong>Note:</strong> when used, think carefully about a unique name (id) for the Twisty, otherwise the cookie that is set might affect other Twisties with the same name. Also note that only interaction is stored, not the state of the Twisty when left unclicked. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>start</code> </td>
+			<td class="foswikiTableCol1"> <code>"hide"</code> or <code>"show"</code> Initial state of the Twisty; this will override any setting stored in a cookie (see <code>remember</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>firststart</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>"hide"</code> or <code>"show"</code> Initial state of the Twisty the first time the visitor gets to see the Twisty; this will NOT override cookie settings (see <code>remember</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody>    </table>
+<h2 id="Examples_AN1">  Examples </h2>
+<pre class="tml">&#37;TWISTYSHOW{id&#61;&#34;demo&#34; link&#61;&#34; Click to Unfold &#34; imgleft&#61;&#34;&#37;ICONURLPATH{toggleopen}&#37;&#34;}&#37;</pre>
+<p></p>
+
+<h1 id="TWISTYHIDE_45_Hide_47close_link">  TWISTYHIDE - Hide/close link </h1>
+<h2 id="Parameters_AN3">  Parameters </h2>
+             <table class="foswikiTable" id="tableTwistyPlugin5" rules="none">    
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>    
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>id</code> </td>
+			<td class="foswikiTableCol1"> Used to link <a href="/bin/view/System/VarTWISTYSHOW">TWISTYSHOW</a>, <a href="/bin/view/System/VarTWISTYHIDE">TWISTYHIDE </a> and <a href="/bin/view/System/VarTWISTYTOGGLE">TWISTYTOGGLE</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> required </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>link</code> </td>
+			<td class="foswikiTableCol1"> Hide link label </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>mode</code> </td>
+			<td class="foswikiTableCol1"> <code>"div"</code> or <code>"span"</code> Specify if the Twisty Hide link will use a <code>&lt;div&gt;</code> or a <code>&lt;span&gt;</code> tag. Note that if the contents contains block elements such as <code>div</code>, <code>mode</code> should be <code>div</code> as well to create valid HTML markup. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>&lt;div&gt;</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>img</code> </td>
+			<td class="foswikiTableCol1" style="text-align:right"> Specify the url of an image that will be displayed at the <strong>right side</strong> of the link. <br />You may use <a href="/bin/view/System/VarICONURLPATH">ICONURLPATH</a> to display one of the <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icons. Alternatively use an image attached to the topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>remember</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code>, the Twisty state is remembered the next time the page is shown. If <code>"off"</code>, the stored setting will be cleared.<br /> <strong>Note:</strong> when used, think carefully about a unique name (id) for the Twisty, otherwise the cookie that is set might affect other Twisties with the same name. Also note that only interaction is stored, not the state of the Twisty when left unclicked. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>start</code> </td>
+			<td class="foswikiTableCol1"> <code>"hide"</code> or <code>"show"</code> Initial state of the Twisty; this will override any setting stored in a cookie (see <code>remember</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>firststart</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>"hide"</code> or <code>"show"</code> Initial state of the Twisty the first time the visitor gets to see the Twisty; this will NOT override cookie settings (see <code>remember</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody>    </table>
+<h2 id="Examples_AN2">  Examples </h2>
+<pre class="tml">&#37;TWISTYHIDE{id&#61;&#34;demo&#34; link&#61;&#34; Click to Fold &#34; imgleft&#61;&#34;&#37;ICONURLPATH{toggleclose}&#37;&#34;}&#37;</pre>
+<p></p>
+
+<h1 id="TWISTYTOGGLE_45_45_Twisty_Toggle_contents_section">  TWISTYTOGGLE -- Twisty Toggle contents section </h1>
+<h2 id="Parameters_AN4">  Parameters </h2>
+              <table class="foswikiTable" id="tableTwistyPlugin6" rules="none">    
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>    
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>id</code> </td>
+			<td class="foswikiTableCol1"> Used to link <a href="/bin/view/System/VarTWISTYSHOW">TWISTYSHOW</a>, <a href="/bin/view/System/VarTWISTYHIDE">TWISTYHIDE </a> and <a href="/bin/view/System/VarTWISTYTOGGLE">TWISTYTOGGLE</a>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> required </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>mode</code> </td>
+			<td class="foswikiTableCol1"> <code>"div"</code> or <code>"span"</code> Specify if the Twisty Toggle section will use a <code>&lt;div&gt;</code> or a <code>&lt;span&gt;</code> tag. Note that if the contents contains block elements such as <code>div</code>, <code>mode</code> should be <code>div</code> as well to create valid HTML markup. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>&lt;div&gt;</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>class</code> </td>
+			<td class="foswikiTableCol1"> CSS class name for content div or span </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>linkclass</code> </td>
+			<td class="foswikiTableCol1"> CSS class name for link </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>remember</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code>, the Twisty state is remembered the next time the page is shown. If <code>"off"</code>, the stored setting will be cleared.<br /> <strong>Note:</strong> when used, think carefully about a unique name (id) for the Twisty, otherwise the cookie that is set might affect other Twisties with the same name. Also note that only interaction is stored, not the state of the Twisty when left unclicked. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>start</code> </td>
+			<td class="foswikiTableCol1"> <code>"hide"</code> or <code>"show"</code> Initial state of the Twisty; this will override any setting stored in a cookie (see <code>remember</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>firststart</code> </td>
+			<td class="foswikiTableCol1"> <code>"hide"</code> or <code>"show"</code> Initial state of the Twisty the first time the visitor gets to see the Twisty; this will NOT override cookie settings (see <code>remember</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>noscript</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>hide</code> to make content hidden in case use does not have JavaScript on </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody>    </table>
+<h2 id="Examples_AN3">  Examples </h2>
+<pre class="tml">&#37;TWISTYTOGGLE{id&#61;&#34;demo&#34; mode&#61;&#34;div&#34; remember&#61;&#34;on&#34;}&#37;My content&#37;ENDTWISTYTOGGLE&#37;</pre>
+<p></p>
+
+<h1 id="ENDTWISTYTOGGLE_45_45_Twisty_closure">  ENDTWISTYTOGGLE -- Twisty closure </h1>
+Will end the most inner unclosed Twisty Toggle section, using the proper tag
+<h2 id="Examples_AN4">  Examples </h2>
+<code>%ENDTWISTYTOGGLE%</code>
+<p class='p'></p>
+
+<h2 id="Notes_for_developers">  Notes for developers </h2>
+<h3 id="CSS_classes">  CSS classes </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/TwistyPlugin?sortcol=0;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Class name</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/TwistyPlugin?sortcol=1;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Note</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.twistyTrigger</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.twistyContent</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.twistyPlaceholder</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.twistyRememberSetting</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> behavior class </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.twistyForgetSetting</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> behavior class </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.twistyStartHide</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> behavior class </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.twistyStartShow</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> behavior class </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.twistyInited1</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> behavior class: state is set to shown </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>.twistyInited0</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> behavior class: state is set to hidden </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<span id="PluginSettings"></span>
+<h2 id="Plugin_Settings">  Plugin Settings </h2>
+<p></p>
+
+You can override some default settings in the plugin by setting the following <a href="/bin/view/System/PreferenceSettings">preferences</a>.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/TwistyPlugin?sortcol=0;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Preference</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/TwistyPlugin?sortcol=1;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Meaning</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/TwistyPlugin?sortcol=2;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>TWISTYPLUGIN_TWISTYSHOWLINK</code> </td>
+			<td class="foswikiTableCol1"> For example: <code>More...</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> More... </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>TWISTYPLUGIN_TWISTYHIDELINK</code> </td>
+			<td class="foswikiTableCol1"> For example: <code>Close</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Close </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>TWISTYPLUGIN_TWISTYMODE</code> </td>
+			<td class="foswikiTableCol1"> Either <code>div</code> or <code>span</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>span</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>TWISTYPLUGIN_TWISTYREMEMBER</code> </td>
+			<td class="foswikiTableCol1"> Either <code>on</code> or <code>off</code>. If set to <code>on</code> all Twisty states will be stored in a FOSWIKIPREF cookie; if set to <code>off</code> the FOSWIKIPREF cookie will be cleared </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> not specified </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>TWISTYPLUGIN_TWISTYANIMATIONSPEED</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Speed of animation: 'fast', 'slow', or integer milliseconds </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>0</code> (no animation) </td>
+		</tr>
+	</tbody></table>
+<!-- <ul>
+<li> Set SHORTDESCRIPTION = Twisty section Javascript library to open/close content dynamically
+</li></ul> 
+-->
+<p></p>
+
+<h2 id="Plugin_Installation_Instructions">  Plugin Installation Instructions </h2>
+<p class='p'>You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.</p>
+
+<p class='p'>Open configure, and open the "Extensions" section. Use "Find More Extensions" to get a list of available extensions. Select "Install".</p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="http://foswiki.org/Support/ManuallyInstallingExtensions">http://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Plugin_Info">  Plugin Info </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change&nbsp;History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Apr 2016 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.63 Bump version due to minor documentation updates.  Released with Foswiki 2.1.1 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jun 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.62 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12597" title="'Item12597' on the 'Foswiki' issue tracking site">Foswikitask:Item12597</a>: Expand/Collapse all is acting as a toggle.<br />                      <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12694" title="'Item12694' on the 'Foswiki' issue tracking site">Foswikitask:Item12694</a> Default to fast animation speed.<br/>                      <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12583" title="'Item12583' on the 'Foswiki' issue tracking site">Foswikitask:Item12583</a>: Change to simple decimal version,<br/>                      <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10986" title="'Item10986' on the 'Foswiki' issue tracking site">Foswikitask:Item10986</a>: Better documentation for twisties in lists. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Oct 2013 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.18 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12597" title="'Item12597' on the 'Foswiki' issue tracking site">Foswikitask:Item12597</a>: fixed collapse/expand all </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Nov 2012 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.17 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12079" title="'Item12079' on the 'Foswiki' issue tracking site">Foswikitask:Item12079</a>: Scripts added to the wrong zone <br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11267" title="'Item11267' on the 'Foswiki' issue tracking site">Foswikitask:Item11267</a>: Convert to perl version strings. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Sep 2012 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.16 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11983" title="'Item11983' on the 'Foswiki' issue tracking site">Foswikitask:Item11983</a>: fixed script being added to the wrong zone </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Dec 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.15 Released with Foswiki 1.1.4 - minor changes </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jul 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.14 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10946" title="'Item10946' on the 'Foswiki' issue tracking site">Foswikitask:Item10946</a>: fixed requesting of defunct/missing jquery.twisty.css </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Jun 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.13 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10827" title="'Item10827' on the 'Foswiki' issue tracking site">Foswikitask:Item10827</a>: clear pref completely when using <code>remember="off"</code>. Effective from Foswiki 1.1.4 and higher. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Apr 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.12 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10618" title="'Item10618' on the 'Foswiki' issue tracking site">Foswikitask:Item10618</a>: parenthesis (or other Regex characters) in topic name crashes Foswiki <br /> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10264" title="'Item10264' on the 'Foswiki' issue tracking site">Foswikitask:Item10264</a>: Change template-js-css logic from foswikiJs to foswikiNoJs <br /> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10506" title="'Item10506' on the 'Foswiki' issue tracking site">Foswikitask:Item10506</a>: Add noci to avoid checkin of files during installation. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Dec 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.11 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10161" title="'Item10161' on the 'Foswiki' issue tracking site">Foswikitask:Item10161</a>: improved compatibility with jquery-1.4.3/4 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Nov 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.10 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9963" title="'Item9963' on the 'Foswiki' issue tracking site">Foswikitask:Item9963</a>: Revert usage of <code>$percent</code> back to <code>$percnt</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Oct 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.9 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9918" title="'Item9918' on the 'Foswiki' issue tracking site">Foswikitask:Item9918</a>: fixed twisty animation on jquery-1.4.3 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Oct 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.8 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9904" title="'Item9904' on the 'Foswiki' issue tracking site">Foswikitask:Item9904</a>: fixed compatibility with IE </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Oct 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.7 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9815" title="'Item9815' on the 'Foswiki' issue tracking site">Foswikitask:Item9815</a>: Changed random IDs back to predictable IDs if remember option is set </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Sep 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.6 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9499" title="'Item9499' on the 'Foswiki' issue tracking site">Foswikitask:Item9499</a>: Recoded show/hide animation code for smooth twisties. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Sep 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.5 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9515" title="'Item9515' on the 'Foswiki' issue tracking site">Foswikitask:Item9515</a>: Simplified code that shows/hides twisties. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Sep 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.4 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9626" title="'Item9626' on the 'Foswiki' issue tracking site">Foswikitask:Item9626</a>: Put link class around link and image. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Aug 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.3 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item8573" title="'Item8573' on the 'Foswiki' issue tracking site">Foswikitask:Item8573</a>: Fix new dependency on <a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Aug 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.2 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9515" title="'Item9515' on the 'Foswiki' issue tracking site">Foswikitask:Item9515</a>: Fix compatibility with browsers running without js (content should always be shown) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Aug 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.1 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9499" title="'Item9499' on the 'Foswiki' issue tracking site">Foswikitask:Item9499</a>: Added preference variable to set show/hide transition animation speed (default to none) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Aug 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6.0 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9422" title="'Item9422' on the 'Foswiki' issue tracking site">Foswikitask:Item9422</a>: Implement as <a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a>::Plugin; emit <code>display: none</code> style on hidden twisties to avoid relying on CSS/JS<br />                       <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9415" title="'Item9415' on the 'Foswiki' issue tracking site">Foswikitask:Item9415</a>: Documentation changes </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Jul 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.5.6 <a class="interwikiLink" href="https://foswiki.org/Tasks.Item9387" title="'Tasks.Item9387' on foswiki.org">Foswiki:Tasks.Item9387</a>: Fixed jQuery JS </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Mar 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.5.5 Fixed id generated in subwebs. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Feb 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.5.4 Fixed jquery twisties, improved templates structure </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.5.3 Add sequential number to the <code>TWISTY</code> <code>id</code> to allow more than one instance with that id on the page. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Aug 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.5.2 Fix dependencies - jqueryPlugin and DojoToolkit were ported to foswiki a while ago. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Dec 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.5.1 Added parameter <code>linkclass</code>. Foswiki version. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Nov 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.5 Foswiki release; added option to use other Javascript libraries. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Oct 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4.11, 1.4.12 It is now possible to have a twisty on the same line without a linebreak. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Aug 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4.10 TWiki 4.2.1 release version. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Dec 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4.9 fix to the loading order of javascript files in head. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Nov 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4.6 - 1.4.8 Arthur Clemens - Added format tokens. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Oct 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4.5 Arthur Clemens - Fix html tag with show/hide controls. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Sep 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4.4 Arthur Clemens - Fix rendering of headers when <code>prefix</code> is used. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jul 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4.3 Arthur Clemens - Fix invalid html when <code>prefix</code> and <code>suffix</code> is used. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jun 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4.2 Arthur Clemens - Fixed bugs with parameters <code>firststart</code> and <code>noscript</code> (since version 1.4). </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Jun 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4 Arthur Clemens - Updated to work without ugly inserted javascript 'init' calls. This will change nothing to the functionality, but it will produce cleaner HTML, while at the same time the twisty is still set immediately (not at page onload) and graceful fallback in case of no javascript is maintained. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Jun 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.3 Arthur Clemens - Updated with TWiki 4 JavaScript files. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Oct 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.2 New variables to set default values: <code>TWISTYSHOWLINK</code>, <code>TWISTYHIDELINK</code>, <code>TWISTYMODE</code>, <code>TWISTYREMEMBER</code>; property <code>id</code> is no longer required as this is automatically set (still recommended in some cases with <code>remember="on"</code>); property value <code>remember="off"</code> will clear a previously stored cookie; new properties <code>prefix</code> and <code>suffix</code>; JavaScript to collapse or expand all Twisties on the page. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Sep 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.101 Fixes JavaScript handling when AllowInlineScript in configure is not set </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jun 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.100 Added parameters <code>start</code>, <code>firststart</code>, <code>noscript</code> and <code>class</code>; complete JavaScript rewrite for speed </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Sep 2005 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.000 First Version </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> Dependencies: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> None </td>
+		</tr>
+	</tbody></table>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/TwistyPlugin?t=1627669254;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main.RafaelAlvarez" title="'Main.RafaelAlvarez' on foswiki.org">Foswiki:Main.RafaelAlvarez</a>, <a class="interwikiLink" href="https://foswiki.org/Main.MichaelDaum" title="'Main.MichaelDaum' on foswiki.org">Foswiki:Main.MichaelDaum</a>, <a class="interwikiLink" href="https://foswiki.org/Main.ArthurClemens" title="'Main.ArthurClemens' on foswiki.org">Foswiki:Main.ArthurClemens</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 1.63 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 1.63 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/distro">https://github.com/foswiki/distro</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> Copyright (C) Rafael Alvarez; Michael Daum, Arthur Clemens, Foswiki Contributors 2008-2014 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> <span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GPL</a></span> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="http://foswiki.org/Extensions/TwistyPlugin">http://foswiki.org/Extensions/TwistyPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="http://foswiki.org/Support/TwistyPlugin">http://foswiki.org/Support/TwistyPlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/TwistyPlugin?t=1627669254' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/TwistyPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TwistyPlugin?cover=print;sortcol=1;table=1;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/TwistyPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TwistyPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TwistyPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/TwistyPlugin?t=1627669254;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TwistyPlugin?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 01 May 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/TwistyPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/TwistyPlugin%3fsortcol%3d1%3btable%3d1%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.TwistyPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

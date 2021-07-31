@@ -1,0 +1,2088 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> CommandAndCGIScripts &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/CommandAndCGIScripts?t=1627668691" type="application/x-wiki" title="edit CommandAndCGIScripts" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/CommandAndCGIScripts" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/c086ff03294fb914edc74cfc4bc8802d.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "URLHOST" : "https://damask.mpie.de",
+   "USERNAME" : "guest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "USERSWEB" : "Main",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKINAME" : "WikiGuest",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATH" : "/bin",
+   "COOKIEREALM" : "",
+   "TOPIC" : "CommandAndCGIScripts",
+   "WEB" : "System",
+   "SKIN" : "damask,famfamfam,pattern",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTSUFFIX" : "",
+   "SERVERTIME" : "30 Jul 2021 - 20:11",
+   "SYSTEMWEB" : "System"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/CommandAndCGIScripts"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/CommandAndCGIScripts" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>CommandAndCGIScripts</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/CommandAndCGIScripts?t=1627668691;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/CommandAndCGIScripts' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/CommandAndCGIScripts?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/CommandAndCGIScripts?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=CommandAndCGIScripts' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/CommandAndCGIScripts?cover=print;sortcol=1;table=20;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/CommandAndCGIScripts?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic">
+<h1 id="CGI_and_Command_Line_Scripts">  CGI and Command Line Scripts </h1>
+<p></p>
+
+<em>Programs on the server performing actions such as rendering, saving and renaming topics.</em>
+<p></p>
+
+These scripts are located in the <code>bin</code> and <code>tools</code> directories. This topic describes the interfaces to some of those scripts. All scripts in the <code>bin</code> directory can be called from the CGI (<span class='externalLink'><a href="http://en.wikipedia.org/wiki/Common_Gateway_Interface">Common Gateway Interface</a></span>) environment or from the command line. The scripts in the <code>tools</code> directory can only be called from the command line.
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=1;table=20;up=0#CGI_Scripts"> CGI Scripts </a> <ul>
+<li> <a href="?sortcol=1;table=20;up=0#General_Information"> General Information </a> <ul>
+<li> <a href="?sortcol=1;table=20;up=0#CGI_environment"> CGI environment </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#Command_45line"> Command-line </a> <ul>
+<li> <a href="?sortcol=1;table=20;up=0#A_34Authentication_34_in_the_command_line_environment"> "Authentication" in the command line environment </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=20;up=0#Context"> Context </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=20;up=0#Common_parameters"> Common parameters </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61attach_61"> attach </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61changes_61"> changes </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61configure_61"> configure </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61edit_61"> edit </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61login_61"> login </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61logon_61"> logon </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61manage_61"> manage </a> <ul>
+<li> <a href="?sortcol=1;table=20;up=0#A_61action_61create_61"> action=create </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61createweb_61"> action=createweb </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61editSettings_61"> action=editSettings </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61saveSettings_61"> action=saveSettings </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61bulkRegister_61"> action=bulkRegister </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61changePassword_61"> action=changePassword </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61resetPassword_61"> action=resetPassword </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61deleteUserAccount_61"> action=deleteUserAccount </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61restoreRevision_61"> action=restoreRevision </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61addUserToGroup_61"> action=addUserToGroup </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61removeUserFromGroup_61"> action=removeUserFromGroup </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61oops_61"> oops </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61preview_61"> preview </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61rdiff_61"> rdiff </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61register_61"> register </a> <ul>
+<li> <a href="?sortcol=1;table=20;up=0#A_61action_61register_61"> action=register </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61verify_61"> action=verify </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61approve_61"> action=approve </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61disapprove_61"> action=disapprove </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61rename_61"> rename </a> <ul>
+<li> <a href="?sortcol=1;table=20;up=0#A_61action_61_34renameweb_34_61"> action="renameweb" </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61action_61renameother_61"> action=renameother </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61resetpasswd_61"> resetpasswd </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61rest_61"> rest </a> <ul>
+<li> <a href="?sortcol=1;table=20;up=0#A_61rest_61_authentication"> rest authentication </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#Invocation_Examples"> Invocation Examples </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#Retrieving_passed_values"> Retrieving passed values </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61save_61"> save </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61search_61"> search </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61statistics_61"> statistics </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61upload_61"> upload </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61view_61"> view </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61viewfile_61"> viewfile </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=20;up=0#Tool_Scripts"> Tool Scripts </a> <ul>
+<li> <a href="?sortcol=1;table=20;up=0#A_61configure_61_AN1"> configure </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61dependencies_61"> dependencies </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61geturl.pl_61"> geturl.pl </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61rewriteshebang.pl_61"> rewriteshebang.pl </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61tick_foswiki.pl_61"> tick_foswiki.pl </a>
+</li> <li> <a href="?sortcol=1;table=20;up=0#A_61extension_installer_61"> extension_installer </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="CGI_Scripts">  CGI Scripts </h2>
+Details on CGI scripts located in the <code>bin</code> directory.
+<p></p>
+
+Note that a blank in the 'Default' column means that the parameter
+is not required, and has no default. <em>required</em> means the
+parameter is required, and has no default. text <em>in italics</em> describes
+default behaviour if no value is given.
+<p></p>
+
+<h3 id="General_Information">  General Information </h3>
+<h4 id="CGI_environment">  CGI environment </h4>
+In the CGI environment parameters are passed to the scripts via the URL and URL parameters. Environment variables are also used to determine the user performing the action. If the environment is not set up, the default user is used (usually <code>guest</code>).
+<p></p>
+
+<h4 id="Command_45line">  Command-line </h4>
+You <strong>must</strong> be have the <code>bin</code> directory on the perl path to run the scripts from the command line.
+<p></p>
+
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> To avoid issues with file permissions, <strong>run the scripts as the web server user such as <code>nobody</code>, <code>=www-data</code> or =www=</strong>. <br />
+If running scripts under the control of cron, install the crontab under the
+web server user.</div>
+<p class='p'>Parameters are passed on the command line using two possible formats:</p>
+ <ul>
+<li> Traditional command line "switch" style format:  <code>-name value</code>,  The "-" prefix for the keyword is required.
+</li></ul> 
+<pre class="bash">
+&#36; cd /usr/local/foswiki/bin
+&#36; save -topic MyWeb.MyTopic -user admin -action save -text &#34;New text of the topic&#34;
+</pre> <ul>
+<li> Keyword format: <code>parameter=value</code>.   A "-" prefix is optional.
+</li></ul> 
+<pre class="bash">
+&#36; cd /usr/local/foswiki/bin
+&#36; save topic&#61;MyWeb.MyTopic user&#61;admin action&#61;save text&#61;&#34;New text of the topic&#34;
+</pre>
+All parameters require a value, even if that is the empty string. Note that parameters passed on the command-line should <strong>not</strong> be URL-encoded.
+<p></p>
+
+<h5 id="A_34Authentication_34_in_the_command_line_environment">  "Authentication" in the command line environment </h5>
+<p></p>
+
+Unlike the CGI environment, the default user for command line operations is <code>AdminUser</code>.
+<p></p>
+ <ul>
+<li> The <code>-user</code> parameter is specific to the command line and is not recognized by in the web environment.  It allows a user to be specified without requiring that the password be supplied.  It is <strong>only</strong> active from the command line.
+</li> <li> The <code>-username</code> / <code>-password</code> parameters are processed by the authentication system and require the password be authenticated.  Depending upon the authentication implementation, it may or may not be usable in the command line environment.
+</li></ul> 
+<p></p>
+
+When calling a <code>tools</code> script from the command line, you normally need to be cd'd to the =bin directory e.g.
+<pre class="bash">
+&#36; cd bin
+&#36; ../tools/mailnotify -q -nonews -nochanges -Main -System
+</pre>
+<p></p>
+
+<h4 id="Context">  Context </h4>
+<p></p>
+
+Each script sets a Foswiki <code>context</code> to signal to plugins and other components the environment that they are running.  In addition to the per-script context, two additional contexts are optionally set: <ul>
+<li> <code>command_line</code> is set if there is no CGI query object available.
+</li> <li> <code>static</code> is set by scripts that render static content like PDF or other offline publishing tools
+</li></ul> 
+<p></p>
+
+A comprehensive list of core context identifiers used by Foswiki is found in the <a href="/bin/view/System/IfStatements#Context_identifiers.">IfStatements</a>
+<p></p>
+
+<h3 id="Common_parameters">  Common parameters </h3>
+All the scripts accept a number of common parameters. The first two components of the URL after the script name are taken as the web and the topic, respectively. Standard URL parameters are:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>cover</code> </td>
+			<td class="foswikiTableCol1"> Specifies temporary skin path to prepend to the skin path for this script only (see <a href="/bin/view/System/Skins">Skins</a>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>debugenableplugins</code> </td>
+			<td class="foswikiTableCol1"> During debugging it can be useful to selectively disable all but a subset of plugins. This parameter allows the caller to specify a comma-separated list of plugins that should be enabled. It can only be used when <code>$ENV{FOSWIKI_ASSERTS}</code> is set to 1 in <code>bin/LocalLib.cfg</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>foswikioriginalquery</code> </td>
+			<td class="foswikiTableCol1"> The original query that was being made before a redirect for user confirmation was required. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>foswiki_redirect_cache</code> </td>
+			<td class="foswikiTableCol1"> Foswiki sometimes caches long lists of parameters that must survive over a sequence of browser redirects. This parameter identifies one of these caches. The parameter value is a "magic number" that uniquely idenitifies a file in the <code>working/tmp</code> directory. These files have a very short lifetime, and are destroyed when the cache is read. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>logout</code> </td>
+			<td class="foswikiTableCol1"> requests the LoginManager to log the current user out (this happens at the begining of the request so will terminate any other operation requested) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>refresh</code> </td>
+			<td class="foswikiTableCol1"> If the Foswiki page cache is in use, setting this parameter will invalidate the cache. Valid values are <code>cache</code>, <code>on</code> and <code>all</code>. See <a href="/bin/view/System/PageCaching">PageCaching</a> for more information on the page cache. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>response</code> </td>
+			<td class="foswikiTableCol1"> Used as part of the request validation process. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>skin</code> </td>
+			<td class="foswikiTableCol1"> Overrides the default skin path (see <a href="/bin/view/System/Skins">Skins</a>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>value of the <code>SKIN</code> preference</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>t</code> </td>
+			<td class="foswikiTableCol1"> While the <code>t</code> parameter is not actively used by any scripts, it is used when building links to scripts such as <code>edit</code>, to ensure that each edit link is unique. This stops the browser from trying to use a cached reply from a previous call to the script. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>generally set to current time, in seconds</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topic</code> </td>
+			<td class="foswikiTableCol1"> Overrides the web.topic path given in the URL (specify Web.TopicName, or TopicName in combination with <code>defaultweb</code> below) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>defaultweb</code> </td>
+			<td class="foswikiTableCol1"> a default value for web, which is over-ridden by specifying either a web in the <code>topic</code> param above, or in the url location (used for selecting a web in a webform) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>user</code> </td>
+			<td class="foswikiTableCol1"> Command-line only; set the name of the user performing the action. Note: this usage is inherently insecure, as it bypasses webserver login constraints. For this reason only authorised users should be allowed to execute scripts from the command line. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>validation_key</code> </td>
+			<td class="foswikiTableCol1"> part of cross-site scripting protection. Any request sent from browsers that might change data stored on the server must carry a key that indentifies the source of the request. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>preserve_vk</code> </td>
+			<td class="foswikiTableCol1"> part of cross-site scripting protection. Normally a validation key is expired once it has been used once. However non-HTML5 browsers can't handle this, so the validation key has to be preserved for re-use. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <em>&lt;any name&gt;</em> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Any other parameter name passed to the script is passed through for possible use by the script.  This is <em>typically</em> only applicable to the <code>edit</code>, <code>save</code> and <code>view</code> scripts. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p class='p'>Where revision parameters are required, individual versions are identified by positive, non-zero integers. Versions start with 1 and are sequencial. For compatibility reasons, Some scripts accept revision numbers with '1.' (or even 'r1.') prepended to the number, but this usage is deprecated and should be corrected when encountered.</p>
+
+<div class="foswikiHelp">
+<strong>Note:</strong> Prior releases of Foswiki would accept the undocumented <code>username</code> and <code>password</code> parameter on any script.
+Foswiki 1.1.9 restricts this to the <code>view</code> script and only on POST transactions unless overridden in the Foswiki configuration.
+</div>
+<p></p>
+
+<h3 id="A_61attach_61">  <code>attach</code> </h3>
+Despite the name, this script doesn't actually attach a file to a topic - for that, use <code>upload</code>. This script is part of the transactions sequence executed when a file is uploaded from the browser. it just generates the "new attachment" page for a topic.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>filename</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Name of existing attachment (if provided, this is a "manage attachment" action) </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>this is a "new attachment" action</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="A_61changes_61">  <code>changes</code> </h3>
+Shows all the changes in the given web. 
+<p></p>
+
+The <code>changes</code> script can receive one parameter:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>minor</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> If 0, show only major changes. If 1, show all the changes (both minor and major) </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>show major changes</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+The main difference between invoking this script and using <a href="/bin/view/System/WebChanges">WebChanges</a> is that <a href="/bin/view/System/WebChanges">WebChanges</a> is based on a <code>%SEARCH%</code>, while this script reads the <code>changes</code> file in each web, making it much faster.
+<p></p>
+
+<strong>NOTE</strong>: The result from <code>changes</code> script and the topic <a href="/bin/view/System/WebChanges">WebChanges</a> can be different, if the <code>changes</code> file is deleted from a web. In particular, in new installations the <code>changes</code> script will return no results while the <a href="/bin/view/System/WebChanges">WebChanges</a> topic will.
+<p></p>
+
+<h3 id="A_61configure_61">  <code>configure</code> </h3>
+<code>configure</code> is the browser script used for inspection of, and changes to, the site configuration. None of the parameters to this script are useable for any purpose except <code>configure</code>. See <a href="/bin/configure">configure</a>.
+<p></p>
+
+<h3 id="A_61edit_61">  <code>edit</code> </h3>
+The <code>edit</code> script understands the following parameters, typically supplied by HTML input fields.
+<p></p>
+
+A major role of the <code>edit</code> script is new topic creation. Parameters that are mainly relevant to new topic creation are marked with <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wip.png' width='16' height='16' alt='wip' /></span>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action</code> </td>
+			<td class="foswikiTableCol1"> If <code>action=text</code>, then hide the form. If <code>action=form</code>, then hide the normal text area and only edit the form. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>edit both</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>breaklock</code> </td>
+			<td class="foswikiTableCol1"> If set, any lease conflicts will be ignored, and the edit will proceed even if someone is already editing the topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>cmd</code> </td>
+			<td class="foswikiTableCol1"> Admin only features, see below </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>contenttype</code> </td>
+			<td class="foswikiTableCol1"> Optional parameter that defines the application type to write into the CGI header. May be used to invoke alternative client applications </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>text/html</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>formtemplate</code> </td>
+			<td class="foswikiTableCol1"> Name of the form to instantiate in the topic. Set to <code>none</code> to remove any existing form. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>notemplateexpansion</code> </td>
+			<td class="foswikiTableCol1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wip.png' width='16' height='16' alt='wip' /></span> Do not expand any macros in the template topic.  (see <a class="foswikiCurrentTopicLink" href="#NewTopicCreation">New topic creation</a> below) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>expand</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>onlynewtopic</code> </td>
+			<td class="foswikiTableCol1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wip.png' width='16' height='16' alt='wip' /></span> If <code>on</code>, error if the topic already exists </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>edit existing topic</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>onlywikiname</code> </td>
+			<td class="foswikiTableCol1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wip.png' width='16' height='16' alt='wip' /></span> If <code>on</code>, error if the name of a topic being created is not a <a href="/bin/view/System/WikiWord">WikiWord</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>allow non-wikiword names</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>redirectto</code> </td>
+			<td class="foswikiTableCol1"> If the user continues from edit to save, and if the save (or cancel) process is successful, save will redirect to this topic or URL. The parameter value can be a <code>TopicName</code>, a <code>Web.TopicName</code>, or a URL.<br /> <strong>Note:</strong> Redirect to a URL only works if it is enabled in <code>configure</code> (Miscellaneous <code>{AllowRedirectUrl}</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rev</code> </td>
+			<td class="foswikiTableCol1"> Lets you specify a specific revision to use as the basis of the edit. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>latest</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>template</code> </td>
+			<td class="foswikiTableCol1"> Allows you to specify a different skin template. Overrides any setting of <code><a href="/bin/view/System/SkinTemplates#TemplatePreferences">EDIT_TEMPLATE</a></code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>templatetopic</code> </td>
+			<td class="foswikiTableCol1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wip.png' width='16' height='16' alt='wip' /></span> The name of the template topic, copied to get the initial content for a new topic. (see <a class="foswikiCurrentTopicLink" href="#NewTopicCreation">New topic creation</a> below) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>text</code> </td>
+			<td class="foswikiTableCol1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wip.png' width='16' height='16' alt='wip' /></span> Set the text to be edited. If this parameter is not given, the text is taken from the existing topic (if it exists) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topicparent</code> </td>
+			<td class="foswikiTableCol1"> Sets the parent topic. Set to <code>none</code> to remove parent. Set to topic name to change parent, leave empty to keep existing parent. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>keep existing parent</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <em>&lt;any name&gt;</em> </td>
+			<td class="foswikiTableCol1 foswikiLast"> This can be used in two ways; first, if the topic has a form with a field called <em>&lt;any name&gt;</em>, it will set the value of that field. <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wip.png' width='16' height='16' alt='wip' /></span> Second, it can be expanded in the topic text during topic creation - see <a class="foswikiCurrentTopicLink" href="#NewTopicCreation">New topic creation</a> below </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+The following options are <strong>only</strong> available to the site Administrator.  They can "rewrite history" and should be used with caution only when absolutely necessary.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>cmd=delRev</code> </td>
+			<td class="foswikiTableCol1"> <strong>Administrators only</strong> delete the most recent revision of the topic - all other parameters are ignored. You have to be an administrator to use this, and not all store implementations will support it.  This option returns you to an editor for the current version, but the edit is ignored, and save will delete the latest revision. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>cmd=repRev</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <strong>Administrators only</strong> replace the text of the most recent revision of the topic with the text in the <code>text</code> parameter. <code>text</code> may include embedded meta-data tags. As far as possible, the original author and date of the revision being replaced are retained. You have to be an administrator to use this, and not all store implementations will support it. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<strong><em>Skin notes:</em></strong>
+<p></p>
+
+The <code><a href="/bin/view/System/SkinTemplates#TemplatePreferences">EDIT_TEMPLATE</a></code> preference (or the <code>template</code> parameter) can be used to override the default 'edit' template on a per-web or per-topic basis.
+<p></p>
+
+The <code>action</code> parameter works by loading the <code>editform.tmpl</code> or <code>edittext.tmpl</code> templates in place of the standard <code>edit.tmpl</code>. If an <code>EDIT_TEMPLATE</code> has been defined, then it replaces <code>edit</code>, e.g. if <code>EDIT_TEMPLATE=specialed</code> and <code>action=form</code> then the template used will be <code>specialedform</code>
+<p></p>
+
+In most skins that are based on the default templates (such as <a href="/bin/view/System/PatternSkin">PatternSkin</a>) you can easily change the <code>Edit</code> and <code>Edit WikiText</code> buttons to append the <code>action</code> parameter, by setting the <code>EDITACTION</code> <a href="/bin/view/System/PreferenceSettings">preference</a> to the value <code>text</code> or <code>form</code> (You can always get back to editing the whole topic by removing the <code>action</code> parameter from the URL browser Location window, and reloading the edit window).
+<p></p>
+
+<span id="NewTopicCreation"></span>
+<strong><em>New topic creation <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wip.png' width='16' height='16' alt='wip' /></span>:</em></strong>
+<p class='p'>The string AUTOINC followed by one or more digits anywhere in the topic name will be converted to a number such that the resulting topic name is unique in the target web. However this doesn't happen until the topic is saved.</p>
+
+When a new topic is created using edit, the topic isn't actually created until the edit is saved. The content of the new topic is initialised according to the parameters you pass. <ul>
+<li> <code>templatetopic</code> - defines the full name (web.topic) of a topic to use as a template for the new topic. The template topic is copied and, unless <code>notemplateexpansion</code> is set, the following macros are expanded in the topic text: <code>URLPARAM</code>, <code>DATE</code>, <code>SERVERTIME</code>, <code>GMTIME</code>, <code>USERNAME</code>, <code>WIKINAME</code>, <code>WIKIUSERNAME</code>, <code>USERINFO</code>. (see <a class="foswikiNewLink" href="/bin/edit/System/TopicTemplates?topicparent=System.CommandAndCGIScripts" rel="nofollow" title="Create this topic">TopicTemplates</a>)
+</li> <li> <code>text</code> - use this as the text of the topic. Macros are <strong>not</strong> expanded in this text. Overrides any text set in the <code>templatetopic</code>.
+</li> <li> <code>formtemplate</code> - Overrides any form set in the <code>templatetopic</code>.
+</li> <li> <code>notemplateexpansion</code> - given by <code>templatetopic</code>. Use this when you want a verbatim copy of a topic.
+</li> <li> <code>onlynewtopic</code> and <code>onlywikiname</code> are used to control validation of the new topic name.
+</li> <li> <em>&lt;any name&gt;</em> - besides the form field value setting described above, when creating a new topic, <code>%URLPARAM{"</code> <em>&lt;any name&gt;</em> <code>"}%</code> in the <code>templatetopic</code> will be expanded to the parameter value.
+</li></ul> 
+<p></p>
+
+<h3 id="A_61login_61">  <code>login</code> </h3>
+Used for logging in with TemplateLoginManager, and for interactive validation of operations that require user confirmation.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>foswikiloginaction</code> </td>
+			<td class="foswikiTableCol1"> If 'validate', the login script is being used for interactive validation of an operation. Otherwise it is being used for login. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>foswiki_origin</code> </td>
+			<td class="foswikiTableCol1"> URL that was being accessed when an access violation occurred. the login process will redirect to this URL if it is successful </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>remember</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> If set, this will cause the user's login to be retained even after their browser is shut down. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>sudo</code> </td>
+			<td class="foswikiTableCol1"> promote login to <em>internal admin</em> (admins only) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>password</code> </td>
+			<td class="foswikiTableCol1"> password of user logging in </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>username</code> </td>
+			<td class="foswikiTableCol1"> username of user logging in (if set, login will attempt to authenticate) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>usernamestep</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> used to initialise the <code>username</code> input field in the login form (will not attempt to authenticate) </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<div class="foswikiHelp"> 
+<strong><img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> Note:</strong> The <code>login</code> script will only accept the username and password fields when submitted with a POST.
+</div>
+<p></p>
+
+<h3 id="A_61logon_61">  <code>logon</code> </h3>
+Used for logging in when Web Server authentication is being used (e.g. ApacheLoginManager). The script does nothing; it is purely a placeholder for triggering the login process. The webserver must be set up to require a valid user to access this script, thus triggering the webserver login process.
+<p></p>
+
+<h3 id="A_61manage_61">  <code>manage</code> </h3>
+Performs a range of management functions.
+<p></p>
+
+<div class="foswikiHelp"> 
+<strong><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note:</strong> The <code>manage</code> script can only be called via the HTTP POST method. Make sure you specify <code>method="post"</code> if you call the <code>manage</code> script via a form action. It is not possible to call <code>manage</code> from an <code>&lt;a href ...&gt;</code> link.
+</div>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>action</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> One of <code>create</code>, <code>createweb</code>, <code>changePassword</code>, <code>resetPassword</code>, <code>bulkRegister</code>, <code>deleteUserAccount</code>, <code>editSettings</code>, <code>saveSettings</code>, <code>restoreRevision</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>required</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h4 id="A_61action_61create_61">  <code>action=create</code> </h4>
+Alternative entry point for creation, via <code>edit</code>, of a new topic, used by screens that support several actions using <code>manage</code>.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>topic</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Name of topic to create (can be web.topic) </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>required</em> </td>
+		</tr>
+	</tbody></table>
+Other parameters are the same as for <code>edit</code>.
+<p></p>
+
+<h4 id="A_61action_61createweb_61">  <code>action=createweb</code> </h4>
+Create a new web
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=9;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=9;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=9;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>baseweb</code> </td>
+			<td class="foswikiTableCol1"> Name of the web to copy to create the new web </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>newtopic</code> </td>
+			<td class="foswikiTableCol1"> Value of %TOPIC% within the web creation message. Optionally used in some skins to signify a non-default home topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>newweb</code> </td>
+			<td class="foswikiTableCol1"> Name of the new web </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>nosearchall</code> </td>
+			<td class="foswikiTableCol1"> Value for NOSEARCHALL </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> '' </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>webbgcolor</code> </td>
+			<td class="foswikiTableCol1"> value for WEBBGCOLOR </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> '' </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>websummary</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Value for WEBSUMMARY </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> '' </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h4 id="A_61action_61editSettings_61">  <code>action=editSettings</code> </h4>
+No parameters
+<p></p>
+
+<h4 id="A_61action_61saveSettings_61">  <code>action=saveSettings</code> </h4>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>originalrev</code> </td>
+			<td class="foswikiTableCol1"> Revision that the edit started on </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>latest</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>redirectto</code> </td>
+			<td class="foswikiTableCol1"> If the savesettings process is successful, save will redirect to this topic or URL. The parameter value can be a <code>TopicName</code>, a <code>Web.TopicName</code>, or a URL.<br /> <strong>Note:</strong> Redirect to a URL only works if it is enabled in <code>configure</code> (Miscellaneous <code>{AllowRedirectUrl}</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>redirect to the web.topic from the URL path</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>text</code> </td>
+			<td class="foswikiTableCol1"> Text of the topic </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_save</code> </td>
+			<td class="foswikiTableCol1"> Must be set to <code>Save</code> or settings are not saved </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>action_cancel</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Must be set to <code>Cancel</code> to cancel save. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>required</em> </td>
+		</tr>
+	</tbody></table>
+If neither <code>action_save</code> or <code>action_cancel</code> are provided, an oops error is issued. All other parameters may be interpreted as form fields, depending on the current form definition in the topic.
+<p></p>
+
+<h4 id="A_61action_61bulkRegister_61">  <code>action=bulkRegister</code> </h4>
+See <a href="/bin/view/System/BulkRegistration">BulkRegistration</a>.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>logtopic</code> </td>
+			<td class="foswikiTableCol1"> Topic to save the log in </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>same as topic name, with 'Result' appended</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>overwritehometopics</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Whether to overwrite existing home topics or not </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>do not overwrite</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h4 id="A_61action_61changePassword_61">  <code>action=changePassword</code> </h4>
+Change password, email address, or both, of a user.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>email</code> </td>
+			<td class="foswikiTableCol1"> new email address </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>oldpassword</code> </td>
+			<td class="foswikiTableCol1"> current password </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required, unless current user is an admin</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>password</code> </td>
+			<td class="foswikiTableCol1"> new password </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>passwordA</code> </td>
+			<td class="foswikiTableCol1"> new password confirmation </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required if <code>password</code> is given</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>username</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> login name of user to change password/email for </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>required</em> </td>
+		</tr>
+	</tbody></table>
+<code>password, =passwordA</code> and <code>email</code> are optional. If neither or <code>password</code> and <code>passwordA</code> is set, then the user password is left unchanged. If <code>email</code> is unset, their email is left unchanged.
+<p></p>
+
+<h4 id="A_61action_61resetPassword_61">  <code>action=resetPassword</code> </h4>
+Reset the password for a single or multiple users
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=13;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=13;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=13;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>introduction</code> </td>
+			<td class="foswikiTableCol1"> message to be sent alongside the reset, most often used to announce to the user that they have been given an account. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>loginname</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <strong>list</strong> of usernames to reset </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>required</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+This is used by <a href="/bin/view/System/BulkResetPassword">BulkResetPassword</a> and <a href="/bin/view/System/ResetPassword">ResetPassword</a>. Only administrators can provide a list of login usernames, non-admins can only provide a single <a href="/bin/view/System/UserName">UserName</a>. 
+<p></p>
+
+<a href="/bin/view/System/BulkRegistration">BulkRegistration</a> provides the means to create multiple accounts but it does not announce those accounts to the users who own them. <a href="/bin/view/System/BulkResetPassword">BulkResetPassword</a> is used to assign the passwords, the Introduction is used to explain why they are receiving the mail.
+<p></p>
+
+<h4 id="A_61action_61deleteUserAccount_61">  <code>action=deleteUserAccount</code> </h4>
+For non-admin users, it unregisters (removes) the currently logged-in user.  Administrators can remove any account.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>user</code> </td>
+			<td class="foswikiTableCol1"> User ID to be removed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em>. Must be current logged in user if not admin </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>password</code> </td>
+			<td class="foswikiTableCol1"> Users' password </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required if not admin</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>removeTopic</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Should user topic be moved to trash web? </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h4 id="A_61action_61restoreRevision_61">  <code>action=restoreRevision</code> </h4>
+Alternative entry point for <code>edit</code>, used by screens that support several actions using <code>manage. Parameters are as for =edit</code>.
+<p></p>
+
+<h4 id="A_61action_61addUserToGroup_61">  <code>action=addUserToGroup</code> </h4>
+add a user / list of users to a group
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=15;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=15;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=15;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>create</code> </td>
+			<td class="foswikiTableCol1"> create the group if it doesn't exist </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>0</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>groupname</code> </td>
+			<td class="foswikiTableCol1"> groupname to change </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>redirectto</code> </td>
+			<td class="foswikiTableCol1"> If the add process is successful, <code>manage</code> will redirect to this topic or URL. The parameter value can be a <code>TopicName</code>, a <code>Web.TopicName</code>, or a URL.<br /> <strong>Note:</strong> Redirect to a URL only works if it is enabled in <code>configure</code> (Miscellaneous <code>{AllowRedirectUrl}</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> None.  An Oops screen showing the results is returned. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>username</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <strong>list</strong> of usernames/wikinames to add to group </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>required</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h4 id="A_61action_61removeUserFromGroup_61">  <code>action=removeUserFromGroup</code> </h4>
+remove a user / list of users to a group
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=16;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=16;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=16;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>groupname</code> </td>
+			<td class="foswikiTableCol1"> groupname to change </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>redirectto</code> </td>
+			<td class="foswikiTableCol1"> If the remove process is successful, <code>manage</code> will redirect to this topic or URL. The parameter value can be a <code>TopicName</code>, a <code>Web.TopicName</code>, or a URL.<br /> <strong>Note:</strong> Redirect to a URL only works if it is enabled in <code>configure</code> (Miscellaneous <code>{AllowRedirectUrl}</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> None.  An Oops screen showing the results is returned. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>username</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <strong>list</strong> of usernames/wikinames to add to group </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>required</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="A_61oops_61">  <code>oops</code> </h3>
+This script is mainly used for rendering pages containing error messages, though it is also used for some functional actions such as manage pages (move topic etc).
+<p></p>
+
+<code>oops</code> templates are used with the <code>oops</code> script to generate system messages. This is done to make internationalisation or other local customisations simple. 
+<p></p>
+
+The <code>oops</code> script supports the following parameters:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=17;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=17;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=17;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>def</code> </td>
+			<td class="foswikiTableCol1"> Can be set to the name of a single definition within <code>template</code>. This definition will be instantiated in the <code>template</code> wherever <code>%INSTANTIATE%</code> is seen. This lets you use a single template file for many messages. For an example, see <code>oopsmanagebad.tmpl</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>paramN</code> </td>
+			<td class="foswikiTableCol1"> Where N is an integer from 1 upwards. These values will be substituted into <code>template</code> for <code>%PARAM1%</code> etc. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>template</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Name of the template file to display </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>oops</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="A_61preview_61">  <code>preview</code> </h3>
+This script is <em>deprecated</em>. Its functions are covered by the <code>save</code> script.
+<p></p>
+
+<h3 id="A_61rdiff_61">  <code>rdiff</code> </h3>
+Renders the differences between version of a topic
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=18;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=18;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=18;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>context</code> </td>
+			<td class="foswikiTableCol1"> number of lines of context </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>render</code> </td>
+			<td class="foswikiTableCol1"> the rendering style {sequential, sidebyside, raw, debug} </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>DIFFRENDERSTYLE</code>, <code>sequential</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rev1</code> </td>
+			<td class="foswikiTableCol1"> the higher revision </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>latest</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rev2</code> </td>
+			<td class="foswikiTableCol1"> the lower revision </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>latest</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>type</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>history</code> gives a history, <code>diff</code> rev1 against rev2, <code>last</code> latest to previous </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>diff</code> </td>
+		</tr>
+	</tbody></table>
+The <code>context</code> parameter is only respected if the back-end store supports
+context diffs.
+<p></p>
+
+<h3 id="A_61register_61">  <code>register</code> </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=19;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=19;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=19;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>action</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>register</code> or <code>verify</code> or <code>approve</code> or <code>disapprove</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>required</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<div class="foswikiHelp">
+<strong><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note:</strong> The <code>register</code> script can only be called via the HTTP POST method except when the action is <code>verify</code>. Make sure you specify <code>method="post"</code> if you call the <code>register</code> script via a form action. It is not possible to call <code>register</code> from an <code>&lt;a href ...&gt;</code> link. The <code>verify</code> action is an exception as it is used to verify registration by clicking a href link from an email.
+</div>
+<p></p>
+
+<h4 id="A_61action_61register_61">  <code>action=register</code> </h4>
+<p class='p'>Starts the registration process for a new user.</p>
+
+User data is passed in 0 or more parameters of the format <code>FwkNname</code> where <code>Fwk</code> is a standard prefix, <code>N</code> is <code>0</code> for an optional parameter and <code>1</code> for a required parameter, and <code>name</code> is the parameter name. The following standard <code>Fwk</code> parameters are predefined:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=20;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=20;up=1#sorted_table" rel="nofollow" title="Sort by this column">Description</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=20;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>Fwk0AddToGroups</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> Accepts a comma-separated list of group names to add the new user to. </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>Fwk1Email</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> New user's email address </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>Fwk1FirstName</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> New user's first name </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>Fwk1LoginName</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> New user's login username </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>Fwk1Password</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> New user's password </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>Fwk1LastName</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> New user's surname </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>Fwk0Confirm</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> Password confirmation (if enabled) </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>Fwk0Name</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> User's name. Defaults to <code>FirstName LastName</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <code>Fwk1WikiName</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" rowspan="1"> Wikiname of user being registered </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast" rowspan="1"> <em>required</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Any additional <code>Fwk</code> parameters will be written to the user topic (<em>except</em> 
+<code>Photo</code> and <code>Confirm</code>).
+<p></p>
+
+If registration verification (or registration approval) is enabled in
+<code>configure</code>, a pending registration record will be created and the
+registrant (or the approver) will be emailed with the verification code.
+<p></p>
+
+If all goes well, then: <ul>
+<li> If verification is required, outputs the registration confirmation screen.
+</li> <li> If approval is required, outputs the pending approval screen.
+</li> <li> Otherwise outputs the welcome screen.
+</li></ul> 
+<p class='p'>When called from CGI, this method requires a POST request.</p>
+
+<h4 id="A_61action_61verify_61">  <code>action=verify</code> </h4>
+<p class='p'>Sent to activate a user's pending registration. Only applicable if
+registration verification is enabled.</p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=21;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=21;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=21;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>code</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Activation code, verifies a pending registration </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+If the verification is successful: <ul>
+<li> If approval is required, outputs the pending approval screen.
+</li> <li> Otherwise outputs the welcome screen.
+</li></ul> 
+<p></p>
+
+<h4 id="A_61action_61approve_61">  <code>action=approve</code> </h4>
+Sent to activate a pending registration. Only applicable if
+registration approval is enabled.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=22;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=22;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=22;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>code</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Approval code for the pending registration </td>
+		</tr>
+	</tbody></table>
+<p class='p'>Outputs the welcome screen and mails the successful registrant.</p>
+
+<h4 id="A_61action_61disapprove_61">  <code>action=disapprove</code> </h4>
+Sent to deny a pending registration. Only applicable if
+registration approval is enabled.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=23;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=23;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=23;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>code</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Approval code for the pending registration </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Presents a screen where the admin can optionally enter an email
+message to be sent to the failed registrant. NOTE: the registration
+fails even if this mail is <em>not</em> sent.
+<p></p>
+
+If the <code>code</code> has the value <code>DENIED</code> then the request is interpreted as
+the second stage of an approval denial. Registration parameters are
+passed in the URL parameters <code>email</code>, <code>referee</code>, <code>wikiname</code> and =feedback.
+These parameters are used to compose a feedback mail for the failed
+registrant.
+<p></p>
+
+<h3 id="A_61rename_61">  <code>rename</code> </h3>
+Used for renaming webs, topics and attachments.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=24;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=24;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=24;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action</code> </td>
+			<td class="foswikiTableCol1"> <code>renameweb</code> or <code>renameother</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>renameother</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>confirm</code> </td>
+			<td class="foswikiTableCol1"> if non-0, requires a second level of confirmation </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>referring_topics</code> </td>
+			<td class="foswikiTableCol1"> (internal use only) list of topics that refer to the web or topic being renamed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>redirectto</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> If the rename process is successful, rename will redirect to this topic or URL. The parameter value can be a <code>TopicName</code>, a <code>Web.TopicName</code>, or a URL.<br /> <strong>Note:</strong> Redirect to a URL only works if it is enabled in <code>configure</code> (Miscellaneous <code>{AllowRedirectUrl}</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>the renamed topic</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h4 id="A_61action_61_34renameweb_34_61">  <code>action="renameweb"</code> </h4>
+Rename a web.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=25;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=25;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=25;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>newparentweb</code> </td>
+			<td class="foswikiTableCol1"> new parent web name </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>existing parent</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>newsubweb</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> new web name </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h4 id="A_61action_61renameother_61">  <code>action=renameother</code> </h4>
+Rename a topic or an attachment.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=26;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=26;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=26;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>attachment</code> </td>
+			<td class="foswikiTableCol1"> Attachment to move </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>currentwebonly</code> </td>
+			<td class="foswikiTableCol1"> if non-0, searches current web only for links to this topic </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>search all webs</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>newattachment</code> </td>
+			<td class="foswikiTableCol1"> New name for attachment </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>same as <code>attachment</code>, if given</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>newtopic</code> </td>
+			<td class="foswikiTableCol1"> new topic name </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>newweb</code> </td>
+			<td class="foswikiTableCol1"> new web name </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>onlywikiname</code> </td>
+			<td class="foswikiTableCol1"> if <code>off</code>, a non-wikiword is acceptable for the new topic name </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>on</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>template</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> template for error when an attachment doesn't exist, <code>deleteattachment</code> for when deleting an attachment </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<div class="foswikiHelp">
+<strong><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note:</strong> The <code>rename</code> script can only be called via the HTTP POST method. Make sure you specify <code>method="post"</code> if you call the <code>rename</code> script via a form action. It is not possible to call <code>rename</code> from an <code>&lt;a href ...&gt;</code> link.
+</div>
+<p></p>
+
+<h3 id="A_61resetpasswd_61">  <code>resetpasswd</code> </h3>
+This script is <em>deprecated</em>. Its functions are covered by the <code>manage</code> script.
+<p></p>
+
+<h3 id="A_61rest_61">  <code>rest</code> </h3>
+This REST (<span class='externalLink'><a href="http://en.wikipedia.org/wiki/REST">Representational State Transfer</a></span>) script can be invoked via http in the same way as the other scripts (see <strong>Invocation Examples</strong>, below) to execute a function that is associated to a "subject" and a "verb" (see below). These functions are usually registered by plugins using the <code>Foswiki::Func::registerRESTHandler</code> method. The <code>rest</code> script will print the result directly to the browser unless the <code>endpoint</code> parameter is specified, in which case it will output a redirect to the given topic or url.
+<p></p>
+
+The <code>rest</code> script supports the following parameters:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=27;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=27;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=27;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>redirectto</code> </td>
+			<td class="foswikiTableCol1"> Redirect to this topic or URL after successfully running the rest function. The parameter value can be a <code>TopicName</code>, a <code>Web.TopicName</code>, or a URL.<br /> <strong>Note:</strong> Redirect to a URL only works if it is enabled in <code>configure</code> (Miscellaneous <code>{AllowRedirectUrl}</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> None. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>password</code> </td>
+			<td class="foswikiTableCol1"> See <code>username</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>username</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> If <code>TemplateLogin</code>, or a similar login manager not embedded in the web server, is used, then you can pass a username and password to the server (though see below for a preferred way to pass authentication information). </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+REST scripts that require a topic context must use the standard <code>topic</code> parameter to pass the topic name, as the URL path is used to identify the REST function. If not defined, then the topic context in REST handlers will be <a href="/bin/view/Main/WebHome">Main</a>.
+<p class='p'>The function is free to use any other query parameters for its own purposes.</p>
+
+<h4 id="A_61rest_61_authentication">  <code>rest</code> authentication </h4>
+If a REST operation requires a logged-in user but no user is logged in, then it will return a 401 status. In the case of the <code>TemplateLogin</code> login manager, this will include a <code>WWW-Authenticate</code> header starting with <code>FoswikiBasic</code>. This allows the status to percolate through to Javascript where it can be handled by your code. The <code>realm</code> in the <code>WWW-Authenticate</code> header is taken from the <code>{AuthRealm}</code> setting in <code>configure</code>, or the empty string if it is not set.
+<p></p>
+
+If you are using <code>TemplateLogin</code>, the preferred way to pass user login information back to the server is to use the <code>X-Authorization</code> HTTP header. This header is modelled on the HTTP Authorization header, as described in <span class='externalLink'><a href="http://www.ietf.org/rfc/rfc2617.txt">http://www.ietf.org/rfc/rfc2617.txt</a></span>, except that the scheme name <code>FoswikiBasic</code> is used instead of <code>Basic</code>. The user-id and password are combined with a : and base64 encoded. For example, if the user agent wishes to send the userid "Aladdin" and password "open sesame", it would use the following header field:
+<pre>
+X-Authorization: FoswikiBasic QWxhZGRpbjpvcGVuIHNlc2FtZQ&#61;&#61;
+</pre>
+When used with jQuery:
+<pre>
+&#36;.ajax({
+  beforeSend: function(xhrObj){
+    xhrObj.setRequestHeader(&#34;X-Authorization&#34;,
+      &#34;FoswikiBasic QWxhZGRpbjpvcGVuIHNlc2FtZQ&#61;&#61;&#34;);
+  }
+});
+</pre>
+<p></p>
+
+<div class="foswikiHelp">
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> The <code>rest</code> script should <strong>always</strong> be configured to require authentication in any site that is using <code>ApacheLogin</code>. Otherwise there is a risk of opening up major security holes. So make sure you add it to the <code>{AuthScripts}</code> list in <code>configure</code>.
+</div>
+<p></p>
+
+<div class="foswikiHelp"> 
+<strong><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note:</strong> As of 1.1.9, the <code>rest</code> script no longer will accept the username and password fields by default. If the prior behavior is required, it can be enabled in <code>bin/configure</code>
+by setting <code>$Foswiki::cfg{Session}{AcceptUserPwParam} = /^rest$/;</code>.   Note that even with this enabled, the <code>rest</code> script requires that the username and password be entered using POST.
+</div>
+<p></p>
+
+<h4 id="Invocation_Examples">  Invocation Examples </h4>
+<p></p>
+
+The <code>rest</code> script assumes that it will be called with URL in the form:
+<p></p>
+
+<code>http://my.host/bin/rest/&lt;subject&gt;/&lt;verb&gt;</code>
+<p></p>
+
+where <code>&lt;subject&gt;</code> must be the <a href="/bin/view/System/WikiWord">WikiWord</a> name of one of the installed <a href="/bin/view/System/Plugins">Plugins</a>, and the <code>&lt;verb&gt;</code> is the alias for the function registered using the <code>Foswiki::Func::registerRESTHandler</code> method. The <code>&lt;subject&gt;</code> and <code>&lt;verb&gt;</code> are then used to lookup and call the registered function. If you need to
+pass a topic name, then this is passed in the <code>topic</code> URL parameter.
+<p></p>
+
+As an example, the <a href="/bin/view/System/EmptyPlugin">EmptyPlugin</a> has registered a function to be used with the <code>rest</code> script under the subject <strong>EmptyPlugin</strong> and the verb <strong>example</strong>. 
+<p></p>
+
+The URL to call this function from a browser would be: <ul>
+<li> <code>https://damask.mpie.de/bin/rest/EmptyPlugin/example?topic=My.TopicName</code>
+</li></ul> 
+alternatively, to run it from the commandline: <ul>
+<li> <code>cd foswiki/bin ; ./rest /EmptyPlugin/example -topic=My.TopicName</code>
+</li></ul> 
+<p></p>
+
+Note that for Plugins to register REST handlers, they must be enabled in <code>configure</code>.
+<p></p>
+
+<h4 id="Retrieving_passed_values">  Retrieving passed values </h4>
+Additional parameters can be recovered via the query object in the <code>$session</code>, for example with the url:
+<pre class="html">
+http://my.host/bin/rest/MyPlugin/update?web&#61;foo
+</pre>
+<p></p>
+
+The url parameters can be processed using:
+<pre class="perl">
+my &#36;query &#61; &#36;session-&#62;{request};
+my &#36;web &#61; &#36;query-&#62;{param}-&#62;{web}&#91;0&#93;;
+</pre>
+<p></p>
+
+<h3 id="A_61save_61">  <code>save</code> </h3>
+The <code>save</code> script performs a range of save-related functions.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=28;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=28;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=28;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_addform</code> </td>
+			<td class="foswikiTableCol1"> Redirect <em>to</em> the "change form" page. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_cancel</code> </td>
+			<td class="foswikiTableCol1"> exit without save, return to view </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_checkpoint</code> </td>
+			<td class="foswikiTableCol1"> save and redirect to the edit script, <code>dontnotify</code> is <code>on</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_delRev</code> </td>
+			<td class="foswikiTableCol1"> <strong>Administrators only</strong> delete the most recent revision of the topic - all other parameters are ignored. You have to be an administrator to use this, and not all store implementations will support it. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_preview</code> </td>
+			<td class="foswikiTableCol1"> preview edited text </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_quietsave</code> </td>
+			<td class="foswikiTableCol1"> save, and return to view, <code>dontnotify</code> is <code>on</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_replaceform</code> </td>
+			<td class="foswikiTableCol1"> Redirect <em>from</em> the "change form" page. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_repRev</code> </td>
+			<td class="foswikiTableCol1"> <strong>Administrators only</strong> replace the text of the most recent revision of the topic with the text in the <code>text</code> parameter. <code>text</code> must included embedded meta-data tags. All other parameters are ignored. You have to be an administrator to use this, and not all store implementations will support it. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action_save</code> </td>
+			<td class="foswikiTableCol1"> <strong>default behaviour</strong>; save, return to view </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>dontnotify</code> </td>
+			<td class="foswikiTableCol1"> if non-0, suppress change notification </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>edit</code> </td>
+			<td class="foswikiTableCol1"> The bin script to use to re-edit the topic when action is <code>checkpoint</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>edit</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>editaction</code> </td>
+			<td class="foswikiTableCol1"> When action is <code>checkpoint</code>, <code>add form</code> or <code>replace form...</code>, this is used as the <code>action</code> parameter to the <code>edit</code> script that is redirected to after the save is complete. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>editparams</code> </td>
+			<td class="foswikiTableCol1"> The parameter string to use to edit the topic when action is <code>checkpoint</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>forcenewrevision</code> </td>
+			<td class="foswikiTableCol1"> if set, forces a revision even if Foswiki thinks one isn't needed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>formtemplate</code> </td>
+			<td class="foswikiTableCol1"> if defined, use the named template for the form (will remove the form if set to 'none') </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>newtopic</code> </td>
+			<td class="foswikiTableCol1"> If <code>templatetopic</code> is given, and this parameter is set to 1 and the topic does not exist, will clear the initial topic text. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>onlynewtopic</code> </td>
+			<td class="foswikiTableCol1"> If set, error if topic already exists </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>onlywikiname</code> </td>
+			<td class="foswikiTableCol1"> If set, error if topic name is not a <a href="/bin/view/System/WikiWord">WikiWord</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>originalrev</code> </td>
+			<td class="foswikiTableCol1"> Revision on which the edit started. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>redirectto</code> </td>
+			<td class="foswikiTableCol1"> The save process will redirect to this topic or URL if it is successful. (Typically this would be the URL that was being viewed when edit was invoked). The parameter value can be a <code>TopicName</code>, a <code>Web.TopicName</code>, or a URL.<br /> <strong>Note:</strong> Redirect to a URL only works if it is enabled in <code>configure</code> (Miscellaneous <code>{AllowRedirectUrl}</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>topic specified in URL path</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>template</code> </td>
+			<td class="foswikiTableCol1"> The template to use to re-edit the topic when action is <code>checkpoint</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>templatetopic</code> </td>
+			<td class="foswikiTableCol1"> Name of a topic to use as a template for the text and form (new topic <em>only</em>) (see <a class="foswikiCurrentTopicLink" href="#NewTopicCreation">New topic creation</a> above) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>text</code> </td>
+			<td class="foswikiTableCol1"> New text of the topic </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topicparent</code> </td>
+			<td class="foswikiTableCol1"> Sets the parent topic. Set to <code>none</code> to remove parent. Set to topic name to change parent, leave empty to keep existing parent. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>keep existing parent</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>Local+name</code> </td>
+			<td class="foswikiTableCol1"> create/set a local META:PREFERENCE called <code>name</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>Set+name</code> </td>
+			<td class="foswikiTableCol1"> create/set a normal topic META:PREFERENCE called <code>name</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>Unset+name</code> </td>
+			<td class="foswikiTableCol1"> remove a META:PREFERENCE call <code>name</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>Default+name</code> </td>
+			<td class="foswikiTableCol1"> gives a default for <code>name</code>. If <code>name</code> is set to this value, then the preference will be removed. <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Requires a corresponding <code>Set+name</code> or <code>Local+name</code> to work. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <em>&lt;any name&gt;</em> </td>
+			<td class="foswikiTableCol1 foswikiLast"> If the topic has a form with a field called <em>&lt;any name&gt;</em>, it will set the value of that field. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Any errors will cause a redirect to another page, either an <code>oops</code> page to report the error, or a <code>login</code> if the save is not authorized.
+<p class='p'>The string AUTOINC followed by one or more digits anywhere in the topic name will be converted to a number such that the resulting topic name is unique in the target web.</p>
+
+When the action is <code>save</code>, <code>checkpoint</code>, <code>quietsave</code>, or <code>preview</code>: <ol>
+<li> The new text is taken from the <code>text</code> parameter, if it is defined, <ul>
+<li> otherwise it is taken from the <code>templatetopic</code>, if it is defined, (new topic <em>only</em>)
+</li> <li> otherwise it is taken from the previous version of the topic, if any,
+</li></ul> 
+</li> <li> The name of the new form is taken from the <code>formtemplate</code>, if defined <ul>
+<li> otherwise it is taken from the <code>templatetopic</code>, if defined, (new topic <em>only</em>)
+</li> <li> otherwise it is taken from the previous version of the topic, if any,
+</li> <li> otherwise no form is attached.
+</li></ul> 
+</li> <li> The value for each field in the form is taken from the query, if it is defined <ul>
+<li> otherwise it is taken from the <code>templatetopic</code>, if defined, (new topic <em>only</em>)
+</li> <li> otherwise it is taken from the previous version of the topic, if any,
+</li> <li> otherwise it defaults to the empty string.
+</li></ul> 
+</li></ol> 
+<p></p>
+
+Merging is only enabled if the topic text comes from <code>text</code> and <code>originalrev</code> is &gt; 0 and is not the same as the revision number of the most recent revision. If merging is enabled both the topic and the meta-data are merged.
+<p></p>
+
+Form field values are passed in parameters named 'field' - for example, if I have a field <code>Status</code> the parameter name is <code>Status</code>.
+<p></p>
+
+<div class="foswikiHelp"> 
+<strong><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note:</strong> The <code>save</code> script can only be called via HTTP POST method. Make sure you specify <code>method="post"</code> if you call the <code>save</code> script via a form action. Example:
+<p></p>
+
+<pre class="html">
+&#60;form name&#61;&#34;new&#34; action&#61;&#34;&#37;SCRIPTURLPATH{save}&#37;/Sandbox/&#34; method&#61;&#34;post&#34;&#62;
+    ...
+&#60;/form&#62;
+</pre>
+It is not possible to call <code>save</code> from an <code>&lt;a href ...&gt;</code> link.
+</div>
+<p></p>
+
+<h3 id="A_61search_61">  <code>search</code> </h3>
+This cgi script has been deprecated. When called, it will redirect to the <a href="/bin/view/System/WebSearch">WebSearch</a> topic, and the parameters will be passed on.
+<p></p>
+
+<h3 id="A_61statistics_61">  <code>statistics</code> </h3>
+<!-- <ul>
+<li> Set ISSTATISTICSTOPIC = WebStatistics
+</li></ul> 
+-->
+<p></p>
+
+<div class="foswikiHelp">
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Note:</strong> This script is no longer callable using a
+simple HTTP "GET" operation.  It must be called using the POST method using a
+form.
+</div>
+<p></p>
+
+Refresh the WebStatistics topics in range of webs.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=29;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=29;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=29;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>autocreate</code> </td>
+			<td class="foswikiTableCol1"> Flag to request auto-creation of missing WebStatistics topics. 0=false 1=true </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>(See logging and statistics page in <code>bin/configure</code>.)</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>logdate</code> </td>
+			<td class="foswikiTableCol1"> Generate statistics for the specified year/month, spacified as <code>YYYYMM</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>current month</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>subwebs</code> </td>
+			<td class="foswikiTableCol1"> Flag to request processing of subwebs of the requested webs. 0=false 1=true </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 0 <em>(Subwebs are not processed)</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>webs</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> comma-separated list of webs. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>all accessible webs</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Command line examples:  (All run by first changing to the <code>foswiki/bin</code> directory)
+<div class="foswikiAlert">
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Caution:</strong> This script writes to foswiki system files.  It <strong>must</strong> be run as the web server user.  If ownership of critical system files is changed, it may disrupt the web server!
+</div> <ol>
+<li> <code><b>./statistics</b></code> updates <em>all user webs, excluding subwebs</em>
+</li> <li> <code><b>./statistics webs=Userweb,Sandbox subwebs=1</b></code> updates <em>Userweb and Sandbox including subwebs</em>
+</li> <li> <code><b>./statistics -webs System -autocreate 1</b></code> updates System, creating a missing WebStatistics topic if permitted by configuration.
+</li></ol> 
+<p></p>
+
+see <a href="/bin/view/System/SiteToolStatistics">SiteToolStatistics</a> for more details on WebStatistics, a form you can POST to update statistics, and how to update statistics using cron.
+<p></p>
+
+<h3 id="A_61upload_61">  <code>upload</code> </h3>
+Uploads an attachment to a topic. The HTTP request is expected to be in <code>multipart/form-data</code> format.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=30;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=30;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=30;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>changeproperties</code> </td>
+			<td class="foswikiTableCol1"> if non=0, this is a property change operation <strong>only</strong> - no file will be uploaded. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>createlink</code> </td>
+			<td class="foswikiTableCol1"> if non-0, will create a link to file at end of topic </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>filecomment</code> </td>
+			<td class="foswikiTableCol1"> Comment to associate with file in attachment table </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>filepath</code> </td>
+			<td class="foswikiTableCol1"> local (client) path name of the file being uploaded. This is used to look up the data for the file in the HTTP query. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hidefile</code> </td>
+			<td class="foswikiTableCol1"> if non-0, will not show file in attachment table </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>noredirect</code> </td>
+			<td class="foswikiTableCol1"> Normally the script will redirect to 'view' when the upload is      complete, but also designed to be useable for REST-style calling using      the 'noredirect' parameter. If this parameter is set it will return an      appropriate HTTP status code and print a message to STDOUT, starting      with 'OK' on success and 'ERROR' on failure. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>redirectto</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> URL to redirect to after upload. The parameter value can be a      <code>TopicName</code>, a <code>Web.TopicName</code>, or a URL. Redirect to a URL only works      if it is enabled in <code>configure</code>, and is ignored if <code>noredirect</code> is      specified.<br /> (Miscellaneous <code>{AllowRedirectUrl}</code>). </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>topic specified in URL path</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<strong>Tips</strong> <ul>
+<li> You can use a tool like <code>curl</code> to upload files from the command line using this script.
+</li> <li> You can call upload easily from XmlHttpRequest in Javascript.
+</li> <li> You can directly invoke upload from the CLI script.__New with Foswiki 2.1__ <ul>
+<li> You must use the Perl CLI options  '-CA' if the filename contains non-ASCII characters.
+</li> <li> ex. Run from the bin directory: <code>perl -CA ./upload filepath="/path/and/filename.dat" filename="attachname.dat" topic=Sandbox.ExistingTopic</code>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<div class="foswikiHelp"> 
+<strong><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note:</strong> The <code>upload</code> script can only be called via HTTP POST method. Make sure you specify <code>method="post"</code> if you call the <code>upload</code> script via a form action. It is not possible to call <code>upload</code> from an <code>&lt;a href ...&gt;</code> link.
+</div>
+<p></p>
+
+<h3 id="A_61view_61">  <code>view</code> </h3>
+Used for viewing topics.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=31;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=31;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=31;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>contenttype</code> </td>
+			<td class="foswikiTableCol1"> Allows you to specify a different <strong>Content-Type:</strong> (e.g. <code>contenttype=text/plain</code>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>text/html</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>raw</code> </td>
+			<td class="foswikiTableCol1"> <ul><li> <code>on</code> - show the text of the topic in a scrollable textarea. </li> <li> <code>debug</code> - as <code>on</code>, but also shows the metadata (forms etc) associated with the topic. </li> <li> <code>text</code> - show only the source of the topic, as plain text (Content-type: text/plain). Only shows the body text, <strong>not</strong> the form or other meta-data. </li> <li> <code>all</code> - show only the source of the topic, as plain text (Content-type: text/plain), <strong>with embedded meta-data</strong>. This may be useful if you want to extract the source of a topic to a local file on disc. </li></ul> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rev</code> </td>
+			<td class="foswikiTableCol1"> Revision to view (e.g. <code>rev=45</code>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>latest</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>SEARCH&lt;hex number&gt;</code> </td>
+			<td class="foswikiTableCol1"> Identifies a result set that is being paged through </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>section</code> </td>
+			<td class="foswikiTableCol1"> Allows to view only a part of the topic delimited by a named section (see <a href="/bin/view/System/VarSTARTSECTION">VarSTARTSECTION</a>). If the given section is not present, no topic content is displayed. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>template</code> </td>
+			<td class="foswikiTableCol1"> Allows you to specify a different skin template, overriding the 'view' template the view script would normally use. The default template is <code>view</code>. For example, you could specify <a href="/bin/view/System/CommandAndCGIScripts?template=edit">/bin/view/System/CommandAndCGIScripts?template=edit</a>. This is mainly useful when you have specialised templates for a Wiki Application. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <em>&lt;any name&gt;</em> </td>
+			<td class="foswikiTableCol1 foswikiLast"> It can be expanded in the topic text during rendering and referenced in IF statements  - See the <a href="/bin/view/System/VarURLPARAM">VarURLPARAM</a> macro and <a href="/bin/view/System/IfStatements">IfStatements</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<div class="foswikiHelp"> 
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> For historical reasons, the view script has a special interpretation of the <code>text</code> skin. This skin cannot be redefined.
+</div>
+<p></p>
+
+<h3 id="A_61viewfile_61">  <code>viewfile</code> </h3>
+Used for viewing attachments. Normally, a site will publish the attachments (<code>pub</code>) directory using a URL. However if it contains sensitive information, you will want to protect attachments using <a href="/bin/view/System/AccessControl">AccessControls</a>. In this case, you can use the <code>viewfile</code> script to give access to attachments while still checking access controls.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=32;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=32;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=2;table=32;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>filename</code> </td>
+			<td class="foswikiTableCol1"> name of attachment </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <em>required</em> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>rev</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Revision to view </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <em>latest</em> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Instead of using the <code>filename</code> parameter, you can append the attachment name
+to the end of the URL path (after the topic) e.g. <code>https://damask.mpie.de/bin/viewfile/Webname/TopicName/Attachment.gif</code>
+<p></p>
+
+<h2 id="Tool_Scripts">  Tool Scripts </h2>
+Details on command line scripts located in the <code>tools</code> directory.
+<p></p>
+
+<h3 id="A_61configure_61_AN1">  <code>configure</code> </h3>
+This is a fully functional command line interface to the Foswiki configuration.  It is able to set and check configuration values, and to run wizards.
+<p></p>
+
+<code>tools/configure [-search] [-getspec] [-getcfg] [-check] [-wizard] [-method] [-save] [-json] [-trace] [-help] [-noprompt] [-expert]</code>
+<p></p>
+
+Note: if you need to pass in international characters, it needs to be run with the <code>perl -CA</code> command argument.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=0;table=33;up=0#sorted_table" rel="nofollow" title="Sort by this column">Function</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/CommandAndCGIScripts?sortcol=1;table=33;up=0#sorted_table" rel="nofollow" title="Sort by this column">Usage</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Bootstrap a new install without helptext </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <code>tools/configure -save -expert</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Set multiple variables </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <code>tools/configure -save -set {Password}='newadminpassword' -set {WebMasterEmail}='newadmin@yourco.com'</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Check a setting or section of settings. </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <code>tools/configure -check Internationalisation</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Run a wizard </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <code>tools/configure -wizard Email -method send_test_email</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Set admin password that contains international characters </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <code>perl -CA tools/configure -save -set {Password}='tajemstv&iacute;'</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Display one or more settings </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <code>tools/configure -getcfg {SMTP} -getcfg {PubDir}</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+For full help, run <code>tools/configure -help</code>.
+<p></p>
+
+<h3 id="A_61dependencies_61">  <code>dependencies</code> </h3>
+Generates a report of missing or all dependencies.  This report is also available to administrators at <a href="/bin/view/System/PerlDependencyReport">PerlDependencyReport</a>
+<p></p>
+ <dl>
+<dt> <code>tools/dependencies</code> </dt><dd> Generates a report on the missing dependencies
+</dd> <dt> <code>tools/dependencies -all</code> </dt><dd> Generates a report on all dependencies, installed or missing, along with information on the installation location.
+</dd></dl> 
+<p></p>
+
+<h3 id="A_61geturl.pl_61">  <code>geturl.pl</code> </h3>
+This is a very simple script to get the content of a web site, either using GET or POST. It is marked as <em>deprecated</em> and might be removed in a future release. Its functions are covered by the standard <code>wget</code> and <code>curl</code> commands, which have the added advantage of performing authentication.. <ul>
+<li> Usage:    <code>geturl.pl &lt;host&gt; &lt;path&gt; [&lt;port&gt; [&lt;header&gt;]]</code>
+</li> <li> Example:  <code>geturl.pl some.domain /some/dir/file.html 80</code>
+</li> <li> Will get: <code>http://some.domain:80/some/dir/file.html</code>
+</li> <li> Example:  <code>geturl.pl POST some.domain /bin/statistics?webs=Sandbox</code>
+</li> <li> Will post: <code>http://some.domain/bin/statistics?webs=Sandbox</code> triggering a statistics run
+</li></ul> 
+<p></p>
+
+<h3 id="A_61rewriteshebang.pl_61">  <code>rewriteshebang.pl</code> </h3>
+Simple script to rewrite the <code>#!/usr/bin/perl</code> <span class='externalLink'><a href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a></span> lines specific to your local Perl installation. It will rewrite the first line of all your cgi scripts so they use a different shebang line. Use it if your perl is in a non-standard location, or you want to use a different interpreter (such as 'speedy').
+<p></p>
+
+<h3 id="A_61tick_foswiki.pl_61">  <code>tick_foswiki.pl</code> </h3>
+This script executes a number of non-essential regular administration tasks that will help keep your site healthy and happy, such as removing expired sessions and lease files.
+<p></p>
+
+It is intended to be run as a cron job or a scheduled task once a week. Example crontab entry:<br />
+<code>0 0 * * 0 cd /usr/local/foswiki/bin &amp;&amp; perl ../tools/tick_foswiki.pl</code>
+<p></p>
+
+<strong>Note:</strong> The script has to be run by a user who can write files created by the webserver user.
+<p></p>
+
+Extensions, such as the <a href="/bin/view/System/MailerContrib">MailerContrib</a>, also install tool scripts. Check the documentation of the extension for details.
+<p></p>
+
+<h3 id="A_61extension_installer_61">  <code>extension_installer</code> </h3>
+This script will download and install, or remove an extension.
+<p></p>
+
+For more details, execute it from the Foswiki root directory with the <code>usage</code> parameter:
+<pre>
+./tools/extension&#95;installer usage
+</pre>
+Note that this script is a generic version of the <code>_installer</code> script shipped with each extension.  There are 3 ways to install a script using these scripts: <ul>
+<li> Download <code>SomePlugin_installer</code> and execute it from the Foswiki root directory
+</li> <li> run <code>./tools/extension_installer SomePlugin</code> - the extension will be downloaded and installed
+</li> <li> Use the configure web interface to the Extensions Installer.
+</li></ul> 
+<p></p>
+
+<hr />
+<strong>Related topics:</strong> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>, <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/CommandAndCGIScripts?t=1627668691' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/CommandAndCGIScripts' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CommandAndCGIScripts?cover=print;sortcol=1;table=20;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/CommandAndCGIScripts?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CommandAndCGIScripts?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CommandAndCGIScripts?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/CommandAndCGIScripts?t=1627668691;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CommandAndCGIScripts?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/CommandAndCGIScripts?foswiki_origin=GET%2cview%2c/bin/view/System/CommandAndCGIScripts%3fsortcol%3d1%3btable%3d20%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.CommandAndCGIScripts'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

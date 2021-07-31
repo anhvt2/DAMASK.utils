@@ -1,0 +1,23 @@
+{
+   "Drag files here." : "Drag files here.",
+   "Deleting %file% ...": "Deleting %file% ...",
+   "Edit failed": "Edit failed",
+   "Error during '%action%'": "Error during '%action%'",
+   "Failed to delete %file%": "Failed to delete %file%",
+   "File extension error.": "File extension error.",
+   "File size error.": "File size error.",
+   "Generic error.": "Generic error.",
+   "Hide options": "Hide options",
+   "HTTP Error.": "HTTP Error.",
+   "Image error.": "Image error.",
+   "Init error.": "Init error.",
+   "IO error.": "IO error.",
+   "Loading preview ...": "Loading preview ...",
+   "Move failed": "Move failed",
+   "Moving attachment(s) ...": "Moving attachment(s) ...",
+   "N/A" : "N/A",
+   "Saving changes ...": "Saving changes ...",
+   "Security error.": "Security error.",
+   "Show options": "Show options",
+   "Uploading ...": "Uploading ..."
+}

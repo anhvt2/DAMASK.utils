@@ -1,0 +1,1890 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> JQueryPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/JQueryPlugin?t=1627668559" type="application/x-wiki" title="edit JQueryPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/JQueryPlugin" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableJQueryPlugin9 {width:100%}
+body .foswikiTable#tableJQueryPlugin9 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableJQueryPlugin9 th.foswikiTableCol0 {width:7em}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/af7420587e006101a1fc3b18824c765e.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::FONTAWESOME JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::POPUPWINDOW' src='/pub/System/JQueryPlugin/plugins/popupwindow/jquery.popupwindow.js?version=1.0.1'></script>
+<script class='script JQUERYPLUGIN::POPUPWINDOW' src='/pub/System/JQueryPlugin/plugins/popupwindow/jquery.popupwindow.init.js?version=1.0.1'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "URLHOST" : "https://damask.mpie.de",
+   "WIKINAME" : "WikiGuest",
+   "USERSWEB" : "Main",
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SERVERTIME" : "30 Jul 2021 - 20:09",
+   "WEB" : "System",
+   "PUBURLPATH" : "/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SYSTEMWEB" : "System",
+   "COOKIEREALM" : "",
+   "SCRIPTSUFFIX" : "",
+   "USERNAME" : "guest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "TOPIC" : "JQueryPlugin",
+   "PUBURL" : "https://damask.mpie.de/pub"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="JQueryPlugin">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQueryPlugin">JQueryPlugin</a> </h1>
+jQuery JavaScript library for Foswiki
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?cover=print#Description"> Description </a>
+</li> <li> <a href="?cover=print#Adding_new_plugins"> Adding new plugins </a>
+</li> <li> <a href="?cover=print#Writing_your_own_Javascript"> Writing your own Javascript </a>
+</li> <li> <a href="?cover=print#jQuery_References_and_tutorials"> jQuery References and tutorials </a>
+</li> <li> <a href="?cover=print#Macros"> Macros </a>
+</li> <li> <a href="?cover=print#Parameters"> Parameters </a>
+</li> <li> <a href="?cover=print#Examples"> Examples </a>
+</li> <li> <a href="?cover=print#Parameters_AN1"> Parameters </a>
+</li> <li> <a href="?cover=print#Examples_AN1"> Examples </a>
+</li> <li> <a href="?cover=print#Parameters_AN2"> Parameters </a>
+</li> <li> <a href="?cover=print#Parameters_AN3"> Parameters </a>
+</li> <li> <a href="?cover=print#Examples_AN2"> Examples </a>
+</li> <li> <a href="?cover=print#Parameters_AN4"> Parameters </a>
+</li> <li> <a href="?cover=print#Examples_AN3"> Examples </a>
+</li> <li> <a href="?cover=print#Parameters_AN5"> Parameters </a>
+</li> <li> <a href="?cover=print#Examples_AN4"> Examples </a>
+</li> <li> <a href="?cover=print#Parameters_AN6"> Parameters </a>
+</li> <li> <a href="?cover=print#Parameters_AN7"> Parameters </a>
+</li> <li> <a href="?cover=print#Examples_AN5"> Examples </a>
+</li> <li> <a href="?cover=print#Available_jQuery_plugins"> Available jQuery plugins </a> <ul>
+<li> <a href="?cover=print#A_1._Animate"> 1. Animate </a>
+</li> <li> <a href="?cover=print#A_2._Autosuggest"> 2. Autosuggest </a>
+</li> <li> <a href="?cover=print#A_3._blockUI"> 3. blockUI </a>
+</li> <li> <a href="?cover=print#A_4._Browser_40active_41"> 4. Browser <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_5._Button_40active_41"> 5. Button <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_6._Captcha"> 6. Captcha </a>
+</li> <li> <a href="?cover=print#A_7._Chili"> 7. Chili </a>
+</li> <li> <a href="?cover=print#A_8._Clockpicker"> 8. Clockpicker </a>
+</li> <li> <a href="?cover=print#A_9._Comment_40active_41"> 9. Comment <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_10._Configure"> 10. Configure </a>
+</li> <li> <a href="?cover=print#A_11._Cookie"> 11. Cookie </a>
+</li> <li> <a href="?cover=print#A_12._Cycle"> 12. Cycle </a>
+</li> <li> <a href="?cover=print#A_13._DataTables"> 13. DataTables </a>
+</li> <li> <a href="?cover=print#A_14._DataTablesButtons"> 14. DataTablesButtons </a>
+</li> <li> <a href="?cover=print#A_15._DataTablesAutoFill"> 15. DataTablesAutoFill </a>
+</li> <li> <a href="?cover=print#A_16._DataTablesColReorder"> 16. DataTablesColReorder </a>
+</li> <li> <a href="?cover=print#A_17._DataTablesFixedColumns"> 17. DataTablesFixedColumns </a>
+</li> <li> <a href="?cover=print#A_18._DataTablesFixedHeader"> 18. DataTablesFixedHeader </a>
+</li> <li> <a href="?cover=print#A_19._DataTablesResponsive"> 19. DataTablesResponsive </a>
+</li> <li> <a href="?cover=print#A_20._DataTablesRowGroup"> 20. DataTablesRowGroup </a>
+</li> <li> <a href="?cover=print#A_21._DataTablesScroller"> 21. DataTablesScroller </a>
+</li> <li> <a href="?cover=print#A_22._DataTablesSelect"> 22. DataTablesSelect </a>
+</li> <li> <a href="?cover=print#A_23._Debug"> 23. Debug </a>
+</li> <li> <a href="?cover=print#A_24._Easing"> 24. Easing </a>
+</li> <li> <a href="?cover=print#A_25._Farbtastic"> 25. Farbtastic </a>
+</li> <li> <a href="?cover=print#A_26._FluidFont"> 26. FluidFont </a>
+</li> <li> <a href="?cover=print#A_27._Focus"> 27. Focus </a>
+</li> <li> <a href="?cover=print#A_28._FontAwesome_40active_41"> 28. FontAwesome <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_29._Form"> 29. Form </a>
+</li> <li> <a href="?cover=print#A_30._Foswiki_40active_41"> 30. Foswiki <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_31._FoswikiTemplate"> 31. FoswikiTemplate </a>
+</li> <li> <a href="?cover=print#A_32._hoverIntent"> 32. hoverIntent </a>
+</li> <li> <a href="?cover=print#A_33._I18N"> 33. I18N </a>
+</li> <li> <a href="?cover=print#A_34._ImagesLoaded"> 34. ImagesLoaded </a>
+</li> <li> <a href="?cover=print#A_35._ImageTooltip"> 35. ImageTooltip </a>
+</li> <li> <a href="?cover=print#A_36._InnerFade"> 36. InnerFade </a>
+</li> <li> <a href="?cover=print#A_37._JEditable"> 37. JEditable </a>
+</li> <li> <a href="?cover=print#A_38._JQTwisty"> 38. JQTwisty </a>
+</li> <li> <a href="?cover=print#A_39._JsonRpc"> 39. JsonRpc </a>
+</li> <li> <a href="?cover=print#A_40._JSTree"> 40. JSTree </a>
+</li> <li> <a href="?cover=print#A_41._Like"> 41. Like </a>
+</li> <li> <a href="?cover=print#A_42._LiveQuery_40active_41"> 42. LiveQuery <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_43._Loader"> 43. Loader </a>
+</li> <li> <a href="?cover=print#A_44._LocalScroll"> 44. LocalScroll </a>
+</li> <li> <a href="?cover=print#A_45._MaskedInput"> 45. MaskedInput </a>
+</li> <li> <a href="?cover=print#A_46._Masonry"> 46. Masonry </a>
+</li> <li> <a href="?cover=print#A_47._MediaElement"> 47. MediaElement </a>
+</li> <li> <a href="?cover=print#A_48._Metadata_40active_41"> 48. Metadata <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_49._MetaDataPlugin"> 49. MetaDataPlugin </a>
+</li> <li> <a href="?cover=print#A_50._Migrate_40active_41"> 50. Migrate <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_51._Moment"> 51. Moment </a>
+</li> <li> <a href="?cover=print#A_52._MouseWheel"> 52. MouseWheel </a>
+</li> <li> <a href="?cover=print#A_53._NatEdit"> 53. NatEdit </a>
+</li> <li> <a href="?cover=print#A_54._PhotoSwipe"> 54. PhotoSwipe </a>
+</li> <li> <a href="?cover=print#A_55._PNotify"> 55. PNotify </a>
+</li> <li> <a href="?cover=print#A_56._PopUpWindow_40active_41"> 56. PopUpWindow <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_57._QueryObject"> 57. QueryObject </a>
+</li> <li> <a href="?cover=print#A_58._RedDot"> 58. RedDot </a>
+</li> <li> <a href="?cover=print#A_59._Render"> 59. Render </a>
+</li> <li> <a href="?cover=print#A_60._ScrollTo"> 60. ScrollTo </a>
+</li> <li> <a href="?cover=print#A_61._Select2"> 61. Select2 </a>
+</li> <li> <a href="?cover=print#A_62._SerialPager"> 62. SerialPager </a>
+</li> <li> <a href="?cover=print#A_63._SerialScroll"> 63. SerialScroll </a>
+</li> <li> <a href="?cover=print#A_64._ShrinkUrls"> 64. ShrinkUrls </a>
+</li> <li> <a href="?cover=print#A_65._Slimbox"> 65. Slimbox </a>
+</li> <li> <a href="?cover=print#A_66._Sprintf"> 66. Sprintf </a>
+</li> <li> <a href="?cover=print#A_67._Stars"> 67. Stars </a>
+</li> <li> <a href="?cover=print#A_68._Subscribe"> 68. Subscribe </a>
+</li> <li> <a href="?cover=print#A_69._Superfish"> 69. Superfish </a>
+</li> <li> <a href="?cover=print#A_70._TableSorter_40active_41"> 70. TableSorter <span class="foswikiAlert">(active)</span> </a>
+</li> <li> <a href="?cover=print#A_71._Tabpane"> 71. Tabpane </a>
+</li> <li> <a href="?cover=print#A_72._TextboxList"> 72. TextboxList </a>
+</li> <li> <a href="?cover=print#A_73._TinyMCE"> 73. TinyMCE </a>
+</li> <li> <a href="?cover=print#A_74._Treeview"> 74. Treeview </a>
+</li> <li> <a href="?cover=print#A_75._Twisty"> 75. Twisty </a>
+</li> <li> <a href="?cover=print#A_76._UI"> 76. UI </a>
+</li> <li> <a href="?cover=print#A_77._UI::Accordion"> 77. UI::Accordion </a>
+</li> <li> <a href="?cover=print#A_78._UI::Autocomplete"> 78. UI::Autocomplete </a>
+</li> <li> <a href="?cover=print#A_79._UI::Button"> 79. UI::Button </a>
+</li> <li> <a href="?cover=print#A_80._UI::Datepicker"> 80. UI::Datepicker </a>
+</li> <li> <a href="?cover=print#A_81._UI::Dialog"> 81. UI::Dialog </a>
+</li> <li> <a href="?cover=print#A_82._UI::Draggable"> 82. UI::Draggable </a>
+</li> <li> <a href="?cover=print#A_83._UI::Progressbar"> 83. UI::Progressbar </a>
+</li> <li> <a href="?cover=print#A_84._UI::Resizable"> 84. UI::Resizable </a>
+</li> <li> <a href="?cover=print#A_85._UI::Slider"> 85. UI::Slider </a>
+</li> <li> <a href="?cover=print#A_86._UI::Spinner"> 86. UI::Spinner </a>
+</li> <li> <a href="?cover=print#A_87._UI::Tabs"> 87. UI::Tabs </a>
+</li> <li> <a href="?cover=print#A_88._UI::Tooltip"> 88. UI::Tooltip </a>
+</li> <li> <a href="?cover=print#A_89._Uploader"> 89. Uploader </a>
+</li> <li> <a href="?cover=print#A_90._Validate"> 90. Validate </a>
+</li> <li> <a href="?cover=print#A_91._View"> 91. View </a>
+</li> <li> <a href="?cover=print#A_92._WikiWord"> 92. WikiWord </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Using_compressed_javascript_and_css_files"> Using compressed javascript and css files </a>
+</li> <li> <a href="?cover=print#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?cover=print#Dependencies"> Dependencies </a>
+</li> <li> <a href="?cover=print#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Description">  Description </h2>
+<blockquote>
+"jQuery is a fast, concise, JavaScript Library that simplifies how you traverse
+HTML documents, handle events, perform animations, and add Ajax interactions to
+your web pages."
+</blockquote>
+<p></p>
+
+Besides jQuery itself, JQueryPlugin comes with a selection of third party plugins that are thought to be essential for modern web applications.
+These are integrated into Foswiki either by means of a special <a class="foswikiCurrentTopicLink" href="#Macros">macro</a>, by "minimal markup", or custom javascript initializer.  "Minimal markup" 
+is a way to avoid the need to write javascript code to initialize the interface. Instead, a special
+css class is added to an html element that triggers its initialization. See <a href="/bin/view/System/JQueryMetadata">JQueryMetadata</a> for an example.
+<p></p>
+
+Use <a class="foswikiCurrentTopicLink" href="#VarJQREQUIRE">JQREQUIRE</a> to make use of a specific jQuery plugin on a page. This will prepare the page by loading the required javascript
+and css components. If you need to make a feature available on each and every page of your site, you may add this plugin to the list of default plugins
+loaded automatically. See <a href="/bin/configure">configure</a>. 
+<p></p>
+
+Those plugins coming with their own <a class="foswikiCurrentTopicLink" href="#Macros">macro</a> will take care of loading their javascript and css by themselves. So you won't need to 
+call JQREQUIRE explicitly for those listed below.
+<p></p>
+
+<h2 id="Adding_new_plugins">  Adding new plugins </h2>
+<p></p>
+
+The JQuery ecosystem has a huge number of plugins - more than can be included by default
+by this plugin. If you want to add new plugins, then you will find instructions for adding
+them at <a class="interwikiLink" href="https://foswiki.org/Development.UsingJQueryWithFoswiki#adding_plugins" title="'Development.UsingJQueryWithFoswiki#adding_plugins' on foswiki.org">Foswiki:Development.UsingJQueryWithFoswiki#adding_plugins</a>.
+<p></p>
+
+<h2 id="Writing_your_own_Javascript">  Writing your own Javascript </h2>
+<p></p>
+
+Whether writing your own plugins or writing Javascript code in topics, you should observe the
+Foswiki <a href="/bin/view/System/JQueryCodingStandards">JQuery Coding Standards</a>.
+<p></p>
+
+<h2 id="jQuery_References_and_tutorials">  jQuery References and tutorials </h2> <ul>
+<li> <span class='externalLink'><a href="http://learn.jquery.com/about-jquery/how-jquery-works/">How jQuery Works</a></span>
+</li> <li> <span class='externalLink'><a href="http://http://learn.jquery.com/">jQuery Learning Center</a></span>
+</li> <li> <span class='externalLink'><a href="http://api.jquery.com/">jQuery API Documentatiom</a></span>
+</li> <li> <span class='externalLink'><a href="http://jqapi.com">Alternative jQuery Documentation and API Browser</a></span>
+</li> <li> <span class='externalLink'><a href="http://learn.jquery.com/using-jquery-core/avoid-conflicts-other-libraries/">Avoiding Conflicts with Other Libraries</a></span>
+</li> <li> <span class='externalLink'><a href="http://plugins.jquery.com/">The jQuery Plugin Registry</a></span>
+</li></ul> 
+<p></p>
+
+<h2 id="Macros">  Macros </h2>
+<p></p>
+
+<h1 id="BUTTON_45_45_renders_a_nice_button">  BUTTON -- renders a nice button  </h1>
+<h2 id="Parameters">  Parameters </h2>
+                    <table class="foswikiTable" id="tableJQueryPlugin1" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"text"</code> </td>
+			<td class="foswikiTableCol1"> text to be put on this button </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>value</code> </td>
+			<td class="foswikiTableCol1"> text to be put on this button </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>accesskey</code> </td>
+			<td class="foswikiTableCol1"> access key used for this button </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>class</code> </td>
+			<td class="foswikiTableCol1"> e.g. use <code>simple</code> for a non-3D button </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>data-...</code> </td>
+			<td class="foswikiTableCol1"> add html5 data attributes </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>align</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> left, right, center </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>href</code> </td>
+			<td class="foswikiTableCol1"> url of the click target </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> # </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>icon</code> </td>
+			<td class="foswikiTableCol1"> icon to be put on the left; note, this can be any icon attached to the  <code>{IconSearchPath}</code>; see also <a href="/bin/view/System/VarJQICON">VarJQICON</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>id</code> </td>
+			<td class="foswikiTableCol1"> html id for this button </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>onclick</code> </td>
+			<td class="foswikiTableCol1"> javascript event triggered when clicking the button </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>target</code> </td>
+			<td class="foswikiTableCol1"> topic to open when clicking on the button </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>title</code> </td>
+			<td class="foswikiTableCol1"> popup title displayed when hovering over the button </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>type</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> type of action to be performed; available actions are               <ul>                <li> <code>button</code> - normal click button, target specified in <code>target</code> or <code>href</code> parameter </li>                <li> <code>clear</code> - clears all input fields in the form that contains the button</li>                <li> <code>reset</code> - resets all input fields in a form to their initial value </li>                <li> <code>submit</code> - submits the form that contains the button</li>                <li> <code>save</code> - same as <code>submit</code> but takes care of extra validation steps when saving a wiki topic </li>              </ul> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>button</code> </td>
+		</tr>
+	</tbody>     </table>
+<h2 id="Examples">  Examples </h2>
+<pre class="tml">&#37;BUTTON{
+    &#34;&#37;MAKETEXT{&#34;Submit&#34;}&#37;&#34;
+    icon&#61;&#34;tick&#34;
+    onclick&#61;&#34;confirm(&#39;Are your sure?&#39;)&#34;
+  }&#37;
+  &#37;BUTTON{
+    &#34;&#37;MAKETEXT{&#34;Cancel&#34;}&#37;&#34;
+    icon&#61;&#34;cross&#34;
+    target&#61;&#34;&#37;WEB&#37;.&#37;TOPIC&#37;&#34;
+  }&#37; &#37;CLEAR&#37;</pre> <ul>
+<li> Expands as: <div><a  class='jqButton ' href='#' onclick="confirm('Are your sure?');return false;" ><span class='jqButtonIcon img' style='background-image:url(/pub/System/FamFamFamSilkIcons/tick.png)'></span><span class='jqButtonText'>Submit</span></a>  <a  class='jqButton ' href='https://damask.mpie.de/bin/view/System/VarBUTTON'><span class='jqButtonIcon img' style='background-image:url(/pub/System/FamFamFamSilkIcons/cross.png)'></span><span class='jqButtonText'>Cancel</span></a> <span class='foswikiClear'></span></div>
+</li></ul> 
+Note: BUTTONS are floating to the left by default. Take care to add a <code>%CLEAR%</code> after the <code>%BUTTON{...}%</code> so that further content does not overlap with the button.
+<p class='p'></p>
+
+<h1 id="TABPANE_45_45_tabpane_widget">  TABPANE -- tabpane widget </h1>
+This macro starts the tabpane, containing a series of TAB...ENDTABs and ends with ENDTABPANE. A complete tabpane normally looks like this:
+     <pre class="tml">
+&#37;TABPANE&#37;
+ &#37;TAB{&#34;tab 1&#34;}&#37;
+   ...
+ &#37;ENDTAB&#37;
+ &#37;TAB{&#34;tab 2&#34;}&#37;
+   ...
+ &#37;ENDTAB&#37;
+&#37;ENDTABPANE&#37;
+</pre>
+      Multiple tabpanes can be nested using the following scheme:
+     <pre class="tml">
+&#37;TABPANE&#37;
+ &#37;TAB{&#34;tab 1&#34;}&#37;
+   &#37;TABPANE&#37;
+     &#37;TAB{&#34;tab 1.1&#34;}&#37;
+       ...
+     &#37;ENDTAB&#37;
+     &#37;TAB{&#34;tab1.2&#34;}&#37;
+       ...
+     &#37;ENDTAB&#37;
+   &#37;ENDTABPANE&#37;
+ &#37;ENDTAB&#37;
+ &#37;TAB{&#34;tab 2&#34;}&#37;
+   ...
+ &#37;ENDTAB&#37;
+&#37;ENDTABPANE&#37;
+</pre>
+<h2 id="Parameters_AN1">  Parameters </h2>
+             <table class="foswikiTable" id="tableJQueryPlugin2" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>select</code> </td>
+			<td class="foswikiTableCol1"> number or id of tab to select </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>1</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>automaxexpand</code> </td>
+			<td class="foswikiTableCol1"> resizes the tabpane to the maximum height to fit into the window </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>minheight</code> </td>
+			<td class="foswikiTableCol1"> when automaxexpand is enabled, this is the minimum size a tab is allowed to be resized </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 230 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>class</code> </td>
+			<td class="foswikiTableCol1"> extra class: use <code>simple</code> for a non-3D tabpane; use=plain= for a no-frame look&amp;feel </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>animate</code> </td>
+			<td class="foswikiTableCol1"> enables/disables animation of switching tabs </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>remember</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> enables/disables recording the current tab into the url anchor, as well as initialize the currently selected tab reading the anchor </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>off</code> </td>
+		</tr>
+	</tbody>     </table>
+<h2 id="Examples_AN1">  Examples </h2>
+see <a href="/bin/view/System/JQueryTabpane">JQueryTabpane</a> for more examples
+<p></p>
+
+<h1 id="ENDTABPANE_45_45_ending_tag_for_tabpane_widget">  ENDTABPANE -- ending tag for tabpane widget </h1>
+This closes a previously opened TABPANE.
+<p class='p'></p>
+
+<h1 id="TAB_45_45_tab_inside_a_tabpane_widget">  TAB -- tab inside a tabpane widget  </h1>
+Defines a tab inside a TABPANE area; must be closed using ENDTAB.
+<h2 id="Parameters_AN2">  Parameters </h2>
+                <table class="foswikiTable" id="tableJQueryPlugin3" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"text"</code> </td>
+			<td class="foswikiTableCol1"> label of the tab </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Tab </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>before</code> </td>
+			<td class="foswikiTableCol1"> when switching tabs, this is the javascript fragment to be executed just before the tab is displayed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>after</code> </td>
+			<td class="foswikiTableCol1"> this javascript handler is to be executed after the tab has been made visible </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>afterload</code> </td>
+			<td class="foswikiTableCol1"> this javascript handler will be called when content loaded asynchronously (using the <code>url</code> parameter, below) has finished loading; depending on the network latency, this can be significantly later than execution of the <code>after</code> handler above </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>id</code> </td>
+			<td class="foswikiTableCol1"> id of this tab; this id can be used in the TABPANEs <code>select</code> parameter to display this tab; this id is also added to the class attribute of the html element representing the tab button </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>url</code> </td>
+			<td class="foswikiTableCol1"> link from where to load the content of the tab asynchronously when selecting this tab; the result of the addressed handler will replace the content area; if no url is set the content of the TAB ... ENDTAB area will be shown when the tab is selected </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>width</code> </td>
+			<td class="foswikiTableCol1"> width of the tab area </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> auto </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>height</code> </td>
+			<td class="foswikiTableCol1"> height of the tab area </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> auto </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>container</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> element where ajax content will be loaded; this is only used together with <code>url</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody>     </table>
+<p></p>
+
+<h1 id="ENDTAB_45_45_ending_marker_for_a_tab_of_a_tabpane">  ENDTAB -- ending marker for a tab of a tabpane </h1>
+This closes a previously opened TAB.
+<p class='p'></p>
+
+<h1 id="JQICON_45_45_render_an_image">  JQICON -- render an image  </h1>
+Renders an icon made availabe by the <a href="/bin/view/System/IconService">IconService</a>. 
+<p></p>
+
+<h2 id="Parameters_AN3">  Parameters </h2>
+<table class="foswikiTable" id="tableJQueryPlugin4" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"name"</code> </td>
+			<td class="foswikiTableCol1"> name of the icon to display </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>class</code> </td>
+			<td class="foswikiTableCol1"> additional css class for the img tag </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>animate</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> can be one of bounce, burst, flash, float, horizontal, passing, pulse, ring, shake, spin, tada, vertical, wrench </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>alt</code> </td>
+			<td class="foswikiTableCol1"> alt attribute </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>title</code> </td>
+			<td class="foswikiTableCol1"> title attribute </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>style</code> </td>
+			<td class="foswikiTableCol1"> css style format to be added to the image element </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>format</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> format string used to render the icon; known variables to be used in the format string are:            <ul>            <li> <code>$iconName</code>: name as given to the <code>name</code> parameter</li>             <li> <code>$iconPath</code>: url path</li>             <li> <code>$iconClass</code>: css class as specified by the <code>class</code> parameter </li>            <li> <code>$iconStyle</code>: css styles as specified by the <code>style</code> parameter </li>            <li> <code>$iconAlt</code>: alt attribute-value; if the <code>alt</code> parameter to JQICON is set, this expands to <code>alt='...'</code> </li>             <li> <code>$iconTitle</code>: title attribute-value; if the <code>title</code> parameter to JQICON is set, this expands to <code>title='...'</code> </li>            </ul> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> for image icons: <code>&lt;img src='$iconPath' class='$iconClass $iconName' $iconStyle $iconAlt$iconTitle/&gt;</code>; for font icons: <code>&lt;i class='$iconClass' $iconStyle $iconTitle&gt;&lt;/i&gt;</code> </td>
+		</tr>
+	</tbody></table>
+<p class='p'>Example for famfamfam icons:</p>
+
+<pre class="tml">
+&#37;JQICON{&#34;tick&#34; alt&#61;&#34;alternative content&#34; title&#61;&#34;this is a tick icon&#34;}&#37;
+&#37;JQICON{&#34;cross&#34;}&#37;
+&#37;JQICON{&#34;disk&#34;}&#37;
+&#37;JQICON{&#34;star&#34;}&#37;
+&#37;JQICON{&#34;lightbulb&#34;}&#37;
+&#37;JQICON{&#34;camera&#34;}&#37;
+&#37;JQICON{&#34;date&#34;}&#37;
+&#37;JQICON{&#34;heart&#34; animate&#61;&#34;bounce&#34;}&#37;
+</pre> 
+<p class='p'>Produces:</p>
+
+<img src='/pub/System/FamFamFamSilkIcons/tick.png' class='foswikiIcon jqIcon tick'  alt='alternative content' title='this is a tick icon' /> 
+<img src='/pub/System/FamFamFamSilkIcons/cross.png' class='foswikiIcon jqIcon cross'  alt='cross' /> 
+<img src='/pub/System/FamFamFamSilkIcons/disk.png' class='foswikiIcon jqIcon disk'  alt='disk' />
+<img src='/pub/System/FamFamFamSilkIcons/star.png' class='foswikiIcon jqIcon star'  alt='star' />
+<img src='/pub/System/FamFamFamSilkIcons/lightbulb.png' class='foswikiIcon jqIcon lightbulb'  alt='lightbulb' />
+<img src='/pub/System/FamFamFamSilkIcons/camera.png' class='foswikiIcon jqIcon camera'  alt='camera' />
+<img src='/pub/System/FamFamFamSilkIcons/date.png' class='foswikiIcon jqIcon date'  alt='date' /> 
+<img src='/pub/System/FamFamFamSilkIcons/heart.png' class='foswikiIcon jqIcon faa-bounce animated heart'  alt='heart' />
+<p class='p'>Example for font-awesome icons:</p>
+
+<pre class="tml">
+&#37;JQICON{&#34;fa-pagelines&#34; style&#61;&#34;font-size:1em;color:#00BF00&#34;}&#37;
+&#37;JQICON{&#34;fa-pagelines&#34; style&#61;&#34;font-size:2em;color:#0FAF0F&#34;}&#37;
+&#37;JQICON{&#34;fa-pagelines&#34; style&#61;&#34;font-size:3em;color:#1F9C1F&#34;}&#37;
+&#37;JQICON{&#34;fa-pagelines&#34; style&#61;&#34;font-size:4em;color:#2D812D&#34;}&#37;
+&#37;JQICON{&#34;fa-pagelines&#34; style&#61;&#34;font-size:5em;color:#315C31&#34;}&#37;
+</pre> 
+<p class='p'>Produces:</p>
+
+<i class='foswikiIcon jqIcon fa fa-pagelines' style='font-size:1em;color:#00BF00' ></i> 
+<i class='foswikiIcon jqIcon fa fa-pagelines' style='font-size:2em;color:#0FAF0F' ></i> 
+<i class='foswikiIcon jqIcon fa fa-pagelines' style='font-size:3em;color:#1F9C1F' ></i> 
+<i class='foswikiIcon jqIcon fa fa-pagelines' style='font-size:4em;color:#2D812D' ></i> 
+<i class='foswikiIcon jqIcon fa fa-pagelines' style='font-size:5em;color:#315C31' ></i>
+<p></p>
+
+<h1 id="JQICONPATH_45_45_render_the_url_path_to_an_image_icon">  JQICONPATH -- render the url path to an image icon </h1>
+This is a shortcut for:
+<p></p>
+
+<pre class="tml">&#37;JQICON{&#34;name&#34; format&#61;&#34;&#36;iconPath&#34;}&#37;</pre>
+<p></p>
+
+<div class="foswikiHelp">
+Note that this macro only makes sense for <strong><em>image icons</em></strong>, those that refer to a single image file. It does <em>not</em> work for <strong><em>font icons</em></strong> such as those defined in <a href="/bin/view/System/JQueryFontAwesome">JQueryFontAwesome</a>.
+This web font holds all icons in one large font file and as such cannot be refered to individually by means of their url path the same way as images can.
+</div>
+<p></p>
+
+<h2 id="Examples_AN2">  Examples </h2>
+<code>%JQICONPATH{"tick"}%</code> expands to <code>/pub/System/FamFamFamSilkIcons/tick.png</code>
+<p class='p'></p>
+
+<h1 id="JQPLUGINS_45_45_display_a_summary_of_available_plugins">  JQPLUGINS -- display a summary of available plugins </h1>
+<h2 id="Parameters_AN4">  Parameters </h2>
+             <table class="foswikiTable" id="tableJQueryPlugin5" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"plugins"</code> </td>
+			<td class="foswikiTableCol1"> this is a regular expression that the plugin identifier must match to be displayed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>format</code> </td>
+			<td class="foswikiTableCol1"> format string to render information for each matching plugin; known variables to be used in the format string are:        <ul>         <li> <code>$active</code> state of the plugin: displays <span class='foswikiAlert'>(active)</span> when this plugin is loaded on the current page </li>          <li> <code>$author</code> author of the plugin </li>          <li> <code>$documentation</code> plugin documentation topic defaults to <code>%SYSTEMWEB%.JQuery$name</code> </li>          <li> <code>$homepage</code> link to the hompeage of this third party plugin</li>          <li> <code>$index</code> the current index in the list of all plugins being displayed </li>          <li> <code>$name</code> name of the plugin as can be used in <a href="/bin/view/System/VarJQREQUIRE">JQREQUIRE</a> </li>          <li> <code>$summary</code> short description what this plugin does; most plugins provide this piece of information in the <code>summary</code> section of the documentation topic</li>          <li> <code>$tags</code> list of TML macros this plugin implements </li>          <li> <code>$version</code> version of the plugin as provided by the author of this plugin </li>        </ul> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>&nbsp;&nbsp;&nbsp;1 &lt;a href="$homepage"&gt;$name&lt;/a&gt; $active $version $author</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>header</code> </td>
+			<td class="foswikiTableCol1"> header string prepended to the output; empty when no plugin matches </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>footer</code> </td>
+			<td class="foswikiTableCol1"> footer string appended to the output; empty when no plugin matches </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>separator</code> </td>
+			<td class="foswikiTableCol1"> separator put between each plugin rendered in a row </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>$n</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>tagformat</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> format string to render a link to any tag documentation a plugin implements </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>[[%SYSTEMWEB%.Var$tag][$tag]]</code> </td>
+		</tr>
+	</tbody>     </table>
+<h2 id="Examples_AN3">  Examples </h2>
+<pre class="tml"> &#37;JQPLUGINS{
+   &#34;treeview&#124;slimbox&#34;
+   header&#61;&#34;   &#42; JQuery Plugins:&#36;n&#34;
+   format&#61;&#34;      &#42; &#91;&#91;&#36;documentation&#93;&#91;&#36;name&#93;&#93; v&#36;version was developed by &#91;&#91;&#36;homepage&#93;&#91;&#36;author&#93;&#93;&#34;
+ }&#37;</pre> Produces: <ul>
+<li> JQuery Plugins: <ul>
+<li> <a href="/bin/view/System/JQuerySlimbox">Slimbox</a> v2.05 was developed by <span class='externalLink'><a href="https://github.com/cbeyls/slimbox">Christophe Beyls</a></span>
+</li> <li> <a href="/bin/view/System/JQueryTreeview">Treeview</a> v1.4 was developed by <span class='externalLink'><a href="http://bassistance.de/jquery-plugins/jquery-plugin-treeview">Joern Zaefferer</a></span>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h1 id="JQREQUIRE_45_45_enable_a_plugin_on_the_current_page">  JQREQUIRE -- enable a plugin on the current page </h1>
+This macro will load a list of plugins to be added to the current page. Use <a href="/bin/view/System/VarJQPLUGINS">JQPLUGINS</a> to display
+     the list of available and active plugins. While loading a plugin, additional plugins it may depend on are loaded as well.
+     Information about these dependencies is stored within the plugins themselves and can't be changed. Dependencies also make
+     sure the javascript code is added to the html page in the right order. It uses <a href="/bin/view/System/VarADDTOZONE">ADDTOZONE</a>
+     to aggregate javascript and css at the right place on the html page. 
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> in case of an error JQREQUIRE will produce an inline HTML error message. </div>
+<h2 id="Parameters_AN5">  Parameters </h2>
+         <table class="foswikiTable" id="tableJQueryPlugin6" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"plugin,plugin,plugin"</code> </td>
+			<td class="foswikiTableCol1"> comma-separated list of plugins to be loaded </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>warn</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> (on/off) allows you to switch off warnings when a plugin was not found </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>on</code> </td>
+		</tr>
+	</tbody>     </table>
+<h2 id="Examples_AN4">  Examples </h2> <ul>
+<li> <code>%JQREQUIRE{"easing,sliding,falling"}%</code>
+</li></ul> 
+<p></p>
+
+<h1 id="JQTHEME_45_45_switch_jQuery_UI_theme">  JQTHEME -- switch jQuery UI theme </h1>
+Foswiki's default UI theme is configured in  <code>$Foswiki::cfg{JQueryPlugin}{JQueryTheme}</code> and defaults to <code>foswiki</code>.
+Use <a href="/bin/configure">configure</a> to change this site wide. Use JQTHEME if you decide to use a different
+ theme on the current page. 
+<p></p>
+
+Some Foswiki skins may come with their own jQuery UI matching the overall user experience of the web design. 
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> in case of an error JQTHEME will produce an inline HTML error message. </div>
+<p></p>
+
+<h2 id="Parameters_AN6">  Parameters </h2>
+         <table class="foswikiTable" id="tableJQueryPlugin7" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"name"</code> </td>
+			<td class="foswikiTableCol1"> name of theme: JQueryPlugin knows the following themes <code>base</code>, <code>lightness</code>, <code>redmod</code>, <code>smoothness</code>;                 additional themes maybe created using the <span class='externalLink'><a href="http://jqueryui.com/themeroller/">themeroller</a></span> and installed to                 <code>/pub/System/JQueryPlugin/$name</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>foswiki</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>warn</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> (on/off) allows you to switch off warnings when a theme was not found </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>on</code> </td>
+		</tr>
+	</tbody>     </table>
+<p class='p'></p>
+
+<h1 id="POPUPWINDOW_45_45_opens_a_topic_or_url_in_a_new_window">  POPUPWINDOW -- opens a topic or url in a new window </h1>
+<h2 id="Parameters_AN7">  Parameters </h2>
+                       <table class="foswikiTable" id="tableJQueryPlugin8" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"topic"</code> <br> <code>topic="topic"</code> <br> <code>topic="web.topic"</code> </td>
+			<td class="foswikiTableCol1"> Topic to open </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>url</code> </td>
+			<td class="foswikiTableCol1"> URL to open (if topic is not used) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>label</code> </td>
+			<td class="foswikiTableCol1"> Link label </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> the topic or the url </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>template</code> </td>
+			<td class="foswikiTableCol1"> View template to call when viewing a topic; not used for URLs </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"viewplain"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>width</code> </td>
+			<td class="foswikiTableCol1"> Width of window </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"600"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>height</code> </td>
+			<td class="foswikiTableCol1"> Height of window </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"480"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>toolbar</code> </td>
+			<td class="foswikiTableCol1"> Show toolbars? </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"0"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>scrollbars</code> </td>
+			<td class="foswikiTableCol1"> Show scrollbars? </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"1"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>status</code> </td>
+			<td class="foswikiTableCol1"> Show status? </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"1"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>location</code> </td>
+			<td class="foswikiTableCol1"> Show location bar? </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"0"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>resizable</code> </td>
+			<td class="foswikiTableCol1"> Is the window resizable? </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"1"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>left</code> </td>
+			<td class="foswikiTableCol1"> Left position </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"0"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>top</code> </td>
+			<td class="foswikiTableCol1"> Top position </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"0"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>center</code> </td>
+			<td class="foswikiTableCol1"> Center the window? </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"0"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>menubar</code> </td>
+			<td class="foswikiTableCol1"> Show menubar? </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"0"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>createnew</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Create a new window for each popup? </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>"1"</code> </td>
+		</tr>
+	</tbody>     </table>
+<h2 id="Examples_AN5">  Examples </h2> <ul>
+<li> Example with topic link: <pre class="tml">%POPUPWINDOW{"JQueryPlugin" label="Open this topic in a new window"}%</pre> Generates: <a href='https://damask.mpie.de/bin/view/System/JQueryPlugin?template=viewplain' class='jqPopUpWindow' rel='width:600;height:480;scrollbars:1;location:0'>Open this topic in a new window</a>
+</li> <li> Example with URL: <pre class="tml">%POPUPWINDOW{url="https://foswiki.org"}%</pre> Generates: <a href='https://foswiki.org' class='jqPopUpWindow' rel='width:600;height:480;scrollbars:1;location:0'>https://foswiki.org</a>
+</li> <li> Enable <code>POPUPWINDOW</code> by writing <code>%JQREQUIRE{"popupwindow"}%</code> on the page
+</li></ul> 
+<p class='p'></p>
+
+<h2 id="Available_jQuery_plugins">  Available jQuery plugins </h2>
+<h3 id="A_1._Animate">  1. <a href="/bin/view/System/JQueryAnimate">Animate</a>  </h3>
+          A cross-browser library of CSS animations.
+<p></p>
+
+<h3 id="A_2._Autosuggest">  2. Autosuggest  </h3>
+<p class='p'></p>
+
+<h3 id="A_3._blockUI">  3. <a href="/bin/view/System/JQueryBlockUI">blockUI</a>  </h3>
+          The jQuery BlockUI Plugin lets you simulate synchronous behavior when using
+AJAX, without locking the browser. When activated, it will prevent user
+activity with the page (or part of the page) until it is deactivated. BlockUI
+adds elements to the DOM to give it both the appearance and behavior of
+blocking user interaction.
+<p></p>
+
+<h3 id="A_4._Browser_40active_41">  4. Browser <span class="foswikiAlert">(active)</span> </h3>
+<p class='p'></p>
+
+<h3 id="A_5._Button_40active_41">  5. <a href="/bin/view/System/JQueryButton">Button</a> <span class="foswikiAlert">(active)</span> </h3>
+          This is a simple way to render nice buttons in Foswiki.
+It can be used to replace submit and reset buttons of html forms as well.
+<a href="/bin/view/System/FamFamFamContrib">FamFamFamContrib</a> is recommended to display nice icons
+on buttons. Note, that this widget does not participate on the jquery
+theme roller. This is independent.
+<p></p>
+
+<h3 id="A_6._Captcha">  6. <a href="/bin/view/System/CaptchaPlugin">Captcha</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_7._Chili">  7. <a href="/bin/view/System/JQueryChili">Chili</a>  </h3>
+          Chili is the jQuery code highlighter plugin.
+<p></p>
+
+Features: <ul>
+<li> Very fast highlighting, trivial setup, fully customizable, thoroughly documented, and MIT licensed
+</li> <li> Renders identically on IE, Firefox, Mozilla, Opera, and Safari
+</li> <li> Comes bundled with recipes for C++, C#, CSS, Delphi, Java, JavaScript, LotusScript, MySQL, PHP, and XHTML
+</li> <li> Many configuration options: Static, Dynamic, Automatic, Manual, Ad-Hoc, with Metaobjects.
+</li> <li> Provides fine control over which elements get highlighted by means of a jQuery selector or the mithical jQuery chainability.
+</li> <li> Fully supports javascript regular expressions, including backreferences
+</li> <li> The replacement format gives full control on what HTML is used for highlighting
+</li> <li> Provides examples which show setups and features
+</li></ul> 
+<p></p>
+
+<h3 id="A_8._Clockpicker">  8. <a href="/bin/view/System/MoreFormfieldsPlugin">Clockpicker</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_9._Comment_40active_41">  9. <a href="/bin/view/System/CommentPlugin">Comment</a> <span class="foswikiAlert">(active)</span> </h3>
+<p class='p'></p>
+
+<h3 id="A_10._Configure">  10. <a href="/bin/view/System/ConfigurePlugin">Configure</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_11._Cookie">  11. <a href="/bin/view/System/JQueryCookie">Cookie</a>  </h3>
+          Easy cookie handling using jQuery.
+<p></p>
+
+<h3 id="A_12._Cycle">  12. <a href="/bin/view/System/JQueryCycle">Cycle</a>  </h3>
+          The jQuery Cycle Plugin is a lightweight slideshow plugin. Its implementation
+is based on the <a href="/bin/view/System/JQueryInnerFade">JQueryInnerFade</a> Plugin by Torsten Baldes, the Slideshow Plugin by
+Matt Oakes, and the jqShuffle Plugin by Benjamin Sterling. It supports
+pause-on-hover, auto-stop, auto-fit, before/after callbacks, click triggers and
+many transition effects. It also supports, but does not require, the Metadata
+Plugin and the Easing Plugin.
+<p></p>
+
+<h3 id="A_13._DataTables">  13. DataTables  </h3>
+ DataTables is a plug-in for the jQuery Javascript library. It is a highly
+flexible tool, based upon the foundations of progressive enhancement, which
+will add advanced interaction controls to any HTML table.
+<p></p>
+
+<h3 id="A_14._DataTablesButtons">  14. DataTablesButtons  </h3>
+<p class='p'></p>
+
+<h3 id="A_15._DataTablesAutoFill">  15. DataTablesAutoFill  </h3>
+<p class='p'></p>
+
+<h3 id="A_16._DataTablesColReorder">  16. DataTablesColReorder  </h3>
+<p class='p'></p>
+
+<h3 id="A_17._DataTablesFixedColumns">  17. DataTablesFixedColumns  </h3>
+<p class='p'></p>
+
+<h3 id="A_18._DataTablesFixedHeader">  18. DataTablesFixedHeader  </h3>
+<p class='p'></p>
+
+<h3 id="A_19._DataTablesResponsive">  19. DataTablesResponsive  </h3>
+<p class='p'></p>
+
+<h3 id="A_20._DataTablesRowGroup">  20. DataTablesRowGroup  </h3>
+<p class='p'></p>
+
+<h3 id="A_21._DataTablesScroller">  21. DataTablesScroller  </h3>
+<p class='p'></p>
+
+<h3 id="A_22._DataTablesSelect">  22. DataTablesSelect  </h3>
+<p class='p'></p>
+
+<h3 id="A_23._Debug">  23. <a href="/bin/view/System/JQueryDebug">Debug</a>  </h3>
+          Simple jQuery logger / debugger using firebug's console or a div of its own of the form. Useful for JavaScript developers.
+<p></p>
+
+<h3 id="A_24._Easing">  24. <a href="/bin/view/System/JQueryEasing">Easing</a>  </h3>
+          Uses the built in easing capabilities added In jQuery 1.1
+to offer additional "easing" effects.
+<p></p>
+
+<h3 id="A_25._Farbtastic">  25. <a href="/bin/view/System/JQueryFarbtastic">Farbtastic</a>  </h3>
+          Farbtastic is a jQuery plug-in that can add one or more color picker widgets
+into a page. Each widget is then linked to an existing element (e.g. a text
+field) and will update the element's value when a color is selected.
+Farbtastic uses layered transparent PNGs to render a saturation/luminance
+gradient inside of a hue circle. No Flash or pixel-sized divs are used.
+<p></p>
+
+There's a <code>color</code> formfield for easy integration into Foswiki <a href="/bin/view/System/DataForms">DataForms</a>.
+<p></p>
+
+<h3 id="A_26._FluidFont">  26. <a href="/bin/view/System/JQueryFluidFont">FluidFont</a>  </h3>
+          Recompute the font size of an element based on its width.
+<p></p>
+
+<h3 id="A_27._Focus">  27. <a href="/bin/view/System/JQueryFocus">Focus</a>  </h3>
+          This plugin sets the focus on a form input field
+or textarea of a form when the page is loaded.
+<p></p>
+
+<h3 id="A_28._FontAwesome_40active_41">  28. <a href="/bin/view/System/JQueryFontAwesome">FontAwesome</a> <span class="foswikiAlert">(active)</span> </h3>
+          This plugin adds support for the fontawesom icon font. Icons are accessible via the <code>%JQICON</code> macro.
+<p></p>
+
+<h3 id="A_29._Form">  29. <a href="/bin/view/System/JQueryForm">Form</a>  </h3>
+          The jQuery Form Plugin allows you to easily and unobtrusively upgrade HTML
+forms to use AJAX. The main methods, ajaxForm and ajaxSubmit, gather
+information from the form element to determine how to manage the submit
+process. Both of these methods support numerous options which allows you to
+have full control over how the data is submitted. Submitting a form with AJAX
+doesn't get any easier than this!
+<p></p>
+
+<h3 id="A_30._Foswiki_40active_41">  30. <a href="/bin/view/System/JQueryFoswiki">Foswiki</a> <span class="foswikiAlert">(active)</span> </h3>
+          This is plugin takes care of loading the jQuery core and default plugins and
+performs any initialization steps specific to Foswiki, For instance, it reads
+all &lt;meta&gt; tags from the html head as they have been set by Foswiki and
+constructs the <code>foswiki</code> javascript object to be used by other javascript
+plugins.
+<p></p>
+
+In addition it adds some basic Foswiki tags to make life easier using jQuery
+plugins, most notably <code>%JQREQUIRE{"pluginName"}%</code> to load a subsequent
+jQuery plugin and all of its dependencies, taking care where and how it
+is added to the html page.
+<p class='p'>Curent default plugins are: jquery.easing, jquery.metadata, jquery.bgiframe,
+jquery.hoverIntent</p>
+
+<h3 id="A_31._FoswikiTemplate">  31. FoswikiTemplate  </h3>
+ This helper module that loads a Foswiki tmpl using json-rpc and then 
+merges it into the current page. Any additional javascript dependency is loaded into
+the page's zone while doing so.
+<p></p>
+
+<h3 id="A_32._hoverIntent">  32. <a href="/bin/view/System/JQueryHoverIntent">hoverIntent</a>  </h3>
+          hoverIntent is similar to jQuery's built-in "hover" function except that
+instead of firing the onMouseOver event immediately, hoverIntent checks
+to see if the user's mouse has slowed down (beneath the sensitivity
+threshold) before firing the onMouseOver event.
+<p></p>
+
+<h3 id="A_33._I18N">  33. <a href="/bin/view/System/JQueryI18N">I18N</a>  </h3>
+          This plugin tries to be the simplest possible solution to add internationalization to javascript. It <em>only</em> does message translation
+reading translations from the backend. It does <em>not</em> cover dates, numbers, gender or pluralization.
+<p></p>
+
+<h3 id="A_34._ImagesLoaded">  34. ImagesLoaded  </h3>
+<p class='p'></p>
+
+<h3 id="A_35._ImageTooltip">  35. <a href="/bin/view/System/ImagePlugin">ImageTooltip</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_36._InnerFade">  36. <a href="/bin/view/System/JQueryInnerFade">InnerFade</a>  </h3>
+ InnerFade is a small plugin for the jQuery-JavaScript-Library. It's designed to
+fade you any element inside a container in and out.  These elements could be
+anything you want, e.g. images, list-items, divs. Simply produce your own
+slideshow for your portfolio or advertisings. Create a newsticker or do an
+animation.
+<p></p>
+
+<h3 id="A_37._JEditable">  37. <a href="/bin/view/System/JEditableContrib">JEditable</a>  </h3>
+          The JQuery "JEditable" plugin, packaged for use in Foswiki
+<p></p>
+
+<h3 id="A_38._JQTwisty">  38. JQTwisty  </h3>
+<p class='p'></p>
+
+<h3 id="A_39._JsonRpc">  39. JsonRpc  </h3>
+<p class='p'></p>
+
+<h3 id="A_40._JSTree">  40. <a href="/bin/view/System/JSTreeContrib">JSTree</a>  </h3>
+          jquery tree plugin
+<p></p>
+
+<h3 id="A_41._Like">  41. <a href="/bin/view/System/LikePlugin">Like</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_42._LiveQuery_40active_41">  42. <a href="/bin/view/System/JQueryLiveQuery">LiveQuery</a> <span class="foswikiAlert">(active)</span> </h3>
+          Live Query utilizes the power of jQuery selectors by firing callbacks for
+matched elements auto-magically, even after the page has been loaded and the
+DOM updated.
+<p></p>
+
+<h3 id="A_43._Loader">  43. <a href="/bin/view/System/JQueryLoader">Loader</a>  </h3>
+          This plugin allows to reload parts of a page, either automatically or manually.
+<p></p>
+
+<h3 id="A_44._LocalScroll">  44. <a href="/bin/view/System/JQueryLocalScroll">LocalScroll</a>  </h3>
+          This plugin will animate a regular anchor navigation.
+It will allow your visitors to navigate your site with a smooth scrolling effect.
+<p></p>
+
+Each time a link is clicked, the element you decide(can be the whole screen), will gradually scroll to the targeted element, instead of "jumping" as it'd normally do.
+<a href="/bin/view/System/JQueryScrollTo">JQueryScrollTo</a> is used for the animation.
+<p></p>
+
+<h3 id="A_45._MaskedInput">  45. <a href="/bin/view/System/JQueryMaskedInput">MaskedInput</a>  </h3>
+          This is a masked input plugin for the jQuery javascript library. It allows a user to more easily enter fixed width input where you would like them to enter the data in a certain format (dates,phone numbers, etc). It has been tested on Internet Explorer, Firefox, Safari, Opera, and Chrome. A mask is defined by a format made up of mask literals and mask definitions. Any character not in the definitions list below is considered a mask literal. Mask literals will be automatically entered for the user as they type and will not be able to be removed by the user.The following mask definitions are predefined:
+<p></p>
+ <ul>
+<li> a - Represents an alpha character (A-Z,a-z)
+</li> <li> 9 - Represents a numeric character (0-9)
+</li> <li> * - Represents an alphanumeric character (A-Z,a-z,0-9)
+</li></ul> 
+<p></p>
+
+<h3 id="A_46._Masonry">  46. <a href="/bin/view/System/JQueryMasonry">Masonry</a>  </h3>
+          Masonry is a JavaScript grid layout library. It works by placing elements in optimal 
+position based on available vertical space, sort of like a mason fitting stones in a wall. 
+You've probably seen it in use all over the Internet.
+<p></p>
+
+<h3 id="A_47._MediaElement">  47. MediaElement  </h3>
+<p class='p'></p>
+
+<h3 id="A_48._Metadata_40active_41">  48. <a href="/bin/view/System/JQueryMetadata">Metadata</a> <span class="foswikiAlert">(active)</span> </h3>
+          This plugin is capable of extracting metadata from classes, random attributes,
+and child elements.
+<p></p>
+
+<h3 id="A_49._MetaDataPlugin">  49. MetaDataPlugin  </h3>
+<p class='p'></p>
+
+<h3 id="A_50._Migrate_40active_41">  50. <a href="/bin/view/System/JQueryMigrate">Migrate</a> <span class="foswikiAlert">(active)</span> </h3>
+          This plugin can be used to detect and restore APIs, features or functionality that have been deprecated in jQuery and removed as of version 1.9. They include:
+<p></p>
+ <ul>
+<li> jQuery.browser docs
+</li> <li> jQuery.fn.andSelf() docs
+</li> <li> jQuery.sub() docs
+</li> <li> jQuery.fn.toggle() docs (<em>event click signature only</em>)
+</li> <li> "hover" pseudo-event name docs
+</li> <li> jQuery.fn.error() docs
+</li> <li> ajaxStart, ajaxSend, ajaxSuccess, ajaxError, ajaxComplete, ajaxStop global events on non-document targets docs
+</li> <li> Use of attrChange, attrName, relatedNode, srcElement on the Event object (use Event.originalEvent.attrChange etc. instead)
+</li> <li> jQuery.fn.attr() using the pass argument (undocumented)
+</li> <li> jQuery.attrFn object (undocumented)
+</li> <li> jQuery.fn.data() data events (undocumented)
+</li> <li> jQuery.fn.data("events") to retrieve event-related data (undocumented)
+</li></ul> 
+<p class='p'>See the warnings page for more information regarding messages the plugin generates.</p>
+
+Use <code>%JQREQUIRE{"migrate"}%</code> to load the plugin into the page.
+<p></p>
+
+The plugin can be included with versions of jQuery as old as 1.6.4 as a
+migration tool to identify potential upgrade issues. However, the plugin is
+<strong>only required for version 1.9 or higher</strong> to restore deprecated and removed
+functionality.
+<p></p>
+
+See the <span class='externalLink'><a href="http://jquery.com/upgrade-guide/1.9/">Upgrade guide</a></span> for more information.
+<p></p>
+
+<h3 id="A_51._Moment">  51. Moment  </h3>
+<p class='p'></p>
+
+<h3 id="A_52._MouseWheel">  52. MouseWheel  </h3>
+<p class='p'></p>
+
+<h3 id="A_53._NatEdit">  53. <a href="/bin/view/System/NatEditPlugin">NatEdit</a>  </h3>
+          The NatEdit is an wiki editor that helps in learning the TML
+Language by providing a GUI. By design, this is not a wysiwyg editor that tries
+to generate the correct TML in the background. Instead, the user is still in
+charge of writing correct wiki markup but with a bit more of assistance as a
+plain browser textarea. Therefor this editor helps to lower the learning curve
+but will not get in your way once you are aware of wiki markup.
+<p></p>
+
+<h3 id="A_54._PhotoSwipe">  54. PhotoSwipe  </h3>
+<p class='p'></p>
+
+<h3 id="A_55._PNotify">  55. <a href="/bin/view/System/JQueryPNotify">PNotify</a>  </h3>
+          Full featured plugin to show temporary floating messages for status updates, actions and errors.
+<p></p>
+
+<h3 id="A_56._PopUpWindow_40active_41">  56. <a href="/bin/view/System/JQueryPopUpWindow">PopUpWindow</a> <span class="foswikiAlert">(active)</span> </h3>
+          Open a page in a new window.
+<p></p>
+
+<h3 id="A_57._QueryObject">  57. <a href="/bin/view/System/JQueryQueryObject">QueryObject</a>  </h3>
+          This extension creates a singleton query string object for quick and
+readable query string modification and creation. This plugin provides a
+simple way of taking a page's query string and creating a modified
+version of this with little code.
+<p></p>
+
+<h3 id="A_58._RedDot">  58. <a href="/bin/view/System/RedDotPlugin">RedDot</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_59._Render">  59. <a href="/bin/view/System/JQueryRender">Render</a>  </h3>
+          This plugin brings modern template based javascript apps to Foswiki based on the libraries by Boris Moore. It is intended to supersede <code>jquery.tmpl</code>.
+<a class="foswikiNewLink" href="/bin/edit/System/JsRender?topicparent=System.JQueryPlugin" rel="nofollow" title="Create this topic">JsRender</a> is a light-weight but powerful templating engine, highly extensible, and optimized for high-performance pure string-based rendering, without DOM or jQuery dependency.
+<p></p>
+
+<h3 id="A_60._ScrollTo">  60. <a href="/bin/view/System/JQueryScrollTo">ScrollTo</a>  </h3>
+          With this plugin, you will easily scroll overflowed elements, and the screen itself.
+It gives you access to many different options to customize and various ways to specify where to scroll.
+<p></p>
+
+See also <a href="/bin/view/System/JQuerySerialScroll">JQuerySerialScroll</a>, <a href="/bin/view/System/JQueryLocalScroll">JQueryLocalScroll</a>
+<p></p>
+
+<h3 id="A_61._Select2">  61. <a href="/bin/view/System/JQSelect2Contrib">Select2</a>  </h3>
+          Select2 magically turns an existing select tag into a widget that supports
+type-ahead find, but it can do much more: selecting multiple values, remote
+data sources, infinite scrolling... you name it.
+<p></p>
+
+<h3 id="A_62._SerialPager">  62. <a href="/bin/view/System/JQSerialPagerContrib">SerialPager</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_63._SerialScroll">  63. <a href="/bin/view/System/JQuerySerialScroll">SerialScroll</a>  </h3>
+          This plugin allows you to easily animate any series of elements, by sequentially scrolling them.
+It uses <a href="/bin/view/System/JQueryScrollTo">JQueryScrollTo</a> to achieve the scrolling animation.
+<p></p>
+
+<h3 id="A_64._ShrinkUrls">  64. <a href="/bin/view/System/JQueryShrinkUrls">ShrinkUrls</a>  </h3>
+          Shrinks all urls in a given container whose link text exceeds
+a given size and have no white spaces in it, that is don't
+wrap around nicely. If the text is skrunk, the original text
+is appended to the title attribute of the anchor.
+<p></p>
+
+<h3 id="A_65._Slimbox">  65. <a href="/bin/view/System/JQuerySlimbox">Slimbox</a>  </h3>
+          Show images in a lightbox. Slimbox 2 is a 4 KB visual clone of the popular Lightbox 2 script by Lokesh Dhakar, written using the jQuery javascript library. It was designed to be very small, efficient, standards-friendly, fully customizable, more convenient and 100% compatible with the original Lightbox 2.
+<p></p>
+
+<h3 id="A_66._Sprintf">  66. Sprintf  </h3>
+<p class='p'></p>
+
+<h3 id="A_67._Stars">  67. <a href="/bin/view/System/JQueryStars">Stars</a>  </h3>
+          Flexible and non-obstructive star rating. This plugin turns an HTML <code>&lt;input&gt;</code> element into a star rating widget.
+The design is heavily influenced by <a href="/bin/view/System/JQueryRating">JQueryRating</a> by Fyneworks.com bit requries considerably less HTML markup
+which is of advantage with high precision ratings.
+<p class='p'>Features:</p>
+ <ul>
+<li> arbitrary number of stars
+</li> <li> arbitrary precision of star rating by splitting each star
+</li> <li> mouse wheel support
+</li> <li> non-obstructive integration using CSS and HTML5
+</li></ul> 
+<p></p>
+
+<h3 id="A_68._Subscribe">  68. <a href="/bin/view/System/SubscribePlugin">Subscribe</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_69._Superfish">  69. <a href="/bin/view/System/JQuerySuperfish">Superfish</a>  </h3>
+          Superfish is an enhanced Suckerfish-style menu jQuery plugin that takes an
+existing pure CSS drop-down menu (so it degrades gracefully without JavaScript).
+Features: <ul>
+<li> Suckerfish-style hover support for IE6. The class added is sfHover by default but can be changed via the options object,
+</li> <li> Timed delay on mouseout to be more forgiving of mouse-piloting errors. Default is 800 milliseconds but can be changed via the options object
+</li> <li> Animation of sub-menu reveal. uses a fade-in by default but can be given a custom object to be used in the first argument of the animate function. The animation speed is also customisable but is set to ?normal? by default
+</li> <li> Keyboard accessibility. Tab through the links and the relevant sub-menus are revealed and hidden as needed
+</li> <li> Supports the hoverIntent plugin. Superfish automatically detects the presence of Brian Cherne?s hoverIntent plugin and uses its advanced hover behaviour for the mouseovers (mouseout delays are handled by Superfish regardless of the presence of hoverIntent). Using this is only an option, but a nice one. The examples on this page are using hoverIntent. If for some reason you want to use hoverIntent on your page for other plugins but do not want Superfish to use it you can set the option disableHI to true.
+</li> <li> Indicates the presence of sub-menus by automatically adding arrow images to relevant anchors. Arrows are fully customisable via CSS. You can turn off auto-generation of the arrow mark-up via the ?autoArrows? option if required.
+</li> <li> drop shadows for capable browsers ? degrades gracefully for Internet Explorer 6. Can disable shadows completely via options object.
+</li> <li> Can show the path to your current page while the menu is idle. The easiest way to understand this is to view the nav-bar example.
+</li> <li> Optional callback functions. The 'this' keyword within the handlers you attach will refer to the animated ul sub-menu. From version 1.4 there are now three other optional callbacks allowing for further enhancements and functionality to be added without needing to alter the core Superfish code.
+</li></ul> 
+<p></p>
+
+<h3 id="A_70._TableSorter_40active_41">  70. TableSorter <span class="foswikiAlert">(active)</span> </h3>
+ TableSorter is a jQuery plugin for turning a standard HTML table with THEAD and
+TBODY tags into a sortable table without page refreshes. tablesorter can
+successfully parse and sort many types of data including linked data in a cell.
+<p></p>
+
+<h3 id="A_71._Tabpane">  71. <a href="/bin/view/System/JQueryTabpane">Tabpane</a>  </h3>
+          This implements an alternative tabpane widget. There <em>is</em> already one in
+jquery-ui, however as long as jquery-ui is still in flux, this alternative
+offers a safe substitute well integrated into Foswiki.
+<p></p>
+
+Individual tabs can be loaded on demand using a REST call. Installing
+<a class="interwikiLink" href="https://foswiki.org/Extensions/RenderPlugin" title="'Extensions/RenderPlugin' on foswiki.org">Foswiki:Extensions/RenderPlugin</a> is recommended for that.
+<p class='p'>Tabpanes can be nested. Tabs can be extended in height automatically.
+Heights can be auto-updated to follow windows resize events. Tabpanes
+can be established as part of reloaded content via ajax.</p>
+
+Note that this widget does <em>not</em> participate in jquery-ui themerolling.
+It does match <a href="/bin/view/System/JQueryButton">JQueryButton</a> in terms of look &amp; feel.
+<p></p>
+
+<h3 id="A_72._TextboxList">  72. <a href="/bin/view/System/JQueryTextboxList">TextboxList</a>  </h3>
+          Turns a text input into a list widget with autocompletion.
+This plugin adds a new formfield type <code>textboxlist</code> to <a href="/bin/view/System/DataForms">DataForms</a>.
+<p></p>
+
+<h3 id="A_73._TinyMCE">  73. <a href="/bin/view/System/TinyMCEPlugin">TinyMCE</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_74._Treeview">  74. <a href="/bin/view/System/JQueryTreeview">Treeview</a>  </h3>
+          Lightweight and flexible transformation of an unordered list into an
+expandable and collapsable tree, great for unobtrusive navigation enhancements.
+Supports both location and cookie based persistence.
+<p></p>
+
+Subtrees can be loaded on demand using AJAX. See the <a class="interwikiLink" href="https://foswiki.org/Extensions/RenderPlugin" title="'Extensions/RenderPlugin' on foswiki.org">Foswiki:Extensions/RenderPlugin</a>
+how to implement such REST handlers easily.
+<p></p>
+
+<h3 id="A_75._Twisty">  75. Twisty  </h3>
+<p class='p'></p>
+
+<h3 id="A_76._UI">  76. <a href="/bin/view/System/JQueryUI">UI</a>  </h3>
+          Widget collection for jQuery. This is the official user interface library.
+<p></p>
+
+<h3 id="A_77._UI::Accordion">  77. UI::Accordion  </h3>
+<p class='p'></p>
+
+<h3 id="A_78._UI::Autocomplete">  78. <a href="/bin/view/System/JQueryUIAutocomplete">UI::Autocomplete</a>  </h3>
+          Autocomplete, when added to an input field, enables users to quickly find and
+select from a pre-populated list of values as they type, leveraging searching
+and filtering.
+<p class='p'>By giving an Autocomplete field focus or entering something into it, the plugin
+starts searching for entries that match and displays a list of values to choose
+from. By entering more characters, the user can filter down the list to better
+matches.</p>
+
+<h3 id="A_79._UI::Button">  79. UI::Button  </h3>
+<p class='p'></p>
+
+<h3 id="A_80._UI::Datepicker">  80. UI::Datepicker  </h3>
+<p class='p'></p>
+
+<h3 id="A_81._UI::Dialog">  81. <a href="/bin/view/System/JQueryUIDialog">UI::Dialog</a>  </h3>
+          A dialog is a floating window that contains a title bar and a content area. The dialog window can be moved, resized and closed with the 'x' icon by default.
+<p class='p'>If the content length exceeds the maximum height, a scrollbar will automatically appear.</p>
+
+<p class='p'>A bottom button bar and semi-transparent modal overlay layer are common options that can be added.</p>
+
+A call to <code>$(foo).dialog()</code> will initialize a dialog instance and will auto-open the dialog by default. If you want to reuse a dialog, the easiest way is to disable the "auto-open" option with: 
+<code>$(foo).dialog({ autoOpen: false })</code> and open it with <code>$(foo).dialog('open')</code>. To close it, use <code>$(foo).dialog('close')</code>.
+<p></p>
+
+<h3 id="A_82._UI::Draggable">  82. UI::Draggable  </h3>
+<p class='p'></p>
+
+<h3 id="A_83._UI::Progressbar">  83. UI::Progressbar  </h3>
+<p class='p'></p>
+
+<h3 id="A_84._UI::Resizable">  84. UI::Resizable  </h3>
+<p class='p'></p>
+
+<h3 id="A_85._UI::Slider">  85. UI::Slider  </h3>
+<p class='p'></p>
+
+<h3 id="A_86._UI::Spinner">  86. UI::Spinner  </h3>
+<p class='p'></p>
+
+<h3 id="A_87._UI::Tabs">  87. UI::Tabs  </h3>
+<p class='p'></p>
+
+<h3 id="A_88._UI::Tooltip">  88. <a href="/bin/view/System/JQueryUITooltip">UI::Tooltip</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_89._Uploader">  89. <a href="/bin/view/System/TopicInteractionPlugin">Uploader</a>  </h3>
+<p class='p'></p>
+
+<h3 id="A_90._Validate">  90. <a href="/bin/view/System/JQueryValidate">Validate</a>  </h3>
+          Very powerful client-side form validation framework
+(<span class='externalLink'><a href="http://bassistance.de/2007/07/04/about-client-side-form-validation-and-frameworks/">article</a></span>).
+<p></p>
+
+<h3 id="A_91._View">  91. <a href="/bin/view/System/JQueryView">View</a>  </h3>
+          This plugin adds JsViews functionality to the JsRender plugin. JsViews builds off of standard JsRender templates, but adds
+two-way declarative data-binding, MVVM, and MVP.
+<p></p>
+
+See <a href="/bin/view/System/JQueryRender">JQueryRender</a> and <a href="https://www.jsviews.com/#jsviews">https://www.jsviews.com/#jsviews</a> for more details.
+<p></p>
+
+<h3 id="A_92._WikiWord">  92. <a href="/bin/view/System/JQueryWikiWord">WikiWord</a>  </h3>
+          This plugin allows to create a WikiWord on the base of a set of
+input elements. The value of these are concatenated and the result is
+normalized to be a valid WikiWord. For example, this can be used
+to derive a topic name from a free-form topic title text.
+<p class='p'></p>
+
+<h2 id="Using_compressed_javascript_and_css_files">  Using compressed javascript and css files </h2>
+All jQuery plugins are shipped with uncompressed js and css files, as well as minified and gzip compressed.
+For instance the jquery.form plugin comes with the following set:
+<p></p>
+ <ol>
+<li> /pub/System/JQueryPlugin/plugins/form/jquery.form.uncompressed.js
+</li> <li> /pub/System/JQueryPlugin/plugins/form/jquery.form.js
+</li> <li> /pub/System/JQueryPlugin/plugins/form/jquery.form.js.gz
+</li></ol> 
+<p></p>
+
+There is a Makefile in the <code>/pub/System/JQueryPlugin</code> root directory that ensures all these
+files are up to date. By default all files in the JQueryPlugin package are up to date, so you only have to
+issue a <code>make</code> in the root directory if you wish to
+modify one of the files underneath. This will update
+all minified and gzipped files as required. Enable the <code>{JQueryPlugin}{Debug}</code> flag in <code>configure</code>, 
+to use the uncompressed files right away to omit the <code>make</code> step during development of new javascript components.
+<p></p>
+
+Apache can be configured to automatically use the <code>.gz</code> files if present using <code>mod_rewrite</code> as follows:
+<pre>
+  &#60;FilesMatch &#34;.&#42;\.(js&#124;css)&#36;&#34;&#62;
+    RewriteEngine On
+    RewriteCond &#37;{HTTP:Accept-encoding} gzip
+    RewriteCond &#37;{REQUEST&#95;FILENAME}.gz -f
+    RewriteRule ^(.&#42;)&#36; &#37;{REQUEST&#95;URI}.gz &#91;L,QSA&#93;
+  &#60;/FilesMatch&#62;
+
+  &#60;Files &#42;.js.gz&#62;
+    AddEncoding gzip .js
+    ForceType application/x-javascript
+  &#60;/Files&#62;
+
+  &#60;Files &#42;.css.gz&#62;
+    AddEncoding gzip .css
+    ForceType text/css
+  &#60;/Files&#62;
+</pre>
+<p></p>
+
+So whenever the browser accepts encoding the file as gzip <em>and</em> the file with the <code>.gz</code> exists
+in the filesystem, then there will be an internal redirect in the server while still enforcing the original mime-type.
+The browser on the client side will unzip the css and js files automatically. This will drastically
+reduce bandwidth and speed up interactive performance.
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<div class="foswikiHelp"> 
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> For Foswiki versions before 1.1, this plugin requires the
+<a class="interwikiLink" href="https://foswiki.org/Extensions.ZonePlugin" title="'Extensions.ZonePlugin' on foswiki.org">Foswiki:Extensions.ZonePlugin</a> to be installed. The ZonePlugin is <strong>not</strong>
+required for Foswiki 1.1 or later.
+</div>
+<p></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">JSON</td><td align="left">&gt;=0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::ZonePlugin</td><td align="left">&gt;=3.1</td><td align="left">Required. required for Foswiki &lt; 1.1</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<table class="foswikiTable" id="tableJQueryPlugin9" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Nov 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (9.20) - Item14874: deprecate uglify-js and yuicompressor in favor of terser <br />                         - Item14875: remove <code>type/javascript</code> and <code>type/css</code> as per html5;                                       fixes to jquery ajax helpers when no results were found;                                       fixes for perl critiques;                                       add html5 data support for %BUTTON;                                       remove explicit and useless dependency on livequery;                                       add BUILD_DIR, LIB_DIR and SRC_DIR support in Makefile system;                                       removed babel tools from Makefile system;                                       fixed wikiword regex;                                       improved loader plugin to make it more usable;                                       upgraded third party plugins images-loaded and masonry </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 May 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (9.10) - Item14837: updated animate.css <br />             Item14838: add remember parameter to tabpane <br />             Item14839: fix default value in textboxlist formfields <br />             Item14840: fix tooltip position in draggable elements </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jan 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (9.00) - Item14767: implement a proper icon service </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Oct 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (8.11) - Item14762: fixed jquery.loader not clearing timeouts properly </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Jun 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (8.10) - Item14564: added jquery-3 and the matching migrate module <br />                            Item14567: added keyboard navigation to jquery.stars <br />                            Item14568: added chili recipes for autolisp and ini <br />                            Item14569: deprecated jquery.placeholder <br />                            Item14571: added manual sorting mode to textboxlist <br />                            Item14572: upgraded jquery.livequery <br />                            Item14454: added jsview in addition to jsrender <br />                            Item14721: fixed loading of language files for jquery.i18n <br />                            Item14722: add jquery.browser as a separate module <br />                            Item14723: upgraded jquery.sprintf <br />                            Item14724: enhance Makefile system to support sass and babel <br />                            Item14727: improve locale support of datepicker <br />                            Item14728: send an "opened" event to the <code>jqUIDialogLink</code> once the ui-dialog opened <br />                            Item14660: fixed missing tab id causing a javascript error                            Item14735: use animate.css for jquery.loader effects instead of jQuery's own ones </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Feb 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.26) - Item14636: fixed javascript api for jquery.wikiword </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Dec 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.25) - Item14565: bundle jquery.validate js files into one <br />                            Item14566: don't cache a null result in foswiki.getPreference() <br />                            Item14570: add "use strict" to farbtastic's init and fix js errors <br />                            Item14573: fixed auto-height calculation of tabpane<br/>                           Item14584: jquery.wikiword changed interpretation of source parameter in a incompatible way. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 8 Dec 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.24) - Released with Foswiki 2.1.5<br />                            Item14518: <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQueryPlugin">JQueryPlugin</a> should warn configure if an older version of jquery is selected.<br />                            Item14555: make build work with latest uglifyjs 3.<br />                            Item14559: regression via Item13898 - broken topic selectors.<br />                            Item14560: wikiword changes don't trigger a change event on the target element. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 4 May 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.23) - Item14372: <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQueryPlugin">JQueryPlugin</a> ui-draggable got dropped from  Config.spec. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 8 Feb 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.22) - Item14312: don't destroy dialogs on close. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.21) - Item14281: Cookie related changes. Inconsistent use of the domain and secure flags. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Dec 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.20) - Item10918: Improve javascript api to address individual tabs. <br />                          - Item14172: jquery.stars width incorrect in modal dialogs. <br />                          - Item14173: Invalid call foswiki.getScriptUrl() in foswiki.getPreference(). <br />                          - Item14226: Performance improvements to $.i18n(). <br />                          - Item14227: Potential use of uninitialized value in a rating formfield. <br />                          - Item14228: Upgrade <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQueryPlugin">JQueryPlugin</a> to blockui 2.70. <br />                          - Item14229: Upgrade <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQueryPlugin">JQueryPlugin</a> to jsrender 0.9.83. <br />                          - Item14230: jquery.maskedinput initializer does not match documentation. <br />                          - Item14250: wait for images by default in jquery.masonry. <br />                          - Item14251: Remove non-functional caching of dialogs loaded via ajax. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Sep 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.10) - Item14121: reimplement jquery.stars using SVGs now; <br />                          - Item14120: remove outdate compression tools; <br />                          - Item13206: upgrade to jquery-ui; added jQuery-1.12.4 / jQuery-2.2.4; <br />                          - Item14122: upgrade to fontawesome 4.6.3; <br />                          - Item14123: fixed <code>foswiki.getPubUrlPath()</code> using an uninitialized parameter; <br />                          - Item14124: make skin of a jquery.loader backend configurable; <br />                          - Item14171: fix encoding of error message in jquery.render </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Apr 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.04) - Item14042: it's jquery-1.12.3 not jquey-1.12.3 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.03) - Item14042: added jQuery-1.12.3 / jQuery-2.2.3 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Apr 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.02) - Item14024: fix issue with JSON::XS 3.02 in some environments </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Mar 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.01) - added jQery-1.12.2 / jQuery-2.2.2;                            fixed textboxlist loosing tags with leading or trailing spaces;                            updated imagesLoaded </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Feb 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (7.00) - modernized button module again;                            removed outdated jQuery versions;                            deprecated bgiframe and media modules;                            updated jquery.form, localScroll, scrollTo, sericalScroll, masonry, jquery.migrate, queryObject, jsrender, sprintf, fontawesome, jquery.stars, superfish, jquery.tabpane to latest versions;                            externalized imagesLoaded from masonry;                            do a deep merge gathering foswikiPreferences from the header;                            added new jquery.i18n module for client-side translations </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Feb 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.32) - Item13898: Jumpbox example in <a href="/bin/view/System/JQueryAjaxHelper">JQueryAjaxHelper</a> is not working <br />                            Item12560: Split NameFilter into AttachmentNameFilter <br />                            Item13854: Set ALLOWTOPICVIEW=* in critical system topics. <strong>Foswiki 1.1.x Requires compatibility patches, or Foswiki 1.1.10</strong> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Nov 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.31) - Item13832: Filter the "effect" URLPARAM of <a href="/bin/view/System/JQueryLoader">JQueryLoader</a>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.30) - reworked the way how preferences are propagated from backend to javascript not to use unsafe inline scripts anymore </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.20) - improvements to jquery.wikiword, jquery.loader; adding html5-data capabilities to plugin initialization; added jquery-1.11.3 and jquery-2.1.4 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Jun 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.13) - Item13460: JQICON fails to render FontAwesome icons. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Apr 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.11) - Item13389: datepicker initializaiton problem; datepicker z-index problem; pushy tooltips not hidden when typing into an input field; error in jquery.foswiki api getPubUrlPath </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Feb 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.10) - Item13272: upgraded superfish and hoverintent, deprecated subpersubs </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Jan 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.01) - Item13205: added jquery-1.11.2 and jquery-2.1.3 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Nov 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.01) - Item13123: Add PLACEHOLDER parameter to <a href="/bin/view/System/JQueryAjaxHelper">JQueryAjaxHelper</a> topic selector. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Sep 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (6.00) - Item13030: deprecate jquery.tmpl; added jsrender and a template loader </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Jun 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (5.11) - Item12933: make filtered characters configurable in <a href="/bin/view/System/JQueryWikiWord">JQueryWikiWord</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Feb 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (5.10) - Item12734: added jQuery-1.11, jQuery-2.10, jquery-ui-1.10.4;                            reverted patch to jquery.ui.tooltip;                            reapplied patch to jquery.ui.draggable preventing hopping modal dialogs and such;                            fix hopping position of hepler element in jquery.ui.sortable;                            now defaulting to the latest jQuery version </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Dec 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (5.00) - new modules fontawesome, ui::spinner;                            upgraded slimbox and media module;                            improvements to <code>foswiki</code> theme for jquery-ui;                            modernize button module;                            fixed dependencies of wikiword module;                            new <code>tmpl</code> REST handler to load jquery templates asynchronously </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Nov 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.91) - Release with Foswiki 1.1.9                   Item12650: Add config error for removed Themeswitcher plugin </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Oct 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.90) - Item12567: fix checking of version number in configure                   Item12577: deprecate jquery-tooltip in favour of jquery-ui-tooltip                   Item12596: improve documentation of jquery-ui                   Item12583: revert version string to simple float not to break installation on RHEL and SLES                   Item12599: use jQuery-1.9x (not 2.0.x) for IE9                   Item12600: various minor changes to jquery components </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Oct 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.83) - Item12567: fix version check in <code>configure</code> (not released) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jun 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.82) - Item12528: fixed char mapping in jquery.wikiword </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 May 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.81) - Item12520: added jquery-1.10.1 and jquery-2.0.2 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 May 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.80) - Item12519: upgraded superfish, supersubs and hoverintent </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 May 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.70) - Item12345: added jquery-1.9.1, jquery-1.10.0, jquery-2.0.0, jquery-2.0.1;                            removed themeswitcher as it isn't supported and non-functional anymore;                            upgraded to jquery-ui-1.10.3;                            upgraded form, rating, masonry, blockui, scrollto;                           removed warning in configure about chilli </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Jan 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.60) - Item12345: added jquery-1.8.3, upgraded pnotify, masonry, scrollto, form, blockui, cycle </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Dec 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.50) - Item12229: improved transliteration of unicode characters in jquery.wikiword </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Nov 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.45) - Release with Foswiki 1.1.6 <br />                   Item12192: Fix some layout issues<br />                   Item12214: default jquery-ui theme overrides manual JQTHEME choice.<br />                   Item12215: Hide JQLoader using CSS. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Oct 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item12195: Default jquery version is jquery-1.8.2 now </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Oct 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item12190: Chili enabled by default,  warning demoted to a note. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Oct 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.44) - Item12048: upgraded to jquery-ui-1.8.23; added jquery-1.8.2 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jul 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.43) - Item11993: upgraded <a href="/bin/view/System/JQueryLiveQuery">JQueryLiveQuery</a> to 1.3.1 ; reworked documentation and examples; <br />                   Item11175: upgrade <a href="/bin/view/System/JQueryValidate">JQueryValidate</a> to 1.9.0; <br />                   Item11994: upgraded <a href="/bin/view/System/JQueryUI">JQueryUI</a> to 1.8.21 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Jul 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.42) - Item11742: removed all jquery prior to 1.7.1 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Jun 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.42) - Item11917: simplemodal updated to 1.4.2. fixed upstream bug computing dialog heights </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 May 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.41) - Item11889:                   added means to hide the close button on textboxlist values;                   docu improvements to textboxlixst and pnotify </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Apr 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.40) - Item11397, Item11742:                   use a JSON instead of &lt;meta&gt; to export preferences to javascript;                   add jquery-1.7.2 (new default);                   deprecate all jquery versions prior to 1.7.1                   improve docu and integration of scrollto and serialscroll;                   removed deprecated foswiki.web, foswiki.topic etc properties </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.33) - Item11511, Item11512:  Minor changes to improve JSON output and Javascript validations.<br />                    Item11685: deprecate simmplemodal, replace by jquery.ui.dialog.<br />                    Item11654: <a href="/bin/view/System/JQueryTmpl">JQueryTmpl</a> is discontinued upstream.<br />                    Item11383: Document jqUIDialogSubmit.<br />                    Item10383: JQuerySimpleModal sample window isn't displayed properly. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Dec 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.32) - re-release Foswiki 1.1.4 - Item11335 revert spinner changes, Item11371 - close suggestions list. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Dec 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.31) - Foswiki 1.1.4 Release. Item11335 <a href="/bin/view/System/JQueryAjaxHelper">JQueryAjaxHelper</a> examples don't work reliably. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Nov 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.30) added jquery-1.7 and jquery-1.7.1;                   added jquery.loader to ease loading sections asynchronously </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 3 Dec 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.22) Incremented version for Foswiki 1.1.4 release. Minor code and documentation cleanup. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Nov 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.21) added config warnings for the deprecated JQuery plugins;                   and a warining for Chili highlighter corruption;                   fixed jquery.chili to allow other non-recipe css classes in verbatim sections;                   fixed jquery.cookie to return undefined instead of an empty Object when asking for an unknown cookie;                   fixed JQueryAjaxHelper's <code>users</code> backend to return users and groups                   improved jquery-ui-dialog integration </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Oct 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixing compatibility of jquery.media with newer jqueries;                   fixed placement of jquery.tooltips when viewport at right bottom;                  fixed jquery.superfish's index related to jquery.ui.dialog's;                   improved jquery.button click usability;                   improved and documented integration of jquery.ui.dialog;                   fixed jquery.ui.resizable to init array objects correctly </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Sep 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.20) added perl api to make ui themes pluggable;                   upgrade to jquery-ui 1.8.16, masked-input 1.3, masonry 2.0, textboxlist 1.0, validate 1.8.1, cycle 2.9995, bgiframe 2.1.2, blockUI 2.39, corner 2.12, gradient 1.0,                   autocomplete 1.2.2, form 2.80;                   upgraded all jquery-ui themes to match the latest version;                   deprecated abandoned jquery.autocomplete in favor of jquery-ui's autocomplete;                   added modules ui::accordion, ui::autocomplete, ui::button, ui::datepicker, ui::dialog, ui::draggable, ui::progressbar, ui::resizable, ui::slider, ui::tabs;                   improved rating formfield to display the actual value as well, not only the stars;                   added initializer for jquery.validate;                   improved initializer for simplemodals to make them draggable and resizable;                   fixed css of treeview, autocomplete, tabpane, button;                   new foswiki jquery-ui theme;                   added jquery-1.6.2 and jquery-1.6.3;                   improved docu of jquery.cycle, jquery.masonry, jquery.validate </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Jun 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.11) Fix "Use of uninitialized" in textboxlist </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 May 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.10) Added <a href="/bin/view/System/JQueryPlaceholder">JQueryPlaceholder</a>;                   Updated jquery.autocomplete to work around Firefox 4 problem breaking up/down arrow keys in edit fields;                   Added jquery.tmpl;                   Updated jquery.metadata to support html5 attributes;                   Updated jquery.validate to 1.8.0;                   Added jquery-1.5.[0-2] and jquery-1.6.1;                   Implemented history support for jquery.tabpane;                   Updated jquery.media and added more skins to the swf player;                   Fixed jquery.shake to work with elements positioned relatively;                   Adding context variables for all enabled jQuery modules; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Apr 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.03) jQuery default corrected to be 1.4.3.                   Fixed syntax for accessing meta variables.                   Improved iterating hash.                   Updated forms jq plugin from 2.25 to 2.43.                   Removed useless BOM code from blockUI.                   Compress using utf8 encoding by default                  This version is shipping with Foswiki 1.1.3 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Feb 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.02) cleaned up and documented the process for adding new plugins </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Feb 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.01) added pnotify, configure checker to check that                   configured <code>{JQueryVersion}</code> is sane </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Dec 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.00) adding jquery-1.4.2/3/4 (default is 1.4.3);                   removing jquery-1.2.6, deprecating jquery-1.3.x (incompatible with shipped jquery-ui);                   upgraded to jquery-ui 1.8.5 (needs jquery-1.4+);                   upgraded jquery-cookie;                   added themeswitcher;                   fixed spinner in autocomplete;                   various fixes to jquery.tooltip;                   improved tooltip themes (added blackbox theme);                   fixed rating formfield;                   improved printout of tabpanes;                   added new jquery-ui theme flickr;                   update forms plugin to 2.49 to improve jQuery 1.4 compatibility </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Oct 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.75) fixed IE error in chili recipe for TML </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Oct 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.74) Version included with Foswiki 1.1.0 + fix for code bug in SLIMBOX causing ImageGalleryPlugin to fail </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Aug 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.71) <a href="/bin/view/System/JQueryLiveQuery">JQueryLiveQuery</a> now loads by default;                   removed <a href="/bin/view/System/JQueryBgiframe">JQueryBgiframe</a> and <a href="/bin/view/System/JQueryEasing">JQueryEasing</a> plugins from default plugins </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Jul 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.70) removed outdated spinner and ifixpng plugins;                   improved documentation;                   fixed IE error in treeview;                   added post method to async mode of treeview;                   moved %CLEAR to %SYSTEM.DefaultPreferences </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 May 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.60) removed pointless TOGGLE module;                   reworked handling of <code>meta</code> tags by merging <code>foswikilibs.js</code> with <code>jquery.foswiki</code> module;                   fixed IE7 error with floats inside tabpanes;                   added ajax handler to query foswiki preferences async-ly </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Apr 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.51) fixed initial classes of click-areas in treeviews </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.42) disable plugin when prerequisites are not met </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.41) fix <a class="foswikiNewLink" href="/bin/edit/System/ZonePlugin?topicparent=System.JQueryPlugin" rel="nofollow" title="Create this topic">ZonePlugin</a> listed as optional dependency (not optional for Foswiki 1.0.x installations) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.40) externalized grid and fullcalendar modules into plugins of their own; upgraded to jquery-ui 1.7.2; only load i18n support matching the current site language </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.31) Minifier CPAN libs removed from plugin. They will be in core CPAN lib in Foswiki 1.1 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.30) upgraded <code>validate</code> to v1.7; added <code>wikiword</code> validation method;                   fixed computation of line-height in <code>fluidfont</code>;                   fixed height issue in <code>tabpane</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> made ZonePlugin an optional dependency </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved js and css compression using yuicompressor;                   improved simplemodal integration to foswiki to create modal dialogs with less additional javascript;                   added custom events to textboxlist: AddValue, DeleteValue , Reset and Clear </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Feb 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added livequery and rewrote all initializers to use it;                   added <code>rating</code> formfield type;                   updated jqGrid to latest version;                   improved foswiki integration and documentation of various plugins;                   upgraded jwplayer coming with media plugin;                   using <a class="interwikiLink" href="https://foswiki.org/Extensions/ZonePlugin" title="'Extensions/ZonePlugin' on foswiki.org">Foswiki:Extensions/ZonePlugin</a> now to optimize page load time </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Feb 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added query-object </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Jan 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added jquery-1.4.1, corner, fluidfont, fullcalendar,                   localscroll, masonry, scrollto, serialscroll, slimbox;                   deprecated jquery.nifty; disabled JQSCRIPT and JQSTYLE </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Nov 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added jqGrid library; reorganized documentation </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Nov 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> updated Superfish to 1.4.8 and added examples topic, added                  supersubs plugin, moved JQuery examples from Sandbox to System </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Oct 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added SCRIPTSUFFIX to foswiki var set (CDot) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Sep 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added perls tubs for jquery.ui, so that you can pull it in via JQREQUIRE now;                   reworked plugin initialization to allow elements to be init'ed when loaded via ajax;                   fixed BUTTON to play nicely with TwistyPlugin;                   only load ui-theme if you jqrequire the ui library </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Aug 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> made JQueryPlugin SafeWikiPlugin compatible </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Jul 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved parsing of foswiki meta tags in html header;                   fixed jqTreeview initialisation for jquery-1.3.x;                   fixed chili initialisation;                   dropped support for konqueror3 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jun 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added jquery.focus, jquery.textboxlist, jquery.farbtastic; jquery.gradient;                   added <code>color</code> and <code>textboxlist</code> formfield types;                   made JQueryPlugin pluggable itself;                   added animation switching tabs;                   improved automaxexpand feature in tabs </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Apr 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added jquery.media, jquery.simplemodal, shell highlightning for chilli </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Feb 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed tabpane not being rendered using a rest handler;                   added id to tabs that can be used to init the first active one;                   added compressed version of blockUI;                   replaced ICONTOPIC preference variable with ICONSEARCHPATH to search for icons                   in multiple directories (defaults to all of FamFamFamContrib) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Jan 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed click target for relative urls in %BUTTON{}%; yet another jquery.wikiword fix </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Jan 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed jquery.wikiword not to depend on outside string libraries;                   added foswiki alias to global javascript variables (Eugen Mayer) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Jan 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> certified for foswiki/compat; fixed BUTTON target for non-wikiword topics </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Dec 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed a series of IE6+IE7 issues </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Nov 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added jquery.ifixpng;                   improved BUTTON tag to have submit and clear and reset buttons;                   ie6 fixes for BUTTONs;                   added missing jquery.wikiword plugin </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Nov 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added automaxexpand for TABPANES ;                  added jquery.shake plugin;                   reworked BUTTON tag </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Oct 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added jquery.autocomplete, jquery.cycle </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Jul 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added jquery.form, jquery.maskedinput, jquery.validate </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Jul 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> updated to ui-1.5.2; added async treeview; added async options to tabpane </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Jul 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> updated to ui-1.5.1 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Jun 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> updated to jquery-1.2.6 and ui-1.5-RC1 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Apr 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> repackaged to contain jquery UI </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Feb 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> upgrade to jquery-1.2.3, as well as most plugins </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jan 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added jquery.metadata plugin;                   implemented a jquery.tabpane plugin;                   updated jquery.dimensions plugin;                   added jquery.empty plugin to ease development of new plugins </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Nov 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> use skin independent way to add javascript files to header </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Oct 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> upgraded to jQuery-1.1.4; compressed js and css </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 12 Jul 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> initial package containing jQuery-1.1.3.1 </td>
+		</tr>
+	</tbody></table></div>
+<p></p>
+
+<div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/JQueryPlugin?t=1627668559;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a href="/bin/view/System/ProjectContributor">ProjectContributor</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 9.20 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 18 Nov 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> jQuery JavaScript library for Foswiki </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/distro">https://github.com/foswiki/distro</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> 2007-2019 Foswiki Contributors <a href="https://foswiki.org">https://foswiki.org</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a class="interwikiLink" href="https://foswiki.org/Extensions/JQueryPlugin" title="'Extensions/JQueryPlugin' on foswiki.org">Foswiki:Extensions/JQueryPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Support/JQueryPlugin" title="'Support/JQueryPlugin' on foswiki.org">Foswiki:Support/JQueryPlugin</a> </td></tr></table></div>
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>JQueryPlugin <br />
+Topic revision:  <span class='patternRevInfo'>18 Nov 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.JQueryPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

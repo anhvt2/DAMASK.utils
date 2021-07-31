@@ -1,0 +1,660 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> TocPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/TocPlugin?t=1627664530" type="application/x-wiki" title="edit TocPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/TocPlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/01f192a0a5a66b5d7eac0fa354dfb9fb.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SKIN" : "damask,famfamfam,pattern",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "URLHOST" : "https://damask.mpie.de",
+   "USERNAME" : "guest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SERVERTIME" : "30 Jul 2021 - 19:02",
+   "WEB" : "System",
+   "COOKIEREALM" : "",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "TOPIC" : "TocPlugin",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKINAME" : "WikiGuest",
+   "SYSTEMWEB" : "System",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTSUFFIX" : "",
+   "USERSWEB" : "Main"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/TocPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/TocPlugin" title='Topic revision: 1 (15 Apr 2011 - 22:05:33)'>TocPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/TocPlugin?t=1627664530;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/TocPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/TocPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/TocPlugin?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=TocPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/TocPlugin?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/TocPlugin?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h2 id="TocPlugin"> TocPlugin </h2>
+<!-- <ul>
+<li> Set SHORTDESCRIPTION = Sophisticated table of contents generation
+</li></ul> 
+-->
+Sophisticated table of contents generation
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#TocPlugin"> TocPlugin </a> <ul>
+<li> <a href="#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="#Info"> Info </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p></p>
+
+Supports the generation of tables of contents, together with symbolic
+cross-references that operate <em>within</em> and <em>between</em> topics.
+<p></p>
+
+Adds a number of new macros: <ul>
+<li> %SECTIONn% - inserts an anchored section header
+</li> <li> %CONTENTS% - generates a table of contents for a topic or an entire web, with full expansion depth control
+</li> <li> %REF% - inserts a symbolically named cross-reference URL
+</li> <li> %ANCHOR% - inserts a symbolically named jump target
+</li> <li> %TOCBUTTONS% - inserts "Prev", "Home" and "Next" buttons
+</li></ul> 
+Example:
+<p></p>
+
+<a href='/pub/System/TocPlugin/screenshot.png' title='https://damask.mpie.de/pub/System/TocPlugin/screenshot.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='873' data-orig-height='484'><img class='imagePlain imagePlain_none ' src='/pub/System/TocPlugin/igp_7771811a8b046f3fb885d32c36ecd901_screenshot.png' alt='screenshot.png' title='screenshot.png' width='873' height='484'    /></a><p class='p'>The rest of this topic is written using the plugin, so you will see macros such as %SECTION0% if the plugin
+is not installed and enabled.</p>
+
+<H2><A name="Section_1.1."></A>1.1. Books<A name="Section_WebOrder"></A> 
+</H2>
+The plugin depends on the existance of a topic called "WebOrder". This topic is referred to as the "book", and
+should contain a list of
+the topics that you want to generate section numbers for. Each topic in the book is allocated a <code>SECTION0</code>
+section number i.e. the first topic is section 1, the second is section 2 etc.
+<p></p>
+
+The book topic is a simple list - either a bulleted list or a numbered list - and can be created interactively
+using the <a href="/bin/view/System/BookmakerPlugin">BookmakerPlugin</a>.
+<p></p>
+
+Each entry in the book must be the name of a topic in the current web. This plugin ships with a simple <a href="/bin/view/System/WebOrder">WebOrder</a>, which
+you can view (but are advised not to change).
+<p></p>
+
+e.g.
+<A name="Example_WebOrder"></A>1.1.A An example Weborder topic
+<pre>
+   &#42; &#91;&#91;An Overview of Perl&#93;&#93;
+      1 &#91;&#91;Getting Started&#93;&#93;
+      2 &#91;&#91;Natural and Artificial Languages&#93;&#93;
+      3 AGradeExample
+   2 &#91;&#91;The Gory Details&#93;&#93;
+      &#42; LexicalTexture
+</pre>
+<p></p>
+
+<H2><A name="Section_1.2."></A>1.2. The <code>SECTION</code> macro<A name="Section_SECTION"></A> 
+</H2>
+<i>Supported attributes:</i> <code>name</code> <p>
+<p></p>
+
+Subsections may be inserted in any topic using the <code>SECTIONn</code> macro,
+where <code>n</code> is the required subsection level. The heading of the section
+is taken as all text after the macro up to the end of line. For example,
+the heading at the top of this section is marked with
+<pre>
+%SECTION1{name="SECTION"}% The =%SECTION= macro
+</pre>
+<p></p>
+
+<strong>NOTES</strong> <ul>
+<li> See also <A href="TocPlugin#Section_1.5.">1.5. Getting clever</A> for information about modifying section numbering from the book topic.
+</li> <li> Sections do not <em>have</em> to be named, but if they are not then they can only be referred to by knowing the exact section number. Section names must be unique within the topic.
+</li> <li> The only way to <em>close</em> a section is to start a new section with a different level, or to end the topic.
+</li> <li> You can still use standard HTML heading tags such as &lt;H1&gt;, but sections marked this way will <strong>not</strong> be included in the table of contents.
+</li></ul> 
+<p></p>
+
+<h4 id="A_1.2.1.1._The_37SECTION0_37_macro"> <A name="Section_1.2.1.1."></A>1.2.1.1. The %SECTION0% macro </h4>
+If a %SECTION0% macro occurs in a topic, the heading of that section will replace the topic name in the table of contents.
+<p></p>
+
+<strong>NOTES</strong> <ul>
+<li> The <code>name</code> attribute cannot be used to refer to a %SECTION0% macro.
+</li></ul> 
+<p></p>
+
+<H3><A name="Section_1.2.2."></A>1.2.2. Building the table of contents<A name="Section_TOC"></A> 
+</H3>
+<i>Supported attributes:</i> <code>depth topic</code>
+<p></p>
+
+You can build a table of contents by inserting
+<pre>
+%CONTENTS%
+</pre>
+in a topic. The first level of the table of contents is normally the
+topics in the order of the list in <a href="/bin/view/System/WebOrder">WebOrder</a>, though see
+<A href="TocPlugin#Section_1.5.">1.5. Getting clever</A> for information about
+modifying section numbering from the <a href="/bin/view/System/WebOrder">WebOrder</a> topic. Subsections
+listed in the table are automatically linked to the target <code>SECTION</code>.
+<p></p>
+ <ul>
+<li> The <code>topic</code> attribute may be used to generate a table of contents for just one topic.
+</li> <li> The <code>depth</code> attribute may be used to set the maximum number of levels to generate.
+</li></ul> 
+<p></p>
+
+<h4 id="A_1.2.2.1._Output_from_37CONTENTS_123depth_612_125_37_macro_for_this_web"> <A name="Section_1.2.2.1."></A>1.2.2.1. Output from %CONTENTS{depth=2}% macro for this web </h4>
+<DIV>
+<UL><LI><A href="TocPlugin">1. TocPlugin</A><UL>
+<LI><A href="TocPlugin#Section_1.1.">1.1. Books</A></LI>
+<LI><A href="TocPlugin#Section_1.2.">1.2. The <code>SECTION</code> macro</A></LI>
+<LI><A href="TocPlugin#Section_1.3.">1.3. Anchors and References - the <code>ANCHOR</code>, <code>REF</code> and <code>REFTABLE</code> macros</A></LI>
+<LI><A href="TocPlugin#Section_1.4.">1.4. Adding navigation buttons</A></LI>
+<LI><A href="TocPlugin#Section_1.5.">1.5. Getting clever</A></LI>
+<LI><A href="TocPlugin#Section_1.6.">1.6. Hints and Tips</A></LI>
+</UL></LI>
+</UL></DIV>
+<A name="Example_TOC"></A>1.2.2.1.A Table of contents for this web
+<p></p>
+
+<h4 id="A_1.2.2.2._Output_from_37CONTENTS_37_macro_for_this_topic"> <A name="Section_1.2.2.2."></A>1.2.2.2. Output from %CONTENTS% macro for this topic </h4>
+<DIV>
+<UL><LI><A href="TocPlugin">1. TocPlugin</A><UL>
+<LI><A href="TocPlugin#Section_1.1.">1.1. Books</A></LI>
+<LI><A href="TocPlugin#Section_1.2.">1.2. The <code>SECTION</code> macro</A><UL>
+<LI><A href="TocPlugin#Section_1.2.1.">1.2.1. _missing_</A><UL>
+<LI><A href="TocPlugin#Section_1.2.1.1.">1.2.1.1. The %SECTION0% macro</A></LI>
+</UL></LI>
+<LI><A href="TocPlugin#Section_1.2.2.">1.2.2. Building the table of contents</A><UL>
+<LI><A href="TocPlugin#Section_1.2.2.1.">1.2.2.1. Output from %CONTENTS{depth=2}% macro for this web</A></LI>
+<LI><A href="TocPlugin#Section_1.2.2.2.">1.2.2.2. Output from %CONTENTS% macro for this topic</A></LI>
+</UL></LI>
+<LI><A href="TocPlugin#Section_1.2.3.">1.2.3. The <code>TOCCHECK</code> macro</A></LI>
+</UL></LI>
+<LI><A href="TocPlugin#Section_1.3.">1.3. Anchors and References - the <code>ANCHOR</code>, <code>REF</code> and <code>REFTABLE</code> macros</A><UL>
+<LI><A href="TocPlugin#Section_1.3.1.">1.3.1. The <code>ANCHOR</code> macro</A></LI>
+<LI><A href="TocPlugin#Section_1.3.2.">1.3.2. The <code>REF</code> macro</A></LI>
+<LI><A href="TocPlugin#Section_1.3.3.">1.3.3. The <code>REFTABLE</code> macro</A></LI>
+</UL></LI>
+<LI><A href="TocPlugin#Section_1.4.">1.4. Adding navigation buttons</A></LI>
+<LI><A href="TocPlugin#Section_1.5.">1.5. Getting clever</A></LI>
+<LI><A href="TocPlugin#Section_1.6.">1.6. Hints and Tips</A></LI>
+</UL></LI>
+</UL></DIV>
+<A name="Example_TopicTOC"></A>1.2.2.2.A Table of contents for this topic
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note that the CONTENTS macro is quite slow. This is because it has to open and analyse all topics it refers to.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> You can still use the standard <code>%TOC%</code> macro in topics that use TocPlugin. However only sections defined using the standard heading syntax will be visible.
+<p></p>
+
+<H3><A name="Section_1.2.3."></A>1.2.3. The <code>TOCCHECK</code> macro<A name="Section_TOCCHECK"></A> 
+</H3>
+<p></p>
+
+Any topic (but most usually the <a href="/bin/view/System/WebOrder">WebOrder</a> topic) may include the
+<pre>%TOCCHECK%</pre>
+macro. This causes the entries in the <a href="/bin/view/System/WebOrder">WebOrder</a> topic to be
+cross-referenced against the files actually stored in the web (see
+<a href="/bin/view/System/WebIndex">WebIndex</a>). Any topics which exist as files in the web but are missing
+from the <a href="/bin/view/System/WebOrder">WebOrder</a> will be listed.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> Any topics that begin with the characters "Web" are special topics and are excluded from the list, though they can still be listed in the <a href="/bin/view/System/WebOrder">WebOrder</a> and will appear in the table of contents.
+<p></p>
+
+<h2 id="A_1.3._Anchors_and_References_45_the_61ANCHOR_61_44_61REF_61_and_61REFTABLE_61_macros"> <A name="Section_1.3."></A>1.3. Anchors and References - the <code>ANCHOR</code>, <code>REF</code> and <code>REFTABLE</code> macros </h2>
+Bookmarks and references can be inserted into text using the ANCHOR
+and REF macros. These can be used for references, for example, to tables
+or figures.
+<p></p>
+
+<H3><A name="Section_1.3.1."></A>1.3.1. The <code>ANCHOR</code> macro<A name="Section_ANCHOR"></A> 
+</H3>
+<i>Supported attributes:</i> <code>type name display</code>
+<p></p>
+
+The ANCHOR macro creates a jump target suitable for jumping to from
+somewhere else. The <code>type</code> adds the anchor to a "group"; this group is
+required when generating a reference to the anchor, and may be used to
+generate tables of same-type anchors (see
+<A href="TocPlugin#Section_1.3.3.">1.3.3. The <code>REFTABLE</code> macro</A> below). The <code>type</code> can be any name,
+though convention suggests the use of types such as <code>Figure</code> and
+<code>Table</code>. The special group <code>Section</code> is used internally to refer to
+sections and subsections. Avoid using it for an <code>ANCHOR</code> or you may
+see strange results.
+<p></p>
+
+The <code>ANCHOR</code> macro is normally visible in the output, though it may be
+made invisible by setting the <code>display</code> attribute to <code>no</code> .  For
+example: <A name="Figure_A"></A> 
+<pre>%ANCHOR{type="Figure" name="A" display="no"}% Here be sea
+monsters</pre> will generate an invisible anchor on the text (there's
+one one the line above, honest!) and
+<pre>&lt;A name="#Figure_A"> &lt;/A></pre>
+<pre>%ANCHOR{type="Table" name="A"}% A wooden table</pre>
+will generate:
+<A name="Table_A"></A>1.3.1.A A wooden table
+<p class='p'>All the text between the anchor and the next end-of-line will be
+used to create the anchor. If the anchor is invisible, this text will
+be invisible too.</p>
+
+<H3><A name="Section_1.3.2."></A>1.3.2. The <code>REF</code> macro<A name="Section_REF"></A> 
+</H3>
+<i>Supported attributes:</i> <code>type topic name</code>
+<p></p>
+
+The <code>REF</code> macro may be used to refer to an anchor. Anchors are
+automatically inserted by <code>SECTION</code> macros or may be added using the
+<code>ANCHOR</code> macro. For a <code>REF</code> macro to work, the type of the target must be
+known. For example:
+<pre>
+See %REF{type="Example" name="WebOrder"}% for more information about WebOrder
+</pre>
+will generate:
+<p></p>
+
+See <A href="TocPlugin#Example_WebOrder">1.1.A An example Weborder topic</A> for more information about <a href="/bin/view/System/WebOrder">WebOrder</a>
+<p></p>
+
+To refer to anchors in a different topic, use the <code>topic</code> attribute.
+You can refer to sections by name by using the special type <code>Section</code>
+e.g. %REF{type="Section" name="TOCCHECK"}%.
+<p></p>
+
+If you refer to a non-existant anchor you are warned: for example,
+<pre>%REF{type="Reference" name="NonExistantAnchor"}%</pre>generates<p>
+<p></p>
+
+<FONT color=#ff0000>Reference <a class="foswikiCurrentTopicLink" href="/bin/view/System/TocPlugin">TocPlugin</a>:Reference:NonExistantAnchor not satisfied</FONT>
+<p></p>
+
+<H3><A name="Section_1.3.3."></A>1.3.3. The <code>REFTABLE</code> macro<A name="Section_REFTABLE"></A> 
+</H3>
+<i>Supported attributes:</i> <code>type</code>
+<p></p>
+
+The <code>REFTABLE</code> macro can be used to build tables of references based on
+the type assigned to anchors. For example, if you have a lot of
+anchors of type <code>Example</code> you can build a table of all these anchors
+thus:
+<pre>%REFTABLE{type="Example"}%</pre>
+<A name="Example_example1"></A> 
+This will insert a table like this:
+<TABLE cols=1 border=2>
+<TR><TH>Example</TH></TR>
+<TR><TD width="10%"><A href="TocPlugin#Example_WebOrder">1.1.A An example Weborder topic</A></TD></TR>
+<TR><TD width="10%"><A href="TocPlugin#Example_TOC">1.2.2.1.A Table of contents for this web</A></TD></TR>
+<TR><TD width="10%"><A href="TocPlugin#Example_TopicTOC">1.2.2.2.A Table of contents for this topic</A></TD></TR>
+<TR><TD width="10%"><A href="TocPlugin#Example_example1">1.3.3.A REFTABLE{type="Table"} example</A></TD></TR>
+<TR><TD width="10%"><A href="TocPlugin#Example_example2">1.3.3.B REFTABLE{type="Figure"} example</A></TD></TR>
+<TR><TD width="10%"><A href="TocPlugin#Example_example2">1.3.3.C </A></TD></TR>
+</TABLE>
+<p></p>
+
+and <pre>%REFTABLE{type=Figure}%</pre>
+will insert a table like this:
+<A name="Example_example2"></A> 
+<TABLE cols=1 border=2>
+<TR><TH>Figure</TH></TR>
+<TR><TD width="10%"><A href="TocPlugin#Figure_A">1.3.1.A Here be sea monsters</A></TD></TR>
+</TABLE>
+<p></p>
+
+All topics listed in the <a href="/bin/view/System/WebOrder">WebOrder</a> are scanned, but only anchors of the
+requested type will be listed.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> If you use <code>REFTABLE</code> with the type <code>Section</code> the table will contain a list of all <em>named</em> sections. <A name="Example_example2"></A> 
+<p></p>
+
+<H2><A name="Section_1.4."></A>1.4. Adding navigation buttons<A name="Section_AddTocButtons"></A> 
+</H2>
+When using the <code>WebOrder</code> special topic to collect a list of topics
+into a somewhat "linearized" form (a "book"), it is often very
+convenient to be able to add navigation buttons to the previous and
+the next pages as well as to the home page (table of contents). This
+can be done by adding the %TOCBUTTONS% macro to your pages. For
+example, you can use it in a template which is included either at the
+top or the bottom of your pages. The included
+<code>"view.tocbuttons.tmpl"</code> template (intended to be used with NatSkin)
+adds the <code>%TOCBUTTONS%</code> macro to the content footer of all pages in
+the web. To activate it, use <code>"* Set SKIN = tocbuttons, nat"</code> in your
+WebPreferences.
+<p></p>
+
+Note that the "Prev", "Home" and "Next" links will be added only for
+such topics that are listed in the <code>WebOrder</code> special topic, and they
+will only be inserted when viewing a page, i. e. they will for
+example not show up when printing such a topic or the whole "book".
+<p></p>
+
+<H2><A name="Section_1.5."></A>1.5. Getting clever<A name="Section_IndentedWebOrder"></A> 
+</H2>
+It is possible to change the way the table of contents for the web is
+ordered by using extra levels of indent in the <a href="/bin/view/System/WebOrder">WebOrder</a>. If you indent
+a topic below another topic, then that topic will be treated as a
+section of the parent topic. Section numbers within the subtopic are
+adjusted accordingly. For example, say the <a href="/bin/view/System/WebOrder">WebOrder</a> contains
+<pre>
+	* [[Top level topic]]
+	* AnotherTopLevelTopic
+</pre>
+TopLevelTopic will be numbered 1., and the first <code>SECTION1</code> within TopLevelTopic will be 1.1. AnotherTopLevelTopic will be numbered 2. If, instead, <a href="/bin/view/System/WebOrder">WebOrder</a> contains
+<pre>
+	* [[Top level topic]]
+		* [[Second level topic]]
+	* AnotherTopLevelTopic
+</pre>
+TopLevelTopic will still be numbered 1., but now SecondLevelTopic will be numbered 1.1., 
+and the first <code>SECTION1</code> within SecondLevelTopic will be 1.1.1. The first <code>SECTION1</code> within 
+TopLevelTopic will now be numbered 1.2. AnotherTopLevelTopic will still be numbered 2.
+<p></p>
+
+<H2><A name="Section_1.6."></A>1.6. Hints and Tips<A name="Section_tips"></A> 
+</H2> <ul>
+<li> Include a %TOCCHECK% macro at the end of the table of contents topic.
+</li> <li> Name all sections. This makes it easier to refer to them by symbolic names rather than trying to REF numbered sections.
+</li></ul> 
+<p></p>
+
+<h3 id="Installation_Instructions">  Installation Instructions </h3>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p class='p'>Open configure, and open the "Extensions" section. Use "Find More Extensions" to get a list of available extensions. Select "Install".</p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="http://foswiki.org/Support/ManuallyInstallingExtensions">http://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h3 id="Info">  Info </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> One Line Description: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Table of contents and cross-reference management </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Author: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.CrawfordCurrie" title="'Main.CrawfordCurrie' on foswiki.org">Foswiki:Main.CrawfordCurrie</a> <a href="http://c-dot.co.uk">http://c-dot.co.uk</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Release: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.1.1 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Version: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 11472 (2011-04-15) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLastCol" style="text-align:right"> Change History: </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.1.1 (15 Apr 2011) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Minor correction on file permissions. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.1.0 (23 Mar 2011) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Made compatible with BookmakerPlugin, which it now depends on. Now supports topics in different webs. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.0.0 (22 Dec 2009) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Updated for Foswiki </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 1.0.3 (20 Apr 2006) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Minor doc update, headings no longer marked up as anchor text (<a class="interwikiLink" href="https://foswiki.org/Main.SteffenPoulsen" title="'Main.SteffenPoulsen' on foswiki.org">Foswiki:Main.SteffenPoulsen</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 1.0.2 (1 Oct 2001) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Corrected directory naming (no thanks to WindowsME!) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 1.0.1 (23 Sep 2001) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Directories restructured according to Plugin requirements, and turned into a zip file </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 1.0.0 (15 Sep 2001) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Initial version. Originally developed for use by Motorola documentation teams. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Copyright: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &copy; 2001-2002 Motorola. All Rights Reserved. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> &nbsp; </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &copy; 2008-2011 Crawford Currie <a href="http://c-dot.co.uk">http://c-dot.co.uk</a>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> License: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Home: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a href="http://foswiki.org/Extensions/TocPlugin">http://foswiki.org/Extensions/TocPlugin</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> Support: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <a href="http://foswiki.org/Support/TocPlugin">http://foswiki.org/Support/TocPlugin</a> </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/TocPlugin?t=1627664530' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/TocPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TocPlugin?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/TocPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TocPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TocPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/TocPlugin?t=1627664530;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TocPlugin?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 15 Apr 2011, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/TocPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/TocPlugin">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.TocPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

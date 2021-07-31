@@ -1,0 +1,677 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> InstallationGuidePart2 &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/InstallationGuidePart2?t=1627664616" type="application/x-wiki" title="edit InstallationGuidePart2" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/InstallationGuidePart2" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/5a0d7684470e4da108e999455fe5a55b.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "COOKIEREALM" : "",
+   "SCRIPTSUFFIX" : "",
+   "PUBURLPATH" : "/pub",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SERVERTIME" : "30 Jul 2021 - 19:03",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTURLPATH" : "/bin",
+   "SYSTEMWEB" : "System",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "TOPIC" : "InstallationGuidePart2",
+   "USERSWEB" : "Main",
+   "USERNAME" : "guest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SKIN" : "damask,famfamfam,pattern",
+   "WEB" : "System",
+   "SCRIPTURL" : "https://damask.mpie.de/bin"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/InstallationGuidePart2"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/InstallationGuide">InstallationGuide</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/InstallationGuidePart2" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>InstallationGuidePart2</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/InstallationGuidePart2?t=1627664616;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/InstallationGuidePart2' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/InstallationGuidePart2?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/InstallationGuidePart2?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=InstallationGuidePart2' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/InstallationGuidePart2?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/InstallationGuidePart2?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Installation_Guide_Part_2">  Installation Guide Part 2 </h1>
+<h2 id="Post_45Installation_Configuration_and_Tuning">  Post-Installation Configuration and Tuning </h2>
+<p class='p'>Once you have Foswiki installed and running, you can perform one or more of the following steps to tailor your installation to your needs. While most are optional, many of these will enhance your Foswiki installation's features and performance.</p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#Set_Foswiki_Site_Preferences"> Set Foswiki Site Preferences </a>
+</li> <li> <a href="#Automating_Routine_Tasks"> Automating Routine Tasks </a> <ul>
+<li> <a href="#Enable_Email_Notification"> Enable Email Notification </a>
+</li> <li> <a href="#Enable_Site_Statistics"> Enable Site Statistics </a>
+</li> <li> <a href="#Automate_removal_of_expired_sessions_and_lease_files"> Automate removal of expired sessions and lease files </a>
+</li></ul> 
+</li> <li> <a href="#Site_Security"> Site Security </a> <ul>
+<li> <a href="#Select_the_desired_security_level"> Select the desired security level </a>
+</li> <li> <a href="#Enable_Signed_Email_Notification"> Enable Signed Email Notification </a>
+</li></ul> 
+</li> <li> <a href="#Enable_Localisation_and_Multilingual_Interface"> Enable Localisation and Multilingual Interface </a>
+</li> <li> <a href="#Performance_Enhancements"> Performance Enhancements </a> <ul>
+<li> <a href="#Choose_an_appropriate_search_algorithm_for_your_Operating_System"> Choose an appropriate search algorithm for your Operating System </a>
+</li> <li> <a href="#Web_Acceleration_40mod_perl_44_FastCGI_44_..._41"> Web Acceleration (mod_perl, FastCGI, ...) </a>
+</li> <li> <a href="#Page_Caching"> Page Caching </a>
+</li></ul> 
+</li> <li> <a href="#Customizing_your_site_39s_34look_and_feel_34"> Customizing your site's "look and feel" </a> <ul>
+<li> <a href="#Customize_pages_for_managing_personal_information"> Customize pages for managing personal information </a>
+</li> <li> <a href="#Customize_the_user_topic_for_new_users"> Customize the user topic for new users </a>
+</li> <li> <a href="#Customize_the_appearance_of_your_Foswiki_site"> Customize the appearance of your Foswiki site </a> <ul>
+<li> <a href="#Left_44_Top_and_Bottom_Bars_with_PatternSkin"> Left, Top and Bottom Bars with PatternSkin </a>
+</li> <li> <a href="#Copyright_44_License_and_Classification_Statements"> Copyright, License and Classification Statements </a>
+</li></ul> 
+</li> <li> <a href="#WYSIWYG_vs_Raw_Edit"> WYSIWYG vs Raw Edit </a>
+</li></ul> 
+</li> <li> <a href="#Extensions"> Extensions </a> <ul>
+<li> <a href="#Installing_extensions"> Installing extensions </a> <ul>
+<li> <a href="#When_installing_an_extension_from_the_61configure_61_interface:"> When installing an extension from the configure interface: </a>
+</li> <li> <a href="#When_installing_extensions_from_the_command_line:_40Internet_access_available_41"> When installing extensions from the command line: (Internet access available) </a>
+</li> <li> <a href="#When_installing_extensions_from_the_command_line:_40no_Internet_access_41"> When installing extensions from the command line: (no Internet access) </a>
+</li> <li> <a href="#Manual_installation"> Manual installation </a>
+</li></ul> 
+</li> <li> <a href="#Removing_40uninstalling_41_extensions"> Removing (uninstalling) extensions </a>
+</li> <li> <a href="#Restoring_a_removed_44_or_previous_version_of_an_extension"> Restoring a removed, or previous version of an extension </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p class='p'></p>
+
+<span id="SetPreferences"></span>
+<h3 id="Set_Foswiki_Site_Preferences">  Set Foswiki Site Preferences </h3>
+<p></p>
+
+Preferences for customizing many aspects of Foswiki are set by editing <code><a href="/bin/view/Main/SitePreferences">SitePreferences</a></code>. On that page you'll find some of the most common local site preferences such as the name for your site, the header logo image and, site tag line. However, there are many more site preference settings which you'll find in <code><a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a></code>. If a given preference is <strong>not</strong> set in <code><a href="/bin/view/Main/SitePreferences">SitePreferences</a></code>, then it defaults to the value is defined in <code><a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a></code> (or in the case of <a href="/bin/view/System/InstalledPlugins">extensions</a>, in the respective extension topics).
+<p></p>
+
+Because <code>DefaultPreferences</code> is included in Foswiki upgrade packages, you will simplify upgrades by <strong>not</strong> changing these <code><b>DefaultPreferences</b></code>. Instead, <strong>copy</strong> any settings you want to change and add them to <code><a href="/bin/view/Main/SitePreferences">SitePreferences</a></code>.
+<p></p>
+
+<h3 id="Automating_Routine_Tasks">  Automating Routine Tasks </h3>
+<p></p>
+
+Several Foswiki "house-keeping" tasks occur on daily basis and can be combined into a cron job (or equivalent). Here's a sample cron job that would combine the schedules for email notification, removal of expired sessions, and gathering of site statics:
+<pre>
+0 0 &#42; &#42; &#42; cd /usr/local/foswiki &#38;&#38; perl -I bin tools/mailnotify -q
+0 0 &#42; &#42; &#42; cd /usr/local/foswiki/bin; ./statistics -subwebs 1 &#62;/dev/null 2&#62;&#38;1
+0 0 &#42; &#42; 0 cd /usr/local/foswiki/bin &#38;&#38; perl ../tools/tick&#95;foswiki.pl
+</pre>Read further below about how to customize these schedules and script options to your particular needs. You can find some general information about cron jobs at <a href="/bin/view/System/MailerContrib#Setting_up_a_cron_job_40s_41">MailerContrib - Setting up a cron job</a>.
+<p></p>
+
+<span id="EmailConfig"></span>
+<h4 id="Enable_Email_Notification">  Enable Email Notification </h4>
+<p></p>
+
+Each web has an automatic email notification service that sends you an email with links to all of the topics modified since the last alert. To enable this service: <ol>
+<li> Confirm the Mail and Proxies settings on the <code>configure</code> page.
+</li> <li> Setup a cron job (or equivalent) to call the <code>tools/mailnotify</code> script, as described in the <a href="/bin/view/System/MailerContrib">MailerContrib</a> topic.
+</li> <li> To enable S/MIME signatures on notification emails, see <a class="foswikiCurrentTopicLink" href="#SMimeInfo">instructions below</a>.
+</li></ol> 
+<p></p>
+
+<h4 id="Enable_Site_Statistics">  Enable Site Statistics </h4>
+<p></p>
+
+You can manually or automatically generate a listing of the most popular pages for each web (based on number of visits) and most active editor (based on number of topic saves). For information on setting up this feature, see the <a href="/bin/view/System/SiteToolStatistics">SiteToolStatistics</a> topic.
+<p></p>
+
+<h4 id="Automate_removal_of_expired_sessions_and_lease_files">  Automate removal of expired sessions and lease files </h4>
+<p></p>
+
+By default Foswiki cleans out expired session and lease files each time any topic is viewed, but this has a performance cost. Instead you may wish to schedule a cron job (or equivalent) to run the <code>tools/tick_foswiki.pl</code> script, and set a negative value on the <code>configure</code> page for <code>{Sessions}{ExpireAfter}</code>. For more details, read <a href="/bin/view/System/CommandAndCGIScripts#A_61tick_foswiki.pl_61">CommandAndCGIScripts</a>.
+<p></p>
+
+<h3 id="Site_Security">  Site Security </h3>
+<p></p>
+
+<h4 id="Select_the_desired_security_level">  Select the desired security level </h4>
+<p class='p'>Foswiki has a many security features that can be enabled/disabled and adjusted to suit your needs.</p>
+
+<p class='p'>In many cases enabling a security feature prevents other features. It is a balance that the administrator has to choose depending on the purpose of the Foswiki installation (confidential vs public knowledge), the type of installation (intranet vs internet), and your type of business.</p>
+
+A new administrator is encouraged to read <a class="interwikiLink" href="https://foswiki.org/Support.SecurityFeatures" title="'Support.SecurityFeatures' on foswiki.org">Foswiki:Support.SecurityFeatures</a> which gives a walkthrough of the different security aspects and how to set the appropriate configuration settings. Note that that some security settings are only visible in configure in "expert mode" which you enter by clicking the "Show expert options" button at the top of the configure screen.
+<p></p>
+
+<span id="SMimeInfo"></span>
+<h4 id="Enable_Signed_Email_Notification">  Enable Signed Email Notification </h4>
+<p></p>
+
+Foswiki administrative emails are an attractive target for SPAM generators and phishing attacks. One good way to protect against this possibility to enable S/MIME signatures on all administrative e-mails. To do this, you need an an X.509 certificate and private key for the the <code>{WebMasterEmail}</code> email account. Obtain these as you would for any other S/MIME e-mail user.
+<p></p>
+
+To enable Foswiki to sign administrative e-mails: <ol>
+<li> Enable e-mail as described above
+</li> <li> Ensure that the system has the CPAN module <code>Crypt::SMIME</code> installed.
+</li> <li> If necessary, convert your certificate and key files to <strong>PEM</strong> format ( <em>openssl</em> has all the necessary utilities)
+</li> <li> Place the certificate anyplace convenient that the webserver can read. It should be protected against write. The conventional place under linux is <code>/etc/pki/tls/certs</code>
+</li> <li> Place the key file in a secure location that <strong>only</strong> the webserver (or CGI user) can read. It <strong>must not</strong> be readable by anyone else, and <strong>must not</strong> be served by the webserver.
+</li> <li> Using the <code>configure</code> script, change the following settings under <strong>Mail and Proxies</strong>: <ol>
+<li> "Email Server" tab. Follow the directions under <code>{MailMethod}</code> and <code>{MailProgram}</code> to enable an external mail program such as <em>sendmail</em>. <code>Net::SMTP</code> is not supported. <ul>
+<li> <code>{SMTP}{MAILHOST}</code>, <code>{SMTP}{SENDERHOST}</code>, <code>{SMTP}{Username}</code> and <code>{SMTP}{Password}</code> are not used an may be deleted.
+</li> <li> If Foswiki variable <code>SMTPMAILHOST</code> is defined in <code><a href="/bin/view/Main/SitePreferences">SitePreferences</a></code> it should be removed.
+</li></ul> 
+</li> <li> "S/MIME" tab: <ul>
+<li> Enable the S/MIME checkbox
+</li> <li> Enter the full path to the certificate file in the <code>{SmimeCertificateFile}</code> configuration variable
+</li> <li> Enter the full path to the private key file in the <code>{SmimeKeyFile}</code> configuration variable
+</li></ul> 
+</li> <li> Save the configuration
+</li></ol> 
+</li> <li> Re-run the <code>configure</code> script an resolve any errors that it identifies
+</li></ol> 
+<p class='p'>All out-going administrative e-mails will now be signed.</p>
+
+<h3 id="Enable_Localisation_and_Multilingual_Interface">  Enable Localisation and Multilingual Interface </h3>
+<p></p>
+
+Foswiki supports displaying national (non-ASCII) characters, and using different languages for its basic interface elements. To configure localisation, modify the <code>Localisation</code> section of the <code>configure</code> page. For more information, see <a class="interwikiLink" href="https://foswiki.org/Support.InternationalizationSupplement" title="'Support.InternationalizationSupplement' on foswiki.org">Foswiki:Support.InternationalizationSupplement</a>.
+<p></p>
+
+<h3 id="Performance_Enhancements">  Performance Enhancements </h3>
+<span id="SearchAlgorithm"></span>
+<h4 id="Choose_an_appropriate_search_algorithm_for_your_Operating_System">  Choose an appropriate search algorithm for your Operating System </h4>
+<p></p>
+
+On the <code>Store</code> pane in <code>configure</code> you will find the setting <code>{Store}{SearchAlgorithm}</code>.
+<p></p>
+
+By default bootstrap attempts to pick the best implementation for your system. You can optimize search by choosing algorithms as follows: <ul>
+<li> Windows servers and mod_perl installations should choose <code>Foswiki::Store::SearchAlgorithms::PurePerl</code>
+</li> <li> Linux or any other Unix type operating system not using <code>mod_perl</code>, can set this to <code>Foswiki::Store::SearchAlgorithms::Forking</code>.
+</li> <li> If for some reason grep / egrep is not found on default path, bootstrap will choose <a class="foswikiNewLink" href="/bin/edit/System/PurePerl?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">PurePerl</a>. You can still use Forking search if desired by manually setting the paths to <code>grep</code> and <code>egrep</code> in the configuration.
+</li></ul> 
+<p></p>
+
+If you install Foswiki on a Windows server, using an external grep program can create problems because of limitations in the length of command lines. You may be able to run with Forking in Windows if your directory path to Foswiki is kept short (short directory names and few levels), however the recommended (safe) setting for Windows is <code>Foswiki::Store::SearchAlgorithms::PurePerl</code>.
+<p></p>
+
+There are several other options available for search tools via the <span class='externalLink'><a href="http://foswiki.org/Extensions">Extensions web</a></span>, including: <ul>
+<li> <a class="interwikiLink" href="https://foswiki.org/Extensions.NativeSearchContrib" title="'Extensions.NativeSearchContrib' on foswiki.org">Foswiki:Extensions.NativeSearchContrib</a> - The Foswiki <a class="foswikiNewLink" href="/bin/edit/System/PurePerl?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">PurePerl</a> search implemented in C. (compiler required)
+</li> <li> <a class="interwikiLink" href="https://foswiki.org/Extensions.SolrPlugin" title="'Extensions.SolrPlugin' on foswiki.org">Foswiki:Extensions.SolrPlugin</a> - An indexed search based on the <span class='externalLink'><a href="http://lucene.apache.org">Lucene</a></span> Java search library. It runs on a separate Tomcat or jetty serverlet container.
+</li></ul> 
+<p></p>
+
+<h4 id="Web_Acceleration_40mod_perl_44_FastCGI_44_..._41">  Web Acceleration (mod_perl, FastCGI, ...) </h4>
+<p></p>
+
+Foswiki is installed by default supporting standard CGI scripts as well as CLI access.  For best performance, Foswiki can be accelerated using one of the several accelerators, however, <strong>you must install the required dependencies before enabling acceleration</strong>!  See the listed extensions for more information.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Fast CGI </td>
+			<td class="foswikiTableCol1"> <a href="/bin/view/System/FastCGIEngineContrib">FastCGIEngineContrib</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Supports the mod_fastcgi and mod_fcgid extensions </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> mod_perl </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/bin/view/System/ModPerlEngineContrib">ModPerlEngineContrib</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> supports the apache mod_perl extension </td>
+		</tr>
+	</tbody></table>
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Caution</strong> <ul>
+<li> Foswiki 2.0 can be "bootstrapped" with either of these accelerators active, however it is often simpler to initially configure Foswiki using CGI.
+</li> <li> The <span class='externalLink'><a href="http://foswiki.org/Support/ApacheConfigGenerator">ApacheConfigGenerator</a></span> will help creating a valid configuration for these accelerators.
+</li> <li> Enabling the apache configuration without installing the pre-req modules and extensions will break your site!
+</li> <li> The core default extensions are well tested with web acceleration, other extensions can exhibit inconsistent behaviour when accelerated.
+</li></ul> 
+<p></p>
+
+<h4 id="Page_Caching">  Page Caching </h4>
+By default, Foswiki renders each page dynamically when the page is requested. If you anticipate a relatively high volume of page <em>views</em> in comparison to users actively editing the site, you may want to consider <a href="/bin/view/System/PageCaching">PageCaching</a> which can significantly improve the performance of a Foswiki site. To learn more about how to configure and fine-tune this feature, along with considerations for maintaining dynamic page elements, refer to <a href="/bin/view/System/PageCaching">PageCaching</a>.
+<p></p>
+
+<h3 id="Customizing_your_site_39s_34look_and_feel_34">  Customizing your site's "look and feel" </h3>
+<p></p>
+
+<h4 id="Customize_pages_for_managing_personal_information">  Customize pages for managing personal information </h4>
+<p class='p'>If you are not using Foswiki to manage your users' passwords or email addresses, or would just like to enhance the default pages, then modify the following topics accordingly with information appropriate for your site:</p>
+ <ul>
+<li> <a href="/bin/view/System/ChangePassword">ChangePassword</a>
+</li> <li> <a href="/bin/view/System/ResetPassword">ResetPassword</a>
+</li> <li> <a href="/bin/view/System/ChangeEmailAddress">ChangeEmailAddress</a>
+</li></ul> 
+<p></p>
+
+<span id="TailorUsersTopic"></span>
+<h4 id="Customize_the_user_topic_for_new_users">  Customize the user topic for new users </h4>
+<p></p>
+
+When a new user registers on your Foswiki site, a topic with a name corresponding to the user's WikiName is created in the Main web: this topic is the user's user topic. The user topic is based on the <a class="foswikiNewLink" href="/bin/edit/Main/NewUserTemplate?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">NewUserTemplate</a> topic; if it is not present, then <a href="/bin/view/System/NewUserTemplate">NewUserTemplate</a> (and its associated <a href="/bin/view/System/UserForm">UserForm</a>) is used as a default. If you want to customize the user topic for your users, copy <a href="/bin/view/System/NewUserTemplate">NewUserTemplate</a> to <a class="foswikiNewLink" href="/bin/edit/Main/NewUserTemplate?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">NewUserTemplate</a>, and <a href="/bin/view/System/UserForm">UserForm</a> to <a class="foswikiNewLink" href="/bin/edit/Main/UserForm?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">UserForm</a>, and make your changes to <a class="foswikiNewLink" href="/bin/edit/Main/NewUserTemplate?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">NewUserTemplate</a> and <a class="foswikiNewLink" href="/bin/edit/Main/UserForm?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">UserForm</a>. (See <a href="/bin/view/System/ManagingTopics#CopyTopic">ManagingTopics</a> for instructions on copying a topic.)
+<p></p>
+
+You can edit these topics to suit your needs, such as the following: <ul>
+<li> Customize the user topic for your site.
+</li> <li> Add an <code>ALLOWTOPICCHANGE</code> preference setting to <a class="foswikiNewLink" href="/bin/edit/Main/NewUserTemplate?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">NewUserTemplate</a> so only the user can edit their own user topic. In particular, on a public Foswiki site, restricting edit access will avoid vandalism and spam.
+</li> <li> Add and remove fields defined in the <a class="foswikiNewLink" href="/bin/edit/Main/UserForm?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">UserForm</a>.  In particular, soliciting URL information for new users is an invitation for spam registrations.
+</li></ul> 
+<p></p>
+
+If you added or removed fields from the user form you may also need to tailor <a href="/bin/view/Main/UserRegistration">UserRegistration</a> to match (copy over the contents from <a href="/bin/view/System/UserRegistration">UserRegistration</a> to <a href="/bin/view/Main/UserRegistration">UserRegistration</a> when creating it).
+<p></p>
+
+<span id="CustomizeAppearance"></span>
+<h4 id="Customize_the_appearance_of_your_Foswiki_site">  Customize the appearance of your Foswiki site </h4>
+<p></p>
+
+The real power of Foswiki lies in its flexibility to be customized to meet your needs. To change the look of the default skin, PatternSkin, please refer to <a href="/bin/view/System/PatternSkin">PatternSkin</a> and <a href="/bin/view/System/PatternSkinCustomization">PatternSkinCustomization</a>.
+<p></p>
+
+At the <span class='externalLink'><a href="http://foswiki.org/">Foswiki website</a></span> you can find more resources. A good place to start exploring is <a class="interwikiLink" href="https://foswiki.org/Support.BestPracticeTips" title="'Support.BestPracticeTips' on foswiki.org">Foswiki:Support.BestPracticeTips</a> and <a class="interwikiLink" href="https://foswiki.org/Support.FAQ" title="'Support.FAQ' on foswiki.org">Foswiki:Support.FAQ</a> which offer tips and tricks for customizing your Foswiki site. Many of these are best done before any content has been added to your site, so immediately after installation is a good time to consider the possibilities.
+<p></p>
+
+<h5 id="Left_44_Top_and_Bottom_Bars_with_PatternSkin">  Left, Top and Bottom Bars with PatternSkin </h5>
+<p class='p'>The top bar and bottom bar are common across all webs.</p>
+
+To customize the top bar, copy <a href="/bin/view/System/WebTopBarExample">WebTopBarExample</a> to <a class="foswikiNewLink" href="/bin/edit/System/WebTopBar?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">WebTopBar</a>, and make your desired changes to <a class="foswikiNewLink" href="/bin/edit/System/WebTopBar?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">WebTopBar</a>.
+<p></p>
+
+To customize the bottom bar, copy <a href="/bin/view/System/WebBottomBarExample">WebBottomBarExample</a> to <a class="foswikiNewLink" href="/bin/edit/System/WebBottomBar?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">WebBottomBar</a>, and make your desired changes to <a class="foswikiNewLink" href="/bin/edit/System/WebBottomBar?topicparent=System.InstallationGuidePart2" rel="nofollow" title="Create this topic">WebBottomBar</a>.
+<p></p>
+
+The side bar can be customized on a per web basis. To customize the side bar, copy the WebLeftBarExample topic in the given web to WebLeftBar, and make your desired changes to WebLeftBar. If you would like to move the side bar to the right of the page, see <a href="/bin/view/System/PatternSkin">PatternSkin</a> for more details.
+<p></p>
+
+See <a href="/bin/view/System/PatternSkinCustomization">PatternSkinCustomization</a> for detailed information on tailoring the look of your site.
+<p></p>
+
+<h5 id="Copyright_44_License_and_Classification_Statements">  Copyright, License and Classification Statements </h5>
+<p></p>
+
+At the bottom of each topic, there is a copyright statement that is set in the <code>WEBCOPYRIGHT</code> preference. Its default is the following: <code>Copyright &copy; by the contributing authors. All material on this collaboration platform is the property of the contributing authors.</code>
+<p class='p'>If your Foswiki site is used in an environment without public access you should replace this with your normal copyright notice. You should also consider adding a security classification (e.g., For Internal Use Only) so people do not have to add this manually to every new topic.</p>
+
+If your Foswiki site is publicly accessible, you need to decide which copyright and license you wish to apply to all contributions. For open source applications, licenses such as <span class='externalLink'><a href="http://www.gnu.org/licenses/fdl.html">the GNU Free Documentation License</a></span>, <span class='externalLink'><a href="http://www.freebsd.org/copyright/freebsd-doc-license.html">FreeBSD Documentation License</a></span>, and one of the various <span class='externalLink'><a href="http://creativecommons.org/licenses/">Creative Commons licenses</a></span> are possible licenses to consider. Remember that once people have started contributing, you cannot retroactively change the license (unless it has a provision for this).
+<p class='p'>To change the copyright statement, perform the following steps:</p>
+ <ul>
+<li> Copy the <code>WEBCOPYRIGHT</code> preference setting from <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a> to <code>Main.SitePreferences</code>. Change the value to your desired text. This value will be your new default across all webs.
+</li> <li> You can create a unique message for a specific web by setting the <code>WEBCOPYRIGHT</code> preference in the <code>WebPreferences</code> topic for the given web. For example, you could add a confidential classification to a web that has restricted access.
+</li> <li> The <code>WEBCOPYRIGHT</code> preference setting in <a href="/bin/view/System/WebPreferences">WebPreferences</a> covers the documentation that comes with Foswiki, and should not be changed.
+</li></ul> 
+<p></p>
+
+<h4 id="WYSIWYG_vs_Raw_Edit">  <a href="/bin/view/System/WYSIWYG">WYSIWYG</a> vs Raw Edit </h4>
+<p></p>
+
+In Foswiki, the <a href="/bin/view/System/WYSIWYG">WYSIWYG</a> editor is used by default in edit mode. An <em>Edit wiki text</em> link is available for those who prefer to edit the topic markup language (TML) directly.
+<p></p>
+
+There are actually two different <em>wiki text</em> editors available now on Foswiki 2,0: <dl>
+<dt> <em>NatEdit</em>, The "Natural Editor" </dt><dd> This is the new JavaScript enabled <em>wiki text</em> editor.  This editor allows the user to directly edit the TML, but provide a JavaScript assist, to help in learning TML.
+</dd> <dt> <em>raw editor</em> </dt><dd> This is the original <em>wiki text editor</em> included with Foswiki 1.0 and 1.1.  It can be used without JavaScript, provided that <em>Security &amp; Authentication</em> Validation tab is configured for <em>embedded</em> or <em>none</em>.     The <em>raw editor</em> can be enabled per user by overriding the SKIN, and removing <code>natedit</code> from the default setting <code>natedit, pattern</code> in their user topic:  <code>&nbsp;&nbsp;&nbsp;* Set SKIN = pattern</code>
+</dd></dl> 
+<p></p>
+
+If you prefer to use the wiki text editor by default and have a separate <a href="/bin/view/System/WYSIWYG">WYSIWYG</a> button, then you can modify the templates that define the edit screen as described in <a class="interwikiLink" href="https://foswiki.org/Support.FaqHowToMakeRawEditDefault" title="'Support.FaqHowToMakeRawEditDefault' on foswiki.org">Foswiki:Support.FaqHowToMakeRawEditDefault</a>.
+<p></p>
+
+<h3 id="Extensions">  Extensions </h3>
+<p></p>
+
+<a class="interwikiLink" href="https://foswiki.org/Extensions" title="'Extensions' on foswiki.org">Foswiki:Extensions</a> is an extensive library of <a href="/bin/view/System/Plugins">Plugins</a> for Foswiki that enhance functionality in a huge number of ways. A few plugins are pre-installed in the Foswiki distribution.  There are several types of Extensions available: <ul>
+<li> <a href="/bin/view/System/Plugins">Plugins</a> extend Foswiki functionality without altering the core code.
+</li> <li> <a href="/bin/view/System/Skins">Skins</a> Skins overlay regular templates to give different looks and feels to Foswiki screens.
+</li> <li> <a href="/bin/view/System/Contribs">Contribs</a> and <a href="/bin/view/System/ContributedAddOns">AddOns</a> are any other Extension that provides added functionality beyond Plugins and Skins
+</li></ul> 
+<p></p>
+
+<h4 id="Installing_extensions">  Installing extensions </h4>
+<p></p>
+
+Extensions can be installed using any of several different methods: <ul>
+<li> the <a href="https://damask.mpie.de/bin/configure">configure</a> web interface under the Extensions tab
+</li> <li> the generic shell installer <code>tools/extension_installer</code>
+</li> <li> by manually downloading the attachments from the <a class="interwikiLink" href="https://foswiki.org/Extensions" title="'Extensions' on foswiki.org">Foswiki:Extensions</a> web <ul>
+<li> And running the _installer
+</li> <li> Or by manually expanding the archive into the installation.
+</li></ul> 
+</li></ul> 
+To update an extension, simply re-run the installer. If prompted, tell it to download fresh copies from the repository.
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> If the extensions installer is not run, (for example, installing using unzip, debian/RPM packages or git clone), you must run the <code>Plugins</code> wizard to import and save the new configuration settings. <ul>
+<li> From the configure web interface, a warning message should be generated under Extensions tab,  click the <code>Import extension settings</code> button.
+</li> <li> <strong>or</strong> from the CLI, run <code>tools/configure -wizard Plugins -save</code> <ul>
+<li> To auto-enable the extension, include <code>-args ENABLE=1</code> on the command.
+</li></ul> 
+</li></ul> 
+</div>
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" />Caution: Users of the debian <code>.deb</code> or <code>.rpm</code> packages should only use the system package tools when installing extensions.
+<p></p>
+
+The simplest way is to visit <a href="https://damask.mpie.de/bin/configure">configure -&gt; Extensions -gt; Extensions operations and maintenance</a> tab, and use the <em>[<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> search for extensions]</em> button to download and install additional extensions from the foswiki.org website. If you are behind a firewall or your server has no access to the Internet, you can also install plugins manually. Installation instructions for each plugin are located in its corresponding topic on <a href="http://foswiki.org/">http://foswiki.org/</a>. Additional documentation on Foswiki plugins can be found at <a class="interwikiLink" href="https://foswiki.org/Support.PluginsSupplement" title="'Support.PluginsSupplement' on foswiki.org">Foswiki:Support.PluginsSupplement</a>.
+<p></p>
+
+<h5 id="When_installing_an_extension_from_the_61configure_61_interface:">  When installing an extension from the <code>configure</code> interface: </h5> <ul>
+<li> Even if available, local Extension installers and archives are not used
+</li> <li> The extension is downloaded from the configured archive <ul>
+<li> The latest version of the Extension is always downloaded. There is no automatic means of downloading older versions.
+</li></ul> 
+</li> <li> If the extension is already installed, a backup is taken to the <code>working/configure/backup</code> directory
+</li> <li> Dependencies on other Extensions are automatically resolved and installed <ul>
+<li> Dependencies are downloaded from the <em>same archive</em> where the Extension was found. No additional searching is performed.
+</li></ul> 
+</li> <li> The Extension is installed. <ul>
+<li> By default, unless a collsion occurrs with an existing file, the Extension's topics will not be <em>checked in</em> to the revision control system.
+</li> <li> If previous topics or attachments are found, then the topic will be <em>checked in</em> under the Administrators user id.
+</li> <li> If the topics or attachments are flagged as <code>!noci</code>, disabling checkin, they will still be checked in if existing revision control files are found, suggesting that local modifications have occurred.
+</li></ul> 
+</li> <li> CPAN dependencies and other external packages are <strong>not</strong> resolved and should be resolved manually
+</li> <li> Plugins will be automatically enabled.  Be sure to save your configuration to enable the Extension and apply the settings.
+</li></ul> 
+<p></p>
+
+<h5 id="When_installing_extensions_from_the_command_line:_40Internet_access_available_41">  When installing extensions from the command line: (Internet access available) </h5> <ul>
+<li> The generic <code>extension_installer</code> package must be run from the root directory of the Foswiki installation. <ul>
+<li> <code>perl tools/extension_installer [SomeExtension] install</code>
+</li></ul> 
+</li> <li> The [SomeExtension]_installer and archive will be downloaded if required.
+</li> <li> When the <code>_installer</code> is run, it will install the Extension and dependencies similar to the <code>configure</code> interface except: <ul>
+<li> You will be given the option to use local archives if available in the root of the Foswiki installation
+</li> <li> CPAN and other dependencies need to be manually resolved.
+</li></ul> 
+</li> <li> Plugins will be automatically enabled and the configuration saved. Add the <code>-noenable</code> option to save the configuration with the plugin(s) disabled.
+</li></ul> 
+<p></p>
+
+<h5 id="When_installing_extensions_from_the_command_line:_40no_Internet_access_41">  When installing extensions from the command line: (no Internet access) </h5>
+<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> Use this method to install a back-level version of an extension.  Manually download the old archives and installer from the repository using the attachments dialog. <ul>
+<li> Manually copy the <code>[SomeExtension]_installer</code>, and <code>[SomeExtension].tgz</code> files into the Foswiki root. <ul>
+<li> Alternatively, they can be copied into the <code>working/configure/download</code> directory.
+</li></ul> 
+</li> <li> The <code>[SomeExtension]_installer</code> package must be run from the root directory of the Foswiki installation. <ul>
+<li> <code>perl [SomeExtension]_installer install -o</code>
+</li></ul> 
+</li> <li> Be sure to include the <code>-o</code> option to prevent the installer from downloading any dependencies.
+</li> <li> When the <code>[SomeExtension]_installer</code> is run, it will install the Extension similar to the <code>configure</code> interface except that you will be given the option to use local archives.
+</li> <li> Plugins will be automatically enabled and the configuration saved. Add the <code>-noenable</code> option to save the configuration with the plugin(s) disabled.
+</li></ul> 
+<p></p>
+
+<h5 id="Manual_installation">  Manual installation </h5> <ul>
+<li> Most extensions can have their archives expanded from the root of the foswiki installation.
+</li> <li> If web and topic names are non-standard, files will need to be manually copied.
+</li> <li> If scripts are included, the "shebang" line might need to be adjusted.
+</li> <li> It is critical to always run the Plugins merge wizard after manually installing any extensions, or updating any <code>"*.spec"</code> file.:<br/> <code>tools/configure -wizard Plugins -save</code> <br/> To automatically enable extensions, add  <code>-args ENABLE=1</code> to the command. 
+</li></ul> 
+<p></p>
+
+<h5 id="When_using_either_the_web_or_shell_installation_tools:">  When using either the web or shell installation tools: </h5> <ul>
+<li> The <code>[SomeExtension]_installer</code> module is saved in <code>working/configure/pkgdata</code>.
+</li> <li> The downloaded files are saved in <code>working/configure/download</code>.
+</li> <li> A complete log of the actions taken by the installer is saved in <code>working/logs/configure/[NameOfExtension]-yyyymmdd-hhmmss-[Action].log</code>.
+</li> <li> Backup of prior extension if any is saved in * <code>working/configure/backup/[NameOfExtension]-backup-yyyymmdd-hhmmss.tgz</code>.
+</li></ul> 
+<p></p>
+
+The instructions for using the extensions installer from the shell are
+retrieved by using the "usage" command:  <code>tools/extension_installer usage</code> or
+<code>./SomePlugin_installer usage</code>
+<p></p>
+
+<h4 id="Removing_40uninstalling_41_extensions">  Removing (uninstalling) extensions </h4>
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Caution:</strong> When removing an extension, no dependency checking is performed. <ul>
+<li> Dependencies are not removed
+</li> <li> Other Extensions dependent on the removed extension may become non-operational.
+</li></ul> 
+</div>
+<p></p>
+
+The web and command line interfaces can be used to uninstall extensions. When an extension is removed, the following occurs: <ul>
+<li> The <code>_installer</code> package is used to recover the manifest. If it cannot be found locally, it will be downloaded from the configured extension repository
+</li> <li> A backup of the previously installed files per the manifest will be taken to the <code>configure/working/backup</code> directory <ul>
+<li> Note: If download of the <code>_uninstaller</code> was required, the backup will be made per the <em>current</em> installer's manifest. It is preferable to always save the <code>_installer</code> modules.
+</li></ul> 
+</li> <li> The Extension files along with any <code>,v</code> revision control files will be removed, including the <code>_installer</code>. <ul>
+<li> Any additional files saved locally are not removed.
+</li></ul> 
+</li> <li> A complete log of the steps taken is saved in <code>working/logs/configure/[NameOfExtension]-yyyymmdd-hhmmss-[Action].log</code>
+</li> <li> The Plugin <code>{Module}</code> and <code>{Enable}</code> settings will be removed from the configuration, and the configuration will be saved. <ul>
+<li> Other settings from the Config.spec will be preserved.
+</li></ul> 
+</li></ul> 
+<p></p>
+
+Run the uninstall from the "root" of the Foswiki installation:<br />
+<code>perl working/configure/pkgdata/SomeExtension_installer uninstall</code>
+<p></p>
+
+<h4 id="Restoring_a_removed_44_or_previous_version_of_an_extension">  Restoring a removed, or previous version of an extension </h4>
+<p></p>
+
+The backup can be extracted from the root directory of the Foswiki installation.  The archive is taken "relative" to the root of the installation, so an <code>unzip</code> or <code>tar -xzf</code> of the backup file should be all that is required:
+<!---->
+<pre class='bash'>cd /root/of/foswiki
+tar -zxvf &#42; working/configure/backup/&#91;Extension}-backup-&#91;yyyymmdd&#93;-&#91;hhmmss&#93;.tgz
+# or
+unzip working/configure/backup/&#91;Extension}-backup-&#91;yyyymmdd&#93;-&#91;hhmmss&#93;.zip</pre>
+<p></p>
+
+<strong>Always</strong> run the <code>tools/configure -wizard Plugins -save</code> utility after manually changing any extension. This ensures that Foswiki is running with the
+latest <code>Config.spec</code> / <code>Foswiki.spec</code> configuration information.
+<p class='p'></p>
+
+<p class='p'></p>
+
+<hr />
+<strong>Related Topics:</strong> <a href="/bin/view/System/InstallationGuide">InstallationGuide</a>, <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>, <a class="interwikiLink" href="https://foswiki.org/Support.SupplementalDocument" title="'Support.SupplementalDocument' on foswiki.org">Foswiki:Support.SupplementalDocument</a> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/InstallationGuidePart2?t=1627664616' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/InstallationGuidePart2' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/InstallationGuidePart2?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/InstallationGuidePart2?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/InstallationGuidePart2?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/InstallationGuidePart2?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/InstallationGuidePart2?t=1627664616;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/InstallationGuidePart2?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/InstallationGuidePart2?foswiki_origin=GET%2cview%2c/bin/view/System/InstallationGuidePart2">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.InstallationGuidePart2'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> FlexWebListExamples &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/FlexWebListExamples?t=1627672452" type="application/x-wiki" title="edit FlexWebListExamples" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/FlexWebListExamples" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/0385eb3ec933bb579a4e657438badfbb.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTSUFFIX" : "",
+   "USERNAME" : "guest",
+   "TOPIC" : "FlexWebListExamples",
+   "USERSWEB" : "Main",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "COOKIEREALM" : "",
+   "PUBURLPATH" : "/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "WEB" : "System",
+   "SERVERTIME" : "30 Jul 2021 - 21:14",
+   "SCRIPTURLPATH" : "/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/FlexWebListExamples" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?2eb7df7d4e656ecb2536a6f46c83d5b3' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/FlexWebListExamples?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?e7b515f846bbd692d1eb9f7dc0756afe' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.FlexWebListExamples' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.FlexWebListExamples' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="FlexWebListExamples">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/FlexWebListExamples">FlexWebListExamples</a> </h1>
+<p></p>
+
+These are some simple examples to show how to use the basic features
+of the <a href="/bin/view/System/FlexWebListPlugin">FlexWebListPlugin</a>. Please create some subwebs in the Sandbox web 
+for a better illustration of the examples below. 
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?cover=print#No_params_40almost_41"> No params (almost) </a>
+</li> <li> <a href="?cover=print#Influencing_order"> Influencing order </a>
+</li> <li> <a href="?cover=print#Controlling_subwebs"> Controlling subwebs </a> <ul>
+<li> <a href="?cover=print#No_subwebs"> No subwebs </a>
+</li> <li> <a href="?cover=print#Only_subwebs"> Only subwebs </a>
+</li> <li> <a href="?cover=print#Subwebs_of_34Sandbox_34"> Subwebs of "Sandbox" </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Using_include_and_exclude"> Using include and exclude </a> <ul>
+<li> <a href="?cover=print#Exclude_TestCases_and_Trash_webs"> Exclude TestCases and Trash webs </a>
+</li> <li> <a href="?cover=print#Include_Sandbox_web_and_all_of_its_subwebs"> Include Sandbox web and all of its subwebs </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Creating_lists"> Creating lists </a> <ul>
+<li> <a href="?cover=print#Simple_nested_list"> Simple nested list </a>
+</li> <li> <a href="?cover=print#Nested_list_using_HTML"> Nested list using HTML </a>
+</li> <li> <a href="?cover=print#Nested_calls_to_FLEXWEBLIST"> Nested calls to FLEXWEBLIST </a>
+</li> <li> <a href="?cover=print#Twisty_weblist"> Twisty weblist </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Sitemap"> Sitemap </a>
+</li> <li> <a href="?cover=print#Mapping_names"> Mapping names </a>
+</li> <li> <a href="?cover=print#Marking_a_selection"> Marking a selection </a> <ul>
+<li> <a href="?cover=print#Using_marker"> Using marker </a>
+</li> <li> <a href="?cover=print#Using_markerformat"> Using markerformat </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="No_params_40almost_41">  No params (almost) </h2>
+<pre>
+&#37;FLEXWEBLIST{separator&#61;&#34;, &#34;}&#37;
+</pre>
+About, ApplicationsApplications/ClassificationApp, Development, Documentation, Download, Examples, Home, Installation, Main, References, Sandbox, System, Usage
+<p></p>
+
+<h2 id="Influencing_order">  Influencing order </h2>
+<pre>
+&#37;FLEXWEBLIST{webs&#61;&#34;&#37;USERSWEB&#37;,public,&#37;SYSTEMWEB&#37;&#34; separator&#61;&#34;, &#34;}&#37;
+</pre>
+Main, About, ApplicationsApplications/ClassificationApp, Development, Documentation, Download, Examples, Home, Installation, References, Sandbox, System, Usage
+<p></p>
+
+<h2 id="Controlling_subwebs">  Controlling subwebs </h2>
+<h3 id="No_subwebs">  No subwebs </h3>
+<pre>
+&#37;FLEXWEBLIST{subwebs&#61;&#34;none&#34; separator&#61;&#34;, &#34;}&#37;
+</pre>
+About, Applications, Development, Documentation, Download, Examples, Home, Installation, Main, References, Sandbox, System, Usage
+<p></p>
+
+<h3 id="Only_subwebs">  Only subwebs </h3>
+<pre>
+&#37;FLEXWEBLIST{subwebs&#61;&#34;only&#34; separator&#61;&#34;, &#34;}&#37;
+</pre>
+Applications/ClassificationApp
+<p></p>
+
+<h3 id="Subwebs_of_34Sandbox_34">  Subwebs of "Sandbox" </h3>
+<pre>
+&#37;FLEXWEBLIST{subwebs&#61;&#34;Sandbox&#34; separator&#61;&#34;, &#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<h2 id="Using_include_and_exclude">  Using include and exclude </h2>
+<p></p>
+
+<h3 id="Exclude_TestCases_and_Trash_webs">  Exclude TestCases and Trash webs </h3>
+<pre>
+&#37;FLEXWEBLIST{exclude&#61;&#34;(TestCases&#124;Trash).&#42;&#34; subwebs&#61;&#34;none&#34; separator&#61;&#34;, &#34;}&#37;
+</pre>
+About, Applications, Development, Documentation, Download, Examples, Home, Installation, Main, References, Sandbox, System, Usage
+<p></p>
+
+<h3 id="Include_Sandbox_web_and_all_of_its_subwebs">  Include Sandbox web and all of its subwebs </h3>
+<pre>
+&#37;FLEXWEBLIST{include&#61;&#34;Sandbox(/\w+)?&#34; separator&#61;&#34;, &#34;}&#37;
+</pre>
+Sandbox
+<p></p>
+
+<h2 id="Creating_lists">  Creating lists </h2>
+<h3 id="Simple_nested_list">  Simple nested list </h3>
+<pre>
+&#37;FLEXWEBLIST{format&#61;&#34;&#36;indent   &#42; &#91;&#91;&#36;web.&#37;HOMETOPIC&#37;&#93;&#91;&#36;name&#93;&#93;&#36;n&#34;}&#37;
+</pre>
+ <ul>
+<li> <a href="/bin/view/About/WebHome">About</a>
+</li> <li> <a href="/bin/view/Applications/WebHome">Applications</a> <ul>
+<li> <a href="/bin/view/Applications/ClassificationApp/WebHome">ClassificationApp</a>
+</li></ul> 
+</li> <li> <a href="/bin/view/Development/WebHome">Development</a>
+</li> <li> <a href="/bin/view/Documentation/WebHome">Documentation</a>
+</li> <li> <a href="/bin/view/Download/WebHome">Download</a>
+</li> <li> <a href="/bin/view/Examples/WebHome">Examples</a>
+</li> <li> <a href="/bin/view/Home/WebHome">Home</a>
+</li> <li> <a href="/bin/view/Installation/WebHome">Installation</a>
+</li> <li> <a href="/bin/view/Main/WebHome">Main</a>
+</li> <li> <a href="/bin/view/References/WebHome">References</a>
+</li> <li> <a href="/bin/view/Sandbox/WebHome">Sandbox</a>
+</li> <li> <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a>
+</li> <li> <a href="/bin/view/Usage/WebHome">Usage</a>
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="Nested_list_using_HTML">  Nested list using HTML </h3>
+<pre>
+&#37;FLEXWEBLIST{
+   header&#61;&#34;&#60;ul&#62;&#34; 
+   format&#61;&#34;&#60;li&#62;&#91;&#91;&#36;web.&#37;HOMETOPIC&#37;&#93;&#91;&#36;name&#93;&#93;&#34; 
+   separator&#61;&#34;&#60;/li&#62;&#34;
+   footer&#61;&#34;&#60;/li&#62;&#60;/ul&#62;&#34; 
+}&#37;
+</pre>
+<ul><li><a href="/bin/view/About/WebHome">About</a></li><li><a href="/bin/view/Applications/WebHome">Applications</a><ul><li><a href="/bin/view/Applications/ClassificationApp/WebHome">ClassificationApp</a></li></ul></li><li><a href="/bin/view/Development/WebHome">Development</a></li><li><a href="/bin/view/Documentation/WebHome">Documentation</a></li><li><a href="/bin/view/Download/WebHome">Download</a></li><li><a href="/bin/view/Examples/WebHome">Examples</a></li><li><a href="/bin/view/Home/WebHome">Home</a></li><li><a href="/bin/view/Installation/WebHome">Installation</a></li><li><a href="/bin/view/Main/WebHome">Main</a></li><li><a href="/bin/view/References/WebHome">References</a></li><li><a href="/bin/view/Sandbox/WebHome">Sandbox</a></li><li><a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a></li><li><a href="/bin/view/Usage/WebHome">Usage</a></li></ul>
+<p></p>
+
+<h3 id="Nested_calls_to_FLEXWEBLIST">  Nested calls to FLEXWEBLIST </h3>
+<pre>
+&#37;FLEXWEBLIST{
+   exclude&#61;&#34;(TestCases&#124;Trash).&#42;&#34; 
+   subwebs&#61;&#34;none&#34;
+   selection&#61;&#34;Applications&#34;
+   format&#61;&#34;&#36;indent   &#42; &#91;&#91;&#36;web.&#37;HOMETOPIC&#37;&#93;&#91;&#36;name&#93;&#93;&#36;n&#34;
+   markerformat&#61;&#34;&#36;percntFLEXWEBLIST{
+     include&#61;\&#34;^&#36;web.&#42;\&#34;
+     format&#61;\&#34;&#36;dollarindent   &#42; &#91;&#91;&#36;dollarweb.&#37;HOMETOPIC&#37;&#93;&#91;&#36;dollarname&#93;&#93;&#36;dollarn\&#34;
+   }&#36;percnt&#34;
+}&#37;
+</pre>
+ <ul>
+<li> <a href="/bin/view/About/WebHome">About</a>
+</li> <li> <a href="/bin/view/Applications/WebHome">Applications</a> <ul>
+<li> <a href="/bin/view/Applications/ClassificationApp/WebHome">ClassificationApp</a>
+</li></ul> 
+</li> <li> <a href="/bin/view/Development/WebHome">Development</a>
+</li> <li> <a href="/bin/view/Documentation/WebHome">Documentation</a>
+</li> <li> <a href="/bin/view/Download/WebHome">Download</a>
+</li> <li> <a href="/bin/view/Examples/WebHome">Examples</a>
+</li> <li> <a href="/bin/view/Home/WebHome">Home</a>
+</li> <li> <a href="/bin/view/Installation/WebHome">Installation</a>
+</li> <li> <a href="/bin/view/Main/WebHome">Main</a>
+</li> <li> <a href="/bin/view/References/WebHome">References</a>
+</li> <li> <a href="/bin/view/Sandbox/WebHome">Sandbox</a>
+</li> <li> <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a>
+</li> <li> <a href="/bin/view/Usage/WebHome">Usage</a>
+</li></ul> 
+<p></p>
+
+<h3 id="Twisty_weblist">  Twisty weblist </h3>
+needs the <a class="interwikiLink" href="https://foswiki.org/Extensions/TwistyPlugin" title="'Extensions/TwistyPlugin' on foswiki.org">Foswiki:Extensions/TwistyPlugin</a>
+<pre>
+&#37;FLEXWEBLIST{
+   header&#61;&#34;&#60;ul&#62;&#60;li&#62;&#34; 
+   format&#61;&#34;
+     &#36;percntTWISTY{
+       link&#61;\&#34;&#36;name &#36;percntIF{\&#34;&#36;nrsubwebs &#62; 0\&#34; then&#61;\&#34;(&#36;nrsubwebs)\&#34;}&#36;percnt\&#34;
+     }&#36;percnt&#34;
+   separator&#61;&#34;&#36;percntENDTWISTY&#36;percnt&#60;/li&#62;&#60;li&#62;&#34;
+   footer&#61;&#34;&#60;/li&#62;&#60;/ul&#62;&#34; 
+}&#37;
+</pre>
+<ul><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples9821show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">About </span></a></span><span id="twistyIdSystemFlexWebListExamples9821hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">About </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples9821toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples1188show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Applications (1)</span></a></span><span id="twistyIdSystemFlexWebListExamples1188hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Applications (1)</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples1188toggle" style="" class="twistyContent twistyInited"><ul><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples3806show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">ClassificationApp </span></a></span><span id="twistyIdSystemFlexWebListExamples3806hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">ClassificationApp </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples3806toggle" style="" class="twistyContent twistyInited"></li></ul></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples9454show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Development </span></a></span><span id="twistyIdSystemFlexWebListExamples9454hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Development </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples9454toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples6559show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Documentation </span></a></span><span id="twistyIdSystemFlexWebListExamples6559hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Documentation </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples6559toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples1522show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Download </span></a></span><span id="twistyIdSystemFlexWebListExamples1522hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Download </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples1522toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples8543show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Examples </span></a></span><span id="twistyIdSystemFlexWebListExamples8543hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Examples </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples8543toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples5019show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Home </span></a></span><span id="twistyIdSystemFlexWebListExamples5019hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Home </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples5019toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples3226show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Installation </span></a></span><span id="twistyIdSystemFlexWebListExamples3226hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Installation </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples3226toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples7819show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Main </span></a></span><span id="twistyIdSystemFlexWebListExamples7819hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Main </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples7819toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples6166show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">References </span></a></span><span id="twistyIdSystemFlexWebListExamples6166hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">References </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples6166toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples5153show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Sandbox (1)</span></a></span><span id="twistyIdSystemFlexWebListExamples5153hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Sandbox (1)</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples5153toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples3068show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">System </span></a></span><span id="twistyIdSystemFlexWebListExamples3068hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">System </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples3068toggle" style="" class="twistyContent twistyInited"></div></div></li><li>
+     <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemFlexWebListExamples2736show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Usage </span></a></span><span id="twistyIdSystemFlexWebListExamples2736hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Usage </span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemFlexWebListExamples2736toggle" style="" class="twistyContent twistyInited"></li></ul>
+<p></p>
+
+<h2 id="Sitemap">  Sitemap </h2>
+<div class="header"><div class="web">
+    <a href="/bin/view/About/WebHome">About</a> 
+  </div><div class="web">
+    <a href="/bin/view/Development/WebHome">Development</a> Information related to current development
+  </div><div class="web">
+    <a href="/bin/view/Documentation/WebHome">Documentation</a> Documentation of DAMASK
+  </div><div class="web">
+    <a href="/bin/view/Download/WebHome">Download</a> Access to the source code
+  </div><div class="web">
+    <a href="/bin/view/Examples/WebHome">Examples</a> Examples of Simulations performed with DAMASK
+  </div><div class="web">
+    <a href="/bin/view/Home/WebHome">Home</a> A brief summary of the Düsseldorf Advanced MAterial Simulation Kit
+  </div><div class="web">
+    <a href="/bin/view/Installation/WebHome">Installation</a> Installation instructions
+  </div><div class="web">
+    <a href="/bin/view/Main/WebHome">Main</a> Welcome to DAMASK ... meet people on this site 
+  </div><div class="web">
+    <a href="/bin/view/References/WebHome">References</a> List of reference users
+  </div><div class="web">
+    <a href="/bin/view/Sandbox/WebHome">Sandbox</a> Sandbox test area to experiment in an unrestricted hands-on web.
+  </div><div class="header"><div class="web">
+    <a href="/bin/view/Sandbox/WorkflowPluginExample/WebHome">WorkflowPluginExample</a> Working example for the WorkflowPlugin
+  </div></div><div class="web">
+    <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a> Discover the details, and how to start your own site with Foswiki - The Free and Open Source Wiki.
+  </div><div class="web">
+    <a href="/bin/view/Usage/WebHome">Usage</a> Usage of DAMASK and worked examples
+  </div></div>
+
+<style type="text/css">
+.web,
+.header {
+  margin:5px 50px;
+  padding:5px;
+  border:1px solid #f3a;
+}
+.web {
+  margin:5px;
+}
+.header a:visited,
+.header a:hover,
+.header a {
+  font-weight:bold;
+}
+</style>
+
+<p></p>
+
+<h2 id="Mapping_names">  Mapping names </h2>
+<pre>
+&#37;FLEXWEBLIST{
+    map&#61;&#34;TestCases&#61;Tests,&#37;SYSTEMWEB&#37;&#61;Documentation,&#37;USERSWEB&#37;&#61;Users&#34;
+    format&#61;&#34;&#36;indent   &#42; &#91;&#91;&#36;web.&#37;HOMETOPIC&#37;&#93;&#91;&#36;name&#93;&#93;&#36;n&#34;
+}&#37;
+</pre>
+ <ul>
+<li> <a href="/bin/view/About/WebHome">About</a>
+</li> <li> <a href="/bin/view/Applications/WebHome">Applications</a> <ul>
+<li> <a href="/bin/view/Applications/ClassificationApp/WebHome">ClassificationApp</a>
+</li></ul> 
+</li> <li> <a href="/bin/view/Development/WebHome">Development</a>
+</li> <li> <a href="/bin/view/Documentation/WebHome">Documentation</a>
+</li> <li> <a href="/bin/view/Download/WebHome">Download</a>
+</li> <li> <a href="/bin/view/Examples/WebHome">Examples</a>
+</li> <li> <a href="/bin/view/Home/WebHome">Home</a>
+</li> <li> <a href="/bin/view/Installation/WebHome">Installation</a>
+</li> <li> <a href="/bin/view/Main/WebHome">Users</a>
+</li> <li> <a href="/bin/view/References/WebHome">References</a>
+</li> <li> <a href="/bin/view/Sandbox/WebHome">Sandbox</a>
+</li> <li> <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">Documentation</a>
+</li> <li> <a href="/bin/view/Usage/WebHome">Usage</a>
+</li></ul> 
+<p class='p'></p>
+
+<h2 id="Marking_a_selection">  Marking a selection </h2>
+<h3 id="Using_marker">  Using marker </h3>
+<pre>
+&#37;FLEXWEBLIST{
+   exclude&#61;&#34;(TestCases&#124;Trash).&#42;&#34;
+   format&#61;&#34;&#36;indent   &#42; &#60;span class&#61;\&#34;&#36;marker\&#34;&#62; &#36;web &#60;/span&#62;&#36;n&#34;
+   marker&#61;&#34;foswikiAlert&#34;
+   selection&#61;&#34;&#37;BASEWEB&#37;&#34;
+}&#37;
+</pre>
+ <ul>
+<li> <span class=""> About </span>
+</li> <li> <span class=""> Applications </span> <ul>
+<li> <span class=""> Applications/ClassificationApp </span>
+</li></ul> 
+</li> <li> <span class=""> Development </span>
+</li> <li> <span class=""> Documentation </span>
+</li> <li> <span class=""> Download </span>
+</li> <li> <span class=""> Examples </span>
+</li> <li> <span class=""> Home </span>
+</li> <li> <span class=""> Installation </span>
+</li> <li> <span class=""> Main </span>
+</li> <li> <span class=""> References </span>
+</li> <li> <span class=""> Sandbox </span>
+</li> <li> <span class="foswikiAlert"> System </span>
+</li> <li> <span class=""> Usage </span>
+</li></ul> 
+<p></p>
+
+<h3 id="Using_markerformat">  Using markerformat </h3>
+<pre>
+&#37;FLEXWEBLIST{
+   exclude&#61;&#34;(TestCases&#124;Trash).&#42;&#34;
+   format&#61;&#34;&#36;indent   &#42; &#91;&#91;&#36;web.&#37;HOMETOPIC&#37;&#93;&#91;&#36;name&#93;&#93;&#36;n&#34;
+   markerformat&#61;&#34;&#36;indent   &#42; 
+     &#91;&#91;&#36;web.&#37;HOMETOPIC&#37;&#93;&#91;&#60;span class&#61;\&#34;foswikiAlert\&#34;&#62;&#36;name&#60;/span&#62;&#93;&#93;&#36;n&#34;
+   selection&#61;&#34;&#37;BASEWEB&#37;&#34;
+}&#37;
+</pre>
+ <ul>
+<li> <a href="/bin/view/About/WebHome">About</a>
+</li> <li> <a href="/bin/view/Applications/WebHome">Applications</a> <ul>
+<li> <a href="/bin/view/Applications/ClassificationApp/WebHome">ClassificationApp</a>
+</li></ul> 
+</li> <li> <a href="/bin/view/Development/WebHome">Development</a>
+</li> <li> <a href="/bin/view/Documentation/WebHome">Documentation</a>
+</li> <li> <a href="/bin/view/Download/WebHome">Download</a>
+</li> <li> <a href="/bin/view/Examples/WebHome">Examples</a>
+</li> <li> <a href="/bin/view/Home/WebHome">Home</a>
+</li> <li> <a href="/bin/view/Installation/WebHome">Installation</a>
+</li> <li> <a href="/bin/view/Main/WebHome">Main</a>
+</li> <li> <a href="/bin/view/References/WebHome">References</a>
+</li> <li> <a href="/bin/view/Sandbox/WebHome">Sandbox</a>
+</li> <li>      <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome"><span class="foswikiAlert">System</span></a>
+</li> <li> <a href="/bin/view/Usage/WebHome">Usage</a>
+</li></ul> 
+<p></p>
+
+</div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/FlexWebListPlugin">FlexWebListPlugin</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>FlexWebListExamples <br />
+Topic revision:  <span class='patternRevInfo'>28 May 2018, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.FlexWebListExamples'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

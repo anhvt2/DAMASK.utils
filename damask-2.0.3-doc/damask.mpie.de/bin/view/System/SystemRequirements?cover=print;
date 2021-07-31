@@ -1,0 +1,1338 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> SystemRequirements &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/SystemRequirements?t=1627671264" type="application/x-wiki" title="edit SystemRequirements" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/SystemRequirements" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/f71067a14411b745e8395c70cf3faddf.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURLPATH" : "/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WEB" : "System",
+   "USERSWEB" : "Main",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "TOPIC" : "SystemRequirements",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SKIN" : "damask,famfamfam,pattern",
+   "COOKIEREALM" : "",
+   "SERVERTIME" : "30 Jul 2021 - 20:54",
+   "PUBURLPATH" : "/pub",
+   "USERNAME" : "guest",
+   "URLHOST" : "https://damask.mpie.de",
+   "SYSTEMWEB" : "System",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTSUFFIX" : "",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/SystemRequirements" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?b2ff51758d531a22a07d642b5b17419f' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/SystemRequirements?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?3f21d530ce19db1f47c4d8d21e9468f3' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.SystemRequirements' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.SystemRequirements' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="System_Requirements">  System Requirements </h1>
+<p class='p'>Low client and server base requirements are core features that keep Foswiki widely deployable, particularly across a range of browser platforms and versions. Many extensions exist which enhance and expand Foswiki's capabilities; they may have additional requirements.</p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">Contents</span> <ul>
+<li> <a href="?cover=print#Server_Requirements"> Server Requirements </a>
+</li> <li> <a href="?cover=print#Specific_distribution_details"> Specific distribution details </a>
+</li> <li> <a href="?cover=print#Client_Requirements"> Client Requirements </a>
+</li></ul> 
+</div>
+<p class='p'></p>
+
+<h2 id="Server_Requirements">  Server Requirements </h2>
+<p class='p'>Foswiki is written in Perl 5, which is supported on Microsoft Windows as well as Unix and Unix-like systems (including Linux and OSX).  On Unix-like systems, it uses a number of shell commands. It should be able to run out-of-the-box on any server platform that meets the following requirements.</p>
+
+<table class="foswikiTable" id="tableSystemRequirements1" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Resource </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> Required Server Environment </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Perl </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 5.8.8 or higher. A minimum of perl 5.12 is recommended. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> External programs </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> GNU <code>diff</code> 2.7 or higher, <code>fgrep</code>, and <code>egrep</code> (not required on Windows) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Web server </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Apache, Nginx and Lighttpd are all well supported; Apache sample configs are provided. For information on other servers, see <a class="interwikiLink" href="https://foswiki.org/Support.InstallingOnSpecificPlatforms" title="'Support.InstallingOnSpecificPlatforms' on foswiki.org">Foswiki:Support.InstallingOnSpecificPlatforms</a>. </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Foswiki is designed to automatically detect the platform and generate a basic configuration the first time the <code>configure</code> script is run, but start from your expected default "view" URL, so that Foswiki can figure out your URL scheme.
+<p></p>
+
+Prior versions of Foswiki shipped with the important CPAN modules. Foswiki 2.0 does not, and <strong>you must ensure that the perl dependencies listed below are installed before attempting to use Foswiki.</strong> For a detailed report, <a href="/bin/view/System/PerlDependencyReport">See PerlDependencyReport</a> (admin access only!) or the shell script <code>tools/dependencies</code>.
+<p></p>
+
+If you are unable to install CPAN modules, see <a class="interwikiLink" href="https://foswiki.org/Extensions.CpanContrib" title="'Extensions.CpanContrib' on foswiki.org">Foswiki:Extensions.CpanContrib</a>. Install this extension into your Foswiki installation directory if you cannot install Perl modules otherwise.
+<p class='p'>You can check the dependencies before Foswiki is fully operational with the following command.  It will list all potentially missing dependencies.  Not all listed dependences are required on all installations, Refer to the usage message that accompanies each missing dependency in the report.</p>
+
+<pre>
+cd /path/to/foswiki
+perl tools/dependencies
+</pre>
+<p></p>
+
+<h2 id="Specific_distribution_details">  Specific distribution details </h2>
+<p></p>
+
+<strong>Find the closest match to your installed system. and click on the "Show ..." link to reveal the details.</strong>
+<p></p>
+
+<h3 id="Ubuntu_and_other_Debian_derived_distributions">  Ubuntu and other Debian derived distributions </h3>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemSystemRequirements9159show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show Debian / Ubuntu information</span></a></span><span id="twistyIdSystemSystemRequirements9159hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide Debian details</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemSystemRequirements9159toggle" style="" class="twistyContent twistyInited">
+<p></p>
+
+<h4 id="Minimum_requirements">  Minimum requirements </h4>
+<p></p>
+
+Install apache and rcs: <code><b>apt-get install apache2 rcs</b></code>
+<p></p>
+
+<table class="foswikiTable" id="tableSystemRequirements2" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1"> Package to install </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Algorithm::Diff </td>
+			<td class="foswikiTableCol1"> <code>libalgorithm-diff-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Archive::Tar </td>
+			<td class="foswikiTableCol1"> <code>libarchive-tar-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Authen::SASL </td>
+			<td class="foswikiTableCol1"> <code>libauthen-sasl-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI </td>
+			<td class="foswikiTableCol1"> <code>libcgi-pm-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI::Session </td>
+			<td class="foswikiTableCol1"> <code>libcgi-session-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::PasswdMD5 </td>
+			<td class="foswikiTableCol1"> <code>libcrypt-passwdmd5-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Digest::SHA </td>
+			<td class="foswikiTableCol1"> <code>libdigest-sha-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> *First shipped in perl 5.9.3 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Email::MIME </td>
+			<td class="foswikiTableCol1"> <code>libemail-mime-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Encode </td>
+			<td class="foswikiTableCol1"> <code>libencode-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Error </td>
+			<td class="foswikiTableCol1"> <code>liberror-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> File::Copy::Recursive </td>
+			<td class="foswikiTableCol1"> <code>libfile-copy-recursive-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Parser </td>
+			<td class="foswikiTableCol1"> <code>libhtml-parser-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Tree </td>
+			<td class="foswikiTableCol1"> <code>libhtml-tree-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::IP </td>
+			<td class="foswikiTableCol1"> <code>libio-socket-ip-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> First shipped perl 5.19.8 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::SSL </td>
+			<td class="foswikiTableCol1"> <code>libio-socket-ssl-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> JSON </td>
+			<td class="foswikiTableCol1"> <code>libjson-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext </td>
+			<td class="foswikiTableCol1"> <code>liblocale-maketext-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext::Lexicon </td>
+			<td class="foswikiTableCol1"> <code>liblocale-maketext-lexicon-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Msgfmt </td>
+			<td class="foswikiTableCol1"> <code>liblocale-msgfmt-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> LWP </td>
+			<td class="foswikiTableCol1"> <code>libwww-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> URI </td>
+			<td class="foswikiTableCol1"> <code>liburi-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> version </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>libversion-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Must be version 0.77 or newer, included with perl 5.10.1 and newer. </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Note: to install all the above:
+<blockquote>
+<code>apt-get install</code> <code>libalgorithm-diff-perl</code> <code>libarchive-tar-perl</code> <code>libauthen-sasl-perl</code> <code>libcgi-pm-perl</code> <code>libcgi-session-perl</code> <code>libcrypt-passwdmd5-perl</code> <code>libdigest-sha-perl</code> <code>libemail-mime-perl</code> <code>libencode-perl</code> <code>liberror-perl</code> <code>libfile-copy-recursive-perl</code> <code>libhtml-parser-perl</code> <code>libhtml-tree-perl</code> <code>libio-socket-ip-perl</code> <code>libio-socket-ssl-perl</code> <code>libjson-perl</code> <code>liblocale-maketext-perl</code> <code>liblocale-maketext-lexicon-perl</code> <code>liblocale-msgfmt-perl</code> <code>libwww-perl</code> <code>liburi-perl</code> <code>libversion-perl</code>
+</blockquote>
+<p></p>
+
+<h4 id="Optional_dependencies">  Optional dependencies </h4>
+<p class='p'>Install as needed.</p>
+
+<table class="foswikiTable" id="tableSystemRequirements3" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1"> Package to install </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Apache2::Request </td>
+			<td class="foswikiTableCol1"> <code>libapache2-request-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Required if using Apache 2 and mod_perl </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBI </td>
+			<td class="foswikiTableCol1"> <code>libdbi-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Used for the Foswiki Page cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::mysql </td>
+			<td class="foswikiTableCol1"> <code>libdbd-mysql-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Used for MySQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::Pg </td>
+			<td class="foswikiTableCol1"> <code>libdbd-pg-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Used for PostgreSQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::SQLite </td>
+			<td class="foswikiTableCol1"> <code>libdbd-sqlite3-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Used for SQLite based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI </td>
+			<td class="foswikiTableCol1"> <code>libfcgi-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi apache modules </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI::ProcManager </td>
+			<td class="foswikiTableCol1"> <code>libfcgi-procmanager-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi process management </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::SMIME </td>
+			<td class="foswikiTableCol1"> <code>libcrypt-smime-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::X509 </td>
+			<td class="foswikiTableCol1"> <code>libcrypt-x509-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Convert::PEM </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>libconvert-pem-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Optional, used for S/MIME email signing </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+After expanding the Foswiki archive, change the ownership of the files: <ul>
+<li> Debian, Ubuntu, Kubunto: <code>chown -R www-data:www-data /path/to/foswiki</code>
+</li></ul> 
+<p></p>
+
+Apache user should issue the following commands: <dl>
+<dt> <code>a2enmod rewrite</code> </dt><dd> Enables mod_rewrite
+</dd> <dt> <code>a2enmod cgi</code> OR <code>a2enmod cgid</code> </dt><dd> Enables CGI.  May need cgid if using a threaded mpm.
+</dd> <dt> <code>a2enmod access_compat</code> </dt><dd> Apache 2.4: Enables compatibility with foswiki example apache configurations.
+</dd></dl> 
+<p></p>
+
+</div></div>
+<p></p>
+
+<h3 id="RedHat_44_SuSE_44_CentOS_and_other_RPM_based_distributions">  RedHat, SuSE, CentOS and other RPM based distributions </h3>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemSystemRequirements8149show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show RedHat, SuSE and other RPM details</span></a></span><span id="twistyIdSystemSystemRequirements8149hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide RPM details</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemSystemRequirements8149toggle" style="" class="twistyContent twistyInited">
+<p></p>
+
+<h4 id="Minimum_requirements_AN1">  Minimum requirements </h4>
+<p class='p'>Install apache2, rcs, and perl-CPAN</p>
+
+<table class="foswikiTable" id="tableSystemRequirements4" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1"> Package to install </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Algorithm::Diff </td>
+			<td class="foswikiTableCol1"> <code>perl-Algorithm-Diff</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Archive::Tar </td>
+			<td class="foswikiTableCol1"> <code>perl-Archive-Tar</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> *First shipped in perl 5.9.3 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Authen::SASL </td>
+			<td class="foswikiTableCol1"> <code>perl-Authen-SASL</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI </td>
+			<td class="foswikiTableCol1"> <code>perl-CGI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI::Session </td>
+			<td class="foswikiTableCol1"> <code>perl-CGI-Session</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::PasswdMD5 </td>
+			<td class="foswikiTableCol1"> <code>perl-Crypt-PasswdMD5</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Digest::SHA </td>
+			<td class="foswikiTableCol1"> <code>perl-Digest-SHA</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> *First shipped in perl 5.9.3 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Email::MIME </td>
+			<td class="foswikiTableCol1"> <code>perl-Email-MIME</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Encode </td>
+			<td class="foswikiTableCol1"> <code>perl-Encode</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Error </td>
+			<td class="foswikiTableCol1"> <code>perl-Error</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> File::Copy::Recursive </td>
+			<td class="foswikiTableCol1"> <code>perl-File-Copy-Recursive</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Parser </td>
+			<td class="foswikiTableCol1"> <code>perl-HTML-Parser</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Tree </td>
+			<td class="foswikiTableCol1"> <code>perl-HTML-Tree</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::IP </td>
+			<td class="foswikiTableCol1"> <code>perl-IO-Socket-IP</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> First shipped perl 5.19.8 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::SSL </td>
+			<td class="foswikiTableCol1"> <code>perl-IO-Socket-SSL</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> JSON </td>
+			<td class="foswikiTableCol1"> <code>perl-JSON</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Language </td>
+			<td class="foswikiTableCol1"> <code>perl-Locale-Codes</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext </td>
+			<td class="foswikiTableCol1"> <code>perl-Locale-Maketext</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext::Lexicon </td>
+			<td class="foswikiTableCol1"> <code>perl-Locale-Maketext-Lexicon</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Msgfmt </td>
+			<td class="foswikiTableCol1"> <code>perl-Locale-Msgfmt</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> LWP </td>
+			<td class="foswikiTableCol1"> <code>perl-libwww-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> URI </td>
+			<td class="foswikiTableCol1"> <code>perl-URI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> version </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>perl-Perl-Version</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Must be version 0.77 or newer, included with perl 5.10.1 and newer. </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h5 id="To_install_the_above_packages_on_CentOS">  To install the above packages on CentOS </h5>
+First add the appropriate perl module repository, and then install the packages.
+<blockquote>
+<code>yum install -y epel-release</code> <br />
+<code>yum install</code> <code>perl-Algorithm-Diff</code> <code>perl-Archive-Tar</code> <code>perl-Authen-SASL</code> <code>perl-CGI</code> <code>perl-CGI-Session</code> <code>perl-Crypt-PasswdMD5</code> <code>perl-Digest-SHA</code> <code>perl-Email-MIME</code> <code>perl-Encode</code> <code>perl-Error</code> <code>perl-File-Copy-Recursive</code> <code>perl-HTML-Parser</code> <code>perl-HTML-Tree</code> <code>perl-IO-Socket-IP</code> <code>perl-IO-Socket-SSL</code> <code>perl-JSON</code> <code>perl-Locale-Codes</code> <code>perl-Locale-Maketext</code> <code>perl-Locale-Maketext-Lexicon</code> <code>perl-Locale-Msgfmt</code> <code>perl-libwww-perl</code> <code>perl-URI</code> <code>perl-Perl-Version</code>
+</blockquote>
+<p></p>
+
+<h5 id="To_install_the_above_packages_on_SuSE">  To install the above packages on SuSE </h5>
+First add the appropriate SuSE perl-modules repository, and then install the packages. Note: Not all listed packages will install on SuSE, but all dependences are resolved.
+<blockquote>
+<code>zypper ar -f -n perl-modules http://download.opensuse.org/repositories/devel:/languages:/perl/openSUSE_13.1 perl-modules</code> <br />
+<code>zypper install</code> <code>perl-Algorithm-Diff</code> <code>perl-Archive-Tar</code> <code>perl-Authen-SASL</code> <code>perl-CGI</code> <code>perl-CGI-Session</code> <code>perl-Crypt-PasswdMD5</code> <code>perl-Digest-SHA</code> <code>perl-Email-MIME</code> <code>perl-Encode</code> <code>perl-Error</code> <code>perl-File-Copy-Recursive</code> <code>perl-HTML-Parser</code> <code>perl-HTML-Tree</code> <code>perl-IO-Socket-IP</code> <code>perl-IO-Socket-SSL</code> <code>perl-JSON</code> <code>perl-Locale-Codes</code> <code>perl-Locale-Maketext</code> <code>perl-Locale-Maketext-Lexicon</code> <code>perl-Locale-Msgfmt</code> <code>perl-libwww-perl</code> <code>perl-URI</code> <code>perl-Perl-Version</code>
+</blockquote>
+<p></p>
+
+<h4 id="Optional_dependencies_AN1">  Optional dependencies </h4>
+<p class='p'>Install as needed.</p>
+
+<table class="foswikiTable" id="tableSystemRequirements5" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1"> Package to install </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Apache2::Request </td>
+			<td class="foswikiTableCol1"> <code>perl-libapreq2</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Required if using Apache 2 and mod_perl </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBI </td>
+			<td class="foswikiTableCol1"> <code>perl-DBI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Used for the Foswiki Page cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::mysql </td>
+			<td class="foswikiTableCol1"> <code>perl-DBD-mysql</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Used for MySQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::Pg </td>
+			<td class="foswikiTableCol1"> <code>perl-DBD-Pg</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Used for PostgreSQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::SQLite </td>
+			<td class="foswikiTableCol1"> <code>perl-DBD-SQLite</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Used for SQLite based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI </td>
+			<td class="foswikiTableCol1"> <code>perl-FCGI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi apache modules </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI::ProcManager </td>
+			<td class="foswikiTableCol1"> <code>perl-FCGI-ProcManager</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi process management </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::SMIME </td>
+			<td class="foswikiTableCol1"> <code>perl-Crypt-SMIME</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing<br /> <em>(Not available in default repositories)</em> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::X509 </td>
+			<td class="foswikiTableCol1"> <code>perl-Crypt-X509</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Convert::PEM </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>perl-Convert-PEM</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Optional, used for S/MIME email signing </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+After expanding the Foswiki archive, change the ownership of the files: <ul>
+<li> RedHat, Fedora, CentOS Mandriva: chown -R apache:apache /path/to/foswiki=
+</li> <li> Suse: <code>chown -R wwwrun:www /path/to/foswiki</code>
+</li></ul> 
+<p></p>
+
+</div></div>
+<p></p>
+
+<h3 id="Gentoo_40ebuild_41_based_distributions">  Gentoo (ebuild) based distributions </h3>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemSystemRequirements9793show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show Gentoo details</span></a></span><span id="twistyIdSystemSystemRequirements9793hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide Gentoo details</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemSystemRequirements9793toggle" style="" class="twistyContent twistyInited">
+<p></p>
+
+<h4 id="Minimum_requirements_AN2">  Minimum requirements </h4>
+<p></p>
+
+Install <code>www-servers/apache</code>, <code>dev-vcs/rcs</code>, and <code>dev-lang/perl</code>
+<p></p>
+
+<table class="foswikiTable" id="tableSystemRequirements6" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1"> Package to install </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Algorithm::Diff </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/Algorithm-Diff</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Archive::Tar </td>
+			<td class="foswikiTableCol1"> <code>perl-Archive-Tar</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> *First shipped in perl 5.9.3 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Authen::SASL </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/Authen-SASL</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for authenticated SMTP </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/CGI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI::Session </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/CGI-Session</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::PasswdMD5 </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/Crypt-PasswdMD5</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Digest::SHA </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Included with perl </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Email::MIME </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/Email-MIME</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Error </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/Error</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Encode </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Included with perl </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> File::Copy::Recursive </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/File-Copy-Recursive</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Parser </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/HTML-Parser</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Tree </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/HTML-Tree</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::IP </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Ebuild not avaiable. Install with g-cpan if IPv6 is needed. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::SSL </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/IO-Socket-SSL</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, support encrypted email connection: STARTTLS or SSL </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> JSON </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/JSON</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Included with perl </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext::Lexicon </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/Locale-Maketext-Lexicon</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Msgfmt </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/Locale-Msgfmt</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> LWP </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/libwww-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> URI </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/URI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> version </td>
+			<td class="foswikiTableCol1 foswikiLast"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Must be version 0.77 or newer, included with perl 5.10.1 and newer. </td>
+		</tr>
+	</tbody></table>
+<h5 id="To_install_the_above_packages_on_Gentoo">  To install the above packages on Gentoo </h5>
+<p></p>
+
+<blockquote>
+<code>emerge</code> <code>dev-perl/Algorithm-Diff</code> <code>perl-Archive-Tar</code> <code>dev-perl/Authen-SASL</code> <code>dev-perl/CGI</code> <code>dev-perl/CGI-Session</code> <code>dev-perl/Crypt-PasswdMD5</code>  <code>dev-perl/Email-MIME</code> <code>dev-perl/Error</code>  <code>dev-perl/File-Copy-Recursive</code> <code>dev-perl/HTML-Parser</code> <code>dev-perl/HTML-Tree</code>  <code>dev-perl/IO-Socket-SSL</code> <code>dev-perl/JSON</code>  <code>dev-perl/Locale-Maketext-Lexicon</code> <code>dev-perl/Locale-Msgfmt</code> <code>dev-perl/libwww-perl</code> <code>dev-perl/URI</code>
+</blockquote>
+<p></p>
+
+<h4 id="Optional_dependencies_AN2">  Optional dependencies </h4>
+<p class='p'>Install as needed.</p>
+
+<table class="foswikiTable" id="tableSystemRequirements7" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1"> Package to install </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Apache2::Request </td>
+			<td class="foswikiTableCol1"> <code>libapache2-request-perl</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Required if using Apache 2 and mod_perl </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBI </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/DBI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for the Foswiki Page cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::mysql </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/DBD-mysql</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for MySQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::Pg </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/DBD-Pg</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for PostgreSQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::SQLite </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/DBD-SQLite</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for SQLite based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/FCGI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi apache modules </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI::ProcManager </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/FCGI-ProcManager</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi process management </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::SMIME </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/Crypt-SMIME</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::X509 </td>
+			<td class="foswikiTableCol1"> <code>dev-perl/Crypt-X509</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Convert::PEM </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>dev-perl/convert-pem</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Optional, used for S/MIME email signing </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+After expanding the Foswiki archive, change the ownership of the files: <ul>
+<li> <code>chown -R apache:apache /var/www/path-to-foswiki</code>
+</li></ul> 
+<p></p>
+
+</div></div>
+<p></p>
+
+<h3 id="FreeBSD_40pkg_41_based_distributions"> FreeBSD (pkg) based distributions </h3>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemSystemRequirements8981show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show FreeBSD details</span></a></span><span id="twistyIdSystemSystemRequirements8981hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide FreeBSD details</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemSystemRequirements8981toggle" style="" class="twistyContent twistyInited">
+<p></p>
+
+<h4 id="Minimum_requirements_AN3">  Minimum requirements </h4>
+<p></p>
+
+Install <code>apache24</code>, <code>rcs</code>, and <code>perl5</code>
+<p></p>
+
+<table class="foswikiTable" id="tableSystemRequirements8" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1"> Package to install </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Algorithm::Diff </td>
+			<td class="foswikiTableCol1"> <code>p5-Algorithm-Diff</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Archive::Tar </td>
+			<td class="foswikiTableCol1"> <code>p5-Archive-Tar</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Authen::SASL </td>
+			<td class="foswikiTableCol1"> <code>p5-Authen-SASL</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI </td>
+			<td class="foswikiTableCol1"> <code>p5-CGI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI::Session </td>
+			<td class="foswikiTableCol1"> <code>p5-CGI-Session</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::PasswdMD5 </td>
+			<td class="foswikiTableCol1"> <code>p5-Crypt-PasswdMD5</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Digest::SHA </td>
+			<td class="foswikiTableCol1"> <code>p5-Digest-SHA</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> *First shipped in perl 5.9.3 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Email::MIME </td>
+			<td class="foswikiTableCol1"> <code>p5-Email-MIME</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Encode </td>
+			<td class="foswikiTableCol1"> <code>p5-Encode</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Error </td>
+			<td class="foswikiTableCol1"> <code>p5-Error</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> File::Copy::Recursive </td>
+			<td class="foswikiTableCol1"> <code>p5-File-Copy-Recursive</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Parser </td>
+			<td class="foswikiTableCol1"> <code>p5-HTML-Parser</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Tree </td>
+			<td class="foswikiTableCol1"> <code>p5-HTML-Tree</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::IP </td>
+			<td class="foswikiTableCol1"> <code>p5-IO-Socket-IP</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> First shipped perl 5.19.8 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::SSL </td>
+			<td class="foswikiTableCol1"> <code>p5-IO-Socket-SSL</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> JSON </td>
+			<td class="foswikiTableCol1"> <code>p5-JSON</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext </td>
+			<td class="foswikiTableCol1"> <code>p5-Locale-Maketext</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext::Lexicon </td>
+			<td class="foswikiTableCol1"> <code>p5-Locale-Maketext-Lexicon</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Msgfmt </td>
+			<td class="foswikiTableCol1"> <code>p5-Locale-Msgfmt</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> LWP </td>
+			<td class="foswikiTableCol1"> <code>p5-libwww</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> URI </td>
+			<td class="foswikiTableCol1"> <code>p5-URI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> version </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>p5-version</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Must be version 0.77 or newer, included with perl 5.10.1 and newer. </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h5 id="To_install_the_above_packages_on_FreeBSD">  To install the above packages on FreeBSD </h5>
+<p></p>
+
+<blockquote>
+<code>pkg install</code> <code>p5-Algorithm-Diff</code> <code>p5-Archive-Tar</code> <code>p5-Authen-SASL</code> <code>p5-CGI</code> <code>p5-CGI-Session</code> <code>p5-Crypt-PasswdMD5</code> <code>p5-Digest-SHA</code> <code>p5-Email-MIME</code> <code>p5-Encode</code> <code>p5-Error</code> <code>p5-File-Copy-Recursive</code> <code>p5-HTML-Parser</code> <code>p5-HTML-Tree</code> <code>p5-IO-Socket-IP</code> <code>p5-IO-Socket-SSL</code> <code>p5-JSON</code> <code>p5-Locale-Maketext</code> <code>p5-Locale-Maketext-Lexicon</code> <code>p5-Locale-Msgfmt</code> <code>p5-libwww</code> <code>p5-URI</code> <code>p5-version</code>
+</blockquote>
+<p></p>
+
+After expanding the Foswiki archive, change the ownership of the files: <ul>
+<li> <code>chown -R www:wwwadmin /var/www/path-to-foswiki</code>
+</li></ul> 
+<p></p>
+
+<h4 id="Optional_dependencies_AN3">  Optional dependencies </h4>
+<p class='p'>Install as needed.</p>
+
+<table class="foswikiTable" id="tableSystemRequirements9" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1"> Package to install </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Apache2::Request </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Required if using Apache 2 and mod_perl (Not available?  Use cpanm ) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> BSD-Resource </td>
+			<td class="foswikiTableCol1"> <code>p5-BSD-Resource</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - used for FCGI process handler resource limits </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBI </td>
+			<td class="foswikiTableCol1"> <code>p5-DBI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for the Foswiki Page cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::mysql </td>
+			<td class="foswikiTableCol1"> <code>p5-DBD-mysql</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for MySQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::Pg </td>
+			<td class="foswikiTableCol1"> <code>p5-DBD-Pg</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for PostgreSQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::SQLite </td>
+			<td class="foswikiTableCol1"> <code>p5-DBD-SQLite</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for SQLite based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI </td>
+			<td class="foswikiTableCol1"> <code>p5-FCGI</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi apache modules </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI::ProcManager </td>
+			<td class="foswikiTableCol1"> <code>p5-FCGI-ProcManager</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi process management </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::SMIME </td>
+			<td class="foswikiTableCol1"> <code>p5-Crypt-SMIME</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::X509 </td>
+			<td class="foswikiTableCol1"> <code>p5-Crypt-X509</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Convert::PEM </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>p5-Convert-PEM</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Optional, used for S/MIME email signing </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+</div></div>
+<p></p>
+
+<h3 id="Installation_with_CPAN">  Installation with CPAN </h3>
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemSystemRequirements3212show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Show <code>CPAN</code> details</span></a></span><span id="twistyIdSystemSystemRequirements3212hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Hide <code>CPAN</code> details</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemSystemRequirements3212toggle" style="" class="twistyContent twistyInited">
+<p></p>
+
+Perl dependencies can also be installed on most systems using <code>cpanm</code>, aka <code>App::cpanminus</code>.  On most unix* systems, <code>cpanminus</code> can bootstrap itself using curl or wget.
+If run as root, the modules will be installed in the System perl.   Otherwise they are installed into the users local environment.
+<p></p>
+
+<table class="foswikiTable" id="tableSystemRequirements10" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Algorithm::Diff </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Archive::Tar </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> *First shipped in perl 5.9.3 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Authen::SASL </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Optional, needed for authenticated SMTP </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CGI::Session </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::PasswdMD5 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Digest::SHA </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Included with perl </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Error </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Email::MIME </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Encode </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> File::Copy::Recursive </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Parser </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTML::Tree </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::IP </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> IO::Socket::SSL </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Optional, support encrypted email connection: STARTTLS or SSL </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> JSON </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Maketext::Lexicon </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Locale::Msgfmt </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Optional, needed for internationalization </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> LWP </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> URI </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> version </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Must be version 0.77 or newer, included with perl 5.10.1 and newer. </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h5 id="To_install_the_above_packages_with_61cpanm_61">  To install the above packages with <code>cpanm</code> </h5>
+<strong>Note:</strong> We do not recommend installing CPAN modules with cpanminus as root.
+See below for information on using a private module library with cpanminus.
+<blockquote>
+curl -L http://cpanmin.us | perl - App::cpanminus    (optional - install cpanminus if not available ) <br />
+cpanm  Algorithm::Diff Archive::Tar Authen::SASL CGI CGI::Session Crypt::PasswdMD5 Digest::SHA Error Email::MIME Encode File::Copy::Recursive HTML::Parser HTML::Tree IO::Socket::IP IO::Socket::SSL JSON Locale::Maketext Locale::Maketext::Lexicon Locale::Msgfmt LWP URI version 
+</blockquote>
+<p></p>
+
+<h4 id="Optional_dependencies_AN4">  Optional dependencies </h4>
+<p class='p'>Install as needed.</p>
+
+<table class="foswikiTable" id="tableSystemRequirements11" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Perl Module </th>
+			<th class="foswikiTableCol1"> Package to install </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Apache2::Request </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Required if using Apache 2 and mod_perl </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBI </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for the Foswiki Page cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::mysql </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for MySQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::Pg </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for PostgreSQL based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DBD::SQLite </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional - Used for SQLite based Page Cache </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi apache modules </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FCGI::ProcManager </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, needed for fastcgi / fcgi process management </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::SMIME </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Crypt::X509 </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Optional, used for S/MIME email signing </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Convert::PEM </td>
+			<td class="foswikiTableCol1 foswikiLast"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Optional, used for S/MIME email signing </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h4 id="Installation_using_61cpanminus_61">  Installation using <code>cpanminus</code> </h4>
+<p></p>
+
+See <a class="interwikiLink" href="https://foswiki.org/Support.HowToInstallCpanModules" title="'Support.HowToInstallCpanModules' on foswiki.org">Foswiki:Support.HowToInstallCpanModules</a> for more information.
+<p></p>
+
+If you want to install the dependendencies into a specified location, add the <code>"-l"</code> option to cpanm, and add the lib path to <code>bin/LocalLib.cfg</code>.   The dependencies will be installed under the specified location, in the <code>lib/perl5</code> subdirectory.
+Example:  User "foswiki" logs in and installs the libraries locally under the foswikideps directory:
+<pre>
+cpanm -l foswikideps Algorithm::Diff Archive::Tar ...   (install libraries into &#61;/home/foswiki/foswikideps&#61;)
+</pre>
+<p></p>
+
+<code>/path/to/foswiki/bin/LocalLib.txt</code> is then edited, and the commented line is modified:
+<pre>
+# &#64;localPerlLibPath &#61; ( &#39;/path/to/dir&#39;, &#39;/path/to/another/dir&#39;, );
+&#64;localPerlLibPath &#61; ( &#39;/home/foswiki/foswikideps/lib/perl5&#39;, );
+</pre>
+<p></p>
+
+Foswiki will now run using the libraries installed by cpanm.
+</div></div>
+<p></p>
+
+<span id="ClientRequirements"></span>
+<h2 id="Client_Requirements">  Client Requirements </h2>
+<p></p>
+
+The <a href="/bin/view/System/InstallationGuide">standard installation</a> has relatively low browser requirements:
+<p></p>
+ <ul>
+<li> XHTML 1.0 Transitional compliant
+</li> <li> Cookies, if persistent sessions are required
+</li> <li> Javascript, is required for configure, edit save and upload functionality.  Foswiki is viewable without javascript.
+</li></ul> 
+<p class='p'>CSS and Javascript are used in most skins. Some skins will require more recent releases of browsers. The default (Pattern) skin is tested on IE 6+, Safari, Chrome and Firefox.</p>
+
+You can easily select a balance of browser capability versus look and feel. Try the installed skins at <a href="/bin/view/System/SkinBrowser">SkinBrowser</a> and more at <a class="interwikiLink" href="https://foswiki.org/Extensions.SkinPackage" title="'Extensions.SkinPackage' on foswiki.org">Foswiki:Extensions.SkinPackage</a>.
+<p class='p'></p>
+
+<hr />
+<p></p>
+
+<strong>Related Topics:</strong> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+<p></p>
+
+<!----></div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/Category">Category</a> &gt; <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>SystemRequirements <br />
+Topic revision:  <span class='patternRevInfo'>03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.SystemRequirements'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

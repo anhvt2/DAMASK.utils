@@ -1,0 +1,810 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> PerformanceStatistics &lt; Development &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Development/PerformanceStatistics?t=1627663656" type="application/x-wiki" title="edit PerformanceStatistics" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Development/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Development/PerformanceStatistics" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/bbb8712e1589f447684e8f81fae6b778.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tablePerformanceStatistics2 {border-width:0px; width:100%}
+body .foswikiTable#tablePerformanceStatistics2 td {border-style:none}
+body .foswikiTable#tablePerformanceStatistics2 td.foswikiTableCol0 {width:50%}
+body .foswikiTable#tablePerformanceStatistics2 td.foswikiTableCol1 {width:50%}
+body .foswikiTable#tablePerformanceStatistics2 th {border-style:none}
+body .foswikiTable#tablePerformanceStatistics2 th.foswikiTableCol0 {width:50%}
+body .foswikiTable#tablePerformanceStatistics2 th.foswikiTableCol1 {width:50%}
+body .foswikiTable#tablePerformanceStatistics2 tr.foswikiTableRowdataBg0 td {background-color:transparent}
+body .foswikiTable#tablePerformanceStatistics2 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:transparent}
+body .foswikiTable#tablePerformanceStatistics4 {border-width:0px; width:100%}
+body .foswikiTable#tablePerformanceStatistics4 td {border-style:none}
+body .foswikiTable#tablePerformanceStatistics4 td.foswikiTableCol0 {width:50%}
+body .foswikiTable#tablePerformanceStatistics4 td.foswikiTableCol1 {width:50%}
+body .foswikiTable#tablePerformanceStatistics4 th {border-style:none}
+body .foswikiTable#tablePerformanceStatistics4 th.foswikiTableCol0 {width:50%}
+body .foswikiTable#tablePerformanceStatistics4 th.foswikiTableCol1 {width:50%}
+body .foswikiTable#tablePerformanceStatistics4 tr.foswikiTableRowdataBg0 td {background-color:transparent}
+body .foswikiTable#tablePerformanceStatistics4 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:transparent}
+body .foswikiTable#tablePerformanceStatistics6 {border-width:0px; width:100%}
+body .foswikiTable#tablePerformanceStatistics6 td {border-style:none}
+body .foswikiTable#tablePerformanceStatistics6 td.foswikiTableCol0 {width:32%}
+body .foswikiTable#tablePerformanceStatistics6 td.foswikiTableCol1 {width:32%}
+body .foswikiTable#tablePerformanceStatistics6 td.foswikiTableCol2 {width:32%}
+body .foswikiTable#tablePerformanceStatistics6 th {border-style:none}
+body .foswikiTable#tablePerformanceStatistics6 th.foswikiTableCol0 {width:32%}
+body .foswikiTable#tablePerformanceStatistics6 th.foswikiTableCol1 {width:32%}
+body .foswikiTable#tablePerformanceStatistics6 th.foswikiTableCol2 {width:32%}
+body .foswikiTable#tablePerformanceStatistics6 tr.foswikiTableRowdataBg0 td {background-color:transparent}
+body .foswikiTable#tablePerformanceStatistics6 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:transparent}
+</style>
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATH" : "/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "USERNAME" : "guest",
+   "SCRIPTSUFFIX" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SYSTEMWEB" : "System",
+   "PUBURLPATH" : "/pub",
+   "TOPIC" : "PerformanceStatistics",
+   "WEB" : "Development",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "URLHOST" : "https://damask.mpie.de",
+   "USERSWEB" : "Main",
+   "SERVERTIME" : "30 Jul 2021 - 18:47",
+   "COOKIEREALM" : ""
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Development/PerformanceStatistics"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Development/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Development" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="active">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Development/WebHome">Development</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Development/PerformanceStatistics" title='Topic revision: 35 (21 Jun 2018 - 22:17:04)'>PerformanceStatistics</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Development/PerformanceStatistics?t=1627663656;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Development/PerformanceStatistics' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Development/PerformanceStatistics?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Development/PerformanceStatistics?raw=on&amp;rev=35' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Development/WebCreateNewTopic?topicparent=PerformanceStatistics' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Development/PerformanceStatistics?cover=print;sortcol=1;table=10;up=1' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Development/PerformanceStatistics?template=more&amp;maxrev=35&amp;currrev=35' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="A_6._Performance_Statistics"> <A name="Section_6."></A>6.  Performance Statistics <img src="/pub/System/DocumentGraphics/pencil.png" alt="REFACTOR" title="REFACTOR" width="16" height="16" /> </h1>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?sortcol=1;table=10;up=1#Howto"> Howto </a> <ul>
+<li> <a href="?sortcol=1;table=10;up=1#Intel_VTune_Amplifier"> Intel VTune Amplifier </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=10;up=1#Spectral_Solver_Global_runtime_of_examples"> Spectral Solver Global runtime of examples </a> <ul>
+<li> <a href="?sortcol=1;table=10;up=1#Revision_2220"> Revision 2220 </a>
+</li> <li> <a href="?sortcol=1;table=10;up=1#Revision_2218"> Revision 2218 </a>
+</li> <li> <a href="?sortcol=1;table=10;up=1#Revision_2012"> Revision 2012 </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=10;up=1#Spectral_Solver_TAU_Analysis"> Spectral Solver TAU Analysis </a> <ul>
+<li> <a href="?sortcol=1;table=10;up=1#TAU_plain_installation"> TAU plain installation </a> <ul>
+<li> <a href="?sortcol=1;table=10;up=1#Revision_2319"> Revision 2319 </a> <ul>
+<li> <a href="?sortcol=1;table=10;up=1#A_20grains16x16x16.geom"> 20grains16x16x16.geom </a>
+</li> <li> <a href="?sortcol=1;table=10;up=1#A_20grains32x32x32.geom"> 20grains32x32x32.geom </a>
+</li></ul> 
+</li></ul> 
+</li></ul> 
+</li></ul> 
+</div>
+<span id="TableOfContents"></span>
+<p></p>
+
+<hr />
+<h2 id="Howto">  Howto  </h2>
+Timing using the build-in facilities can be done with
+<pre>
+> /usr/bin/time -v
+</pre>
+<p></p>
+
+Additionally, the DAMASK process can be attached to core X (X from 0 to N-1) with
+<pre>
+> taskset -c X
+</pre>
+<p></p>
+
+Hence, to run the example on the second core, type the following commands
+<pre>
+> export DAMASK_NUM_THREADS=1
+>  /usr/bin/time -v taskset -c 1 DAMASK_spectral -l tensionX.load -g 20grains16x16x16.geom
+</pre>
+<p></p>
+
+<h3 id="Intel_VTune_Amplifier">  Intel VTune Amplifier  </h3>
+<p></p>
+
+The Intel VTune Amplifier is part of the Intel Parallel Studio XE.
+To run the GUI, type
+<pre>
+> amplxe-gui
+</pre>
+<p></p>
+
+<div style="clear:both; width:100%; display: block; margin-left: auto; margin-right: auto; background:#f4fcf4;">
+<a name="fig:VTune Amplifier GUI Screenshot"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<img src="/pub/Development/PerformanceStatistics/Screenshot from 2018-06-06 23-14-46.png" alt="Screenshot of the VTune Amplifier GUI" width="100%" /> 
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 1</strong>: Screenshot of the VTune Amplifier GUI</td><td></tr>
+</table>
+</div>
+<p></p>
+
+<hr />
+<h2 id="Spectral_Solver_Global_runtime_of_examples">  Spectral Solver Global runtime of examples  </h2>
+Using the example files <span class='foswikiMaroonFG'>20grainsYxYxY.geom</span> and <span class='foswikiMaroonFG'>tensionX.load</span>.
+<h3 id="Revision_2220">  Revision 2220  </h3>
+The runtime of DAMASK interfaced to the basic spectral solver is given for the optimization levels DEFENSIVE and AGGRESSIVE as defined in the <span class='foswikiMaroonFG'>Makefile</span> and various threads set by $DAMASK_NUM_THREADS.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2">  msuws2  </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CPU </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2x6 cores Intel Xeon </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Clock speed </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.93 GHz </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> RAM </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 24 GB </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> OS </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> openSuSE 10.3 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Compiler </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> ifort 12.04 </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<div style="clear:both; width:100%; display: block; margin-left: auto; margin-right: auto; background:#f4fcf4;">
+<a name="fig:optimization mode 2220"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<table class="foswikiTable" id="tablePerformanceStatistics2" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:center"> <img src="/pub/Development/PerformanceStatistics/DEFENSIVE_rev2220.png" width="100%"><br /> (a) DEFENSIVE </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" style="text-align:center"> <img src="/pub/Development/PerformanceStatistics/AGGRESSIVE_rev2220.png" width="100%"><br /> (b) AGGRESSIVE </td>
+		</tr>
+	</tbody></table>
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 2</strong>: Spectral solver basic fix-point computation time for a cube with 16 and 32 Fourier points in each direction. Results are averaged over 10 runs for each result</td><td></tr>
+</table>
+</div>
+<p></p>
+
+<h3 id="Revision_2218">  Revision 2218  </h3>
+The runtime of DAMASK interfaced to the basic spectral solver is given for the optimization levels DEFENSIVE and AGGRESSIVE as defined in the <span class='foswikiMaroonFG'>Makefile</span> and various threads set by $DAMASK_NUM_THREADS.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2">  maws01  </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CPU </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2x8(16) cores Intel Xeon </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Clock speed </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 3.10 GHz </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> RAM </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 256 GB </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> OS </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Ubuntu 12.04 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Compiler </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> ifort 12.1.2 </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<div style="clear:both; width:100%; display: block; margin-left: auto; margin-right: auto; background:#f4fcf4;">
+<a name="fig:optimization mode 2218"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<table class="foswikiTable" id="tablePerformanceStatistics4" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:center"> <img src="/pub/Development/PerformanceStatistics/DEFENSIVE_rev2218.png" width="100%"><br /> (a) DEFENSIVE </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" style="text-align:center"> <img src="/pub/Development/PerformanceStatistics/AGGRESSIVE_rev2218.png" width="100%"><br /> (b) AGGRESSIVE </td>
+		</tr>
+	</tbody></table>
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 3</strong>: Spectral solver basic fix-point computation time for a cube with 16 and 32 Fourier points in each direction. Results are averaged over 10 runs for each result</td><td></tr>
+</table>
+</div>
+<p></p>
+
+<h3 id="Revision_2012">  Revision 2012  </h3>
+The runtime of DAMASK interfaced to the basic spectral solver is given for the optimization levels OFF, DEFENSIVE, and AGGRESSIVE as defined in the <span class='foswikiMaroonFG'>Makefile</span> and various threads set by $DAMASK_NUM_THREADS.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2">  msuws12  </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CPU </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 4x12 cores AMD Opteron </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Clock speed </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 3.4 GHz </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> RAM </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 512 GB </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> OS </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> openSuSE 11.4 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Compiler </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> ifort 12.0.4 </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<div style="clear:both; width:100%; display: block; margin-left: auto; margin-right: auto; background:#f4fcf4;">
+<a name="fig:optimization mode 2012"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<table class="foswikiTable" id="tablePerformanceStatistics6" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> <img src="/pub/Development/PerformanceStatistics/OFF_rev2012_new.png" width="100%"><br /> (a) OFF </td>
+			<td class="foswikiTableCol1 foswikiLast" style="text-align:center"> <img src="/pub/Development/PerformanceStatistics/DEFENSIVE_rev2012_new.png" width="100%"><br /> (b) DEFENSIVE </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast" style="text-align:center"> <img src="/pub/Development/PerformanceStatistics/AGGRESSIVE_rev2012_new.png" width="100%"><br /> (c) AGGRESSIVE </td>
+		</tr>
+	</tbody></table>
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 4</strong>: Spectral solver basic fix-point computation time for a cube with 16, 32, 64 Fourier points in each direction. Results are averaged over two runs for each result</td><td></tr>
+</table>
+</div>
+<br>
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Spectral_Solver_TAU_Analysis">  Spectral Solver TAU Analysis  </h2>
+<p></p>
+
+<h3 id="TAU_plain_installation">  TAU plain installation  </h3>
+<p class='p'>install to a directory referred as $TAUDIR</p>
+
+<p class='p'>MISSING: INSTALLATION OPTIONS</p>
+
+<p class='p'>set the following parameters</p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=0;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">variable</a> </th>
+			<th class="foswikiTableCol1" style="text-align:center"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=1;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">setting</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=2;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">meaning</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $TAU_OPTIONS </td>
+			<td class="foswikiTableCol1"> '-optShared -optPreProcess -optCompInst' </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Use shared library version; Preprocess the source code before parsing; Use compiler-based instrumentation </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $TAU_MAKEFILE </td>
+			<td class="foswikiTableCol1"> $TAUDIR/x86_64/lib/Makefile.tau </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Setting path of makefile of TAU </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $LD_LIBRARYPATH </td>
+			<td class="foswikiTableCol1"> $TAUDIR/x86_64/lib </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Setting TAU's library path </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> $TAU_PROFILE </td>
+			<td class="foswikiTableCol1 foswikiLast"> 1 </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Enables profiling </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+add to your Makefile <ul>
+<li> LIBRARIES +=-lz -ldl
+</li> <li> LIB_DIRS  +=-L$TAUDIR/lib/shared
+</li> <li> @rm -rf *.pp.f90 (at the "clean" target)
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'>Compile the code with</p>
+
+<pre>
+> make COMPILERNAME=$TAUDIR/x86_64/bin/tau_f90.sh F90=gfortran SUFFIX=-D__GFORTRAN__
+</pre>
+<p></p>
+
+Associated TAU's files created after running DAMASK with those certain parameters above:
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> tautrace.[node].[context].[thread].trc </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> the trace file for each processor or node </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> profile.[node].[context].[thread] </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> the profile file </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> events.[node].edf </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> event file for each processor </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+To view the trace with JUMPSHOT, do the following:
+<pre>tau_treemerge.pl; tau2slog2 tau.trc tau.edf -o app.slog2; jumpshot app.slog2
+</pre>
+<p></p>
+
+<h4 id="Revision_2319">  Revision 2319  </h4>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2">  mupc90x  </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CPU </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 4 cores Intel Core i5-2500 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Clock speed </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 3.30 GHz </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Cache size </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 6144 KB </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Memory size </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 6071492 kB </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> OS </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Ubuntu 12.04 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Compiler </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> gfortran 4.6.4 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> TAU_version </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> 2.22-p1 </td>
+		</tr>
+	</tbody></table>
+<p class='p'>DAMASK was compiled with _OPENMP_=OFF, remaining switches are left to their default value.</p>
+
+The runtime of DAMASK interfaced to the basic spectral solver using and the tension load case <span class='foswikiMaroonFG'>tensionX.load</span> for <span class='foswikiMaroonFG'>20grains16x16x16.geom</span> and <span class='foswikiMaroonFG'>20grains32x32x32.geom</span>
+<p></p>
+
+<h5 id="A_20grains16x16x16.geom">  20grains16x16x16.geom  </h5>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=0;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">function</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=1;table=10;up=2#sorted_table" rel="nofollow" title="Sort by this column">inclusive/s</a><a name="sorted_table"></a><span class="tableSortIcon tableSortDown"><img alt="Sorted descending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortdown.gif" title="Sorted descending" width="11" /></span> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=2;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">exclusive/s</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=3;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">exclusive/%</a> </th>
+			<th class="foswikiTableCol4 foswikiLastCol"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=4;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">number of calls</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> main </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1912.751 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 0.0% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 1 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> damask_spectral_driver </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1912.751 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 4.822 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 0.3% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 1 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> damask_spectral_solverbasic_MOD_basic_solution </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1904.531 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 0.717 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 0.0% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 100 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> damask_spectral_utilities_MOD_constitutiveresponse </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1901.821 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 1.413 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 0.1% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 1061 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> __cpfem_MOD_cpfem_general </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1900.401 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 0.264 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 0.0% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 2122 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> __homogenization_MOD_materialpoint_stressanditstangent </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1863.328 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 11.01 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 0.6% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 1061 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> __crystallite_MOD_crystallite_integratestatefpi </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1810.475 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 141.441 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 7.4% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 10620 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> __crystallite_MOD_crystallite_integratestress </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1250.026 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 544.244 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 28.5% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 47745668 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> __constitutive_phenopowerlaw_MOD_constitutive_phenopowerlaw_lpanditstangent </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 604.523 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 604.304 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 31.6% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 101638887 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> __constitutive_MOD_constitutive_collectdotstate </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 417.874 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 66.468 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 3.5% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 91245188 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> __constitutive_MOD_constitutive_tanditstangent </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 13.515 </td>
+			<td class="foswikiTableCol2" rowspan="1"> 7.523 </td>
+			<td class="foswikiTableCol3" rowspan="1"> 0.4% </td>
+			<td class="foswikiTableCol4 foswikiLastCol" rowspan="1"> 4505114 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> __constitutive_MOD_constitutive_lpanditstangent </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLast" rowspan="1"> 691.06 </td>
+			<td class="foswikiTableCol2 foswikiLast" rowspan="1"> 86.537 </td>
+			<td class="foswikiTableCol3 foswikiLast" rowspan="1"> 4.5% </td>
+			<td class="foswikiTableCol4 foswikiLastCol foswikiLast" rowspan="1"> 101638887 </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h5 id="A_20grains32x32x32.geom">  20grains32x32x32.geom  </h5>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=0;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">function</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=1;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">inclusive/s</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=2;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">exclusive/s</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=3;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">exclusive/%</a> </th>
+			<th class="foswikiTableCol4 foswikiLastCol"> <a href="/bin/view/Development/PerformanceStatistics?sortcol=4;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">number of calls</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> main </td>
+			<td class="foswikiTableCol1"> 14355.854 </td>
+			<td class="foswikiTableCol2"> 0 </td>
+			<td class="foswikiTableCol3"> 0.0% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 1 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> damask_spectral_driver </td>
+			<td class="foswikiTableCol1"> 14355.854 </td>
+			<td class="foswikiTableCol2"> 1.544 </td>
+			<td class="foswikiTableCol3"> 0.0% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 1 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> damask_spectral_solverbasic_MOD_basic_solution </td>
+			<td class="foswikiTableCol1"> 14338.573 </td>
+			<td class="foswikiTableCol2"> 5.844 </td>
+			<td class="foswikiTableCol3"> 0.0% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 100 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> damask_spectral_utilities_MOD_constitutiveresponse </td>
+			<td class="foswikiTableCol1"> 14316.428 </td>
+			<td class="foswikiTableCol2"> 15.064 </td>
+			<td class="foswikiTableCol3"> 0.1% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 1178 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> __cpfem_MOD_cpfem_general </td>
+			<td class="foswikiTableCol1"> 14301.357 </td>
+			<td class="foswikiTableCol2"> 1.599 </td>
+			<td class="foswikiTableCol3"> 0.0% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 2356 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> __homogenization_MOD_materialpoint_stressanditstangent </td>
+			<td class="foswikiTableCol1"> 14052.225 </td>
+			<td class="foswikiTableCol2"> 94.9 </td>
+			<td class="foswikiTableCol3"> 0.7% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 1178 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> __crystallite_MOD_crystallite_integratestress </td>
+			<td class="foswikiTableCol1"> 1.535 </td>
+			<td class="foswikiTableCol2"> 0.625 </td>
+			<td class="foswikiTableCol3"> 0.0% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 153472 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> __crystallite_MOD_crystallite_integratestatefpi </td>
+			<td class="foswikiTableCol1"> 13606.082 </td>
+			<td class="foswikiTableCol2"> 13603.998 </td>
+			<td class="foswikiTableCol3"> 94.8% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 11790 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> __crystallite_MOD_crystallite_stressanditstangent </td>
+			<td class="foswikiTableCol1"> 13904.33 </td>
+			<td class="foswikiTableCol2"> 298.236 </td>
+			<td class="foswikiTableCol3"> 2.1% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 1179 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> __homogenization_MOD_materialpoint_postresult </td>
+			<td class="foswikiTableCol1"> 247.529 </td>
+			<td class="foswikiTableCol2"> 246.843 </td>
+			<td class="foswikiTableCol3"> 1.7% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 1178 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> __crystallite_MOD_crystallite_orientations </td>
+			<td class="foswikiTableCol1"> 59.285 </td>
+			<td class="foswikiTableCol2"> 59.089 </td>
+			<td class="foswikiTableCol3"> 0.4% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 1179 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> __damask_spectral_utilities_MOD_constitutiveresponse </td>
+			<td class="foswikiTableCol1"> 14316.428 </td>
+			<td class="foswikiTableCol2"> 15.064 </td>
+			<td class="foswikiTableCol3"> 0.1% </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> 1178 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> __constitutive_MOD_constitutive_lpanditstangent </td>
+			<td class="foswikiTableCol1 foswikiLast"> 0.587 </td>
+			<td class="foswikiTableCol2 foswikiLast"> 0.029 </td>
+			<td class="foswikiTableCol3 foswikiLast"> 0.0% </td>
+			<td class="foswikiTableCol4 foswikiLastCol foswikiLast"> 100001 </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<!--<a name="fig:8"></a><table width="100%" border="0">
+<tr><td><td align="center"></td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 5</strong>:  </td><td></tr>
+</table> This dummy figure needs to be placed -- otherwise <a class="foswikiNewLink" href="/bin/edit/Development/LaTeXModePlugin?topicparent=Development.PerformanceStatistics" rel="nofollow" title="Create this topic">LaTeXModePlugin</a> refuses to render the first one correctly! Put it always after the last figure on the page to keep numbering intact... -->
+<p></p>
+ <ul>
+<li> VTune Amplifier Screenshot: <br /> <img class='imagePlain imagePlain_none ' src='/pub/Development/PerformanceStatistics/igp_87c86f166206d0f12cbe36b835a29365_Screenshot%20from%202018-06-06%2023-14-46.png' alt='Screenshot from 2018-06-06 23-14-46.png' title='Screenshot from 2018-06-06 23-14-46.png' width='1919' height='1200'    /></li></ul>  </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Development/PerformanceStatistics?t=1627663656' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Development/PerformanceStatistics' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Development/PerformanceStatistics?cover=print;sortcol=1;table=10;up=1' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Development/PerformanceStatistics?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r35&nbsp;<a href="/bin/diff/Development/PerformanceStatistics?rev1=34;rev2=35" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Development/PerformanceStatistics?rev=34" rel="nofollow">r34</a>&nbsp;<a href="/bin/diff/Development/PerformanceStatistics?rev1=33;rev2=34" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Development/PerformanceStatistics?rev=33" rel="nofollow">r33</a>&nbsp;<a href="/bin/diff/Development/PerformanceStatistics?rev1=32;rev2=33" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Development/PerformanceStatistics?rev=32" rel="nofollow">r32</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Development/PerformanceStatistics?template=backlinksweb' rel='nofollow' title='Search the Development Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Development/PerformanceStatistics?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Development/PerformanceStatistics?t=1627663656;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Development/PerformanceStatistics?template=more&amp;maxrev=35&amp;currrev=35' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r35 - 21 Jun 2018, <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Development/PerformanceStatistics?foswiki_origin=GET%2cview%2c/bin/view/Development/PerformanceStatistics%3fsortcol%3d1%3btable%3d10%3bup%3d1">Log In</a></li></ul>
+</div>
+<p></p>
+
+<hr /> <ul>
+<li> <strong>News</strong>
+</li>  </ul><dl>
+<dt> 14 Sep 2020 </dt><dd> <del> <strong>CMCn2020</strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung</del> (cancelled)
+</dd> <dt> 22 Aug 2020 </dt><dd> Release of first preview version of <strong><a href="https://damask.mpie.de/bin/view/Download/Preview">DAMASK 3</a></strong>
+</dd> <dt> 19 Feb 2020 </dt><dd> DAMASK made it to the <span class='externalLink'><a href="https://onlinelibrary.wiley.com/doi/toc/10.1002/(ISSN)1527-2648.HallofFame">Advanved Engineering Materials Hall of Fame</a></span>
+</dd> <dt> 26 Mar 2019 </dt><dd> <strong><span class='externalLink'><a href="http://dream3d.bluequartz.net/">DREAM.3D</a></span> 6.5.119</strong> <br />(released 2019/03/22) comes with a DAMASK export filter
+</dd> <dt> 25 Mar 2019 </dt><dd> Release of version <strong><a href="/bin/view/Download/Current">v2.0.3</a></strong>
+</dd> <dt> 21 Jan 2019 </dt><dd> <strong>DAMASK overview paper</strong> finally <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">published</a></span> with full citation information available
+</dd> <dt> 01 Dec 2018 </dt><dd> <strong>DAMASK overview paper</strong> now <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">online</a></span>
+</dd> <dt> 17 Sep 2018 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2018">CMCn2018</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 22 May 2018 </dt><dd> Release of version <strong>v2.0.2</strong>
+</dd> <dt> 01 Sep 2016 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2016">CMCn2016</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 25 Jul 2016 </dt><dd> Release of version <strong>v2.0.1</strong>
+</dd> <dt> 08 Mar 2016 </dt><dd> Release of version <strong>v2.0.0</strong>
+</dd> <dt> 22 Feb 2016 </dt><dd> <strong>New webserver</strong> up and running
+</dd> <dt> 09 Feb 2016 </dt><dd> <strong>Migrated <span class='externalLink'><a href="https://magit1.mpie.de">code repository</a></span></strong> from Subversion to <strong><span class='externalLink'><a href="https://about.gitlab.com/">GitLab</a></span></strong>
+</dd> <dt> 17 Dec 2014 </dt><dd> Release of <strong>revision 3813</strong>
+</dd> <dt> 14 May 2014 </dt><dd> Release of <strong>revision 3108</strong>
+</dd> <dt> 02 Apr 2014 </dt><dd> Release of <strong>revision 3062</strong>
+</dd> <dt> 16 Oct 2013 </dt><dd> Release of <strong>revision 2689</strong>
+</dd> <dt> 15 Jul 2013 </dt><dd> Release of <strong>revision 2555</strong>
+</dd> <dt> 15 Feb 2013 </dt><dd> Release of <strong>revision 2174</strong>
+</dd> <dt> 13 Feb 2013 </dt><dd> <a href='http://www.doxygen.org/' title='Doxygen.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='104' data-orig-height='31'><img src='/pub/Main/News/igp_57415553ffe254df6d853b56c3b46f7d_Doxygen.png' alt='Doxygen' width='52' height='16'   /></a>  documentation
+</dd> <dt> 16 Dec 2012 </dt><dd> <a href='http://www.mathjax.org/' title='mj logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='167' data-orig-height='57'><img src='/pub/Main/News/igp_f1d42d3712de2aa46a85b866685e127a_mj_logo.png' alt='Powered by MathJax' width='55' height='19'   /></a> rendering
+</dd> <dt> 23 Nov 2012 </dt><dd> Release of <strong>revision 1955</strong>
+</dd> <dt> 15 Nov 2012 </dt><dd> Release of <strong>revision 1924</strong>
+</dd> <dt> 01 Nov 2012 </dt><dd> Updated <strong>sidebar</strong>
+</dd> <dt> 30 Oct 2012 </dt><dd> Significant <strong>website updates</strong> and <strong>content extensions</strong>
+</dd></dl> 
+<p></p>
+
+<!-- Keep this to have global readability:
+<p></p>
+ <ul>
+<li> Set DENYTOPICVIEW = 
+</li></ul> 
+-->
+<hr />
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Development.PerformanceStatistics'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

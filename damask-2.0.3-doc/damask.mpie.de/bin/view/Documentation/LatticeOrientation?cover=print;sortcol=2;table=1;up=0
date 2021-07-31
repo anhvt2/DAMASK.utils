@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> LatticeOrientation &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/LatticeOrientation?t=1627662726" type="application/x-wiki" title="edit LatticeOrientation" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/LatticeOrientation" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableLatticeOrientation1 td {vertical-align:middle; vertical-align:top}
+body .foswikiTable#tableLatticeOrientation1 td.foswikiTableCol0 {text-align:left}
+body .foswikiTable#tableLatticeOrientation1 td.foswikiTableCol1 {text-align:left}
+body .foswikiTable#tableLatticeOrientation1 td.foswikiTableCol2 {text-align:left}
+body .foswikiTable#tableLatticeOrientation1 td.foswikiTableCol3 {text-align:right}
+body .foswikiTable#tableLatticeOrientation1 td.foswikiTableCol4 {text-align:left}
+body .foswikiTable#tableLatticeOrientation1 td.foswikiTableCol5 {text-align:left}
+body .foswikiTable#tableLatticeOrientation1 td.foswikiTableCol6 {text-align:left}
+body .foswikiTable#tableLatticeOrientation1 td.foswikiTableCol7 {text-align:left}
+body .foswikiTable#tableLatticeOrientation1 th {vertical-align:middle; background-color:#ffffff; color:#0066cc; text-align:left}
+body .foswikiTable#tableLatticeOrientation1 th a:link {color:#0066cc}
+body .foswikiTable#tableLatticeOrientation1 th a:visited {color:#0066cc}
+body .foswikiTable#tableLatticeOrientation1 th a:hover {color:#0066cc; background-color:#ffffff}
+body .foswikiTable#tableLatticeOrientation1 th.foswikiSortedCol {background-color:#eeeeee}
+body .foswikiTable#tableLatticeOrientation1 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableLatticeOrientation1 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f5f5f5}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/df13fdf0809d2687f7aa74d354abafcd.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+<script class='head MATHJAX_PLUGIN' type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    processEscapes: true
+    },
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    Macros: {
+      bm: ["{\\mathbf{#1}}",1],
+      vctr: ["{\\mathbf{#1}}",1],
+      tnsr: ["{\\mathbf{#1}}",1],
+      tnsrfour: ["{\\mathbb{#1}}",1]
+    },
+  equationNumbers: { autoNumber: "AMS" }
+    }
+});
+</script>
+  <script class='head MATHJAX_PLUGIN' id="MathJax-script" async src="https://damask.mpie.de/pub/System/MathJaxPlugin/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WEB" : "Documentation",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WIKINAME" : "WikiGuest",
+   "TOPIC" : "LatticeOrientation",
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTSUFFIX" : "",
+   "SERVERTIME" : "30 Jul 2021 - 18:32",
+   "URLHOST" : "https://damask.mpie.de",
+   "COOKIEREALM" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "USERNAME" : "guest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SYSTEMWEB" : "System",
+   "USERSWEB" : "Main",
+   "PUBURLPATH" : "/pub",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="A_1.1.4._Lattice_orientation"> <A name="Section_1.1.4."></A>1.1.4.  Lattice orientation </h1>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?cover=print;sortcol=2;table=1;up=0#Orientation_convention"> Orientation convention </a>
+</li></ul> 
+</div>
+<script type="math/tex"></script><p class='p'></p>
+
+<div style="clear:both">
+<hr />
+</div>
+<h2 id="Orientation_convention">  Orientation convention  </h2>
+<p class='p'></p>
+
+<div style="width:50%; float:right; background:#f4fcf4; margin: 8pt 0pt 8pt 16pt;">
+<p></p>
+
+<a name="fig:EulerZXZ"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<center>
+<a href="http://en.wikipedia.org/wiki/File:Euler2a.gif">
+<img src="http://upload.wikimedia.org/wikipedia/commons/8/85/Euler2a.gif" width="67%">
+</a>
+</center>
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 1</strong>: $z$, $x^\prime$, $z^{\prime\prime}$ (Bunge) rotation</td><td></tr>
+</table>
+<p></p>
+
+</div>
+<p class='p'></p>
+
+<p class='p'>Lattice orientation is given in Bunge (1982) Euler angles $\varphi_1$, $\phi$, and $\varphi_2$.
+They follow the rotation convention $z$, $x^\prime$, $z^{\prime\prime}$.</p>
+
+<div style="clear:both; width:100%; display: block; margin-left: auto; margin-right: auto; background:#f4fcf4;">
+<p></p>
+
+<a name="fig:unitcell"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<center>
+<img src="https://damask.mpie.de/pub/Documentation/LatticeOrientation/unitcell_cubic_0_0_0.png" width="20%">
+<img src="https://damask.mpie.de/pub/Documentation/LatticeOrientation/unitcell_cubic_15_0_0.png" width="20%">
+<img src="https://damask.mpie.de/pub/Documentation/LatticeOrientation/unitcell_cubic_15_30_0.png" width="20%">
+<img src="https://damask.mpie.de/pub/Documentation/LatticeOrientation/unitcell_cubic_15_30_15.png" width="20%">
+</center>
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 2</strong>: 
+Cubic unit cell in laboratory coordinate system $x$, $y$, $z$ <ul>
+<li> rotated by $\varphi_1$ around $x$ (blue system in Fig. <a href="#fig:EulerZXZ">1</a>),
+</li> <li> additionally rotated by $\phi$ around $x^\prime$ (green system in Fig. <a href="#fig:EulerZXZ">1</a>),
+</li> <li> and finally rotated by $\varphi_2$ around $z^{\prime\prime}$ (yellow system in Fig. <a href="#fig:EulerZXZ">1</a>).
+</li></ul> 
+</td><td></tr>
+</table>
+<p></p>
+
+</div>
+<p class='p'></p>
+
+<!--<a name="fig:8"></a><table width="100%" border="0">
+<tr><td><td align="center"></td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 3</strong>:  </td><td></tr>
+</table> This dummy figure needs to be placed -- otherwise <a class="foswikiNewLink" href="/bin/edit/Documentation/LaTeXModePlugin?topicparent=Documentation.LatticeOrientation" rel="nofollow" title="Create this topic">LaTeXModePlugin</a> refuses to render the first one correctly! --></div>
+<p class='p'></p>
+
+<div class="foswikiAttachments foswikiFormStep" style="overflow:auto">
+<div class="twistyPlugin foswikiMakeVisible"><span id="topicattachmentslist1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleopen.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>4</span></span></a></span><span id="topicattachmentslist1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleclose.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>4</span></span></a></span></div><div class="twistyPlugin"><div id="topicattachmentslist1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableLatticeOrientation1" rules="none" summary="Topic attachments"><caption>Topic attachments</caption>
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> I </th>
+			<th class="foswikiTableCol1"> Attachment </th>
+			<th class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol"> Action </th>
+			<th class="foswikiTableCol3"> Size </th>
+			<th class="foswikiTableCol4"> Date </th>
+			<th class="foswikiTableCol5"> Who </th>
+			<th class="foswikiTableCol6 foswikiLastCol"> Comment </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='unitcell_cubic_0_0_0.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/Documentation/LatticeOrientation/unitcell_cubic_0_0_0.png">unitcell_cubic_0_0_0.png</a> </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/attach/Documentation/LatticeOrientation?filename=unitcell_cubic_0_0_0.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 12 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">26 Apr 2013 - 07:08</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> cubic unitcell unrotated </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='unitcell_cubic_15_0_0.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/Documentation/LatticeOrientation/unitcell_cubic_15_0_0.png">unitcell_cubic_15_0_0.png</a> </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/attach/Documentation/LatticeOrientation?filename=unitcell_cubic_15_0_0.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 12 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">26 Apr 2013 - 07:12</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> cubic unitcell rotated 15 deg around z </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='unitcell_cubic_15_30_0.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/Documentation/LatticeOrientation/unitcell_cubic_15_30_0.png">unitcell_cubic_15_30_0.png</a> </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/attach/Documentation/LatticeOrientation?filename=unitcell_cubic_15_30_0.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 13 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">26 Apr 2013 - 07:14</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> cubic unitcell rotated 15, 30 deg around z, x' </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='unitcell_cubic_15_30_15.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/pub/Documentation/LatticeOrientation/unitcell_cubic_15_30_15.png">unitcell_cubic_15_30_15.png</a> </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLast"> <a href="/bin/attach/Documentation/LatticeOrientation?filename=unitcell_cubic_15_30_15.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiLast" style="text-align:right"> 13 K </td>
+			<td class="foswikiTableCol4 foswikiLast"> <span class="foswikiNoBreak">26 Apr 2013 - 07:15</span> </td>
+			<td class="foswikiTableCol5 foswikiLast"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol foswikiLast"> cubic unitcell rotated 15, 30, 15 deg around z, x', z'' </td>
+		</tr>
+	</tbody></table>
+</div></div></div></div>
+<div class="patternInfo">This topic: Documentation<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/Documentation/Background">Background</a> &gt; <a href="/bin/view/Documentation/CrystalLattice">CrystalLattice</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>LatticeOrientation <br />
+Topic revision:  <span class='patternRevInfo'>26 Apr 2013, <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.LatticeOrientation'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

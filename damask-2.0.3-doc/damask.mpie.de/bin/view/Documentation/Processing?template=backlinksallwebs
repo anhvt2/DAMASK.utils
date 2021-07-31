@@ -1,0 +1,547 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title>(backlinks in all Webs) Processing &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/Processing?t=1627662793" type="application/x-wiki" title="edit Processing" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/Processing" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/4e71980dc859206baa0a7bb7f10c3ae1.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTSUFFIX" : "",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SCRIPTURLPATH" : "/bin",
+   "SERVERTIME" : "30 Jul 2021 - 18:33",
+   "COOKIEREALM" : "",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WEB" : "Documentation",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "TOPIC" : "Processing",
+   "USERNAME" : "guest",
+   "SKIN" : "damask,famfamfam,pattern",
+   "PUBURLPATH" : "/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "USERSWEB" : "Main",
+   "URLHOST" : "https://damask.mpie.de"
+}
+</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternNoViewPage patternOopsPage">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents"><div class="patternSimpleLogo"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki"/></div><div class="foswikiTopic"><h1 class="patternTemplateTitle"></h1> <p> <strong>Backlinks to <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/Processing">Processing</a> in all Webs</strong> <span class="foswikiSmall">(<a href="/bin/view/Documentation/Processing?template=backlinksweb" title='Search all webs for topics that link to here' accesskey="b">Search Documentation Web only</a>)</span></p>
+
+<h4 class="foswikiSearchResultsHeader"  style="border-color:#efefef"><b>Results from Documentation web</b> retrieved at 16:33 (GMT)</h4>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AbqAddUserOutput"><b>AbqAddUserOutput</b></a>
+<div class="foswikiSummary">Usage Hints Note: 1. In order for this to work you must prepare your input file such that it already includes the *DEPVAR keyword, i.e. you must define a...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/AbqAddUserOutput" rel='nofollow'>06 Jul 2016 - 05:08</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddAPS34IDEstrainCoords"><b>AddAPS34IDEstrainCoords</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/AddAPS34IDEstrainCoords" rel='nofollow'>07 Mar 2019 - 11:35</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddCalculation"><b>AddCalculation</b></a>
+<div class="foswikiSummary">Examples * distance between origin and node coordinates label 'nodeDistance' formula 'np.linalg.norm( #node# )'</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r8 - <a href="/bin/diff/Documentation/AddCalculation" rel='nofollow'>19 Feb 2019 - 09:57</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddCauchy"><b>AddCauchy</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r6 - <a href="/bin/diff/Documentation/AddCauchy" rel='nofollow'>07 Mar 2019 - 11:23</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddCompatibilityMismatch"><b>AddCompatibilityMismatch</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r4 - <a href="/bin/diff/Documentation/AddCompatibilityMismatch" rel='nofollow'>19 Feb 2019 - 09:57</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddCumulative"><b>AddCumulative</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddCumulative" rel='nofollow'>07 Mar 2019 - 11:36</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddCurl"><b>AddCurl</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r4 - <a href="/bin/diff/Documentation/AddCurl" rel='nofollow'>07 Mar 2019 - 11:36</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddDerivative"><b>AddDerivative</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddDerivative" rel='nofollow'>07 Mar 2019 - 11:36</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddDeterminant"><b>AddDeterminant</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/AddDeterminant" rel='nofollow'>07 Mar 2019 - 11:36</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddDeviator"><b>AddDeviator</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r4 - <a href="/bin/diff/Documentation/AddDeviator" rel='nofollow'>07 Mar 2019 - 11:36</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddDisplacement"><b>AddDisplacement</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddDisplacement" rel='nofollow'>07 Mar 2019 - 11:36</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddDivergence"><b>AddDivergence</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/AddDivergence" rel='nofollow'>07 Mar 2019 - 11:37</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddEhkl"><b>AddEhkl</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/AddEhkl" rel='nofollow'>07 Mar 2019 - 11:37</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddEuclideanDistance"><b>AddEuclideanDistance</b></a>
+<div class="foswikiSummary">Example Based on the example file at $DAMASK_ROOT/examples/SpectralMethod/Polycrystal/20grains64x64x64.geom the following command creates all three features using...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/AddEuclideanDistance" rel='nofollow'>07 Mar 2019 - 11:32</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddGaussian"><b>AddGaussian</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddGaussian" rel='nofollow'>07 Mar 2019 - 11:38</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddGradient"><b>AddGradient</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddGradient" rel='nofollow'>07 Mar 2019 - 11:39</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddIPFcolor"><b>AddIPFcolor</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/AddIPFcolor" rel='nofollow'>07 Mar 2019 - 11:40</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddIndexed"><b>AddIndexed</b></a>
+<div class="foswikiSummary">Examples * add squared values Suppose we have a reference ASCIItable containing data to which we want to add the squared values of column y . 2 head # r...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r4 - <a href="/bin/diff/Documentation/AddIndexed" rel='nofollow'>19 Feb 2019 - 08:14</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddInfo"><b>AddInfo</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddInfo" rel='nofollow'>07 Mar 2019 - 11:57</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddLinked"><b>AddLinked</b></a>
+<div class="foswikiSummary">Examples * add squared values Suppose we have a reference ASCIItable containing data to which we want to add the squared values of column y . 2 head # r...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/AddLinked" rel='nofollow'>19 Feb 2019 - 08:15</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddMises"><b>AddMises</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/AddMises" rel='nofollow'>07 Mar 2019 - 11:41</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddNorm"><b>AddNorm</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/AddNorm" rel='nofollow'>07 Mar 2019 - 11:41</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddOrientations"><b>AddOrientations</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddOrientations" rel='nofollow'>07 Mar 2019 - 11:42</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddPK2"><b>AddPK2</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r7 - <a href="/bin/diff/Documentation/AddPK2" rel='nofollow'>07 Mar 2019 - 11:42</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddPole"><b>AddPole</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddPole" rel='nofollow'>07 Mar 2019 - 11:43</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddSchmidfactors"><b>AddSchmidfactors</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddSchmidfactors" rel='nofollow'>07 Mar 2019 - 11:44</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddSpectralDecomposition"><b>AddSpectralDecomposition</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/AddSpectralDecomposition" rel='nofollow'>07 Mar 2019 - 11:47</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddStrainTensors"><b>AddStrainTensors</b></a>
+<div class="foswikiSummary">Note the »material stretch tensor« $ \tnsr U $ following from the »right Cauchy–Green deformation tensor«: $ \tnsr C = \tnsr F^\text T\tnsr F = \tnsr U^\text ...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r11 - <a href="/bin/diff/Documentation/AddStrainTensors" rel='nofollow'>07 Mar 2019 - 11:47</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AddTable"><b>AddTable</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/AddTable" rel='nofollow'>07 Mar 2019 - 11:35</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/AverageDown"><b>AverageDown</b></a>
+<div class="foswikiSummary">Details %BEGINFIGURE{ label="fig:packingStencil" caption="Packing stencil concept exemplified in two dimensions." }% For a periodic and regular grid stored in an ...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r7 - <a href="/bin/diff/Documentation/AverageDown" rel='nofollow'>19 Feb 2019 - 09:53</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/BinXY"><b>BinXY</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/BinXY" rel='nofollow'>07 Mar 2019 - 11:35</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/BlowUp"><b>BlowUp</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/BlowUp" rel='nofollow'>07 Mar 2019 - 11:49</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/FilterTable"><b>FilterTable</b></a>
+<div class="foswikiSummary">Examples * get every second row of the ASCII table listing only $F_{11}$, $F_{12}$, and $F_{13}$ components of deformation gradient and all (nine) $P_{ij}$ compo...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r8 - <a href="/bin/diff/Documentation/FilterTable" rel='nofollow'>19 Feb 2019 - 08:09</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomAddPrimitive"><b>GeomAddPrimitive</b></a>
+<div class="foswikiSummary">Examples hexahedral box geom_addPrimitive center 16 16 16 dimension 8 12 16 fill 0 hexahedral_inclusion.geom %BEGINFIGURE{ label="fig:hexahedral" caption="...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r8 - <a href="/bin/diff/Documentation/GeomAddPrimitive" rel='nofollow'>15 Feb 2019 - 19:26</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomCanvas"><b>GeomCanvas</b></a>
+<div class="foswikiSummary">Example geom_canvas grid 16 12 16 offset 0 4 0 fill 0 micro_supported.geom This example demonstrates the combination of cropping and the addition of a suppo...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r16 - <a href="/bin/diff/Documentation/GeomCanvas" rel='nofollow'>06 Jul 2016 - 05:10</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomClean"><b>GeomClean</b></a>
+<div class="foswikiSummary">Example geom_clean stencil 5 ebsd_smoothed.geom</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/GeomClean" rel='nofollow'>06 Jul 2016 - 05:11</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomFromDREAM3D"><b>GeomFromDREAM3D</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/GeomFromDREAM3D" rel='nofollow'>07 Mar 2019 - 17:47</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomFromMinimalSurface"><b>GeomFromMinimalSurface</b></a>
+<div class="foswikiSummary">Examples primitive geom_fromMinimumSurface 2 g 64 64 64 type primitive primitive.geom %BEGINFIGURE{ label="fig:primitive geom" caption="Primitive bicontin...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r9 - <a href="/bin/diff/Documentation/GeomFromMinimalSurface" rel='nofollow'>06 Jul 2016 - 05:11</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomFromOsteonGeometry"><b>GeomFromOsteonGeometry</b></a>
+<div class="foswikiSummary">Examples geom_Osteon 2 size 1 1 canal 0.1 osteon 0.35 lamella 0.02 aspect 0.4 omega 70 osteon.geom %BEGINFIGURE{ label="fig:osteon" caption="Osteon ...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r10 - <a href="/bin/diff/Documentation/GeomFromOsteonGeometry" rel='nofollow'>06 Jul 2016 - 05:11</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomFromTable"><b>GeomFromTable</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/GeomFromTable" rel='nofollow'>06 Jul 2016 - 05:13</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomFromVoronoiTessellation"><b>GeomFromVoronoiTessellation</b></a>
+<div class="foswikiSummary">Examples Defaults from seeds file geom_fromVoronoiTessellation 20grains_161616_111.geom %BEGINFIGURE{ label="fig:cubic geom" caption="Cubic geometry of ...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r24 - <a href="/bin/diff/Documentation/GeomFromVoronoiTessellation" rel='nofollow'>06 Jul 2016 - 05:13</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomGrainGrowth"><b>GeomGrainGrowth</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/GeomGrainGrowth" rel='nofollow'>06 Jul 2016 - 05:14</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomMirror"><b>GeomMirror</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/GeomMirror" rel='nofollow'>07 Mar 2019 - 17:53</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomPack"><b>GeomPack</b></a>
+<div class="foswikiSummary">Example geom_pack unpack.geom pack.geom Compresses the description in unpack.geom into pack.geom.</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r9 - <a href="/bin/diff/Documentation/GeomPack" rel='nofollow'>06 Jul 2016 - 05:15</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomRenumber"><b>GeomRenumber</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/GeomRenumber" rel='nofollow'>07 Mar 2019 - 17:58</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomRescale"><b>GeomRescale</b></a>
+<div class="foswikiSummary">Examples %BEGINFIGURE{ label="fig:original" caption="Initial geometry of 10 grains discretized on a 48 x 48 x 48 grid with a size of 1.0 x 1.0 x 1.0. " }% ...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r11 - <a href="/bin/diff/Documentation/GeomRescale" rel='nofollow'>06 Jul 2016 - 05:15</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomRotate"><b>GeomRotate</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/GeomRotate" rel='nofollow'>06 Jul 2016 - 05:16</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomToTable"><b>GeomToTable</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/GeomToTable" rel='nofollow'>06 Jul 2016 - 05:17</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomTranslate"><b>GeomTranslate</b></a>
+<div class="foswikiSummary">Example geom_translate origin 0.5 0.5 0 substitute 1, 7 microstructure 8 micro_translated.geom This example demonstrates the combination of grid origin shif...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r12 - <a href="/bin/diff/Documentation/GeomTranslate" rel='nofollow'>06 Jul 2016 - 05:18</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomUnpack"><b>GeomUnpack</b></a>
+<div class="foswikiSummary">Example geom_unpack pack.geom unpack.geom Decompresses the description in pack.geom into unpack.geom.</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r10 - <a href="/bin/diff/Documentation/GeomUnpack" rel='nofollow'>06 Jul 2016 - 05:19</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GeomVicinityOffset"><b>GeomVicinityOffset</b></a>
+<div class="foswikiSummary">Example geom_vicinityOffset vicinity 1 plainGrains.geom withSkin.geom All voxels within a vicinity of one grid spacing get their microstructure index shifte...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r7 - <a href="/bin/diff/Documentation/GeomVicinityOffset" rel='nofollow'>06 Jul 2016 - 05:20</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/GroupTable"><b>GroupTable</b></a>
+<div class="foswikiSummary">Example 1 head id 1_vector 2_vector 3_vector 12 1.0 2.0 3.0 2 4.0 4.0 4.0 12 4.0 6.0 1.0 label id function np.sum 1 head id ...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/GroupTable" rel='nofollow'>19 Feb 2019 - 08:12</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/HybridIAlinODFsampling"><b>HybridIAlinODFsampling</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/HybridIAlinODFsampling" rel='nofollow'>06 Jul 2016 - 05:22</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/ImageData"><b>ImageData</b></a>
+<div class="foswikiSummary">Example Single data column Suppose we have an ASCIItable that contains a column of two dimensional data as in type below. The additional columns x and ...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/ImageData" rel='nofollow'>07 Mar 2019 - 11:06</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/ImageDataDeformed"><b>ImageDataDeformed</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/ImageDataDeformed" rel='nofollow'>07 Mar 2019 - 11:34</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/ImageDataRGB"><b>ImageDataRGB</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/ImageDataRGB" rel='nofollow'>07 Mar 2019 - 11:09</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/MarcAddUserOutput"><b>MarcAddUserOutput</b></a>
+<div class="foswikiSummary">Examples Plain numbered user outputs In case you * already know the exact number of user outputs that will be produced from all active (output) entries in the...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r8 - <a href="/bin/diff/Documentation/MarcAddUserOutput" rel='nofollow'>06 Jul 2016 - 05:23</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/MentatColorMap"><b>MentatColorMap</b></a>
+<div class="foswikiSummary">mentat_colorMap #TableOfContents Purpose Changes the color map in MSC.Mentat. Interpolates colors between "lower_hls" and "upper_hls". Usage mentat_colorMap...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r4 - <a href="/bin/diff/Documentation/MentatColorMap" rel='nofollow'>30 Jan 2013 - 07:20</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/MentatPBCOnBoxMesh"><b>MentatPBCOnBoxMesh</b></a>
+<div class="foswikiSummary">Example The two figures illustrate an exemplary geometry meshed by a regular grid of (hexahedral) elements before (Figure (a) ) and after the automatic applicati...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/MentatPBCOnBoxMesh" rel='nofollow'>06 Jul 2016 - 05:27</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/MentatSpectralBox"><b>MentatSpectralBox</b></a>
+<div class="foswikiSummary">Example mentat_spectralBox port 40007 micro.geom This example demonstrates the mesh generation and initial condition setup performed by the script. The geometry...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r6 - <a href="/bin/diff/Documentation/MentatSpectralBox" rel='nofollow'>06 Jul 2016 - 05:23</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/OIMlinear2linearODF"><b>OIMlinear2linearODF</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/OIMlinear2linearODF" rel='nofollow'>06 Jul 2016 - 05:30</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/PatchFromReconstructedBoundaries"><b>PatchFromReconstructedBoundaries</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r5 - <a href="/bin/diff/Documentation/PatchFromReconstructedBoundaries" rel='nofollow'>06 Jul 2016 - 05:30</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/PerceptualUniformColorMap"><b>PerceptualUniformColorMap</b></a>
+<div class="foswikiSummary">References $ 1 : K. Moreland Diverging Color Maps for Scientific Visualization Proc. 5th Int. Symp. Visual Computing (2009)</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r8 - <a href="/bin/diff/Documentation/PerceptualUniformColorMap" rel='nofollow'>07 Mar 2019 - 11:53</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/PermuteData"><b>PermuteData</b></a>
+<div class="foswikiSummary">Example Suppose we have an ASCIItable 1 head x type 1 1 2 1 3 1 4 2 5 3 6 2 Independent shuffling With permuteData label type we may get 1 head x type 1 3 2 ...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r3 - <a href="/bin/diff/Documentation/PermuteData" rel='nofollow'>19 Feb 2019 - 09:49</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/PhenoPowerLaw"><b>PhenoPowerLaw</b></a>
+<div class="foswikiSummary">PhenoPowerLaw Features In the phenopowerlaw model plastic shear strain due to slip systems and twins is considered. Microstructure parameterization Kinematic...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r9 - <a href="/bin/diff/Documentation/PhenoPowerLaw" rel='nofollow'>21 Aug 2015 - 13:05</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/PostProcessing"><b>PostProcessing</b></a>
+<div class="foswikiSummary">Post processing DAMASK simulation results are stored and manipulated in the ASCII table format. The postResults script can be used to extract simulation data int...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r19 - <a href="/bin/diff/Documentation/PostProcessing" rel='nofollow'>29 Jan 2013 - 21:54</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/PostResults"><b>PostResults</b></a>
+<div class="foswikiSummary">postResults #TableOfContents Purpose Extract data from a simulation result file into an ASCII table. Background Supported file formats * MSC.Marc (*.t16) ...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r10 - <a href="/bin/diff/Documentation/PostResults" rel='nofollow'>15 Apr 2014 - 17:20</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/PreProcessing"><b>PreProcessing</b></a>
+<div class="foswikiSummary">Pre processing These scripts are helpers in setting up a simulation. Files prefixed by geom_ are used for the spectral solver geometry file format where the p...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r11 - <a href="/bin/diff/Documentation/PreProcessing" rel='nofollow'>28 May 2013 - 16:17</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/ReLabel"><b>ReLabel</b></a>
+<div class="foswikiSummary">Examples * add suffix green to divergence of first PiolaKirchhoff stress (vector) with label 'div(p)' substitute 'div(p)_green' This results in '1_d...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/ReLabel" rel='nofollow'>19 Feb 2019 - 08:10</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/RotateData"><b>RotateData</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r3 - <a href="/bin/diff/Documentation/RotateData" rel='nofollow'>07 Mar 2019 - 11:17</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/ScaleData"><b>ScaleData</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/ScaleData" rel='nofollow'>19 Feb 2019 - 09:51</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/SeedsFromDistribution"><b>SeedsFromDistribution</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/SeedsFromDistribution" rel='nofollow'>06 Jul 2016 - 05:49</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/SeedsFromGeom"><b>SeedsFromGeom</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/SeedsFromGeom" rel='nofollow'>06 Jul 2016 - 05:40</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/SeedsFromPokes"><b>SeedsFromPokes</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/SeedsFromPokes" rel='nofollow'>06 Jul 2016 - 05:49</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/SeedsFromRandom"><b>SeedsFromRandom</b></a>
+<div class="foswikiSummary">Examples Voronoi Tessellation Calling the script with default parameters ( N 20 grid 16 16 16 rnd 0) seeds_fromRandom will print a seeds file with 20 randoml...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r18 - <a href="/bin/diff/Documentation/SeedsFromRandom" rel='nofollow'>06 Jul 2016 - 05:49</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/ShiftData"><b>ShiftData</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r3 - <a href="/bin/diff/Documentation/ShiftData" rel='nofollow'>07 Mar 2019 - 11:16</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/ShowTable"><b>ShowTable</b></a>
+<div class="foswikiSummary">showTable #TableOfContents Purpose Show structural components of an ASCII table. Operates on given file(s) or STDIN STDOUT. Usage showTable options file(s)...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r4 - <a href="/bin/diff/Documentation/ShowTable" rel='nofollow'>24 Aug 2016 - 16:21</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/SortTable"><b>SortTable</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/SortTable" rel='nofollow'>19 Feb 2019 - 08:11</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/VTKAddGridData"><b>VTKAddGridData</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/VTKAddGridData" rel='nofollow'>07 Mar 2019 - 11:33</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/VTKAddPointCloudData"><b>VTKAddPointCloudData</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r3 - <a href="/bin/diff/Documentation/VTKAddPointCloudData" rel='nofollow'>07 Mar 2019 - 11:33</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/VTKAddRectilinearGridData"><b>VTKAddRectilinearGridData</b></a>
+<div class="foswikiSummary">Examples For an exemplary ASCII table 1 header 1_pos 2_pos 3_pos microstructure 0.5 0.5 0.5 1.0 1.5 0.5 0.5 1.0 0.5 1.5 0.5 1.0 1.5 1.5 0.5 1.0 0.5 0.5 1.5 2.0 1....</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r4 - <a href="/bin/diff/Documentation/VTKAddRectilinearGridData" rel='nofollow'>15 Feb 2019 - 22:06</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/VTKPointCloud"><b>VTKPointCloud</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r3 - <a href="/bin/diff/Documentation/VTKPointCloud" rel='nofollow'>07 Mar 2019 - 11:33</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/VTKRectilinearGrid"><b>VTKRectilinearGrid</b></a>
+<div class="foswikiSummary">Examples For an exemplary ASCII table 1 header 1_pos 2_pos 3_pos microstructure 0.5 0.5 0.5 1.0 1.5 0.5 0.5 1.0 0.5 1.5 0.5 1.0 1.5 1.5 0.5 1.0 0.5 0.5 1.5 2.0 1....</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r3 - <a href="/bin/diff/Documentation/VTKRectilinearGrid" rel='nofollow'>18 Feb 2019 - 12:55</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/ViewTable"><b>ViewTable</b></a>
+<div class="foswikiSummary"></div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r2 - <a href="/bin/diff/Documentation/ViewTable" rel='nofollow'>07 Mar 2019 - 11:35</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/WebOrder"><b>WebOrder</b></a>
+<div class="foswikiSummary">* Background * CrystalLattice * FCC * BCC * Hex * LatticeOrientation * ElementType * SpectralSolver * Pro...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev">r77 - <a href="/bin/diff/Documentation/WebOrder" rel='nofollow'>12 Jul 2019 - 14:09</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </span></div>
+</div>
+<div class="foswikiSearchResult"><div class="foswikiTopRow">
+<a href="/bin/view/Documentation/WebStatistics"><b>WebStatistics</b></a>
+<div class="foswikiSummary">Statistics for Documentation Web Month: Topic views: Topic saves: File uploads: Most popular topic views: Top contributors for topic save and upl...</div></div>
+<div class="foswikiBottomRow"><span class="foswikiSRRev"><span class="foswikiNew">NEW</span> - <a href="/bin/diff/Documentation/WebStatistics" rel='nofollow'>08 Feb 2016 - 14:18</a></span> <span class="foswikiSRAuthor">by <a href="/bin/view/Main/AdminUser">AdminUser</a> </span></div>
+</div>
+<div class="foswikiSearchResultCount">Number of topics: <span>86</span></div><br/>
+No backlinks in public webs
+</div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.Processing'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> SingleCrystalTimeIntegration &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/SingleCrystalTimeIntegration?t=1627659655" type="application/x-wiki" title="edit SingleCrystalTimeIntegration" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/SingleCrystalTimeIntegration" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/eb2e5a5ec3c074a915b00cac34482a48.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<script class='head MATHJAX_PLUGIN' type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    processEscapes: true
+    },
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    Macros: {
+      bm: ["{\\mathbf{#1}}",1],
+      vctr: ["{\\mathbf{#1}}",1],
+      tnsr: ["{\\mathbf{#1}}",1],
+      tnsrfour: ["{\\mathbb{#1}}",1]
+    },
+  equationNumbers: { autoNumber: "AMS" }
+    }
+});
+</script>
+  <script class='head MATHJAX_PLUGIN' id="MathJax-script" async src="https://damask.mpie.de/pub/System/MathJaxPlugin/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableSingleCrystalTimeIntegration1 td {vertical-align:middle; vertical-align:top}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 td.foswikiTableCol0 {text-align:left}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 td.foswikiTableCol1 {text-align:left}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 td.foswikiTableCol2 {text-align:left}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 td.foswikiTableCol3 {text-align:right}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 td.foswikiTableCol4 {text-align:left}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 td.foswikiTableCol5 {text-align:left}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 td.foswikiTableCol6 {text-align:left}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 td.foswikiTableCol7 {text-align:left}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 th {vertical-align:middle; background-color:#ffffff; color:#0066cc; text-align:left}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 th a:link {color:#0066cc}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 th a:visited {color:#0066cc}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 th a:hover {color:#0066cc; background-color:#ffffff}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 th.foswikiSortedCol {background-color:#eeeeee}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableSingleCrystalTimeIntegration1 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f5f5f5}
+</style>
+
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "PUBURLPATH" : "/pub",
+   "SYSTEMWEB" : "System",
+   "TOPIC" : "SingleCrystalTimeIntegration",
+   "USERSWEB" : "Main",
+   "SERVERTIME" : "30 Jul 2021 - 17:40",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WEB" : "Documentation",
+   "USERNAME" : "guest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTSUFFIX" : "",
+   "URLHOST" : "https://damask.mpie.de",
+   "COOKIEREALM" : "",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WIKINAME" : "WikiGuest",
+   "SKIN" : "damask,famfamfam,pattern"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Documentation/SingleCrystalTimeIntegration"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Documentation/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Documentation" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="active">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/WebHome">Documentation</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/Background">Background</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Documentation/SingleCrystalTimeIntegration" title='Topic revision: 23 (31 Jan 2015 - 21:35:39)'>SingleCrystalTimeIntegration</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Documentation/SingleCrystalTimeIntegration?t=1627659655;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Documentation/SingleCrystalTimeIntegration' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Documentation/SingleCrystalTimeIntegration?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/SingleCrystalTimeIntegration?raw=on&amp;rev=23' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Documentation/WebCreateNewTopic?topicparent=SingleCrystalTimeIntegration' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/SingleCrystalTimeIntegration?cover=print;sortcol=5;table=1;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Documentation/SingleCrystalTimeIntegration?template=more&amp;maxrev=23&amp;currrev=23' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><TOC_Mark>
+<span id="TableOfContents"></span>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?sortcol=5;table=1;up=0#Governing_equations"> Governing equations </a>
+</li> <li> <a href="?sortcol=5;table=1;up=0#Inner_level_of_stress_integration"> Inner level of stress integration </a> <ul>
+<li> <a href="?sortcol=5;table=1;up=0#Linearized_Backward_Euler"> Linearized Backward Euler </a>
+</li> <li> <a href="?sortcol=5;table=1;up=0#Exponential_Forward_Euler"> Exponential Forward Euler </a>
+</li> <li> <a href="?sortcol=5;table=1;up=0#Consistent_solution"> Consistent solution </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=5;table=1;up=0#Outer_level_of_state_integration"> Outer level of state integration </a> <ul>
+<li> <a href="?sortcol=5;table=1;up=0#Fixed_45point_iteration_scheme"> Fixed-point iteration scheme </a>
+</li> <li> <a href="?sortcol=5;table=1;up=0#Explicit_Euler_integrator"> Explicit Euler integrator </a>
+</li> <li> <a href="?sortcol=5;table=1;up=0#Adaptive_Euler_integrator"> Adaptive Euler integrator </a>
+</li> <li> <a href="?sortcol=5;table=1;up=0#Fourth_45order_explicit_Runge_45Kutta_integrator"> Fourth-order explicit Runge-Kutta integrator </a>
+</li> <li> <a href="?sortcol=5;table=1;up=0#Fifth_45order_adaptive_Runge_45Kutta_integrator"> Fifth-order adaptive Runge-Kutta integrator </a>
+</li></ul> 
+</li></ul> 
+</div>
+<script type="math/tex">\def\dblContInOut{{\scriptscriptstyle\bullet\circ}}</script><p class='p'></p>
+
+<hr />
+<h2 id="Governing_equations">  Governing equations  </h2>
+<p></p>
+
+In order to arrive at a solution for stress equilibrium and strain compatibility the solver of the mechanical boundary value problem needs to know the stress response of the integration points to a given deformation.
+More precisely, the solver requests a stress that results from a change in the local deformation gradient from $\tnsr F(t_0)$ at the beginning $t_0$ of the increment to $\tnsr F(t)$ at the end $t$ of the increment, with $\Delta t = t - t_0$ being the time step.
+The type of stress measure that is required depends on the solver and might be a Cauchy stress $\tnsr \sigma$ or a first Piola&ndash;Kichhoff stress $\tnsr P$.
+Both measures can, however, be calculated from any other stress measure by simple <a href="/bin/view/Documentation/StressMeasures">transformation rules</a>.
+Here, the connection between stress and strain is based on the second Piola&ndash;Kirchhoff stress $\tnsr S$ as a function of the elastic deformation gradient $\tnsr F_\text e$ in terms of an <a href="/bin/view/Documentation/Elasticity">elastic constitutive law</a>.
+\begin{equation}
+\label{eq:constitutive S}
+\tnsr S = \tnsr S(\tnsr F_\text e)
+\end{equation}
+<p class='p'>Hence, in order to calculate the stress response of the integration point, one has to know the elastic deformation gradient at the end of the increment $\tnsr F_\text e(t)$.
+In contrast to the total deformation gradient, this is, however, not known a priori. 
+It depends on the partitioning of the deformation gradient into elastic and plastic part.
+\begin{equation}
+\label{eq:constitutive Fe}
+\tnsr F_\text e = \tnsr F {\tnsr F_\text p}^{-1}
+\end{equation}
+While the material initially deforms purely elastic, the proportion of the plastic deformation will increase once the yield point of the material is reached.</p>
+
+<p class='p'>The rate with which the plastic deformation gradient $\tnsr F_\text p$ evolves is determined by the plastic velocity gradient $\tnsr L_\text p$ by means of a nonlinear ordinary differential equation.
+\begin{equation}
+\label{eq:constitutive Fp}
+\dot{\tnsr F}_\text p = \tnsr L_\text p \tnsr F_\text p
+\end{equation}</p>
+
+The plastic velocity gradient describes the speed of the permanent deformation of a material and is part of the <a href="/bin/view/Documentation/Plasticity">plastic constitutive behavior</a>.
+It depends on the second Piola&ndash;Kirchhoff stress acting as a driving force, as well as on the microstructure of the material represented by some state variables $\vctr \omega$.
+\begin{equation}
+\label{eq:constitutive Lp}
+\tnsr L_\text p = \tnsr L_\text p(\tnsr S , \vctr\omega)
+\end{equation}
+<p></p>
+
+The microstructure at the material point evolves simultaneously with the kinematic quantities. 
+So, additionally, there is a second <a href="/bin/view/Documentation/Plasticity">constitutive equation</a> that describes the evolution rate of the state variables.
+\begin{equation}
+\label{eq:constitutive dotstate}
+\dot{\vctr\omega} = \dot{\vctr\omega}(\tnsr S , \vctr\omega)
+\end{equation}
+In some cases it might be necessary to express the change in the microstructure in terms of an instantaneous jump rather than by a rate of change. 
+For this case, a third <a href="/bin/view/Documentation/Plasticity">constitutive equation</a> that is not formulated as rate equation can equally be defined.
+\begin{equation}
+\label{eq:constitutive deltastate}
+\Delta{\vctr\omega} = \Delta{\vctr\omega}(\tnsr S , \vctr\omega)
+\end{equation}
+<p class='p'>Equations \eqref{eq:constitutive S} to \eqref{eq:constitutive deltastate} govern the evolution of stress, strain, and microstructure and have to be solved at the level of each material point.
+Due to the nonlinear coupling of the unknown variables, this is not easily possible. 
+In order to reduce the complexity of the problem, we decouple the evolution of the microstructure (i.e. state variables) from the evolution of the other variables. 
+This can be reasoned by the fact that the microstructure usually evolves slower than stress and strain (akin to a Born&ndash;Oppenheimer approximation).
+Then, the set of equations can be solved in two levels:</p>
+ <ul>
+<li> In an <a class="foswikiCurrentTopicLink" href="#Inner_level_of_stress_integration">inner level</a>, the stress $\tnsr S$ is obtained by solving equations \eqref{eq:constitutive S} to \eqref{eq:constitutive Lp} at constant state $\vctr\omega$.
+</li> <li> In an <a class="foswikiCurrentTopicLink" href="#Outer_level_of_state_integration">outer level</a>, the state $\vctr\omega$ is obtained by solving equations \eqref{eq:constitutive dotstate} and \eqref{eq:constitutive deltastate} for a given stress $\tnsr S$.
+</li></ul> 
+<p></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<p></p>
+
+<h2 id="Inner_level_of_stress_integration">  Inner level of stress integration  </h2>
+<p></p>
+
+<div style="width:50%; float:right; background:#f4fcf4; margin: 8pt 0pt 8pt 16pt;">
+<a name="fig:NewtonRaphson"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<img src="/pub/Documentation/SingleCrystalTimeIntegration/NewtonRaphson.png" width="100%">
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 1</strong>: Modified Newton&ndash;Raphson scheme employed for the time integration of the stress.</td><td></tr>
+</table>
+</div>
+<p></p>
+
+<h3 id="Linearized_Backward_Euler">  Linearized Backward Euler  </h3>
+<p class='p'>In order to solve the set of equations \eqref{eq:constitutive S} to \eqref{eq:constitutive Lp}, we approximate the time derivative in \eqref{eq:constitutive Fp} by a backward finite difference, and we obtain an implicit equation for the plastic deformation gradient at the end of the increment.
+\begin{equation*}
+\frac{\tnsr F_\text p(t) - \tnsr F_\text p(t_0)}{\Delta t} = \tnsr L_\text p(t) \tnsr F_\text p(t)
+\end{equation*}
+This equation can be solved for $\tnsr F_\text p(t)$ by simple linear algebra.
+\begin{equation*}
+\tnsr F_\text p(t) = {\left(\tnsr I - \Delta t\; \tnsr L_\text p(t)\right)}^{-1} \tnsr F_\text p(t_0)
+\end{equation*}
+Inserting this into equation \eqref{eq:constitutive Fe} one obtains an equation for the elastic deformation gradient at the end of the increment.
+\begin{equation*}
+\tnsr F_\text e(t) = \tnsr F(t) \; {\tnsr F_\text p}^{-1}(t_0)  \left(\tnsr I - \Delta t\; \tnsr L_\text p(t)\right)
+\end{equation*}
+By this linearization procedure, one obtains a system of three algebraic equations with three unknowns $\tnsr S(t)$, $\tnsr F_\text e (t)$, and $\tnsr L_\text p (t)$:
+\begin{align}
+\tnsr S (t) &amp;= \tnsr S(\tnsr F_\text e (t)) \nonumber
+\\ \tnsr F_\text e(t) &amp;= \tnsr A \left(\tnsr I - \Delta t\; \tnsr L_\text p(t)\right)
+\label{eq:backwardSystem}
+\\ \tnsr L_\text p (t) &amp;= \tnsr L_\text p(\tnsr S (t))\nonumber
+\end{align}
+where the known quantity $\tnsr F(t) \; {\tnsr F_\text p}^{-1}(t_0)$ is substituted by $\tnsr A$ for brevity and corresponds to a fully elastic predictor.</p>
+
+<p class='p'>For later use, the derivative of the elastic deformation gradient with respect to the plastic velocity gradient follows as
+\begin{align}
+\label{eq:backwardFeDerivative}
+\tnsr F_\text e,_{\scriptscriptstyle\tnsr L_\text p} &amp;= \left[\tnsr A \left(\tnsr I-\Delta t \; \tnsr L_\text p\right)\right],_{\scriptscriptstyle\tnsr L_\text p}
+ = -\Delta t \, \tnsr A \tnsrfour I
+ = -\Delta t \, \tnsr A \otimes\tnsr I
+\end{align}
+It is useful to rewrite this in index notation:
+\begin{align*}
+\frac{\partial {F_\text e}_{\,ij}}{\partial {L_\text p}_{\,kl}} \vctr g^i \otimes \vctr g_k \otimes \vctr g_l \otimes \vctr g^j &amp;= -\Delta t \, A_{i\cdot}^{\phantom i k} \delta^l_j \,\vctr g^i \otimes \vctr g_k \otimes \vctr g_l \otimes \vctr g^j
+\end{align*}</p>
+
+<h3 id="Exponential_Forward_Euler">  Exponential Forward Euler  </h3>
+<p class='p'>An alternative way to solve the set of equations \eqref{eq:constitutive S} to \eqref{eq:constitutive Lp} is by considering the correct solution
+\begin{equation*}
+\tnsr F_\text p(t) = \exp\left(\Delta t\,\tnsr L_\text p(t)\right) \tnsr F_\text p(t_0)
+\end{equation*}</p>
+
+<p class='p'>Inserting this into equation \eqref{eq:constitutive Fe} one obtains an equation for the elastic deformation gradient at the end of the increment.
+\begin{align*}
+\tnsr F_\text e(t) &amp;= \tnsr F(t) \; {\tnsr F_\text p}^{-1}(t_0)  \exp\left(- \Delta t\; \tnsr L_\text p(t)\right)
+\\ &amp;= \tnsr F(t) \; {\tnsr F_\text p}^{-1}(t_0) \left( \tnsr I -\Delta t \;\tnsr L_\text p(t) + \frac{\Delta t^2}{2!}{\tnsr L_\text p}^2 (t) + \mathcal O(\Delta t^3)\right)
+\end{align*}
+By truncating the series expansion after second order, one obtains a system of three algebraic equations with three unknowns $\tnsr S(t)$, $\tnsr F_\text e (t)$, and $\tnsr L_\text p (t)$:
+\begin{align}
+\tnsr S (t) &amp;= \tnsr S(\tnsr F_\text e (t)) \nonumber
+\\ \tnsr F_\text e(t) &amp;= \tnsr A \left( \tnsr I -\Delta t \;\tnsr L_\text p(t) + \frac{\Delta t^2}{2!}\tnsr L_\text p(t) \right)
+\label{eq:exponentialSystem}
+\\ \tnsr L_\text p (t) &amp;= \tnsr L_\text p(\tnsr S (t))\nonumber
+\end{align}
+where the known quantity $\tnsr F(t) \; {\tnsr F_\text p}^{-1}(t_0)$ is substituted by $\tnsr A$ for brevity and corresponds to a fully elastic predictor.</p>
+
+<p class='p'>For later use, the derivative of the elastic deformation gradient with respect to the plastic velocity gradient follows as
+\begin{align}
+\label{eq:exponentialFeDerivative}
+\tnsr F_\text e,_{\scriptscriptstyle\tnsr L_\text p} &amp;= \left[\tnsr A  \exp\left(- \Delta t\; \tnsr L_\text p \right)\right],_{\scriptscriptstyle\tnsr L_\text p}\nonumber
+\\ &amp;= \tnsr A \left[ -\Delta t \tnsr I \otimes \tnsr I + \frac{\Delta t^2}{2!}\left( \tnsr L_\text p \otimes \tnsr I + \tnsr I \otimes \tnsr L_\text p \right) \right]\nonumber
+\\ &amp;= -\Delta t \, \tnsr A \otimes\tnsr I +  \frac{\Delta t^2}{2}\left( \tnsr A \tnsr L_\text p \otimes \tnsr I + \tnsr A \otimes \tnsr L_\text p\right)\;.
+\end{align}
+It is useful to rewrite this in index notation:
+\begin{align*}
+\frac{\partial {F_\text e}_{\,ij}}{\partial {L_\text p}_{\,kl}} \vctr g^i \otimes \vctr g_k \otimes \vctr g_l \otimes \vctr g^j
+  &amp;= -\Delta t \, A_{i\cdot}^{\phantom i k} \delta^l_j
+\\ &amp;\phantom = +\frac{\Delta t^2}{2} \left( A_{i m} {L_\text p}^{m k} \delta^l_j  + A_{i\cdot}^{\phantom i k}  {L_\text p}^{l}_j \right) \vctr g^i \otimes \vctr g_k \otimes \vctr g_l \otimes \vctr g^j
+\end{align*}</p>
+
+<h3 id="Consistent_solution">  Consistent solution  </h3>
+<p class='p'>The systems \eqref{eq:backwardSystem} and \eqref{eq:exponentialSystem} can be solved by a Newton&ndash;Raphson scheme by either minimizing the residuum in $\tnsr S$, $\tnsr F_\text e$, or $\tnsr L_\text p$. 
+Choosing the norm of the residuum in $\tnsr S$ as an objective function has the advantage that the inverse that is needed for the Newton&ndash;Raphson procedure is only $6\times6$ compared to $9\times9$ for $\tnsr L_\text p$ or $\tnsr F_\text e$, since the stress tensor is symmetric, while $\tnsr L_\text p$ and $\tnsr F_\text e$ are not. 
+However, it is much harder to guess and correct for $\tnsr S$ than for $\tnsr L_\text p$, since the plastic velocity is usually very sensitive to a change in the stress.
+For this reason the Newton&ndash;Raphson scheme is chosen around $\tnsr L_\text p$ with the advantage of fast convergence at the expense of a higher cost per iteration step.</p>
+
+The residuum in $\tnsr L_\text p$ for the $i$th iteration is defined as
+\begin{align}
+\label{eq:residuum}
+\tnsr R^i = {\widetilde{\tnsr L_\text p}}^i - \tnsr L_\text p (\tnsr S(\tnsr F_\text e ({\widetilde{\tnsr L_\text p}}^i)))
+\end{align}
+and the objective function, which will be minimized, as the Frobenius norm of the residuum:
+\begin{align}
+\min_{\tnsr L_\text p} \|\tnsr R\|_2
+\qquad\text{with}\qquad 
+\|\tnsr R\|_2 = \sqrt{\tnsr R : \tnsr R}
+\end{align}
+The minimization procedure employs a modified Newton&ndash;Raphson scheme with variable step length $\alpha$ (see figure <a href="#fig:NewtonRaphson">1</a>).
+The correction of the $i$th guess for $\tnsr L_\text p$ is based on the derivative of the residuum and is obtained by solving the following linear equation for $\Delta\tnsr L_\text p^i$ (cf. <a href="/bin/view/Documentation/TensorNotation">tensor notation scheme</a>).
+\begin{align}
+\label{eq:Lp correction}
+\tnsr R^i + \tnsr R,_{\scriptscriptstyle\widetilde{\tnsr L_\text p}} \; \dblContInOut \; \Delta\tnsr L_\text p^i &amp;= 0
+\end{align}
+This equation can be solved by means of any method for linear equation systems.
+The resulting correction $\Delta\tnsr L_\text p$ is used to update the guess for $\tnsr L_\text p$.
+The updated guess is only accepted if the residuum is decreased in the next step.
+Otherwise, subsequent guesses are based on the same (old) jacobian, but with a step that is cutbacked by a factor $\beta$ (usually chosen equal to $0.5$) until the solution has improved.
+This procedure ensures faster convergence both from the viewpoint of iterations and computational effort, because the costly solution to equation \eqref{eq:Lp correction} is not needed in every iteration.
+The Newton&ndash;Raphson scheme is regarded converged when the norm of the residuum drops below a given tolerance $\epsilon_\text{tol}$.
+<p></p>
+
+The derivative of the residuum that is needed in equation \eqref{eq:Lp correction} follows from equation \eqref{eq:residuum} as
+\begin{align}
+\label{eq:residuum derivative}
+\tnsr R,_{\scriptscriptstyle\widetilde{\tnsr L_\text p}} &amp;= \tnsrfour I - \tnsr L_\text p,_{\scriptscriptstyle\tnsr S} \; \dblContInOut \; \tnsr S,_{\scriptscriptstyle\tnsr F_\text e} \; \dblContInOut \; \tnsr F_\text e,_{\scriptscriptstyle\widetilde{\tnsr L_\text p}}
+\end{align}
+From the three derivatives in the product at the end of this equation only the last one is independent of the material's constitutive behavior.
+The other two derivatives in the product of equation \eqref{eq:residuum derivative} dependent on the <a href="/bin/view/Documentation/Plasticity">plastic</a> (${\tnsr L_\text p},{\scriptscriptstyle\tnsr S}$) and <a href="/bin/view/Documentation/Elasticity">elastic</a> ($\tnsr S,{\scriptscriptstyle\tnsr F_\text e}$) constitutive law.
+<p class='p'></p>
+
+<p class='p'></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<p></p>
+
+<h2 id="Outer_level_of_state_integration">  Outer level of state integration  </h2>
+<p></p>
+
+<h3 id="Fixed_45point_iteration_scheme">  Fixed-point iteration scheme  </h3>
+<p></p>
+
+<h3 id="Explicit_Euler_integrator">  Explicit Euler integrator  </h3>
+<p></p>
+
+<h3 id="Adaptive_Euler_integrator">  Adaptive Euler integrator  </h3>
+<p></p>
+
+<h3 id="Fourth_45order_explicit_Runge_45Kutta_integrator">  Fourth-order explicit Runge-Kutta integrator  </h3>
+<p></p>
+
+<h3 id="Fifth_45order_adaptive_Runge_45Kutta_integrator">  Fifth-order adaptive Runge-Kutta integrator  </h3>
+<p></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiAttachments foswikiFormStep" style="overflow:auto">
+<div class="twistyPlugin foswikiMakeVisible"><span id="topicattachmentslist1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleopen.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>2</span></span></a></span><span id="topicattachmentslist1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleclose.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>2</span></span></a></span></div><div class="twistyPlugin"><div id="topicattachmentslist1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableSingleCrystalTimeIntegration1" rules="none" summary="Topic attachments"><caption>Topic attachments</caption>
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/Documentation/SingleCrystalTimeIntegration?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">I</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/Documentation/SingleCrystalTimeIntegration?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Attachment</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/Documentation/SingleCrystalTimeIntegration?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Action</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/Documentation/SingleCrystalTimeIntegration?sortcol=3;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Size</a> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/Documentation/SingleCrystalTimeIntegration?sortcol=4;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/view/Documentation/SingleCrystalTimeIntegration?sortcol=5;table=1;up=1#sorted_table" rel="nofollow" title="Sort by this column">Who</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol6 foswikiLastCol"> <a href="/bin/view/Documentation/SingleCrystalTimeIntegration?sortcol=6;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Comment</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='NewtonRaphson.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/SingleCrystalTimeIntegration/NewtonRaphson.pdf">NewtonRaphson.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/SingleCrystalTimeIntegration?filename=NewtonRaphson.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 95 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">17 Jan 2014 - 08:10</span> </td>
+			<td class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/bin/view/Main/ChristophKords">ChristophKords</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='NewtonRaphson.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> <a href="/pub/Documentation/SingleCrystalTimeIntegration/NewtonRaphson.png">NewtonRaphson.png</a> </td>
+			<td class="foswikiTableCol2 foswikiLast" rowspan="1"> <a href="/bin/attach/Documentation/SingleCrystalTimeIntegration?filename=NewtonRaphson.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiLast" rowspan="1" style="text-align:right"> 67 K </td>
+			<td class="foswikiTableCol4 foswikiLast" rowspan="1"> <span class="foswikiNoBreak">20 Oct 2014 - 21:30</span> </td>
+			<td class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" rowspan="1"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol foswikiLast" rowspan="1"> Newton--Raphson Scheme </td>
+		</tr>
+	</tbody></table>
+</div></div></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/SingleCrystalTimeIntegration?t=1627659655' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Documentation/SingleCrystalTimeIntegration' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/SingleCrystalTimeIntegration?cover=print;sortcol=5;table=1;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Documentation/SingleCrystalTimeIntegration?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r23&nbsp;<a href="/bin/diff/Documentation/SingleCrystalTimeIntegration?rev1=22;rev2=23" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/SingleCrystalTimeIntegration?rev=22" rel="nofollow">r22</a>&nbsp;<a href="/bin/diff/Documentation/SingleCrystalTimeIntegration?rev1=21;rev2=22" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/SingleCrystalTimeIntegration?rev=21" rel="nofollow">r21</a>&nbsp;<a href="/bin/diff/Documentation/SingleCrystalTimeIntegration?rev1=20;rev2=21" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/SingleCrystalTimeIntegration?rev=20" rel="nofollow">r20</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/SingleCrystalTimeIntegration?template=backlinksweb' rel='nofollow' title='Search the Documentation Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/SingleCrystalTimeIntegration?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/SingleCrystalTimeIntegration?t=1627659655;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/SingleCrystalTimeIntegration?template=more&amp;maxrev=23&amp;currrev=23' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r23 - 31 Jan 2015, <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Documentation/SingleCrystalTimeIntegration?foswiki_origin=GET%2cview%2c/bin/view/Documentation/SingleCrystalTimeIntegration%3fsortcol%3d5%3btable%3d1%3bup%3d0">Log In</a></li></ul>
+</div>
+<p></p>
+
+<hr /> <ul>
+<li> <strong>News</strong>
+</li>  </ul><dl>
+<dt> 14 Sep 2020 </dt><dd> <del> <strong>CMCn2020</strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung</del> (cancelled)
+</dd> <dt> 22 Aug 2020 </dt><dd> Release of first preview version of <strong><a href="https://damask.mpie.de/bin/view/Download/Preview">DAMASK 3</a></strong>
+</dd> <dt> 19 Feb 2020 </dt><dd> DAMASK made it to the <span class='externalLink'><a href="https://onlinelibrary.wiley.com/doi/toc/10.1002/(ISSN)1527-2648.HallofFame">Advanved Engineering Materials Hall of Fame</a></span>
+</dd> <dt> 26 Mar 2019 </dt><dd> <strong><span class='externalLink'><a href="http://dream3d.bluequartz.net/">DREAM.3D</a></span> 6.5.119</strong> <br />(released 2019/03/22) comes with a DAMASK export filter
+</dd> <dt> 25 Mar 2019 </dt><dd> Release of version <strong><a href="/bin/view/Download/Current">v2.0.3</a></strong>
+</dd> <dt> 21 Jan 2019 </dt><dd> <strong>DAMASK overview paper</strong> finally <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">published</a></span> with full citation information available
+</dd> <dt> 01 Dec 2018 </dt><dd> <strong>DAMASK overview paper</strong> now <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">online</a></span>
+</dd> <dt> 17 Sep 2018 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2018">CMCn2018</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 22 May 2018 </dt><dd> Release of version <strong>v2.0.2</strong>
+</dd> <dt> 01 Sep 2016 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2016">CMCn2016</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 25 Jul 2016 </dt><dd> Release of version <strong>v2.0.1</strong>
+</dd> <dt> 08 Mar 2016 </dt><dd> Release of version <strong>v2.0.0</strong>
+</dd> <dt> 22 Feb 2016 </dt><dd> <strong>New webserver</strong> up and running
+</dd> <dt> 09 Feb 2016 </dt><dd> <strong>Migrated <span class='externalLink'><a href="https://magit1.mpie.de">code repository</a></span></strong> from Subversion to <strong><span class='externalLink'><a href="https://about.gitlab.com/">GitLab</a></span></strong>
+</dd> <dt> 17 Dec 2014 </dt><dd> Release of <strong>revision 3813</strong>
+</dd> <dt> 14 May 2014 </dt><dd> Release of <strong>revision 3108</strong>
+</dd> <dt> 02 Apr 2014 </dt><dd> Release of <strong>revision 3062</strong>
+</dd> <dt> 16 Oct 2013 </dt><dd> Release of <strong>revision 2689</strong>
+</dd> <dt> 15 Jul 2013 </dt><dd> Release of <strong>revision 2555</strong>
+</dd> <dt> 15 Feb 2013 </dt><dd> Release of <strong>revision 2174</strong>
+</dd> <dt> 13 Feb 2013 </dt><dd> <a href='http://www.doxygen.org/' title='Doxygen.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='104' data-orig-height='31'><img src='/pub/Main/News/igp_57415553ffe254df6d853b56c3b46f7d_Doxygen.png' alt='Doxygen' width='52' height='16'   /></a>  documentation
+</dd> <dt> 16 Dec 2012 </dt><dd> <a href='http://www.mathjax.org/' title='mj logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='167' data-orig-height='57'><img src='/pub/Main/News/igp_f1d42d3712de2aa46a85b866685e127a_mj_logo.png' alt='Powered by MathJax' width='55' height='19'   /></a> rendering
+</dd> <dt> 23 Nov 2012 </dt><dd> Release of <strong>revision 1955</strong>
+</dd> <dt> 15 Nov 2012 </dt><dd> Release of <strong>revision 1924</strong>
+</dd> <dt> 01 Nov 2012 </dt><dd> Updated <strong>sidebar</strong>
+</dd> <dt> 30 Oct 2012 </dt><dd> Significant <strong>website updates</strong> and <strong>content extensions</strong>
+</dd></dl> 
+<p></p>
+
+<!-- Keep this to have global readability:
+<p></p>
+ <ul>
+<li> Set DENYTOPICVIEW = 
+</li></ul> 
+-->
+<hr />
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.SingleCrystalTimeIntegration'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

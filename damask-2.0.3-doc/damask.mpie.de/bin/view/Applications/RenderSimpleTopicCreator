@@ -1,0 +1,453 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> RenderSimpleTopicCreator &lt; Applications &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Applications/RenderSimpleTopicCreator?t=1627668195" type="application/x-wiki" title="edit RenderSimpleTopicCreator" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Applications/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Applications/RenderSimpleTopicCreator" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/40a6ecfd66e97e775b48e3123c3ccdd2.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::FONTAWESOME JQUERYPLUGIN::SELECT2 JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#EDBC18;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "PUBURLPATH" : "/pub",
+   "USERNAME" : "guest",
+   "TOPIC" : "RenderSimpleTopicCreator",
+   "SCRIPTURLPATH" : "/bin",
+   "USERSWEB" : "Main",
+   "SCRIPTSUFFIX" : "",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "COOKIEREALM" : "",
+   "URLHOST" : "https://damask.mpie.de",
+   "WEB" : "Applications",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SERVERTIME" : "30 Jul 2021 - 20:03",
+   "SYSTEMWEB" : "System",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SKIN" : "damask,famfamfam,pattern",
+   "WIKINAME" : "WikiGuest"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::WIKIWORD' src='/pub/System/JQueryPlugin/plugins/wikiword/wikiword.js?version=3.30'></script>
+<script class='script JQUERYPLUGIN::SELECT2' src='/pub/System/JQSelect2Contrib/jquery.select2.js?version=3.2'></script>
+<script class='script JQUERYPLUGIN::SELECT2' src='/pub/System/JQSelect2Contrib/jquery.select2.init.js?version=3.2'></script>
+<script class='script FOSWIKI::ICONFIELD' type='text/javascript' src='/pub/System/MoreFormfieldsPlugin/iconfield.js'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Applications/RenderSimpleTopicCreator"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Applications/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Applications" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Applications/WebHome">Applications</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Applications/TopicType">TopicType</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Applications/TopicFunction">TopicFunction</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Applications/RenderSimpleTopicCreator" title='Topic revision: 1 (02 May 2019 - 09:27:59)'>RenderSimpleTopicCreator</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Applications/RenderSimpleTopicCreator?t=1627668195;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Applications/RenderSimpleTopicCreator' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Applications/RenderSimpleTopicCreator?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Applications/RenderSimpleTopicCreator?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Applications/WebCreateNewTopic?topicparent=RenderSimpleTopicCreator' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Applications/RenderSimpleTopicCreator?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Applications/RenderSimpleTopicCreator?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"><div class="foswikiTopicInfo">
+<h1 itemprop='headline'><span class='foswikiTopicPrefix'><i class='foswikiIcon jqIcon fa fa-gear'  ></i></span><a href=""><span itemprop='name'><object><param name=</span></a> &lt;span class='foswikiAlert'>
+            IF{ Applications="1" "'<object>&lt;param name=" data="1" default="1" }: Syntax error in ''<object>&lt;param name=' at ''<object>&lt;param name=' 
+</span></h1>
+%DBCALL{"Applications.RenderWikiTopicView" OBJECT="<object>&lt;param name=</div>
+<p class='p'></p>
+
+</div><div class="patternContent"><div class="foswikiTopic">
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="#Documentation"> Documentation </a>
+</li> <li> <a href="#Implementation"> Implementation </a>
+</li> <li> <a href="#Test"> Test </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Documentation">  Documentation </h2>
+<p class='p'>This function renders a topic creator form that holds a set of initial input elements to create a topic.</p>
+
+<h5 id="Parameters">  Parameters </h5> <ul>
+<li> TEXT: headline text; defaults to "Create a new INCLUDINGTOPIC"
+</li> <li> LABEL: label of the TopicTitle field, defaults to "Title"
+</li> <li> BUTTONTEXT: text on the twisty buttinm; default New
+</li> <li> VALUE: initial value of the title input field (optional)
+</li> <li> VALUES: map of initial values to formfields; format is <code>&lt;fieldName1&gt;=&lt;value1&gt;;&lt;fieldName2&gt;=&lt;value2&gt;;...</code>
+</li> <li> FORM: <a href="/bin/view/Applications/DataForm">DataForm</a> to be used when creating a topic, defaults to <code>INCLUDINGWEB.INCLUDINGTOPIC</code>
+</li> <li> TEMPLATE: <a href="/bin/view/Applications/TopicTemplate">TopicTemplate</a> to be used (optional)
+</li> <li> TYPE: initial <a href="/bin/view/Applications/TopicType">TopicType</a> value, defaults to values predefined in the form definition
+</li> <li> PARENT: parent topic for the new topic, defaults to the <code>BASETOPIC</code>
+</li> <li> WHITEBOARD: switch on/off the whiteboard textarea
+</li> <li> EXTRA: additional formfields
+</li> <li> SCRIPT: script to be used to create the topic, eg <code>save</code> or <code>edit</code>, defaults to <code>edit</code>
+</li> <li> EDITOR: <a href="/bin/view/Applications/TopicView">TopicView</a> to be used as an edit_template 
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h2 id="Implementation">  Implementation </h2>
+<p></p>
+
+<pre class="tml">
+&#37;STARTINCLUDE&#37;&#37;IF{&#34;&#39;&#37;BASEWEB&#37;.&#37;BASETOPIC&#37;&#39; allows &#39;CREATE&#39;&#34; 
+   then&#61;&#34;&#36;percntDBCALL{\&#34;Applications.RenderSimpleTopicCreator\&#34;
+            section&#61;\&#34;form\&#34;
+            TEXT&#61;\&#34;&#37;TEXT{default&#61;&#34;&#37;TRANSLATE{&#34;Create a new &#91;&#95;1&#93;&#34; args&#61;&#34;&#37;INCLUDINGTOPIC&#37;&#34;}&#37;&#34;}&#37;\&#34;
+            LABEL&#61;\&#34;&#37;LABEL{default&#61;&#34;&#37;TRANSLATE{&#34;Title&#34;}&#37;&#34;}&#37;\&#34;
+            BUTTONTEXT&#61;\&#34;&#37;BUTTONTEXT{default&#61;&#34;&#37;TRANSLATE{&#34;New&#34;}&#37;&#34;}&#37;\&#34;
+            VALUE&#61;\&#34;&#37;VALUE{default&#61;&#34;&#34;}&#37;\&#34;
+            VALUES&#61;\&#34;&#37;VALUES{default&#61;&#34;&#34;}&#37;\&#34;
+            FORM&#61;\&#34;&#37;FORM{default&#61;&#34;&#37;INCLUDINGWEB&#37;.&#37;INCLUDINGTOPIC&#37;&#34;}&#37;\&#34;
+            TEMPLATE&#61;\&#34;&#37;TEMPLATE&#37;\&#34;
+            TYPE&#61;\&#34;&#37;TYPE{
+                  default&#61;&#34;&#37;RENDERFORMDEF{
+                  form&#61;&#34;&#37;FORM{default&#61;&#34;&#37;INCLUDINGWEB&#37;.&#37;INCLUDINGTOPIC&#37;&#34;}&#37;&#34;
+                  fields&#61;&#34;TopicType&#34;
+                  format&#61;&#34;&#36;value&#34;
+               }&#37;&#34;
+            }&#37;\&#34;
+            PARENT&#61;\&#34;&#37;PARENT{default&#61;&#34;&#37;BASETOPIC&#37;&#34;}&#37;\&#34;
+            WHITEBOARD&#61;\&#34;&#37;WHITEBOARD{default&#61;&#34;on&#34;}&#37;\&#34;
+            EXTRA&#61;\&#34;&#37;EXTRA{default&#61;&#34;&#60;!-- --&#62;&#34;}&#37;\&#34;
+            SCRIPT&#61;\&#34;&#37;SCRIPT{default&#61;&#34;edit&#34;}&#37;\&#34;
+            EDITOR&#61;\&#34;&#37;EDITOR{default&#61;&#34;&#37;FORMFIELD{&#34;Editor&#34; topic&#61;&#34;&#37;FORM{default&#61;&#34;&#37;INCLUDINGWEB&#37;.&#37;INCLUDINGTOPIC&#37;&#34;}&#37;&#34;}&#37;&#34;}&#37;\&#34;
+         }&#36;percnt&#34;
+}&#37;&#37;STOPINCLUDE&#37;
+</pre>
+<p></p>
+
+<h3 id="form">  form </h3>
+<pre class="tml">
+&#37;STARTSECTION{&#34;form&#34;}&#37;&#37;TWISTY{
+    link&#61;&#34;&#37;BUTTON{
+    &#34;&#37;BUTTONTEXT&#37;&#34;
+    icon&#61;&#34;fa-plus&#34;
+  }&#37;&#37;CLEAR&#37;&#34;
+  mode&#61;&#34;div&#34;
+}&#37;
+
+&#60;form class&#61;&#39;createTopicForm jqValidate&#39; action&#61;&#34;&#37;SCRIPTURLPATH{&#34;&#37;SCRIPT&#37;&#34;}&#37;/&#37;BASEWEB&#37;/&#34; method&#61;&#34;post&#34;&#62;
+&#60;div class&#61;&#39;foswikiFormSteps&#39;&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;web&#34; value&#61;&#34;&#37;BASEWEB&#37;&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;onlynewtopic&#34; value&#61;&#34;on&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;action&#34; value&#61;&#34;&#37;IF{&#34;&#36;WHITEBOARD&#61;&#39;off&#39;&#34; then&#61;&#34;form&#34;}&#37;&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;onlywikiname&#34; value&#61;&#34;off&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;topicparent&#34; value&#61;&#34;&#37;PARENT&#37;&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;templatetopic&#34; value&#61;&#34;&#37;TEMPLATE{default&#61;&#34;&#37;FORMFIELD{&#34;Template&#34; topic&#61;&#34;&#37;FORM&#37;&#34;}&#37;&#34;}&#37;&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;formtemplate&#34; value&#61;&#34;&#37;FORM&#37;&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;template&#34; value&#61;&#34;&#37;EDITOR&#37;&#34; /&#62;
+&#37;DBCALL{&#34;&#37;WEB&#37;.&#37;TOPIC&#37;&#34; 
+   section&#61;&#34;topicnaming&#34; 
+   mode&#61;&#34;&#37;FORMFIELD{&#34;TopicNamingMode&#34; topic&#61;&#34;&#37;FORM&#37;&#34;}&#37;&#34;
+   form&#61;&#34;&#37;FORM&#37;&#34;
+   value&#61;&#34;&#37;VALUE&#37;&#34;
+}&#37;&#60;!-- --&#62;
+&#37;EXTRA&#37;
+&#37;RENDERFOREDIT{
+  form&#61;&#34;&#37;FORM&#37;&#34;
+  topic&#61;&#34;&#37;TEMPLATE{default&#61;&#34;&#34;}&#37;&#34;
+  fields&#61;&#34;&#37;FORMATLIST{&#34;&#37;VALUES&#37;&#34;
+      split&#61;&#34;;&#34;
+      pattern&#61;&#34;(.&#42;)&#61;(.&#42;)&#34;
+      format&#61;&#34;&#36;1&#34;
+      separator&#61;&#34;,&#34;
+  }&#37;, no such thing&#34;
+  exclude&#61;&#34;^(TopicType&#37;RENDERFORDISPLAY{
+                 form&#61;&#34;&#37;FORM&#37;&#34;
+                 topic&#61;&#34;&#37;TEMPLATE{default&#61;&#34;&#34;}&#37;&#34;
+                 includeattr&#61;&#34;\bc\b&#34;
+                 format&#61;&#34;&#36;name&#34;
+                 header&#61;&#34;&#124;&#34;
+                 separator&#61;&#34;&#124;&#34;
+              }&#37;)&#36;&#34;
+  format&#61;&#34;&#60;input type&#61;&#39;hidden&#39; value&#61;&#39;&#36;value&#39; name&#61;&#39;&#36;name&#39; /&#62;&#36;n&#34;
+  &#37;FORMATLIST{&#34;&#37;VALUES&#37;&#34;
+      separator&#61;&#34; &#34;
+      split&#61;&#34;;&#34;
+      pattern&#61;&#34;(.&#42;)&#61;(.&#42;)&#34;
+      format&#61;&#34;&#36;1&#95;value&#61;\&#34;&#36;2\&#34;&#34;
+  }&#37;
+}&#37;&#60;!-- --&#62;
+&#37;IF{&#34;&#36;&#39;TEXT&#39;&#61;&#39;&#39;&#34;
+   then&#61;&#34;&#60;!-- --&#62;&#34;
+   else&#61;&#34;&#60;h2 &#62;&#37;TEXT&#37;&#60;/h2&#62;&#34;
+}&#37;
+&#37;RENDERFOREDIT{
+  form&#61;&#34;&#37;FORM&#37;&#34;
+  topic&#61;&#34;&#37;TEMPLATE{default&#61;&#34;&#34;}&#37;&#34;
+  fields&#61;&#34;TopicTitle&#34;
+  excludeattr&#61;&#34;\bH\b&#34;
+  format&#61;&#34;&#60;div class&#61;&#39;foswikiFormStep&#39;&#62;&#60;h3&#62;&#36;title:&#36;mandatory&#60;/h3&#62;&#36;edit&#60;div class&#61;&#39;foswikiFormDescription&#39;&#62;&#36;description&#60;/div&#62;&#60;/div&#62;&#34;
+  TopicTitle&#95;value&#61;&#34;&#37;VALUE{default&#61;&#34;&#34;}&#37;&#34;
+  TopicTitle&#95;title&#61;&#34;&#37;LABEL&#37;&#34;
+}&#37;
+&#37;RENDERFOREDIT{
+  form&#61;&#34;&#37;FORM&#37;&#34;
+  topic&#61;&#34;&#37;TEMPLATE{default&#61;&#34;&#34;}&#37;&#34;
+  exclude&#61;&#34;^(TopicType&#124;TopicTitle)&#36;&#34;
+  includeattr&#61;&#34;\bc\b&#34;
+  Summary&#95;value&#61;&#34;&#34;
+  format&#61;&#34;&#60;div class&#61;&#39;foswikiFormStep&#39;&#62;&#60;h3&#62;&#36;title:&#36;mandatory&#60;/h3&#62;&#36;edit&#60;div class&#61;&#39;foswikiFormDescription&#39;&#62;&#36;description&#60;/div&#62;&#60;/div&#62;&#34;
+  &#37;FORMATLIST{&#34;&#37;VALUES&#37;&#34;
+      separator&#61;&#34; &#34;
+      split&#61;&#34;;&#34;
+      pattern&#61;&#34;(.&#42;)&#61;(.&#42;)&#34;
+      format&#61;&#34;&#36;1&#95;value&#61;\&#34;&#36;2\&#34;&#34;
+  }&#37;
+}&#37;
+&#37;RENDERFOREDIT{
+  form&#61;&#34;&#37;FORM&#37;&#34;
+  topic&#61;&#34;&#37;TEMPLATE{default&#61;&#34;&#34;}&#37;&#34;
+  fields&#61;&#34;TopicType,WikiApplication,Summary&#34;
+  excludeattr&#61;&#34;\bc\b&#34;
+  WikiApplication&#95;value&#61;&#34;&#37;FLEXWEBLIST{include&#61;&#34;&#37;BASEWEB&#37;&#34; format&#61;&#34;&#36;name&#34;}&#37;&#34; 
+  TopicType&#95;value&#61;&#34;&#37;TYPE&#37;&#34;
+  Summary&#95;value&#61;&#34;&#34;
+  header&#61;&#34;&#34;
+  footer&#61;&#34;&#34;
+  format&#61;&#34;&#60;input type&#61;&#39;hidden&#39; name&#61;&#39;&#36;name&#39; value&#61;&#39;&#36;value&#39; /&#62;&#34;
+  separator&#61;&#34;&#36;n&#34;
+}&#37;
+  &#60;div class&#61;&#34;foswikiFormStep foswikiFormButtons&#34;&#62;
+    &#37;BUTTON{&#34;&#37;TRANSLATE{&#34;Submit&#34;}&#37;&#34; type&#61;&#34;submit&#34; icon&#61;&#34;fa-check&#34;}&#37;
+    &#37;CLEAR&#37;
+  &#60;/div&#62;
+&#60;/div&#62;
+&#60;/form&#62; 
+
+&#37;ENDTWISTY&#37;&#37;JQREQUIRE{&#34;wikiword&#34;}&#37;&#37;ENDSECTION{&#34;form&#34;}&#37;
+</pre>
+<p></p>
+
+<pre>
+&#37;STARTSECTION{&#34;topicnaming&#34;}&#37;&#37;IF{&#34;&#39;&#37;mode&#37;&#39;&#61;~&#39;^(default)?&#36;&#39;&#34;
+   then&#61;&#34;&#60;input type&#61;&#39;hidden&#39; name&#61;&#39;topic&#39; class&#61;&#39;jqWikiWord&#39; data-source&#61;&#39;input&#91;name&#61;TopicTitle&#93;&#39; data-transliterate&#61;&#39;true&#39; value&#61;&#39;&#37;value&#37;&#39; /&#62;&#36;n&#34;
+}&#37;&#37;IF{&#34;&#39;&#37;mode&#37;&#39;&#61;&#39;template&#39;&#34;
+   then&#61;&#34;&#60;input type&#61;&#39;hidden&#39; name&#61;&#39;topic&#39; value&#61;&#39;&#37;FORMFIELD{&#34;TopicNameTemplate&#34; topic&#61;&#34;&#37;form&#37;&#34;}&#37;&#39; value&#61;&#39;&#37;value&#37;&#39; /&#62;&#36;n&#34;
+}&#37;&#37;IF{&#34;&#39;&#37;mode&#37;&#39;&#61;&#39;derived&#39;&#34;
+   then&#61;&#34;&#60;input type&#61;&#39;hidden&#39; name&#61;&#39;topic&#39; class&#61;&#39;jqWikiWord&#39; value&#61;&#39;&#37;value&#37;&#39; &#36;percntDBQUERY{
+                topic&#61;\&#34;&#37;form&#37;\&#34;
+                format&#61;\&#34;data-source&#61;&#39;&#36;formfield(TopicNameSource)&#39; \
+                         data-prefix&#61;&#39;&#36;formfield(TopicNamePrefix)&#39; \
+                         data-suffix&#61;&#39;&#36;formfield(TopicNameSuffix)&#39; \
+                         data-transliterate&#61;&#39;&#36;formfield(TopicNameTransliterate)&#39;\&#34;
+              }&#36;percnt/&#62;&#34;
+}&#37;&#37;ENDSECTION{&#34;topicnaming&#34;}&#37;
+</pre>
+<p></p>
+
+<h2 id="Test">  Test </h2>
+<div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdApplicationsRenderSimpleTopicCreator8522show" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited"><a  class='jqButton ' href='#'><i class='jqButtonIcon fa fa-fw fa-plus'></i><span class='jqButtonText'>New</span></a><span class='foswikiClear'></span></span></a></span><span id="twistyIdApplicationsRenderSimpleTopicCreator8522hide" style="display:none" class="twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited"><a  class='jqButton ' href='#'><i class='jqButtonIcon fa fa-fw fa-plus'></i><span class='jqButtonText'>New</span></a><span class='foswikiClear'></span></span></a></span></div><div class="twistyPlugin"><div id="twistyIdApplicationsRenderSimpleTopicCreator8522toggle" style="" class="twistyContent twistyInited">
+<p></p>
+
+<form class='createTopicForm jqValidate' action="/bin/edit/Applications/" method="post" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?9b65491693fc01a7d2848608cdf6f867' />
+<div class='foswikiFormSteps'>
+<input type="hidden" name="web" value="Applications" />
+<input type="hidden" name="onlynewtopic" value="on" />
+<input type="hidden" name="action" value="" />
+<input type="hidden" name="onlywikiname" value="off" />
+<input type="hidden" name="topicparent" value="RenderSimpleTopicCreator" />
+<input type="hidden" name="templatetopic" value="" />
+<input type="hidden" name="formtemplate" value="WikiTopic" />
+<input type="hidden" name="template" value="Applications.WikiTopicEditTemplate" />
+<input type='hidden' name='topic' class='jqWikiWord' data-source='input[name=TopicTitle]' data-transliterate='true' value='Foo topic...' />
+
+<h2 >Create a new Topic</h2>
+<div class='foswikiFormStep'><h3>Title:</h3><input type="text" name="TopicTitle" value="Foo topic..." size="75" class="foswikiInputField" /><div class='foswikiFormDescription'></div></div><div class='foswikiFormStep'><h3>Summary:</h3><input type="text" name="Summary"  size="75" class="foswikiInputField" /><div class='foswikiFormDescription'>short description of this topic</div></div><input type='hidden' name='TopicType' value='WikiTopic' />  <div class="foswikiFormStep foswikiFormButtons">
+    <a  class='jqButton  jqSubmitButton' href='#'><i class='jqButtonIcon fa fa-fw fa-check'></i><span class='jqButtonText'>Submit</span></a><input type='submit' style='display:none' />
+    <span class='foswikiClear'></span>
+  </div>
+</div>
+</form> 
+<p></p>
+
+</div></div> </div>
+<div class="foswikiContentFooter">
+<h2 >Calls to 'RenderSimpleTopicCreator'</h2> <ul>
+<li> <a href="/bin/view/Applications/ApplicationLicense">ApplicationLicense</a>
+</li> <li> <a href="/bin/view/Applications/ApplicationTopic">ApplicationTopic</a>
+</li> <li> <a href="/bin/view/Applications/DataForm">DataForm</a>
+</li> <li> <a href="/bin/view/Applications/DataFormAttribute">DataFormAttribute</a>
+</li> <li> <a href="/bin/view/Applications/DocuTopic">DocuTopic</a>
+</li> <li> <a href="/bin/view/Applications/RenderFunctionCallers">RenderFunctionCallers</a>
+</li> <li> <a href="/bin/view/Applications/TopicFunction">TopicFunction</a>
+</li> <li> <a href="/bin/view/Applications/TopicStub">TopicStub</a>
+</li> <li> <a href="/bin/view/Applications/TopicTemplate">TopicTemplate</a>
+</li> <li> <a href="/bin/view/Applications/TopicType">TopicType</a>
+</li> <li> <a href="/bin/view/Applications/TopicTypeTemplate">TopicTypeTemplate</a>
+</li> <li> <a href="/bin/view/Applications/TopicView">TopicView</a>
+</li> <li> <a href="/bin/view/Applications/WikiApplication">WikiApplication</a>
+</li> <li> <a href="/bin/view/Applications/WikiTopic">WikiTopic</a>
+</li></ul> 
+<h2 >Copyright</h2>&copy; 2006-2019 Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a>
+<p class='p'></p>
+
+This file is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version. For
+more details read the <a href="/bin/view/Applications/GnuGeneralPublicLicense">LICENSE</a>.
+<p></p>
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
+implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Applications/RenderSimpleTopicCreator?t=1627668195' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Applications/RenderSimpleTopicCreator' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Applications/RenderSimpleTopicCreator?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Applications/RenderSimpleTopicCreator?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Applications/RenderSimpleTopicCreator?template=backlinksweb' rel='nofollow' title='Search the Applications Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Applications/RenderSimpleTopicCreator?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Applications/RenderSimpleTopicCreator?t=1627668195;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Applications/RenderSimpleTopicCreator?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Applications/RenderSimpleTopicCreator?foswiki_origin=GET%2cview%2c/bin/view/Applications/RenderSimpleTopicCreator">Log In</a></li></ul>
+</div>
+<b>Tools</b>
+ <ul>
+<li> <a href="/bin/view/Applications/TopicType">TopicTypes</a>
+</li> <li> <a href="/bin/view/Applications/DataForm">DataForms</a>
+</li> <li> <a href="/bin/view/Applications/DataFormAttribute">DataFormAttributes</a>
+</li> <li> <a href="/bin/view/Applications/TopicTemplate">TopicTemplates</a>
+</li> <li> <a href="/bin/view/Applications/TopicView">TopicViews</a>
+</li> <li> <a href="/bin/view/Applications/TopicFunction">TopicFunctions</a>
+</li> <li> <a href="/bin/view/Applications/WebLexicon">WebLexicon</a>
+</li></ul> 
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p class='p'></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Applications.RenderSimpleTopicCreator'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

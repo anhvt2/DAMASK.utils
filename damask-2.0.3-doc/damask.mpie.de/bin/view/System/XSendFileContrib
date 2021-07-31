@@ -1,0 +1,467 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> XSendFileContrib &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/XSendFileContrib?t=1627665425" type="application/x-wiki" title="edit XSendFileContrib" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/XSendFileContrib" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/2c121dc0eb8e204aea2d99388a431ce3.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableXSendFileContrib1 {width:100%}
+body .foswikiTable#tableXSendFileContrib1 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableXSendFileContrib1 th.foswikiTableCol0 {width:7em}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SYSTEMWEB" : "System",
+   "PUBURLPATH" : "/pub",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "USERNAME" : "guest",
+   "SKIN" : "damask,famfamfam,pattern",
+   "COOKIEREALM" : "",
+   "URLHOST" : "https://damask.mpie.de",
+   "SERVERTIME" : "30 Jul 2021 - 19:17",
+   "WEB" : "System",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKINAME" : "WikiGuest",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "USERSWEB" : "Main",
+   "SCRIPTSUFFIX" : "",
+   "TOPIC" : "XSendFileContrib",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]"
+}
+</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/XSendFileContrib"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/XSendFileContrib" title='Topic revision: 1 (11 Jun 2018 - 14:04:17)'>XSendFileContrib</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/XSendFileContrib?t=1627665425;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/XSendFileContrib' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/XSendFileContrib?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/XSendFileContrib?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=XSendFileContrib' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/XSendFileContrib?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/XSendFileContrib?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="XSendFileContrib">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/XSendFileContrib">XSendFileContrib</a> </h1>
+A viewfile replacement to send static files efficiently
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#Introduction"> Introduction </a>
+</li> <li> <a href="#Configuring_Foswiki"> Configuring Foswiki </a>
+</li> <li> <a href="#Configuring_Lighttpd"> Configuring Lighttpd </a>
+</li> <li> <a href="#Configuring_Nginx"> Configuring Nginx </a>
+</li> <li> <a href="#Configuring_Apache2"> Configuring Apache2 </a>
+</li> <li> <a href="#Installation"> Installation </a>
+</li> <li> <a href="#Dependencies"> Dependencies </a>
+</li> <li> <a href="#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Introduction">  Introduction </h2>
+This package implements a more efficient way to send static files using a web application
+like Foswiki. A standard configuration of a Foswiki uses the <code>viewfile</code> service
+to send static files over to the browser thus enforcing access rights on them. In doing
+so it reads the static file into memory completely before handing it over to the HTTP web server
+which takes over responsibility to contact the browser. This of course is far from optimal
+as it introduces a lot of overhead by copying the static file several times in memory. The impact
+on the overall system performance is even higher for large files being downloaded from a Foswiki
+server. For now the only alternative solution to this problem is not to protect static files
+by Foswiki's access control at all, and let the HTTP web server do its job on static files all
+on its own. Web servers are in fact quite good in sending static files, even large ones. So the
+best you can do is to leave this job to them.
+<p class='p'>Still you might require access control, even on large static files.</p>
+
+<p class='p'>There's a quite unknown yet very important feature in Apache2, Nginx and Lighttpd, called "xsendfile", to interact
+with an upstream web application before sending a static file. This feature can be used to solve
+the above problem: it lets you control access to static files while still using the HTTP web
+server to do the heavy lifting.</p>
+
+<p class='p'>This basically works like this:</p>
+ <ul>
+<li> client requests an url 
+</li> <li> the web server calls an upstream web application for this url
+</li> <li> the web app performs its specific actions and returns a specific HTTP header in its response, e.g. <code>X-Lighttp-send-file</code>, but <em>not</em> the data being requested, when access is granted, or an HTTP error otherwise
+</li> <li> the web server parses the HTTP headers returned by the web app looking for the X-Send-File header
+</li> <li> if it finds the X-Send-File header then the will the web serve transfer the static file this header points to over to the client
+</li> <li> otherwise it will return the response generated by the web app as usual
+</li></ul> 
+<p></p>
+
+<h2 id="Configuring_Foswiki">  Configuring Foswiki  </h2>
+XSendFileContrib comes with a separate service script <code>.../bin/xsendfile</code> replacing the standard <code>.../bin/viewfile</code>. It differs from viewfile only in two respects
+<p></p>
+ <ul>
+<li> any HTTP error is delivered immediately, that is without requiring Foswiki to render an error page while processing an exception. 
+</li> <li> instead of copying over the static file to the downstream HTTP web server, it generates an empty response with the approrpiate X-Send-File header set
+</li></ul> 
+<p class='p'>There are two parameters that need to be adjusted according to your web server's type and configuration:</p>
+ <ul>
+<li> <code>$Foswiki::cfg{XSendFileContrib}{Header}</code> ... the name of the HTTP header to trigger the X-Send-File feature in your web server (see below)
+</li> <li> <code>$Foswiki::cfg{XSendFileContrib}{Location}</code> ... the uri prefix that the web server serves the actual static file from 
+</li></ul> 
+<p></p>
+
+<h2 id="Configuring_Lighttpd">  Configuring Lighttpd </h2>
+(see <a href="http://redmine.lighttpd.net/projects/1/wiki/X-LIGHTTPD-send-file">http://redmine.lighttpd.net/projects/1/wiki/X-LIGHTTPD-send-file</a> for lighttpd)
+<p></p>
+
+The X-Send-File header for Lighttpd is called <strong>X-LIGHTTPD-send-file</strong> and points to the file path on disk that the web server should send to the client.
+<p></p>
+
+If you are already using Foswiki behind a lighttpd web server, all you need to do is to add <code>"allow-x-send-file" =&gt; "enable"</code> to your fastcgi stanza
+<p></p>
+
+<pre>
+url.rewrite-once +&#61; ( &#34;^/pub/((?!System&#124;Applications&#124;images&#124;cache).&#42;)/(.&#42;?)&#36;&#34; &#61;&#62; &#34;/bin/xsendfile/&#36;1/&#36;2&#34; )
+
+&#36;HTTP&#91;&#34;url&#34;&#93; &#61;~ &#34;^/bin/&#34; {
+  alias.url +&#61; ( &#34;/bin&#34; &#61;&#62; &#34;/path/to/bin/foswiki.fcgi&#34; )
+
+  fastcgi.server &#61; ( &#34;.fcgi&#34; &#61;&#62; ((
+...
+      &#34;allow-x-send-file&#34; &#61;&#62; &#34;enable&#34;
+    ),
+  ))
+}
+&#36;HTTP&#91;&#34;url&#34;&#93; &#61;~ &#34;^/bin/xsendfile)&#34; {
+  expire.url &#61; ( &#34;&#34; &#61;&#62; &#34;access 12 hours&#34;)
+}
+</pre>
+<p></p>
+
+<h2 id="Configuring_Nginx">  Configuring Nginx </h2>
+(see <a href="http://wiki.nginx.org/XSendfile">http://wiki.nginx.org/XSendfile</a>, <a href="http://wiki.nginx.org/X-accel">http://wiki.nginx.org/X-accel</a>)
+<p></p>
+
+In Nginx this feature is called X-Accel-Redirect. Yet the idea is the same. Requirements on the upstream web applications are almost identical
+besides using a different X-Send-File header called <strong>X-Accel-Redirect</strong>.
+<p class='p'>In addition Nginx requires a special "location" stanza for internal use only. Protected files will be served from there one the web app
+checked the original uri the.</p>
+
+<pre>
+location ~ ^/pub/(System&#124;Applications&#124;images&#124;cache)/ {
+  root /path/to/foswiki;
+  expires 12h;
+  gzip&#95;static on;
+}
+
+location /pub {
+  rewrite ^/pub/(.&#42;)&#36; /bin/xsendfile/&#36;1;
+}
+
+location /protected&#95;files {
+   internal;
+   alias /path/to/foswiki/pub/;
+}
+</pre>
+<p></p>
+
+<h2 id="Configuring_Apache2">  Configuring Apache2 </h2>
+Apache itself requires an additional simple module that processes an <strong>X-Sendfile</strong> header.
+In a classical Foswiki Apache2 installation you have to modify your web server configuration as follows:
+<p></p>
+
+<pre>
+XSendFile on
+XSendFilePath /path/to/pub
+RewriteRule ^/+pub/+(.&#42;)&#36;  /bin/xsendfile/&#36;1 &#91;L,PT&#93;
+</pre>
+<p></p>
+
+See <a href="https://tn123.org/mod_xsendfile/">https://tn123.org/mod_xsendfile/</a> for more information on how to compile <code>mod_xsendfile</code> and how to configure apache.
+<p></p>
+
+<h2 id="Installation">  Installation </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Contrib::FastCGIEngineContrib</td><td align="left">&gt;=0.9.5</td><td align="left">Optional.</td></tr><tr><td align="left">File::MMagic</td><td align="left">&gt;0</td><td align="left">Required.</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<table class="foswikiTable" id="tableXSendFileContrib1" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jun 2018 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> display reason why access to a file was denied </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Dec 2017 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed content encoding of a 403 warning;                  made file extension configurable that must be delivered in an "attachment" disposition mode </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Dec 2017 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> return correct http error code when not authorized to access an attachment;                  optionally redirect to a login in case of an unauthorized access </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Sep 2017 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> remove txt files from default dispositioning </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Nov 2016 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed encoding under Foswiki-2.x;                  detect 404 file not found properly;                  added support for rev parameter to access previous versions of an attachment;                  allow to specify content disposition (inline or attachment);                  allow to deliver and protect other content paths organized in parallel to the normal pub directory tree, for instance <code>/pub/images</code> for thumbnails </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jul 2015 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added support for Foswiki-2.0 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Aug 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved decoding and untainting url components </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 May 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed file check on wrong location </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Apr 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> untaint attachment filenames </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Mar 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> return a proper 404 for invalid filename parameters </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Nov 2013 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed filenames with spaces not being found </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Nov 2013 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added support for if-modified-since http headers </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 May 2013 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> using mime-magic as a fallback in case file extensions don't unveil the mime-type </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 28 Mar 2013 </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> implemented {AccessRules} to allow any kind of access control list for attachments </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/XSendFileContrib?t=1627665425;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> Michael Daum </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 5.22 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 11 Jun 2018 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> A viewfile replacement to send static files efficiently </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/XSendFileContrib">https://github.com/foswiki/XSendFileContrib</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> 2013-2018, Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="https://foswiki.org/Extensions/XSendFileContrib">https://foswiki.org/Extensions/XSendFileContrib</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="https://foswiki.org/Support/XSendFileContrib">https://foswiki.org/Support/XSendFileContrib</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/XSendFileContrib?t=1627665425' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/XSendFileContrib' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/XSendFileContrib?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/XSendFileContrib?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/XSendFileContrib?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/XSendFileContrib?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/XSendFileContrib?t=1627665425;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/XSendFileContrib?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 11 Jun 2018, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/XSendFileContrib?foswiki_origin=GET%2cview%2c/bin/view/System/XSendFileContrib">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.XSendFileContrib'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

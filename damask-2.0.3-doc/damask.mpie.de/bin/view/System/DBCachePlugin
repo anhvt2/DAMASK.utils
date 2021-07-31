@@ -1,0 +1,1588 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> DBCachePlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/DBCachePlugin?t=1627664469" type="application/x-wiki" title="edit DBCachePlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/DBCachePlugin" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/fe5de1305712f15c9494a85344e6d5bb.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableDBCachePlugin11 {width:100%}
+body .foswikiTable#tableDBCachePlugin11 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableDBCachePlugin11 th.foswikiTableCol0 {width:7em}
+</style>
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SKIN" : "damask,famfamfam,pattern",
+   "USERSWEB" : "Main",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SERVERTIME" : "30 Jul 2021 - 19:01",
+   "SYSTEMWEB" : "System",
+   "URLHOST" : "https://damask.mpie.de",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WEB" : "System",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WIKINAME" : "WikiGuest",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTSUFFIX" : "",
+   "COOKIEREALM" : "",
+   "USERNAME" : "guest",
+   "SCRIPTURLPATH" : "/bin",
+   "TOPIC" : "DBCachePlugin"
+}
+</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/DBCachePlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/DBCachePlugin" title='Topic revision: 7 (02 May 2019 - 09:16:26)'>DBCachePlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/DBCachePlugin?t=1627664469;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/DBCachePlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/DBCachePlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/DBCachePlugin?raw=on&amp;rev=7' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=DBCachePlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/DBCachePlugin?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/DBCachePlugin?template=more&amp;maxrev=7&amp;currrev=7' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="DBCachePlugin"> DBCachePlugin </h1>
+Lightweighted frontend to the DBCacheContrib
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#Description"> Description </a>
+</li> <li> <a href="#Syntax"> Syntax </a> <ul>
+<li> <a href="#DBCALL"> DBCALL </a>
+</li> <li> <a href="#DBDUMP"> DBDUMP </a>
+</li> <li> <a href="#DBQUERY"> DBQUERY </a>
+</li> <li> <a href="#DBRECURSE"> DBRECURSE </a>
+</li> <li> <a href="#DBSTATS"> DBSTATS </a>
+</li> <li> <a href="#TOPICTITLE"> TOPICTITLE </a>
+</li> <li> <a href="#DBPREV_44_DBNEXT"> DBPREV, DBNEXT </a>
+</li></ul> 
+</li> <li> <a href="#Syntax_of_search_queries"> Syntax of search queries </a> <ul>
+<li> <a href="#Examples"> Examples </a>
+</li></ul> 
+</li> <li> <a href="#Perl_API"> Perl API </a> <ul>
+<li> <a href="#DBCachePlugin"> DBCachePlugin </a> <ul>
+<li> <a href="#getDB_40_41"> getDB() </a>
+</li> <li> <a href="#registerIndexTopicHandler_40_41"> registerIndexTopicHandler() </a>
+</li></ul> 
+</li> <li> <a href="#DBCachePlugin::WebDB"> DBCachePlugin::WebDB </a> <ul>
+<li> <a href="#dbQuery_40_41"> dbQuery() </a>
+</li> <li> <a href="#getFormField_40_41"> getFormField() </a>
+</li></ul> 
+</li></ul> 
+</li> <li> <a href="#Plugin_Settings"> Plugin Settings </a> <ul>
+<li> <a href="#MemoryCache"> MemoryCache </a>
+</li> <li> <a href="#SecureTopicTitles"> SecureTopicTitles </a>
+</li></ul> 
+</li> <li> <a href="#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="#Dependencies"> Dependencies </a>
+</li> <li> <a href="#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Description">  Description </h2>
+This is a lightweight frontend to the <a href="/bin/view/System/DBCacheContrib">DBCacheContrib</a>. The provided
+macros DBQUERY and DBCALL can be used as a replacement for SEARCH and INCLUDE
+that use the database store instead of searching and extracting on the raw
+topic files. 
+<p></p>
+
+<strong>DBQUERY</strong> is provided to ease the use of
+WikiApplications based on the <a href="/bin/view/System/DBCacheContrib">DBCacheContrib</a> combining its flexible query
+language with unrestricted formatting and an extend mechanism to extract topic
+properties. 
+<p></p>
+
+<strong>DBCALL</strong> is named "call" and not "include" as its main purpose is to ease 
+WikiApplications where TopicFunctions are treated as stored procedures.
+<p class='p'>DBCALL does not allow to call "external" pages as INCLUDE allows.</p>
+
+<p class='p'>DBCALL's "warn" parameter can only be set to "on" and "off" and does not allow 
+alternative content in case of a warning. The "pattern" feature used to extract a fragment from
+an INCLUDEd text using regular expression  has been dropped.
+That aside, DBCALLs can be called recursively as INCLUDEs can,
+parametrized using key-value arguments and
+obeys to %STARTINCLUDE%, %STOPINCLUDE%, %STARTSECTION{"..."}% 
+and %ENDSECTION{"..."}%.</p>
+
+Using the DBCacheContrib topic sections are stored into the topic object of the database.
+The section between %STARTINCLUDE% ... %STOPINCLUDE% is called 
+<code>_sectiondefault</code> whereas all sections between %STARTSECTION{"&lt;name&gt;"}% .... 
+%ENDSECTION{"&lt;name&gt;"}% are called <code>_section&lt;name&gt;</code> and are stored accordingly.
+<p></p>
+
+In addition, DBCALL implements so called <strong>TopicMethods</strong>. A method call is of the
+form <code>%DBCALL{"SomeTopic-&gt;RenderMethod" ...}%</code> and will infer the actual
+<code>...RenderMethod</code> to be called on the base of the <em>TopicType</em> of <code>SomeTopic</code>. TopicTypes
+are a concept introduced by the <a class="interwikiLink" href="https://foswiki.org/Extensions.WorkbenchAddOn" title="'Extensions.WorkbenchAddOn' on foswiki.org">Foswiki:Extensions.WorkbenchAddOn</a>. It basically refers
+to a convention to tag the type(s) of a topic in a formfield "TopicType". The lookup
+mechanism for TopicMethods proceeds as normal if the DBCALl is not of the form
+<code>"SomeTopic-&gt;RenderMethod"</code>. For example, if <code>SomeTopic</code> is of type <code>Video, MediaType, ClassifiedTopic</code>
+the lookup mechanism will try to find the methods <code>VideoRenderMethod</code>, <code>MediaTypeRenderMethod</code>
+and <code>ClassifiedTopicRenderMethod</code> in the given order and use the one found first. The web
+these types are defined in is inferred on the base of the DataForm definitions of each of 
+these types. If none of these type-specific methods is found the method call will fallback
+to a normal non-specific function call. The TopicMethod itself is called with an implicit
+parameter <code>OBJECT</code> that refers to <code>SomeTopic</code>, that is the object this method has been called for.
+<p></p>
+
+<strong>DBRECURSE</strong> iterates over topics in a web following a certain topic-to-topic relation, like
+the parent-child relation among topics. You can define arbitrary relations using filters.
+<p></p>
+
+<h2 id="Syntax">  Syntax </h2>
+<h3 id="DBCALL">  DBCALL </h3>
+Fetch topic content or a section of it from the database store.
+<p></p>
+
+<strong>Syntax:</strong>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> %DBCALL{"&lt;topic" ... }% </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"&lt;topic&gt;"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> topic that we'd like to call </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>section="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> optional named section; without this parameter the "default" section is used </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&lt;key&gt;="&lt;value&gt;"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> topic arguments to be substituted within the included text; that is             every occurrence of &lt;key&gt; is substituted with &lt;value&gt; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>warn="on,off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> enable/suppress error warnings </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>remote="on,off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> switch fixing WikiWords in transcluded content;                      <code>on</code> means "don't touch, this is remote content"            defaults to "off" because that's the default behaviour of            <code>%INCLUDE{}%</code> (note, DBQUERY defaults to "on"            aka do-not-touch-mode) </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="DBDUMP">  DBDUMP </h3>
+Display the database record of a topic (useful for debugging).
+<p></p>
+
+<strong>Syntax:</strong>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> %DBDUMP{"&lt;topic&gt;" ... }% </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"&lt;topic&gt;"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> topic that we'd like to debug </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>web="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> name of the web to look for the given topic;   note that you can use the dot-notation in specifying the web.topic also </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="DBQUERY">  DBQUERY </h3>
+DBQUERY can be used in either of two modes (a) as a pure search
+tool or (b) as a tool to extract properties of (a set of) known topics.
+<p></p>
+
+<strong>Syntax:</strong>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> %DBQUERY{"&lt;search&gt;" ... }% </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"&lt;search&gt;"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> search clause, see below </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topics="..."</code> or <code>topic="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> set of topics to consult (mode (b));   if "topics" are specified in addition to a "search" it will be restricted to   the given topics </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>web="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> web where to search for hits; defaults to the current one </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>webs="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> regular expression of webs to be searched for; if specified takes higher precedence than <code>web</code>;                  can also be <code>all</code> to search in all webs or a comma-separated list of webs to search in </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>format="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to display search hits;  defaults to "$topic"; the special format string "none" disables the format string </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>header="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to prepended to the list of hits </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>footer="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to appended to the list of hits </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>nullformat="..."</code> </td>
+			<td class="foswikiTableCol1"> format string to be used when no result was found </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>separator="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string used to separate hits;   defaults to "$n"; the special separator "none" disables separation </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> dateformat="..." </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format of any date formfield in case you'd like to deviate from the default date format </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>include="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> pattern each found topic name must match to be considered a hit; can also be a comma separated list of topics </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>exclude="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> pattern each found topic name must not match to be considered a hit; can also be a comma separated list of topics </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>sort="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> specifies the sorting of hits; this can be a comma separted list of attributes to specify more complicated sortings; special value "random"; defaults to "name" </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>reverse="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> specify if hits should be sorted in reverse order; defaults to "off" </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>limit="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> maximum number of topics to include in the hit set </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>warn="on,off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> enable/suppress error warnings </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>skip="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> number of topics to skip while constructing the hit set; defaults to "0" </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hidenull="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> flag to indicate that an empty hit set should not be displayed </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>newline="..."</code> </td>
+			<td class="foswikiTableCol1"> string to substitute newlines in formfield values with, e.g. <code>newline="&lt;br /&gt;"</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>remote="on,off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> switch fixing WikiWords in transcluded content;                      <code>on</code> means "don't touch, this is remote content"            defaults to "on" </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Following variables are expanded in format strings: <ul>
+<li> $percnt: % sign
+</li> <li> $dollar: $ sign
+</li> <li> $quot: " sign
+</li> <li> $n: newline
+</li> <li> $nop: "empty string"
+</li> <li> $count: the number of hits
+</li> <li> $index: the current row index in the search
+</li> <li> $web: the web where the hits where found
+</li> <li> $formfield(&lt;formfield-name&gt;): the value of the given formfield
+</li> <li> $formatTime(&lt;formfield-accessor&gt; [, '&lt;format&gt;']): format the datefield pointed     to by the &lt;formfield-accessor&gt; using the given &lt;format&gt;; the format can be     in any form supported by <code>Foswiki::Func::formatTime()</code>      (see the <a href="/bin/view/System/VarGMTIME">GMTIME</a> documentation).
+</li> <li> $expand(&lt;formfield-accessor&gt;): return the formfield pointed to by the       &lt;formfield-accessor&gt;
+</li> <li> $html(&lt;formfield-accessor&gt;): same as <code>$expand()</code> but expands macros and TML markup
+</li> <li> $d2n(&lt;formfield-accessor&gt;): converts a date formfield's value to epoch seconds
+</li> <li> $rss(...): encode entities so that the text can be included in an rss feed
+</li> <li> $encode(...): encode entities so that the text can be included in HTML input form elements
+</li> <li> $flatten(...): remove any special markup producing a flattened text representation
+</li> <li> $trunc(...,length): truncate a string to the given length
+</li> <li> $uc(...): converts a string to upper case
+</li> <li> $lc(...): converts a string to lower case
+</li> <li> $translate(...): translate a string using Foswiki's internal <a class="foswikiNewLink" href="/bin/edit/System/I18N?topicparent=System.DBCachePlugin" rel="nofollow" title="Create this topic">I18N</a> or <a class="interwikiLink" href="https://foswiki.org/Extensions/MultiLingualPlugin" title="'Extensions/MultiLingualPlugin' on foswiki.org">MultiLingualPlugin</a> if installed
+</li></ul> 
+<p></p>
+
+<strong>Formfield accessors:</strong>
+<p></p>
+
+In its most basic form <code>$expand(Ref)</code> is identical to <code>$formfield(Ref)</code>. In addition
+<code>$expand()</code> can be used to refer to topic properties of related topics that can be reached from the current one using the '@' symbol. For example, if a topic A uses a form that contains a field named "Ref" and specifies a reference to 
+another topic B (by using its name) you can access the "Headline" in B from A using <code>$expand(@Ref.Headline)</code>.
+<p></p>
+
+A formfield accessor can be a composed one using 'or' and 'and'. Example: <code>$expand(Name or Author)</code>
+will expand to the value of the formfield "Name" if it exists and is non-empty and to the value 
+of the formfield "Author" otherwise. More valid examples: <ul>
+<li> <code>$expand(@Ref.Headline)</code>: headline of the referred topic
+</li> <li> <code>$expand(Nr and '.')</code>: append a dot to the formfield value "Nr" if it exists
+</li> <li> <code>$expand(Name or Author)</code>: expand to "Name" or "Author"
+</li></ul> 
+<p class='p'>A formfield accessor can be computed using TopicMarkup. If the string starts with '%',
+it is expanded and its result is taken as the real formfield accessor. This is useful when the 
+name of the formfield must be computed by different means.</p>
+
+<h3 id="DBRECURSE">  DBRECURSE </h3>
+Traverse topic-to-topic relations, like the intrinsic parent-child relation
+<p></p>
+
+<strong>Syntax:</strong>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> %DBRECURSE{"&lt;topic&gt;" ...}% </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&lt;topic&gt;</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> starting point, can be in web.topic format, defaults to the current topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>web="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> web where to recurse, defaults to the web given in the <code>topic</code> parameter or the current web </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>format="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string for each found topic defaults to <code>' &nbsp; $indent* [[$web.$topic][$topic]]'</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>single="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string used when only one topic is found, defaults to value of <code>format</code> parameter </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>separator="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> separator string to be put between formatted topics, defaults to <code>'\n'</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>header="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to be prepended to the output, empty by default </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>subheader="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to be prepended to each subordinated search, defaults to <code>header</code> parameter </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>singleheader="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to be used when only one topic is found </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>footer="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to be appended to the output </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>subfooter="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to be appended to each subordinated search, defaults to <code>footer</code> parameter </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>singlefooter="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to be used when only one topic is found </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hidenull="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> flag to indicate that an empty hit set should not be displayed </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>filter="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> search expression that is used in each recursion step;                    the current topic name is inserted into the filter expression by replacing the <code>'$ref'</code> string;                    the default filter is <code>'parent='$name'</code>; this will search for topics of which the current topic                    is a parent </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>sort="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> determines the sorting order of topics in each iteration step </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>reverse="on,off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> reverse sorting order </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>limit="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> maximum iterations, default is <code>0</code> (unlimited) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>warn="on,off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> enable/suppress error warnings </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>skip="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> skips the first <code>n</code> hits when formatting the output, defaults to <code>0</code> (no skip) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>depth="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> only recurse to a given depth, defaults to <code>0</code> (unlimited) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>include="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> regular expression topics must match to be included in the search; can also be a comma separated list of topics </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>exclude="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> regular expression that excludes matching topics from the search; can also be a comma separated list of topics </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>newline="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> string to substitute newlines in formfield values with, e.g. <code>newline="&lt;br /&gt;"</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+The <code>...format</code>, <code>...header</code> and <code>...footer</code> format strings may contain the following variables: <ul>
+<li> $web: the current web
+</li> <li> $topic: the current topic in the search
+</li> <li> $index: the topic index number in one recursion step, that is an enumeration in each recursion step
+</li> <li> $number: the "paragraph" number in the recursion, e.g. <code>1.2.1.5</code> depicts the path alternative in the recursion tree
+</li> <li> $count: number of found topics; this is the total number of found topics in the <code>header</code> and <code>footer</code> and the             number of topics <em>found so far</em> during recursion
+</li> <li> $indent: 3 spaces per depth
+</li> <li> $indent(&lt;string&gt;): uses <code>&lt;string&gt;</code> for indenting the result in each depth
+</li> <li> $formfield(...): see #DBQUERY
+</li> <li> $expand(...): see #DBQUERY
+</li> <li> $formatTime(...): see #DBQUERY
+</li></ul> 
+<p></p>
+
+All format strings may contain the following variables: <ul>
+<li> $dollar: $ sign
+</li> <li> $quot: " sign
+</li> <li> $n: newline
+</li> <li> $percnt: % sign
+</li></ul> 
+<p class='p'>Example:</p>
+
+<pre>&#37;DBRECURSE{&#34;&#37;SYSTEMWEB&#37;.FrequentlyAskedQuestions&#34;}&#37;</pre>
+ lists all <a href="/bin/view/System/FrequentlyAskedQuestions">FrequentlyAskedQuestions</a> topics (with properly set topic parent): <ul>
+<li> <a href="/bin/view/System/FAQAnApplicationWithWikiForm">FAQAnApplicationWithWikiForm</a>
+</li> <li> <a href="/bin/view/System/FAQDeleteOrRenameATopic">FAQDeleteOrRenameATopic</a>
+</li> <li> <a href="/bin/view/System/FAQDeleteOrRenameAnAttachment">FAQDeleteOrRenameAnAttachment</a>
+</li> <li> <a href="/bin/view/System/FAQDownloadSources">FAQDownloadSources</a>
+</li> <li> <a href="/bin/view/System/FAQEditDoesNotIncreaseTheRevision">FAQEditDoesNotIncreaseTheRevision</a>
+</li> <li> <a href="/bin/view/System/FAQGnuGeneralPublicLicense">FAQGnuGeneralPublicLicense</a>
+</li> <li> <a href="/bin/view/System/FAQHiddenUsersAndGroups">FAQHiddenUsersAndGroups</a>
+</li> <li> <a href="/bin/view/System/FAQRebuildingWikiUsersTopic">FAQRebuildingWikiUsersTopic</a>
+</li> <li> <a href="/bin/view/System/FAQSearchDoesNotWork">FAQSearchDoesNotWork</a>
+</li> <li> <a href="/bin/view/System/FAQSimultaneousEdits">FAQSimultaneousEdits</a>
+</li> <li> <a href="/bin/view/System/FAQTemplate">FAQTemplate</a>
+</li> <li> <a href="/bin/view/System/FAQTroubleshootingExtensions">FAQTroubleshootingExtensions</a>
+</li> <li> <a href="/bin/view/System/FAQWhatIsWikiWiki">FAQWhatIsWikiWiki</a>
+</li> <li> <a href="/bin/view/System/FrequentlyAskedQuestion">FrequentlyAskedQuestion</a>
+</li></ul> 
+<p></p>
+
+<h3 id="DBSTATS">  DBSTATS </h3>
+Compute and format a statistics on the database.
+<p></p>
+
+<strong>Syntax:</strong>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> %DBSTATS{"&lt;search&gt;" ...}% </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"&lt;search&gt;"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> query string that defines a search, see <a href="/bin/view/System/DBCacheContrib">DBCacheContrib</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>web="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> the web where to search in (default: current web) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>field(s)="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> name of one or more formfields to be extracted (default: "text") </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>process="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> macro being used to post-process field values extracted from the database; macro are escaped using standard format tokens (<code>$percnt</code>, <code>$dollar</code>, etc);                     the result is used instead of the direct field value; when extracting multiple <code>fields</code>, specific process statements might be specified using                     <code>process_&lt;field-name1&gt;</code>, <code>process_&lt;field-name2</code>, ... </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>split="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> regex split up a field value into a list before matching each item against <code>pattern</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>pattern="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> regex pattern to extract keys from the formfield(s);                     note, that before the pattern is applied the field value is split up using the <code>split</code> parameter;                     you must provide at least one grouping ("(...)") in the pattern string that           encloses the key to be extracted (default: "^(.*)$");           you may have up to five groupings in one pattern that are           accessible each in the format string </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>header="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> header format string to be prepended to the output </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>format="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string used for each key in the output </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>sep(arator)="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> separator to put between formatted keys </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>footer="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> footer format string to be appended to the output </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>sort="alpha,created"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> order of keys in the output </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>reverse="on,off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> sort keys descending or ascending </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>limit="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> maximum number of keys to be formatted in the output </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hidenull="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> flag to indicate that an empty hit set should not be displayed </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>include="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> regular expression that keys must match to be included in the output </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>exclude="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> regular expression that keys must match to be excluded from the output </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>casesensitive="on/off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> boolean to switch on/off case sensitive matching in <code>include</code> and <code>exclude</code>; defaults to off (case insensitive match) </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+The DBSTATS searches for all topics in given web and reads the given form fields.
+It then uses the <code>split</code> and <code>pattern</code> parameters to extract all keys in the data counting their occurrences.
+The result is rendered using the <code>format</code> parameter for each token found, separating them
+by <code>sep</code>, prepend the <code>header</code> and append the <code>footer</code>. Results can be sorted alphabetically
+or by createdate.
+<p></p>
+
+Format strings (<code>header</code>, <code>format</code>, <code>footer</code>) can use the following variables to insert
+the computed statistics: <ul>
+<li> $key, $key1: the found key, this must match the first group in the pattern argument
+</li> <li> $key2, $key3, $key4,$key5: second, third, etc grouping in the <code>pattern</code> argument
+</li> <li> $count: the number of occurrences of the key
+</li> <li> $index: index of the key within the sorted result set
+</li> <li> $min: minimum count found in the search
+</li> <li> $max: maximum count found in the search
+</li> <li> $sum: sum of all counts
+</li> <li> $mean: mean occurrence of a key in the result set
+</li> <li> $keys: total number of keys found
+</li> <li> $web: the web we search in
+</li> <li> $topics: the list of all topics where the keys where found
+</li></ul> 
+<p></p>
+
+For example if you want to extract all month/years from a database's <code>Date</code> field
+that has the format <code>dd mon yyyy</code> and then format a link to an archive using
+the month and the year as separate url parameters then use something like this:
+<pre>
+&#37;DBSTATS{&#34;&#60;db query&#62;&#34;
+   field&#61;&#34;Date&#34;
+   pattern&#61;&#34;((\w+) (\d\d\d\d))&#34;
+   header&#61;&#34;---++ Archive&#34;
+   format&#61;&#34;   &#42; &#60;a href&#61;&#34;...?month&#61;&#36;key2&#38;year&#61;&#36;key3&#34;&#62;&#36;key&#60;/a&#62;&#34;
+}&#37;
+</pre>
+<p class='p'>Note, that the above pattern will crop away the day. Groups can be nested counting
+them from left to right, outside to inside:  the first group matches the
+compete pattern, the second the month the third the year.</p>
+
+Post-processing field values using a <code>process</code> macro comes in handy when dealing with formfields of type <code>date</code>.
+As these are stored in epoch seconds, you might decide to format them into an appropriate way before generating statistics on its base:
+<p></p>
+
+<pre class="tml">
+&#37;DBSTATS{
+  &#34;form&#61;&#39;Invoice&#39;&#34;
+  field&#61;&#34;PaidDate&#34;
+  process&#61;&#34;&#36;percntDATETIME{\&#34;&#36;value\&#34; format&#61;\&#34;&#36;month &#36;year\&#34;}&#36;percnt&#34;
+  pattern&#61;&#34;(.&#42;?) (\d\d\d\d)&#34;
+...
+}&#37;
+</pre>
+<p class='p'>While the real value of a "PaidDate" formfield is stored in epoch seconds, statistics make more sense on a per month basis.</p>
+
+<h3 id="TOPICTITLE">  TOPICTITLE </h3>
+derive the title of a topic from a couple of properties:
+<p></p>
+
+<strong>Syntax:</strong>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> %TOPICTITLE{"&lt;topic&gt;"}% </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&lt;topic&gt;</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> topic we want the page title off, defaults to current topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>hideautoinc="on/off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> ignore/respect autoinc topic names </td>
+		</tr>
+	</tbody></table>
+<p></p>
+ <ul>
+<li> from a TOPICTITLE preference variable, or
+</li> <li> from a "TopicTitle" formfield attribute, or
+</li> <li> defaults to the topic name
+</li></ul> 
+<p></p>
+
+<h3 id="DBPREV_44_DBNEXT">  DBPREV, DBNEXT </h3>
+reference the "neigbour" documetns of an item found in a search query
+<p></p>
+
+<strong>Syntax:</strong>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> %DBPREV{"&lt;search&gt;" ... "}%*, %DBNEXT{"&lt;search&gt;" ... "}% </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"&lt;search&gt;"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> query string that defines a search, see <a href="/bin/view/System/DBCacheContrib">DBCacheContrib</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>web="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> the web where to search in (default: current web) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topic="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> the topic from where to search for neighbours (default: current topic) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>format="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> format string to render the results (default: "$web.$topic") </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>order</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> define a sorting on the hit set; see above </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>reverse="on,off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> sort keys descending or ascending </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>warn="on,off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> enable/suppress error warnings </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Results are rendered using the <code>format</code> parameter which understands the normal format tokens
+like <code>$dollar</code>, <code>$percnt</code>, <code>$nop</code> and <code>$n</code> as well as <code>$web</code> and <code>$topic</code> which refer to
+the previous or next topic in DBPREV or DBNEXT respectively.
+<p class='p'>These two macros come in handy rendering a navigation among search results found by a DBQUERY. For
+example, the following code will render a navigation as found in blog applications linking to the 
+previous and next blog entry in a list of postings ordered by created date:</p>
+
+<pre class="tml">
+&#37;DBPREV{
+  search&#61;&#34;TopicType&#61;~&#39;\bBlogEntry\b&#39; AND State !&#61; &#39;unpublished&#39; AND topic !&#61; &#39;WebTopicEditTemplate&#39;&#34; 
+  order&#61;&#34;created&#34;
+  format&#61;&#34;&#91;&#91;&#36;web.&#36;topic&#93;&#93;&#34;
+}&#37;
+&#37;DBNEXT{
+  search&#61;&#34;TopicType&#61;~&#39;\bBlogEntry\b&#39; AND State !&#61; &#39;unpublished&#39; AND topic !&#61; &#39;WebTopicEditTemplate&#39;&#34; 
+  order&#61;&#34;created&#34;
+  format&#61;&#34;&#91;&#91;&#36;web.&#36;topic&#93;&#93;&#34;
+}&#37;
+</pre>
+<p></p>
+
+(from <a class="interwikiLink" href="https://foswiki.org/Extensions/BlogPlugin" title="'Extensions/BlogPlugin' on foswiki.org">Foswiki:Extensions/BlogPlugin</a>)
+<p></p>
+
+<h2 id="Syntax_of_search_queries">  Syntax of search queries </h2>
+A search query is a boolean expression on fields of a topic. (Tip: use %DBDUMP to explore the available fields).
+<p class='p'></p>
+
+Fields are given by name, and values by strings or numbers. Strings should always be surrounded by 'single-quotes'. Strings which are regular expressions (RHS of =, != =~ operators) use 'perl' regular expression syntax (google for <code>perlre</code> for help). Numbers can be signed integers or decimals. Single quotes in values may be escaped using backslash (\).
+<p></p>
+
+The following operators are available:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/DBCachePlugin?sortcol=0;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Operator</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/DBCachePlugin?sortcol=1;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Result</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/DBCachePlugin?sortcol=2;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Meaning</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>=</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> LHS exactly matches the regular expression on the RHS. The expression must match the whole string. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>!=</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Inverse of = </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>=~</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> LHS contains RHS i.e. the RHS is found somewhere in the field value. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&lt;</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Numeric &lt; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&gt;</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Numeric &gt; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&gt;=</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Numeric &gt;= </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&lt;=</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Numeric &lt;= </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>@</code> </td>
+			<td class="foswikiTableCol1"> Node </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Access node referenced by LHS. e.g. <code>ProjectLeader@TopicTitle</code> returns the formfield <code>TopicTitle</code> of the topic stored in the formfield <code>ProjectLeader</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>lc</code> </td>
+			<td class="foswikiTableCol1"> String </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Unary lower case </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>uc</code> </td>
+			<td class="foswikiTableCol1"> String </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Unary UPPER CASE </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>d2n</code> </td>
+			<td class="foswikiTableCol1"> Number </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Convert a date string into epoch seconds </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>length</code> </td>
+			<td class="foswikiTableCol1"> Number </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Length of an array, e.g. <code>length(attachments)</code> to return the number of attachments </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>!</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Unary NOT </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>AND</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> AND </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>OR</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> OR </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>ALLOWS</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> LHS is a topic that allows to perform RHS by the current user e.g. <code>topic ALLOWS VIEW</code> is true when the current user is allowed to view the given topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>()</code> </td>
+			<td class="foswikiTableCol1"> any </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Bracketed subexpression </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>IS_DATE</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Compare two dates e.g. '1 Apr 2003' IS_DATE '1 Apr 2004' </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>EARLIER_THAN</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Date is earlier than the given date </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>EARLIER_THAN_OR_ON</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Date is earlier than, or on, the given date </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>LATER_THAN</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> LHS is later than the given date </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>LATER_THAN_OR_ON</code> </td>
+			<td class="foswikiTableCol1"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> LHS is later than the given date </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>WITHIN_DAYS</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Boolean </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Date (which must be in the future) is within n <em>working</em> days of todays date </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Examples">  Examples </h3> <ul>
+<li> Find all topics that have been last modified before 1st January 2008     <pre>&#37;DBQUERY{&#34;info.date EARLIER&#95;THAN &#39;1st January 2008&#39;&#34;}&#37;</pre>
+</li> <li> Find all topics last modified by Peter     <pre>&#37;DBQUERY{&#34;info.author &#61;~ &#39;Peter&#39;&#34;}&#37;</pre>
+</li> <li> Find all FAQs     <pre>&#37;DBQUERY{&#34;topic &#61;~ &#39;FAQ&#39;&#34;}&#37;</pre>
+</li> <li> Find all topics that have the word "random" in it (case-insensitive) excluding the current topic     <pre>&#37;DBQUERY{&#34;lc(text) &#61;~ &#39;random&#39; AND topic !&#61; &#39;DBCachePlugin&#39;&#34;}&#37;</pre>
+</li></ul> 
+<p></p>
+
+<h2 id="Perl_API">  Perl API </h2>
+<p></p>
+
+The DBCachePlugin supports overloading the contained default database cache by inheriting
+from <code>DBCachePlugin::WebDB</code> being itself a <code>DBCacheContrib</code>. The only purpose of the 
+<code>DBCachePlugin::WebDB</code> is to extract the TopicFunctions contained in a topic as described
+above. You can easily extend this functionality by deriving a WebDB specific to your
+own WikiApplication. For example, the <a class="interwikiLink" href="https://foswiki.org/Extensions.BlogPlugin" title="'Extensions.BlogPlugin' on foswiki.org">Foswiki:Extensions.BlogPlugin</a> defines a <no>WebDB of
+its own where it caches the createdate of a topic being either specified in a formfield  or
+given in the timestamp of the first revision of a topic.
+<p></p>
+
+<h3 id="DBCachePlugin_AN1"> DBCachePlugin  </h3>
+<h4 id="getDB_40_41">  getDB() </h4>
+Returns a database object used for further queries.  This function must be
+called ahead of any actual database access. If your WikiApplication is
+using a derived WebDB then use the <code>WEBDB</code> variable in your <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+to point to its implementation (example: =Set WEBDB =
+Foswiki::Plugins::BlogPlugin::WebDB=). If <code>WEBDB</code> is not defined the default
+implementation <code>Foswiki::Plugins::DBCachePlugin::WebDB</code> is used.  Note, that this
+way only one application-specific database cache can be loaded <em>per web</em>.  This
+is rather a design decision; otherwise each DBQUERY and DBCALL tag would have to
+declare which database it operated on. So currently the rule of thumb is: one
+web one WikiApplication making use of this plugin.
+<p></p>
+
+returns a database object. See the <a class="interwikiLink" href="https://foswiki.org/Extensions::DBCacheContrib" title="'Extensions::DBCacheContrib' on foswiki.org">Foswiki:Extensions::DBCacheContrib</a> documentation
+for its interfaces.
+<p></p>
+
+<h4 id="registerIndexTopicHandler_40_41">  registerIndexTopicHandler() </h4>
+This registers a function to the plugin to be called when a topic is indexed. It will then give each registered
+index handler a chance to operate on the object being indexed. This can be used to add additional info to be stored.
+<p class='p'>Example usage:</p>
+
+<pre>
+use Foswiki::Plugins::DBCachePlugin;
+
+Foswiki::Plugins::DBCachePlugin::registerIndexTopicHandler(sub {
+  my (&#36;db, &#36;obj, &#36;web, &#36;topic, &#36;meta, &#36;text) &#61; &#64;&#95;;
+
+  ...
+  &#36;obj-&#62;set(&#34;foo&#34;, &#34;bar&#34;);
+});
+</pre>
+<p></p>
+
+<h3 id="DBCachePlugin::WebDB"> DBCachePlugin::WebDB  </h3>
+This implements the database object that is used to access the topic records in
+a web. Note, that for each web there is exactly one WebDB database object.
+A database object is fetched (and initialized if needed) by the
+DBCachePlugin::getDB() function. 
+<p></p>
+
+<h4 id="dbQuery_40_41">  dbQuery() </h4>
+The DBQUERY functionality can be access from within perl using the plugins <code>dbQuery()</code> method.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> $hits = $db-&gt;dbQuery([$search, @$topics, $order, $reverse, $include, $exclude, $hits]) </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>webDB</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> database object </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>search</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> search clause </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topics</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> restrict search to this list of topics </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>order</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> define a sorting on the hit set; this can be any formfield accessor or   one of the shortcuts "created" (for createdate) or "modified" (for info.date) provided    for compatibility with default %SEARCH, or "random" </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>reverse=on,off</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> revert the sorting order </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>include</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> pattern that topic names must match to be considered a hit </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>exclude</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> pattern that topic names must <em>not</em> match to be considered a hit </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>hits</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> a result object holding all found topics; will be augmented if provided to <code>dbQuery</code> as an optional parameter </td>
+		</tr>
+	</tbody></table>
+<p class='p'>Example usage:</p>
+
+<pre>
+my &#36;db &#61; Foswiki::Plugins::DBCachePlugin::getDB(&#34;Main&#34;);
+my &#36;hits &#61; &#36;db-&#62;dbQuery(&#36;query, undef, &#36;order, &#36;reverse, &#36;include, &#36;exclude);
+
+while (my &#36;obj &#61; &#36;hits-&#62;next) {
+  my &#36;topicName &#61; &#36;obj-&#62;fastget(&#34;topic&#34;);
+  ...
+}
+</pre>
+<p></p>
+
+<h4 id="getFormField_40_41">  getFormField() </h4>
+Access the formfield value of an arbitrary topic.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> $value = $db-&gt;getFormField($topic, $formfield) </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topic</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> a topic name </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>formfield</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> a formfield name </td>
+		</tr>
+	</tbody></table>
+<p class='p'>returns the value of the named formfield</p>
+
+<h2 id="Plugin_Settings">  Plugin Settings </h2>
+See also <a href="/bin/view/System/DBCacheContrib">DBCacheContrib</a> for additional configuration settings.
+<p></p>
+
+Each web can specify an alternative implementation inheriting from DBCachePlugin::WebDB.
+To specify it you have to set the <code>WEBDB</code> variable in the <a href="/bin/view/System/WebPreferences">WebPreferences</a>. The default is <code>Foswiki::Plugins::DBCachePlugin::WebDB</code>
+<p></p>
+
+<h3 id="MemoryCache"> MemoryCache </h3>
+If <code>$Foswiki::cfg{DBCache}{MemoryCache}</code> is set to FALSE (defaults to TRUE)
+the dbcache once loaded into memory will stay there among multiple requests.
+This option only has an effect using speedy/perperl or fastcgi setups.
+<p></p>
+
+<h3 id="SecureTopicTitles"> SecureTopicTitles </h3>
+When enabling <code>$$Foswiki::cfg{SecureTopicTitles}</code>, TopicTitles will only be used as a link text in WikiWords
+when the user has got view access to the target topic.
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<div class="foswikiWarningMessage">
+WARNING: before using DBCachePlugin on your site do take down your web server and run
+<p></p>
+
+<code>cd <foswiki-root>/bin; ./rest /DBCachePlugin/updateCache</code>
+<p></p>
+
+to generate all caches initially. Then switch on the web server again. The cache will be maintained
+automatically from there on.
+</div>
+<p></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Contrib::DBCacheContrib</td><td align="left">&gt;=5.00</td><td align="left">Required</td></tr><tr><td align="left">Storable</td><td align="left">&gt;=2.07</td><td align="left">Required</td></tr><tr><td align="left">Sereal</td><td align="left">&gt;=3.00</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::TopicTitlePlugin</td><td align="left">&gt;1.00</td><td align="left">Required for Foswiki &lt; 2.2</td></tr></table> 
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<p></p>
+
+<table class="foswikiTable" id="tableDBCachePlugin11" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 May 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> performance improvements </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Nov 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>process</code> parameter to <code>DBSTATS</code> to post-process field values before generating statistics;                   return the empty string instead of ??? when parsing an empty or zero time value;                   disabled dependency injection of <code>DBSTATS</code> into the page cache for performance reasons (still there for <code>DBQUERY</code>);                   added <code>nullformat</code> parameter to <code>DBQUERY</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Oct 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> rationalized handing date data </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 May 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> remove local implementation of TopicTitle; depend on TopicTitlePlugin instead;                   new parameter <code>dateformat</code> for <code>DBQUERY</code>; performance improvements in <code>DBQUERY</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Feb 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> extend <code>$expand()</code> to return a multi-value reference formfield to return all values </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Dec 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> only set the link text of WikiWords if there actually <em>is</em> a TopicTitle for it; set the <code>TopicTitleEnabled</code> context for natedit </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Jul 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed restricted search; added random sorting of search results; performance improvements re-loading cache files; fixed "Can't use string as a HASH ref"; added <code>length()</code> function to formating </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> oo-ify core and other code cleanup </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jul 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> make use of clean-up feature of latest DBCacheContrib; performance improvements </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Mar 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed use of uninitialized variable in sorting code;                   add support for Inheritance field in <a class="interwikiLink" href="https://foswiki.org/Extensions/WikiWorkbenchContrib" title="'Extensions/WikiWorkbenchContrib' on foswiki.org">Foswiki:Extensions/WikiWorkbenchContrib</a>;                  added <code>warn</code> parameter to all macros to switch off warnings optionally;                   bail out of recursions earlier when walking in circles </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed creation of web pattern based on webs param to DBQUERY </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> new perl api to register index handlers;                   moved indexing meta comments to <a class="interwikiLink" href="https://foswiki.org/Extensions/MetaCommentPlugin" title="'Extensions/MetaCommentPlugin' on foswiki.org">Foswiki:Extensions/MetaCommentPlugin</a>;                  fixed fallback of polymorphic calling semantics of DBCALL{topic-&gt;method} </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Aug 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added support for DBQUERY of multiple webs </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 May 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>sections</code> to database, a list of known named sections </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Mar 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixing interaction between DBDUMP generating a heading and <a class="interwikiLink" href="https://foswiki.org/Extensions/EditChapterPlugin" title="'Extensions/EditChapterPlugin' on foswiki.org">Foswiki:Extensions/EditChapterPlugin</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Jan 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>$html()</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Nov 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed security of rest handlers and DBDUMP macro </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 May 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented new ACL style compatible with Foswiki &gt;= 1.2 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Apr 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> flag rest handlers that don't require authentication </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Dec 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed @Ref operator </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Aug 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed crashes when calling API on non-existing web </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jul 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed crashing page when trying to load a cache for a non-existing sub-web </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Jul 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed computing a hash key for a sub-web on MS Windows due to differences in Cwd::abs_path </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jul 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed querying non-standard %META data;                   improved %DBDUMP to show non-standard %META data </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 May 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed <code>updateCache</code> rest handler to pick up changes on the filesystem reliably </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Apr 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented $lc and $uc as documented;                   fixed default TopicTitle for a WebHome being the web name with parent webs stripped off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Mar 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed formatting results in DBRECURSE </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Mar 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed op_ref in search queries; fixed $flatten() </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Mar 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> make preferences searchable by caching them into a map instead of an array </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Jan 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed loading cache from disk again on a change </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jan 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> a lot of performance improvements </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Nov 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> topic title of webhomes now defaults to the web name instead of the topic name </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Nov 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved save performance on large webs </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Oct 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> handle bad date formfields more gracefully </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jan 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented TopicTitles protected by access control rights </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jan 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented DBPREV and DBNEXT;                   rationalized rendering TopicTitles instead of the normal WikiWord linktext;                   improved <code>$flatten()</code> to look nicer;                   fixed sorting search results by multiple keys </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Aug 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed dbcache index not build properly when creating a new web;                   improved flatten() to weed out more;                   fixed indexing of non-existing webs due to mal-formed urls </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed error where empty sections were confused with non-existing sections </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Nov 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> moved ATTACHMENTS over to <a class="interwikiLink" href="https://foswiki.org/Extensions/TopicInteractionPlugin" title="'Extensions/TopicInteractionPlugin' on foswiki.org">Foswiki:Extensions/TopicInteractionPlugin</a>;                   added API to temporarily disable update handlers;                   fixed afterSaveHandler to properly update when attachments change </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Nov 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed to work with virtual hosts;                   added $quot formatting token;                   support non-ascii characters in $formfield(...) -- <a class="interwikiLink" href="https://foswiki.org/Main/AntonioTerceiro" title="'Main/AntonioTerceiro' on foswiki.org">Foswiki:Main/AntonioTerceiro</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Jul 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added Config.spec to ease configuration, i.e. memory caching;                   added documentation for <code>$sum</code>;                    added support for <a class="interwikiLink" href="https://foswiki.org/Extensions/MetaCommentPlugin" title="'Extensions/MetaCommentPlugin' on foswiki.org">Foswiki:Extensions/MetaCommentPlugin</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Feb 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> ATTACHMENTS can now list old revisions of an attachment </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Nov 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed incremental cache updates;                   exclude autoinc pattern in TOPICTITLE;                   properly combine header, body and footer in DBQUERY to support CALC;                   added <code>split</code> and <code>casesensitive</code> to DBSTATS;                   added support for standard escapes in DBQUERY's <code>sort</code>;                   added <code>$d2n()</code> , <code>$uc()</code>, <code>$lc()</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Jul 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> optimed cache maintenance cycles by making use of new <code>loadTopic()</code> api in DBCacheContrib </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Jun 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> final detwikification; added compatibility hack for current Foswiki/trunk </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Jun 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Crawford Currie: reverted to using DBCacheContrib </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Jan 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> internalized compatible version of <a href="/bin/view/System/DBCacheContrib">DBCacheContrib</a>;                   added limit to ATTACHMENTS and a few more ways to sort them </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jan 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> new global variable <code>dbQueryCurrentWeb</code> being set during a DBQUERY so that                   external predicates that depend on the web information can make use of it;                   renderWikiWord also displays topic titles for explicit links where the link text                   equals the topic name; internalized urlDecode and parseTime for                   compatibility reasons; fixed info.author for newer foswiki engines </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Dec 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>MemoryCache</code> flag to switch off memory persistence </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Dec 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> working around issue in the Foswiki parse                   where an undefined <code>%VAR%</code> in parametrized includes                   is expanded to VAR instead of                   leaving it to <code>%VAR%</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Sep 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> expanding common variables in footers and headers </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Jul 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed calculation of a topic title;                   disabled <code>renderWikiWordHandler</code> for legacy wiki engines,                   so not replacing the WikiName with its TopicTitle </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Apr 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented TopicMethods in DBCALL </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Feb 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> addded <code>rss()</code> feature to format strings </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 4 Jan 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item5319: fix empty separator </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Dec 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> renamed PAGETITLE to TOPICTITLE, matching formfield TopicTitle </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Dec 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added PAGETITLE, defaulting to BASEWEB instead of INCLUDINGWEB in all of the tags </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Nov 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> protect against data store pollution, at least don't die </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Sep 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> made significant speedups to DBQuery                   fixed sorting to be O(N log(N))         removed topic access check unless absolutly necessary                   - <a href="mailto&#58;SvenDowideit&#64;home&#46;org&#46;au">SvenDowideit&#64;home.org.au</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Jun 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added compatibility hack to display users as WikiNames;                   added expand(%TML%) feature </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 May 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed loading db cache file since recent changes in DBCacheContrib </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Apr 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed $date(format) in ATTACHMENTS;                   fixed 'segfault' in DBRECURSE while formatting sub-results </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Feb 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> multiple enhancements to the ATTACHMENTS tag (e.g. icons, actions) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jan 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed caching "web" property of topics;                   fixed DBDUMP of topics w/o attachments;                  added numerical sorting of formfields;                   added support for the Foswiki::Cache;                   added new tag DBRECURSE to itterate along topic relations </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Jan 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added ATTACHMENTS tag </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Nov 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed bug where a topic modification was not detected correctly resulting                   in an outdated cache when using perl accelerators;                   added pseudo-variable <code>$topics</code> to DBSTATS to list                   all topics in a class; added DESTROY methods for caches fixing memory leakage;                   fixed expansion order of pseudo-variable;                   speed improved DBQUERY by first checking the match and access rights                   afterwards (thanks to CDot) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Oct 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> don't use the separator for header and footer format strings;                   fix links in DBQUERY the same way we do it in DBCALL;         added <code>remote</code> parameter to switch on/off fixing links in         transcluded content;         expansion of <code>$nop</code> and <code>$n</code> in that order </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Sep 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> DBQUERY and DBSTATS did not obey access rights </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Sep 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added $key1...$key5 to the pattern matcher and formatter </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Sep 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> properly fixed parsing $trunc,$flatten and $encode in format strings;                   multiple fixes for calls and formatting accross webs </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Aug 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added NO_PREFS_IN_TOPIC; fixed possibly insecure eval </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Aug 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed parsing $trunc() and $flatten() in format strings </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 June 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> generate an inline error instead of an oops on a bad search string to DBQUERY </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Mai 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> don't segfault on uncompiled WebDB implementations </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Mar 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added WebDB property createdate formerly only known by the BlogPlugin;                  dont choke if DBDUMPing a non-existing topic; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Mar 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added $trunc() </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Mar 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> using Foswiki::Attrs to parse section names </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Mar 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added hidenull to DBSTATS </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Mar 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> use ENV instead of the CGI object to detect the current cgi action </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Mar 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed bad init error showing up on speedy/mod_perl </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Mar 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added DBSTATS tag;                   modularized the plugin for delayed compilation </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Feb 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> don't use the query object in scripted mode </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Feb 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> forcing to reload the database after a save </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Feb 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> more performance on mod_perl/speedy_cgi:                   don't reload the topic cache if it hasn't changed </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Jan 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed INCLUDING(WEB,TOPIC) in DBCALL;                   don't apply glue in advance anymore when storing topic sections,         it's serving a better purpose when done during a DBCALL </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Jan 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed internal links in DBCALL;                   support for STARTSECTION, old SECTION being deprecated </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 24 Nov 2005: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Initial version </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/DBCachePlugin?t=1627664469;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> Michael Daum </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 12.11 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 2 May 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Lightweighted frontend to the DBCacheContrib </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/DBCachePlugin">https://github.com/foswiki/DBCachePlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> 2005-2019, Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a class="interwikiLink" href="https://foswiki.org/Extensions/DBCachePlugin" title="'Extensions/DBCachePlugin' on foswiki.org">Foswiki:Extensions/DBCachePlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Support/DBCachePlugin" title="'Support/DBCachePlugin' on foswiki.org">Foswiki:Support/DBCachePlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/DBCachePlugin?t=1627664469' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/DBCachePlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DBCachePlugin?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/DBCachePlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r7&nbsp;<a href="/bin/diff/System/DBCachePlugin?rev1=6;rev2=7" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/DBCachePlugin?rev=6" rel="nofollow">r6</a>&nbsp;<a href="/bin/diff/System/DBCachePlugin?rev1=5;rev2=6" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/DBCachePlugin?rev=5" rel="nofollow">r5</a>&nbsp;<a href="/bin/diff/System/DBCachePlugin?rev1=4;rev2=5" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/DBCachePlugin?rev=4" rel="nofollow">r4</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DBCachePlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DBCachePlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/DBCachePlugin?t=1627664469;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DBCachePlugin?template=more&amp;maxrev=7&amp;currrev=7' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r7 - 02 May 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/DBCachePlugin?foswiki_origin=GET%2cview%2c/bin/view/System/DBCachePlugin">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.DBCachePlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

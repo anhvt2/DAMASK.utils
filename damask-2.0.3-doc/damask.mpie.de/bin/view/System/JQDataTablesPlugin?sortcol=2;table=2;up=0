@@ -1,0 +1,1396 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> JQDataTablesPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/JQDataTablesPlugin?t=1627669867" type="application/x-wiki" title="edit JQDataTablesPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/JQDataTablesPlugin" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableJQDataTablesPlugin4 {width:100%}
+body .foswikiTable#tableJQDataTablesPlugin4 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableJQDataTablesPlugin4 th.foswikiTableCol0 {width:7em}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/a7b8f3908609d9434d7b9dc97d2b4f80.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::DATATABLES JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::I18N' src='/pub/System/JQueryPlugin/plugins/i18n/i18n.js?version=1.1'></script>
+<script class='script JQUERYPLUGIN::MOMENT' src='/pub/System/JQMomentContrib/moment.js?version=2.23.0'></script>
+<script class='script JQUERYPLUGIN::DATATABLES' src='/pub/System/JQDataTablesPlugin/jquery.datatables.js?version=1.10.18'></script>
+<script class='script JQUERYPLUGIN::DATATABLES' src='/pub/System/JQDataTablesPlugin/jquery.datatables.addons.js?version=1.10.18'></script>
+<script class='script JQUERYPLUGIN::DATATABLESSELECT' src='/pub/System/JQDataTablesPlugin/Select/js/dataTables.select.min.js?version=1.3.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script DATATABLES::EN::I8N' type='application/l10n' data-i18n-language='en' data-i18n-namespace='DATATABLES' src='/pub/System/JQDataTablesPlugin/i18n/en.js' ></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "USERNAME" : "guest",
+   "COOKIEREALM" : "",
+   "USERSWEB" : "Main",
+   "TOPIC" : "JQDataTablesPlugin",
+   "SKIN" : "damask,famfamfam,pattern",
+   "WIKINAME" : "WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WEB" : "System",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTSUFFIX" : "",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SERVERTIME" : "30 Jul 2021 - 20:31",
+   "SYSTEMWEB" : "System"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/JQDataTablesPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?3861ba5d8af3bdcc7a39a3ddf82b2a31' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/JQDataTablesPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?cf9d047f0cac1c3d6f4971e89180fcca' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.JQDataTablesPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.JQDataTablesPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/JQDataTablesPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/JQDataTablesPlugin" title='Topic revision: 1 (01 Jul 2019 - 10:49:00)'>JQDataTablesPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/JQDataTablesPlugin?t=1627669867;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/JQDataTablesPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/JQDataTablesPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/JQDataTablesPlugin?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=JQDataTablesPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/JQDataTablesPlugin?cover=print;sortcol=2;table=2;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/JQDataTablesPlugin?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="JQDataTablesPlugin">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQDataTablesPlugin">JQDataTablesPlugin</a> </h1>
+JQuery based progressive enhancement of tables
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=2;table=2;up=0#Overview"> Overview </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#DATATABLE"> DATATABLE </a> <ul>
+<li> <a href="?sortcol=2;table=2;up=0#Special_column_names"> Special column names </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=2;up=0#HTML5"> HTML5 </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#Examples"> Examples </a> <ul>
+<li> <a href="?sortcol=2;table=2;up=0#List_of_PackageForm_topics"> List of PackageForm topics </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#Selecting_topics"> Selecting topics </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#Coloring_rows_using_inline_CSS"> Coloring rows using inline CSS </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#Coloring_rows_using_classes"> Coloring rows using classes </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#HTML5_simple_example"> HTML5 simple example </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#HTML5_formatted_search"> HTML5 formatted search </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#HTML5_client_side_sorting"> HTML5 client side sorting </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=2;up=0#Installation"> Installation </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#Dependencies"> Dependencies </a>
+</li> <li> <a href="?sortcol=2;table=2;up=0#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Overview">  Overview </h2>
+<p></p>
+
+This plugin implements a widget to enhance normal HTML tables with extra navigation features such as sorting, filtering and paginating through
+datasets. The %DATATABLE macro is specifically tailored towards datasets created on the base of <a href="/bin/view/System/DataForms">DataForms</a>. It lets you
+easily compile an overview of data of that kind stored in a web as well as select specific records for further use in wiki apps.
+<p></p>
+
+<a class="foswikiCurrentTopicLink" href="/bin/view/System/JQDataTablesPlugin">JQDataTablesPlugin</a> can be used in two distinct ways:
+<p></p>
+ <ul>
+<li> by means of the %DATATABLE macro
+</li> <li> by means of HTML5 and JSON to enhance HTML tables directly
+</li></ul> 
+<p class='p'>%DATATABLE takes a pointer to a DataForm definition and then creates a table based on the known formfields in that definition to create columns
+of a kind matching the formfield types. It then uses a connector fetch the data from the backend. There are several kinds of connectors available
+at the moment based on the additional functionality installed on your Foswiki:</p>
+ <ul>
+<li> <code>search</code>: this one uses the normal native search feature of Foswiki also used by the %SEARCH macro
+</li> <li> <code>dbcache</code>: this one uses <a class="interwikiLink" href="https://foswiki.org/Extensions/DBCachePlugin" title="'Extensions/DBCachePlugin' on foswiki.org">DBCachePlugin</a> which is implementing a faster still native search, also available via its %DBQUERY macro
+</li> <li> <code>solr</code>: this connector uses the <a class="interwikiLink" href="https://foswiki.org/Extensions/SolrPlugin" title="'Extensions/SolrPlugin' on foswiki.org">SolrPlugin</a> which uses a Solr fulltext search engine integrated into Foswiki.
+</li></ul> 
+<p></p>
+
+A default connector can be defined as required. Note however, that even though %DATATGABLE tries to hide the differences of available connectors
+behind the scene, connectors will behave differently, i.e. when it comes to filtering. Also, performance is vastly different with the <code>search</code> connector being the slowest
+one. It is strongly recommended that you at least install <a class="interwikiLink" href="https://foswiki.org/Extensions/DBCachePlugin" title="'Extensions/DBCachePlugin' on foswiki.org">DBCachePlugin</a> for acceptable performance in every-day usage.
+<p></p>
+
+<h2 id="DATATABLE">  DATATABLE </h2>
+<p></p>
+
+Using a %DATATABLE you can query a set of topics and display their structured data in a dynamic table. Results are best when querying structured data attached to your topics
+as each formfield defined in the <a href="/bin/view/System/DataForms">DataForm</a> directly correlates to a column in the generated table. In this case you may specify the form definition
+in the <code>form</code> parameter and formfields in the <code>columns</code> parameter. The %DATATABLE will then use this information to properly display formfield values as well as sort columns
+along the technical representation. For example a date formfield will properly be displayed according to your locale's date format while sorting by date uses date values represented
+as epoch seconds.
+<p></p>
+
+Syntax: <code>%DATATABLE{"&lt;query&gt;" parameter="..." parameter="..." ...}%</code>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&lt;query&gt;</code>, <code>query</code> </td>
+			<td class="foswikiTableCol1"> specify a search query to filter rows on the server-side; NOTE: the query language might vary depending on the <code>connector</code> being used, e.g. <code>dbcache</code> vs <code>search</code> vs <code>solr</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>connector</code> </td>
+			<td class="foswikiTableCol1"> connector to be used to fetch data dynamically from the backend; possible values are <code>search</code> (using Foswiki's native %SEARCH), <code>dbcache</code> (needs <a class="interwikiLink" href="https://foswiki.org/Extensions/DBCachePlugin" title="'Extensions/DBCachePlugin' on foswiki.org">Foswiki:Extensions/DBCachePlugin</a>), <code>solr</code> (needs <a class="interwikiLink" href="https://foswiki.org/Extensions/SolrPlugin" title="'Extensions/SolrPlugin' on foswiki.org">Foswiki:Extensions/SolrPlugin</a>), additional connectors may be implemented by plugins; NOTE: for general-purpose search <code>dbcache</code> is the best choice </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> defined in <code>$Foswiki::cfg{JQDataTablesPlugin}{DefaultConnector}</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>class</code> </td>
+			<td class="foswikiTableCol1"> additional css class to be added to the widget in addition to <code>foswikiTable</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>width</code> </td>
+			<td class="foswikiTableCol1"> width of table, e.g. <code>100%</code> and the like </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>web</code>, <code>webs</code> </td>
+			<td class="foswikiTableCol1"> web or list of webs to query for data </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> current web </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>form</code> </td>
+			<td class="foswikiTableCol1"> data form definition </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>paging</code>, <code>pager</code> </td>
+			<td class="foswikiTableCol1"> switch on/off paging data; NOTE: this parameter is deactivated when <code>scrolling</code> is specifed as well (see <span class='externalLink'><a href="https://datatables.net/reference/option/paging">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>pagelength</code>, <code>rows</code> </td>
+			<td class="foswikiTableCol1"> number of rows to be displayed when <code>paging</code> is enabled (see <span class='externalLink'><a href="https://datatables.net/reference/option/pageLength">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>10</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>lengthmenu</code> </td>
+			<td class="foswikiTableCol1"> switches on a menu element to change the page length (see <span class='externalLink'><a href="https://datatables.net/reference/option/lengthMenu">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>[10, 25, 50, 100]</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>scrolling</code>, <code>scroller</code> </td>
+			<td class="foswikiTableCol1"> switch on/off dynamic scrolling; data will be fetched from the backend as you are scrolling up and down; NOTE: this parameter disables <code>paging</code> as these two features are mutual exclusive </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>searching</code> </td>
+			<td class="foswikiTableCol1"> switch on/off the global search box (see <span class='externalLink'><a href="https://datatables.net/reference/option/searching">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>searchmode</code> </td>
+			<td class="foswikiTableCol1"> defines how to search, either using one search box covering all columns (<code>global</code>), or using one search box per column (<code>multi</code>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>global</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>searchdelay</code> </td>
+			<td class="foswikiTableCol1"> delay before changes in a search box will cause new data to be fetched from the backend </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>400</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>sort</code> </td>
+			<td class="foswikiTableCol1"> specifies the column for initial ordering (see <span class='externalLink'><a href="https://datatables.net/reference/option/order">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> first column </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>reverse</code> </td>
+			<td class="foswikiTableCol1"> specifies the initial ordering direction </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>savestate</code> </td>
+			<td class="foswikiTableCol1"> switch on/off remembering the state the datatable was in when coming back to the page; this includes sorting, paging as well as filtering; state information is stored in the browser's session store, that is state information is specific to the browser tab; closing a browser tab will purge all state infos of datatables with it </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>info</code> </td>
+			<td class="foswikiTableCol1"> switch on/off the info about the number of rows in the set (see <span class='externalLink'><a href="https://datatables.net/reference/option/info">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>ordering</code> </td>
+			<td class="foswikiTableCol1"> switch on/off the ability to sort the table by clicking on a column header (see <span class='externalLink'><a href="https://datatables.net/reference/option/ordering">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>on</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>scrollx</code> </td>
+			<td class="foswikiTableCol1"> switch on/off horizontal scrolling (see <span class='externalLink'><a href="https://datatables.net/reference/option/scrollX">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>scrolly</code> </td>
+			<td class="foswikiTableCol1"> specify vertical scrolling (see <span class='externalLink'><a href="https://datatables.net/reference/option/scrollY">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>scrollcollapse</code> </td>
+			<td class="foswikiTableCol1"> switch on/off collapsing of the table height on small data sets (see <span class='externalLink'><a href="https://datatables.net/reference/option/scrollCollapse">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>columns</code> </td>
+			<td class="foswikiTableCol1"> comma-separated list of formfield names to be displayed; see the notes on special columns below </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> all formfields of the DataForm specified by <code>form</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rowgroup</code> </td>
+			<td class="foswikiTableCol1"> comma-separated list of columns that should be used to create groups of rows </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>selecting</code> </td>
+			<td class="foswikiTableCol1"> switch on/off <span class='externalLink'><a href="https://datatables.net/extensions/select/">select extension</a></span> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>selectproperty</code> </td>
+			<td class="foswikiTableCol1"> specifies the property of a row to be selected when <code>selection</code> is enabled </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>topic</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>selectmode</code> </td>
+			<td class="foswikiTableCol1"> possible values are <code>os</code>, <code>single</code>, <code>multi</code>, this specifies the way a selection is made (see <span class='externalLink'><a href="https://datatables.net/reference/option/select.style">docu</a></span>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>multi</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>responsive</code> </td>
+			<td class="foswikiTableCol1"> switch on/off <span class='externalLink'><a href="https://datatables.net/extensions/responsive/">responsive extension</a></span> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>fixedheader</code> </td>
+			<td class="foswikiTableCol1"> switch on/off <span class='externalLink'><a href="https://datatables.net/extensions/fixedheader/">fixed header extension</a></span> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hidecolumns</code> </td>
+			<td class="foswikiTableCol1"> comma-separated list of columns to hide from the output; while hidden column data is still fetched available for further processing such as grouping or styling a row </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rowclass</code> </td>
+			<td class="foswikiTableCol1"> javascript function that is supposed to return a css class when a row is rendered; the string returned is added as a class to the row elements of the table </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rowcss</code> </td>
+			<td class="foswikiTableCol1"> javascript function that is supposed to return a string or an object to apply inline css to all cells of a row </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>autocolor</code> </td>
+			<td class="foswikiTableCol1"> comma-separted list of columns to auto-color based on the cell content; note this needs the <a class="interwikiLink" href="https://foswiki.org/Extensions/JQAutoColorContrib" title="'Extensions/JQAutoColorContrib' on foswiki.org">JQAutoColorContrib</a> to be installed and activated </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&lt;field-name&gt;_title</code> </td>
+			<td class="foswikiTableCol1"> a column title for a given <code>field-name</code>, e.g. <code>ProjectState_title="State"</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> name of the formfield as specified in <code>columns</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>&lt;field-name&gt;_width</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> column width for a given field, e.g. <code>ProjectID_width=5em</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Special_column_names">  Special column names </h3>
+<p></p>
+
+In general column names specified in the <code>columns</code> parameter of the %DATATABLE parameter directly relate to a formfield of an attached DataForm. Values are displayed and sorted according the the type of 
+the formfield. There are however a few column names that have a special meaning or trigger an additional behavior on data in this column:
+<p></p>
+ <ul>
+<li> <code>index</code>: this is an auto-generated column enumerating the rows in a table
+</li> <li> <code>Date</code>, <code>Changed</code>, <code>Modified</code>, <code>Created</code>, <code>info.date</code>, <code>createdate</code>: these fields are all date fields and treated accordingly 
+</li> <li> <code>Topic</code>: alias for <code>topic</code>
+</li> <li> <code>TopicTitle</code>: displays the TopicTitle of a topic linking to it 
+</li> <li> <code>By</code>: alias for author of recent topic revision
+</li> <li> <code>Creator</code>, <code>createauthor</code>, <code>info.author</code>: author if the initial topic revision
+</li> <li> <code>publishauthor</code>: author that published the topic, defaults to <code>createauthor</code> in case there is no explicit <code>Author</code> field in the form
+</li> <li> <code>publishdate</code>: date when the <code>publishauthor</code> created the initial revision, defaults to <code>createdate</code> in case there is no explicut <code>PublishDate</code> field in the form
+</li> <li> <code>Worflow</code>: name of the workflow assigned to a topic
+</li> <li> A column name starting with a <code>/</code> (slash) will be excluded from any special treatment, i.e. <code>/Author</code> will <em>not</em> be interpreted as the author of the recent topic revision, but as the <code>Author</code> formfield of a DataForm (see below example).
+</li></ul> 
+<p></p>
+
+<h2 id="HTML5">  HTML5 </h2>
+<p></p>
+
+A data table can also be applied to an already existing table enhancing it with additional features such as paging, client-side sorting, searching etc.
+This is done by wrapping your tables into a <code>.jqDataTablesContainer</code> div element and specify additional parameters using HTML5 data attributes
+<p></p>
+
+<pre class="tml">
+&#37;JQREQUIRE{&#34;datatables&#34;}&#37;
+&#60;div class&#61;&#34;jqDataTablesContainer&#34; data-paginate&#61;&#34;true&#34; data-searching&#61;&#34;true&#34; data-info&#61;&#34;true&#34;&#62;
+&#124; &#42;Header&#42; &#124; &#42;Header&#42; &#124; &#42;Header&#42; &#124; &#42;Header&#42; &#124;
+&#124; Data &#124; Data &#124; Data &#124; Data &#124;
+&#124; Data &#124; Data &#124; Data &#124; Data &#124;
+&#124; Data &#124; Data &#124; Data &#124; Data &#124;
+&#124; Data &#124; Data &#124; Data &#124; Data &#124;
+&#60;/div&#62;
+</pre>
+<p></p>
+
+See <a href="http://datatables.net/reference/index">http://datatables.net/reference/index</a> for a full list of all options.
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<p></p>
+
+<h3 id="List_of_PackageForm_topics">  List of <a href="/bin/view/System/PackageForm">PackageForm</a> topics </h3>
+Below example lists all topics in the System web that have the <a href="/bin/view/System/PackageForm">PackageForm</a> attached to it:
+<p></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;example3&#34;}&#37;
+&#37;DATATABLE{
+   web&#61;&#34;&#37;SYSTEMWEB&#37;&#34;
+   form&#61;&#34;&#37;SYSTEMWEB&#37;.PackageForm&#34;
+   paging&#61;&#34;on&#34;
+   searching&#61;&#34;on&#34;
+   info&#61;&#34;on&#34;
+   pagelength&#61;&#34;10&#34;
+   lengthmenu&#61;&#34;5, 10, 20, 50, 100&#34;
+   columns&#61;&#34;index, Topic, Description, Version, Release, /Author&#34;
+}&#37;
+&#37;ENDSECTION{&#34;example3&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<div class='jqDataTablesContainer' data-paging='true' data-searching='true' data-search-mode='global' data-info='true' data-scroll-x='false' data-scroll-collapse='false' data-search-delay='400' data-length-change='true' data-length-menu='[5,10,20,50,100]' data-page-length='10' data-order='[[0,"asc"]]' data-columns='[{"data":"index","name":"index","visible":true,"render":{"display":"display","_":"raw"},"orderable":false,"title":"","searchable":false},{"visible":true,"name":"Topic","data":"Topic","orderable":true,"render":{"_":"raw","display":"display"}},{"visible":true,"data":"Description","name":"Description","orderable":true,"render":{"display":"display","_":"raw"}},{"render":{"_":"raw","display":"display"},"orderable":true,"data":"Version","name":"Version","visible":true},{"render":{"display":"display","_":"raw"},"orderable":true,"name":"Release","data":"Release","visible":true},{"render":{"display":"display","_":"raw"},"orderable":true,"visible":true,"data":"/Author","name":"/Author","title":"Author"}]' data-server-side='true' data-ajax='{"type":"post","data":{"topic":"System.JQDataTablesPlugin","webs":"System","connector":"search","form":"System.PackageForm","t":1627669867},"url":"https://damask.mpie.de/bin/rest/JQDataTablesPlugin/connector"}'>
+<table class='foswikiTable ' >
+  <thead><tr>
+<th>index</th>
+<th>Topic</th>
+<th>Description</th>
+<th>Version</th>
+<th>Release</th>
+<th>/Author</th>
+</tr></thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Selecting_topics">  Selecting topics </h3>
+<p></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;example4&#34;}&#37;
+&#60;form action&#61;&#34;&#37;SCRIPTURLPATH{&#34;view&#34;}&#37;/&#37;WEB&#37;/&#37;TOPIC&#37;&#34; method&#61;&#34;post&#34;&#62;
+&#37;DATATABLE{
+   web&#61;&#34;System&#34;
+   class&#61;&#34;foswikiFlatTable foswikiStripes&#34;
+   form&#61;&#34;&#37;SYSTEMWEB&#37;.PackageForm&#34;
+   sort&#61;&#34;TopicTitle&#34;
+   columns&#61;&#34;index, TopicTitle, Description, /Author, Changed&#34;
+   TopicTitle&#95;title&#61;&#34;Title&#34; 
+   info&#61;&#34;on&#34;
+   paging&#61;&#34;on&#34; 
+   rows&#61;&#34;10&#34;
+   selecting&#61;&#34;on&#34;
+   selectmode&#61;&#34;multi&#34;
+   selectproperty&#61;&#34;Topic&#34;
+   selection&#61;&#34;&#37;URLPARAM{&#34;Topic&#34;}&#37;&#34;
+}&#37;
+&#37;BUTTON{&#34;&#37;TRANSLATE{&#34;Submit&#34;}&#37;&#34; type&#61;&#34;submit&#34; icon&#61;&#34;tick&#34;}&#37;
+&#60;/form&#62;
+&#37;ENDSECTION{&#34;example4&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<form action="/bin/view/System/JQDataTablesPlugin" method="post" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?ced19de2e51d1f415c4506dd387ff36e' />
+
+<div class='jqDataTablesContainer' data-paging='true' data-searching='false' data-search-mode='global' data-info='true' data-scroll-x='false' data-scroll-collapse='false' data-search-delay='400' data-page-length='10' data-select='{"style":"multi","property":"Topic"}' data-order='[[3,"asc"]]' data-columns='[{"name":"Topic","data":"Topic","visible":false},{"name":"null","data":"null","orderable":false,"searchable":false},{"render":{"display":"display","_":"raw"},"orderable":false,"name":"index","data":"index","visible":true,"searchable":false,"title":""},{"title":"Title","visible":true,"data":"TopicTitle","name":"TopicTitle","render":{"_":"raw","display":"display"},"orderable":true},{"visible":true,"name":"Description","data":"Description","render":{"_":"raw","display":"display"},"orderable":true},{"name":"/Author","data":"/Author","visible":true,"orderable":true,"render":{"display":"display","_":"raw"},"title":"Author"},{"orderable":true,"render":{"sort":"epoch","_":"raw","display":"display"},"data":"Changed","name":"Changed","visible":true}]' data-server-side='true' data-ajax='{"type":"post","url":"https://damask.mpie.de/bin/rest/JQDataTablesPlugin/connector","data":{"t":1627669867,"form":"System.PackageForm","connector":"search","webs":"System","topic":"System.JQDataTablesPlugin"}}'>
+<table class='foswikiTable foswikiFlatTable foswikiStripes' >
+  <thead><tr>
+<th>Topic</th>
+<th><input type='checkbox' class='selectAll' /></th>
+<th>index</th>
+<th>TopicTitle</th>
+<th>Description</th>
+<th>/Author</th>
+<th>Changed</th>
+</tr></thead>
+  <tbody>
+  </tbody>
+</table><input type='hidden' name='Topic' class='selectInput' />
+</div>
+
+<p></p>
+
+<a  class='jqButton  jqSubmitButton' href='#'><span class='jqButtonIcon img' style='background-image:url(/pub/System/FamFamFamSilkIcons/tick.png)'></span><span class='jqButtonText'>Submit</span></a><input type='submit' style='display:none' />
+</form>
+<p class='p'></p>
+
+<h3 id="Coloring_rows_using_inline_CSS">  Coloring rows using inline CSS </h3>
+<p></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;example5&#34;}&#37;
+&#37;DATATABLE{
+   query&#61;&#34;form~&#39;FAQForm&#39; AND topic!&#61;&#39;FAQTemplate&#39;&#34;
+   class&#61;&#34;foswikiFlatTable foswikiTable foswikiStripes&#34;
+   web&#61;&#34;&#37;SYSTEMWEB&#37;&#34;
+   paging&#61;&#34;on&#34;
+   columns&#61;&#34;Topic,TopicSummary,TopicClassification,Changed&#34;
+   TopicSummary&#95;title&#61;&#34;Summary&#34;
+   TopicClassification&#95;title&#61;&#34;Category&#34;
+   RelatedTopics&#95;title&#61;&#34;Related&#34;
+   rows&#61;&#34;10&#34;
+   sort&#61;&#34;TopicSummary&#34;
+   ordering&#61;&#34;off&#34;
+   searching&#61;&#34;on&#34;
+   rowcss&#61;&#34;var css &#61; { 
+      &#39;SupportQuestion&#39;: &#39;#FFC107y&#39;, 
+      &#39;FrequentlyAskedQuestion&#39;: {
+         &#39;background-color&#39;: &#39;#4Caf40&#39;, 
+         &#39;color&#39;: &#39;#fff&#39;
+      },
+      &#39;SupplementalDoc&#39;: &#39;#f44336&#39;, 
+      &#39;AdminTopic&#39;: {
+         &#39;background-color&#39;: &#39;#b22222&#39;,
+         &#39;color&#39;: &#39;#fff&#39;
+      }
+   }; return css&#91;data.TopicClassification.raw&#93;;&#34;
+}&#37;
+&#37;ENDSECTION{&#34;example5&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<div class='jqDataTablesContainer' data-paging='true' data-searching='true' data-search-mode='global' data-info='false' data-scroll-x='false' data-scroll-collapse='false' data-search-delay='400' data-page-length='10' data-row-css='var css &#61; { 
+      &#39;SupportQuestion&#39;: &#39;#FFC107y&#39;, 
+      &#39;FrequentlyAskedQuestion&#39;: {
+         &#39;background-color&#39;: &#39;#4Caf40&#39;, 
+         &#39;color&#39;: &#39;#fff&#39;
+      },
+      &#39;SupplementalDoc&#39;: &#39;#f44336&#39;, 
+      &#39;AdminTopic&#39;: {
+         &#39;background-color&#39;: &#39;#b22222&#39;,
+         &#39;color&#39;: &#39;#fff&#39;
+      }
+   }; return css&#91;data.TopicClassification.raw&#93;;' data-order='[[1,"asc"]]' data-columns='[{"orderable":false,"render":{"display":"display","_":"raw"},"visible":true,"name":"Topic","data":"Topic"},{"name":"TopicSummary","data":"TopicSummary","visible":true,"render":{"_":"raw","display":"display"},"orderable":false,"title":"Summary"},{"title":"Category","visible":true,"data":"TopicClassification","name":"TopicClassification","render":{"display":"display","_":"raw"},"orderable":false},{"render":{"display":"display","_":"raw","sort":"epoch"},"orderable":false,"visible":true,"name":"Changed","data":"Changed"}]' data-server-side='true' data-ajax='{"type":"post","data":{"form":"","t":1627669867,"query":"form~&#39;FAQForm&#39; AND topic!&#61;&#39;FAQTemplate&#39;","connector":"search","webs":"System","topic":"System.JQDataTablesPlugin"},"url":"https://damask.mpie.de/bin/rest/JQDataTablesPlugin/connector"}'>
+<table class='foswikiTable foswikiFlatTable foswikiTable foswikiStripes' >
+  <thead><tr>
+<th>Topic</th>
+<th>TopicSummary</th>
+<th>TopicClassification</th>
+<th>Changed</th>
+</tr></thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Coloring_rows_using_classes">  Coloring rows using classes </h3>
+<p class='p'>This example is not fully working. It depends on a DataForm definition for Invoice topics, that have at least formfields</p>
+ <ul>
+<li> Client: client that is invoiced
+</li> <li> Total: amount of money 
+</li> <li> IssueDate: date when the invoice was sent to the client
+</li> <li> DueDate: date until when the invoice has to be paid
+</li> <li> State: the state the invoice is in: created, invoiced, overdue, reminded, disputed, paid, partial, withdrawn
+</li></ul> 
+<p class='p'>We will use two properties of invoices to color the table. Depeding in the property values css classes will be applied that
+we crawft styles for. The invoice column will be colored depending on the State of an invoice. A blue line will be drawn
+below which all invoices have to be paid, that is the table will be devided in two parts below and above the line where
+above the line invoices will be paid in the future and below the line invoices should have to be paid up to today.</p>
+
+To make this work we create a small javascript fragment that returns the <code>rowclass</code>.
+<p></p>
+
+In addition, any client cell will auto-colored using <a class="interwikiLink" href="https://foswiki.org/Extensions/JQAutoColorContrib" title="'Extensions/JQAutoColorContrib' on foswiki.org">Foswiki:Extensions/JQAutoColorContrib</a>.
+<p></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;example6&#34;}&#37;
+&#37;DATATABLE{
+   form&#61;&#34;Invoice&#34;
+   class&#61;&#34;foswikiFlatTable foswikiTable foswikiStripes&#34;
+   web&#61;&#34;&#37;SYSTEMWEB&#37;&#34;
+   paging&#61;&#34;on&#34;
+   columns&#61;&#34;Topic,Client,Total,State,IssueDate,DueDate&#34;
+   rows&#61;&#34;10&#34;
+   sort&#61;&#34;DueDate&#34;
+   ordering&#61;&#34;off&#34;
+   searching&#61;&#34;on&#34;
+   autocolor&#61;&#34;Client&#34;
+   rowclass&#61;&#34;
+      var now &#61; Date.now() / 1000; 
+      var cls &#61; data.State.raw; 
+      if (data.DueDate.epoch &#60;&#61; now) { 
+         cls +&#61; &#39; past&#39;
+      }; 
+      return cls; &#34;
+}&#37;
+&#37;JQREQUIRE{&#34;autocolor&#34;}&#37;
+&#60;style&#62;
+.dataTable tr.past {
+  border-top: 3px solid #3e89d3;
+}
+.dataTable tr.past:first-of-type,
+.dataTable tr.past + tr.past {
+   border-top:0;
+}
+.dataTable tr.invoiced &#62; td:nth-child(4) {
+   background-color:#FFC107 !important;
+}
+.dataTable tr.reminded &#62; td:nth-child(4) {
+   background-color:#b22222 !important;
+   color:#fff !important;
+}
+.dataTable tr.paid &#62; td:nth-child(4) {
+   background-color:#4Caf40 !important;
+   color:#fff !important;
+}
+.dataTable tr.overdue &#62; td:nth-child(4) {
+   background-color:#f44336 !important;
+   color:#fff !important;
+}
+&#60;/style&#62;
+&#37;ENDSECTION{&#34;example6&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="HTML5_simple_example">  HTML5 simple example </h3>
+<pre class="tml">
+&#60;div class&#61;&#34;jqDataTablesContainer&#34; data-paginate&#61;&#34;true&#34; data-searching&#61;&#34;true&#34; data-info&#61;&#34;true&#34;&#62;
+&#124; &#42;Header&#42; &#124; &#42;Header&#42; &#124; &#42;Header&#42; &#124; &#42;Header&#42; &#124;
+&#124; Data &#124; Data &#124; Data &#124; Data &#124;
+&#124; Data &#124; Data &#124; Data &#124; Data &#124;
+&#124; Data &#124; Data &#124; Data &#124; Data &#124;
+&#124; Data &#124; Data &#124; Data &#124; Data &#124;
+&#60;/div&#62;
+</pre>
+<p></p>
+
+<h3 id="HTML5_formatted_search">  HTML5 formatted search </h3>
+<p></p>
+
+This example generates a table dynamically using a <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>:
+<p class='p'></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;example1&#34;}&#37;
+&#60;div class&#61;&#34;jqDataTablesContainer&#34; data-paginate&#61;&#34;true&#34; data-searching&#61;&#34;true&#34; data-info&#61;&#34;true&#34;&#62;
+&#37;SEARCH{
+  &#34;1&#34;
+  type&#61;&#34;query&#34;
+  topic&#61;&#34;&#42;Plugin&#34;
+  header&#61;&#34;&#124; &#42;Name&#42; &#124; &#42;Date&#42; &#124; &#42;Author&#42; &#124;&#34;
+  format&#61;&#34;&#124; &#36;topic &#124; &#36;date &#124; &#36;wikiusername &#124;&#34;
+  nonoise&#61;&#34;on&#34;
+}&#37;
+&#60;/div&#62;
+&#37;ENDSECTION{&#34;example1&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<div class="jqDataTablesContainer" data-paginate="true" data-searching="true" data-info="true">
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=2;table=2;up=1#sorted_table" rel="nofollow" title="Sort by this column">Author</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/BibliographyPlugin">BibliographyPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2016 - 09:28 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/BookmakerPlugin">BookmakerPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2016 - 09:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin">DpSyntaxHighlighterPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2016 - 09:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/ExternalLinkPlugin">ExternalLinkPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2016 - 09:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/HomePagePlugin">HomePagePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2016 - 09:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/JQTablePlugin">JQTablePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 26 Apr 2017 - 21:29 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/LatexModePlugin">LatexModePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2016 - 09:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/LocalTimePlugin">LocalTimePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2016 - 09:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/MediaPlugin">MediaPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2016 - 09:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/NatEditPlugin">NatEditPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 06 Mar 2018 - 05:17 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/RedDotPlugin">RedDotPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 01 Nov 2016 - 14:41 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/SmiliesPlugin">SmiliesPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2016 - 09:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/SubscribePlugin">SubscribePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 29 Jan 2018 - 12:32 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/UpdatesPlugin">UpdatesPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 29 Jan 2018 - 12:32 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/AttachContentPlugin">AttachContentPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 13 Jun 2016 - 10:03 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/AutoTemplatePlugin">AutoTemplatePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 12 Nov 2019 - 08:10 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/AutoViewTemplatePlugin">AutoViewTemplatePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 01 May 2016 - 03:35 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/BreadCrumbsPlugin">BreadCrumbsPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 15 Aug 2018 - 15:53 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/CaptchaPlugin">CaptchaPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 12 Nov 2019 - 08:17 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/ClassificationPlugin">ClassificationPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 May 2019 - 10:19 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/CommentPlugin">CommentPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 22 Jan 2018 - 16:53 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/CompareRevisionsAddonPlugin">CompareRevisionsAddonPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 01 Jun 2017 - 01:49 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/ConfigurePlugin">ConfigurePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 22 Jan 2018 - 16:57 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/DBCachePlugin">DBCachePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 May 2019 - 09:16 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/DiffPlugin">DiffPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 27 Nov 2019 - 16:29 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/DigestPlugin">DigestPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 08 Mar 2016 - 16:04 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/DocumentViewerPlugin">DocumentViewerPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Sep 2016 - 11:19 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/EditRowPlugin">EditRowPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Mar 2018 - 15:36 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/EmptyPlugin">EmptyPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 03 Feb 2016 - 17:22 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/FilterPlugin">FilterPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 25 Oct 2018 - 06:43 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/FlexFormPlugin">FlexFormPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 12 Nov 2019 - 11:05 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/FlexWebListPlugin">FlexWebListPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 28 May 2018 - 13:33 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/GraphvizPlugin">GraphvizPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 11 Jun 2018 - 11:58 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/GridLayoutPlugin">GridLayoutPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 12 Nov 2019 - 11:35 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/HistoryPlugin">HistoryPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 22 Jan 2018 - 17:10 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/ImageGalleryPlugin">ImageGalleryPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 27 Jul 2017 - 10:14 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/ImagePlugin">ImagePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 12 Nov 2019 - 11:51 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/InterwikiPlugin">InterwikiPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 22 Jan 2018 - 17:14 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQDataTablesPlugin">JQDataTablesPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 01 Jul 2019 - 10:49 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 18 Nov 2019 - 12:18 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/LikePlugin">LikePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 18 Nov 2019 - 13:42 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/ListyPlugin">ListyPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jul 2019 - 08:08 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/MailerContribPlugin">MailerContribPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 22 Jan 2018 - 17:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/MathJaxPlugin">MathJaxPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 27 Jan 2012 - 01:07 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/MediaElementPlugin">MediaElementPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 18 Nov 2019 - 13:53 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/MetaCommentPlugin">MetaCommentPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 26 Nov 2019 - 09:13 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/MetaDataPlugin">MetaDataPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 30 Jan 2019 - 14:42 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/MimeIconPlugin">MimeIconPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 18 Nov 2019 - 14:00 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/MoreFormfieldsPlugin">MoreFormfieldsPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 10 Jan 2019 - 11:52 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/MultiLingualPlugin">MultiLingualPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 16 Jul 2018 - 14:18 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/NatSkinPlugin">NatSkinPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 14 Feb 2019 - 11:56 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/PageOptimizerPlugin">PageOptimizerPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 25 Sep 2017 - 11:53 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/PreferencesPlugin">PreferencesPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 07 Jul 2015 - 01:09 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/PubLinkFixupPlugin">PubLinkFixupPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 01 Oct 2015 - 16:29 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/RenderListPlugin">RenderListPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 01 May 2016 - 13:15 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/RenderPlugin">RenderPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 14 Feb 2019 - 09:27 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/SecurityHeadersPlugin">SecurityHeadersPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 17 Oct 2018 - 09:23 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/SlideShowPlugin">SlideShowPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 13 Feb 2017 - 20:09 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/SolrPlugin">SolrPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 31 Jan 2019 - 11:10 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/SpreadSheetPlugin">SpreadSheetPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 13 Feb 2017 - 20:11 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/TWikiCompatibilityPlugin">TWikiCompatibilityPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 07 Jul 2015 - 01:34 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/TablePlugin">TablePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 22 Jan 2018 - 17:57 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/TagCloudPlugin">TagCloudPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 01 Apr 2016 - 10:32 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/TinyMCEPlugin">TinyMCEPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 13 Feb 2017 - 20:13 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/TocPlugin">TocPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 15 Apr 2011 - 22:05 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/TopicInteractionPlugin">TopicInteractionPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 26 Nov 2018 - 17:49 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/TopicTitlePlugin">TopicTitlePlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 14 Aug 2018 - 10:47 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/TwistyPlugin">TwistyPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 01 May 2016 - 13:37 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/WebLinkPlugin">WebLinkPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 02 Jun 2018 - 10:26 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <a href="/bin/view/System/WorkflowPlugin">WorkflowPlugin</a> </td>
+			<td class="foswikiTableCol1" rowspan="1"> 01 Aug 2017 - 12:58 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <a href="/bin/view/System/WysiwygPlugin">WysiwygPlugin</a> </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> 22 Jan 2018 - 18:06 </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol foswikiLast" rowspan="1"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+		</tr>
+	</tbody></table>
+</div>
+<p class='p'></p>
+
+<h3 id="HTML5_client_side_sorting">  HTML5 client side sorting </h3>
+<p class='p'>JQDataTablesPlugin comes with additional sorting features for specific types of data:</p>
+ <ul>
+<li> numeric
+</li> <li> string
+</li> <li> date (extended to be able to parse Foswiki's default date format)
+</li> <li> currency
+</li> <li> metrics (e.g. killo, mega, giga, tera, ...)
+</li></ul> 
+<p class='p'>Click on the table headers to sort the columns according to their data type.</p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;example2&#34;}&#37;
+&#60;div class&#61;&#34;jqDataTablesContainer&#34;&#62;
+&#124; &#42;#&#42; &#124; &#42;String&#42; &#124; &#42;Date&#42; &#124; &#42;Number&#42; &#124; &#42;Currency&#42; &#124; &#42;Size&#42; &#124;
+&#124; 3 &#124; ActionTrackerPlugin &#124; 27 Jan 2010 - 17:07 &#124; 1 &#124; 1,00 &#124; 10KB &#124;
+&#124; 1 &#124; AntiWikiSpamPlugin &#124; 03 Jan 2013 - 09:07 &#124; 10 &#124; 10,00 &#124; 3GB &#124;
+&#124; 2 &#124; RenderListPlugin &#124; 13 May 2012 - 02:59 &#124; 0.01 &#124; 1,01 &#124; 100MB &#124;
+&#124; 5 &#124; CommentPlugin &#124; 10 Apr 2011 - 23:39 &#124; 100 &#124; 0,10 &#124; 2024kB &#124;
+&#124; 4 &#124; FindElsewherePlugin &#124; 23 Dec 2012 - 17:06 &#124; 20 &#124; 100,- &#124; 0.1kB &#124;
+&#124; 6 &#124; JsonRpcContrib &#124;  &#124; 0 &#124; -100,- &#124; 1024TB &#124;
+&#60;/div&#62;
+&#37;ENDSECTION{&#34;example2&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<div class="jqDataTablesContainer">
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">#</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=1;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">String</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=2;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=3;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Number</a> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=4;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Currency</a> </th>
+			<th class="foswikiTableCol5 foswikiLastCol"> <a href="/bin/view/System/JQDataTablesPlugin?sortcol=5;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Size</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 3 </td>
+			<td class="foswikiTableCol1"> <a class="foswikiNewLink" href="/bin/edit/System/ActionTrackerPlugin?topicparent=System.JQDataTablesPlugin" rel="nofollow" title="Create this topic">ActionTrackerPlugin</a> </td>
+			<td class="foswikiTableCol2"> 27 Jan 2010 - 17:07 </td>
+			<td class="foswikiTableCol3"> 1 </td>
+			<td class="foswikiTableCol4"> 1,00 </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> 10KB </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 1 </td>
+			<td class="foswikiTableCol1"> <a class="foswikiNewLink" href="/bin/edit/System/AntiWikiSpamPlugin?topicparent=System.JQDataTablesPlugin" rel="nofollow" title="Create this topic">AntiWikiSpamPlugin</a> </td>
+			<td class="foswikiTableCol2"> 03 Jan 2013 - 09:07 </td>
+			<td class="foswikiTableCol3"> 10 </td>
+			<td class="foswikiTableCol4"> 10,00 </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> 3GB </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 2 </td>
+			<td class="foswikiTableCol1"> <a href="/bin/view/System/RenderListPlugin">RenderListPlugin</a> </td>
+			<td class="foswikiTableCol2"> 13 May 2012 - 02:59 </td>
+			<td class="foswikiTableCol3"> 0.01 </td>
+			<td class="foswikiTableCol4"> 1,01 </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> 100MB </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 5 </td>
+			<td class="foswikiTableCol1"> <a href="/bin/view/System/CommentPlugin">CommentPlugin</a> </td>
+			<td class="foswikiTableCol2"> 10 Apr 2011 - 23:39 </td>
+			<td class="foswikiTableCol3"> 100 </td>
+			<td class="foswikiTableCol4"> 0,10 </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> 2024kB </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 4 </td>
+			<td class="foswikiTableCol1"> <a class="foswikiNewLink" href="/bin/edit/System/FindElsewherePlugin?topicparent=System.JQDataTablesPlugin" rel="nofollow" title="Create this topic">FindElsewherePlugin</a> </td>
+			<td class="foswikiTableCol2"> 23 Dec 2012 - 17:06 </td>
+			<td class="foswikiTableCol3"> 20 </td>
+			<td class="foswikiTableCol4"> 100,- </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> 0.1kB </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> 6 </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/bin/view/System/JsonRpcContrib">JsonRpcContrib</a> </td>
+			<td class="foswikiTableCol2 foswikiLast"> &nbsp; </td>
+			<td class="foswikiTableCol3 foswikiLast"> 0 </td>
+			<td class="foswikiTableCol4 foswikiLast"> -100,- </td>
+			<td class="foswikiTableCol5 foswikiLastCol foswikiLast"> 1024TB </td>
+		</tr>
+	</tbody></table>
+</div>
+<p class='p'></p>
+
+<h2 id="Installation">  Installation </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Plugins::JQueryPlugin</td><td align="left"> &gt;= 4.10</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Contrib::JQMomentContrib</td><td align="left"> &gt;= 3.00</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::MultiLingualPlugin</td><td align="left"> &gt;= 4.00</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::TopicTitlePlugin</td><td align="left">&gt;1.00</td><td align="left">Required for Foswiki &lt; 2.2</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<table class="foswikiTable" id="tableJQDataTablesPlugin4" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Jul 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> updated to latest upstream version of Datatables; added parameters <code>rowgroup</code>, <code>rowclass</code>, <code>rowcss</code>, <code>hidecolumns</code> and <code>autocolor</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jan 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>webs</code> parameter to <code>DATATABLE</code> to query multiple webs at once </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Nov 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> add docu for newly added <code>savestate</code> parameter to <code>DATATABLE</code>; fixed rendering image columns in DBCacheConnector </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Oct 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> use JQMomentContrib for better parsing and sorting of date columns on the client side; make use of new TopicTitlePlugin; add support for MultiLingualPlugin </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Sep 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed html5 data attributes </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Aug 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> disabled <code>Author</code> auto-column; added <code>publishdate</code> and <code>publishauthor</code> auto-columns </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> don't report back an url parameter in the error message </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Sep 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added default english translation files </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Jun 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed parsing of dates that are already epoch seconds; improved default settings of table layout </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 May 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> updated to latest version of DataTables </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Apr 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented server-side grid widget </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Mar 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> remove <code>console.log()</code> leftover; improve sorting date columns </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Nov 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented sorting for currency, and metrics </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Nov 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> make it work under <code>{NoConflict}</code>;                   enable jquery-ui theming by default now;                   created a non-goofy default look and feel to play nicely with a skin's table design;                   only add DataTables support to specific tables, not all;                   make it configurable with declarative metadata;                   compress and minify plugin assets;                   remove files not required by the plugin;                   clean up controls and css classes added by TablePlugin's;                   added type detector for foswiki date columns </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 18 Jan 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Initial version </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/JQDataTablesPlugin?t=1627669868;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main.MichaelDaum" title="'Main.MichaelDaum' on foswiki.org">Foswiki:Main.MichaelDaum</a>, <a class="interwikiLink" href="https://foswiki.org/Main.SvenDowideit" title="'Main.SvenDowideit' on foswiki.org">Foswiki:Main.SvenDowideit</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 5.00 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 01 Jul 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> JQuery based progressive enhancement of tables </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/JQDataTablesPlugin">https://github.com/foswiki/JQDataTablesPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> 2012 <a href="mailto&#58;SvenDowideit&#64;fosiki&#46;com">SvenDowideit&#64;fosiki.com</a>, 2013-2019 Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="https://foswiki.org/Extensions/JQDataTablesPlugin">https://foswiki.org/Extensions/JQDataTablesPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="https://foswiki.org/Support/JQDataTablesPlugin">https://foswiki.org/Support/JQDataTablesPlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/JQDataTablesPlugin?t=1627669868' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/JQDataTablesPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQDataTablesPlugin?cover=print;sortcol=2;table=2;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/JQDataTablesPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQDataTablesPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQDataTablesPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/JQDataTablesPlugin?t=1627669868;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQDataTablesPlugin?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 01 Jul 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/JQDataTablesPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/JQDataTablesPlugin%3fsortcol%3d2%3btable%3d2%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.JQDataTablesPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

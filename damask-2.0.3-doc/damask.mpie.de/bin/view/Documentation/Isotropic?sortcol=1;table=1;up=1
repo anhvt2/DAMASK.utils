@@ -1,0 +1,493 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> Isotropic &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/Isotropic?t=1627668049" type="application/x-wiki" title="edit Isotropic" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/Isotropic" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/5f2ae0ba2d56bcd2cafd4e45c9c3a1e3.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<script class='head MATHJAX_PLUGIN' type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    processEscapes: true
+    },
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    Macros: {
+      bm: ["{\\mathbf{#1}}",1],
+      vctr: ["{\\mathbf{#1}}",1],
+      tnsr: ["{\\mathbf{#1}}",1],
+      tnsrfour: ["{\\mathbb{#1}}",1]
+    },
+  equationNumbers: { autoNumber: "AMS" }
+    }
+});
+</script>
+  <script class='head MATHJAX_PLUGIN' id="MathJax-script" async src="https://damask.mpie.de/pub/System/MathJaxPlugin/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "USERNAME" : "guest",
+   "SYSTEMWEB" : "System",
+   "URLHOST" : "https://damask.mpie.de",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "PUBURLPATH" : "/pub",
+   "TOPIC" : "Isotropic",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKINAME" : "WikiGuest",
+   "USERSWEB" : "Main",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "COOKIEREALM" : "",
+   "SERVERTIME" : "30 Jul 2021 - 20:00",
+   "WEB" : "Documentation",
+   "SCRIPTSUFFIX" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   }
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Documentation/Isotropic"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Documentation/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Documentation" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="active">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/WebHome">Documentation</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/Background">Background</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/Plasticity">Plasticity</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Documentation/Isotropic" title='Topic revision: 5 (01 Feb 2017 - 18:24:47)'>Isotropic</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Documentation/Isotropic?t=1627668049;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Documentation/Isotropic' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Documentation/Isotropic?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/Isotropic?raw=on&amp;rev=5' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Documentation/WebCreateNewTopic?topicparent=Isotropic' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/Isotropic?cover=print;sortcol=1;table=1;up=1' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Documentation/Isotropic?template=more&amp;maxrev=5&amp;currrev=5' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><TOC_Mark>
+<span id="TableOfContents"></span>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?sortcol=1;table=1;up=1#Features"> Features </a>
+</li> <li> <a href="?sortcol=1;table=1;up=1#Microstructure_parameterization"> Microstructure parameterization </a>
+</li> <li> <a href="?sortcol=1;table=1;up=1#Kinetics"> Kinetics </a> <ul>
+<li> <a href="?sortcol=1;table=1;up=1#Deformation"> Deformation </a>
+</li> <li> <a href="?sortcol=1;table=1;up=1#Structure"> Structure </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=1;up=1#Kinematics"> Kinematics </a> <ul>
+<li> <a href="?sortcol=1;table=1;up=1#Plastic_velocity_gradient"> Plastic velocity gradient </a>
+</li> <li> <a href="?sortcol=1;table=1;up=1#Tangent_36_92partial_92tnsr_L_92text_p_47_92partial_92tnsr_S_36"> Tangent $\partial\tnsr L_\text p / \partial \tnsr S$ </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=1;up=1#Parameters_in_material_configuration"> Parameters in material configuration </a>
+</li> <li> <a href="?sortcol=1;table=1;up=1#Logicals_in_material_configuration"> Logicals in material configuration </a>
+</li> <li> <a href="?sortcol=1;table=1;up=1#Appendix"> Appendix </a> <ul>
+<li> <a href="?sortcol=1;table=1;up=1#Norm_of_a_tensor"> Norm of a tensor </a>
+</li> <li> <a href="?sortcol=1;table=1;up=1#Deviatoric_part_of_a_tensor"> Deviatoric part of a tensor </a>
+</li> <li> <a href="?sortcol=1;table=1;up=1#Derivative_of_the_norm_of_a_tensor_with_respect_to_that_tensor"> Derivative of the norm of a tensor with respect to that tensor </a>
+</li> <li> <a href="?sortcol=1;table=1;up=1#Derivative_of_the_deviator_of_a_tensor_with_respect_to_that_tensor"> Derivative of the deviator of a tensor with respect to that tensor </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=1;up=1#References"> References </a>
+</li></ul> 
+</div>
+<script type="math/tex">\def\rcontract{{\scriptscriptstyle\circ\bullet}} \def\lcontract{{\scriptscriptstyle\bullet\circ}}</script><p class='p'></p>
+
+<hr />
+<h2 id="Features">  Features </h2>
+Isotropic version of the Peirce, Asaro, &amp; Needleman (1983) phenomenological crystal plasticity constitutive law.
+The constitutive response is based on the second invariant of either the full, $\tnsr S$, or deviatoric, $\tnsr S^* = \operatorname{dev} (\tnsr S) = \tnsr S - \frac{1}{3} \operatorname{tr} (\tnsr S)$, second Piola–Kirchhoff stress tensor. 
+The stress magnitude (von Mises stress in case of J2) is considered as driving dislocation motion in lieu of slip system-resolved shear stresses.
+<p></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Microstructure_parameterization">  Microstructure parameterization </h2>
+The microstructure is parameterized by a single internal state variable that captures the resistance to deformation: <ul>
+<li> flowstress $g$
+</li></ul> 
+<p></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Kinetics">  Kinetics </h2>
+<p></p>
+
+<h3 id="Deformation">  Deformation </h3>
+<p class='p'>In accordance with the Peirce, Asaro, &amp; Needleman (1983) law, the (average) shear rate is formulated as a power-law kinetic equation
+\begin{align}
+\label{eq: shear rate J2}
+ \dot\gamma &amp;= \dot\gamma_0 \left(  \frac{\sqrt{3 J_2}}{M\,g} \right)^n =  \dot\gamma_0 \left(  \sqrt{\frac{3}{2}}\,\frac{\| \tnsr S^* \|}{M\,g} \right)^n
+\\\label{eq: shear rate I2}
+ \dot\gamma &amp;= \dot\gamma_0 \left(  \frac{\sqrt{3 I_2}}{M\,g} \right)^n =  \dot\gamma_0 \left(  \sqrt{\frac{3}{2}}\,\frac{\| \tnsr S \|}{M\,g} \right)^n
+\end{align}
+with $\dot\gamma_0$ a reference shear rate, $n$ the stress exponent (at constant structure), and $M$ an orientation (Taylor) factor.</p>
+
+<h3 id="Structure">  Structure </h3>
+<p class='p'>Again, following the hardening behavior suggested in Peirce, Asaro, &amp; Needleman (1983), the flow stress $g$ evolves in time due to deformation from its initial value $g_0$ towards a saturation value $g_\infty$ according to
+\begin{align}
+\label{eq: hardening}
+\dot g &amp;= \dot\gamma \left( h_0 + h_\text s \ln{\dot\gamma} \right) \left| 1 - g/g_\infty \right|^a \operatorname{sign} \left( 1 - g/g_\infty \right),
+\end{align}
+with free parameters $h_0$ and $a$.
+The parameter $h_\text s = \mathrm d h_0/\mathrm d \ln \dot\gamma$ introduces a strain rate sensitivity of the hardening slope.</p>
+
+<p class='p'>To capture more than the power-law rate dependency of the saturation stress inherent in \eqref{eq: shear rate J2} and \eqref{eq: shear rate I2}, we make use of the empirical relation
+\begin{align}
+\dot\gamma &amp;= A\left( \sinh \left( B\, g_\infty^\ast\right)^C \right)^D \nonumber
+\\ &amp;= A\left( \sinh \left( B\, g_\infty\left(\dot\gamma/\dot\gamma_0\right)^{1/n}\right)^C \right)^D,
+\end{align}
+where the factor $\left(\dot\gamma/\dot\gamma_0\right)^{1/n}$ corrects the (experimentally observed) saturation stress $g_\infty^\ast$ for the rate sensitivity introduced by the deformation kinetics \eqref{eq: shear rate J2} and \eqref{eq: shear rate I2}.
+Parameters $A$, $B$, $C$, and $D$ allow for fitting.</p>
+
+<p class='p'>The value of $A$ is used to switch between constant saturation stress and rate-sensitive saturation behavior:
+\begin{equation}
+g_\infty =
+\begin{cases}
+\tau_\text{sat} &amp; \text{if } A = 0
+ \\ \tau_\text{sat} + \left.\left( \operatorname{asinh} \left( \left( \dot\gamma/A \right)^{1/D} \right) \right)^{1/C} \middle/ \left(B \left( \dot\gamma/\dot\gamma_0 \right )^{1/n}\right)\right. &amp; \text{otherwise}
+\end{cases}
+\end{equation}</p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Kinematics">  Kinematics </h2>
+<p></p>
+
+<h3 id="Plastic_velocity_gradient">  Plastic velocity gradient </h3>
+Instead of summing the different slip system contributions ($\dot\gamma^\alpha\, \vctr b^\alpha \otimes \vctr n^\alpha$) to yield the plastic velocity gradient, as is done in Peirce, Asaro, &amp; Needleman (1983), the present model sets the "direction" of $\tnsr L_\text p$ as equivalent to that of $\tnsr S^*$ or $\tnsr S$:
+<p class='p'>\begin{align}
+\tnsr L_\text p = \frac{\dot\gamma}{M}\, \frac{\tnsr S^*}{\| \tnsr S^*\|} 
+&amp;= \underbrace{\frac{\dot\gamma_0}{M} \left( \sqrt{\frac{3}{2}}\frac{1}{M\, g}\right)^n}_{k} \, \tnsr S^*\, \| \tnsr S^*\|^{n-1}
+\\\tnsr L_\text p = \frac{\dot\gamma}{M}\, \frac{\tnsr S}{\| \tnsr S\|} 
+&amp;= \overbrace{\frac{\dot\gamma_0}{M} \left( \sqrt{\frac{3}{2}}\frac{1}{M\, g}\right)^n}{} \, \tnsr S\, \| \tnsr S\|^{n-1}
+\end{align}
+where $k$ abbreviates the constant prefactor in preparation of the next section.</p>
+
+<h3 id="Tangent_36_92partial_92tnsr_L_92text_p_47_92partial_92tnsr_S_36">  Tangent $\partial\tnsr L_\text p / \partial \tnsr S$ </h3>
+<p></p>
+
+The sensitivity of the plastic velocity gradient with respect to the second Piola&ndash;Kirchhoff stress is a required output of all plastic constitutive laws and used in the <a href="/bin/view/Documentation/SingleCrystalTimeIntegration#Inner_level_of_stress_integration">implicit stress calculation</a>.
+In the following, we mostly adopt the elegant <a href="/bin/view/Documentation/TensorNotation">notation scheme</a> introduced by Olaf Kintzel.
+<p class='p'>\begin{align*}
+\tnsr L_\text p,_{\scriptscriptstyle\tnsr S}  &amp; =  \tnsr L_\text p,_{\scriptscriptstyle\tnsr S^*} \lcontract \,\tnsr S^*,_{\scriptscriptstyle\tnsr S}
+\\ &amp; = \tnsr L_\text p,_{\scriptscriptstyle\tnsr S^*} \lcontract \underbrace{\left[ \tnsr I \otimes \tnsr I  - \frac{1}{3} \tnsr I \odot \tnsr I \right]}_{\tnsrfour Q} 
+\\ &amp; = k \left[\tnsr S^* \|\tnsr S^*\|^{n-1} \right],_{\scriptscriptstyle\tnsr S^*} \lcontract \,\tnsrfour Q
+\\ &amp; =  k \left[ \tnsr S^* \odot \left[{{\| \tnsr S^* \|}^{n-1}} \right],_{\scriptscriptstyle\tnsr S^*} + \| \tnsr S^* \|^{n-1} \, \tnsr S^*,_{\scriptscriptstyle\tnsr S^*} \right] \lcontract \, \tnsrfour Q 
+\\ &amp; = k \left[ \tnsr S^* \odot ( n-1 ) \|\tnsr S^*\|^{n-2} \, \frac{\tnsr S^*}{\| \tnsr  S^* \|} + \| \tnsr S^*\|^{n-1} \, \tnsr I \otimes \tnsr I \right] \lcontract \, \tnsrfour Q
+\\ &amp; = k \left[ \tnsr S^* \odot  \tnsr S^* ( n-1 )  \|\tnsr S^*\|^{n-3}  + \| \tnsr S^* \|^{n-1} \, \tnsr I \otimes \tnsr I \right] \lcontract \, \tnsrfour Q
+\\ &amp; = k \left[ \tnsr S^* \odot  \tnsr S^* ( n-1 )  \|\tnsr S^*\|^{n-3} \right] \lcontract \tnsrfour Q + k \, \| \tnsr S^* \|^{n-1} \, \tnsrfour Q 
+\\ &amp; = k \, \| \tnsr S^* \|^{n-1} \, \tnsrfour Q + k ( n-1 ) \, \|\tnsr S^*\|^{n-3} \, \left[ \tnsr S^* \odot \tnsr S^* \lcontract \, \tnsr I \otimes \tnsr I - \frac{1}{3}\, \tnsr S^* \odot \tnsr S^* \lcontract \, \tnsr I \odot \tnsr I \right]
+\\ &amp; = k \, \| \tnsr S^* \|^{n-1} \, \tnsrfour Q + k \left( n-1 \right) \, \|\tnsr S^*\|^{n-3} \, \left[ \tnsr S^* \odot \tnsr S^* - \frac{1}{3} \underbrace{(\tnsr S^* : \tnsr I)}_{=\,\operatorname{tr}(\tnsr S^*)\,=\,\tnsr 0} \tnsr S^* \odot \tnsr I \right]
+\\ &amp; =  k \, \| \tnsr S^* \|^{n-1} \, \tnsrfour Q + k \left( n-1 \right) \, \|\tnsr S^*\|^{n-3} \, \tnsr S^* \odot \tnsr S^*
+\\ &amp; =  k \, \| \tnsr S^* \|^{n-1} \left[ \tnsrfour Q + ( n-1 ) \, \frac{\tnsr S^*}{\| \tnsr S^* \|} \odot \frac{\tnsr S^*}{\| \tnsr S^* \|} \right]
+\end{align*}
+It is useful to rewrite this equation in index notation.
+\begin{align}
+&amp; \vctr g^i \otimes \vctr g_k \otimes \vctr g_l \otimes \vctr g^j \ \frac{\partial \{L_\text p\}_{ij}}{\partial S_{kl}} = \nonumber
+\\ &amp; \vctr g^i \otimes \vctr g_k \otimes \vctr g_l \otimes \vctr g^j \ k \, \| \tnsr S^* \|^{n-1} \left[ \delta_i^k\,\delta^l_j - 1/3\; \delta_{ij}\,\delta^{kl} + (n-1)\| \tnsr S^* \|^{-2} \, {S^*}_{ij}\, {S^*}^{kl} \right] = \nonumber
+\\ &amp; \vctr g^i \otimes \vctr g^j \otimes \vctr g_k \otimes \vctr g_l \ k \, \| \tnsr S^* \|^{n-1} \left[ \delta_{ij}\,\delta^{kl} - 1/3\; \delta_i^l\,\delta_j^k + (n-1)\| \tnsr S^* \|^{-2} \, {S^*}^{\phantom i l}_{i\cdot}\, {S^*}^{\phantom j k}_{j\cdot} \right] = \nonumber
+\\ &amp; \vctr g^i \otimes \vctr g^j \otimes \vctr g_k \otimes \vctr g_l \ \frac{\dot\gamma}{M\,\| \tnsr S^* \|} \left[ \delta_{ij}\,\delta^{kl} - 1/3\; \delta_i^l\,\delta_j^k + (n-1)\| \tnsr S^* \|^{-2} \, {S^*}^{\phantom i l}_{i\cdot}\, {S^*}^{\phantom j k}_{j\cdot} \right]
+\end{align}</p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Parameters_in_material_configuration">  Parameters in material configuration </h2>
+<p></p>
+
+To set the above parameters use the following (case-insensitive) naming scheme in a <span class='foswikiMaroonFG'>material.config</span> file:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/Isotropic?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/Isotropic?sortcol=1;table=1;up=2#sorted_table" rel="nofollow" title="Sort by this column">Name</a><a name="sorted_table"></a><span class="tableSortIcon tableSortDown"><img alt="Sorted descending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortdown.gif" title="Sorted descending" width="11" /></span> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ M $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> Taylorfactor </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ D $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> tausat_sinhFitD </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ C $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> tausat_sinhFitC </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ B $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> tausat_sinhFitB </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ A $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> tausat_sinhFitA </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ g_\infty $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> tausat </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ g_0 $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> tau0 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ n $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> n </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ h_\text s $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> h0_slope, slopeLnRate </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ h_0 $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> h0 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:center"> $ \dot\gamma_0 $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> gdot0 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1" style="text-align:center"> $ a $ </td>
+			<td class="foswikiTableCol1 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol foswikiLast" rowspan="1"> a, w0 </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Logicals_in_material_configuration">  Logicals in material configuration </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/Isotropic?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Logical</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/Isotropic?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Purpose</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> dilatation &#124; I2 </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> use I2 invariant instead of J2 </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Appendix">  Appendix </h2>
+In the following, $\tnsr A$ denotes an arbitrary second-order tensor and $\tnsr I$ the second-order identity tensor.
+Notation of operators is explained in detail <a href="/bin/view/Documentation/TensorNotation">here</a>.
+<p></p>
+
+<h3 id="Norm_of_a_tensor">  Norm of a tensor </h3>
+\[ \|\tnsr A\| := \left( \tnsr A \cdot \tnsr A\right)^{1/2} \]
+<p></p>
+
+<h3 id="Deviatoric_part_of_a_tensor">  Deviatoric part of a tensor </h3>
+\[ \tnsr A^* := \operatorname{dev}\tnsr A = \tnsr A - \tnsr I \operatorname{tr} (\tnsr A)/3 \]
+<p></p>
+
+<h3 id="Derivative_of_the_norm_of_a_tensor_with_respect_to_that_tensor">  Derivative of the norm of a tensor with respect to that tensor </h3>
+\begin{align*}
+\| \tnsr  A \|_{,\tnsr A} &amp; = \left[ \left( \tnsr A \cdot \tnsr A \right)^{1/2} \right]_{,\tnsr A}
+\\ &amp; =  \frac{1}{2} \left( \tnsr A \cdot \tnsr A \right)^{-1/2}   \left( \tnsr A \cdot \tnsr A \right)_{,\tnsr A}
+\\ &amp; = \frac{1}{2} \frac{1}{\| \tnsr A \|}  \left[ \tnsr A_{,\tnsr A} \rcontract \tnsr A + \tnsr A \lcontract \tnsr A_{,\tnsr A} \right]
+\\ &amp; = \frac{1}{2} \frac{1}{\| \tnsr A \|}  \left[ \tnsr I \otimes \tnsr I \rcontract \tnsr A  +  \tnsr A \lcontract \tnsr I \otimes \tnsr I \right]
+\\ &amp; = \frac{\tnsr A}{\|\tnsr A\|}
+\end{align*}
+<p></p>
+
+<h3 id="Derivative_of_the_deviator_of_a_tensor_with_respect_to_that_tensor">  Derivative of the deviator of a tensor with respect to that tensor </h3>
+\begin{align*}
+\tnsr A^*_{,\tnsr A} &amp; = \left[\tnsr A - \tnsr I \operatorname{tr} (\tnsr A)/3 \right]_{,\tnsr A}
+\\ &amp; = \tnsr A_{,\tnsr A} - \frac{1}{3} \left[ \tnsr I \odot \operatorname{tr}(\tnsr A)_{, \tnsr A} \right]
+\\ &amp; = \tnsr I \otimes \tnsr I  - \frac{1}{3} \tnsr I \odot \tnsr I
+\end{align*}
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="References">  References </h2> <dl>
+<dt> [1] </dt><dd>    D. Peirce, R. Asaro, &amp; A. Needleman<br />   <strong>Material rate dependence and localized deformation in crystalline solids</strong> <br />    Acta Metall. 31 (1983) 19511976
+</dd></dl>  </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/Isotropic?t=1627668049' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Documentation/Isotropic' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/Isotropic?cover=print;sortcol=1;table=1;up=1' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Documentation/Isotropic?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r5&nbsp;<a href="/bin/diff/Documentation/Isotropic?rev1=4;rev2=5" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/Isotropic?rev=4" rel="nofollow">r4</a>&nbsp;<a href="/bin/diff/Documentation/Isotropic?rev1=3;rev2=4" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/Isotropic?rev=3" rel="nofollow">r3</a>&nbsp;<a href="/bin/diff/Documentation/Isotropic?rev1=2;rev2=3" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/Isotropic?rev=2" rel="nofollow">r2</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/Isotropic?template=backlinksweb' rel='nofollow' title='Search the Documentation Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/Isotropic?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/Isotropic?t=1627668049;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/Isotropic?template=more&amp;maxrev=5&amp;currrev=5' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r5 - 01 Feb 2017, <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Documentation/Isotropic?foswiki_origin=GET%2cview%2c/bin/view/Documentation/Isotropic%3fsortcol%3d1%3btable%3d1%3bup%3d1">Log In</a></li></ul>
+</div>
+<p></p>
+
+<hr /> <ul>
+<li> <strong>News</strong>
+</li>  </ul><dl>
+<dt> 14 Sep 2020 </dt><dd> <del> <strong>CMCn2020</strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung</del> (cancelled)
+</dd> <dt> 22 Aug 2020 </dt><dd> Release of first preview version of <strong><a href="https://damask.mpie.de/bin/view/Download/Preview">DAMASK 3</a></strong>
+</dd> <dt> 19 Feb 2020 </dt><dd> DAMASK made it to the <span class='externalLink'><a href="https://onlinelibrary.wiley.com/doi/toc/10.1002/(ISSN)1527-2648.HallofFame">Advanved Engineering Materials Hall of Fame</a></span>
+</dd> <dt> 26 Mar 2019 </dt><dd> <strong><span class='externalLink'><a href="http://dream3d.bluequartz.net/">DREAM.3D</a></span> 6.5.119</strong> <br />(released 2019/03/22) comes with a DAMASK export filter
+</dd> <dt> 25 Mar 2019 </dt><dd> Release of version <strong><a href="/bin/view/Download/Current">v2.0.3</a></strong>
+</dd> <dt> 21 Jan 2019 </dt><dd> <strong>DAMASK overview paper</strong> finally <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">published</a></span> with full citation information available
+</dd> <dt> 01 Dec 2018 </dt><dd> <strong>DAMASK overview paper</strong> now <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">online</a></span>
+</dd> <dt> 17 Sep 2018 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2018">CMCn2018</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 22 May 2018 </dt><dd> Release of version <strong>v2.0.2</strong>
+</dd> <dt> 01 Sep 2016 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2016">CMCn2016</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 25 Jul 2016 </dt><dd> Release of version <strong>v2.0.1</strong>
+</dd> <dt> 08 Mar 2016 </dt><dd> Release of version <strong>v2.0.0</strong>
+</dd> <dt> 22 Feb 2016 </dt><dd> <strong>New webserver</strong> up and running
+</dd> <dt> 09 Feb 2016 </dt><dd> <strong>Migrated <span class='externalLink'><a href="https://magit1.mpie.de">code repository</a></span></strong> from Subversion to <strong><span class='externalLink'><a href="https://about.gitlab.com/">GitLab</a></span></strong>
+</dd> <dt> 17 Dec 2014 </dt><dd> Release of <strong>revision 3813</strong>
+</dd> <dt> 14 May 2014 </dt><dd> Release of <strong>revision 3108</strong>
+</dd> <dt> 02 Apr 2014 </dt><dd> Release of <strong>revision 3062</strong>
+</dd> <dt> 16 Oct 2013 </dt><dd> Release of <strong>revision 2689</strong>
+</dd> <dt> 15 Jul 2013 </dt><dd> Release of <strong>revision 2555</strong>
+</dd> <dt> 15 Feb 2013 </dt><dd> Release of <strong>revision 2174</strong>
+</dd> <dt> 13 Feb 2013 </dt><dd> <a href='http://www.doxygen.org/' title='Doxygen.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='104' data-orig-height='31'><img src='/pub/Main/News/igp_57415553ffe254df6d853b56c3b46f7d_Doxygen.png' alt='Doxygen' width='52' height='16'   /></a>  documentation
+</dd> <dt> 16 Dec 2012 </dt><dd> <a href='http://www.mathjax.org/' title='mj logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='167' data-orig-height='57'><img src='/pub/Main/News/igp_f1d42d3712de2aa46a85b866685e127a_mj_logo.png' alt='Powered by MathJax' width='55' height='19'   /></a> rendering
+</dd> <dt> 23 Nov 2012 </dt><dd> Release of <strong>revision 1955</strong>
+</dd> <dt> 15 Nov 2012 </dt><dd> Release of <strong>revision 1924</strong>
+</dd> <dt> 01 Nov 2012 </dt><dd> Updated <strong>sidebar</strong>
+</dd> <dt> 30 Oct 2012 </dt><dd> Significant <strong>website updates</strong> and <strong>content extensions</strong>
+</dd></dl> 
+<p></p>
+
+<!-- Keep this to have global readability:
+<p></p>
+ <ul>
+<li> Set DENYTOPICVIEW = 
+</li></ul> 
+-->
+<hr />
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.Isotropic'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

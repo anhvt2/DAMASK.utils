@@ -1,0 +1,586 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> DefaultPreferencesForm &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/DefaultPreferencesForm?t=1627672153" type="application/x-wiki" title="edit DefaultPreferencesForm" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/DefaultPreferencesForm" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/a290e7ab4416720461aa57761a724595.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SYSTEMWEB" : "System",
+   "USERNAME" : "guest",
+   "SERVERTIME" : "30 Jul 2021 - 21:09",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATH" : "/bin",
+   "SKIN" : "damask,famfamfam,pattern",
+   "WEB" : "System",
+   "TOPIC" : "DefaultPreferencesForm",
+   "WIKINAME" : "WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTSUFFIX" : "",
+   "USERSWEB" : "Main",
+   "PUBURLPATH" : "/pub",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTURL" : "https://damask.mpie.de/bin"
+}
+</script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/DefaultPreferencesForm" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?f74a2052cfa5bd5ee293a3bf4ef4786a' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/DefaultPreferencesForm?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?ec1c81c970d6dd3619cf2573842950d5' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.DefaultPreferencesForm' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.DefaultPreferencesForm' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Name </th>
+			<th class="foswikiTableCol1"> Type </th>
+			<th class="foswikiTableCol2"> Size </th>
+			<th class="foswikiTableCol3"> Value </th>
+			<th class="foswikiTableCol4"> Tooltip message </th>
+			<th class="foswikiTableCol5 foswikiLastCol"> Attributes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WEBBGCOLOR </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 20 </td>
+			<td class="foswikiTableCol3"> #FFD8AA </td>
+			<td class="foswikiTableCol4"> HTML Color </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FAVICON </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> <a href="https://damask.mpie.de/pub/System/WebPreferences/favicon.ico">https://damask.mpie.de/pub/System/WebPreferences/favicon.ico</a> </td>
+			<td class="foswikiTableCol4"> URL of an icon image </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WEBCOPYRIGHT </td>
+			<td class="foswikiTableCol1"> textarea </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> Copyright &copy; 1999-2021 by the contributing authors. \nAll material on this collaboration platform is the property of the contributing authors. <br /> \nIdeas, requests, problems regarding DAMASK? <a href="mailto:damask@mpie.de?subject=DAMASK&#32;Feedback&#32;on&#32;System.DefaultPreferencesForm">Send feedback</a> </td>
+			<td class="foswikiTableCol4"> Long form copyright </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WEBRSSCOPYRIGHT </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> Copyright 2021 by contributing authors </td>
+			<td class="foswikiTableCol4"> Short form copyright </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> NOSEARCHALL </td>
+			<td class="foswikiTableCol1"> select </td>
+			<td class="foswikiTableCol2"> 1 </td>
+			<td class="foswikiTableCol3"> off,on </td>
+			<td class="foswikiTableCol4"> Exclude web from <code>%WEBLIST%</code> and a <code>web="all"</code> search </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> NOAUTOLINK </td>
+			<td class="foswikiTableCol1"> select </td>
+			<td class="foswikiTableCol2"> 1 </td>
+			<td class="foswikiTableCol3"> off,on </td>
+			<td class="foswikiTableCol4"> Boolean </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> INCLUDEWARNING </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> on, off </td>
+			<td class="foswikiTableCol4"> Boolean </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> LINKTOOLTIPINFO </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4"> Format of tooltip info </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> EDITBOXWIDTH </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> 70 </td>
+			<td class="foswikiTableCol4"> Horizontal size of text edit box. Deprecated, ignored if editor box size is set using buttons in lower right corner of the window. </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> EDITBOXHEIGHT </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> 15 </td>
+			<td class="foswikiTableCol4"> Vertical size of text edit box. Deprecated, ignored if editor box size is set using buttons in lower right corner of the window. </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> EDITBOXSTYLE </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> width: 99% </td>
+			<td class="foswikiTableCol4"> CSS style </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> PREVIEWBGIMAGE </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> /pub/System/PreviewBackground/preview2bg.gif </td>
+			<td class="foswikiTableCol4"> Image URL </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FORCENEWREVISIONCHECKBOX </td>
+			<td class="foswikiTableCol1"> select </td>
+			<td class="foswikiTableCol2"> 1 </td>
+			<td class="foswikiTableCol3"> , checked="checked" </td>
+			<td class="foswikiTableCol4"> Select checked to enable </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DONTNOTIFYCHECKBOX </td>
+			<td class="foswikiTableCol1"> select </td>
+			<td class="foswikiTableCol2"> 1 </td>
+			<td class="foswikiTableCol3"> ,checked="checked" </td>
+			<td class="foswikiTableCol4"> Select checked to enable </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> ATTACHLINKBOX </td>
+			<td class="foswikiTableCol1"> select </td>
+			<td class="foswikiTableCol2"> 1 </td>
+			<td class="foswikiTableCol3"> ,checked="checked" </td>
+			<td class="foswikiTableCol4"> Select checked to enable </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> ATTACHEDFILELINKFORMAT </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> \t* <a href="https://damask.mpie.de/pub/System/DefaultPreferencesForm/$name">$name</a>: $comment </td>
+			<td class="foswikiTableCol4"> Text </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> ATTACHEDIMAGEFORMAT </td>
+			<td class="foswikiTableCol1"> textarea </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> \t* $comment: <br /><span class="foswikiAlert">Error: (3) can't find $name in System</span> </td>
+			<td class="foswikiTableCol4"> Text </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WIKITOOLNAME </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> Foswiki </td>
+			<td class="foswikiTableCol4"> Site name </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WEBLOGONAME </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> banner.gif </td>
+			<td class="foswikiTableCol4"> Filename of a logo image </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WEBLOGOIMG </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> <a href="https://damask.mpie.de/pub/System/WebPreferences/%WEBLOGONAME%">https://damask.mpie.de/pub/System/WebPreferences/%WEBLOGONAME%</a> </td>
+			<td class="foswikiTableCol4"> URL of a logo image </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WEBLOGOURL </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> <a href="https://damask.mpie.de/bin/view/System/WebHome">https://damask.mpie.de/bin/view/System/WebHome</a> </td>
+			<td class="foswikiTableCol4"> URL under the logo </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WEBLOGOALT </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> Home </td>
+			<td class="foswikiTableCol4"> Logo tooltip text of the logo </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WIKILOGOIMG </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> <a href='/pub/System/ProjectLogos/foswiki-logo.png' title='https://damask.mpie.de/pub/System/ProjectLogos/foswiki-logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='152' data-orig-height='50'><img src='/pub/System/ProjectLogos/foswiki-logo.png' alt='foswiki-logo.png' width='152' height='50'   /></a> </td>
+			<td class="foswikiTableCol4"> URL of a logo image </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WIKILOGOURL </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> <a href="http://Foswiki.org/">http://Foswiki.org/</a> </td>
+			<td class="foswikiTableCol4"> URL under the logo </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WIKILOGOALT </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> Powered by Foswiki </td>
+			<td class="foswikiTableCol4"> Logo tooltip text of the logo </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WIKIWEBLIST </td>
+			<td class="foswikiTableCol1"> textarea </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> <a href="/bin/view/Main/WebHome">Main</a> <span class='foswikiSeparator'>&nbsp; </td>
+			<td class="foswikiTableCol4"> &nbsp;</span> <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a> <span class='foswikiSeparator'>&nbsp; </td>
+			<td class="foswikiTableCol5"> &nbsp;</span> <a href="/bin/view/Sandbox/WebHome">Sandbox</a> </td>
+			<td class="foswikiTableCol6"> &nbsp; </td>
+			<td class="foswikiTableCol7 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> ATTACHFILESIZELIMIT </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> 3000 </td>
+			<td class="foswikiTableCol4"> Maximum size of attachments in KB, 0 for no limit </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> BROADCASTMESSAGE </td>
+			<td class="foswikiTableCol1"> textarea </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4"> Broadcast message on every page, for skins that support it. </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> SEARCHDEFAULTTTYPE </td>
+			<td class="foswikiTableCol1"> select </td>
+			<td class="foswikiTableCol2"> 1 </td>
+			<td class="foswikiTableCol3"> keyword,literal,regex </td>
+			<td class="foswikiTableCol4"> Default type for search </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> SEARCHVARDEFAULTTYPE </td>
+			<td class="foswikiTableCol1"> select </td>
+			<td class="foswikiTableCol2"> 1 </td>
+			<td class="foswikiTableCol3"> keyword,literal,regex </td>
+			<td class="foswikiTableCol4"> Default for <code>%SEARCH{}%</code> macro </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> SEARCHSTOPWORDS </td>
+			<td class="foswikiTableCol1"> textarea </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> a, all, am, an, and, any, as, at, b, be, by, c, d, e, for, from, g, h, how, i, i'm, i.e., in, is, isn't, it, it's, its, j, k, l, m, n, o, of, on, or, p, q, r, s, t, that, that's, the, this, to, u, v, w, was, wasn't, what, what's, when, where, who, who's, will, with, x, y, z </td>
+			<td class="foswikiTableCol4"> Stop words, e.g., common words and characters to exclude from a keyword search </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WIKIWEBMASTER </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> <a href="mailto&#58;webmaster&#64;example&#46;com">webmaster&#64;example.com</a> </td>
+			<td class="foswikiTableCol4"> Wiki administrator e-mail address </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WIKIWEBMASTERNAME </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> Wiki Administrator </td>
+			<td class="foswikiTableCol4"> Wiki administrator name (first name and last name, e.g. <code>Fred Smith</code>) </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTTP_EQUIV_ON_VIEW </td>
+			<td class="foswikiTableCol1"> textarea </td>
+			<td class="foswikiTableCol2"> 30x1 </td>
+			<td class="foswikiTableCol3"> <link rel='alternate' type='application/rss+xml' title='RSS Feed' href='https://damask.mpie.de/bin/view/System/WebRss' /> </td>
+			<td class="foswikiTableCol4"> http-equiv== meta tags for <code><b>view</b></code>, <code><b>rdiff</b></code>, <code><b>attach</b></code>, <code><b>search*</b></code> scripts </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTTP_EQUIV_ON_EDIT </td>
+			<td class="foswikiTableCol1"> textarea </td>
+			<td class="foswikiTableCol2"> 30x1 </td>
+			<td class="foswikiTableCol3"> = </td>
+			<td class="foswikiTableCol4"> http-equiv== meta tags for <code><b>edit</b></code> script </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HTTP_EQUIV_ON_PREVIEW </td>
+			<td class="foswikiTableCol1"> textarea </td>
+			<td class="foswikiTableCol2"> 30x1 </td>
+			<td class="foswikiTableCol3"> = </td>
+			<td class="foswikiTableCol4"> http-equiv== meta tags for <code><b>preview</b></code> script </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> SKIN </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> pattern </td>
+			<td class="foswikiTableCol4"> Skin overriding the default Foswiki templates. </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> WEBTOPICLIST </td>
+			<td class="foswikiTableCol1"> textarea </td>
+			<td class="foswikiTableCol2"> 40x3 </td>
+			<td class="foswikiTableCol3"> <a href="/bin/view/System/WebChanges">Changes</a> <span class='foswikiSeparator'>&nbsp; </td>
+			<td class="foswikiTableCol4"> &nbsp;</span> <a href="/bin/view/System/WebIndex">Index</a> <span class='foswikiSeparator'>&nbsp; </td>
+			<td class="foswikiTableCol5"> &nbsp;</span> <a href="/bin/view/System/WebSearch">Search</a> <span class='foswikiSeparator'>&nbsp; </td>
+			<td class="foswikiTableCol6"> &nbsp;</span> Go <input type="text" name="topic" size="16" /> </td>
+			<td class="foswikiTableCol7"> Usually a list of topics </td>
+			<td class="foswikiTableCol8 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FOSWIKI_LAYOUT_URL </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> <a href="https://damask.mpie.de/pub/System/PatternSkinTheme/layout.css">https://damask.mpie.de/pub/System/PatternSkinTheme/layout.css</a> </td>
+			<td class="foswikiTableCol4"> URL of a CSS </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> FOSWIKI_STYLE_URL </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> <a href="https://damask.mpie.de/pub/System/PatternSkinTheme/style.css">https://damask.mpie.de/pub/System/PatternSkinTheme/style.css</a> </td>
+			<td class="foswikiTableCol4"> URL of a CSS </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> USERLAYOUTURL </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4"> URL of a CSS </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> USERSTYLEURL </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4"> URL of a CSS </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DS_THEME </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> gray </td>
+			<td class="foswikiTableCol4"> Theme: (gray, monochrome, tabstyle </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DS_QUICKLINKSHEADING </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4"> Quicklinks headings </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DS_QUICKLINKS </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4"> Quicklinks submenu </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> DISABLEDPLUGINS </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> <a href="/bin/view/System/EmptyPlugin">EmptyPlugin</a>, <a class="foswikiNewLink" href="/bin/edit/System/DefaultPlugin?topicparent=System.DefaultPreferencesForm" rel="nofollow" title="Create this topic">DefaultPlugin</a>, <a class="foswikiNewLink" href="/bin/edit/System/TestFixturePlugin?topicparent=System.DefaultPreferencesForm" rel="nofollow" title="Create this topic">TestFixturePlugin</a> </td>
+			<td class="foswikiTableCol4"> Comma-separated list </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> INSTALLEDPLUGINS </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2"> 30 </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4"> Plugin execution order, comma-separated list </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> READTOPICPREFS </td>
+			<td class="foswikiTableCol1"> select </td>
+			<td class="foswikiTableCol2"> 1 </td>
+			<td class="foswikiTableCol3"> on,off </td>
+			<td class="foswikiTableCol4"> Boolean </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> TOPICOVERRIDESUSER </td>
+			<td class="foswikiTableCol1"> select </td>
+			<td class="foswikiTableCol2"> 1 </td>
+			<td class="foswikiTableCol3"> on, off </td>
+			<td class="foswikiTableCol4"> Boolean </td>
+			<td class="foswikiTableCol5 foswikiLastCol"> S </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> FINALPREFERENCES </td>
+			<td class="foswikiTableCol1 foswikiLast"> textarea </td>
+			<td class="foswikiTableCol2 foswikiLast"> 60x5 </td>
+			<td class="foswikiTableCol3 foswikiLast"> ATTACHFILESIZELIMIT, PREVIEWBGIMAGE, WIKITOOLNAME, WIKIWEBMASTER, SMTPMAILHOST, SMTPSENDERHOST, ALLOWWEBMANAGE, READTOPICPREFS, TOPICOVERRIDESUSER </td>
+			<td class="foswikiTableCol4 foswikiLast"> Multiple select </td>
+			<td class="foswikiTableCol5 foswikiLastCol foswikiLast"> S </td>
+		</tr>
+	</tbody></table></div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/Category">Category</a> &gt; <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a> &gt; <a href="/bin/view/System/Plugins">Plugins</a> &gt; <a href="/bin/view/System/PreferencesPlugin">PreferencesPlugin</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>DefaultPreferencesForm <br />
+Topic revision:  <span class='patternRevInfo'>07 Jul 2015, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.DefaultPreferencesForm'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

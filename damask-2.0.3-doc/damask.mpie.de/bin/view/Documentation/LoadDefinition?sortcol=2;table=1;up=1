@@ -1,0 +1,859 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> LoadDefinition &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/LoadDefinition?t=1627663403" type="application/x-wiki" title="edit LoadDefinition" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/LoadDefinition" /><!--[if IE]></base><![endif]-->
+<script class='head MATHJAX_PLUGIN' type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    processEscapes: true
+    },
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    Macros: {
+      bm: ["{\\mathbf{#1}}",1],
+      vctr: ["{\\mathbf{#1}}",1],
+      tnsr: ["{\\mathbf{#1}}",1],
+      tnsrfour: ["{\\mathbb{#1}}",1]
+    },
+  equationNumbers: { autoNumber: "AMS" }
+    }
+});
+</script>
+  <script class='head MATHJAX_PLUGIN' id="MathJax-script" async src="https://damask.mpie.de/pub/System/MathJaxPlugin/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/0422bbead71645437101cb3ccb1fd588.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableLoadDefinition13 {border-width:0px; width:100%}
+body .foswikiTable#tableLoadDefinition13 td {border-style:none}
+body .foswikiTable#tableLoadDefinition13 td.foswikiTableCol0 {width:50%}
+body .foswikiTable#tableLoadDefinition13 td.foswikiTableCol1 {width:50%}
+body .foswikiTable#tableLoadDefinition13 th {border-style:none}
+body .foswikiTable#tableLoadDefinition13 th.foswikiTableCol0 {width:50%}
+body .foswikiTable#tableLoadDefinition13 th.foswikiTableCol1 {width:50%}
+body .foswikiTable#tableLoadDefinition13 tr.foswikiTableRowdataBg0 td {background-color:transparent}
+body .foswikiTable#tableLoadDefinition13 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:transparent}
+</style>
+
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "URLHOST" : "https://damask.mpie.de",
+   "WIKINAME" : "WikiGuest",
+   "COOKIEREALM" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "USERSWEB" : "Main",
+   "SCRIPTURLPATH" : "/bin",
+   "SYSTEMWEB" : "System",
+   "USERNAME" : "guest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WEB" : "Documentation",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SCRIPTSUFFIX" : "",
+   "PUBURLPATH" : "/pub",
+   "SERVERTIME" : "30 Jul 2021 - 18:43",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "TOPIC" : "LoadDefinition",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   }
+}
+</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Documentation/LoadDefinition"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Documentation/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Documentation" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="active">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/WebHome">Documentation</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/FileFormats">FileFormats</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Documentation/LoadDefinition" title='Topic revision: 44 (22 Oct 2019 - 21:13:56)'>LoadDefinition</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Documentation/LoadDefinition?t=1627663403;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Documentation/LoadDefinition' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Documentation/LoadDefinition?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/LoadDefinition?raw=on&amp;rev=44' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Documentation/WebCreateNewTopic?topicparent=LoadDefinition' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/LoadDefinition?cover=print;sortcol=2;table=1;up=1' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Documentation/LoadDefinition?template=more&amp;maxrev=44&amp;currrev=44' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="A_3.6._Spectral_solver_load_definition"> <A name="Section_3.6."></A>3.6.  Spectral solver load definition </h1>
+<span id="TableOfContents"></span>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?sortcol=2;table=1;up=1#Purpose"> Purpose </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Valid_keywords"> Valid keywords </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=1#Overview"> Overview </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Deformation_gradient_rate_40_42Fdot_42_41"> Deformation gradient rate (Fdot) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Deformation_gradient_aim_40_42F_42_41"> Deformation gradient aim (F) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Velocity_gradient_40_42L_42_41"> Velocity gradient (L) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Piola_150Kirchhoff_stress_40_42P_42_41"> PiolaKirchhoff stress (P) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Total_time_increment_40_42t_42_41"> Total time increment (t) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Number_of_increments_40_42_91log_93incs_42_41"> Number of increments ([log]incs) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Frequency_of_results_output_40_42freq_42_41"> Frequency of results output (freq) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Rotate_load_frame_40_42euler_42_44_42rot_42_41"> Rotate load frame (euler, rot) </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=1#z_45x_45z_Euler_angles_40_42euler_42_41"> z-x-z Euler angles (euler) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Rotation_matrix_40_42rot_42_41"> Rotation matrix (rot) </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=1#Rotation_matrices_requirements"> Rotation matrices requirements </a>
+</li></ul> 
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=1;up=1#Reset_guessing_40_42dropguessing_42_41"> Reset guessing (dropguessing) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Frequency_of_saving_restart_information_40_42restart_42_41"> Frequency of saving restart information (restart) </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=1;up=1#Examples"> Examples </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=1#Basic_load_case_40_42Fdot_42_44_42L_42_44_42time_42_44_42steps_42_41"> Basic load case (Fdot, L, time, steps) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Mixed_boundary_conditions_40_42P_42_44_42Fdot_42_44_42L_42_41"> Mixed boundary conditions (P, Fdot, L) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Change_of_loading_direction_40_42dropguessing_42_41"> Change of loading direction (dropguessing) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Rotation_of_load_frame_40_42rotation_42_44_42euler_42_41"> Rotation of load frame (rotation, euler) </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=1#Equivalent_load_cases_40Rotation_by_180_41"> Equivalent load cases (Rotation by 180&deg;) </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Rotation_by_45"> Rotation by 45&deg; </a>
+</li></ul> 
+</li></ul> 
+</li></ul> 
+</div>
+<script type="math/tex"></script><p class='p'></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<span id="LoadFilePurpose"></span>
+<h2 id="Purpose">  Purpose  </h2>
+Defining the load applied to the the <a href="/bin/view/Documentation/GeometryFormat">volume element (VE)</a>.
+The load file is a plain text file with default file extension <span class='foswikiMaroonFG'>*.load</span> .
+A load file may contain a number of consecutive load cases; each load case corresponds to one line in the load file.
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<span id="ValidKeywords"></span>
+<h2 id="Valid_keywords">  Valid keywords  </h2>
+All valid keywords are given in the following table.
+Keywoards are case-insensitive.
+<p></p>
+
+<span id="ValidKeywords"></span>
+<h3 id="Overview">  Overview  </h3>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Keyword</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Meaning</a> </th>
+			<th class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=2;table=1;up=2#sorted_table" rel="nofollow" title="Sort by this column">Arguments</a><a name="sorted_table"></a><span class="tableSortIcon tableSortDown"><img alt="Sorted descending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortdown.gif" title="Sorted descending" width="11" /></span> </th>
+			<th class="foswikiTableCol3 foswikiLastCol"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=3;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Comments</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>dropguessing</code>, <code>guessreset</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> reset guessing </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" colspan="2" rowspan="1"> None </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>euler</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> rotation of loadcase frame by z-x-z Euler angles </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> keyword (optional); 3 real values </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> Keywords: <code>deg</code>, <code>degree</code> (default), <code>radian</code>; instead of <code>rot</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>Fdot</code>, <code>dotF</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> deformation gradient rate ($ \dot{\bar{\tnsr F}}$) </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 9 real numbers  or asterisks </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> instead of <code>L</code> or <code>F</code>; component wise exclusive with <code>P</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>F</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> deformation gradient aim ($\bar{\tnsr F}$) </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 9 real numbers  or asterisks </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> instead of <code>L</code> or <code>Fdot</code>; component wise exclusive with <code>P</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>L</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> velocity gradient ($ \bar{\tnsr L}$) </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 9 real numbers or asterisks </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> instead of <code>Fdot</code> or <code>F</code>; component wise exclusive with <code>P</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>P</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> Piola&ndash;Kirchhoff stress ($ \bar{\tnsr P}$) </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 9 real numbers or asterisks </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> component wise exclusive with <code>Fdot</code>, <code>F</code>, and <code>L</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>rot</code>, <code>rotation</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> rotation of loadcase frame by rotation matrix </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 9 real values </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> instead of <code>euler</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>t</code>, <code>time</code>, <code>delta</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> total time increment </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" colspan="2" rowspan="1"> 1 real number </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>incs</code>, <code>N</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> number of increments; linear time scaling </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1 integer </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> instead of <code>logIncs</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>logIncs</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> number of  increments; logarithmic time scaling </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1 integer </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> instead of <code>incs</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>freq</code>, <code>frequency</code>, <code>outputfreq</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> frequency of results output </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"> 1 integer </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> default value is 1, e.g. every step is written out </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <code>r</code>, <code>restart</code>, <code>restartwrite</code> </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> frequency of saving restart information </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol foswikiLast" rowspan="1"> 1 integer </td>
+			<td class="foswikiTableCol3 foswikiLastCol foswikiLast" rowspan="1"> default value of 0 disables writing of restart information </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<span id="DeformationGradientRate"></span>
+<h3 id="Deformation_gradient_rate_40_42Fdot_42_41">  Deformation gradient rate (<strong>Fdot</strong>)  </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>Fdot</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" rowspan="2" style="text-align:right"> 9 real numbers  or asterisks </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>dotF</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Specifies the rate of deformation gradient evolution.
+See the example <a class="foswikiCurrentTopicLink" href="#MixedBoundaryConditions">"Mixed Boundary Conditions"</a> for more information about applying a deformation gradient rate in combination with stress boundary conditions.
+<p></p>
+
+<span id="DeformationGradientAim"></span>
+<h3 id="Deformation_gradient_aim_40_42F_42_41">  Deformation gradient aim (<strong>F</strong>)  </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>F</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" style="text-align:right"> 9 real numbers  or asterisks </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Specifies the deformation gradient at the end of the load case.
+A deformation gradient rate between initial and final deformation gradient is linearly interpolated.
+See the example <a class="foswikiCurrentTopicLink" href="#MixedBoundaryConditions">"Mixed Boundary Conditions"</a> for more information about applying a deformation gradient rate in combination with stress boundary conditions.
+<p></p>
+
+<span id="VelocityGradient"></span>
+<h3 id="Velocity_gradient_40_42L_42_41">  Velocity gradient (<strong>L</strong>)  </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>L</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" style="text-align:right"> 9 real numbers  or asterisks </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Specifies the velocity gradient applying deformation to the VE.
+See the example <a class="foswikiCurrentTopicLink" href="#MixedBoundaryConditions">"Mixed Boundary Conditions"</a> for more information about applying a velocity gradient in combination with stress boundary conditions.
+<p></p>
+
+<span id="StressBC"></span>
+<h3 id="Piola_150Kirchhoff_stress_40_42P_42_41">  PiolaKirchhoff stress (<strong>P</strong>)  </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>P</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" style="text-align:right"> 9 real numbers  or asterisks </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Specifies the stress boundary conditions.
+See the example <a class="foswikiCurrentTopicLink" href="#MixedBoundaryConditions">"Mixed Boundary Conditions"</a> for more information about using stress boundary conditions in combination with deformation boundary conditions.
+<p></p>
+
+<span id="TimeIncrement"></span>
+<h3 id="Total_time_increment_40_42t_42_41">  Total time increment (<strong>t</strong>)  </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>t</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" rowspan="2"> 1 real number </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>time</code> </td>
+		</tr>
+	</tbody></table>
+<p class='p'>Specifies the total increment $\Delta t$ of time in seconds for the load case.
+Thus, the load case runs from $t_0$ to $t_0 + \Delta t$.</p>
+
+With linear time stepping  (by keyword <code>incs</code>), the time at increment $n$ out of the total $N$ is given by
+<p class='p'>\[ t(n) = t_0 + \frac{n}{N} \Delta t \]</p>
+
+If time scaling is switched to logarithmic (by keywords <code>logIncs</code>)
+then the time of increment $n$ is given by
+<p class='p'>\[  t(n) =
+\begin{cases}
+2^{n-N} \Delta t &amp; \text{in the first loadcase};
+\\ t_0 \left(\displaystyle\frac{t_0 + \Delta t}{t_0}\right)^{n/N} &amp; \text{in subsequent loadcases}.
+\end{cases}
+\]</p>
+
+<span id="LogIncs"></span>
+<h3 id="Number_of_increments_40_42_91log_93incs_42_41">  Number of increments (<strong>[log]incs</strong>)  </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>[log]incs</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" rowspan="3"> 1 integer </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>[log]increments</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>N</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Specifies the number <em>N</em> of increments the load case is subdivided into.
+If prefixed by &raquo;log&laquo;, a logarithmic time scaling is used.
+Otherwise, linear time scaling is used.
+See <a class="foswikiCurrentTopicLink" href="#TimeIncrements">total time increment</a>  for details on the time step calculation.
+<p></p>
+
+<span id="OutputFreq"></span>
+<h3 id="Frequency_of_results_output_40_42freq_42_41">  Frequency of results output (<strong>freq</strong>)  </h3>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>freq</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" rowspan="3" style="text-align:center"> 1 integer </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>frequency</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>outputfreq</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Specifies the frequency at which results are written to the output file <span class='foswikiMaroonFG'>SolverJobName.spectralOut</span>. By default, the results of every increment are written out, e.g. <code>freq</code> is set to 1.
+<p></p>
+
+<span id="RotationGeneral"></span>
+<h3 id="Rotate_load_frame_40_42euler_42_44_42rot_42_41">  Rotate load frame (<strong>euler</strong>, <strong>rot</strong>)  </h3>
+The rotation of the load frame allows loading directions that are not in the direction of the periodic expansion of the VE.
+<p></p>
+
+<span id="RotationEuler"></span>
+<h4 id="z_45x_45z_Euler_angles_40_42euler_42_41">  z-x-z Euler angles (<strong>euler</strong>)  </h4>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=9;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=9;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>euler</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" style="text-align:center"> optional keyword + 3 real numbers </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Specifies the rotation between load frame and laboratory frame as z-x-z Euler angles.
+By default, or when using the keywords <code>deg</code> or <code>degree</code>, angles are given in degree; keyword <code>radian</code> switches to radians.
+<p></p>
+
+<span id="RotationMatrix"></span>
+<h4 id="Rotation_matrix_40_42rot_42_41">  Rotation matrix (<strong>rot</strong>)  </h4>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rot</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" rowspan="2" style="text-align:right"> 9 real numbers </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>rotation</code> </td>
+		</tr>
+	</tbody></table>
+<p class='p'>Specifies the rotation between load frame and laboratory frame as a rotation matrix $SO(3)$.</p>
+
+<h5 id="Rotation_matrices_requirements">  Rotation matrices requirements  </h5>
+A rotation matrix must be symmetric and its determinant must be 1.0 (with some allowed numerical tolerances).
+The following three basic rotation matrices rotate three-dimensional vectors about the $x$, $y$, and $z$ axis, respectively:
+<p class='p'>\begin{align}
+R_x(\theta) &amp;=
+\begin{bmatrix}
+1 &amp; 0 &amp; 0
+\\ 0 &amp; \cos \theta &amp; -\sin \theta
+\\ 0 &amp; \sin \theta  &amp; \cos \theta
+\\ \end{bmatrix}
+\\[6pt]
+R_y(\theta) &amp;=
+\begin{bmatrix}
+\cos \theta &amp; 0 &amp; \sin \theta
+\\ 0 &amp; 1 &amp; 0
+\\ -\sin \theta &amp; 0 &amp; \cos \theta
+\\ \end{bmatrix}
+\\[6pt]
+R_z(\theta) &amp;=
+\begin{bmatrix}
+\cos \theta &amp; -\sin \theta &amp; 0
+\\ \sin \theta &amp; \cos \theta &amp; 0
+\\ 0 &amp; 0 &amp; 1
+\\ \end{bmatrix}
+\end{align}</p>
+
+<p class='p'></p>
+
+<span id="RestartWrite"></span>
+<h3 id="Reset_guessing_40_42dropguessing_42_41">  Reset guessing (<strong>dropguessing</strong>)  </h3>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>dropguessing</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" rowspan="2" style="text-align:right"> none </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>guessreset</code> </td>
+		</tr>
+	</tbody></table>
+Turns off guessing along former trajectory at start of a consecutive load case and calculation start with a homogeneous guess.
+By default, guessing is on for each load case except for the first one where only a homogeneous guess is possible.
+<p></p>
+
+<span id="RestartWrite"></span>
+<h3 id="Frequency_of_saving_restart_information_40_42restart_42_41">  Frequency of saving restart information (<strong>restart</strong>)  </h3>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=0;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">keyword</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol" style="text-align:center"> <a href="/bin/view/Documentation/LoadDefinition?sortcol=1;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">values</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>restart</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" rowspan="2" style="text-align:right"> 1 integer </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>restartwrite</code> </td>
+		</tr>
+	</tbody></table>
+Specifies the frequency at which restart information is written.
+By default, restart information is never saved.
+<p class='p'></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<span id="LoadExample"></span>
+<h2 id="Examples">  Examples  </h2>
+<p></p>
+
+<span id="DeformationExample"></span>
+<h3 id="Basic_load_case_40_42Fdot_42_44_42L_42_44_42time_42_44_42steps_42_41">  Basic load case (<strong>Fdot</strong>, <strong>L</strong>, <strong>time</strong>, <strong>steps</strong>)   </h3>
+The most simple load case is defined by prescribing a deformation $\bar{\tnsr F}$ resulting e.g. from a constant technical deformation rate $ \dot{\bar{\tnsr F}}$, a loading time $t$ and the number of steps $n$ in which the problem should be solved. <ul>
+<li> <code>Fdot</code> followed by 9 floating point values lists the deformation rate tensor components in the order 11,12,13,21,22,23,31,32,33.
+</li> <li> <code>t</code> followed by a positive floating point value specifies the total time of the load case.
+</li> <li> <code>incs</code> followed by an integer value larger than one indicates the number of steps to use.
+</li></ul> 
+<p></p>
+
+Thus, a load case describing tension in 11 and compression in 22 direction is given by:
+<pre>Fdot 1.0e-4 0.0 0.0   0.0 -1.0e-4 0.0   0.0 0.0 0.0   t 10.0   incs 10
+</pre>
+<p></p>
+
+Each increment has the duration of 1.0 second because the total deformation time of 10.0 seconds is divided into 10 increments.
+The resulting deformation in 11-direction is &asymp; 10<sup>-3</sup> and in 22-direction  &asymp; -10<sup>-3</sup>.
+<p></p>
+
+Instead of prescribing a constant technical strain rate by defining $\dot{\bar{\tnsr F}}$, it is possible to prescribe a velocity gradient $\bar{\tnsr L}$ to get a constant true strain rate.
+The velocity gradient is indicated by the keywords <code>L</code> and is also followed by 9 floating point values:
+<pre>L 1.0e-4 0.0 0.0   0.0 -1.0e-4 0.0   0.0 0.0 0.0   t 10.0   incs 10
+</pre>
+<p></p>
+
+<span id="MixedBoundaryConditions"></span>
+<h3 id="Mixed_boundary_conditions_40_42P_42_44_42Fdot_42_44_42L_42_41">  Mixed boundary conditions (<strong>P</strong>, <strong>Fdot</strong>, <strong>L</strong>)  </h3>
+The samples load cases above force the VE to significantly change its volume at large deformations.
+Except for special cases (simple shear, rotation, etc.), a load case prescribing all components of $\bar{\tnsr F}$ will lead to a non-volume preserving load.
+Therefore, the deformation should be undefined at at least one component of the 3x3 tensor $\bar{\tnsr F}$ and a stress must be prescribed at those components to get a unique solution.
+<p></p>
+
+To leave a component of the deformation undefined, use an asterisk at the corresponding position.
+In the following example, a deformation is described in 11 direction and the deformation in 22 direction will be adjusted to a value such that the average Piola&ndash;Kirchhoff stress (keyword <code>P</code>) in that direction is 0.0.
+All other components have 0 deformation (resulting potentially in stress).
+<pre>Fdot 1.0e-4 0.0 0.0   0.0 * 0.0   0.0 0.0 0.0   P * * *   * 0.0 *   * * *   t 10.0   incs 10
+</pre>
+<p class='p'>Mixed boundary conditions need to fulfill the following requirements:</p>
+ <ol>
+<li> Stress and Deformation BCs are mutually exclusive.
+</li> <li> The stress boundary conditions must not allow for rotation, e.g. the opposite off-diagonal elements cannot have stress components at the same time.
+</li> <li> If a velocity gradient is prescribed, each row of the tensors must either contain stress or velocity gradient.
+</li></ol> 
+<p></p>
+
+Load cases not possible due to restriction 1:
+<pre>Fdot    <span class='foswikiRedFG'>1.0e-4 0.0 0.0   1.0 0.0 0.0   0.0 0.0 0.0</span>   P <span class='foswikiRedFG'>0.0 0.0 0.0   0.0 10.0 0.0   0.0 0.0 0.0</span>   t 10.0    incs 40</pre>
+<pre>L       <span class='foswikiRedFG'>1.0e-4 0.0 0.0   1.0 0.0 0.0   0.0 0.0 0.0</span>   P <span class='foswikiRedFG'>0.0 0.0 0.0   0.0 10.0 0.0   0.0 0.0 0.0</span>   t 10.0    incs 40</pre>
+<pre>Fdot    <span class='foswikiRedFG'> *      *   *     *   *   *     *   *   *</span>    P <span class='foswikiRedFG'> *   *   *     *    *   *     *   *   *</span>    t 10.0    incs 40</pre>
+<pre>L       <span class='foswikiRedFG'> *      *   *     *   *   *     *   *   *</span>    P <span class='foswikiRedFG'> *   *   *     *    *   *     *   *   *</span>    t 10.0    incs 40</pre>
+<pre>Fdot    <span class='foswikiRedFG'>1.0e-4</span>  *   *     *   *   *     *   *   *    P <span class='foswikiRedFG'>0.0</span> 0.0 0.0   2.0  0.0 0.0   0.0 0.0 0.0   t 10.0    incs 40</pre>
+<pre>Fdot    0.0    0.0   <span class='foswikiRedFG'>*   0.0</span> 0.0 0.0   0.0 0.0 0.0   P  *   *   <span class='foswikiRedFG'>*    0.0</span>   *   *     *   *   *    t 10.0    incs 40</pre>
+<pre>L       0.0    0.0  0.0   <span class='foswikiRedFG'>*   *   *</span>     *   *   *    P  *   *   *     <span class='foswikiRedFG'>*    *   *</span>    0.0 0.0 0.0   t 10.0    incs 40</pre>
+<p class='p'></p>
+
+Load cases not possible due to restriction 2:
+<pre>Fdot    1.0e-4  <span class='foswikiRedFG'>*</span>  0.0    <span class='foswikiRedFG'>*</span>  0.0 0.0   0.0 0.0 0.0   P  * <span class='foswikiRedFG'> 0.0</span>  *    <span class='foswikiRedFG'>0.0</span>  *   *     *   *   *    t 10.0    incs 40</pre>
+<pre>L        *      <span class='foswikiRedFG'>*</span>   *     <span class='foswikiRedFG'>*</span>   *   *    0.0 0.0 0.0   P 0.0 <span class='foswikiRedFG'>0.0</span> 0.0   <span class='foswikiRedFG'>0.0</span> 0.0  *     *   *   *    t 10.0    incs 40</pre>
+<pre>Fdot    1.0e-4 0.0  <span class='foswikiRedFG'>*</span>    0.0 0.0 0.0    <span class='foswikiRedFG'>*</span>  0.0 0.0   P  *   * <span class='foswikiRedFG'> 0.0</span>    *   *   *    <span class='foswikiRedFG'>0.0</span>  *   *    t 10.0    incs 40</pre>
+<pre>Fdot    1.0e-4  <span class='foswikiRedFG'>*</span>   <span class='foswikiRedFG'>*     *</span>  0.0 0.0    <span class='foswikiRedFG'>*</span>  0.0 0.0   P  *  <span class='foswikiRedFG'>0.0 0.0   0.0</span>  *   *    <span class='foswikiRedFG'>0.0</span>  *   *    t 10.0    incs 40</pre>
+<p></p>
+
+Load cases not possible due to restriction 3:
+<pre>L <span class='foswikiRedFG'>1.0e-4  *  0.0   0.0  *  0.0</span>   0.0 0.0 0.0   P <span class='foswikiRedFG'> *  0.0  *     *  0.0  * </span>    *   *   *    t 10.0    incs 40</pre>
+<pre>L <span class='foswikiRedFG'>1.0e-4  *  0.0</span>   0.0 0.0 0.0   0.0 0.0 0.0   P <span class='foswikiRedFG'> *  0.0  * </span>    *   *   *     *   *   *    t 10.0    incs 40</pre>
+<pre>L <span class='foswikiRedFG'> *     1.0  * </span>   0.0 0.0 0.0   0.0 0.0 0.0   P <span class='foswikiRedFG'>1.0  *  0.0</span>    *   *   *     *   *   *    t 10.0    incs 40</pre>
+<pre>L <span class='foswikiRedFG'> *     1.0  * </span>   0.0 0.0 0.0    *   *   *    P <span class='foswikiRedFG'>1.0  *  0.0</span>    *   *   *    0.0 0.0 0.0   t 10.0    incs 40</pre>
+<p></p>
+
+The following load cases do not offend any of the restrictions and are allowed:
+<pre>Fdot 1.0e-4 0.0 0.0   0.0   *     0.0   0.0 0.0 0.0   P  *  * *   * 0.0 *   * * *   t 10.0    incs 40</pre>
+<pre>Fdot  *     0.0 0.0   0.0 10.0e-4 0.0   0.0 0.0 0.0   P 0.0 * *   *  *  *   * * *   t 10.0    incs 40</pre>
+<p></p>
+
+<span id="DropGuessing"></span>
+<h3 id="Change_of_loading_direction_40_42dropguessing_42_41">  Change of loading direction (<strong>dropguessing</strong>)  </h3>
+Each line in a load file specifies one load case, the load cases  are subsequently applied to the VE.
+In the following example, uniaxial tension in 11 direction is applied at the same rate with increasing time increments.
+<pre>Fdot 1.0e-4 0.0 0.0   0.0 * 0.0   0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 2.0    incs 2
+Fdot 1.0e-4 0.0 0.0   0.0 * 0.0   0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 3.0    incs 2
+Fdot 1.0e-4 0.0 0.0   0.0 * 0.0   0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 5.0    incs 2
+</pre>
+To increase the performance of the iterative scheme, the predicted deformation at the beginning of each new load case (and also during subsequent increments of the same load case) follows the rate of the last increment.
+However, when changing the loading direction, this strategy can lead to longer calculation times or even prevent convergence.
+The keyword <code>dropguessing</code> disables the guessing at the beginning of a new load case as shown in the following example where the deformation direction changes form the 11 to the 22 component:
+<pre>Fdot 1.0e-4 0.0 0.0   0.0  *     0.0   0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 2.0    incs 2
+Fdot  *     0.0 0.0   0.0 1.0e-4 0.0   0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 2.0    incs 2   dropguessing
+</pre>
+Naturally, no guessing is possible for the first increment of the first load case.
+<p></p>
+
+<span id="RotationExample"></span>
+<h3 id="Rotation_of_load_frame_40_42rotation_42_44_42euler_42_41">  Rotation of load frame (<strong>rotation</strong>, <strong>euler</strong>)  </h3>
+The rotation of the load frame allows to load the VE in arbitrary directions, e.g. not following the sample x-y-z coordinate system.
+<p></p>
+
+<h4 id="Equivalent_load_cases_40Rotation_by_180_41">  Equivalent load cases (Rotation by 180&deg;)  </h4>
+By rotating the VE by 180&deg;, the sample x-y-z coordinate axes are aligned with the the lab  x-y-z coordinate axes, thus the load
+<pre>
+Fdot 1.0e-4 0.0 0.0   0.0  *     0.0   0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 2.0    incs 2
+</pre>
+can be applied also using the following load cases (rotation of 180&deg; around z) when using an isotropic material.
+For crystalline material, the orientation definition also needs to be rotated, i.e. using the keyword <code>rotation</code> in the texture part in <span class='foswikiMaroonFG'>material.config</span>
+<pre>
+Fdot  *     0.0 0.0   0.0 1.0e-4 0.0   0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 2.0    incs 2   rot -1.0 0.0 0.0   0.0 -1.0 0.0   0.0 0.0 1.0
+</pre>
+<pre>
+Fdot  *     0.0 0.0   0.0 1.0e-4 0.0   0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 2.0    incs 2   euler 180.0 0.0 0.0
+</pre>
+<pre>
+Fdot  *     0.0 0.0   0.0 1.0e-4 0.0   0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 2.0    incs 2   euler radian 3.14159265359 0.0 0.0
+</pre>
+<p></p>
+
+<h4 id="Rotation_by_45">  Rotation by 45&deg;  </h4>
+The following load cases apply the same load, but for the second one load and lab frame are rotated to each other by 45&deg;.
+<pre>
+Fdot 1.0e-4 0.0 0.0  0.0 * 0.0  0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 2.0    incs 2
+Fdot 1.0e-4 0.0 0.0  0.0 * 0.0  0.0 0.0 0.0   p * * *   * 0.0 *   * * *   t 2.0    incs 2   rot 0.70710678 -0.70710678 0.0   0.70710678 0.70710678 0.0   0.0 0.0 1.0
+</pre>
+<p></p>
+
+The shape change of the original loading direction and of the rotated one are shown in figure <a href="#fig:shapeChange">1</a> in blue and red, respectively.
+<p></p>
+
+<div style="clear:both; width:100%; display: block; margin-left: auto; margin-right: auto; background:#f4fcf4;">
+<a name="fig:shapeChange"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<table class="foswikiTable" id="tableLoadDefinition13" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:center"> <img src="/pub/Documentation/LoadDefinition/initial.png" width="100%"><br /> (a) not rotated </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" style="text-align:center"> <img src="/pub/Documentation/LoadDefinition/rotated.png" width="100%"><br /> (b) rotated by 45&deg; </td>
+		</tr>
+	</tbody></table>
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 1</strong>: Shape changes of VE for unrotated and rotated load frame</td><td></tr>
+</table>
+</div>
+<p></p>
+
+<div style="clear:both; width:100%; display: block; margin-left: auto; margin-right: auto; background:#f4fcf4;">
+<a name="fig:shapeChangeAnimation"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<img src="/pub/Documentation/LoadDefinition/ve_rot_z.gif" width="50%"><br />Rotating loadcase about z-axis in 10\deg increments
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 2</strong>: Shape changes of VE under rotating load frame</td><td></tr>
+</table>
+</div>
+<p></p>
+
+<div class="foswikiClear"></div> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/LoadDefinition?t=1627663403' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Documentation/LoadDefinition' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/LoadDefinition?cover=print;sortcol=2;table=1;up=1' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Documentation/LoadDefinition?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r44&nbsp;<a href="/bin/diff/Documentation/LoadDefinition?rev1=43;rev2=44" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/LoadDefinition?rev=43" rel="nofollow">r43</a>&nbsp;<a href="/bin/diff/Documentation/LoadDefinition?rev1=42;rev2=43" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/LoadDefinition?rev=42" rel="nofollow">r42</a>&nbsp;<a href="/bin/diff/Documentation/LoadDefinition?rev1=41;rev2=42" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/LoadDefinition?rev=41" rel="nofollow">r41</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/LoadDefinition?template=backlinksweb' rel='nofollow' title='Search the Documentation Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/LoadDefinition?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/LoadDefinition?t=1627663403;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/LoadDefinition?template=more&amp;maxrev=44&amp;currrev=44' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r44 - 22 Oct 2019, <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Documentation/LoadDefinition?foswiki_origin=GET%2cview%2c/bin/view/Documentation/LoadDefinition%3fsortcol%3d2%3btable%3d1%3bup%3d1">Log In</a></li></ul>
+</div>
+<p></p>
+
+<hr /> <ul>
+<li> <strong>News</strong>
+</li>  </ul><dl>
+<dt> 14 Sep 2020 </dt><dd> <del> <strong>CMCn2020</strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung</del> (cancelled)
+</dd> <dt> 22 Aug 2020 </dt><dd> Release of first preview version of <strong><a href="https://damask.mpie.de/bin/view/Download/Preview">DAMASK 3</a></strong>
+</dd> <dt> 19 Feb 2020 </dt><dd> DAMASK made it to the <span class='externalLink'><a href="https://onlinelibrary.wiley.com/doi/toc/10.1002/(ISSN)1527-2648.HallofFame">Advanved Engineering Materials Hall of Fame</a></span>
+</dd> <dt> 26 Mar 2019 </dt><dd> <strong><span class='externalLink'><a href="http://dream3d.bluequartz.net/">DREAM.3D</a></span> 6.5.119</strong> <br />(released 2019/03/22) comes with a DAMASK export filter
+</dd> <dt> 25 Mar 2019 </dt><dd> Release of version <strong><a href="/bin/view/Download/Current">v2.0.3</a></strong>
+</dd> <dt> 21 Jan 2019 </dt><dd> <strong>DAMASK overview paper</strong> finally <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">published</a></span> with full citation information available
+</dd> <dt> 01 Dec 2018 </dt><dd> <strong>DAMASK overview paper</strong> now <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">online</a></span>
+</dd> <dt> 17 Sep 2018 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2018">CMCn2018</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 22 May 2018 </dt><dd> Release of version <strong>v2.0.2</strong>
+</dd> <dt> 01 Sep 2016 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2016">CMCn2016</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 25 Jul 2016 </dt><dd> Release of version <strong>v2.0.1</strong>
+</dd> <dt> 08 Mar 2016 </dt><dd> Release of version <strong>v2.0.0</strong>
+</dd> <dt> 22 Feb 2016 </dt><dd> <strong>New webserver</strong> up and running
+</dd> <dt> 09 Feb 2016 </dt><dd> <strong>Migrated <span class='externalLink'><a href="https://magit1.mpie.de">code repository</a></span></strong> from Subversion to <strong><span class='externalLink'><a href="https://about.gitlab.com/">GitLab</a></span></strong>
+</dd> <dt> 17 Dec 2014 </dt><dd> Release of <strong>revision 3813</strong>
+</dd> <dt> 14 May 2014 </dt><dd> Release of <strong>revision 3108</strong>
+</dd> <dt> 02 Apr 2014 </dt><dd> Release of <strong>revision 3062</strong>
+</dd> <dt> 16 Oct 2013 </dt><dd> Release of <strong>revision 2689</strong>
+</dd> <dt> 15 Jul 2013 </dt><dd> Release of <strong>revision 2555</strong>
+</dd> <dt> 15 Feb 2013 </dt><dd> Release of <strong>revision 2174</strong>
+</dd> <dt> 13 Feb 2013 </dt><dd> <a href='http://www.doxygen.org/' title='Doxygen.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='104' data-orig-height='31'><img src='/pub/Main/News/igp_57415553ffe254df6d853b56c3b46f7d_Doxygen.png' alt='Doxygen' width='52' height='16'   /></a>  documentation
+</dd> <dt> 16 Dec 2012 </dt><dd> <a href='http://www.mathjax.org/' title='mj logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='167' data-orig-height='57'><img src='/pub/Main/News/igp_f1d42d3712de2aa46a85b866685e127a_mj_logo.png' alt='Powered by MathJax' width='55' height='19'   /></a> rendering
+</dd> <dt> 23 Nov 2012 </dt><dd> Release of <strong>revision 1955</strong>
+</dd> <dt> 15 Nov 2012 </dt><dd> Release of <strong>revision 1924</strong>
+</dd> <dt> 01 Nov 2012 </dt><dd> Updated <strong>sidebar</strong>
+</dd> <dt> 30 Oct 2012 </dt><dd> Significant <strong>website updates</strong> and <strong>content extensions</strong>
+</dd></dl> 
+<p></p>
+
+<!-- Keep this to have global readability:
+<p></p>
+ <ul>
+<li> Set DENYTOPICVIEW = 
+</li></ul> 
+-->
+<hr />
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.LoadDefinition'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

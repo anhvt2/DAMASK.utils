@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> VarRENDERZONE &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/VarRENDERZONE?t=1627675489" type="application/x-wiki" title="edit VarRENDERZONE" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/VarRENDERZONE" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/a29056226c3f292a815d82beeb826c9f.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "TOPIC" : "VarRENDERZONE",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTSUFFIX" : "",
+   "USERSWEB" : "Main",
+   "USERNAME" : "guest",
+   "SCRIPTURLPATH" : "/bin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "URLHOST" : "https://damask.mpie.de",
+   "SERVERTIME" : "30 Jul 2021 - 22:04",
+   "COOKIEREALM" : "",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WEB" : "System",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SKIN" : "damask,famfamfam,pattern"
+}
+</script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/VarRENDERZONE" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?caff1295cfa55cbe414444a7f0ae9aed' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/VarRENDERZONE?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?3677a29da0024ac284514e50657bf046' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.VarRENDERZONE' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.VarRENDERZONE' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="RENDERZONE_45_render_the_content_of_a_zone">  RENDERZONE - render the content of a zone </h1>
+Rendersa zone. See <a href="/bin/view/System/VarADDTOZONE">ADDTOZONE</a> for an explanation of <em>zones</em>.
+<p></p>
+
+<h2 id="Parameters">  Parameters </h2>
+            <table class="foswikiTable" id="tableVarRENDERZONE1" rules="none">   
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>   
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"zone"</code> </td>
+			<td class="foswikiTableCol1"> name of the zone </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> (reguired) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>format</code> </td>
+			<td class="foswikiTableCol1"> format string for each item added to the zone </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <pre class="tml">&#36;item &#60;!--&#60;literal&#62; &#36;id &#36;missing&#60;/literal&#62;--&#62;</pre> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>missingtoken</code> </td>
+			<td class="foswikiTableCol1"> string assigned to the <code>$missing</code> format token for use in the <code>format</code> parameter. </td>
+			<td class="foswikiTableCol2 foswikiLastCol" style="text-align:right"> <pre class="tml">&#36;id: requires&#61; missing ids: &#36;missingids</pre> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>chomp</code> </td>
+			<td class="foswikiTableCol1"> remove leading and trailing whitespace from formatted items, can be useful for pretty-printing and compression. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>header</code> </td>
+			<td class="foswikiTableCol1"> prepended to the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>footer</code> </td>
+			<td class="foswikiTableCol1"> appended to the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>separator</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> put between each item of a zone </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody>   </table>
+The following tokens are expanded in the <code>format</code> string: <ul>
+<li> <code>$id</code> - <code>id</code> of the <a href="/bin/view/System/VarADDTOZONE">ADDTOZONE</a> call within the <code>zone</code> currently being rendered.
+</li> <li> <code>$item</code> - text of the <a href="/bin/view/System/VarADDTOZONE">ADDTOZONE</a> call within the <code>zone</code> currently being rendered.
+</li> <li> <code>$zone</code> - the <code>"zone"</code> currently being rendered.
+</li> <li> <code>$missing</code> - if the <a href="/bin/view/System/VarADDTOZONE">ADDTOZONE</a> call being rendered required any <code>id</code> which was not found, then <code>$missing</code> is the <code>missingtoken</code> parameter; empty string otherwise.
+</li> <li> <code>$missingids</code> - comma separated list of ids that were required by the <a href="/bin/view/System/VarADDTOZONE">ADDTOZONE</a> call currently being rendered but weren't found within this <code>zone</code>.
+</li></ul> 
+Supports the <a href="/bin/view/System/FormatTokens">standard format tokens</a> in all parameters.
+<p></p>
+
+<div class="foswikiHelp">
+<img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> <code>header</code> and <code>footer</code> are <strong>not</strong> output if there is no content in the
+     zone (nothing has been <code>ADDTOZONEd</code> ). However they <strong>are</strong> output if the
+     output is the empty string (at least one <code>ADDTOZONE</code> has been processed).
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> Zones are cleared after being rendered; they are only ever rendered once.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> <code>head</code> and <code>script</code> are <em>automatic zones</em>. They don't require a
+     corresponding <code>RENDERZONE</code> anywhere in the templates - they are
+     automatically inserted before the <code>&lt;/head&gt;</code> tag in the output HTML
+     page.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> Macros will be expanded in all zones.  TML markup will not be expanded
+     in the <code>head</code> and <code>scripts</code> zones.  Any formatting in <code>head</code> and <code>scripts</code> zones
+     including [[TML links]] must be done directly using HTML. TML pseudo-tags like 
+     <code>nop</code>. <code>verbatim</code>, <code>literal</code>.  and <code>noautolink</code> are removed from <code>head</code> and <code>script</code> zones
+     and have no influence on the markup. All other zones will be rendered as normal topic text.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> Normally, dependencies between individual <code>ADDTOZONE</code> statements are
+     resolved within each zone. However, if <code>{MergeHeadAndScriptZones}</code> is
+     enabled in <a href="/bin/configure">configure</a>, then <code>head</code>
+     content which requires an <code>id</code> that only exists in <code>script</code> will be re-ordered 
+     to satisfy this dependency. <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <code>{MergeHeadAndScriptZones}</code> will be
+     removed from a future version of Foswiki.
+</div>
+<p></p>
+
+<h2 id="Related">  Related </h2>
+<a href="/bin/view/System/VarADDTOZONE">ADDTOZONE</a>
+<a class="interwikiLink" href="https://foswiki.org/Development.UsingADDTOZONE" title="'Development.UsingADDTOZONE' on foswiki.org">Using ADDTOZONE</a>,
+<a class="interwikiLink" href="https://foswiki.org/Development.UpdatingExtensionsScriptZone" title="'Development.UpdatingExtensionsScriptZone' on foswiki.org">Updating applications to use <code>script</code> zone</a>
+</div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/Category">Category</a> &gt; <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a> &gt; <a href="/bin/view/System/Macros">Macros</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>VarRENDERZONE <br />
+Topic revision:  <span class='patternRevInfo'>03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.VarRENDERZONE'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

@@ -1,0 +1,1319 @@
+.jqtp_sortable th.header{background-image:url(/pub/System/JQTablePlugin/bg.gif);background-repeat:no-repeat;background-position:center right;cursor:pointer;padding-right:21px}.jqtp_sortable th.headerSortUp{background-image:url(/pub/System/JQTablePlugin/asc.gif)}.jqtp_sortable th.headerSortDown{background-image:url(/pub/System/JQTablePlugin/desc.gif)}.jqtp_sortable .sorted{background-image:url(/pub/System/JQTablePlugin/opacity.png)}.imageThumb,.imageFrame,.imageFloat,.imageSimple{line-height:120%}.imageThumb,.imageFrame,.imageFloat{font-size:90%;overflow:hidden}.imageFrame{padding:3px;border:1px solid #ccc;background-color:#f9f9f9;display:inline-block}.imageThumb{padding:3px;display:inline-block}a.imageHref{border:0;background-image:none!important;text-decoration:none!important}a:hover.imageHref{background-color:transparent!important;text-decoration:none!important}.imageFrame .imageHref{border:1px solid #ccc;display:block;overflow:hidden}.imageThum img,.imageFrame img{border-right:1px solid transparent}.imageThumb .imageHref{display:block;overflow:hidden}.imageSimple{overflow:visible;display:inline-block;position:relative}.imageThumb_right,.imagePlain_right,.imageFloat_right,.imageSimple_right,.imageFrame_right{float:right;margin:0 0 1em 1em}.imageThumb_left,.imagePlain_left,.imageSimple_left,.imageFrame_left,.imageFloat_left{float:left;margin:0 1em 1em 0}.imagePlain_center,.imageThumb_center,.imageSimple_center,.imageFrame_center,.imageFloat_center{text-align:center;clear:both;margin:0 auto;display:block}.imageThumb_center,.imageFrame_center{margin:1em auto}.imageThumb_none,.imageFrame_none{margin:1em}.imageCaption{text-align:left;color:#444;line-height:140%;font-size:80%;padding:.3em 2px}.imageMagnify{float:right;margin:.3em 0}.imageCaption .imageMagnify a{text-decoration:none}.imageSimple .imageCaption{position:absolute;width:100%;bottom:0;box-sizing:border-box;overflow:hidden}.imageSimple .imageCaptionBackground{background:#000;opacity:.3;position:absolute;top:0;left:0;width:100%;height:100%}.imageSimple .imageCaptionContent{color:#fff;text-align:center;z-index:2;position:relative}.imageMagnify img{border:0;margin:0 1px}.imageResponsive{max-width:100%;height:auto}.smily{max-height:19px;vertical-align:text-bottom}.comment_placeholder{background-color:rgba(222,235,250,0.3)}.twistyHidden{display:none}/*!
+ * jQuery UI CSS Framework 1.12.0
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/theming/
+ */.ui-helper-hidden{display:none}.ui-helper-hidden-accessible{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.ui-helper-reset{margin:0;padding:0;border:0;outline:0;line-height:1.3;text-decoration:none;font-size:100%;list-style:none}.ui-helper-clearfix:before,.ui-helper-clearfix:after{content:"";display:table;border-collapse:collapse}.ui-helper-clearfix:after{clear:both}.ui-helper-zfix{width:100%;height:100%;top:0;left:0;position:absolute;opacity:0;filter:Alpha(Opacity=0)}.ui-front{z-index:100}.ui-state-disabled{cursor:default!important;pointer-events:none}.ui-icon{display:inline-block;vertical-align:middle;margin-top:-.25em;position:relative;text-indent:-99999px;overflow:hidden;background-repeat:no-repeat}.ui-widget-icon-block{left:50%;margin-left:-8px;display:block}.ui-widget-overlay{position:fixed;top:0;left:0;width:100%;height:100%}.ui-accordion .ui-accordion-header{display:block;cursor:pointer;position:relative;margin:2px 0 0 0;padding:.5em .5em .5em .7em;font-size:100%}.ui-accordion .ui-accordion-content{padding:1em 2.2em;border-top:0;overflow:auto}.ui-autocomplete{position:absolute;top:0;left:0;cursor:default}.ui-menu{list-style:none;padding:0;margin:0;display:block;outline:0}.ui-menu .ui-menu{position:absolute}.ui-menu .ui-menu-item{margin:0;cursor:pointer;list-style-image:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7)}.ui-menu .ui-menu-item-wrapper{position:relative;padding:3px 1em 3px .4em}.ui-menu .ui-menu-divider{margin:5px 0;height:0;font-size:0;line-height:0;border-width:1px 0 0 0}.ui-menu .ui-state-focus,.ui-menu .ui-state-active{margin:-1px}.ui-menu-icons{position:relative}.ui-menu-icons .ui-menu-item-wrapper{padding-left:2em}.ui-menu .ui-icon{position:absolute;top:0;bottom:0;left:.2em;margin:auto 0}.ui-menu .ui-menu-icon{left:auto;right:0}.ui-button{padding:.4em 1em;display:inline-block;position:relative;line-height:normal;margin-right:.1em;cursor:pointer;vertical-align:middle;text-align:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow:visible}.ui-button,.ui-button:link,.ui-button:visited,.ui-button:hover,.ui-button:active{text-decoration:none}.ui-button-icon-only{width:2em;box-sizing:border-box;text-indent:-9999px;white-space:nowrap}input.ui-button.ui-button-icon-only{text-indent:0}.ui-button-icon-only .ui-icon{position:absolute;top:50%;left:50%;margin-top:-8px;margin-left:-8px}.ui-button.ui-icon-notext .ui-icon{padding:0;width:2.1em;height:2.1em;text-indent:-9999px;white-space:nowrap}input.ui-button.ui-icon-notext .ui-icon{width:auto;height:auto;text-indent:0;white-space:normal;padding:.4em 1em}input.ui-button::-moz-focus-inner,button.ui-button::-moz-focus-inner{border:0;padding:0}.ui-controlgroup{vertical-align:middle;display:inline-block}.ui-controlgroup>.ui-controlgroup-item{float:left;margin-left:0;margin-right:0}.ui-controlgroup>.ui-controlgroup-item:focus,.ui-controlgroup>.ui-controlgroup-item.ui-visual-focus{z-index:9999}.ui-controlgroup-vertical>.ui-controlgroup-item{display:block;float:none;width:100%;margin-top:0;margin-bottom:0;text-align:left}.ui-controlgroup-vertical .ui-controlgroup-item{box-sizing:border-box}.ui-controlgroup .ui-controlgroup-label{padding:.4em 1em}.ui-controlgroup .ui-controlgroup-label span{font-size:80%}.ui-controlgroup-horizontal .ui-controlgroup-label+.ui-controlgroup-item{border-left:none}.ui-controlgroup-vertical .ui-controlgroup-label+.ui-controlgroup-item{border-top:0}.ui-controlgroup-horizontal .ui-controlgroup-label.ui-widget-content{border-right:0}.ui-controlgroup-vertical .ui-controlgroup-label.ui-widget-content{border-bottom:0}.ui-controlgroup-vertical .ui-spinner-input{width:75%;width:calc(100% - 2.4em)}.ui-controlgroup-vertical .ui-spinner .ui-spinner-up{border-top-style:solid}.ui-checkboxradio-label .ui-icon-background{box-shadow:inset 1px 1px 1px #ccc;border-radius:.12em;border:0}.ui-checkboxradio-radio-label .ui-icon-background{width:16px;height:16px;border-radius:1em;overflow:visible;border:0}.ui-checkboxradio-radio-label.ui-checkboxradio-checked .ui-icon,.ui-checkboxradio-radio-label.ui-checkboxradio-checked:hover .ui-icon{background-image:none;width:8px;height:8px;border-width:4px;border-style:solid}.ui-checkboxradio-disabled{pointer-events:none}.ui-datepicker{width:17em;padding:.2em .2em 0;display:none}.ui-datepicker .ui-datepicker-header{position:relative;padding:.2em 0}.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{position:absolute;top:2px;width:1.8em;height:1.8em}.ui-datepicker .ui-datepicker-prev-hover,.ui-datepicker .ui-datepicker-next-hover{top:1px}.ui-datepicker .ui-datepicker-prev{left:2px}.ui-datepicker .ui-datepicker-next{right:2px}.ui-datepicker .ui-datepicker-prev-hover{left:1px}.ui-datepicker .ui-datepicker-next-hover{right:1px}.ui-datepicker .ui-datepicker-prev span,.ui-datepicker .ui-datepicker-next span{display:block;position:absolute;left:50%;margin-left:-8px;top:50%;margin-top:-8px}.ui-datepicker .ui-datepicker-title{margin:0 2.3em;line-height:1.8em;text-align:center}.ui-datepicker .ui-datepicker-title select{font-size:1em;margin:1px 0}.ui-datepicker select.ui-datepicker-month,.ui-datepicker select.ui-datepicker-year{width:45%}.ui-datepicker table{width:100%;font-size:.9em;border-collapse:collapse;margin:0 0 .4em}.ui-datepicker th{padding:.7em .3em;text-align:center;font-weight:bold;border:0}.ui-datepicker td{border:0;padding:1px}.ui-datepicker td span,.ui-datepicker td a{display:block;padding:.2em;text-align:right;text-decoration:none}.ui-datepicker .ui-datepicker-buttonpane{background-image:none;margin:.7em 0 0 0;padding:0 .2em;border-left:0;border-right:0;border-bottom:0}.ui-datepicker .ui-datepicker-buttonpane button{float:right;margin:.5em .2em .4em;cursor:pointer;padding:.2em .6em .3em .6em;width:auto;overflow:visible}.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current{float:left}.ui-datepicker.ui-datepicker-multi{width:auto}.ui-datepicker-multi .ui-datepicker-group{float:left}.ui-datepicker-multi .ui-datepicker-group table{width:95%;margin:0 auto .4em}.ui-datepicker-multi-2 .ui-datepicker-group{width:50%}.ui-datepicker-multi-3 .ui-datepicker-group{width:33.3%}.ui-datepicker-multi-4 .ui-datepicker-group{width:25%}.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header{border-left-width:0}.ui-datepicker-multi .ui-datepicker-buttonpane{clear:left}.ui-datepicker-row-break{clear:both;width:100%;font-size:0}.ui-datepicker-rtl{direction:rtl}.ui-datepicker-rtl .ui-datepicker-prev{right:2px;left:auto}.ui-datepicker-rtl .ui-datepicker-next{left:2px;right:auto}.ui-datepicker-rtl .ui-datepicker-prev:hover{right:1px;left:auto}.ui-datepicker-rtl .ui-datepicker-next:hover{left:1px;right:auto}.ui-datepicker-rtl .ui-datepicker-buttonpane{clear:right}.ui-datepicker-rtl .ui-datepicker-buttonpane button{float:left}.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,.ui-datepicker-rtl .ui-datepicker-group{float:right}.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header{border-right-width:0;border-left-width:1px}.ui-datepicker .ui-icon{display:block;text-indent:-99999px;overflow:hidden;background-repeat:no-repeat;left:.5em;top:.3em}.ui-dialog{position:absolute;top:0;left:0;padding:.2em;outline:0}.ui-dialog .ui-dialog-titlebar{padding:.4em 1em;position:relative}.ui-dialog .ui-dialog-title{float:left;margin:.1em 0;white-space:nowrap;width:90%;overflow:hidden;text-overflow:ellipsis}.ui-dialog .ui-dialog-titlebar-close{position:absolute;right:.3em;top:50%;width:20px;margin:-10px 0 0 0;padding:1px;height:20px}.ui-dialog .ui-dialog-content{position:relative;border:0;padding:.5em 1em;background:0;overflow:auto}.ui-dialog .ui-dialog-buttonpane{text-align:left;border-width:1px 0 0 0;background-image:none;margin-top:.5em;padding:.3em 1em .5em .4em}.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset{float:right}.ui-dialog .ui-dialog-buttonpane button{margin:.5em .4em .5em 0;cursor:pointer}.ui-dialog .ui-resizable-n{height:2px;top:0}.ui-dialog .ui-resizable-e{width:2px;right:0}.ui-dialog .ui-resizable-s{height:2px;bottom:0}.ui-dialog .ui-resizable-w{width:2px;left:0}.ui-dialog .ui-resizable-se,.ui-dialog .ui-resizable-sw,.ui-dialog .ui-resizable-ne,.ui-dialog .ui-resizable-nw{width:7px;height:7px}.ui-dialog .ui-resizable-se{right:0;bottom:0}.ui-dialog .ui-resizable-sw{left:0;bottom:0}.ui-dialog .ui-resizable-ne{right:0;top:0}.ui-dialog .ui-resizable-nw{left:0;top:0}.ui-draggable .ui-dialog-titlebar{cursor:move}.ui-draggable-handle{-ms-touch-action:none;touch-action:none}.ui-resizable{position:relative}.ui-resizable-handle{position:absolute;font-size:.1px;display:block;-ms-touch-action:none;touch-action:none}.ui-resizable-disabled .ui-resizable-handle,.ui-resizable-autohide .ui-resizable-handle{display:none}.ui-resizable-n{cursor:n-resize;height:7px;width:100%;top:-5px;left:0}.ui-resizable-s{cursor:s-resize;height:7px;width:100%;bottom:-5px;left:0}.ui-resizable-e{cursor:e-resize;width:7px;right:-5px;top:0;height:100%}.ui-resizable-w{cursor:w-resize;width:7px;left:-5px;top:0;height:100%}.ui-resizable-se{cursor:se-resize;width:12px;height:12px;right:1px;bottom:1px}.ui-resizable-sw{cursor:sw-resize;width:9px;height:9px;left:-5px;bottom:-5px}.ui-resizable-nw{cursor:nw-resize;width:9px;height:9px;left:-5px;top:-5px}.ui-resizable-ne{cursor:ne-resize;width:9px;height:9px;right:-5px;top:-5px}.ui-progressbar{height:2em;text-align:left;overflow:hidden}.ui-progressbar .ui-progressbar-value{margin:-1px;height:100%}.ui-progressbar .ui-progressbar-overlay{background:url(data:image/gif;base64,R0lGODlhKAAoAIABAAAAAP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQJAQABACwAAAAAKAAoAAACkYwNqXrdC52DS06a7MFZI+4FHBCKoDeWKXqymPqGqxvJrXZbMx7Ttc+w9XgU2FB3lOyQRWET2IFGiU9m1frDVpxZZc6bfHwv4c1YXP6k1Vdy292Fb6UkuvFtXpvWSzA+HycXJHUXiGYIiMg2R6W459gnWGfHNdjIqDWVqemH2ekpObkpOlppWUqZiqr6edqqWQAAIfkECQEAAQAsAAAAACgAKAAAApSMgZnGfaqcg1E2uuzDmmHUBR8Qil95hiPKqWn3aqtLsS18y7G1SzNeowWBENtQd+T1JktP05nzPTdJZlR6vUxNWWjV+vUWhWNkWFwxl9VpZRedYcflIOLafaa28XdsH/ynlcc1uPVDZxQIR0K25+cICCmoqCe5mGhZOfeYSUh5yJcJyrkZWWpaR8doJ2o4NYq62lAAACH5BAkBAAEALAAAAAAoACgAAAKVDI4Yy22ZnINRNqosw0Bv7i1gyHUkFj7oSaWlu3ovC8GxNso5fluz3qLVhBVeT/Lz7ZTHyxL5dDalQWPVOsQWtRnuwXaFTj9jVVh8pma9JjZ4zYSj5ZOyma7uuolffh+IR5aW97cHuBUXKGKXlKjn+DiHWMcYJah4N0lYCMlJOXipGRr5qdgoSTrqWSq6WFl2ypoaUAAAIfkECQEAAQAsAAAAACgAKAAAApaEb6HLgd/iO7FNWtcFWe+ufODGjRfoiJ2akShbueb0wtI50zm02pbvwfWEMWBQ1zKGlLIhskiEPm9R6vRXxV4ZzWT2yHOGpWMyorblKlNp8HmHEb/lCXjcW7bmtXP8Xt229OVWR1fod2eWqNfHuMjXCPkIGNileOiImVmCOEmoSfn3yXlJWmoHGhqp6ilYuWYpmTqKUgAAIfkECQEAAQAsAAAAACgAKAAAApiEH6kb58biQ3FNWtMFWW3eNVcojuFGfqnZqSebuS06w5V80/X02pKe8zFwP6EFWOT1lDFk8rGERh1TTNOocQ61Hm4Xm2VexUHpzjymViHrFbiELsefVrn6XKfnt2Q9G/+Xdie499XHd2g4h7ioOGhXGJboGAnXSBnoBwKYyfioubZJ2Hn0RuRZaflZOil56Zp6iioKSXpUAAAh+QQJAQABACwAAAAAKAAoAAACkoQRqRvnxuI7kU1a1UU5bd5tnSeOZXhmn5lWK3qNTWvRdQxP8qvaC+/yaYQzXO7BMvaUEmJRd3TsiMAgswmNYrSgZdYrTX6tSHGZO73ezuAw2uxuQ+BbeZfMxsexY35+/Qe4J1inV0g4x3WHuMhIl2jXOKT2Q+VU5fgoSUI52VfZyfkJGkha6jmY+aaYdirq+lQAACH5BAkBAAEALAAAAAAoACgAAAKWBIKpYe0L3YNKToqswUlvznigd4wiR4KhZrKt9Upqip61i9E3vMvxRdHlbEFiEXfk9YARYxOZZD6VQ2pUunBmtRXo1Lf8hMVVcNl8JafV38aM2/Fu5V16Bn63r6xt97j09+MXSFi4BniGFae3hzbH9+hYBzkpuUh5aZmHuanZOZgIuvbGiNeomCnaxxap2upaCZsq+1kAACH5BAkBAAEALAAAAAAoACgAAAKXjI8By5zf4kOxTVrXNVlv1X0d8IGZGKLnNpYtm8Lr9cqVeuOSvfOW79D9aDHizNhDJidFZhNydEahOaDH6nomtJjp1tutKoNWkvA6JqfRVLHU/QUfau9l2x7G54d1fl995xcIGAdXqMfBNadoYrhH+Mg2KBlpVpbluCiXmMnZ2Sh4GBqJ+ckIOqqJ6LmKSllZmsoq6wpQAAAh+QQJAQABACwAAAAAKAAoAAAClYx/oLvoxuJDkU1a1YUZbJ59nSd2ZXhWqbRa2/gF8Gu2DY3iqs7yrq+xBYEkYvFSM8aSSObE+ZgRl1BHFZNr7pRCavZ5BW2142hY3AN/zWtsmf12p9XxxFl2lpLn1rseztfXZjdIWIf2s5dItwjYKBgo9yg5pHgzJXTEeGlZuenpyPmpGQoKOWkYmSpaSnqKileI2FAAACH5BAkBAAEALAAAAAAoACgAAAKVjB+gu+jG4kORTVrVhRlsnn2dJ3ZleFaptFrb+CXmO9OozeL5VfP99HvAWhpiUdcwkpBH3825AwYdU8xTqlLGhtCosArKMpvfa1mMRae9VvWZfeB2XfPkeLmm18lUcBj+p5dnN8jXZ3YIGEhYuOUn45aoCDkp16hl5IjYJvjWKcnoGQpqyPlpOhr3aElaqrq56Bq7VAAAOw==);height:100%;filter:alpha(opacity=25);opacity:.25}.ui-progressbar-indeterminate .ui-progressbar-value{background-image:none}.ui-selectable{-ms-touch-action:none;touch-action:none}.ui-selectable-helper{position:absolute;z-index:100;border:1px dotted black}.ui-selectmenu-menu{padding:0;margin:0;position:absolute;top:0;left:0;display:none}.ui-selectmenu-menu .ui-menu{overflow:auto;overflow-x:hidden;padding-bottom:1px}.ui-selectmenu-menu .ui-menu .ui-selectmenu-optgroup{font-size:1em;font-weight:bold;line-height:1.5;padding:2px .4em;margin:.5em 0 0 0;height:auto;border:0}.ui-selectmenu-open{display:block}.ui-selectmenu-text{display:block;margin-right:20px;overflow:hidden;text-overflow:ellipsis}.ui-selectmenu-button.ui-button{text-align:left;white-space:nowrap;width:14em}.ui-selectmenu-icon.ui-icon{float:right;margin-top:0}.ui-slider{position:relative;text-align:left}.ui-slider .ui-slider-handle{position:absolute;z-index:2;width:1.2em;height:1.2em;cursor:default;-ms-touch-action:none;touch-action:none}.ui-slider .ui-slider-range{position:absolute;z-index:1;font-size:.7em;display:block;border:0;background-position:0 0}.ui-slider.ui-state-disabled .ui-slider-handle,.ui-slider.ui-state-disabled .ui-slider-range{filter:inherit}.ui-slider-horizontal{height:.8em}.ui-slider-horizontal .ui-slider-handle{top:-.3em;margin-left:-.6em}.ui-slider-horizontal .ui-slider-range{top:0;height:100%}.ui-slider-horizontal .ui-slider-range-min{left:0}.ui-slider-horizontal .ui-slider-range-max{right:0}.ui-slider-vertical{width:.8em;height:100px}.ui-slider-vertical .ui-slider-handle{left:-.3em;margin-left:0;margin-bottom:-.6em}.ui-slider-vertical .ui-slider-range{left:0;width:100%}.ui-slider-vertical .ui-slider-range-min{bottom:0}.ui-slider-vertical .ui-slider-range-max{top:0}.ui-sortable-handle{-ms-touch-action:none;touch-action:none}.ui-spinner{position:relative;display:inline-block;overflow:hidden;padding:0;vertical-align:middle}.ui-spinner-input{border:0;background:0;color:inherit;padding:.222em 0;margin:.2em 0;vertical-align:middle;margin-left:.4em;margin-right:2em}.ui-spinner-button{width:1.6em;height:50%;font-size:.5em;padding:0;margin:0;text-align:center;position:absolute;cursor:default;display:block;overflow:hidden;right:0}.ui-spinner a.ui-spinner-button{border-top-style:none;border-bottom-style:none;border-right-style:none}.ui-spinner-up{top:0}.ui-spinner-down{bottom:0}.ui-tabs{position:relative;padding:.2em}.ui-tabs .ui-tabs-nav{margin:0;padding:.2em .2em 0}.ui-tabs .ui-tabs-nav li{list-style:none;float:left;position:relative;top:0;margin:1px .2em 0 0;border-bottom-width:0;padding:0;white-space:nowrap}.ui-tabs .ui-tabs-nav .ui-tabs-anchor{float:left;padding:.5em 1em;text-decoration:none}.ui-tabs .ui-tabs-nav li.ui-tabs-active{margin-bottom:-1px;padding-bottom:1px}.ui-tabs .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,.ui-tabs .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,.ui-tabs .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor{cursor:text}.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor{cursor:pointer}.ui-tabs .ui-tabs-panel{display:block;border-width:0;padding:1em 1.4em;background:0}.ui-tooltip{padding:8px;position:absolute;z-index:9999;max-width:300px}body .ui-tooltip{border-width:2px}.ui-widget{color:#111}.ui-widget-content{border:1px solid #bcbcbc;background:#fff;color:#111}.ui-widget-header{color:#111;border-bottom:1px solid #ddd;background:#f0f0f0;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMGYwZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#fff 0,#f0f0f0 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(100%,#f0f0f0));background:-webkit-linear-gradient(top,#fff 0,#f0f0f0 100%);background:-o-linear-gradient(top,#fff 0,#f0f0f0 100%);background:-ms-linear-gradient(top,#fff 0,#f0f0f0 100%);background:linear-gradient(top,#fff 0,#f0f0f0 100%)}.ui-widget-header a{color:#111}.ui-state-default,.ui-button,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default{color:#111;border:1px solid #bcbcbc;background:#dfdfdf;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkZmRmZGYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#fff 0,#dfdfdf 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(100%,#dfdfdf));background:-webkit-linear-gradient(top,#fff 0,#dfdfdf 100%);background:-o-linear-gradient(top,#fff 0,#dfdfdf 100%);background:-ms-linear-gradient(top,#fff 0,#dfdfdf 100%);background:linear-gradient(top,#fff 0,#dfdfdf 100%)}a:link.ui-state-default,a:visited.ui-state-default,a.ui-state-default,.ui-state-default a:link,.ui-state-default a:visited,.ui-state-default a{color:#111;text-decoration:none}.ui-widget:focus,.ui-widget :focus,.ui-widget:active,.ui-widget :active{outline:0}.ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus,.ui-button:hover,.ui-button:focus .ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,a.ui-state-default:hover,.ui-state-default a:hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus,.ui-button:hover,.ui-button:focus{color:#111;border-color:#ababab;background:#fff;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#fff 0,#ededed 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(100%,#ededed));background:-webkit-linear-gradient(top,#fff 0,#ededed 100%);background:-o-linear-gradient(top,#fff 0,#ededed 100%);background:-ms-linear-gradient(top,#fff 0,#ededed 100%);background:linear-gradient(top,#fff 0,#ededed 100%)}.ui-state-active,.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active,a.ui-button:active,.ui-button:active,.ui-button.ui-state-active:hover{color:#c60206;background:#ededed;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VkZWRlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#ededed 0,#fff 50%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ededed),color-stop(50%,#fff));background:-webkit-linear-gradient(top,#ededed 0,#fff 50%);background:-o-linear-gradient(top,#ededed 0,#fff 50%);background:-ms-linear-gradient(top,#ededed 0,#fff 50%);background:linear-gradient(top,#ededed 0,#fff 50%)}a.ui-state-highlight.ui-state-hover,.ui-state-highlight.ui-state-hover,.ui-state-highlight,.ui-widget-content .ui-state-highlight,.ui-widget-header .ui-state-highlight{background:#ededed;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VkZWRlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#ededed 0,#fff 50%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ededed),color-stop(50%,#fff));background:-webkit-linear-gradient(top,#ededed 0,#fff 50%);background:-o-linear-gradient(top,#ededed 0,#fff 50%);background:-ms-linear-gradient(top,#ededed 0,#fff 50%);background:linear-gradient(top,#ededed 0,#fff 50%)}.ui-state-error,.ui-widget-content .ui-state-error,.ui-widget-header .ui-state-error{color:#fff;text-shadow:none;border-color:#b20000;background:#b20000;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3Njc2NyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiMjAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#f76f6f 0,#b20000 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#f76f6f),color-stop(100%,#b20000));background:-webkit-linear-gradient(top,#f76f6f 0,#b20000 100%);background:-o-linear-gradient(top,#f76f6f 0,#b20000 100%);background:-ms-linear-gradient(top,#f76f6f 0,#b20000 100%);background:linear-gradient(top,#f76f6f 0,#b20000 100%)}.ui-state-error.ui-state-hover,.ui-widget-content .ui-state-error.ui-state-hover,.ui-widget-header .ui-state-error.ui-state-hover{color:#fff;border-color:#b20000;background:#f87a7a;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y4N2E3YSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkYTAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#f87a7a 0,#da0000 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#f87a7a),color-stop(100%,#da0000));background:-webkit-linear-gradient(top,#f87a7a 0,#da0000 100%);background:-o-linear-gradient(top,#f87a7a 0,#da0000 100%);background:-ms-linear-gradient(top,#f87a7a 0,#da0000 100%);background:linear-gradient(top,#f87a7a 0,#da0000 100%)}.ui-state-error.ui-state-active,.ui-widget-content .ui-state-error.ui-state-active,.ui-widget-header .ui-state-error.ui-state-active{color:#fff;border-color:#b20000;background:#da0000;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RhMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmODdhN2EiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#da0000 0,#f87a7a 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#da0000),color-stop(100%,#f87a7a));background:-webkit-linear-gradient(top,#da0000 0,#f87a7a 100%);background:-o-linear-gradient(top,#da0000 0,#f87a7a 100%);background:-ms-linear-gradient(top,#da0000 0,#f87a7a 100%);background:linear-gradient(top,#da0000 0,#f87a7a 100%)}.ui-state-error a,.ui-widget-content .ui-state-error a,.ui-widget-header .ui-state-error a,.ui-state-error-text,.ui-widget-content .ui-state-error-text,.ui-widget-header .ui-state-error-text{color:#fff}.ui-priority-primary,.ui-widget-content .ui-priority-primary,.ui-widget-header .ui-priority-primary{font-weight:bold}.ui-priority-secondary,.ui-widget-content .ui-priority-secondary,.ui-widget-header .ui-priority-secondary{opacity:.7;filter:Alpha(Opacity=70)}.ui-state-disabled,.ui-widget-content .ui-state-disabled,.ui-widget-header .ui-state-disabled{opacity:.6;filter:Alpha(Opacity=6)}.ui-icon{background-repeat:no-repeat;width:16px;height:16px;background-image:url(/pub/System/JQueryPlugin/plugins/ui/themes/foswiki/images/ui-icons-famfamfam.png);margin-top:-0.3em}.ui-icon[class^="fa-"],.ui-icon[class*="fa-"]{display:inline-block;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-indent:0;text-align:center;width:16px;height:16px;background:transparent;font-family:FontAwesome;font-weight:normal}.ui-widget-icon-block{left:50%;margin-left:-8px;display:block}.ui-icon-blank{background-position:16px 16px}.ui-icon-caret-1-n{background-position:0 0}.ui-icon-caret-1-ne{background-position:-16px 0}.ui-icon-caret-1-e{background-position:-32px 0}.ui-icon-caret-1-se{background-position:-48px 0}.ui-icon-caret-1-s{background-position:-64px 0}.ui-icon-caret-1-sw{background-position:-80px 0}.ui-icon-caret-1-w{background-position:-96px 0}.ui-icon-caret-1-nw{background-position:-112px 0}.ui-icon-caret-2-n-s{background-position:-128px 0}.ui-icon-caret-2-e-w{background-position:-144px 0}.ui-icon-triangle-1-n{background-position:0 -16px}.ui-icon-triangle-1-ne{background-position:-16px -16px}.ui-icon-triangle-1-e{background-position:-32px -16px}.ui-icon-triangle-1-se{background-position:-48px -16px}.ui-icon-triangle-1-s{background-position:-64px -16px}.ui-icon-triangle-1-sw{background-position:-80px -16px}.ui-icon-triangle-1-w{background-position:-96px -16px}.ui-icon-triangle-1-nw{background-position:-112px -16px}.ui-icon-triangle-2-n-s{background-position:-128px -16px}.ui-icon-triangle-2-e-w{background-position:-144px -16px}.ui-icon-arrow-1-n{background-position:0 -32px}.ui-icon-arrow-1-ne{background-position:-16px -32px}.ui-icon-arrow-1-e{background-position:-32px -32px}.ui-icon-arrow-1-se{background-position:-48px -32px}.ui-icon-arrow-1-s{background-position:-64px -32px}.ui-icon-arrow-1-sw{background-position:-80px -32px}.ui-icon-arrow-1-w{background-position:-96px -32px}.ui-icon-arrow-1-nw{background-position:-112px -32px}.ui-icon-arrow-2-n-s{background-position:-128px -32px}.ui-icon-arrow-2-ne-sw{background-position:-144px -32px}.ui-icon-arrow-2-e-w{background-position:-160px -32px}.ui-icon-arrow-2-se-nw{background-position:-176px -32px}.ui-icon-arrowstop-1-n{background-position:-192px -32px}.ui-icon-arrowstop-1-e{background-position:-208px -32px}.ui-icon-arrowstop-1-s{background-position:-224px -32px}.ui-icon-arrowstop-1-w{background-position:-240px -32px}.ui-icon-arrowthick-1-n{background-position:0 -48px}.ui-icon-arrowthick-1-ne{background-position:-16px -48px}.ui-icon-arrowthick-1-e{background-position:-32px -48px}.ui-icon-arrowthick-1-se{background-position:-48px -48px}.ui-icon-arrowthick-1-s{background-position:-64px -48px}.ui-icon-arrowthick-1-sw{background-position:-80px -48px}.ui-icon-arrowthick-1-w{background-position:-96px -48px}.ui-icon-arrowthick-1-nw{background-position:-112px -48px}.ui-icon-arrowthick-2-n-s{background-position:-128px -48px}.ui-icon-arrowthick-2-ne-sw{background-position:-144px -48px}.ui-icon-arrowthick-2-e-w{background-position:-160px -48px}.ui-icon-arrowthick-2-se-nw{background-position:-176px -48px}.ui-icon-arrowthickstop-1-n{background-position:-192px -48px}.ui-icon-arrowthickstop-1-e{background-position:-208px -48px}.ui-icon-arrowthickstop-1-s{background-position:-224px -48px}.ui-icon-arrowthickstop-1-w{background-position:-240px -48px}.ui-icon-arrowreturnthick-1-w{background-position:0 -64px}.ui-icon-arrowreturnthick-1-n{background-position:-16px -64px}.ui-icon-arrowreturnthick-1-e{background-position:-32px -64px}.ui-icon-arrowreturnthick-1-s{background-position:-48px -64px}.ui-icon-arrowreturn-1-w{background-position:-64px -64px}.ui-icon-arrowreturn-1-n{background-position:-80px -64px}.ui-icon-arrowreturn-1-e{background-position:-96px -64px}.ui-icon-arrowreturn-1-s{background-position:-112px -64px}.ui-icon-arrowrefresh-1-w{background-position:-128px -64px}.ui-icon-arrowrefresh-1-n{background-position:-144px -64px}.ui-icon-arrowrefresh-1-e{background-position:-160px -64px}.ui-icon-arrowrefresh-1-s{background-position:-176px -64px}.ui-icon-arrow-4{background-position:0 -80px}.ui-icon-arrow-4-diag{background-position:-16px -80px}.ui-icon-extlink{background-position:-32px -80px}.ui-icon-newwin{background-position:-48px -80px}.ui-icon-refresh{background-position:-64px -80px}.ui-icon-shuffle{background-position:-80px -80px}.ui-icon-transfer-e-w{background-position:-96px -80px}.ui-icon-transferthick-e-w{background-position:-112px -80px}.ui-icon-folder-collapsed{background-position:0 -96px}.ui-icon-folder-open{background-position:-16px -96px}.ui-icon-document{background-position:-32px -96px}.ui-icon-document-b{background-position:-48px -96px}.ui-icon-note{background-position:-64px -96px}.ui-icon-mail-closed{background-position:-80px -96px}.ui-icon-mail-open{background-position:-96px -96px}.ui-icon-suitcase{background-position:-112px -96px}.ui-icon-comment{background-position:-128px -96px}.ui-icon-person{background-position:-144px -96px}.ui-icon-print{background-position:-160px -96px}.ui-icon-trash{background-position:-176px -96px}.ui-icon-locked{background-position:-192px -96px}.ui-icon-unlocked{background-position:-208px -96px}.ui-icon-bookmark{background-position:-224px -96px}.ui-icon-tag{background-position:-240px -96px}.ui-icon-home{background-position:0 -112px}.ui-icon-flag{background-position:-16px -112px}.ui-icon-calendar{background-position:-32px -112px}.ui-icon-cart{background-position:-48px -112px}.ui-icon-pencil{background-position:-64px -112px}.ui-icon-clock{background-position:-80px -112px}.ui-icon-disk{background-position:-96px -112px}.ui-icon-calculator{background-position:-112px -112px}.ui-icon-zoomin{background-position:-128px -112px}.ui-icon-zoomout{background-position:-144px -112px}.ui-icon-search{background-position:-160px -112px}.ui-icon-wrench{background-position:-176px -112px}.ui-icon-gear{background-position:-192px -112px}.ui-icon-heart{background-position:-208px -112px}.ui-icon-star{background-position:-224px -112px}.ui-icon-link{background-position:-240px -112px}.ui-icon-cancel{background-position:0 -128px}.ui-icon-plus{background-position:-16px -128px}.ui-icon-plusthick{background-position:-32px -128px}.ui-icon-minus{background-position:-48px -128px}.ui-icon-minusthick{background-position:-64px -128px}.ui-icon-close{background-position:-80px -128px}.ui-icon-closethick{background-position:-96px -128px}.ui-icon-key{background-position:-112px -128px}.ui-icon-lightbulb{background-position:-128px -128px}.ui-icon-scissors{background-position:-144px -128px}.ui-icon-clipboard{background-position:-160px -128px}.ui-icon-copy{background-position:-176px -128px}.ui-icon-contact{background-position:-192px -128px}.ui-icon-image{background-position:-208px -128px}.ui-icon-video{background-position:-224px -128px}.ui-icon-script{background-position:-240px -128px}.ui-icon-alert{background-position:0 -144px}.ui-icon-info{background-position:-16px -144px}.ui-icon-notice{background-position:-32px -144px}.ui-icon-help{background-position:-48px -144px}.ui-icon-check{background-position:-64px -144px}.ui-icon-bullet{background-position:-80px -144px}.ui-icon-radio-off{background-position:-96px -144px}.ui-icon-radio-on{background-position:-112px -144px}.ui-icon-pin-w{background-position:-128px -144px}.ui-icon-pin-s{background-position:-144px -144px}.ui-icon-play{background-position:0 -160px}.ui-icon-pause{background-position:-16px -160px}.ui-icon-seek-next{background-position:-32px -160px}.ui-icon-seek-prev{background-position:-48px -160px}.ui-icon-seek-end{background-position:-64px -160px}.ui-icon-seek-start{background-position:-80px -160px}.ui-icon-seek-first{background-position:-80px -160px}.ui-icon-stop{background-position:-96px -160px}.ui-icon-eject{background-position:-112px -160px}.ui-icon-volume-off{background-position:-128px -160px}.ui-icon-volume-on{background-position:-144px -160px}.ui-icon-power{background-position:0 -176px}.ui-icon-signal-diag{background-position:-16px -176px}.ui-icon-signal{background-position:-32px -176px}.ui-icon-battery-0{background-position:-48px -176px}.ui-icon-battery-1{background-position:-64px -176px}.ui-icon-battery-2{background-position:-80px -176px}.ui-icon-battery-3{background-position:-96px -176px}.ui-icon-circle-plus{background-position:0 -192px}.ui-icon-circle-minus{background-position:-16px -192px}.ui-icon-circle-close{background-position:-32px -192px}.ui-icon-circle-triangle-e{background-position:-48px -192px}.ui-icon-circle-triangle-s{background-position:-64px -192px}.ui-icon-circle-triangle-w{background-position:-80px -192px}.ui-icon-circle-triangle-n{background-position:-96px -192px}.ui-icon-circle-arrow-e{background-position:-112px -192px}.ui-icon-circle-arrow-s{background-position:-128px -192px}.ui-icon-circle-arrow-w{background-position:-144px -192px}.ui-icon-circle-arrow-n{background-position:-160px -192px}.ui-icon-circle-zoomin{background-position:-176px -192px}.ui-icon-circle-zoomout{background-position:-192px -192px}.ui-icon-circle-check{background-position:-208px -192px}.ui-icon-circlesmall-plus{background-position:0 -208px}.ui-icon-circlesmall-minus{background-position:-16px -208px}.ui-icon-circlesmall-close{background-position:-32px -208px}.ui-icon-squaresmall-plus{background-position:-48px -208px}.ui-icon-squaresmall-minus{background-position:-64px -208px}.ui-icon-squaresmall-close{background-position:-80px -208px}.ui-icon-grip-dotted-vertical{background-position:0 -224px}.ui-icon-grip-dotted-horizontal{background-position:-16px -224px}.ui-icon-grip-solid-vertical{background-position:-32px -224px}.ui-icon-grip-solid-horizontal{background-position:-48px -224px}.ui-icon-gripsmall-diagonal-se{background-position:-64px -224px}.ui-icon-grip-diagonal-se{background-position:-80px -224px}.ui-corner-tl{-moz-border-radius-topleft:0;-webkit-border-top-left-radius:0;border-top-left-radius:0}.ui-corner-tr{-moz-border-radius-topright:0;-webkit-border-top-right-radius:0;border-top-right-radius:0}.ui-corner-bl{-moz-border-radius-bottomleft:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0}.ui-corner-br{-moz-border-radius-bottomright:0;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0}.ui-corner-top{-moz-border-radius-topleft:0;-webkit-border-top-left-radius:0;border-top-left-radius:0;-moz-border-radius-topright:0;-webkit-border-top-right-radius:0;border-top-right-radius:0}.ui-corner-bottom{-moz-border-radius-bottomleft:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0;-moz-border-radius-bottomright:0;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0}.ui-corner-right{-moz-border-radius-topright:0;-webkit-border-top-right-radius:0;border-top-right-radius:0;-moz-border-radius-bottomright:0;-webkit-border-bottom-right-radius:0;border-bottom-right-radius:0}.ui-corner-left{-moz-border-radius-topleft:0;-webkit-border-top-left-radius:0;border-top-left-radius:0;-moz-border-radius-bottomleft:0;-webkit-border-bottom-left-radius:0;border-bottom-left-radius:0}.ui-corner-all{-moz-border-radius:0;-webkit-border-radius:0;border-radius:0}.ui-widget-overlay{background:#fff;opacity:.5;filter:Alpha(Opacity=50)}.ui-widget-shadow{-webkit-box-shadow:1px 1px 7px rgba(0,0,0,0.1);-moz-box-shadow:1px 1px 7px rgba(0,0,0,0.1);box-shadow:1px 1px 7px rgba(0,0,0,0.1)}.ui-dialog{width:300px;-webkit-box-shadow:1px 1px 7px rgba(0,0,0,0.2);-moz-box-shadow:1px 1px 7px rgba(0,0,0,0.2);box-shadow:1px 1px 7px rgba(0,0,0,0.2);display:none;padding:0}.ui-dialog .foswikiFormSteps{margin:0;background-color:transparent;padding:0;border:0}.ui-dialog .ui-dialog-titlebar,.ui-dialog .ui-dialog-content,.ui-dialog .ui-dialog-buttonpane{position:relative;padding:1em 1.3846em}.ui-dialog .ui-dialog-titlebar{color:#c60206}.ui-dialog .ui-dialog-buttonpane{border-color:#ddd;margin-top:0}.ui-dialog .ui-dialog-title{font-size:1.2307em;margin:0}.ui-dialog .ui-dialog-titlebar-close{background-image:url(/pub/System/JQueryPlugin/plugins/ui/themes/foswiki/images/x.png);background-repeat:no-repeat;background-position:0 0;display:block;position:absolute;top:50%;right:1em;width:16px;height:16px;margin-top:-8px;border:0}.ui-dialog .ui-dialog-titlebar-close:hover{background-position:-16px 0}.ui-dialog .ui-dialog-titlebar-close span{visibility:hidden}.ui-dialog .ui-dialog-content{border:0;zoom:1}.ui-dialog .ui-dialog-buttonpane{border-width:1px 0 0 0}.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset{float:none}.ui-dialog .ui-dialog-buttonpane button{margin:0 .4em 0 0}.ui-dialog .ui-resizable-se{width:14px;height:14px}.ui-draggable .ui-widget-header{cursor:move}.ui-draggable.ui-draggable-dragging{z-index:999}.ui-slider{position:relative;text-align:left;background:#fff;-moz-box-shadow:1px 1px 1px #ccc inset;-webkit-box-shadow:1px 1px 1px #ccc inset;box-shadow:1px 1px 1px #ccc inset}.ui-slider.ui-corner-all{-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.ui-slider-handle.ui-corner-all{-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.ui-slider .ui-slider-handle{position:absolute;z-index:2;width:11px;height:11px;cursor:default;border:1px solid #0055b5;background:#f2f7ff;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyZjdmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjNmRlZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#f2f7ff 1%,#c6deff 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(1%,#f2f7ff),color-stop(100%,#c6deff));background:-webkit-linear-gradient(top,#f2f7ff 1%,#c6deff 100%);background:-o-linear-gradient(top,#f2f7ff 1%,#c6deff 100%);background:-ms-linear-gradient(top,#f2f7ff 1%,#c6deff 100%);background:linear-gradient(top,#f2f7ff 1%,#c6deff 100%);-ms-touch-action:none;touch-action:none}.ui-slider .ui-slider-handle.ui-state-hover{border:1px solid #0055b5;background:#f7faff;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZmFmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkZGViZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#f7faff 0,#ddebff 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#f7faff),color-stop(100%,#ddebff));background:-webkit-linear-gradient(top,#f7faff 0,#ddebff 100%);background:-o-linear-gradient(top,#f7faff 0,#ddebff 100%);background:-ms-linear-gradient(top,#f7faff 0,#ddebff 100%);background:linear-gradient(top,#f7faff 0,#ddebff 100%)}.ui-slider .ui-slider-handle.ui-state-active{border:1px solid #0055b5;background:#c6deff;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2M2ZGVmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMmY3ZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#c6deff 0,#f2f7ff 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#c6deff),color-stop(100%,#f2f7ff));background:-webkit-linear-gradient(top,#c6deff 0,#f2f7ff 100%);background:-o-linear-gradient(top,#c6deff 0,#f2f7ff 100%);background:-ms-linear-gradient(top,#c6deff 0,#f2f7ff 100%);background:linear-gradient(top,#c6deff 0,#f2f7ff 100%)}.ui-slider .ui-slider-range{position:absolute;z-index:1;font-size:.7em;display:block;border:1px solid #004696;background:#0055b5}.ui-slider-horizontal{height:5px;margin-left:8px;margin-right:8px}.ui-slider-horizontal .ui-slider-handle{top:-4px;margin-left:-6px}.ui-slider-horizontal .ui-slider-range{top:-1px;height:100%;background:#0055b5;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNTViNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2MjllZGQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(left,#0055b5 0,#629edd 100%);background:-webkit-gradient(linear,left top,right top,color-stop(0%,#0055b5),color-stop(100%,#629edd));background:-webkit-linear-gradient(left,#0055b5 0,#629edd 100%);background:-o-linear-gradient(left,#0055b5 0,#629edd 100%);background:-ms-linear-gradient(left,#0055b5 0,#629edd 100%);background:linear-gradient(left,#0055b5 0,#629edd 100%)}.ui-slider-horizontal .ui-slider-range-min{left:0}.ui-slider-horizontal .ui-slider-range-max{right:0}.ui-slider-vertical{width:5px;height:100px;margin-top:8px;margin-bottom:8px}.ui-slider-vertical .ui-slider-handle{left:-4px;margin-bottom:-6px}.ui-slider-vertical .ui-slider-range{left:-1px;width:100%;background:#629edd;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYyOWVkZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1YjUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#629edd 0,#0055b5 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#629edd),color-stop(100%,#0055b5));background:-webkit-linear-gradient(top,#629edd 0,#0055b5 100%);background:-o-linear-gradient(top,#629edd 0,#0055b5 100%);background:-ms-linear-gradient(top,#629edd 0,#0055b5 100%);background:linear-gradient(top,#629edd 0,#0055b5 100%)}.ui-slider-vertical .ui-slider-range-min{bottom:0}.ui-slider-vertical .ui-slider-range-max{top:0}.ui-spinner-input{padding:0}.ui-spinner a.ui-spinner-button{background:0}.ui-spinner .ui-icon-triangle-1-s{background-position:-65px -16px}.ui-progressbar{min-height:1em;height:1.5em;text-align:left;border-color:#0055b5;position:relative;background:#f2f7ff;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyZjdmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjNmRlZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#f2f7ff 1%,#c6deff 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(1%,#f2f7ff),color-stop(100%,#c6deff));background:-webkit-linear-gradient(top,#f2f7ff 1%,#c6deff 100%);background:-o-linear-gradient(top,#f2f7ff 1%,#c6deff 100%);background:-ms-linear-gradient(top,#f2f7ff 1%,#c6deff 100%);background:linear-gradient(top,#f2f7ff 1%,#c6deff 100%)}.ui-progressbar .ui-progressbar-value{height:100%;color:#fff;border-color:#004696;text-shadow:none;padding:0 1em;text-align:right;background:#0055b5;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYyOWVkZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1YjUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#629edd 0,#0055b5 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#629edd),color-stop(100%,#0055b5));background:-webkit-linear-gradient(top,#629edd 0,#0055b5 100%);background:-o-linear-gradient(top,#629edd 0,#0055b5 100%);background:-ms-linear-gradient(top,#629edd 0,#0055b5 100%);background:linear-gradient(top,#629edd 0,#0055b5 100%);-webkit-transition:width ease-in-out 500ms;transition:width ease-in-out 500ms}.ui-progressbar.ui-corner-all{-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.ui-progress .ui-corner-left{-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-bottomleft:3px;-webkit-border-bottom-left-radius:3px;border-bottom-left-radius:3px}.ui-tabs{border:0;padding:.2em}.ui-tabs .ui-tabs-nav{padding:0 0 .53em;background:0;border-width:0 0 1px 0;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;overflow:visible}.ui-tabs .ui-tabs-nav li{top:1px;DIS_margin:0 .3076em .4615em 0;padding:0;border-width:1px;white-space:nowrap;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}.ui-tabs .ui-tabs-nav .ui-tabs-anchor{border:0;padding:.22em .6153em}.ui-tabs .ui-tabs-nav li a:before{background-repeat:no-repeat;width:16px;height:16px;background-image:url(/pub/System/JQueryPlugin/plugins/ui/themes/foswiki/images/ui-icons_666666_256x240.png);display:block;float:left;text-indent:-99999px;overflow:hidden;content:' ';background-position:-32px -16px;margin:0 1px 0 -7px}.ui-tabs .ui-tabs-nav li.ui-tabs-active a:before{background-position:-64px -16px}.ui-tabs .ui-tabs-nav li a:hover{background:0}.ui-tabs .ui-tabs-nav li.ui-tabs-active{margin-bottom:-0.53em;padding-bottom:.53em;border-bottom-color:#fff!important;border-color:#bcbcbc;background:#fff;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;border-top-right-radius:3px}.ui-tabs .ui-tabs-panel{border-width:0 1px 1px 1px;padding:.6923em;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0}.ui-accordion{width:100%}.ui-accordion .ui-accordion-header{cursor:pointer;position:relative;zoom:1;display:block;padding:.5em .5em .5em .7em;min-height:0;border:0;background:transparent}.ui-accordion .ui-accordion-content{padding:1.385em;border-top:0;overflow:auto;border:0}.ui-accordion .ui-accordion-li-fix{display:inline}.ui-accordion .ui-accordion-icons{padding-left:1.385em}.ui-accordion .ui-accordion-noicons{padding-left:.7em}.ui-accordion .ui-accordion-header a{background:transparent}.ui-accordion .ui-accordion-header .ui-accordion-header-icon{position:absolute;left:0;top:50%;margin-top:-8px}.ui-accordion .ui-accordion-content-active{display:block}.ui-menu{position:relative;list-style:none;padding:0;margin:0;display:inline-block;border:1px solid #c2c4c4;-webkit-box-shadow:1px 1px 7px rgba(0,0,0,0.1);-moz-box-shadow:1px 1px 7px rgba(0,0,0,0.1);box-shadow:1px 1px 7px rgba(0,0,0,0.1)}.ui-menu .ui-menu{margin-top:-3px;position:absolute}.ui-menu .ui-menu-item{margin:0;padding:0;width:100%;list-style:none}.ui-menu .ui-menu-divider{margin:5px -2px 5px -2px;height:0;font-size:0;line-height:0;border-width:1px 0 0 0}.ui-menu .ui-menu-item a{text-decoration:none;display:block;padding:.4em .7em;padding-right:20px;color:inherit}.ui-menu .ui-state-focus,.ui-menu .ui-state-active{margin:0}.ui-menu .ui-menu-item .ui-state-focus,.ui-menu .ui-menu-item .ui-state-hover,.ui-menu .ui-menu-item .ui-state-active{background:#e1f3fd;border-color:#f2f9fd;color:inherit;margin:0}.ui-menu .ui-state-disabled a{cursor:default}.ui-menu-icons .ui-menu-item a{position:relative;padding-left:30px}.ui-menu .ui-icon{top:50%;margin-top:-8px;left:7px}.ui-menu .ui-menu-icon{left:auto;right:0}.ui-autocomplete{position:absolute;cursor:default;max-height:22em;overflow-y:auto;overflow-x:hidden;z-index:1000}.ui-autocomplete .ui-menu-item a{color:#111}.ui-autocomplete-loading{background-image:url(/pub/System/JQueryPlugin/images/spinner.gif)!important;background-position:right center!important;background-repeat:no-repeat!important}.ui-button{padding:.2307em .6153em}.ui-button-icon-space{margin-right:1px}a:visited.ui-button,a:link.ui-button,a.ui-button{color:#111}input.ui-button{margin-top:0;margin-bottom:0;text-indent:0}.ui-button.ui-corner-tl{-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;border-top-left-radius:3px}.ui-button.ui-corner-tr{-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;border-top-right-radius:3px}.ui-button.ui-corner-bl{-moz-border-radius-bottomleft:3px;-webkit-border-bottom-left-radius:3px;border-bottom-left-radius:3px}.ui-button.ui-corner-br{-moz-border-radius-bottomright:3px;-webkit-border-bottom-right-radius:3px;border-bottom-right-radius:3px}.ui-button.ui-corner-top{-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;border-top-right-radius:3px}.ui-button.ui-corner-bottom{-moz-border-radius-bottomleft:3px;-webkit-border-bottom-left-radius:3px;border-bottom-left-radius:3px;-moz-border-radius-bottomright:3px;-webkit-border-bottom-right-radius:3px;border-bottom-right-radius:3px}.ui-button.ui-corner-right{-moz-border-radius-topright:3px;-webkit-border-top-right-radius:3px;border-top-right-radius:3px;-moz-border-radius-bottomright:3px;-webkit-border-bottom-right-radius:3px;border-bottom-right-radius:3px}.ui-button.ui-corner-left{-moz-border-radius-topleft:3px;-webkit-border-top-left-radius:3px;border-top-left-radius:3px;-moz-border-radius-bottomleft:3px;-webkit-border-bottom-left-radius:3px;border-bottom-left-radius:3px}.ui-button.ui-corner-all{-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.ui-button-icon-only{width:2.2em;box-sizing:border-box;text-indent:-9999px;white-space:nowrap}button.ui-button-icon-only{width:2.4em}.ui-button-icons-only{background:#b20000;width:3.4em}button.ui-button-icons-only{width:3.7em}.ui-button .jqIcon{margin-right:3px}.ui-buttonset .ui-button{margin-left:0;margin-right:-1px}label.ui-button.ui-state-active,label.ui-button.ui-state-active:hover,.ui-buttonset .ui-state-active{color:#fff;border-color:#004696;background:#0055b5;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYyOWVkZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1YjUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#629edd 0,#0055b5 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#629edd),color-stop(100%,#0055b5));background:-webkit-linear-gradient(top,#629edd 0,#0055b5 100%);background:-o-linear-gradient(top,#629edd 0,#0055b5 100%);background:-ms-linear-gradient(top,#629edd 0,#0055b5 100%);background:linear-gradient(top,#629edd 0,#0055b5 100%)}.ui-controlgroup .ui-checkboxradio-icon{display:none}button.ui-button::-moz-focus-inner{border:0;padding:0}.ui-checkboxradio-icon-space{margin-left:.2em}.ui-controlgroup>.ui-controlgroup-item{margin-right:-1px}body .ui-tooltip{border-width:1px}.ui-tooltip{max-width:300px;-webkit-border-radius:.5em;-moz-border-radius:.5em;border-radius:.5em}.ui-tooltip-content{overflow:hidden}.ui-tooltip .ui-arrow{position:absolute;width:0;height:0}.ui-tooltip.position-center .ui-arrow{left:50%}.ui-tooltip.position-top .ui-arrow{bottom:-7px;margin-left:-7px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid #444}.ui-tooltip.position-bottom .ui-arrow{top:-7px;margin-left:-7px;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid #444}.ui-tooltip.position-right .ui-arrow{top:50%;left:-7px;margin-top:-7px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-right:7px solid #444}.ui-tooltip.position-left .ui-arrow{top:50%;right:-7px;margin-top:-7px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:7px solid #444}.ui-tooltip.default{background-color:#fefefe;border:1px solid #444}.ui-tooltip.transparent{opacity:.7;color:#000;border:1px solid #000}.ui-tooltip.info{background-color:#fff6bf;border:2px solid #fdd845;color:#c09853;font-weight:bold}.ui-tooltip.info.position-top .ui-arrow{border-top-color:#e9c537}.ui-tooltip.info.position-bottom .ui-arrow{border-bottom-color:#e9c537}.ui-tooltip.info.position-right .ui-arrow{border-right-color:#e9c537}.ui-tooltip.info.position-left .ui-arrow{border-left-color:#e9c537}.ui-tooltip.info.position-right .ui-arrow{left:-8px}.ui-tooltip.info.position-left .ui-arrow{right:-8px}.ui-tooltip.info.position-top .ui-arrow{bottom:-8px}.ui-tooltip.info.position-bottom .ui-arrow{top:-8px}.ui-tooltip.error{background-color:#fbe3e4;border:2px solid #fbc7c9;color:#b22222;font-weight:bold}.ui-tooltip.error.position-top .ui-arrow{border-top-color:#e4b0b2}.ui-tooltip.error.position-bottom .ui-arrow{border-bottom-color:#e4b0b2}.ui-tooltip.error.position-right .ui-arrow{border-right-color:#e4b0b2}.ui-tooltip.error.position-left .ui-arrow{border-left-color:#e4b0b2}.ui-tooltip.error.position-right .ui-arrow{left:-8px}.ui-tooltip.error.position-left .ui-arrow{right:-8px}.ui-tooltip.error.position-top .ui-arrow{bottom:-8px}.ui-tooltip.error.position-bottom .ui-arrow{top:-8px}.ui-tooltip.help{background-color:#deebfa;border:2px solid #5eb1e9;color:#005884;font-weight:bold}.ui-tooltip.help.position-top .ui-arrow{border-top-color:#85b9db}.ui-tooltip.help.position-bottom .ui-arrow{border-bottom-color:#85b9db}.ui-tooltip.help.position-right .ui-arrow{border-right-color:#85b9db}.ui-tooltip.help.position-left .ui-arrow{border-left-color:#85b9db}.ui-tooltip.help.position-right .ui-arrow{left:-8px}.ui-tooltip.help.position-left .ui-arrow{right:-8px}.ui-tooltip.help.position-top .ui-arrow{bottom:-8px}.ui-tooltip.help.position-bottom .ui-arrow{top:-8px}.ui-tooltip.frame{background-color:#fdfdfd;border:3px solid #000;-webkit-box-shadow:1px 1px 7px rgba(0,0,0,0.3);-moz-box-shadow:1px 1px 7px rgba(0,0,0,0.3);box-shadow:1px 1px 7px rgba(0,0,0,0.3)}.ui-tooltip.frame.position-right .ui-arrow{left:-8px}.ui-tooltip.frame.position-left .ui-arrow{right:-8px}.ui-tooltip.frame.position-top .ui-arrow{bottom:-8px}.ui-tooltip.frame.position-bottom .ui-arrow{top:-8px}.ui-tooltip.frame.position-top .ui-arrow{border-top-color:#000}.ui-tooltip.frame.position-bottom .ui-arrow{border-bottom-color:#000}.ui-tooltip.frame.position-right .ui-arrow{border-right-color:#000}.ui-tooltip.frame.position-left .ui-arrow{border-left-color:#000}input.jqUIDatepicker{position:relative;z-index:3;height:2em}.ui-datepicker{width:17em;padding:0;display:none;z-index:4}.ui-datepicker-inline{display:block}table.ui-datepicker-inline{display:table}.ui-datepicker.ui-widget-content{-webkit-box-shadow:1px 1px 7px rgba(0,0,0,0.2);-moz-box-shadow:1px 1px 7px rgba(0,0,0,0.2);box-shadow:1px 1px 7px rgba(0,0,0,0.2)}.ui-datepicker .ui-datepicker-header{position:relative;padding:.5em 1em}.ui-datepicker .ui-datepicker-title{text-align:center}.ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{position:absolute;top:50%;margin-top:-8px}.ui-datepicker .ui-datepicker-prev{left:.9em}.ui-datepicker .ui-datepicker-next{right:.9em}.ui-datepicker .ui-datepicker-prev-hover,.ui-datepicker .ui-datepicker-next-hover{opacity:.8;filter:Alpha(Opacity=80)}.ui-datepicker table{width:17em;font-size:.9em;border-collapse:collapse;margin:.5em auto}.ui-datepicker th{text-align:center;font-weight:bold}.ui-datepicker th,.ui-datepicker td{border:0;padding:.1em;text-align:right}.ui-datepicker td a{display:block;text-decoration:none;padding:.1em .45em .1em .1em}.ui-datepicker td .ui-state-default{border-color:#fff;background:transparent;text-shadow:none}.ui-datepicker .ui-datepicker-week-end a,.ui-datepicker .ui-datepicker-week-end{color:#999}.ui-datepicker .ui-datepicker-today{background:#efffd8;color:#599e00}.ui-datepicker .ui-datepicker-today a{border-color:transparent}.ui-datepicker td a:active,.ui-datepicker td a:hover,.ui-datepicker .ui-datepicker-week-day .ui-state-active,.ui-datepicker .ui-datepicker-week-end .ui-state-active,.ui-datepicker td .ui-state-active{color:#fff;border:1px solid #004696;background:#0055b5;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYyOWVkZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1YjUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#629edd 0,#0055b5 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#629edd),color-stop(100%,#0055b5));background:-webkit-linear-gradient(top,#629edd 0,#0055b5 100%);background:-o-linear-gradient(top,#629edd 0,#0055b5 100%);background:-ms-linear-gradient(top,#629edd 0,#0055b5 100%);background:linear-gradient(top,#629edd 0,#0055b5 100%)}.ui-datepicker .ui-datepicker-buttonpane{background-image:none;margin:.7em 0 0 0;padding:0 .2em;border-left:0;border-right:0;border-bottom:0}.ui-datepicker .ui-datepicker-buttonpane button{float:right;margin:.5em .2em .4em;cursor:pointer;padding:.2em .6em .3em .6em;width:auto;overflow:visible}.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current{float:left}.ui-datepicker.ui-datepicker-multi{width:auto}.ui-datepicker-multi .ui-datepicker-group{float:left}.ui-datepicker-multi .ui-datepicker-group table{width:95%;margin:0 auto .4em}.ui-datepicker-multi-2 .ui-datepicker-group{width:50%}.ui-datepicker-multi-3 .ui-datepicker-group{width:33.3%}.ui-datepicker-multi-4 .ui-datepicker-group{width:25%}.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header{border-left-width:0}.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header{border-left-width:0}.ui-datepicker-multi .ui-datepicker-buttonpane{clear:left}.ui-datepicker-row-break{clear:both;width:100%;font-size:0}.ui-datepicker-rtl{direction:rtl}.ui-datepicker-rtl .ui-datepicker-prev{right:2px;left:auto}.ui-datepicker-rtl .ui-datepicker-next{left:2px;right:auto}.ui-datepicker-rtl .ui-datepicker-prev:hover{right:1px;left:auto}.ui-datepicker-rtl .ui-datepicker-next:hover{left:1px;right:auto}.ui-datepicker-rtl .ui-datepicker-buttonpane{clear:right}.ui-datepicker-rtl .ui-datepicker-buttonpane button{float:left}.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current{float:right}.ui-datepicker-rtl .ui-datepicker-group{float:right}.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header{border-right-width:0;border-left-width:1px}.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header{border-right-width:0;border-left-width:1px}.ui-datepicker-cover{display:none;display:block;position:absolute;z-index:-1;filter:mask();top:-4px;left:-4px;width:200px;height:200px}.ui-datepicker .ui-datepicker-title select{border:0;padding:0;background:transparent;box-shadow:none}.ui-datepicker-trigger,.ui-datepicker-trigger:active{border-width:1px 1px 1px 0;border-radius:0 3px 3px 0;height:2em}.ui-jqgrid.ui-widget-content{font-size:.923em;border-color:#ddd}.ui-jqgrid tr{border:0}.ui-jqgrid.ui-widget-content .ui-jqgrid-bdiv{padding:0 1px 0 0}.ui-jqgrid.ui-widget-content .ui-jqgrid-resize{margin:0 -16px 0 0;background-repeat:no-repeat;width:16px}.ui-jqgrid:hover .ui-jqgrid-resize{background-position:0 -224px;background-image:url(/pub/System/JQueryPlugin/plugins/ui/themes/foswiki/images/ui-icons-famfamfam.png)}.ui-jqgrid .ui-jqgrid-resize{height:16px!important}.ui-jqgrid.ui-widget-content .ui-jqgrid-hdiv th.ui-th-column{text-align:left;border-top-width:0!important}.ui-jqgrid .ui-state-default{background:transparent}.ui-jqgrid .ui-jqgrid-hdiv{border-color:#ddd}.ui-jqgrid.ui-widget-content .ui-jqgrid-hdiv{background:#f0f0f0;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMGYwZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#fff 0,#f0f0f0 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(100%,#f0f0f0));background:-webkit-linear-gradient(top,#fff 0,#f0f0f0 100%);background:-o-linear-gradient(top,#fff 0,#f0f0f0 100%);background:-ms-linear-gradient(top,#fff 0,#f0f0f0 100%);background:linear-gradient(top,#fff 0,#f0f0f0 100%)}.ui-jqgrid.ui-widget-content tr th,.ui-jqgrid.ui-widget-content tr.jqgrow td{padding:.5em .8em;white-space:normal;border:0 solid #fff}.ui-jqgrid .ui-jqgrid-bdiv td{background-color:transparent}.ui-jqgrid,.ui-jqgrid .ui-priority-secondary,.ui-jqgrid .ui-priority-secondary td,.ui-jqgrid td.ui-jqgrid-sortcol{background-color:#f8f8f8;opacity:1;filter:Alpha(Opacity=100)}.ui-jqgrid .ui-priority-secondary td.ui-jqgrid-sortcol{background-color:#eee}.ui-jqgrid tr.ui-state-hover td.ui-jqgrid-sortcol,.ui-jqgrid .ui-priority-secondary.ui-state-hover td.ui-jqgrid-sortcol{background-color:#ead4d5;color:#764546}.ui-jqgrid .ui-state-hover a{color:#0055b5}.ui-jqgrid .ui-state-hover a:hover{color:#fff}.ui-jqgrid .ui-state-hover td{border:0;background:#fbe3e4;color:#764546}.ui-jqgrid .ui-state-highlight,.ui-jqgrid .ui-state-highlight td{border:0;background:#efffd8;color:#599e00}.ui-jqgrid tr.ui-state-highlight.ui-state-hover td.ui-jqgrid-sortcol,.ui-jqgrid tr.ui-state-highlight td.ui-jqgrid-sortcol{background-color:#e6f5d0;color:#599e00}.ui-jqgrid .ui-state-active{border:1px solid #4f8c00;color:#599e00;background:#efffd8;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZmZmZDgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#efffd8 0,#fff 11%,#efffd8 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#efffd8),color-stop(11%,#fff),color-stop(100%,#efffd8));background:-webkit-linear-gradient(top,#efffd8 0,#fff 11%,#efffd8 100%);background:-o-linear-gradient(top,#efffd8 0,#fff 11%,#efffd8 100%);background:-ms-linear-gradient(top,#efffd8 0,#fff 11%,#efffd8 100%);background:linear-gradient(top,#efffd8 0,#fff 11%,#efffd8 100%)}.ui-jqgrid .loading.ui-state-active{border-width:1px!important;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px}.ui-jqgrid tr.jqgrow .jqgrid-rownum{font-weight:bold}.ui-jqgrid.ui-widget-content .ui-jqgrid-pager{height:auto!important;border:0!important;margin-top:-1px!important}.ui-jqgrid .ui-pager-control{padding:.3em 0;border:0;background:#f4f4f4;border-top:1px solid #ddd}.ui-jqgrid .ui-pager-control .ui-pg-table .ui-state-hover,.ui-jqgrid .ui-pager-control .ui-pg-table td{padding:1px 3px}.ui-jqgrid .ui-pager-control #last{padding-right:5px}.ui-jqgrid .ui-pager-control .ui-pg-selbox{padding-left:5px}.ui-jqgrid .ui-pager-control .ui-pg-input{padding:1px 3px}.ui-jqgrid .ui-jqgrid-htable .ui-search-toolbar th{padding-top:0}.ui-jqgrid .ui-search-toolbar input{padding:1px 3px!important}.ui-jqgrid .ui-search-toolbar input,.ui-jqgrid .ui-pager-control .ui-pg-input,.ui-jqgrid .ui-pager-control .ui-pg-selbox{font-size:100%;height:auto}.ui-jqgrid .ui-icon-triangle-1-n{background-position:1px -16px}.ui-jqgrid .ui-pager-control .ui-pg-button .ui-pg-div span.ui-icon{margin:1px 5px 1px 1px}.select2-container .select2-choice{border:1px solid #bcbcbc;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;color:#111;background:#dfdfdf;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkZmRmZGYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#fff 0,#dfdfdf 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(100%,#dfdfdf));background:-webkit-linear-gradient(top,#fff 0,#dfdfdf 100%);background:-o-linear-gradient(top,#fff 0,#dfdfdf 100%);background:-ms-linear-gradient(top,#fff 0,#dfdfdf 100%);background:linear-gradient(top,#fff 0,#dfdfdf 100%)}.select2-container.select2-drop-above .select2-choice{border-bottom-color:#bcbcbc;-webkit-border-radius:0 0 3px 3px;-moz-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px}.select2-drop{-webkit-border-radius:0 0 3px 3px;-moz-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px}.select2-container .select2-choice div{-webkit-border-radius:0 3px 3px 0;-moz-border-radius:0 3px 3px 0;border-radius:0 3px 3px 0;background:#dfdfdf;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkZmRmZGYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#fff 0,#dfdfdf 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(100%,#dfdfdf));background:-webkit-linear-gradient(top,#fff 0,#dfdfdf 100%);background:-o-linear-gradient(top,#fff 0,#dfdfdf 100%);background:-ms-linear-gradient(top,#fff 0,#dfdfdf 100%);background:linear-gradient(top,#fff 0,#dfdfdf 100%);border-left:1px solid #bcbcbc}.select2-container .select2-choice:hover{border-color:#ababab;background:#fff;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#fff 0,#ededed 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fff),color-stop(100%,#ededed));background:-webkit-linear-gradient(top,#fff 0,#ededed 100%);background:-o-linear-gradient(top,#fff 0,#ededed 100%);background:-ms-linear-gradient(top,#fff 0,#ededed 100%);background:linear-gradient(top,#fff 0,#ededed 100%)}.select2-container .select2-choice:hover div{background:transparent}.select2-container-active .select2-choice,.select2-container-active .select2-choices{-webkit-box-shadow:none;-moz-box-shadow:none;-o-box-shadow:none;box-shadow:none;outline:0;border-color:#ababab}.select2-dropdown-open .select2-choice:hover,.select2-dropdown-open .select2-choice{background:#ededed;background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VkZWRlZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);background:-moz-linear-gradient(top,#ededed 0,#fff 50%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ededed),color-stop(50%,#fff));background:-webkit-linear-gradient(top,#ededed 0,#fff 50%);background:-o-linear-gradient(top,#ededed 0,#fff 50%);background:-ms-linear-gradient(top,#ededed 0,#fff 50%);background:linear-gradient(top,#ededed 0,#fff 50%);-webkit-border-bottom-left-radius:0;-webkit-border-bottom-right-radius:0;-moz-border-radius-bottomleft:0;-moz-border-radius-bottomright:0;border-bottom-left-radius:0;border-bottom-right-radius:0}.select2-dropdown-open .select2-choice div{background:transparent;border-left:none}.select2-search input,.select2-search-choice-close,.select2-container .select2-choice div b,.select2-container .select2-choice abbr{background-image:url(/pub/System/JQueryPlugin/plugins/ui/themes/foswiki/images/select2.png)!important}.select2-search input,.select2-search input:focus{border:1px solid #ccc;background-color:transparent;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}.select2-search input{margin:0 0 2px 0}.select2-results .select2-highlighted{background:#0055b5}.ui-pnotify .ui-pnotify-shadow{-webkit-box-shadow:1px 1px 7px rgba(0,0,0,0.1)!important;-moz-box-shadow:1px 1px 7px rgba(0,0,0,0.1)!important;box-shadow:1px 1px 7px rgba(0,0,0,0.1)!important}.ui-pnotify-title{color:inherit}.ui-pnotify .ui-pnotify-container{background:#deebfa;border:1px solid #7fbee9;color:#005884;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.ui-pnotify .ui-state-highlight{background-color:#fff6bf;border-color:#fdd845;color:#c09853}.ui-pnotify .ui-state-default{background:#efffd8;border-color:#acdb6f;color:#599e00}.ui-pnotify .ui-state-error{background:#fbe3e4;border-color:#fbc7c9;color:#b22222}.ui-pnotify-icon{margin-top:2px}@media only screen and (-webkit-min-device-pixel-ratio:1.5){.select2-search input,.select2-search-choice-close,.select2-container .select2-choice abbr,.select2-container .select2-choice div b{background-image:url(/pub/System/JQueryPlugin/plugins/ui/themes/foswiki/images/select2x2.png)!important}}.clsCategoryFactory{margin-bottom:10px}.clsCatSelector{margin:5px 0}.clsCatSelector h3 a{color:inherit}.clsCatSelector h3 a:hover{color:#fff}.jqHierarchy{position:relative}.jqHierarchy label.error{position:absolute;bottom:0;right:0}.jqHierarchyButtons{position:relative;float:right;line-height:30px;margin:-5px -5px 0 0}.jqHierarchyButtons .jqHierarchySearchField{width:14em}.jstree-count{margin-left:.3em}.jqTopicCreator .jqHierarchyButtons{display:none}.jqHierarchy a,.clsBrowser a{text-decoration:none!important}.clsBrowser a.foswikiCurrentTopicLink{color:red}.clsBrowser .treeview li{padding:1px 0 1px 20px;border:0}.clsTag{padding:1px 15px 2px 5px;border:1px solid #cad8f3;margin:0 5px 5px 0;background:#dee7f8;float:left;position:relative}.clsTagClose{background-color:inherit;background-image:url(/pub/System/ClassificationPlugin/close.gif);background-repeat:no-repeat;margin:0;height:7px;width:7px;position:absolute;right:4px;top:35%;display:block;overflow:hidden;font-size:1px}a.clsTagClose:hover{background-color:transparent;background-position:0 -7px;background-image:url(/pub/System/ClassificationPlugin/close.gif);background-repeat:no-repeat}.clsTagCloud{margin:10px 0;text-align:center;line-height:normal}.clsTagCloud a{padding:0 5px;text-decoration:none}.clsTagSelector .jqButton{margin:0 0 0 8px}.tagCloud a:hover,.clsBrowser .current,.clsTagCloud a:hover,.clsTagCloud .hilite,.clsTagCloud .current{background-color:#06c!important;color:white!important;text-decoration:none;_display:inline}.clsIconSelector,.clsBrowser,#clsTagSelector .clsTagCloud{padding:5px;border:1px solid #ddd}.clsBrowser ul li{list-style-image:none}.clsBrowser ul li a:hover,.clsBrowser ul li a{background-image:none;padding:0}.clsBrowser li a img{padding-right:2px}.clsSideBar.clsBrowser{border:0;padding:0;margin-bottom:0}.foswikiFormSteps .clsTagCloudInput{margin:0}.clsSideBar ul ul{border:0;margin-bottom:.5em}.clsSideBar ul ul li{border:0;margin:0 0 0 1.5em}.clsSideBar ul ul li a:hover,.clsSideBar ul ul li a{padding:0;margin:0;display:inline}#clsByCategory ul li a:hover,#clsByCategory ul li a{padding-left:2.5em;background-position:1em 50%;background-repeat:no-repeat;font-weight:bold}#clsByCategory ul ul li a:hover,#clsByCategory ul ul li a{font-weight:normal;background-image:none!important;padding-left:0}#clsByTopicType ul{list-style-type:inherit;margin:.5em 0;border:0}#clsByTopicType ul li{border:0;margin:0 0 0 1.5em;padding:0}#clsByTopicType ul li a{display:inline;margin:0;padding:0}.clsIconSelector label{padding:0;margin:0}.clsButtonBox{margin:5px 0}.clsTagSelector table td.clsButtonBox{width:10em}.clsTagSelector table td.clsTagContainer{width:99%;_width:auto}.clsTagSelector table td{padding:0;width:5em}.clsTagSelector table th{padding:1px 5px 2px 0;_width:3em}.clsTagSelector table{margin:5px 0;font-size:13px}#clsNewCategory,#clsNewTopic{margin-bottom:.5em}#clsNewCategory table,#clsNewTopic table{margin:0}.clsTagCloud .typed{background:pink}.clsIndexItem{margin-bottom:1em}.clsTopicItem{background-repeat:no-repeat}.clsTopicItem .imageSimple,.clsTopicItem .imagePlain{background:white}.clsTopicItem .imageSimple_left,.clsTopicItem .imagePlain_left{margin:4px 1em 4px 0}.clsTopicItem .imageSimple_right,.clsTopicItem .imagePlain_right{margin:4px 0 4px 1em}.clsIndexItem .fa{font-size:110%;margin-right:2px}.clsIndexItem .clsLikeInfo .jqIcon{margin:inherit}.clsCategoryLink:hover,.clsCategoryLink{padding:1px 0 1px 20px!important;background-position:0 0!important;background-repeat:no-repeat!important}.clsFilterForm .foswikiFormSteps{border-width:1px 0;margin:1.5em 0 0}.clsFilterForm .foswikiFormStep{float:left;margin:.5em 2em .5em .5em}.clsFilterForm .foswikiFormStep h3,.clsFilterForm .foswikiFormStep h4{display:inline;font-weight:bold;text-decoration:none;border:0;font-style:normal}a.clsTopicInfoMoreClicked:hover{background-color:transparent}a.tag_todo,span.tag_todo{background-color:#fbe3e4!important;color:#b22222!important;border-color:#e2adb0!important}a:hover.tag_todo{background-color:#b22222!important;color:#fff!important;border-color:#b22222!important}.clsHilight{background-color:#ffffc0;color:black}.clsWorkflowInfo select{margin-right:1em}.clsWorkflowMessage:before{display:inline-block;margin:0 8px 0 0;font-family:FontAwesome;font-weight:normal;font-style:normal;text-decoration:none}.clsWorkflowState.approved,.clsWorkflowState.approved a{color:green}.clsWorkflowState.approved .clsWorkflowMessage:before{content:"\f058"}.clsWorkflowState.draft,.clsWorkflowState.draft a{color:red}.clsWorkflowState.draft .clsWorkflowMessage:before{content:"\f071"}.clsWorkflowState.rejected,.clsWorkflowState.rejected a{color:#b22222}.clsWorkflowState.rejected .clsWorkflowMessage:before{content:"\f165"}.clsWorkflowState.submitted,.clsWorkflowState.submitted a{color:#f90}.clsWorkflowState.submitted .clsWorkflowMessage:before{content:"\f013"}.clsWorkflowState.outdated,.clsWorkflowState.outdated a{color:#b22222}.clsWorkflowState.outdated .clsWorkflowMessage:before{content:"\f1f8"}#patternMainContents h1 a,#patternMainContents h2 a,#patternMainContents h3 a,#patternMainContents h4 a,#patternMainContents h5 a,#patternMainContents h6 a{text-decoration:none!important}#patternMainContents h1 .foswikiTopicSummary{font-size:65%;line-height:1.5;color:#a1a1a1}#patternMainContents .foswikiTopicInfo{margin-bottom:2em}#patternMainContents .foswikiTopicInfo h1{margin:.5em 0;border-bottom:1px solid #dfdfdf}#patternMainContents .foswikiTopicInfo,#patternMainContents .foswikiTopicInfo a{color:#a1a1a1}#patternMainContents .foswikiTopicInfo h1 a{color:inherit}.patternTop .patternRevInfo{display:none}.foswikiNoJs .foswikiMakeVisible,.foswikiNoJs .foswikiMakeVisibleInline,.foswikiNoJs .foswikiMakeVisibleBlock{display:none}.foswikiMakeVisible{display:inline}a.foswikiMakeVisible,p.foswikiMakeVisible,h1.foswikiMakeVisible,h2.foswikiMakeVisible,h3.foswikiMakeVisible,h4.foswikiMakeVisible,h5.foswikiMakeVisible,h6.foswikiMakeVisible,dl.foswikiMakeVisible,dt.foswikiMakeVisible,dd.foswikiMakeVisible,ol.foswikiMakeVisible,ul.foswikiMakeVisible,li.foswikiMakeVisible,address.foswikiMakeVisible,blockquote.foswikiMakeVisible,center.foswikiMakeVisible,del.foswikiMakeVisible,div.foswikiMakeVisible,form.foswikiMakeVisible,hr.foswikiMakeVisible,ins.foswikiMakeVisible,noscript.foswikiMakeVisible,pre.foswikiMakeVisible,table.foswikiMakeVisible{display:block}.foswikiMakeVisibleInline{display:inline}.foswikiMakeVisibleBlock{display:block}.foswikiMakeHidden{display:none}.foswikiLeft{float:left}.foswikiRight{float:right}.foswikiClear,.foswikiFormStep p.foswikiClear{margin:0;padding:0;height:0;line-height:0;clear:both;display:block}.foswikiHidden{display:none}.foswikiSmall{font-size:86%;line-height:110%}.foswikiSmallish{font-size:94%}.foswikiLarge{font-size:1.3em;line-height:1.5em}.foswikiBroadcastMessage,.foswikiNotification{background-color:#fff7e7;padding:.25em .5em;margin:0 0 1em 0}.foswikiBroadcastMessage b,.foswikiBroadcastMessage strong{color:#f00}.foswikiMessage{padding:.5em 10px;background-color:#fff7e7;border:0}.foswikiAlert,.foswikiAlert code{color:#f00}.foswikiNewLink,.foswikiNewLink:link,.foswikiNewLink:visited{color:#b00000;text-decoration:none;border-bottom:1px dotted #b00000}.foswikiNewLink:link:hover{color:#b00000;text-decoration:none;border-bottom:1px solid #b00000}.foswikiEmulatedLink{text-decoration:underline}.foswikiAccessKey{text-decoration:none;border-width:0 0 1px 0;border-style:solid}a:hover .foswikiAccessKey{text-decoration:none;border:0}img{border:0;vertical-align:middle}pre{white-space:pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;white-space:-moz-pre-wrap;width:auto;margin:1em 0;padding:1em}.foswikiImage img{padding:3px;border-width:1px;border-style:solid}.foswikiPreviewArea{border-width:1px;border-style:solid;border-color:#f00;margin:1em 0;padding:1em}.foswikiSummary em{font-weight:bold;font-style:normal;color:#000}.foswikiTabs{position:relative}.foswikiTabs:after{content:'';position:absolute;width:100%;height:1px;border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#ccc;bottom:0}.foswikiTabs>ul{margin:0;padding:0;list-style:none;bottom:0;margin-bottom:-1px;*zoom:1}.foswikiTabs>ul:before,.foswikiTabs>ul:after{display:table;content:"";line-height:0}.foswikiTabs>ul:after{clear:both}.foswikiTabs>ul>li{display:inline}.foswikiTabs>ul>li>a{position:relative;display:inline-block;float:left;margin-right:6px;border-style:solid;border-width:1px;border-color:#ccc;background-image:none;background:#eee}.foswikiTabs>ul>li>a:link,.foswikiTabs>ul>li>a:visited,.foswikiTabs>ul>li>a:hover,.foswikiTabs>ul>li>a:active{padding:.35em .7em;text-decoration:none;color:#000}.foswikiTabs>ul>li>a:visited{color:#000}.foswikiTabs>ul>li>a:hover{background:#eee}.foswikiTabs>ul>li.foswikiActiveTab a:hover,.foswikiTabs>ul>li.foswikiActive a:hover{cursor:default}.foswikiTabs>ul>li.foswikiActiveTab a,.foswikiTabs>ul>li.foswikiActive a{border-bottom-color:#fff;background:#fff;z-index:1}.foswikiTabContent{border-style:solid;border-width:1px;border-color:#ccc;background:#fff;margin-bottom:1.5em}.foswikiNoJs .foswikiTabs>ul{display:none}.foswikiWebSearchForm{margin:1em 0}.foswikiHorizontalList ul{margin:0;padding:0;list-style:none;clear:both}.foswikiHorizontalList ul li{float:left;display:block;padding:0 .5em;border-style:none solid none none;border-width:1px}.foswikiHorizontalList ul li.foswikiLast{border:0}.foswikiIndent{padding-left:3em}.foswikiToc.foswikiRight{margin:0 0 1em 2em;max-width:40%}.foswikiToc.foswikiLeft{margin:0 2em 1em 0;max-width:40%}.foswikiToc .foswikiTocTitle{font-weight:bold}.foswikiYellowFG{color:#ff0}.foswikiOrangeFG{color:#f60}.foswikiRedFG{color:#f00}.foswikiPinkFG{color:#f0f}.foswikiPurpleFG{color:#800080}.foswikiTealFG{color:#008080}.foswikiNavyFG{color:#000080}.foswikiBlueFG{color:#00f}.foswikiAquaFG{color:#0ff}.foswikiLimeFG{color:#0f0}.foswikiGreenFG{color:#008000}.foswikiOliveFG{color:#808000}.foswikiMaroonFG{color:#800000}.foswikiBrownFG{color:#963}.foswikiBlackFG{color:#000}.foswikiGrayFG{color:#808080}.foswikiSilverFG{color:#c0c0c0}.foswikiWhiteFG{color:#fff}.foswikiYellowBG{background-color:#ff0}.foswikiOrangeBG{background-color:#f60}.foswikiRedBG{background-color:#f00}.foswikiPinkBG{background-color:#f0f}.foswikiPurpleBG{background-color:#800080}.foswikiNavyBG{background-color:#000080}.foswikiBlueBG{background-color:#00f}.foswikiTealBG{background-color:#008080}.foswikiAquaBG{background-color:#0ff}.foswikiLimeBG{background-color:#0f0}.foswikiGreenBG{background-color:#008000}.foswikiOliveBG{background-color:#808000}.foswikiMaroonBG{background-color:#800000}.foswikiBrownBG{background-color:#963}.foswikiBlackBG{background-color:#000}.foswikiGrayBG{background-color:#808080}.foswikiSilverBG{background-color:#c0c0c0}.foswikiWhiteBG{background-color:#fff}html,body{margin:0;padding:0;border:0;height:100%}.clear:after,.clearfix:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0}#patternPage{position:relative;width:100%}#patternOuter{height:100%}#patternFloatWrap{width:100%;float:left;display:inline}#patternSideBar{float:left;display:inline;overflow:hidden}#patternSideBarContents{position:relative}#patternMain{width:100%;float:right;display:inline}#patternBottomBar{clear:both;width:100%}.foswikiContentFooter{clear:both}/*	-----------------------------------------------------------
+	STYLE
+	Appearance: margins, padding, fonts, borders
+	-----------------------------------------------------------	*/
+	
+
+/*	----------------------------------------------------------------------------
+	CONSTANTS
+	
+	Sizes
+	----------------------------------------
+	S1 line-height											1.5em
+	S2 somewhat smaller font size							font-size:94%
+	S3 small font size, foswikiSmall						font-size:86%; line-height:110%;
+	S4 horizontal bar padding (h2, patternTop)				5px
+	S5 form and attachment padding							10px
+	S6 left margin left bar									1em
+
+	------------------------------------------------------------------------- */
+
+/* GENERAL HTML ELEMENTS */
+
+html body {
+	font-family:lucida,tahoma,verdana,sans-serif;
+	font-size:104%;
+	voice-family:"\"}\""; 
+	voice-family:inherit;
+	font-size:small;
+}
+html>body { /* Mozilla */
+	font-size:small;	
+}
+body {
+	line-height:1.5em; /*S1*/
+	/* change font size here */
+	font-size:103%;
+}
+body font {
+	line-height:135%;
+}
+th {
+	line-height:1.15em;
+}
+label {
+	padding:.15em .3em .15em 0; /* same vertical padding as foswikiInputField */
+}
+hr {
+	height:1px;
+	border:none;
+}
+/* put overflow pre in a scroll area */
+pre {
+    width:auto;
+    margin:1em 0; /* Win IE tries to make this bigger otherwise */
+    border-style:solid;
+    border-width:1px;
+    padding:1em;
+}
+pre, code, tt {
+    font-family: "Bitstream Vera Sans Mono","Andale Mono",Courier,monospace;
+    font-size:86%;
+}
+
+/* IE behavior for pre is defined in css.pattern.tmpl in conditional comment */
+html>body pre { /* hide from IE */
+	/*\*/ overflow:auto !important; /* */ overflow:scroll; width:auto; /* for Mac Safari */
+}
+blockquote {
+	margin:0;
+	font-size:94%;
+	padding:.5em 1.25em;
+	border-style:solid none;
+	border-width:1px;
+}
+
+/* Text */
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+	line-height:1.1em;
+}
+h1 {
+	margin-top:.5em;
+	font-size:190%;
+}
+h2 { font-size:165%; }
+h3 { font-size:145%; }
+h4 { font-size:127%; }
+h5 { font-size:117%; }
+h6 { font-size:107%; }
+h1.patternTemplateTitle {
+	font-size:170%;
+}
+h2.patternTemplateTitle {
+	margin-top:.5em;
+	background:none;
+	border:none;
+}
+/* Links */
+/* somehow the foswikiNewLink style have to be before the general link styles */
+.foswikiNewLink {
+	border-width:0 0 1px 0;
+	border-style:solid;
+}
+.foswikiNewLink a {
+	text-decoration:none;
+	margin-left:1px;
+}
+.foswikiNewLink a sup {
+	text-align:center;
+	padding:0 2px;
+	vertical-align:baseline;
+	font-size:100%;
+	text-decoration:none;
+}
+.foswikiNewLink a:link sup,
+.foswikiNewLink a:visited sup {
+	border-width:1px;
+	border-style:solid;
+	text-decoration:none;
+}
+.foswikiNewLink a:hover sup {
+	text-decoration:none;
+}
+
+:link:focus,
+:visited:focus,
+:link,
+:visited,
+:link:active,
+:visited:active {
+	text-decoration:none;
+}
+
+:link:hover,
+:visited:hover,
+:link:focus,
+:visited:focus,
+.foswikiTable a:hover,
+#patternMainContents h1 a:hover,
+#patternMainContents h2 a:hover,
+#patternMainContents h3 a:hover,
+#patternMainContents h4 a:hover,
+#patternMainContents h5 a:hover,
+#patternMainContents h6 a:hover {
+	text-decoration:none;
+}
+
+a:hover .foswikiAccessKey {
+}
+
+.foswikiTopic a:link,
+.foswikiTopic a:visited {
+	text-decoration:none;
+}
+
+.foswikiTopic a:hover {
+	text-decoration:underline;
+}
+
+.foswikiNewLink a:hover sup,
+a.foswikiButton,
+a.foswikiButton:link:active,
+a.foswikiButton:visited:active,
+a.foswikiButton:hover,
+a.foswikiButtonCancel,
+a.foswikiButtonCancel:hover,
+a.foswikiButtonCancel:link:active,
+a.foswikiButtonCancel:visited:active,
+a.foswikiSubmit,
+a.foswikiSubmit:hover,
+a.foswikiSubmit:link:active,
+a.foswikiSubmit:visited:active,
+table.foswikiFormTable th.foswikiFormTableHRow a:link,
+table.foswikiFormTable th.foswikiFormTableHRow a:visited {	text-decoration:none;
+}
+
+#patternSideBarContents a:link,
+#patternSideBarContents a:visited {
+	text-decoration:none;
+}
+
+#patternSideBarContents a:hover {
+	text-decoration:underline;
+}
+
+#patternSideBarContents li a:hover {
+	text-decoration:none;
+}
+
+
+#foswikisiteUserBar a:link,
+#foswikisiteUserBar a:visited {
+	text-decoration:none;
+}
+
+#foswikisiteUserBar:hover a:hover {
+	text-decoration:underline;
+}
+
+.twistyTrigger a:link,
+.twistyTrigger a:visited,
+.twistyTrigger a:link .foswikiLinkLabel,
+.twistyTrigger a:visited .foswikiLinkLabel {
+	text-decoration:none;
+}
+
+.patternActionButtons a.foswikiButton,
+.patternActionButtons a.foswikiSubmit,
+.patternActionButtons a.foswikiButtonCancel {
+	padding:.1em .2em;
+}
+
+.patternTopicAction .patternActionButtons a:link,
+.patternTopicAction .patternActionButtons a:visited,
+.patternTopicAction .patternActionButtons span s,
+.patternTopicAction .patternActionButtons span strike {
+	text-decoration:none;
+}
+
+.patternTopicAction .patternActionButtons a:hover {
+	text-decoration:none;
+}
+
+.foswikiSubmit,
+.foswikiSubmitDisabled,
+.foswikiButton,
+.foswikiButtonDisabled,
+.foswikiButtonCancel,
+.foswikiSubmit:hover,
+.foswikiSubmitDisabled:hover,
+.foswikiButton:hover,
+.foswikiSubmit:active,
+.foswikiSubmitDisabled:active,
+.foswikiButton:active {
+	cursor:default;
+	outline:none;
+}
+
+.foswikiSubmit,
+.foswikiSubmitDisabled,
+.foswikiButton,
+.foswikiButtonDisabled,
+.foswikiButtonCancel,
+a.foswikiButton,
+a.foswikiSubmit,
+a.foswikiButtonCancel,
+.foswikiCheckbox {
+	border-style:solid;
+	border-width:1px;
+	font-weight:bold;
+	padding:.15em .3em;
+	text-align:center;
+	vertical-align:middle;
+}
+
+blockquote {
+	border-style:solid;
+	border-width:1px 1px 1px 5px;
+	padding:.5em 1.25em;
+}
+
+form {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+h1 {
+	font-size:195%;
+	margin:0 0 .5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight:normal;
+	line-height:1em;
+}
+
+h1.patternTemplateTitle {
+	font-size:170%;
+	text-align:left;
+}
+
+h2 {
+	border:none;
+	font-size:153%;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	display:block;
+	height:auto;
+	margin:1em 0 .35em;
+	padding:.25em 0;
+}
+
+h2.patternTemplateTitle {
+	border:none;
+	margin-top:.5em;
+	text-align:center;
+}
+
+h3 {
+	font-size:133%;
+}
+
+h4 {
+	font-size:122%;
+	font-weight:bold;
+}
+
+h5 {
+	font-size:110%;
+	font-weight:bold;
+}
+
+h6 {
+	font-size:95%;
+	font-weight:bold;
+}
+
+h3.patternSearchResultsHeader,
+h4.patternSearchResultsHeader {
+	border-style:solid;
+	border-width:0 0 1px;
+	display:block;
+	font-weight:bold;
+}
+h4.patternSearchResultsHeader {
+	font-weight:normal;
+	padding:.6em 1em;
+}
+
+hr {
+	border:none;
+	height:1px;
+}
+
+img {
+	border:0;
+	vertical-align:text-bottom;
+}
+
+label {
+	padding:.15em .3em .15em 0;
+}
+
+ol,
+ul {
+	margin-top:0;
+}
+
+p {
+	margin:1em 0 0;
+}
+
+pre {
+	border-style:solid;
+	border-width:1px;
+	margin:1em 0;
+	padding:1em;
+	width:auto;
+	overflow:auto;
+}
+
+pre,
+code,
+tt {
+	font-family:"Bitstream Vera Sans Mono","Andale Mono",Courier,monospace;
+	font-size:86%;
+}
+
+table.foswikiFormTable th.foswikiFormTableHRow {
+	text-align:center;
+}
+
+textarea,
+input,
+select {
+	font-family:lucida,tahoma,verdana,sans-serif;
+	font-size:100%;
+	vertical-align:middle;
+}
+
+label input {
+	vertical-align:text-bottom;
+}
+
+th {
+	line-height:1.15em;
+}
+
+#foswikiLogin {
+	margin:0 auto;
+	text-align:left;
+	width:44em;
+}
+
+#foswikiLogin .foswikiFormSteps {
+	border-width:5px;
+}
+
+#foswikiLogin .patternLoginNotification {
+	border-style:solid;
+	border-width:2px;
+	padding-left:.5em;
+	padding-right:.5em;
+}
+
+#foswikiLogo a {
+	display:block;
+	height:90px;
+	margin:-10px 0 0 -25px;
+	width:315px;
+}
+
+#foswikiLogo a img {
+	display:none;
+}
+
+#foswikiLogo img {
+	border:0;
+	margin:0;
+	padding:0;
+}
+.patternSimpleLogo {
+	margin:0 0 20px 0;
+}
+
+#foswikiSearchTable {
+	border-bottom:0;
+}
+
+#foswikiSearchTable td {
+	width:80%;
+}
+
+#foswikiSearchTable th {
+	text-align:right;
+	width:20%;
+}
+
+#foswikiSearchTable th,
+#foswikiSearchTable td {
+	border-style:solid;
+	border-width:0 0 1px;
+	padding:1em;
+}
+
+#foswikisiteUserBar {
+	font-family:lucida,tahoma,verdana,sans-serif;
+	font-size:.9em;
+	height:15px;
+	line-height:15px;
+	padding:0 .5em 4px 0;
+	text-align:right;
+}
+#foswikisiteUserBar ul {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+#foswikisiteUserBar li {
+	display:inline;
+	margin:0;
+	padding:0 0 0 .7em;
+}
+
+
+#patternScreen {
+	padding:20px 2% 40px 2%;
+}
+
+
+#patternTopBar,
+#patternTopBarContents,
+#patternTopBarContentsWrapper {
+	height:96px; /* top bar height; make room for header columns */
+	overflow:hidden;
+}
+
+#patternMain {
+	float:left;
+	overflow:hidden;
+}
+#patternSideBar {
+	float:right;
+	width:220px; /* includes left padding, see #patternSideBarContents */
+	margin-right:-220px;
+	position:relative;
+}
+.patternViewPage #patternOuter {
+	border-width:220px;
+	border-style:none solid none none;
+	border-color:#f9f9f9;
+	margin-right:0;
+}
+
+
+#patternBottomBar {
+	border:none;
+}
+
+#patternBottomBarContents {
+	padding:1em 0 2em;
+}
+#patternBottomBarContents:hover a:hover {
+	text-decoration:underline;
+}
+
+#patternMainContents {
+	border-style:none;
+	padding-top:20px;
+	padding-bottom:4em;
+}
+
+#patternMainContents,
+#patternTopBarContents {
+	padding-left:2em;
+	padding-right:2em;
+}
+
+#patternPage {
+	border:none;
+	font-family:lucida,tahoma,verdana,sans-serif;
+	font-size:105%;
+	line-height:1.5em;
+}
+
+#patternSideBarContents {
+	margin:0 0 1em;
+	padding:0 1em 2em;
+}
+
+#patternSideBarContents .patternLeftBarPersonal,
+#patternSideBarContents .patternWebIndicator {
+	margin:0 -1em .75em;
+	padding:.5em 1em .75em;
+}
+
+#patternSideBarContents img {
+	margin:0 3px 0 0;
+	vertical-align:text-bottom;
+}
+
+#patternSideBarContents .patternWebIndicator,
+#patternSideBarContents h2,
+#patternSideBarContents li {
+	line-height:1.15em;
+	margin:0 -1em;
+	padding:0 1em;
+}
+#patternSideBarContents .patternWebIndicator,
+#patternSideBarContents h2 {
+	border:none;
+	display:block;
+	font-size:100%;
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+}
+#patternSideBarContents ul,
+.patternMetaMenu ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+#patternSideBarContents li b,
+#patternSideBarContents li strong,
+#patternSideBarContents li a {
+	display:block;
+	margin:0 -1em;
+	padding:.4em 1em;
+}
+
+#patternTopBar {
+	border:none;
+}
+
+#patternTopBarButtons {
+	border:none;
+	padding-left:2em;
+}
+
+/* height*/
+#patternTopBarButtons li,
+#patternTopBarButtons ul li a {
+	line-height:31px;
+	height:31px;
+}
+
+#patternTopBarButtons ul {
+	border-style:none;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+#patternTopBarButtons li {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+#patternTopBarButtons ul li a {
+	border-style:none solid none none;
+	border-width:1px;
+	display:block;
+	float:left;
+	font-weight:bold;
+	padding:0 1em;
+	text-decoration:none;
+}
+#patternTopBarButtons ul li:last-child a {
+	border:none;
+}
+#patternTopBarContents {
+	padding:0;
+}
+
+#patternWebBottomBar {
+	font-size:94%;
+	line-height:125%;
+	text-align:left;
+}
+
+* html>body pre {
+	overflow:scroll !important;
+}
+
+.editTable .foswikiTable {
+	margin:0 0 2px;
+}
+
+.editTableEditImageButton {
+	border:none;
+}
+
+.foswikiAccessKey {
+	border:none;
+}
+
+.foswikiActionFormStepSign {
+	font-size:104%;
+	margin-left:-20px;
+	margin-top:-0.15em;
+	position:absolute;
+}
+
+.foswikiAddFormButton {
+	float:right;
+}
+
+.foswikiAttachments table {
+	line-height:1.5em; /*S1*/
+	width:auto;
+	width:100%;
+}
+.foswikiAttachments .foswikiTable th {
+	border-style:none none solid solid;
+	border-width:1px;
+	text-align:left;
+}
+.foswikiFormTable th,
+.foswikiFormTable td,
+table.foswikiFormTable th.foswikiFormTableHRow {
+	padding:5px 10px;
+	vertical-align:top;
+	text-align:left;
+}
+
+.foswikiAttachments .foswikiTable caption {
+	display:none;
+}
+.patternAttachPage .foswikiAttachments .foswikiTable {
+	width:auto;
+}
+.patternAttachPage .foswikiAttachments {
+	margin-top:0;
+}
+
+.patternEditPage .foswikiFormTable td,
+.patternEditPage .foswikiFormTable th {
+	border-style:solid;
+	border-width:0 0 1px 0;
+	vertical-align:top;
+}
+table.foswikiFormTable {
+	margin:5px 0;
+	border-collapse:collapse;
+	padding:0px;
+	border-spacing:0px;
+	empty-cells:show;
+	border-style:solid;
+	border-width:1px;
+}
+
+.foswikiBroadcastMessage {
+	margin:-20px 0 20px 0;
+}
+
+.foswikiBroadcastMessage,
+.foswikiNotification {
+	padding:1em 20px;
+}
+.foswikiMessage {
+	padding:.5em 20px;
+	border:none;
+}
+.foswikiCheckbox,
+.foswikiRadioButton {
+	border:0;
+	margin:1px .25em 1px .1em;
+	padding:0 0 0 .5em;
+}
+
+.foswikiDiffLineNumberHeader {
+	padding:.3em 0;
+}
+
+.foswikiEditboxStyleMono {
+	font-family:"Bitstream Vera Sans Mono","Andale Mono",Courier,monospace;
+}
+
+.foswikiEditboxStyleProportional {
+	font-family:lucida,tahoma,verdana,sans-serif;
+}
+
+.foswikiFormHolder {
+	width:100%;
+}
+
+
+.foswikiFormSteps {
+	padding:0 20px;
+	border-width:1px;
+	border-style:solid;
+}
+.foswikiFormStep {
+	padding:10px 20px;
+	margin:-1px -20px -1px -20px;
+	border-width:1px;
+	border-style:solid none;
+}
+.foswikiFormStep h2,
+.foswikiFormStep h3,
+.foswikiFormStep h4 {
+	border:none;
+	margin-top:0;
+	padding:0;
+	background:none;
+}
+.foswikiFormStep p {
+	margin:.5em 0;
+}
+.foswikiFormSteps h2 {
+	font-size:115%;
+	font-weight:bold;
+}
+.foswikiFormSteps h3 {
+	font-size:100%;
+	font-weight:bold;
+}
+.foswikiFormSteps h4 {
+	font-size:100%;
+	font-weight:bold;
+}
+.foswikiFormSteps blockquote {
+	margin-left:1em;
+	padding-top:.25em;
+	padding-bottom:.25em;
+}
+.foswikiFormTable th {
+	font-weight:normal;
+}
+
+.foswikiHelp {
+	margin:0 0 .25em 0;
+	padding:1em;
+}
+
+.foswikiHelp ul {
+	margin:0;
+	padding-left:20px;
+}
+
+.foswikiImage img {
+	border-style:solid;
+	border-width:1px;
+	padding:3px;
+}
+
+.foswikiInputField,
+.foswikiInputFieldDisabled,
+.foswikiInputFieldReadOnly {
+	padding:.2em .2em;
+}
+
+.patternTwistyButton {
+	font-weight:bold;
+	margin:.5em 0;
+	display:inline-block;
+}
+
+.foswikiNewLink {
+	border-style:solid;
+	border-width:0 0 1px;
+}
+
+.foswikiNewLink a {
+	margin-left:1px;
+	text-decoration:none;
+}
+
+.foswikiNewLink a sup {
+	font-size:100%;
+	padding:0 2px;
+	text-align:center;
+	text-decoration:none;
+	vertical-align:baseline;
+}
+
+
+
+.foswikiNewLink a:link sup,
+.foswikiNewLink a:visited sup {
+	border-style:solid;
+	border-width:1px;
+	text-decoration:none;
+}
+
+.foswikiNoBreak {
+	white-space:nowrap;
+}
+
+.foswikiNotification {
+	border-style:solid;
+	border-width:1px;
+	margin:1em 0;
+}
+
+.foswikiPageForm table {
+	border-style:solid;
+	border-width:1px;
+	width:100%;
+}
+
+.foswikiPageForm td.first {
+	padding-top:1em;
+}
+
+.foswikiPageForm th,
+.foswikiPageForm td {
+	border:0;
+	padding:.5em 1em;
+}
+
+.foswikiSearchResultCount {
+	font-weight:bold;
+}
+.foswikiSearchResultsPager {
+	margin:1em 0;
+	padding:.25em 0;
+}
+.foswikiSmall {
+	font-size:86%;
+	line-height:1.5em;
+}
+
+.foswikiSmallish {
+	font-size:94%;
+	line-height:1.5em;
+}
+
+.foswikiSummary {
+	font-size:86%;
+}
+
+.foswikiTable {
+	border-collapse:collapse;
+	border-style:solid;
+}
+.foswikiTable {
+	margin:5px 0;
+	border-collapse:collapse;
+}
+.foswikiTable td {
+	padding:5px 10px;
+}
+.foswikiTable th {
+	padding:10px 10px;
+	border-left-style:solid;
+	border-right-style:solid;
+}
+.foswikiTable .tableSortIcon {
+	margin:0 0 0 .25em;
+}
+
+.foswikiTable,
+.foswikiTable td,
+.foswikiTable th {
+	border-width:1px;
+}
+
+.foswikiTextarea,
+.foswikiInputField,
+.foswikiInputFieldDisabled,
+.foswikiInputFieldReadOnly {
+	font-size:100%;
+}
+
+.foswikiTextarea,
+.foswikiInputField,
+.foswikiInputFieldDisabled,
+.foswikiInputFieldReadOnly,
+.foswikiSelect {
+	border-style:solid;
+	border-width:1px;
+}
+
+.foswikiTextarea,
+.mceContentBody {
+	padding:1px 4px;
+}
+
+.foswikiToc {
+	margin:1em 0;
+	padding:.3em 0 .6em;
+}
+
+.foswikiToc .foswikiTocTitle {
+	font-weight:bold;
+	margin:0;
+	padding:0;
+}
+
+.foswikiToc li {
+	margin-left:1em;
+	padding-left:1em;
+}
+
+.foswikiToc ul {
+	list-style:none;
+	margin:0;
+	padding:0 0 0 .5em;
+}
+
+.foswikiTopic {
+	padding:10px 0 3em 0;
+}
+
+.foswikiWebIndent {
+	margin:0 0 0 1em;
+}
+
+.patternActionButtons a:link,
+.patternActionButtons a:visited {
+	padding:1px 1px 2px;
+}
+
+
+.patternAttachPage .patternTopicAction,
+.patternRenamePage .patternTopicAction {
+	padding-left:40px;
+}
+
+.patternBookView {
+	border-style:solid;
+	border-width:0 0 2px 2px;
+	margin:.5em 0 1.5em -5px;
+	padding:0 0 0 5px;
+}
+
+.patternBookView .foswikiBottomRow {
+	border:none;
+	font-size:100%;
+	padding:1em 0;
+	width:auto;
+}
+
+.patternBookView .foswikiTopRow {
+	margin:1em -5px .15em;
+	padding:.25em 5px .15em;
+}
+
+.patternButtonFontSelector {
+	height:16px;
+	margin:0 8px 0 0;
+	width:33px;
+}
+
+.patternDiff {
+	border-style:solid;
+	border-width:0 0 2px 2px;
+	margin:.5em 0 1.5em;
+	padding:0 0 0 10px;
+}
+
+.patternDiff h4.patternSearchResultsHeader {
+	padding:.5em 10px;
+}
+
+.patternDiffPage .foswikiDiffTable {
+	margin:2em 0;
+}
+
+.patternDiffPage .foswikiDiffTable td {
+	padding:.25em;
+}
+
+.patternDiffPage .foswikiDiffTable th {
+	padding:.25em .5em;
+}
+
+.patternDiffPage .patternRevInfo ul {
+	list-style:none;
+	margin:2em 0 0;
+	padding:0;
+}
+
+.patternDiffPage td.foswikiDiffDebugLeft {
+	border-bottom:none;
+}
+
+.patternEditPage #patternMainContents,
+.patternEditPage #patternBottomBarContents {
+	margin-left:1em;
+	margin-right:1em;
+}
+
+.patternEditPage .foswikiFormTable td,
+.patternEditPage .foswikiFormTable th {
+	border-style:solid;
+	border-width:0 0 1px;
+	vertical-align:middle;
+	text-align:left;
+}
+
+.patternEditPage .patternEditTopic {
+	margin:0 0 .5em;
+	padding:5px;
+}
+
+.patternEditPage .revComment {
+	padding:1em 0 2em;
+}
+
+.patternHomePath .foswikiSeparator {
+	padding:0 .5em;
+}
+
+.patternHomePath .patternRevInfo {
+	font-size:94%;
+	white-space:nowrap;
+}
+.patternHomePath:hover a:hover {
+	text-decoration:underline;
+}
+
+.patternInfo {
+	margin:1.5em 0 0;
+}
+
+.patternLeftBarPersonal li {
+	padding-left:13px;
+}
+
+.patternLeftBarPersonalContent {
+	padding:1em 0 0;
+}
+
+.patternMetaMenu {
+	padding:15px 2em;
+}
+
+.patternMetaMenu input,
+.patternMetaMenu select,
+.patternMetaMenu select option {
+	margin:0;
+}
+
+.patternMetaMenu select option {
+	padding:1px 0 0;
+}
+
+.patternMetaMenu ul li {
+	display:inline;
+	padding:0;
+}
+
+.patternMetaMenu ul li .foswikiInputField,
+.patternMetaMenu ul li .foswikiSelect {
+	margin:0 0 0 1px;
+}
+
+.patternMoveAttachment {
+	margin:.5em 0 0;
+	text-align:right;
+}
+
+.patternNoViewPage #patternMainContents,
+.patternNoViewPage #patternBottomBarContents {
+	margin-left:2em;
+	margin-right:2em;
+	padding-top:1em;
+}
+
+.patternNoViewPage #patternOuter {
+	margin-left:0;
+	margin-right:0;
+}
+
+.patternNoViewPage .patternTopicAction {
+	margin-top:-1px;
+}
+
+.patternSaveHelp {
+	line-height:1.5em;
+	margin:1em 0 0;
+}
+
+.patternSearchResult .foswikiAlert {
+	font-weight:bold;
+}
+
+.patternSearchResult .foswikiBottomRow {
+	border-style:solid;
+	border-width:0 0 1px;
+	margin-bottom:.1em;
+	padding-bottom:.25em;
+}
+
+.patternSearchResult .foswikiNew {
+	border-style:solid;
+	border-width:1px;
+	font-size:86%;
+	font-weight:bold;
+	padding:0 1px;
+}
+
+.patternSearchResult .foswikiSRAuthor {
+	text-align:left;
+	width:15%;
+}
+
+.patternSearchResult .foswikiSRRev {
+	text-align:left;
+	width:30%;
+}
+
+.patternSearchResult .foswikiSummary .foswikiAlert {
+	font-weight:normal;
+}
+
+.patternSearchResult .foswikiTopRow {
+	margin-top:.1em;
+	padding-top:.2em;
+}
+
+.patternSearchResultCount {
+	margin:1em 0 3em;
+}
+
+.patternSearchResults {
+	margin:0 0 1em;
+}
+
+.patternSearchResults .foswikiHelp {
+	display:block;
+	margin:1em -5px .35em;
+	padding:.1em 5px;
+	width:auto;
+}
+
+.patternSearchResults blockquote {
+	margin:1em 0 1em 5em;
+}
+
+.patternSearchResults h3 {
+	font-size:115%;
+	font-weight:bold;
+	margin:0;
+	padding:.5em 40px;
+}
+
+.patternSearched {
+	display:block;
+}
+
+.patternSig {
+	text-align:right;
+}
+
+.patternSigLine {
+	border-style:none;
+	margin:.5em 0 0;
+}
+
+.patternSmallLinkToHeader {
+	font-size:86%;
+	font-weight:normal;
+	margin:0 0 0 .15em;
+}
+
+.patternTextareaButton {
+	border-style:solid;
+	border-width:1px;
+	cursor:pointer;
+	display:block;
+	margin:0 0 0 1px;
+	overflow:hidden;
+}
+
+.patternToolBar {
+	display:block;
+}
+
+.patternToolBar span {
+	display:block;
+	float:left;
+	margin:0 0 0 4px;
+}
+
+.patternToolBar span a img {
+	padding:2px;
+}
+
+.patternToolBar span a:link img,
+.patternToolBar span a:visited img,
+.patternToolBar span a:hover img {
+	border-style:solid;
+	border-width:1px;
+}
+
+.patternToolBar span a:link,
+.patternToolBar span a:visited,
+.patternToolBar img {
+	border:none;
+	margin:0;
+	padding:0;
+}
+
+.patternTop {
+	font-size:94%;
+	padding:0 0 .25em 0;
+}
+
+.patternTopicAction {
+	border-style:solid;
+	border-width:1px 0 0;
+	line-height:1.5em;
+	padding:.4em 20px;
+}
+
+.patternTopicActions {
+	border:none;
+}
+
+.patternTopicFooter {
+	margin:1em 0 0;
+}
+
+.tagMePlugin input {
+	border:0;
+}
+
+.tagMePlugin select {
+	margin:0 .25em 0 0;
+}
+
+.tipsOfTheDay {
+	padding:10px 0;
+}
+
+
+tr.foswikiDiffDebug td {
+	border-style:solid;
+	border-width:1px;
+}
+
+.patternPrintPage :link,
+.patternPrintPage .foswikiTopic :link,
+.patternPrintPage :visited,
+.patternPrintPage .foswikiTopic a:visited {
+	text-decoration:underline;
+}
+
+/* preview.pattern.tmpl */
+
+.patternPreviewPage .foswikiTopic {
+	margin-bottom:0;
+}
+.foswikiPreviewArea {
+	border-width:1px;
+	border-style:solid;
+	margin:0 0 1.5em 0;
+	padding:2em;
+}
+:link,:visited,:link:active,:visited:active,:link:focus,:visited:focus{color:#03a}:visited{color:#5a3696}:link:hover,:visited:hover{color:#03a}:link:hover img,:visited:hover img{background:0}.foswikiTopic a:visited{color:#5a3696}.foswikiTopic a:hover{color:#0b0}#patternMainContents h1 a:link,#patternMainContents h1 a:visited{color:#2e5cac}#patternMainContents h2 a:link,#patternMainContents h2 a:visited,#patternMainContents h3 a:link,#patternMainContents h3 a:visited,#patternMainContents h4 a:link,#patternMainContents h4 a:visited,#patternMainContents h5 a:link,#patternMainContents h5 a:visited,#patternMainContents h6 a:link,#patternMainContents h6 a:visited{color:#444}#patternSideBarContents,#patternSideBarContents a:link,#patternSideBarContents a:visited{color:#555}#patternSideBarContents b,#patternSideBarContents strong{color:#222}#patternSideBarContents a:hover{color:#0b0}#foswikisiteUserBar li{color:#555}#foswikisiteUserBar a:link,#foswikisiteUserBar a:visited{color:#555}#foswikisiteUserBar:hover a:link,#foswikisiteUserBar:hover a:visited{color:#090}.foswikiTopic .foswikiUnvisited a:hover,a:hover.twistyTrigger,.patternTop a:hover,.foswikiBroadcastMessage a{color:#000}blockquote{background-color:#f5f5f5;border-color:#ddd}blockquote h2{background:0}body,html body,html body.patternEditPage{background-color:#f0f0f1;color:#000}body,p,li,ul,ol,dl,dt,dd,acronym,h1,h2,h3,h4,h5,h6,p,li,ul,ol,dl,dt,dd,acronym,h1,h2,h3,h4,h5,h6{background:0}h1,h2,h3,h4,h5,h6{color:#090}h2{border-color:#e2e2e2;color:#090}h2.patternTemplateTitle{background:0}h3.patternSearchResultsHeader,h4.patternSearchResultsHeader{background-color:#f5f5f5;border-color:#e2e2e2}h4.patternSearchResultsHeader{color:#000}hr{background-color:#bbb;color:#bbb}html body{background-color:#f0f0f1;color:#000}pre{background:#f5f5f5;border-color:#ddd}pre,code,tt{color:#333}table#foswikiSearchTable hr{background-color:#e2e2e2;border-color:#e2e2e2}table#foswikiSearchTable th{color:#000}table#foswikiSearchTable th,table#foswikiSearchTable td{background-color:#fff;border-color:#e2e2e2}textarea,input,select{background-color:#fff;border-color:#aaa;color:#000}#foswikiLogin .patternLoginNotification{background-color:#fff;border-color:red}#foswikiSearchTable{background:0}#foswikisiteUserBar{color:#444}#foswikisiteUserBar ul{list-style-image:none;list-style-position:outside;list-style-type:none}#patternBottomBar{background:0}#patternMainContents{background-color:#fff}#patternMainContents .patternDiff h4.patternSearchResultsHeader{background-color:#6b7f93;color:#fff}#patternOuter{background:0;border-color:#dadada}#patternPage{background-color:transparent;border-color:#ccc}#patternSideBarContents li a:hover{background:#d9f5d9;color:#444}#patternSideBarContents hr{background-color:#e2e2e2;color:#e2e2e2}#patternTopBar .foswikiImage img{background:0}#patternTopBarButtons li{color:#339}#patternTopBarButtons ul,#patternTopBarButtons li a{border-color:#adcaed}#patternSideBar,#patternWrapper{background:#fff}.foswikiAccessKey{border-color:#777}.foswikiActionFormStepSign{color:#444}.foswikiAttachments table{border-color:#eee;background-color:#fff}table.foswikiFormTable,.foswikiAttachments table,.foswikiAttachments th,.foswikiAttachments td{border-color:#eee;background-color:#fcfcfc!important}.foswikiForm td,.foswikiForm th,.foswikiAttachments td,.foswikiAttachments th{border-color:#eee}.foswikiBroadcastMessage,.foswikiNotification{background-color:#d9f5d9}.foswikiNotification{border-color:#090}.foswikiMessage{background-color:#d9f5d9}.foswikiDiffAddedHeader,tr.foswikiDiffDebug .foswikiDiffAddedMarker,tr.foswikiDiffDebug .foswikiDiffAddedText{background-color:#ccf}.foswikiDiffChangedHeader,tr.foswikiDiffDebug .foswikiDiffChangedText,tr.foswikiDiffDebug .foswikiDiffChangedText{background:#9f9}.foswikiEditForm{color:#000}.foswikiEditForm .foswikiFormTable td{background-color:#f7fafc}.foswikiEditForm .foswikiFormTable th{background-color:#f0f6fb}.foswikiEmulatedLink{color:#4571d0}.foswikiFormStep h3,.foswikiFormStep h4{background-color:transparent;color:#444}.foswikiFormSteps{background-color:#f5f5f5;border-color:#e2e2e2}.foswikiHelp{background-color:#d5ffd0}.foswikiImage a:hover img{border-color:#03a}.foswikiImage a:link,.foswikiImage a:visited{background:0}.foswikiImage img{background-color:#fff;border-color:#eee}.foswikiInputField:active,.foswikiInputField:focus,.foswikiInputFieldFocus{background-color:#ffffe0}.foswikiInputFieldDisabled{background-color:#fafaf8;color:#aaa}.foswikiInputFieldDisabled,.foswikiSelectDisabled{background-color:#fafaf8;border-color:#bbb #f2f2f2 #f2f2f2 #bbb;color:#aaa}.foswikiNewLink{border-color:#ddd}.foswikiNewLink a:hover sup{background-color:#03a;border-color:#03a;color:#000}.foswikiNewLink a:link sup,.foswikiNewLink a:visited sup{border-color:#ddd;color:#777}.foswikiNewLink font,a:link .foswikiAccessKey,a:visited .foswikiAccessKey{color:inherit}.foswikiPageForm hr{background-color:#cfcfcf;border-color:#cfcfcf;color:#cfcfcf}.foswikiPageForm table{background:#fff;border-color:#e2e2e2}.foswikiSelect{background-color:#fff;border-color:#bbb #f2f2f2 #f2f2f2 #bbb;color:#000}.foswikiSubmit{background-color:#06c;color:#fff}.foswikiSubmit,.foswikiButton{border-color:#fff #888 #888 #fff}.foswikiSubmit,.foswikiSubmitDisabled{background-image:url(/pub/System/PatternSkinThemeFatWilly/bg_submit_gradient.gif);background-repeat:repeat-x}.foswikiSubmit,a.foswikiSubmit:link,a.foswikiSubmit:visited{background-color:#06c;background-position:0 0;border-color:#94cce2 #0e66a2 #0e66a2 #94cce2;color:#fff}.foswikiSubmit:active,a.foswikiSubmit:active{background-color:#73ace6;background-position:0 -160px;border-color:#0e66a2 #94cce2 #94cce2 #0e66a2;color:#fff}.foswikiSubmit:hover,a.foswikiSubmit:hover{background-color:#0047b7;background-position:0 -80px;border-color:#0e66a2 #94cce2 #94cce2 #0e66a2;color:#fff}.foswikiSubmitDisabled,.foswikiSubmitDisabled:active{background-color:#f5f5f5;border-color:#fff #ccc #ccc #fff;color:#aaa}.foswikiSubmitDisabled,.foswikiSubmitDisabled:hover,.foswikiSubmitDisabled:active{background-color:#d9e8f7;background-position:0 -240px;border-color:#ccc;color:#ccc}.foswikiTable,.foswikiTable td,.foswikiTable th{border-color:#eee}.foswikiTable th{background:#d6d3cf}.foswikiTable th,.foswikiTable th a:link,.foswikiTable th a:visited{color:#000}.foswikiTable th a:link,.foswikiTable th a:visited,.foswikiTable th a font,table.foswikiFormTable th.foswikiFormTableHRow,table.foswikiFormTable td.foswikiFormTableRow,.patternNoViewPage h4.patternSearchResultsHeader{color:#444}.foswikiTable,.foswikiTable td,.foswikiTable th,.foswikiFormStep,.patternSearchResult .foswikiBottomRow,.patternBookView .foswikiBottomRow,tr.foswikiDiffDebug td,.foswikiEditForm .foswikiFormTable,.foswikiEditForm .foswikiFormTable th,.foswikiEditForm .foswikiFormTable td,table#foswikiSearchTable,.patternViewPage .patternSearchResultsBegin{border-color:#e2e2e2}.foswikiTextarea,.foswikiInputField,.foswikiInputFieldDisabled,.foswikiInputFieldReadOnly,.foswikiSelect{border-color:#bbb #f2f2f2 #f2f2f2 #bbb}.foswikiTextarea,.foswikiInputField,.foswikiSelect{background-color:#fff;color:#000}.foswikiTextareaRawView{color:#000}.foswikiToc .foswikiTocTitle{color:#777}.patternSigLine{color:#777}#patternBottomBarContents{color:#777}#patternBottomBarContents a:link,#patternBottomBarContents a:visited{color:#777}#patternBottomBarContents:hover a:link,#patternBottomBarContents:hover a:visited{color:#0b0}.foswikiInputFieldReadOnly,.foswikiInputFieldBeforeFocus{color:#777}.twistyPlaceholder{color:#777}.foswikiGrayText,.foswikiGrayText a:link,.foswikiGrayText a:visited{color:#777}.foswikiGrayText a:hover{color:#0b0}.patternHomePath a:link,.patternHomePath a:visited{color:#777}.patternHomePath:hover a:link,.patternHomePath:hover a:visited{color:#0b0}.patternHelpCol,.patternBookView .patternSearchResultCount,tr.foswikiDiffDebug .foswikiDiffUnchangedText{color:#777}.foswikiToc li{background-image:url(/pub/System/PatternSkinThemeFatWilly/bullet-toc.gif);background-position:0 .4em;background-repeat:no-repeat}.foswikiTopic .foswikiUnvisited a:visited{color:#03a}#patternMainContents h1 a:hover,#patternMainContents h2 a:hover,#patternMainContents h3 a:hover,#patternMainContents h4 a:hover,#patternMainContents h5 a:hover,#patternMainContents h6 a:hover{color:#0b0}.mceContentBody{background-color:#fff}.patternActionButtons a:link,.patternActionButtons a:visited,.patternActionButtons a:hover,#patternMainContents .patternDiff h4.patternSearchResultsHeader a:link,#patternMainContents .patternDiff h4.patternSearchResultsHeader a:visited{color:#fff}.patternBookView .foswikiTopRow{background-color:transparent;color:#777}.patternButtonEnlarge,.patternButtonShrink{background-image:url(/pub/System/PatternSkinThemeFatWilly/button_arrow.gif);height:16px;width:16px}.patternButtonEnlarge:active{background-position:0 -84px}.patternButtonEnlarge:hover{background-position:0 -42px}.patternButtonFontSelector{background-image:url(/pub/System/PatternSkinThemeFatWilly/button_font_selector.gif)}.patternButtonFontSelectorMonospace{background-position:0 -16px}.patternButtonFontSelectorProportional,.patternButtonEnlarge{background-position:0 0}.patternButtonShrink{background-position:16px 0}.patternButtonShrink:active{background-position:16px -84px}.patternButtonShrink:hover{background-position:16px -42px}.patternDiff{border-color:#6b7f93}.patternDiffPage .foswikiDiffTable th,.foswikiDiffLineNumberHeader{background-color:#ccc}.patternEditTopic{background:#f5f5f5}.patternRevInfo{color:#666}.patternLeftBarPersonal li,.patternLeftBarPersonal li.patternLogOut,.patternLeftBarPersonal li.patternLogIn{background-image:none}.patternMetaMenu ul li .foswikiInputFieldBeforeFocus,.patternMetaMenu ul li .foswikiSelect{background-color:#f0f4fa}.patternPrintPage #patternOuter{background:#fff}.patternPrintPage #patternOuter,.patternPrintPage #patternMainContents{border:0}.patternSearchResult .foswikiAlert,.foswikiBroadcastMessage b,.foswikiBroadcastMessage strong,.foswikiAlert,.foswikiAlert code{color:red}.patternSearchResult .foswikiNew{background-color:#ecfadc;border-color:#049804;color:#049804}.patternSearchResult .foswikiSummary .foswikiAlert{color:#900}.patternTextareaButton{border-color:#fffefd #b8b6ad #b8b6ad #fffefd}.patternToolBar span a:link,.patternToolBar span a:visited,.patternToolBar img{background:0}.patternToolBar span a:link img,.patternToolBar span a:visited img{border-color:#f2f2f2}.patternToolBar span a:hover img{border-color:#0b0}.patternTopicAction{border-color:#fff}.patternTopicAction a:hover .foswikiAccessKey,.patternTopicAction label,.patternActionButtons a:link,.foswikiTopic .patternActionButtons a:link,.patternActionButtons a:visited,.foswikiTopic .patternActionButtons a:visited,.patternActionButtons a:hover,.foswikiTopic .patternActionButtons a:hover{color:#00346b}.patternTopicAction a:link .foswikiAccessKey,.patternTopicAction a:visited .foswikiAccessKey{border-color:#00346b;color:#00346b}.patternTopicAction .foswikiSeparator,.foswikiTopic .patternTopicAction .foswikiSeparator,.patternTopicAction s,.patternTopicAction strike,.patternTopicAction s,.foswikiTopic .patternTopicAction .foswikiSeparator,.patternTopicAction strike,.foswikiTopic .patternTopicAction strike{color:#c9e2fd}.patternTopicActions{background-color:#2989bb;color:#bbb}.patternTopicActions,.foswikiTopic .patternTopicActions{background:#e0ecf9 url(/pub/System/PatternSkinThemeFatWilly/topicactions_background.gif) repeat-x scroll 0 0;color:#fff}.patternTwistyButton h3{color:#444}.revComment .patternTopicAction{background-color:#f5f5f5}tr.foswikiDiffDebug .foswikiDiffDeletedMarker,tr.foswikiDiffDebug .foswikiDiffDeletedText{background-color:#f99}.foswikiPreviewArea{border-color:#f00;background-color:#fff}.patternPrintPage :link,.patternPrintPage .foswikiTopic :link,.patternPrintPage :visited,.patternPrintPage .foswikiTopic a:visited{color:#444}#patternScreen{background:#f0f0f1 url(/pub/System/PatternSkinThemeFatWilly/GrayBlend.gif) repeat-x scroll 0 0}#patternTopBarContentsWrapper{background:transparent url(/pub/System/PatternSkinThemeFatWilly/header-left.gif) no-repeat scroll 0 0}#patternTopBar{background:#2e5cac url(/pub/System/PatternSkinThemeFatWilly/header.gif) repeat-x scroll 0 0}#patternTopBarButtons{background:#2a549d url(/pub/System/PatternSkinThemeFatWilly/header-left.gif) no-repeat scroll 0 100%}#patternTopBarButtons li a{background:#8bb6e5 url(/pub/System/PatternSkinThemeFatWilly/menu_background.gif) repeat-x scroll 0 0;color:#00346b}#patternTopBarButtons li a.active,#patternTopBarButtons li a:link:hover,#patternTopBarButtons li a:visited:hover{background:#fff;border-top-color:#fff}#patternSideBarContents .patternWebIndicator,#patternSideBarContents h2,#patternSideBarContents h2 a:link,#patternSideBarContents h2 a:visited{background:#eee url(/pub/System/PatternSkinThemeFatWilly/sidebar_header_background.gif) repeat-x scroll 0 0;color:#222}.foswikiButton{background-color:#e2e3e3;color:#000}.foswikiButton,a.foswikiButton:link,a.foswikiButton:visited{background-color:#cce7f1;background-image:url(/pub/System/PatternSkinThemeFatWilly/bg_button_gradient.gif);background-position:0 0;background-repeat:repeat-x;border-color:#fff #94cce2 #94cce2 #fff;color:#333}.foswikiButton:hover,.foswikiButton:active,a.foswikiButton:hover,a.foswikiButton:active{background-color:#cce7f1;background-position:0 -160px;border-color:#94cce2;color:#333}.foswikiButtonCancel{background-color:#f2d5d0;background-image:url(/pub/System/PatternSkinThemeFatWilly/bg_buttoncancel_gradient.gif);background-position:0 0;background-repeat:repeat-x;border-color:#f3ddd7 #ce5232 #ce5232 #f3ddd7;color:#000}.foswikiButtonCancel:active{background-color:#dd724d;background-position:0 -160px;border-color:#ce5232 #f3ddd7 #f3ddd7 #ce5232;color:#fff}.foswikiButtonCancel:hover{background-color:#dd724d;background-position:0 -80px;border-color:#ce5232 #f3ddd7 #f3ddd7 #ce5232;color:#fff}.foswikiButtonDisabled,.foswikiButtonDisabled:hover,.foswikiButtonDisabled:active{background-color:#edece6;background-image:url(/pub/System/PatternSkinThemeFatWilly/bg_button_gradient.gif);background-position:0 -240px;background-repeat:repeat-x;border-color:#ccc;color:#bbb}.foswikiJs a.jqPopUpWindow:link,.foswikiJs a.jqPopUpWindow:visited,.foswikiJs a.jqPopUpWindow:hover{background-image:url(/pub/System/PatternSkinThemeFatWilly/popup.gif);background-repeat:no-repeat;background-position:right;padding-right:14px;margin-right:3px}#patternSideBar{float:right;width:260px;margin-right:-260px;position:relative;background-color:#f9f9f9;}.patternViewPage #patternOuter{border-width:260px;border-style:none solid none none;border-color:#f9f9f9;margin-right:0;}

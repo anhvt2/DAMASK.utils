@@ -1,0 +1,591 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> WebStatistics &lt; Installation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Installation/WebStatistics?t=1627662534" type="application/x-wiki" title="edit WebStatistics" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Installation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Installation/WebStatistics" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/5b86715111738489c25fd091d932f312.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#cdcdcd;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SYSTEMWEB" : "System",
+   "USERNAME" : "guest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WEB" : "Installation",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SCRIPTSUFFIX" : "",
+   "COOKIEREALM" : "",
+   "URLHOST" : "https://damask.mpie.de",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "PUBURLPATH" : "/pub",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SERVERTIME" : "30 Jul 2021 - 18:28",
+   "SCRIPTURLPATH" : "/bin",
+   "USERSWEB" : "Main",
+   "WIKINAME" : "WikiGuest",
+   "TOPIC" : "WebStatistics"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Installation/WebStatistics"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Installation/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Installation" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="active">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Installation/WebHome">Installation</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Installation/WebStatistics" title='Topic revision: 2 (25 Jul 2016 - 19:25:18)'>WebStatistics</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Installation/WebStatistics?t=1627662534;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Installation/WebStatistics' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Installation/WebStatistics?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Installation/WebStatistics?raw=on&amp;rev=2' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Installation/WebCreateNewTopic?topicparent=WebStatistics' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Installation/WebStatistics?cover=print;sortcol=1;table=1;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Installation/WebStatistics?template=more&amp;maxrev=2&amp;currrev=2' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h2 id="Statistics_for_Installation_Web">  Statistics for Installation Web </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/Installation/WebStatistics?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Month:</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/view/Installation/WebStatistics?sortcol=1;table=1;up=1#sorted_table" rel="nofollow" title="Sort by this column">Topic <br /> views:</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/Installation/WebStatistics?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Topic <br /> saves:</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/Installation/WebStatistics?sortcol=3;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">File <br /> uploads:</a> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/Installation/WebStatistics?sortcol=4;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Most popular <br /> topic views:</a> </th>
+			<th class="foswikiTableCol5 foswikiLastCol"> <a href="/bin/view/Installation/WebStatistics?sortcol=5;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Top contributors for <br /> topic save and uploads:</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Feb 2016 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> &nbsp; </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Dec 2012 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1234 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 7 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 283 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />115 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />108 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />&nbsp;64 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />&nbsp;64 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;55 <a href="/bin/view/Installation/Processing">Processing</a><br />&nbsp;54 <a href="/bin/view/Installation/BVPsolvers">BVPsolvers</a><br />&nbsp;52 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />&nbsp;47 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;41 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;35 <a class="foswikiNewLink" href="/bin/edit/Installation/LAPACK?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">LAPACK</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;5 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/MasahikoDemura">MasahikoDemura</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Feb 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1339 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 15 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 306 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />&nbsp;93 <a class="foswikiNewLink" href="/bin/edit/Installation/BLASLibrary?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">BLASLibrary</a><br />&nbsp;88 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;86 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />&nbsp;85 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;82 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;69 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />&nbsp;57 <a href="/bin/view/Installation/BVPsolvers">BVPsolvers</a><br />&nbsp;55 <a href="/bin/view/Installation/Processing">Processing</a><br />&nbsp;53 <a href="/bin/view/Installation/PETSc">PETSc</a><br />&nbsp;43 <a href="/bin/view/Installation/FFTW">FFTW</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;8 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;7 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Mar 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1362 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 19 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 309 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />104 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;93 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;80 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />&nbsp;74 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;65 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;65 <a class="foswikiNewLink" href="/bin/edit/Installation/BLASLibrary?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">BLASLibrary</a><br />&nbsp;56 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />&nbsp;54 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />&nbsp;54 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;52 <a href="/bin/view/Installation/BVPsolvers">BVPsolvers</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;14 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;5 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Sep 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1476 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 4 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 248 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />181 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />&nbsp;87 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;85 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;82 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;75 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />&nbsp;69 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;68 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />&nbsp;57 <a href="/bin/view/Installation/PETSc">PETSc</a><br />&nbsp;56 <a href="/bin/view/Installation/ParaView">ParaView</a><br />&nbsp;50 <a href="/bin/view/Installation/WebOrder">WebOrder</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;2 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/ChenZhang">ChenZhang</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Apr 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1486 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 16 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 326 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />&nbsp;96 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />&nbsp;95 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;85 <a class="foswikiNewLink" href="/bin/edit/Installation/BLASLibrary?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">BLASLibrary</a><br />&nbsp;79 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;73 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;72 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />&nbsp;65 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;65 <a href="/bin/view/Installation/PETSc">PETSc</a><br />&nbsp;64 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;59 <a href="/bin/view/Installation/ParaView">ParaView</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;16 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jun 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1629 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 380 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />108 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />100 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;97 <a href="/bin/view/Installation/PETSc">PETSc</a><br />&nbsp;94 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;85 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;80 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;73 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;72 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />&nbsp;65 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />&nbsp;53 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jun 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1795 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 414 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />109 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />107 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;95 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />&nbsp;92 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;86 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;79 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;68 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />&nbsp;64 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;64 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />&nbsp;60 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;1 <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jul 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1886 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 397 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />292 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />196 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />&nbsp;96 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />&nbsp;89 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;80 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;80 <a href="/bin/view/Installation/PETSc">PETSc</a><br />&nbsp;74 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;61 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;60 <a class="foswikiNewLink" href="/bin/edit/Installation/LAPACK?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">LAPACK</a><br />&nbsp;60 <a class="foswikiNewLink" href="/bin/edit/Installation/IMKL?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">IMKL</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jan 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2027 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 408 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />139 <a href="/bin/view/Installation/PETSc">PETSc</a><br />134 <a href="/bin/view/Installation/FFTW">FFTW</a><br />124 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />111 <a href="/bin/view/Installation/Marc">Marc</a><br />106 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />101 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />&nbsp;94 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;87 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;84 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />&nbsp;70 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;1 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Oct 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2160 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 14 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 583 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />166 <a href="/bin/view/Installation/PETSc">PETSc</a><br />137 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />129 <a href="/bin/view/Installation/Compiler">Compiler</a><br />103 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;99 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;95 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;88 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />&nbsp;83 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />&nbsp;79 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />&nbsp;76 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;14 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Aug 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2162 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 4 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 429 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />215 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />169 <a href="/bin/view/Installation/PETSc">PETSc</a><br />150 <a href="/bin/view/Installation/Marc">Marc</a><br />144 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />109 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;96 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;90 <a class="foswikiNewLink" href="/bin/edit/Installation/IMKL?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">IMKL</a><br />&nbsp;88 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />&nbsp;87 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;80 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;3 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> May 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2389 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 41 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 6 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 484 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />175 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />160 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />139 <a href="/bin/view/Installation/Marc">Marc</a><br />134 <a href="/bin/view/Installation/Compiler">Compiler</a><br />117 <a href="/bin/view/Installation/FFTW">FFTW</a><br />101 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;99 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;98 <a href="/bin/view/Installation/PETSc">PETSc</a><br />&nbsp;92 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />&nbsp;91 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;47 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> May 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2430 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 3 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 629 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />137 <a href="/bin/view/Installation/Compiler">Compiler</a><br />137 <a href="/bin/view/Installation/FFTW">FFTW</a><br />130 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />128 <a href="/bin/view/Installation/PETSc">PETSc</a><br />125 <a href="/bin/view/Installation/Marc">Marc</a><br />112 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />109 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;94 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;89 <a class="foswikiNewLink" href="/bin/edit/Installation/IMKL?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">IMKL</a><br />&nbsp;85 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;2 <a href="/bin/view/Main/LuvSharma">LuvSharma</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Sep 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2474 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 473 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />179 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />157 <a href="/bin/view/Installation/FFTW">FFTW</a><br />137 <a href="/bin/view/Installation/PETSc">PETSc</a><br />135 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />133 <a href="/bin/view/Installation/Compiler">Compiler</a><br />119 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;95 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />&nbsp;95 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />&nbsp;94 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;86 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jul 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2513 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 41 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 441 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />225 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />143 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />133 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />125 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />124 <a href="/bin/view/Installation/Compiler">Compiler</a><br />122 <a href="/bin/view/Installation/Marc">Marc</a><br />110 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;99 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;97 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />&nbsp;92 <a href="/bin/view/Installation/PETSc">PETSc</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;37 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;5 <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Dec 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2661 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 31 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 418 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />341 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />190 <a href="/bin/view/Installation/PETSc">PETSc</a><br />153 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />148 <a href="/bin/view/Installation/Marc">Marc</a><br />146 <a href="/bin/view/Installation/FFTW">FFTW</a><br />130 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />118 <a href="/bin/view/Installation/Compiler">Compiler</a><br />101 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />&nbsp;96 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />&nbsp;95 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;20 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;12 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Nov 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2920 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 4 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 542 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />236 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />180 <a href="/bin/view/Installation/PETSc">PETSc</a><br />163 <a href="/bin/view/Installation/Marc">Marc</a><br />160 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />154 <a href="/bin/view/Installation/Compiler">Compiler</a><br />146 <a href="/bin/view/Installation/FFTW">FFTW</a><br />131 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />127 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />112 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />106 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;4 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Oct 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3040 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 21 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 472 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />414 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />175 <a href="/bin/view/Installation/FFTW">FFTW</a><br />169 <a href="/bin/view/Installation/Marc">Marc</a><br />166 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />156 <a href="/bin/view/Installation/PETSc">PETSc</a><br />150 <a href="/bin/view/Installation/Compiler">Compiler</a><br />140 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />133 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />125 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />108 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;11 <a href="/bin/view/Main/FranzRoters">FranzRoters</a><br />&nbsp;&nbsp;8 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Apr 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3064 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 21 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 872 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />194 <a href="/bin/view/Installation/PETSc">PETSc</a><br />183 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />167 <a href="/bin/view/Installation/Compiler">Compiler</a><br />160 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />130 <a href="/bin/view/Installation/FFTW">FFTW</a><br />124 <a href="/bin/view/Installation/Processing">Processing</a><br />124 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />121 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />107 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />106 <a href="/bin/view/Installation/Marc">Marc</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;21 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/ChenZhang">ChenZhang</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Aug 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3066 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 499 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />367 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />158 <a href="/bin/view/Installation/Compiler">Compiler</a><br />152 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />150 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />138 <a href="/bin/view/Installation/FFTW">FFTW</a><br />136 <a href="/bin/view/Installation/Marc">Marc</a><br />129 <a href="/bin/view/Installation/PETSc">PETSc</a><br />111 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />108 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />106 <a href="/bin/view/Installation/ParaView">ParaView</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jan 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3386 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 111 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 811 <a href="/bin/view/Installation/BVPsolvers">BVPsolvers</a><br />683 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />232 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />192 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />155 <a class="foswikiNewLink" href="/bin/edit/Installation/BLASLibrary?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">BLASLibrary</a><br />126 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />114 <a href="/bin/view/Installation/Processing">Processing</a><br />107 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />107 <a class="foswikiNewLink" href="/bin/edit/Installation/IMKL?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">IMKL</a><br />106 <a href="/bin/view/Installation/FFTW">FFTW</a><br />104 <a href="/bin/view/Installation/PETSc">PETSc</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 100 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;7 <a href="/bin/view/Main/SteffenBrinckmann">SteffenBrinckmann</a><br />&nbsp;&nbsp;4 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Nov 2013 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3394 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 3 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 592 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />264 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />203 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />184 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />176 <a href="/bin/view/Installation/PETSc">PETSc</a><br />170 <a href="/bin/view/Installation/FFTW">FFTW</a><br />168 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />158 <a href="/bin/view/Installation/Marc">Marc</a><br />132 <a href="/bin/view/Installation/Compiler">Compiler</a><br />131 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />123 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;2 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Feb 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3458 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 9 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 454 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />292 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />288 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />189 <a href="/bin/view/Installation/Compiler">Compiler</a><br />177 <a href="/bin/view/Installation/FFTW">FFTW</a><br />177 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />175 <a href="/bin/view/Installation/PETSc">PETSc</a><br />143 <a href="/bin/view/Installation/Marc">Marc</a><br />116 <a href="/bin/view/Installation/WebSearch">WebSearch</a><br />115 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />110 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;6 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;3 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Mar 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3533 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 110 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 634 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />277 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />234 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />217 <a href="/bin/view/Installation/PETSc">PETSc</a><br />176 <a href="/bin/view/Installation/Compiler">Compiler</a><br />172 <a href="/bin/view/Installation/FFTW">FFTW</a><br />164 <a href="/bin/view/Installation/Marc">Marc</a><br />155 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />151 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />139 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />119 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 108 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Feb 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3906 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 4 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 879 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />272 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />267 <a href="/bin/view/Installation/Compiler">Compiler</a><br />240 <a href="/bin/view/Installation/PETSc">PETSc</a><br />207 <a href="/bin/view/Installation/FFTW">FFTW</a><br />189 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />164 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />164 <a href="/bin/view/Installation/Marc">Marc</a><br />163 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />155 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />154 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;3 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Apr 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 4234 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 16 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 877 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />496 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />268 <a href="/bin/view/Installation/Compiler">Compiler</a><br />231 <a href="/bin/view/Installation/PETSc">PETSc</a><br />230 <a href="/bin/view/Installation/FFTW">FFTW</a><br />206 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />168 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />150 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />148 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />143 <a class="foswikiNewLink" href="/bin/edit/Installation/IMKL?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">IMKL</a><br />141 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;14 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/YannickNaunheim">YannickNaunheim</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Dec 2014 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 4699 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 885 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />503 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />266 <a href="/bin/view/Installation/PETSc">PETSc</a><br />263 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />261 <a href="/bin/view/Installation/FFTW">FFTW</a><br />251 <a href="/bin/view/Installation/Compiler">Compiler</a><br />224 <a href="/bin/view/Installation/Marc">Marc</a><br />211 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />192 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />181 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />150 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Nov 2012 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 4859 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 340 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 2279 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />786 <a class="foswikiNewLink" href="/bin/edit/Installation/BLASLibrary?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">BLASLibrary</a><br />206 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />172 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />165 <a href="/bin/view/Installation/BVPsolvers">BVPsolvers</a><br />144 <a href="/bin/view/Installation/Marc">Marc</a><br />129 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />100 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />&nbsp;96 <a href="/bin/view/Installation/Processing">Processing</a><br />&nbsp;91 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;89 <a href="/bin/view/Installation/Compiler">Compiler</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 212 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />123 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;5 <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Nov 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 5118 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 852 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />768 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />326 <a href="/bin/view/Installation/PETSc">PETSc</a><br />260 <a href="/bin/view/Installation/Compiler">Compiler</a><br />228 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />224 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />195 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />191 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />186 <a href="/bin/view/Installation/FFTW">FFTW</a><br />183 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />181 <a href="/bin/view/Installation/Marc">Marc</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Aug 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 6024 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 2 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 866 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />833 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />379 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />298 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />283 <a href="/bin/view/Installation/PETSc">PETSc</a><br />250 <a href="/bin/view/Installation/HDF5">HDF5</a><br />227 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />226 <a href="/bin/view/Installation/SpectralSolver">SpectralSolver</a><br />224 <a href="/bin/view/Installation/Compiler">Compiler</a><br />224 <a href="/bin/view/Installation/Marc">Marc</a><br />209 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;2 <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Sep 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 6104 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 863 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />644 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />334 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />334 <a href="/bin/view/Installation/Compiler">Compiler</a><br />316 <a href="/bin/view/Installation/PETSc">PETSc</a><br />284 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />267 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />263 <a href="/bin/view/Installation/HDF5">HDF5</a><br />244 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />240 <a href="/bin/view/Installation/FFTW">FFTW</a><br />233 <a href="/bin/view/Installation/Abaqus">Abaqus</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Oct 2012 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 6258 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 245 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 4765 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />267 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />195 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />119 <a class="foswikiNewLink" href="/bin/edit/Installation/BLASLibrary?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">BLASLibrary</a><br />106 <a href="/bin/view/Installation/Compiler">Compiler</a><br />&nbsp;93 <a href="/bin/view/Installation/Processing">Processing</a><br />&nbsp;90 <a href="/bin/view/Installation/FFTW">FFTW</a><br />&nbsp;84 <a href="/bin/view/Installation/Marc">Marc</a><br />&nbsp;83 <a href="/bin/view/Installation/BVPsolvers">BVPsolvers</a><br />&nbsp;70 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />&nbsp;64 <a href="/bin/view/Installation/Abaqus">Abaqus</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 208 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;37 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jul 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 7048 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1583 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />1129 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />361 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />262 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />248 <a href="/bin/view/Installation/PETSc">PETSc</a><br />238 <a href="/bin/view/Installation/Compiler">Compiler</a><br />206 <a href="/bin/view/Installation/Marc">Marc</a><br />189 <a href="/bin/view/Installation/FFTW">FFTW</a><br />187 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />185 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />155 <a href="/bin/view/Installation/HDF5">HDF5</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Oct 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 8264 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 4 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1224 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />1182 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />734 <a href="/bin/view/Installation/Compiler">Compiler</a><br />505 <a href="/bin/view/Installation/PETSc">PETSc</a><br />337 <a href="/bin/view/Installation/Marc">Marc</a><br />336 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />315 <a href="/bin/view/Installation/FFTW">FFTW</a><br />293 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />278 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />276 <a href="/bin/view/Installation/HDF5">HDF5</a><br />264 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;5 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> May 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 9305 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1692 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />1109 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />468 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />439 <a href="/bin/view/Installation/Compiler">Compiler</a><br />422 <a href="/bin/view/Installation/PETSc">PETSc</a><br />370 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />364 <a href="/bin/view/Installation/FFTW">FFTW</a><br />351 <a href="/bin/view/Installation/Marc">Marc</a><br />349 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />338 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />323 <a href="/bin/view/Installation/BVPsolvers">BVPsolvers</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Mar 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 9606 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1685 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />1430 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />574 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />556 <a href="/bin/view/Installation/Compiler">Compiler</a><br />407 <a href="/bin/view/Installation/PETSc">PETSc</a><br />405 <a href="/bin/view/Installation/FFTW">FFTW</a><br />348 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />348 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />329 <a href="/bin/view/Installation/Marc">Marc</a><br />322 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />320 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;1 <a href="/bin/view/Main/DavidMercier">DavidMercier</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jun 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 10002 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 3 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 3329 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />1018 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />527 <a href="/bin/view/Installation/Compiler">Compiler</a><br />407 <a href="/bin/view/Installation/PETSc">PETSc</a><br />398 <a href="/bin/view/Installation/FFTW">FFTW</a><br />336 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />335 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />297 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />283 <a href="/bin/view/Installation/Marc">Marc</a><br />282 <a class="foswikiNewLink" href="/bin/edit/Installation/LAPACK?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">LAPACK</a><br />259 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;3 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jan 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 10946 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 100 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 2508 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />599 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />555 <a href="/bin/view/Installation/PETSc">PETSc</a><br />530 <a href="/bin/view/Installation/Compiler">Compiler</a><br />479 <a href="/bin/view/Installation/FFTW">FFTW</a><br />461 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />449 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />442 <a href="/bin/view/Installation/AuxiliarySoftware">AuxiliarySoftware</a><br />397 <a href="/bin/view/Installation/Marc">Marc</a><br />393 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />375 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 100 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Dec 2015 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 12977 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 4 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 8 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 3264 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />1982 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />736 <a href="/bin/view/Installation/PETSc">PETSc</a><br />434 <a href="/bin/view/Installation/HDF5">HDF5</a><br />424 <a href="/bin/view/Installation/Compiler">Compiler</a><br />396 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />391 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a><br />387 <a href="/bin/view/Installation/FFTW">FFTW</a><br />355 <a href="/bin/view/Installation/WebCreateNewTopic">WebCreateNewTopic</a><br />354 <a class="foswikiNewLink" href="/bin/edit/Installation/LAPACK?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">LAPACK</a><br />337 <a href="/bin/view/Installation/BVPsolvers">BVPsolvers</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;12 <a href="/bin/view/Main/SimonWyatt">SimonWyatt</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jan 2016 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 14958 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 3531 <a class="foswikiCurrentTopicLink" href="/bin/view/Installation/WebStatistics">WebStatistics</a><br />1960 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Installation/WebHome">Installation</a><br />887 <a href="/bin/view/Installation/PETSc">PETSc</a><br />667 <a href="/bin/view/Installation/Compiler">Compiler</a><br />627 <a href="/bin/view/Installation/HDF5">HDF5</a><br />605 <a href="/bin/view/Installation/FFTW">FFTW</a><br />591 <a class="foswikiNewLink" href="/bin/edit/Installation/ACML?topicparent=Installation.WebStatistics" rel="nofollow" title="Create this topic">ACML</a><br />543 <a href="/bin/view/Installation/Abaqus">Abaqus</a><br />523 <a href="/bin/view/Installation/Marc">Marc</a><br />522 <a href="/bin/view/Installation/PythonAndModules">PythonAndModules</a><br />452 <a href="/bin/view/Installation/SystemConfiguration">SystemConfiguration</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;1 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"></td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" rowspan="1"></td>
+			<td class="foswikiTableCol2 foswikiLast" rowspan="1"></td>
+			<td class="foswikiTableCol3 foswikiLast" rowspan="1"></td>
+			<td class="foswikiTableCol4 foswikiLast" rowspan="1"></td>
+			<td class="foswikiTableCol5 foswikiLastCol foswikiLast" rowspan="1"></td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<strong>Notes:</strong> <ul>
+<li> Do not edit this topic, it is updated automatically. (You can also <a href="https://damask.mpie.de/bin/statistics/Installation">force</a> an update)
+</li> <li> <a href="/bin/view/System/SiteTools#WebStatistics_site_statistics">Site tools</a> tells you how to enable the automatic updates of the statistics.
+</li> <li> Suggestion: You could archive this topic once a year and delete the previous year's statistics from the table.
+</li></ul>  </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Installation/WebStatistics?t=1627662534' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Installation/WebStatistics' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Installation/WebStatistics?cover=print;sortcol=1;table=1;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Installation/WebStatistics?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r2&nbsp;<a href="/bin/diff/Installation/WebStatistics?rev1=1;rev2=2" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Installation/WebStatistics?rev=1" rel="nofollow">r1</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Installation/WebStatistics?template=backlinksweb' rel='nofollow' title='Search the Installation Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Installation/WebStatistics?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Installation/WebStatistics?t=1627662534;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Installation/WebStatistics?template=more&amp;maxrev=2&amp;currrev=2' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r2 - 25 Jul 2016, <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Installation/WebStatistics?foswiki_origin=GET%2cview%2c/bin/view/Installation/WebStatistics%3fsortcol%3d1%3btable%3d1%3bup%3d0">Log In</a></li></ul>
+</div>
+<p></p>
+
+<hr /> <ul>
+<li> <strong>News</strong>
+</li>  </ul><dl>
+<dt> 14 Sep 2020 </dt><dd> <del> <strong>CMCn2020</strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung</del> (cancelled)
+</dd> <dt> 22 Aug 2020 </dt><dd> Release of first preview version of <strong><a href="https://damask.mpie.de/bin/view/Download/Preview">DAMASK 3</a></strong>
+</dd> <dt> 19 Feb 2020 </dt><dd> DAMASK made it to the <span class='externalLink'><a href="https://onlinelibrary.wiley.com/doi/toc/10.1002/(ISSN)1527-2648.HallofFame">Advanved Engineering Materials Hall of Fame</a></span>
+</dd> <dt> 26 Mar 2019 </dt><dd> <strong><span class='externalLink'><a href="http://dream3d.bluequartz.net/">DREAM.3D</a></span> 6.5.119</strong> <br />(released 2019/03/22) comes with a DAMASK export filter
+</dd> <dt> 25 Mar 2019 </dt><dd> Release of version <strong><a href="/bin/view/Download/Current">v2.0.3</a></strong>
+</dd> <dt> 21 Jan 2019 </dt><dd> <strong>DAMASK overview paper</strong> finally <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">published</a></span> with full citation information available
+</dd> <dt> 01 Dec 2018 </dt><dd> <strong>DAMASK overview paper</strong> now <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">online</a></span>
+</dd> <dt> 17 Sep 2018 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2018">CMCn2018</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 22 May 2018 </dt><dd> Release of version <strong>v2.0.2</strong>
+</dd> <dt> 01 Sep 2016 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2016">CMCn2016</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 25 Jul 2016 </dt><dd> Release of version <strong>v2.0.1</strong>
+</dd> <dt> 08 Mar 2016 </dt><dd> Release of version <strong>v2.0.0</strong>
+</dd> <dt> 22 Feb 2016 </dt><dd> <strong>New webserver</strong> up and running
+</dd> <dt> 09 Feb 2016 </dt><dd> <strong>Migrated <span class='externalLink'><a href="https://magit1.mpie.de">code repository</a></span></strong> from Subversion to <strong><span class='externalLink'><a href="https://about.gitlab.com/">GitLab</a></span></strong>
+</dd> <dt> 17 Dec 2014 </dt><dd> Release of <strong>revision 3813</strong>
+</dd> <dt> 14 May 2014 </dt><dd> Release of <strong>revision 3108</strong>
+</dd> <dt> 02 Apr 2014 </dt><dd> Release of <strong>revision 3062</strong>
+</dd> <dt> 16 Oct 2013 </dt><dd> Release of <strong>revision 2689</strong>
+</dd> <dt> 15 Jul 2013 </dt><dd> Release of <strong>revision 2555</strong>
+</dd> <dt> 15 Feb 2013 </dt><dd> Release of <strong>revision 2174</strong>
+</dd> <dt> 13 Feb 2013 </dt><dd> <a href='http://www.doxygen.org/' title='Doxygen.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='104' data-orig-height='31'><img src='/pub/Main/News/igp_57415553ffe254df6d853b56c3b46f7d_Doxygen.png' alt='Doxygen' width='52' height='16'   /></a>  documentation
+</dd> <dt> 16 Dec 2012 </dt><dd> <a href='http://www.mathjax.org/' title='mj logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='167' data-orig-height='57'><img src='/pub/Main/News/igp_f1d42d3712de2aa46a85b866685e127a_mj_logo.png' alt='Powered by MathJax' width='55' height='19'   /></a> rendering
+</dd> <dt> 23 Nov 2012 </dt><dd> Release of <strong>revision 1955</strong>
+</dd> <dt> 15 Nov 2012 </dt><dd> Release of <strong>revision 1924</strong>
+</dd> <dt> 01 Nov 2012 </dt><dd> Updated <strong>sidebar</strong>
+</dd> <dt> 30 Oct 2012 </dt><dd> Significant <strong>website updates</strong> and <strong>content extensions</strong>
+</dd></dl> 
+<p></p>
+
+<!-- Keep this to have global readability:
+<p></p>
+ <ul>
+<li> Set DENYTOPICVIEW = 
+</li></ul> 
+-->
+<hr />
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Installation.WebStatistics'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

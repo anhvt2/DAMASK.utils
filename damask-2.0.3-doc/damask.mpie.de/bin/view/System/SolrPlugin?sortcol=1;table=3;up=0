@@ -1,0 +1,2495 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> SolrPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/SolrPlugin?t=1627670501" type="application/x-wiki" title="edit SolrPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/SolrPlugin" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/e511833cb46731cb8d41c7b20e5d4320.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableSolrPlugin13 {width:100%}
+body .foswikiTable#tableSolrPlugin13 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableSolrPlugin13 th.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableSolrPlugin14 td {vertical-align:middle; vertical-align:top}
+body .foswikiTable#tableSolrPlugin14 td.foswikiTableCol0 {text-align:left}
+body .foswikiTable#tableSolrPlugin14 td.foswikiTableCol1 {text-align:left}
+body .foswikiTable#tableSolrPlugin14 td.foswikiTableCol2 {text-align:left}
+body .foswikiTable#tableSolrPlugin14 td.foswikiTableCol3 {text-align:right}
+body .foswikiTable#tableSolrPlugin14 td.foswikiTableCol4 {text-align:left}
+body .foswikiTable#tableSolrPlugin14 td.foswikiTableCol5 {text-align:left}
+body .foswikiTable#tableSolrPlugin14 td.foswikiTableCol6 {text-align:left}
+body .foswikiTable#tableSolrPlugin14 td.foswikiTableCol7 {text-align:left}
+body .foswikiTable#tableSolrPlugin14 th {vertical-align:middle; background-color:#ffffff; color:#0066cc; text-align:left}
+body .foswikiTable#tableSolrPlugin14 th a:link {color:#0066cc}
+body .foswikiTable#tableSolrPlugin14 th a:visited {color:#0066cc}
+body .foswikiTable#tableSolrPlugin14 th a:hover {color:#0066cc; background-color:#ffffff}
+body .foswikiTable#tableSolrPlugin14 th.foswikiSortedCol {background-color:#eeeeee}
+body .foswikiTable#tableSolrPlugin14 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableSolrPlugin14 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f5f5f5}
+</style>
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SKIN" : "damask,famfamfam,pattern",
+   "SERVERTIME" : "30 Jul 2021 - 20:41",
+   "TOPIC" : "SolrPlugin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "PUBURLPATH" : "/pub",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WEB" : "System",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SCRIPTURLPATH" : "/bin",
+   "COOKIEREALM" : "",
+   "WIKINAME" : "WikiGuest",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTSUFFIX" : "",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "USERSWEB" : "Main",
+   "USERNAME" : "guest",
+   "URLHOST" : "https://damask.mpie.de"
+}
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/SolrPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?664793cc6a6d1631d25037316e370217' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/SolrPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?f270e6a3b1575af59009d9477e6c5f8a' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.SolrPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.SolrPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/SolrPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/SolrPlugin" title='Topic revision: 1 (31 Jan 2019 - 11:10:41)'>SolrPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/SolrPlugin?t=1627670501;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/SolrPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/SolrPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/SolrPlugin?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=SolrPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/SolrPlugin?cover=print;sortcol=1;table=3;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/SolrPlugin?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Solr_Plugin">  Solr Plugin </h1>
+Enterprise Search Engine for Foswiki based on Solr
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#About_Solr"> About Solr </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Screenshots"> Screenshots </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Installation"> Installation </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Foswiki_plugin_installation"> Foswiki plugin installation </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Download_Solr"> Download Solr </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Extract_software_44_create_user_44_install_system_service"> Extract software, create user, install system service </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Secure_Solr_access"> Secure Solr access </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Optionally_relocate_logs"> Optionally relocate logs </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Install_Foswiki_configuration_set"> Install Foswiki configuration set </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Updating_from_a_previous_configuration_set"> Updating from a previous configuration set </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Start_solr_service_again"> Start solr service again </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Test"> Test </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Skin_integration"> Skin integration </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Commandline_scripts"> Commandline scripts </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#solrindex_47_virtualhosts_45index"> solrindex / virtualhosts-index </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#solrdelete_47_virtualhosts_45delete"> solrdelete / virtualhosts-delete </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#solrjob"> solrjob </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#rest_47SolrPlugin_47search"> rest /SolrPlugin/search </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Setting_up_an_indexing_strategy"> Setting up an indexing strategy </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Full_indexing"> Full indexing </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Delta_indexing"> Delta indexing </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Realtime_indexing"> Realtime indexing </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Online_indexing"> Online indexing </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Setting_up_cronjobs"> Setting up cronjobs </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Recommendations"> Recommendations </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#What_to_keep_in_mind_for_full_indexing"> What to keep in mind for full indexing </a>
+</li></ul> 
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Correctness_of_search_index"> Correctness of search index </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Using_Solr_for_WebSearch_44_WebChanges_and_Main.WikiUsers"> Using Solr for WebSearch, WebChanges and WikiUsers </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Macros"> Macros </a> <ul>
+ <li>
+ <ul>
+<li> <a href="?sortcol=1;table=3;up=0#SOLRSEARCH"> SOLRSEARCH </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#SOLRFORMAT"> SOLRFORMAT </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#SOLRSIMILAR"> SOLRSIMILAR </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#SOLRSCRIPTURL"> SOLRSCRIPTURL </a>
+</li></ul> 
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Solr_indexing_schema"> Solr indexing schema </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Field_types"> Field types </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Fields"> Fields </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Dynamic_fields"> Dynamic fields </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Copy_fields"> Copy fields </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Dependencies"> Dependencies </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="About_Solr">  About Solr </h2>
+Solr is an open source enterprise search server based on the <span class='externalLink'><a href="http://lucene.apache.org">Lucene</a></span> Java search
+library, with XML/HTTP and JSON APIs, hit highlighting, faceted search,
+caching, replication, and a web administration interface. 
+<p></p>
+
+<h2 id="Screenshots">  Screenshots </h2>
+<p></p>
+
+<a href="/pub/System/SolrPlugin/SolrPluginSnap1.png" class="foswikiImage">
+ <img class='imagePlain imagePlain_none ' src='/pub/System/SolrPlugin/SolrPluginSnap1.png' alt='SolrPluginSnap1.png' title='SolrPluginSnap1.png' width='972' height='530'   style='width:30%;height:auto' /></a>
+<a href="/pub/System/SolrPlugin/SolrPluginSnap2.png" class="foswikiImage">
+ <img class='imagePlain imagePlain_none ' src='/pub/System/SolrPlugin/SolrPluginSnap2.png' alt='SolrPluginSnap2.png' title='SolrPluginSnap2.png' width='971' height='791'   style='width:30%;height:auto' /></a>
+<p></p>
+
+<h2 id="Installation">  Installation </h2>
+<p class='p'>The below installation procedure assumes that you are going to install Solr as well as Foswiki on the same server using Linux.</p>
+
+<h3 id="Foswiki_plugin_installation">  Foswiki plugin installation </h3>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h3 id="Download_Solr">  Download Solr </h3>
+<p></p>
+
+The current plugin requires <strong>Solr 5.0.0</strong> or later.  Download it from the <span class='externalLink'><a href="http://archive.apache.org/dist/lucene/solr/">Apache Archive</a></span>.
+<p></p>
+
+<h3 id="Extract_software_44_create_user_44_install_system_service">  Extract software, create user, install system service </h3>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<pre class="bash">
+tar xzf solr-5.x.x.tgz solr-5.x.x/bin/install&#95;solr&#95;service.sh --strip-components 2 
+./install&#95;solr&#95;service.sh ./solr-5.x.x.tgz
+service solr stop
+</pre>
+<p></p>
+
+<h3 id="Secure_Solr_access">  Secure Solr access </h3>
+<p class='p'>... so that it only listening to the local loopback interface</p>
+ <ul>
+<li> edit <code>/var/solr/solr.in.sh</code>
+</li> <li> add <code>SOLR_OPTS="$SOLR_OPTS -Djetty.host=localhost"</code>
+</li></ul> 
+<p></p>
+
+<h3 id="Optionally_relocate_logs">  Optionally relocate logs  </h3>
+<p></p>
+
+... from <code>/var/solr/logs</code> to <code>/var/log/solr</code>
+<p></p>
+
+<pre class="bash">
+mv /var/solr/logs /var/log/solr
+</pre>
+<p></p>
+ <ul>
+<li> edit <code>/var/solr/solr.in.sh</code>
+</li> <li> disable garbage collection logs ... <code>GC_LOG_OPTS</code>
+</li> <li> set <code>SOLR_LOGS_DIR=/var/log/solr</code>
+</li> <li> edit <code>/var/solr/log4j.properties</code>
+</li> <li> set <code>solr.log=/var/log/solr</code>
+</li> <li> set log level from <code>INFO</code> to <code>WARN</code>: <code>log4j.rootLogger=WARN, file, CONSOLE</code> 
+</li></ul> 
+<p></p>
+
+<h3 id="Install_Foswiki_configuration_set">  Install Foswiki configuration set </h3>
+<p></p>
+
+<pre class="bash">
+cd /var/solr/data
+cp -r &#60;foswiki-dir&#62;/solr/cores .
+mkdir configsets
+cd configsets
+ln -s &#60;foswiki-dir&#62;/solr/configsets/foswiki&#95;configs 
+chown -R solr.solr /var/solr
+</pre>
+<p></p>
+
+<h3 id="Updating_from_a_previous_configuration_set">  Updating from a previous configuration set </h3>
+<p></p>
+
+An updated SolrPlugin might come with a newer configuration set, i.e. a newer <code>schema.xml</code> pr <code>solrconfig.xml</code> files. Make sure that these files coming with an update are installed to
+the solr server as well. This will be taken care of when the <code>foswiki_configs</code> directory is linked into the solr server's configsets directory. Note however that any local changes
+you made to these files will be overwritten by the update. You might eigher create a config set of your own and adjust the core definition accordingly to make use of the newly
+created config set, or you need to merge changes into the standard <code>foswiki_configs</code> set of files.
+<p></p>
+
+<h3 id="Start_solr_service_again">  Start solr service again </h3>
+<p></p>
+
+<pre class="bash">
+service solr start
+</pre>
+<p></p>
+
+<h3 id="Test">  Test </h3>
+<p></p>
+
+<pre class="bash">
+cd &#60;foswiki-dir&#62;/tools
+./solrindex topic&#61;Main.WebHome
+</pre>
+<p></p>
+
+... should produce <code>Indexing Main.WebHome</code>
+<p></p>
+
+<pre class="bash">
+cd &#60;foswiki-dir&#62;/bin
+./rest /SolrPlugin/search
+</pre>
+<p class='p'>... should return a JSON response from Solr showing the recently indexed topic</p>
+
+<h3 id="Skin_integration">  Skin integration </h3>
+<p></p>
+
+<a class="foswikiCurrentTopicLink" href="/bin/view/System/SolrPlugin">SolrPlugin</a> comes with a skin overlay - called <code>solr</code> - that will replace the upper left search boxes in <a class="interwikiLink" href="https://foswiki.org/Extensions/PatternSkin" title="'Extensions/PatternSkin' on foswiki.org">PatternSkin</a> with a solr-driven auto-suggest search box. To switch that on use
+<p></p>
+
+<pre>   &#42; Set SKIN &#61; solr, pattern</pre>
+<p></p>
+
+in your <a href="/bin/view/Main/SitePreferences">SitePreferences</a>.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note that you won't need to enable the <code>solr</code> skin overlay in case you are using <a class="interwikiLink" href="https://foswiki.org/Extensions/NatSkin" title="'Extensions/NatSkin' on foswiki.org">NatSkin</a> as it comes with support for <a class="foswikiCurrentTopicLink" href="/bin/view/System/SolrPlugin">SolrPlugin</a> out of the box.
+<p></p>
+
+<h2 id="Commandline_scripts">  Commandline scripts  </h2>
+<p class='p'>There is a set of tools to interact with the Solr index from the commandline. These can either be
+used to index Foswiki manually - as we did in above tests - as well as for searching or deleting specific documents in the index.</p>
+
+The set of tools comes in two variants, one for normal single-host Foswiki installations and for virtual hosting using <a class="interwikiLink" href="https://foswiki.org/Extensions/VirtualHostingContrib" title="'Extensions/VirtualHostingContrib' on foswiki.org">VirtualHostingContrib</a>
+<p></p>
+
+The virtual-hosting aware scripts have a prefix <code>virtualhost-...</code> and take an optional <code>host=&lt;domain&gt;</code> parameter to specify the virtual domain to interact with.
+When not specified will the script be executed for each domain in turn as configured in <code>VirtualHostingContrib</code>. Only exception is <code>solrjob</code> (see below).
+<p></p>
+
+<h3 id="solrindex_47_virtualhosts_45index">  solrindex / virtualhosts-index </h3>
+<p></p>
+
+<pre class="bash">
+cd &#60;foswiki-dir&#62;/tools
+./solrindex ...
+</pre>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>web="..."</code> </td>
+			<td class="foswikiTableCol1"> the web to be indexed; if undefined all webs will be indexed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> all </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topic="&lt;web&gt;.&lt;topic&gt;"</code> </td>
+			<td class="foswikiTableCol1"> the topic to be indexed; use this parameter to index one specific topic </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>mode="full/delta"</code> </td>
+			<td class="foswikiTableCol1"> mode of operation: <code>full</code> will unconditionally index all content as specified by <code>web</code> or <code>topic</code>; <code>delta</code> will only index content that has changed since the last time the script was run </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> delta </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>optimize="on/off"</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> optimize the Solr database by de-fragmenting its internal segments for better performance; this is normally not required unless a full indexing of larger chunks of content is performed; note that optimizing the Solr index might require considerable time and I/O resources on the filesystem of the server </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> off </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="solrdelete_47_virtualhosts_45delete">  solrdelete / virtualhosts-delete </h3>
+<p></p>
+
+<pre class="bash">
+cd &#60;foswiki-dir&#62;/tools
+./solrdelete ...
+</pre>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>&lt;lucene-query&gt;</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> delete topics matching the query </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> do nothing </td>
+		</tr>
+	</tbody></table>
+<p class='p'>For instance to empty your index completely use:</p>
+
+<pre class="bash">
+./solrdelete &#42;:&#42;
+</pre>
+<p></p>
+
+<h3 id="solrjob">  solrjob </h3>
+<p></p>
+
+<pre class="bash">
+cd &#60;foswiki-dir&#62;/tools
+./solrjob ...
+</pre>
+<p></p>
+
+This tool is a wrapper around <code>solrindex</code> and will use either <code>solrindex</code> or <code>virtualhost-solrindex</code>
+depending on the <code>host</code> commandline parameter. It is mainly used in cronjobs or <code>iwatch</code> (see below).
+In contrast to <code>solrindex</code> a locking &amp; throttling strategy is used to prevent multiple indexers being started simulataneously.
+This is usefull when firing up the indexer as part of <code>iwatch</code> monitoring filesystem changes in the Foswiki store. As these events
+often come in bundles firing rapidly in a short period of time will only one indexing process be spawned for a given time span defined
+by the <code>throttle</code> parameter to <code>solrhjob</code>. 
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=3;up=1#sorted_table" rel="nofollow" title="Sort by this column">Description</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>-f / --file &lt;file-path&gt;</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> index the topic that the given file points to </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>-m / --mode full/delta</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> mode of operation (see <code>solrindex</code> above) </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> delta </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>-t / --throttle &lt;seconds&gt;</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> number of seconds to wait until the indexing process is started; note that any other calls to <code>solrjob</code> are prevented from entering the indexing loop as well </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> 5 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <code>-h / --host &lt;virtual-domain&gt;</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" rowspan="1"> specifies the virtual domain to operate on (only makes sense when running VirtualhostingContrib); Or specify <code>all</code> to perform the operation on all known virtual hosts </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast" rowspan="1"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="rest_47SolrPlugin_47search">  rest /SolrPlugin/search </h3>
+<p></p>
+
+<pre class="bash">
+cd &#60;foswiki-dir&#62;/bin
+./rest /SolrPlugin/search ...
+</pre>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1 foswikiLast"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol foswikiLast"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr style="display:none;">
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+<p></p>
+
+<h2 id="Setting_up_an_indexing_strategy">  Setting up an indexing strategy </h2>
+<p></p>
+
+Before using <a href="/bin/view/System/SolrSearch">SolrSearch</a> and get back results you will need to index your content completely and do so repeatedly to keep up with changes in the Foswiki content base.
+This is basically achievable in various ways:
+<p></p>
+ <ol>
+<li> full indexing: index all of the content from start to end
+</li> <li> delta indexing: index topics that changed since the last time (delta) indexing was performed
+</li> <li> realtime indexing: monitor changes in the Foswiki store and fire up indexing as close to the actual change event as possible
+</li> <li> online indexing: index content changes as part of the content being saved
+</li></ol> 
+<p class='p'>We will discuss these strategies and line out their advantages. A combination of a few of the above ways will then make up the recommended indexing strategy for Foswiki content.</p>
+
+<h3 id="Full_indexing">  Full indexing </h3>
+<p></p>
+
+<pre class="bash">
+./solrindex mode&#61;full optimize&#61;on
+</pre>
+<p class='p'>This will crawl all webs, topics and attachment and submit them to the Solr server, which will build up the search index. This can take a considerable amount of time 
+depending on the amount of content and number of users registered to your site, so you may prefer to do it at a quiet time.</p>
+
+<p class='p'>Note that full indexing is required the first time you installed SolrPlugin. From there on will you be able to use delta indexing to update the index incrementally as
+content changes in Foswiki.</p>
+
+<p class='p'>It is recommended to only perform a full indexing again once in a week or preferably in longer intervals.</p>
+
+<h3 id="Delta_indexing">  Delta indexing </h3>
+<p></p>
+
+<pre class="bash">
+./solrindex 
+</pre>
+<p class='p'>This will inspect all of the content base and check for changes since the last time the content was added to Solr. Any update content will be added to the index
+as required. The delta indexing procedure will also look up all of the index and delete those documents from it where the original topic in the Foswiki content base
+has been removed.</p>
+
+<p class='p'>Delta indexing is a relatively fast operation that is best performed every 15 minutes or so. Don't shorten the intervals of delta indexing too much as that would
+create additional load on the server where no content is found to be delta-indexed.</p>
+
+<h3 id="Realtime_indexing">  Realtime indexing </h3>
+<p></p>
+
+This mode of operation requires a separate service to be installed such as <span class='externalLink'><a href="http://iwatch.sourceforge.net/">iwatch</a></span>.
+Iwatch is a tool using the <code>inotify</code> kernel service of Linux systems to trigger a script based on events happening on the filesystem such as "file-open", "file-delete", "file-changed", "file-moved" etc.
+Iwatch lets us hook in the <code>solrjob</code> script (see above) while watching events in the Foswiki data store at <code>&lt;foswiki-dir&gt;/data/</code>
+<p class='p'>Note that this is only a "near-realtime" indexing behavior as the used script to perform the indexing is configured to throttle the procedure for a given
+amount of time defaulting to 5 seconds. So any change to the content will then show up within 5 seconds after the event.</p>
+
+The service is configured by placing below configuration script at <code>/etc/iwatch/iwatch.xml</code>:
+<p></p>
+
+<pre class="xml">
+&#60;?xml version&#61;&#34;1.0&#34; ?&#62;
+&#60;!DOCTYPE config SYSTEM &#34;/etc/iwatch/iwatch.dtd&#34; &#62;
+
+&#60;config&#62;
+  &#60;guard email&#61;&#34;root&#64;localhost&#34; name&#61;&#34;IWatch&#34;/&#62;
+  &#60;watchlist&#62;
+    &#60;title&#62;Foswiki&#60;/title&#62;
+    &#60;contactpoint email&#61;&#34;root&#64;localhost&#34; name&#61;&#34;Administrator&#34;/&#62;
+    &#60;path type&#61;&#34;recursive&#34; filter&#61;&#34;.&#42;\.txt&#36;&#34; alert&#61;&#34;off&#34; syslog&#61;&#34;on&#34; exec&#61;&#34;su &#60;httpd-user&#62; &#39;&#60;foswiki-dir&#62;/tools/solrjob&#39;&#34;&#62;&#60;foswiki-dir&#62;/data&#60;/path&#62;
+    &#60;path type&#61;&#34;regexception&#34;&#62;\.tmp&#124;\.sw\w&#124;\.svn&#124;\.lease&#124;\.lock&#124;,&#36;&#124;\.changes&#124;,v&#124;^&#95;&#91;0-9&#93;&#124;^log&#124;^Temporary&#124;^UnitTestCheck&#60;/path&#62;
+  &#60;/watchlist&#62;
+&#60;/config&#62;
+</pre>
+<p class='p'>For VirtualHostingContrib use:</p>
+
+<pre class="xml">
+&#60;?xml version&#61;&#34;1.0&#34; ?&#62;
+&#60;!DOCTYPE config SYSTEM &#34;/etc/iwatch/iwatch.dtd&#34; &#62;
+
+&#60;config&#62;
+  &#60;guard email&#61;&#34;root&#64;localhost&#34; name&#61;&#34;IWatch&#34;/&#62;
+  &#60;watchlist&#62;
+    &#60;title&#62;Foswiki&#60;/title&#62;
+    &#60;contactpoint email&#61;&#34;root&#64;localhost&#34; name&#61;&#34;Administrator&#34;/&#62;
+
+    &#60;!-- watch directories shared among all virtual domains --&#62;
+    &#60;path type&#61;&#34;recursive&#34; filter&#61;&#34;.&#42;\.txt&#36;&#34; alert&#61;&#34;off&#34; syslog&#61;&#34;on&#34; exec&#61;&#34;su &#60;httpd-user&#62; -c &#39;&#60;foswiki-dir&#62;/tools/solrjob --host all&#39;&#34;&#62;&#60;foswiki-dir&#62;/data/System&#60;/path&#62;
+    &#60;!-- &#60;path type&#61;&#34;recursive&#34; filter&#61;&#34;.&#42;\.txt&#36;&#34; alert&#61;&#34;off&#34; syslog&#61;&#34;on&#34; exec&#61;&#34;su &#60;httpd-user&#62; -c &#39;&#60;foswiki-dir&#62;/tools/solrjob --host all&#39;&#34;&#62;&#60;foswiki-dir&#62;/data/Applications&#60;/path&#62; --&#62;
+
+    &#60;!-- watch each virtual domain for changes --&#62;
+    &#60;path type&#61;&#34;recursive&#34; filter&#61;&#34;.&#42;\.txt&#36;&#34; alert&#61;&#34;off&#34; syslog&#61;&#34;on&#34; exec&#61;&#34;su &#60;httpd-user&#62; -c &#39;&#60;foswiki-dir&#62;/tools/solrjob --host &#60;domain1&#39;&#62;&#34;&#62;&#60;vhosts-dir&#62;/&#60;domain1&#62;/data&#60;/path&#62;
+    &#60;!-- &#60;path type&#61;&#34;recursive&#34; filter&#61;&#34;.&#42;\.txt&#36;&#34; alert&#61;&#34;off&#34; syslog&#61;&#34;on&#34; exec&#61;&#34;su &#60;httpd-user&#62; -c &#39;&#60;foswiki-dir&#62;/tools/solrjob --host &#60;domain2&#39;&#62;&#34;&#62;&#60;vhosts-dir&#62;/&#60;domain2&#62;/data&#60;/path&#62; --&#62;
+
+    &#60;path type&#61;&#34;regexception&#34;&#62;\.tmp&#124;\.sw\w&#124;\.svn&#124;\.lease&#124;\.lock&#124;,&#36;&#124;\.changes&#124;,v&#124;^&#95;&#91;0-9&#93;&#124;^log&#124;^Temporary&#124;^UnitTestCheck&#60;/path&#62;
+  &#60;/watchlist&#62;
+&#60;/config&#62;
+</pre>
+<p class='p'>Make sure to replace</p>
+ <ul>
+<li> <code>&lt;foswiki-dir&gt;</code>
+</li> <li> <code>&lt;httpd-user&gt;</code> 
+</li> <li> <code>&lt;domainX&gt;</code> 
+</li> <li> <code>&lt;vhosts-dir&gt;</code> 
+</li></ul> 
+<p class='p'>with the appropriate values on your platform.</p>
+
+Note in the latter example for an <code>iwatch.xml</code> configuration for virtual hosting that those webs shared among all domains (via soft links) must be watched separately
+as changes to those directories don't appear as a change to the domains' directories. These are typically the <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a> and the Applications web in
+case you installed <a class="interwikiLink" href="https://foswiki.org/Extensions/WikiWorkbenchContrib" title="'Extensions/WikiWorkbenchContrib' on foswiki.org">WikiWorkbenchContrib</a> and you'd like to share all wiki apps among all virtual domains.
+<p></p>
+
+<h3 id="Online_indexing">  Online indexing </h3>
+<p></p>
+
+This mode of operation refers to a way to update the search index <em>immediately</em> as part of the <code>save</code> operation performed by Foswiki on behalf of the user.
+<p class='p'>The biggest advantage here is that changes to the content base will immediately show up in the search index reflecting the exact changes being made to the 
+content base.</p>
+
+<p class='p'>There are a couple of flags to switch on/off online indexing in your configuration.</p>
+
+Enable / disable indexing content as part of a <code>save</code> operation:
+<p></p>
+
+<pre class="perl">
+&#36;Foswiki::cfg{SolrPlugin}{EnableOnSaveUpdates} &#61; 0;
+</pre>
+<p class='p'>Enable/disable updates when a new attachment has been uploaded:</p>
+
+<pre>
+&#36;Foswiki::cfg{SolrPlugin}{EnableOnUploadUpdates} &#61; 0;
+</pre>
+<p class='p'>Enable/disable updates when a topic or attachment has been moved or deleted:</p>
+
+<pre>
+&#36;Foswiki::cfg{SolrPlugin}{EnableOnRenameUpdates} &#61; 1;
+</pre>
+<p></p>
+
+<h3 id="Setting_up_cronjobs">  Setting up cronjobs </h3>
+<p class='p'>Below will set up performing</p>
+ <ul>
+<li> a full indexing every Saturday midnight and
+</li> <li> a delta indexing every 15 minutes
+</li></ul> 
+<p></p>
+
+<pre class="cron">
+0 0 &#42; &#42; 6 &#60;foswiki-dir&#62;/tools/solrjob --mode full
+&#42;/15 &#42; &#42; &#42; &#42; &#60;foswiki-dir&#62;/tools/solrjob --mode delta 
+</pre>
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> Add <code>--host all</code> to index all virtual hosts, or <code>--host &lt;hostname&gt;</code> to index a single virtual host.
+<p></p>
+
+<h3 id="Recommendations">  Recommendations </h3>
+<p class='p'>By now we are able to orchestrate a couple of ways how to keep up with changes in Foswiki while indexing it into an external database such as Solr.</p>
+
+<p class='p'>There are a couple of pros and cons to keep in mind innate to every of the above methods. Also, your own business requirements might significantly shift any decision
+how and when to schedule crawling the content. Some of the criteria to keep in mind are:</p>
+ <ul>
+<li> size of content base
+</li> <li> speed of indexing content determined by server resources
+</li> <li> interactive performance as perceived by the user
+</li> <li> real-time requirements for updates in search results
+</li> <li> changes in access control structures such as:  <ul>
+<li> new users being registered to Foswiki,
+</li> <li> changing member ship in user groups,
+</li> <li> changing clearance of user groups for specific content
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h4 id="What_to_keep_in_mind_for_full_indexing">  What to keep in mind for full indexing </h4>
+<p></p>
+
+Especially changes in access control structures might affect clearance to content in a broader scale. As the indexing procedure caches the current authorization for a specific
+piece of content along with it, will a change to <em>access control</em> -- independent to any change of the <em>content</em> itself -- render access control incorrect as cached into the Solr index
+unless this content is indexed again. This is not a problem when the ACL of a single document is altered as this document is re-indexed again as part of the change event.
+No such re-indexing is triggered automatically when a user group changes or is granted more or less authorization for content. This will indeed only be reflected the next
+time a full indexing is performed. 
+<p></p>
+
+Access control structures might be changing totally outside of Foswiki when using <a class="interwikiLink" href="https://foswiki.org/Extensions" title="'Extensions' on foswiki.org">LdapContrib</a> where users and groups are defined in a distant LDAP database.
+These user and group records immediately affect Foswiki granting access to documents (there is some caching involved here as well, but let's ignore this for now). Only after
+indexing affected documents <em>again</em> will a search on the index exclude / include new content users have access to when visiting the page directly.
+<p class='p'>Therefore a regular full indexing is required, presumably once a week or once a day during off times.</p>
+
+<p class='p'>The runtime of a full indexing run depends on the size of your content base as well as the size of the user base. Both directly affect the throughput indexing content.
+It is strongly recommended to plan full indexing during off times when the system isn't used otherwise. Also, make sure that two full indexing runs don't overlap as that
+would constantly increase load on the involved servers.</p>
+
+<p class='p'>In those cases where a full indexing run over all of the content base exceeds off times (e.g. starting Friday night, doesn't finish on Monday morning) will you need to
+add more server resources. There are multiple ways to do so. Step one would be to use separate servers for both Foswiki and Solr. Please read up on how to scale Solr beyond
+a single-node installation as has been outlined in above configuration.</p>
+
+<h2 id="Correctness_of_search_index">  Correctness of search index </h2>
+<p class='p'>A search index might show "incorrect" results for example when the content it indexes doesn't actually exist anymore. So users get a positive search hit but won't be able
+to access the content anymore: both content base and search index are out of sync. Keeping the search index "correct" is of importance for any indexing strategy.</p>
+
+<p class='p'>A search index might also be "incorrect" when it doesn't reflect the access rights a users has got on the content itself. That is: the search engine shall only return
+search results for content that the user has clearance for. No such search result shall ever be returned for content that the user isn't allowed to access of even
+get to know that it exists.</p>
+
+<p class='p'>In SolrPlugin any Foswiki ACLs are added to the Solr database while content is indexed. So ACLs are checked as an additional filter on any search operation that an
+authenticated user might perform.</p>
+
+<p class='p'>Correctness of the search index as we discuss it now is more concerned with the time it takes for to keep any content change in Foswiki in sync as it is being indexed and
+added to the Solr database.</p>
+
+<p class='p'>There are two general categories for indexing content that we want to compare now:</p>
+ <ul>
+<li> online indexing: index content as part of the interaction performed by the user
+</li> <li> offline indexing: perform content indexing independent from the user interacting with the system online 
+</li></ul> 
+<p></p>
+
+Offline indexing is performed by the <code>solrindex</code> script as well as the <code>solrjob</code> wrapper. Both might be used in a cronjob or <code>iwatch</code> as described above.
+<p></p>
+
+Looking at <em>online indexing</em> there is a price in doing so that we should keep in mind before switching it on. 
+<p></p>
+
+Indexing will be  part of a <code>save</code>, <code>delete</code> or <code>rename</code> operation performed by the user
+and thus directly increase the <em>perceived time for the user to interact with the system</em> while applying content changes. 
+<p class='p'>You may decide yourself when trading interactive performance against negative side-effects due to "incorrect" search indexes. It is recommended to rather sacrifice 
+a short period of time for the search index not being quite up-to-date rather than slowing down the interactive performance of the system by hooking the indexing procedure
+into the online operations of Foswiki.</p>
+
+<h2 id="Using_Solr_for_WebSearch_44_WebChanges_and_Main.WikiUsers">  Using Solr for <a href="/bin/view/System/WebSearch">WebSearch</a>, <a href="/bin/view/System/WebChanges">WebChanges</a> and <a href="/bin/view/Main/WikiUsers">WikiUsers</a> </h2>
+<p></p>
+
+It is recommended to replace Foswiki's default AutoViewTemplatePlugin with <a class="interwikiLink" href="https://foswiki.org/Extensions/AutoTemplatePlugin" title="'Extensions/AutoTemplatePlugin' on foswiki.org">AutoTemplatePlugin</a>. This will allow you to replace the default <a href="/bin/view/System/WebSearch">WebSearch</a>, <a href="/bin/view/System/WebChanges">WebChanges</a> and <a href="/bin/view/System/SiteChanges">SiteChanges</a> as well as <a href="/bin/view/Main/WikiUsers">WikiUsers</a> with a Solr-driven interface for better usability and performance. 
+<p></p>
+
+Configure AutoTemplatePlugin by adding the following <code>{ViewTemplateRules}</code>
+<p></p>
+
+<pre class="perl">
+&#36;Foswiki::cfg{Plugins}{AutoTemplatePlugin}{ViewTemplateRules} &#61; {
+...
+  &#39;WebChanges&#39; &#61;&#62; &#39;WebChangesView&#39;,
+  &#39;SiteChanges&#39; &#61;&#62; &#39;SiteChangesView&#39;,
+  &#39;WebSearch&#39; &#61;&#62; &#39;SolrSearchView&#39;,
+  &#39;WikiUsers&#39; &#61;&#62; &#39;SolrWikiUsersView&#39;,
+...
+};
+</pre>
+<p></p>
+
+The <a href="/bin/view/System/SolrWikiUsersViewTemplate">SolrWikiUsersViewTemplate</a> implements a person search driven by Solr. It allows you to facet on properties as defined in the <a href="/bin/view/System/UserForm">UserForm</a> such as:
+<p></p>
+ <ul>
+<li> filter by location
+</li> <li> filter by profession
+</li> <li> filter by organization
+</li></ul> 
+<p class='p'>There is a specific configuration option for Foswiki to detect which topics are actually user profile pages.</p>
+
+<pre class="perl">
+&#36;Foswiki::cfg{SolrPlugin}{PersonDataForm} &#61; &#39;(&#42;UserForm)&#39;;
+</pre>
+<p></p>
+
+Any topic that has got a <code>UserForm</code> attached to it will participate in the person search interface at %USERWEB%.WikiUsers. Note that the value at <code>{SolrPlugin}{PersonDataForm}</code> specifies a Solr filter query
+that might be customized and extended as required. For example, to also include any topic that has got a <code>PersonTopic</code> <a href="/bin/view/System/DataForms">DataForms</a> attached to it use:
+<p></p>
+
+<pre class="perl">
+&#36;Foswiki::cfg{SolrPlugin}{PersonDataForm} &#61; &#39;(&#42;PersonTopic OR &#42;UserForm)&#39;;
+</pre>
+<p></p>
+
+Finally, you'll need to make this configuration accessible in wiki applications such as the WikiUsers view template. Add <code>'{SolrPlugin}{PersonDataForm}'</code> to the <code>{AccessibleCFG}</code> list as in
+<p></p>
+
+<pre class="perl">
+&#36;Foswiki::cfg{AccessibleCFG} &#61; &#91;
+    &#39;{ScriptSuffix}&#39;,
+    &#39;{LoginManager}&#39;,
+    &#39;{AuthScripts}&#39;,
+...
+    &#39;{SolrPlugin}{PersonDataForm}&#39;,
+&#93;;
+</pre>
+<p></p>
+
+<h2 id="Macros">  Macros </h2>
+<p></p>
+
+<a class="foswikiCurrentTopicLink" href="/bin/view/System/SolrPlugin">SolrPlugin</a> comes with a set of search macros tailored to the extensive capabilities of Solr's responses to search queries.
+All of them make use of the same set of options to render a response as listed in <a class="foswikiCurrentTopicLink" href="#SOLRSEARCH">SOLRSEARCH</a>.
+<p></p>
+
+<a name="SOLRSEARCH"></a>
+<h4 id="SOLRSEARCH">  SOLRSEARCH </h4>
+<p></p>
+
+This is the most important macro. It allows you to interact with the Solr server and display results within wiki applications. 
+An example search looks like this:
+<pre class="tml">
+&#37;SOLRSEARCH{&#34;test&#34;
+  format&#61;&#34;   1 &#36;web.&#36;topic&#36;n&#34;
+  sort&#61;&#34;date desc&#34;
+}&#37;
+</pre>
+<p class='p'>This will list the 10 most recently changed topics that match the string "test".</p>
+
+To list the 20 most recently changed topics topics that have the string "test" in their name use:
+<pre class="tml">
+&#37;SOLRSEARCH{&#34;topic&#95;search:test&#34;
+  format&#61;&#34;   1 &#36;web.&#36;topic&#36;n&#34;
+  sort&#61;&#34;date desc&#34;
+  rows&#61;&#34;20&#34;
+}&#37;
+</pre>
+<p></p>
+
+SOLRSEARCH allows you to use the full power of the Lucene query language. This
+works with syntactically correct boolean queries like <code>"title:foo OR body:foo"</code>.
+Consult the <span class='externalLink'><a href="http://lucene.apache.org/java/3_1_0/queryparsersyntax.html">Lucene Query Syntax</a></span> guide to learn more about how to form more complicated queries.
+<p></p>
+
+SOLRSEARCH also allows you to run a query in <span class='externalLink'><a href="https://wiki.apache.org/solr/DisMaxQParserPlugin">dismax</a></span> mode. The dismax query parser only supports a subset of the Lucene syntax, but is highly tolerant of all sorts of strange user input. The query syntax is uses is familiar to many search engine users, and supports +/- and quotes for groupings words. The <code>edismax</code> mode adds several more powerful features, though still short of what is offered by the full Lucene syntax.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> id </td>
+			<td class="foswikiTableCol1"> a search can be cached optionally for the time of the current request, for example using id="solr1". further calls to %SOLRFORMAT can make use of the cached solr response to render it independent from the location of the %SOLRSEARCH call on the wiki page </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> search </td>
+			<td class="foswikiTableCol1"> query string: depending on the search type this can either be a free-form text (type=dismax), a valid lucene query (type=standard) or a combination of both (edismax) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> *:* </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> type </td>
+			<td class="foswikiTableCol1"> dismax/edismax/standard: query type </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> standard </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> fields </td>
+			<td class="foswikiTableCol1"> list of fields to be returned in the result; by default all fields in solr documents are returned; communication between Foswiki and the solr search can be optimized by specifying only those fields that you are interested in while rendering the response </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> *, score </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiFirstCol" colspan="3"> Flags: </th>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> jump </td>
+			<td class="foswikiTableCol1"> on/off: jump to the topic specified explicitly in the seach string </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> on </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> lucky </td>
+			<td class="foswikiTableCol1"> on/off: jump to the first result found </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> highlight </td>
+			<td class="foswikiTableCol1"> switch on/off highlighting of found terms </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> spellcheck </td>
+			<td class="foswikiTableCol1"> switch on/off spellchecking to propose alternative spellings in case no search result was found </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<th class="foswikiFirstCol" colspan="3"> Pagination: </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> start </td>
+			<td class="foswikiTableCol1"> integer index within the result from where to start listing results </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 0 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> rows </td>
+			<td class="foswikiTableCol1"> maximum number of documents to return </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 10 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiFirstCol" colspan="3"> Filter parameters: </th>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> web </td>
+			<td class="foswikiTableCol1"> filter by web: this can be any webname </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> all </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> contributor </td>
+			<td class="foswikiTableCol1"> filter by contributor to a topic </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> filter </td>
+			<td class="foswikiTableCol1"> lucene query to filter results </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> extrafilter </td>
+			<td class="foswikiTableCol1"> additional lucene filter query (see <a href="/bin/view/System/SolrSearchBaseTemplate">SolrSearchBaseTemplate</a> for the difference in <code>filter</code> and <code>extrafilter</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> reverse </td>
+			<td class="foswikiTableCol1"> on/off - reverts sorting if switched on; note: this overrides sorting order specified in <code>sort</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> sort </td>
+			<td class="foswikiTableCol1"> sorting expression; examples: <code>score desc</code>, <code>date desc</code>, <code>createdate</code>, <code>topic_sort</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<th class="foswikiFirstCol" colspan="3"> Dismax Parameter: </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> boostquery </td>
+			<td class="foswikiTableCol1"> a raw query string (in the solr query syntax) that will be included with the user's query to influence the score. example: <code>type:topic^1000</code> will boost results of type topic </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> see solrconfig.xml and <a href="/bin/view/System/SolrSearchBaseTemplate">SolrSearchBaseTemplate</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> queryfields </td>
+			<td class="foswikiTableCol1"> list of fields and their boosts giving each field a significance when a term was found in them. the format supported is fieldOne^2.3 fieldTwo fieldThree^0.4, which indicates that fieldOne has a boost of 2.3, fieldTwo has the default boost, and fieldThree has a boost of 0.4 ... this indicates that matches in fieldOne are much more significant than matches in fieldTwo, which are more significant than matches in fieldThree </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> see solrconfig.xml and <a href="/bin/view/System/SolrSearchBaseTemplate">SolrSearchBaseTemplate</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> phrasefields </td>
+			<td class="foswikiTableCol1"> list of fields and their boosts similar to <code>queryfields</code>. this parameter may contain fields and boosts that <em>pharses</em> (specified in quotes) are matched against. boosting those fields higher than their counterpart in <code>queryfields</code> allows you to prefer phrase matches over separate word matches </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> see solrconfig.xml and <a href="/bin/view/System/SolrSearchBaseTemplate">SolrSearchBaseTemplate</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<th class="foswikiFirstCol" colspan="3"> Faceting: </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> facets </td>
+			<td class="foswikiTableCol1"> list of facets to be rendered during search; each facet can be a <code>title=name</code> pair specifying the facet name and the title label used to display it in the result; example: <br /> <code>%MAKETEXT{"Webs"}%=web, %MAKETEXT{"Topic type"}%=field_TopicType_lst</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> facetquery </td>
+			<td class="foswikiTableCol1"> query to be used for a facet query </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> facetoffset </td>
+			<td class="foswikiTableCol1"> used to page through a list of facets being returned by a search </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> facetlimit </td>
+			<td class="foswikiTableCol1"> maximum number of values to be displayed per facet; this is a list of pairs <code>name=integer</code> specifying a per-facet limit; example: <code>50, tag=100, contributor=10, category=10</code> will constraint the global limit of facet values to be returned to 50, tags to 100, list the top 10 contributors in the hit set as well as the 10 most used categories </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 100 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> facetmincount </td>
+			<td class="foswikiTableCol1"> minimum frequency of a facet to be included in the result </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 1 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> facetprefix </td>
+			<td class="foswikiTableCol1"> prefix string of a facet to be included </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> facetdatestart </td>
+			<td class="foswikiTableCol1"> part of a date facet describing the start of a time interval </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> NOW/DAY-7DAYS </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> facetdateend </td>
+			<td class="foswikiTableCol1"> part of a date facet describing the end of a time interval </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> NOW/DAY+1DAYS </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> facetdateother </td>
+			<td class="foswikiTableCol1"> part of a date facet describing the time intervals excluding the one specified with facetdatestart and facetdateend </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> before </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> hidesingle </td>
+			<td class="foswikiTableCol1"> comma separated list of facets to be hidden if there's only one choice left </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> disjunctivefacets </td>
+			<td class="foswikiTableCol1"> list of facets that are queried using OR; so searching within one facet will <em>expand</em> the search instead of drilling down </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> facet values are combined using AND </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> combinedfacets </td>
+			<td class="foswikiTableCol1"> list of facets where values are queried in each of them using OR; for example listing <code>field_ProjectMembers_lst</code> and <code>field_ProjectManager_s</code> will result in a lucne filter of the form <code>field_ProjectMembers_lst:WikiGuest OR field_ProjectManager_s:WikiGuest</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiFirstCol" colspan="3"> Formating results: </th>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> correction </td>
+			<td class="foswikiTableCol1"> format string for corrections proposed by the spellchecker </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Did you mean &lt;a href='$url'&gt;$correction&lt;/a&gt; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> header </td>
+			<td class="foswikiTableCol1"> format string prepended to the result </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> format </td>
+			<td class="foswikiTableCol1"> format string used to render each hit in the result set </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> separator </td>
+			<td class="foswikiTableCol1"> format string used to separate hit results rendered using <code>format</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> footer </td>
+			<td class="foswikiTableCol1"> format string appended to the result </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> header_interesting </td>
+			<td class="foswikiTableCol1"> format string prepended to more-like-this queries (see <code>%SOLRSIMILAR</code>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> format_interesting </td>
+			<td class="foswikiTableCol1"> format string used to render more-like-this results </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> separator_interesting </td>
+			<td class="foswikiTableCol1"> format string used to separate hit results in more-like-this queries </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> footer_interesting </td>
+			<td class="foswikiTableCol1"> format string appended to more-like-this queries </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> include_interesting </td>
+			<td class="foswikiTableCol1"> regular expression terms must match in a more-lile-this result </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> exclude_interesting </td>
+			<td class="foswikiTableCol1"> regular expression terms must <em>not</em> match in a more-lile-this result </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> header_&lt;facet&gt; </td>
+			<td class="foswikiTableCol1"> format string prepended to a facet result </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> format_&lt;facet&gt; </td>
+			<td class="foswikiTableCol1"> format string used to render a facet value </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> separator_&lt;facet&gt; </td>
+			<td class="foswikiTableCol1"> format string used to separate facet values </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> footer_&lt;facet&gt; </td>
+			<td class="foswikiTableCol1"> format string appended to facet results </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> include_&lt;facet&gt; </td>
+			<td class="foswikiTableCol1"> regular expression facet values must match to be displayed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> exclude_&lt;facet&gt; </td>
+			<td class="foswikiTableCol1 foswikiLast"> regular expression facet values must <em>not</em> match to be displayed </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<!--
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> morelikethis </td>
+			<td class="foswikiTableCol1 foswikiLast"> switch on/off more-like-this results per document found </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> off </td>
+		</tr>
+	</tbody></table>
+-->
+<p></p>
+
+<h4 id="SOLRFORMAT">  SOLRFORMAT </h4>
+<p></p>
+
+When a solr response has been cached using the <code>id</code> parameter to <a class="foswikiCurrentTopicLink" href="#SOLRSEARCH">SOLRSEARCH</a>, it can be reused by subsequent calls to %SOLRFORMAT.
+<p></p>
+
+<pre class="tml">
+&#37;SOLRSEARCH{&#34;test&#34; 
+  id&#61;&#34;solr1&#34;
+  facets&#61;&#34;web,contributor&#34;
+  facetlimit&#61;&#34;web&#61;10, contributor&#61;10&#34;
+}&#37;
+
+&#60;noautolink&#62;
+&#42;Results:&#42;
+&#37;SOLRFORMAT{&#34;solr1&#34;
+  format&#61;&#34;   1 &#91;&#91;&#36;web.&#36;topic&#93;&#91;&#36;topic&#93;&#93;&#36;n&#34;
+}&#37;
+
+&#42;Webs:&#42;
+&#37;SOLRFORMAT{&#34;solr1&#34;
+  format&#95;web&#61;&#34;   &#42; &#36;key (&#36;count)&#36;n&#34;
+}&#37;
+
+&#42;Contributors:&#42;
+&#37;SOLRFORMAT{&#34;solr1&#34;
+  format&#95;contributor&#61;&#34;   &#42; &#36;key (&#36;count)&#36;n&#34;
+  exclude&#95;contributor&#61;&#34;UnknownUser&#124;AdminGroup&#124;AdminUser&#124;RegistrationAgent&#124;TestUser&#34;
+}&#37;
+&#60;/noautolink&#62;
+</pre>
+<p></p>
+
+<h4 id="SOLRSIMILAR">  SOLRSIMILAR </h4>
+<p class='p'>SOLRSIMILAR allows to return a list of similar topics given the current one.</p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> "..." </td>
+			<td class="foswikiTableCol1"> query string referencing the document(s) to return similar ones for </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>id:System.SolrPlugin</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> like </td>
+			<td class="foswikiTableCol1"> list of fields used to compute similarity </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> category, tag </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> fields </td>
+			<td class="foswikiTableCol1"> list of fields and their boost value to be included in result items </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> web, topic, title, score </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> filter </td>
+			<td class="foswikiTableCol1"> restricts results to those matching this filter </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> type:topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> include </td>
+			<td class="foswikiTableCol1"> switches on/off inclusion of the matched document found in the query parameter </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> limit </td>
+			<td class="foswikiTableCol1"> maximum number of results to return </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 100 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> boost </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> mintermfrequency </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> mindocumentfrequency </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> mindwordlength </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> maxdwordlength </td>
+			<td class="foswikiTableCol1 foswikiLast"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<span class='foswikiAlert'>Error parsing solr response</span>
+<p></p>
+
+<h4 id="SOLRSCRIPTURL">  SOLRSCRIPTURL </h4>
+<p></p>
+
+returns a link to a <a href="/bin/view/System/SolrSearch">SolrSearch</a> with the given parameters pre-set.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> "..." or search </td>
+			<td class="foswikiTableCol1"> search string to render a link for </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> id </td>
+			<td class="foswikiTableCol1"> get a link to the search defined by SOLRSEARCH </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> topic </td>
+			<td class="foswikiTableCol1"> name of the search topic to jump to </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> WebSearch </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> union </td>
+			<td class="foswikiTableCol1"> a list of fields whose values can be selected in a union (using an "or" operator) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> multivalued </td>
+			<td class="foswikiTableCol1"> a list of fields that may be searched by multiple values </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> start </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> sort </td>
+			<td class="foswikiTableCol1"> &nbsp; </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> &lt;field_name&gt; </td>
+			<td class="foswikiTableCol1 foswikiLast"> any field defined in in solr's schema.xml </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<pre class="foswikiHidden">
+
+---+++ Rest inteface
+
+---++++ search
+
+---++++ terms
+
+---++++ similar
+
+---++++ autocomplete
+
+---+++ Commandline tools
+
+---++++ solrstart
+
+---++++ solrindex
+
+---++++ solrdelete
+
+---+++ Perl interface
+
+---++++ registerIndexTopicHandler()
+
+---++++ registerIndexAttachmentHandler()
+</pre>
+<p></p>
+
+<h2 id="Solr_indexing_schema">  Solr indexing schema </h2>
+<p></p>
+
+SolrPlugin comes with a custom schema to index general Foswiki data as defined
+in the <code>&lt;solr-home-dir&gt;conf/schema.xml</code> file. It offers support for generic
+DataForm values, so adding any new DataForm definition will allow to use
+those formfields for faceting directly without changing configurations or having to reindex 
+the content. 
+<p></p>
+
+The process of indexing content is configured on the Foswiki side which will crawl all webs, topics
+and their attachments thus creating lucene documents which are then sent over to the solr server.
+A lucene document is made up of fields of a certain type which defines the way the document should be processed
+by the solr server. This is configured in the <code>schema.xml</code> file.
+<p class='p'>While the schema is able to cover all Foswiki related data it is still kept generic enough to be used for non-wiki
+content as well.</p>
+
+<h3 id="Field_types">  Field types </h3>
+<p></p>
+
+This is the list of the most common field types used in the default schema.
+See the <code>schema.xml</code> for more exotic field types like <code>point</code> and <code>location</code>,
+useful for spatial search.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=9;up=0#sorted_table" rel="nofollow" title="Sort by this column">Type</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=9;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> string </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> not analyzed, but indexed/stored verbatim </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> boolean </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> boolean values (true, false) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> binary </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> the data should be sent/retrieved in as Base64 encoded strings </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> int, float, long, double </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> default numeric field types. for faster range queries, consider the tint/tfloat/tlong/tdouble types </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> date </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> the format for this date field is of the form 1995-12-31T23:59:59Z,          and is a more restricted form of the canonical representation of          <span class='externalLink'><a href="http://www.w3.org/TR/xmlschema-2/#dateTime">dateTime</a></span>.  The trailing          "Z" designates UTC time and is mandatory.  Optional fractional seconds          are allowed: 1995-12-31T23:59:59.999Z All other components are          mandatory. Note: for faster range queries, consider the tdate type </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text_ws </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> a text field that only splits on whitespace for exact matching of words </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> a general text field that has reasonable, generic cross-language          defaults: it tokenizes with StandardTokenizer, removes stop words from          case-insensitive "stopwords.txt", and down cases.  At query time only, it also          applies synonyms. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text_generic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> same as <code>text</code> but also splits words on case change while generating word parts.          a general unstemmed text field - good if one does not know the language of the field.          this field type is usful when searching for parts of a WikiWord </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text_prefix </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> substring decomposition starting at the front of the string </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text_suffix </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> substring decomposition starting at the back of the string </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text_spell </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> generic text analysis for spell checking </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text_sort </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> this is a text field suitable for sorting alphabetically </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text_rev </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> a general unstemmed text field that indexes tokens normally and also          reversed, to enable more efficient leading wildcard queries. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> type </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> a list of strings used to analyse different media types. these are analysed using the system's mime types table and generating meaningfull values; for example a gif image would be of type "gif", "image" and "attachment" </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Fields">  Fields </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">Type</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">Multivalued</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/System/SolrPlugin?sortcol=3;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">Stored</a> </th>
+			<th class="foswikiTableCol4 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=4;table=10;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> access_granted </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> this field controls access of users to this topic or attachment in the search index; every query is augmented with an ACL check against this field; only users listed in this field are allowed view rights; special value is "all" when there are no view restrictions </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> attachment </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> list of all attachment names of this topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> author </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> the name of the person that changed the document most recently </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> author_title </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> title name of the person that changed the document most recently </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> catchall </td>
+			<td class="foswikiTableCol1"> text_generic </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> copy-field that gathers content from (allmost) all fields; this is the default search field for the "standard" query parser; note that fields to be queried can be configured per request using the "dismax" handler </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> category </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> list of categories this document is in; note: this field will only be used if <a class="interwikiLink" href="https://foswiki.org/Extensions/ClassificationPlugin" title="'Extensions/ClassificationPlugin' on foswiki.org">Foswiki:Extensions/ClassificationPlugin</a> is installed; it will populate it with the list of all categories up to TopCategory; content of this field is copied to <code>category_search</code> as well (see generic fields below) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> comment </td>
+			<td class="foswikiTableCol1"> text_generic </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> comment field of an attachment </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> concept </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> support for uima processing chain </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> container_id </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> id of containing document, e.g. the topic this is a comment or attachment for </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> container_title </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> title name of containing document </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> container_topic </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> topic of containing document </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> container_url </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> url of containing document </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> container_web </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> web of containing document </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> contributor </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> list of users that contributed to this topic at some point in time </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> createauthor </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> author of the initial version of this document </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> createauthor_title </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> title name of the initial author of this document </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> createdate </td>
+			<td class="foswikiTableCol1"> tdate </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> date when the initial version of this document was created </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> date </td>
+			<td class="foswikiTableCol1"> tdate </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> time the the document was changed last </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> form </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> name of the form attached to the current topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> icon </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> icon to indetify the rendition for this document </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> id </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> unique identifier for each document; this is the <em>external</em> id usable in applications; there's an internal solr document id not related to this field </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> language </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> language of the current document; this may be specified explicitly using the <code>CONTENT_LANGUAGE</code> preference, or set to "detect" to let the solr update chain detect the language automatically </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> macro </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> list of wiki macros being used in this topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> name </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> filename of an attachment </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> outgoing </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> list of all outgoing links; this information is used to detect backlinks </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> parent </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> parent topic of the current topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> phonetic </td>
+			<td class="foswikiTableCol1"> phonetic </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> holds the phonetic analysis of the most important search fields </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> charnorm </td>
+			<td class="foswikiTableCol1"> text_charnorm </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> multivalued </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> result of the character normalization analysis </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> preference </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> this field catches all topic preferences. each preference is captured in a dynamic field as well (see dynamic fields below) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> sentence </td>
+			<td class="foswikiTableCol1"> text_generic </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> support for uima processing chain </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> size </td>
+			<td class="foswikiTableCol1"> tint </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> size of an attachment in bytes </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> spell </td>
+			<td class="foswikiTableCol1"> text_spell </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> used for spellchecking </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> state </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> used by comments or any other application that tracks specific states of a document, such as "new", "unapproved", "approved", "draft", "unpublished", "published", ... </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text_prefix </td>
+			<td class="foswikiTableCol1"> text_text_prefix </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> holds substring analysis of the most important search fields, starting at the front </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text_suffix </td>
+			<td class="foswikiTableCol1"> text_text_suffix </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> holds substring analysis of the most important search fields, starting at the back </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> summary </td>
+			<td class="foswikiTableCol1"> text_generic </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> this is a plainified summary of the topic text </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> tag </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> list of tags assigned to this document; note: this field will only be used if <a class="interwikiLink" href="https://foswiki.org/Extensions/ClassificationPlugin" title="'Extensions/ClassificationPlugin' on foswiki.org">Foswiki:Extensions/ClassificationPlugin</a> is installed; content of this field is copied to <code>category_search</code> as well (see generic fields below) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text </td>
+			<td class="foswikiTableCol1"> text_generic </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> document text </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> thumbnail </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> url to thumbnail representation of this document; mostly used for images </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> timestamp </td>
+			<td class="foswikiTableCol1"> tdate </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> time when the document was added to the index </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> title of a document; a topic title is read from a <code>TopicTitle</code> formfield, a <code>TOPICTITLE</code> preference variable or defaults to the <code>topic</code> name itself; for attachments this is the filename with the extension stripped off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> topic </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> name of the topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> type </td>
+			<td class="foswikiTableCol1"> type </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> holds the type facet of the document; this is "image" for all kinds of images, "video" for all kinds of videos, "topic" for Foswiki topics and the verbatim file extension for everything else; note: plugins like <a class="interwikiLink" href="https://foswiki.org/Extensions/MetaCommentPlugin" title="'Extensions/MetaCommentPlugin' on foswiki.org">Foswiki:Extensions/MetaCommentPlugin</a> might use specific types as well (like "comment" in this case) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> url </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> url used to  access the document being indexed </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> version </td>
+			<td class="foswikiTableCol1"> float </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> current version of the topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> webcat </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> combined web-category facet </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> web </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> name of the web this document is located in </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> webtopic </td>
+			<td class="foswikiTableCol1 foswikiLast"> string </td>
+			<td class="foswikiTableCol2 foswikiLast"> &nbsp; </td>
+			<td class="foswikiTableCol3 foswikiLast"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol foswikiLast"> concatenation of the web and topic part </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Dynamic_fields">  Dynamic fields </h3>
+<p></p>
+
+Dynamic fields are generated based on the content properties of the document to
+be indexed. Fields are specified using some kind of wildcard in <code>schema.xml</code>.
+When a document is indexed, the wildcard will be expanded to create a proper
+field name. Dynamic fields allow to apply specific ways of analyzing fields
+based on their name, as well as cover fields that aren't known in advance, like
+the name of all formfields of a DataForm that ever could be invented.
+<p class='p'>When SolrPlugin is about to index a DataForm attached to a topic, it tries to
+guess the data type of each formfield. Normally, Foswiki does not specify any
+type information within a DataForm definition. Exceptions are (1) date: these
+are mapped to a *_dt field and (2) checkbox, select, radio, textboxlist: these
+are potentially multi-value fields and are thus indexed in a *_lst field.</p>
+
+<p class='p'>Every other formfield is stored into an *_s field as well as into a *_search field.
+The former captures the exact content while the latter analyses the text more thoroughly
+optimized for fuzzy searching.</p>
+
+DataForm formfields are mapped to lucene document fields by prepending the <code>field_*</code>
+prefix to prevent name clashes with other dynamic fields generated on the fly.
+So for example a formfield <code>ProjectManager</code> will be stored in <code>field_ProjectManager_s</code> 
+and <code>field_ProjectManager_search</code>. Likewise a select+multi formfield <code>ProjectMembers</code>
+will be stored in <code>field_ProjectMembers_lst</code> as it is a multivalued field.
+<p class='p'>If a formfield name already comes with one of the below suffixes (_i, _l, _f, _dt, etc)
+then this suffix will be used instead of any heuristics trying to derive the best 
+field type for the lucene field. That way DataForm fields although untyped by Foswiki
+can be indexed type-specific nevertheless.</p>
+
+Similarly topic preferences are indexed using a <code>preference_*</code> prefix.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">Type</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">Multivalued</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/System/SolrPlugin?sortcol=3;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">Stored</a> </th>
+			<th class="foswikiTableCol4 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=4;table=11;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_i </td>
+			<td class="foswikiTableCol1"> tint </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> fields with a _i suffix are indexed as an integer number </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_l </td>
+			<td class="foswikiTableCol1"> tlong </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> fields with a _l suffix are indexed as a long integer </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_f </td>
+			<td class="foswikiTableCol1"> tfloat </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> fields with a _f suffix are indexed as a float </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_d </td>
+			<td class="foswikiTableCol1"> tdouble </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> fields with a _f suffix are indexed as a double precision float </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_b </td>
+			<td class="foswikiTableCol1"> boolean </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> true, false </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_s </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> dynamic field for unanalyzed text </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_std </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> not stored </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> dynamic field for standard analysis, i.e. stopwords not being removed </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_t </td>
+			<td class="foswikiTableCol1"> text_generic </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> generic text </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_dt </td>
+			<td class="foswikiTableCol1"> tdate </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> a dateTime value </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_lst </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> multivalued </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> this field is used for any multi-valued formfield in DataForms like, select, radio, checkbox, textboxlist </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> preference_* </td>
+			<td class="foswikiTableCol1"> string </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> preference values such as <code>preference_NAMEOFPREFERENCE_t</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> *_search </td>
+			<td class="foswikiTableCol1"> text_generic </td>
+			<td class="foswikiTableCol2"> &nbsp; </td>
+			<td class="foswikiTableCol3"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol"> generic text, optimized for searching </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> *_sort </td>
+			<td class="foswikiTableCol1 foswikiLast"> text_sort </td>
+			<td class="foswikiTableCol2 foswikiLast"> &nbsp; </td>
+			<td class="foswikiTableCol3 foswikiLast"> stored </td>
+			<td class="foswikiTableCol4 foswikiLastCol foswikiLast"> text optimized for sorting alphabetically </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Copy_fields">  Copy fields </h3>
+<p></p>
+
+Finally, after having defined all field type there are some fields that are created by copying some
+source field to a destination field using the <code>copyField</code> feature of solr. So while most of a lucene document
+to be indexed is created by the crawler and indexer explicitly, some more are created automatically to facilitate
+specific search applications. The destination fields are then analysed using the dynamic field definitions as given above.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">Source</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">Destination</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> attachment </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> attachment </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> attachment </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> attachment </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> category </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> category </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> category_search </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> category </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> category </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> comment </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> comment </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> comment </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> comment </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> concept </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> concept </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> concept </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> concept </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> field_* </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> field_* </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> field_* </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> field_* </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> form </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> form </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> form </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> form </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> name </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> name </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> name </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> name </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> name </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> name_std </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> name </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> name_search </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> tag </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> tag </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> tag </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> tag </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> tag_search </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> text_prefix </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> text_std </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> text </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> text_suffix </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> title_first_letter </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> title_prefix </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> title_search </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> title_sort </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> title_std </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> title </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> title_suffix </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> topic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> topic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> topic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> topic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> topic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> topic_search </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> topic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> topic_sort </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> topic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> topic_std </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> type </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> catchall </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> type </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> charnorm </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> type </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> phonetic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> web </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> spell </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> webtopic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> webtopic_search </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> web </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> web_search </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> web </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> web_sort </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> web </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> web_std </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<pre class="foswikiHidden">
+---++ Templates
+
+---+++ Structure of !SolrSearchBaseTemplate
+
+---+++ Replacing !WebSearch and !WebChanges
+
+---+++ Creating custom search interfaces
+</pre>
+<p></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Contrib::JQMomentContrib</td><td align="left">&gt;=1.0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Contrib::JQPhotoSwipeContrib</td><td align="left">&gt;=1.0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Contrib::JQSerialPagerContrib</td><td align="left">&gt;=2.0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Contrib::JQTwistyContrib</td><td align="left">&gt;=1.0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Contrib::StringifierContrib</td><td align="left">&gt;=1.20</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::AutoTemplatePlugin</td><td align="left">&gt;=1.0</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::ClassificationPlugin</td><td align="left">&gt;=1.0</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::DBCachePlugin</td><td align="left">&gt;=1</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::FilterPlugin</td><td align="left">&gt;=2.0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::FlexWebListPlugin</td><td align="left">&gt;=1.91</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::ImagePlugin</td><td align="left">&gt;=3.0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::JQueryPlugin</td><td align="left">&gt;=6.00</td><td align="left">Required</td></tr><tr><td align="left">Cache::Cache</td><td align="left">&gt;0</td><td align="left">Required</td></tr><tr><td align="left">HTML::Entities</td><td align="left">&gt;=3.64</td><td align="left">Required</td></tr><tr><td align="left">JSON::XS</td><td align="left">&gt;=2.231</td><td align="left">Required</td></tr><tr><td align="left">LWP::UserAgent</td><td align="left">&gt;=5.820</td><td align="left">Required</td></tr><tr><td align="left">Moo</td><td align="left">&gt;=2.00</td><td align="left">Required</td></tr><tr><td align="left">Types::Standard</td><td align="left">&gt;=1.00</td><td align="left">Required</td></tr><tr><td align="left">XML::Easy</td><td align="left">&gt;0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::TopicTitlePlugin</td><td align="left">&gt;1.00</td><td align="left">Required for Foswiki &lt; 2.2</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<table class="foswikiTable" id="tableSolrPlugin13" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jan 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> reduce amount of presumably unrelated search results;                   improved language detection in solr;                   added fields <code>name_std</code> and <code>name_search</code> for better searchability of attachments;                   don't display wiki markup in search result summaries;                   added field <code>macro</code> to capture use of wiki macros </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Oct 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> mime types are now multivalued, e.g. and image is now tagged type: <code>["gif", "image", "attachment"]</code>;                   better support for attachments listed in the autosuggest drop down box;                   the rudimentary type mapping is now based on the system mime types table and not using a typemap file in solr's config anymore;                   removed dependency on <code>Image::Magick</code>;                   fixed error exceeding the max string length in solr;                   the form name will now be used when no TopicType field is present to construct the TopicType facet;                   fixed support for <code>ALLOWWEBVIEW = *</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Aug 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> new alphabetical navigation for wiki users;                   fixed searching for summary;                   replaced jquery.scrollto with native scroll api;                   make number of items suggested configurable in jquery.autosuggest drop-down box </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jun 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> new index fields <code>author_title</code>, <code>createauthor_title</code>, <code>title_first_letter</code>;                   added support indexing arbitrary <a class="interwikiLink" href="https://foswiki.org/Extensions/MetaDataPlugin" title="'Extensions/MetaDataPlugin' on foswiki.org">meta data</a>;                   added support for <a class="interwikiLink" href="https://foswiki.org/Extensions/ListyPlugin" title="'Extensions/ListyPlugin' on foswiki.org">ListyPlugin</a>;                   added toggle "exact search" to search interface;                   depending on new <a class="interwikiLink" href="https://foswiki.org/Extensions/TopicTitlePlugin" title="'Extensions/TopicTitlePlugin' on foswiki.org">TopicTitlePlugin</a> now;                   fixed keyboard interaction of autosuggest box;                   fixed sorting facet values by title;                   much improved relavancy sorting </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Jan 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added support for jquery.i18n; improved solr schema for better findability; fixed solr sidebar in subwebs </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Sep 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> replacing <code>text_substring</code> with <code>text_prefix</code> and <code>text_suffix</code> to improve substring matching;                   truncate document values larger than 32k to prevent solr from crashing;                   use flexbox for people search interface;                   fixed creating urls to ImagePlugin rest interface to generate thumbnail previews </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> converted <code>WebServices::Solr</code> to Moo;                   fixed documentation for iwatch realtime indexing;                   documentation of SOLRSCRIPTURL macro;                   using jquery.i18n for javascript translations now;                   new facet filter to search in facet values;                   improved indexing of user profile pages and their thumbnail image;                   indexing image geometry now;                   improved jquery.autosugest widget;                   improved ToggleFacetWidget;                   improved boosting of query ingrediences;                   mapping all office documents to a combined attachment type (document, presentation, spreadsheet, chart, ...);                   better support for plenv in system services and cron jobs </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Oct 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed backwards compatibility with pre-unicode Foswiki;                   bring back <code>solr::queryfields</code> in SolrSearchBaseTemplate;                   fixed language facet to properly match language tags to their name;                   improved layout of search results as well as autosuggestion widget;                   removed workflow facet from default search;                   fixed icon mapping for topics that don't come with an icon defined in their TopicType;                   don't try to encode html entities without a code point in utf8;                   don't remove all macros from topic text, just some;                    removed dependency on MimeIconsPlugin as we are using fontawesome now;                   improved formula for sorting results by reference;                   fixed sorting in ajax-solr;                   fixed exposing/hiding parameters in ajax-solr;                   improved findability of content; i.e. when containing stop words only in the title;                   removed unused <code>/browse</code> search handler from solr config </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Oct 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improve default layout of search results; moved unsafe inline-javascript into a js file of its own </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> cache stringified attachments using Cache::FileCache now and added api to purge/clear cache regularly;                   removed <code>IndexExtensions</code> config parameter to let the stringifier decide on supported file formats;                   added support for <a class="interwikiLink" href="https://foswiki.org/Extensions/LikePlugin" title="'Extensions/LikePlugin' on foswiki.org">Foswiki:Extensions/LikePlugin</a> boosting search results by social preferences </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jul 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added support for Foswiki-2.0 ;                  indexing workflow and state facets supporting <a class="interwikiLink" href="https://foswiki.org/Extensions/WorkflowPlugin" title="'Extensions/WorkflowPlugin' on foswiki.org">Foswiki:Extensions/WorkflowPlugin</a>;                   added <code>author_url</code> to solr schema;                   added google image and video mime types mapping them to "image" while indexing </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Feb 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> upgraded to solr-5.0.0 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Sep 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> moved to jsrender for templating, replacing the deprecated jquery.tmpl </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Aug 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fix mailto links in WikiUsers view template;                   fully specify rest security;                   fixed creating of working area for timestamps db;                   improved indexing of list values;                   fixed encoding error in SOLRSEARCH/FORMAT;                   use SOLR_EXTRAFILTER preference setting in auto-suggest widget as well;                   fixed applying strings and defaults in solrDictionary class;                   fixed applying extra-filters in SolrSearch;                   harvest facet headings for translations; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 May 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented new ACL style compatible with Foswiki &gt;= 1.2 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Jul 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added support for <a class="interwikiLink" href="https://foswiki.org/Extensions/PiwikPlugin" title="'Extensions/PiwikPlugin' on foswiki.org">PiwikPlugin</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Mar 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved indexing performance;                   added configurable http timeouts takling to the solr backend;                   fixed language mappings for multilingual content;                   fixes due to latest changes in jquery.moment </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Oct 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed WebServices::Solr to only encode to utf8 if needed;                   fixed handling character encoding on a pure utf8 foswiki;                   fixed schema for spell correction </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Sep 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved schema.xml:                   replaced StandardTokenizer with WhitespaceTokenizer,                   using new ClassicTokenizer and ClassicFilter to feed the spellchecker,                   switched spellchecker to JaroWinklerDistance and lowered the                   frequency threshold for a term to be added to the                   spellchecker;                   building the spellchecker when optimizing the index now;                   fixed detecting the content language </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Sep 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added multilanguage support per document;                   fixed default values in %SOLRSIMILAR;                   speeding up indexing by better caching ACLs;                   implemented mapping facet values to any other label;                   during query time;                   added Language facet to default search interface </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Sep 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved default boosting in dismax to prefer topic hits a lot stronger than attachments;                   improved default cache settings for better default performace;                   added support to distribute updates and search in a master-slave setup;                   added <code>boostquery</code>, <code>queryfields</code>, <code>phrasefields</code> parameter to customize boosting and sorting;                   improved default schema while documenting it </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Sep 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> upgrading to solr-3.4.0;                   fixed utf8 handling;                   added jump and i-feel-lucky options;                   made hidesingle configurable per facet;                   added disjunctivefacets and combinedfacets;                   fixed handling of date fields;                   support new ui::autocomplete in JQueryPlugin;                   using type-specific icons in <a class="interwikiLink" href="https://foswiki.org/Extensions/MimeIconPlugin" title="'Extensions/MimeIconPlugin' on foswiki.org">Foswiki:Extensions/MimeIconPlugin</a> if installed;                   fixed quoting lucene queries;                   indexing outgoing links to support fast backlinks;                   adding fields createauthor, language and collection to schema;                   disabling phonetic boost in schema by default;                   be more robust in case of mallformed DataForm definitions;                   copying every string field into a search field also to allow exact as well as fuzzy search;                   enhancing normalizeWebTopicName to create uniform web names using dots, not slashes everywhere;                   fixed parsing inline topic permissions;                   externalized sidebar pager into a new plugin of its own: <a class="interwikiLink" href="https://foswiki.org/Extensions/JQSerialPagerContrib" title="'Extensions/JQSerialPagerContrib' on foswiki.org">Foswiki:Extensions/JQSerialPagerContrib</a>;                   upgrading to WebService::Solr-0.14 ... which now requires <a class="interwikiLink" href="https://metacpan.org/module/XML::Easy" title="CPAN perl repository">CPAN:XML::Easy</a> instead of <a class="interwikiLink" href="https://metacpan.org/module/XML::Generator" title="CPAN perl repository">CPAN:XML::Generator</a>;                   lots of improvements to SolrSearchBaseTemplate;                   now supporting <a class="interwikiLink" href="https://foswiki.org/Extensions/InfiniteScrollContrib" title="'Extensions/InfiniteScrollContrib' on foswiki.org">Foswiki:Extensions/InfiniteScrollContrib</a> in SolrSearch;                   documentation improvements </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Apr 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> shipping a multicore setup by default;                   added support for <a class="interwikiLink" href="https://foswiki.org/Extensions/VirtualHostingContrib" title="'Extensions/VirtualHostingContrib' on foswiki.org">Foswiki:Extensions/VirtualHostingContrib</a>;                   fixed utf8 recoding;                   some usability improvements to faceted search interface;                   fixing illegal control characters in output (Oliver Schaub) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>state</code> field to schema used for approval workflows;                   added solrjob to ease cronjobbing indexing;                   added docu how to use iwatch for almost-realtime indexing;                   fixed dependencies to include <a class="interwikiLink" href="https://foswiki.org/Extensions/FilterPlugin" title="'Extensions/FilterPlugin' on foswiki.org">Foswiki:Extensions/FilterPlugin</a> as well;                   fixed mapping facet values to their display title in search interface;                   fixed delta updates not properly removing outdated attachment entries when these where moved/renamed;                   and some minor html improvements </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Dec 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed solr-based WebChanges and SiteChanges using PatternSkin </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Dec 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> adjustments due to changes in stringifier api;                   fixed removal of deleted webs from search index </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Nov 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixes integration with pattern skin </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 18 Nov 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> initial public release </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/SolrPlugin?t=1627670502;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> Michael Daum </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 7.30 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 31 Jan 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Enterprise Search Engine for Foswiki based on Solr </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/SolrPlugin">https://github.com/foswiki/SolrPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2009-2019, Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a class="interwikiLink" href="https://foswiki.org/Extensions/SolrPlugin" title="'Extensions/SolrPlugin' on foswiki.org">Foswiki:Extensions/SolrPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Support/SolrPlugin" title="'Support/SolrPlugin' on foswiki.org">Foswiki:Support/SolrPlugin</a> </td></tr></table></div><div class="foswikiAttachments foswikiFormStep" style="overflow:auto">
+<div class="twistyPlugin foswikiMakeVisible"><span id="topicattachmentslist1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleopen.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>2</span></span></a></span><span id="topicattachmentslist1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleclose.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>2</span></span></a></span></div><div class="twistyPlugin"><div id="topicattachmentslist1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableSolrPlugin14" rules="none" summary="Topic attachments"><caption>Topic attachments</caption>
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SolrPlugin?sortcol=0;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">I</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/SolrPlugin?sortcol=1;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">Attachment</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/SolrPlugin?sortcol=2;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">Action</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/System/SolrPlugin?sortcol=3;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">Size</a> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/System/SolrPlugin?sortcol=4;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol5"> <a href="/bin/view/System/SolrPlugin?sortcol=5;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">Who</a> </th>
+			<th class="foswikiTableCol6 foswikiLastCol"> <a href="/bin/view/System/SolrPlugin?sortcol=6;table=14;up=0#sorted_table" rel="nofollow" title="Sort by this column">Comment</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='SolrPluginSnap1.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/SolrPlugin/SolrPluginSnap1.png">SolrPluginSnap1.png</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/SolrPlugin?filename=SolrPluginSnap1.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 91 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">31 Jan 2019 - 11:07</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='SolrPluginSnap2.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/pub/System/SolrPlugin/SolrPluginSnap2.png">SolrPluginSnap2.png</a> </td>
+			<td class="foswikiTableCol2 foswikiLast"> <a href="/bin/attach/System/SolrPlugin?filename=SolrPluginSnap2.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiLast" style="text-align:right"> 154 K </td>
+			<td class="foswikiTableCol4 foswikiLast"> <span class="foswikiNoBreak">31 Jan 2019 - 11:07</span> </td>
+			<td class="foswikiTableCol5 foswikiLast"> <a href="/bin/view/Main/ProjectContributor">ProjectContributor</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+</div></div></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/SolrPlugin?t=1627670502' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/SolrPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SolrPlugin?cover=print;sortcol=1;table=3;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/SolrPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SolrPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SolrPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/SolrPlugin?t=1627670502;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SolrPlugin?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 31 Jan 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/SolrPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/SolrPlugin%3fsortcol%3d1%3btable%3d3%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.SolrPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

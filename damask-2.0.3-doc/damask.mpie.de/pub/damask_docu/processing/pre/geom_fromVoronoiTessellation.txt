@@ -1,0 +1,58 @@
+%SECTION0% geom_fromVoronoiTessellation
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Generate geometry description and material configuration by tessellation of given seeds file.
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; geom_fromVoronoiTessellation options seedfile(s) 
+</pre>
+
+%UPTOC%
+---++ Options
+
+---+++ General
+
+---+++ Tessellation
+   $=-l= / =--laguerre=: 
+   use Laguerre (weighted Voronoi) tessellation
+   $=--cpus= [ *2* ]: 
+   number of parallel processes to use for Laguerre tessellation
+   $=--nonperiodic=: 
+   nonperiodic tessellation
+
+---+++ Geometry
+   $=-g= / =--grid=: 
+   a,b,c grid of hexahedral box
+   $=-s= / =--size=: 
+   x,y,z size of hexahedral box
+   $=-o= / =--origin=: 
+   origin of grid
+   $=--nonnormalized=: 
+   seed coordinates are not normalized to a unit cube
+
+---+++ Seeds
+   $=-p= / =--seedposition= [ *pos* ]: 
+   label of coordinates
+   $=-w= / =--weight= [ *weight* ]: 
+   label of weights
+   $=-m= / =--microstructure= [ *microstructure* ]: 
+   label of microstructures
+   $=-e= / =--eulers= [ *euler* ]: 
+   label of Euler angles
+   $=--axes=: 
+   orientation coordinate frame in terms of position coordinate frame
+
+---+++ Configuration
+   $=--without-config=: 
+   omit material configuration header
+   $=--homogenization= [ *1* ]: 
+   homogenization index to be used
+   $=--crystallite= [ *1* ]: 
+   crystallite index to be used
+   $=--phase= [ *1* ]: 
+   phase index to be used

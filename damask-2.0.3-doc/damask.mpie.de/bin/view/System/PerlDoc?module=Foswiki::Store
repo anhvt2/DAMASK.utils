@@ -1,0 +1,1020 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> PerlDoc &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671480" type="application/x-wiki" title="edit PerlDoc" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/PerlDoc" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/8bbe7d11cfb6731ac2bdc17038d60554.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "USERNAME" : "guest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SCRIPTSUFFIX" : "",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "COOKIEREALM" : "",
+   "WEB" : "System",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKINAME" : "WikiGuest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "TOPIC" : "PerlDoc",
+   "USERSWEB" : "Main",
+   "SERVERTIME" : "30 Jul 2021 - 20:58",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SKIN" : "damask,famfamfam,pattern",
+   "URLHOST" : "https://damask.mpie.de",
+   "SYSTEMWEB" : "System",
+   "PUBURLPATH" : "/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/PerlDoc" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?abb8544b30b706be693705281fb9a5c9' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/PerlDoc?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?5f517a0dc523887d92225562dde983ab' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.PerlDoc' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.PerlDoc' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/PerlDoc"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/PerlDoc" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>PerlDoc</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671480;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/PerlDoc' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/PerlDoc?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/PerlDoc?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=PerlDoc' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/PerlDoc?cover=print;module=Foswiki::Store' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/PerlDoc?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h2 id="A_61internal_package_61_Foswiki::Store">   <code>internal package</code> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki">Foswiki</a>::Store </h2>
+<form class='foswikiForm' action='/bin/view/System/PerlDoc'>
+<div class='foswikiFormSteps'>
+  <div class='foswikiFormStep'>
+      See <a href="/bin/view/System/PublishedAPI">PublishedAPI</a> for packages intended to be used by Plugin and Contrib authors, or <a class="foswikiCurrentTopicLink" href="/bin/view/System/PerlDoc?module=Foswiki">browse all packages</a>.<br>
+      See also <a href="/bin/view/System/DevelopingPlugins">Developing plugins</a>, <a class="interwikiLink" href="https://foswiki.org/Development.DevelopersBible" title="'Development.DevelopersBible' on foswiki.org">Developer's Bible</a>, <a class="interwikiLink" href="https://foswiki.org/Development.TechnicalOverview" title="'Development.TechnicalOverview' on foswiki.org">Technical Overview</a> 
+  </div>
+  <div class='foswikiFormStep'>
+    <label for='module'><b>Perl Module:</b></label>
+    <input type='text' name='module' id='module' size='60' value='Foswiki::Store' class='foswikiInputField' />
+<!--
+Commented this out right before 1.1.5 - we should distinguish between 'public' and 'published' classes.
+    <label for='publicOnly'><b>Public Only:</b></label>
+    <input type='checkbox' name='publicOnly' id='publicOnly' value='on'  class='foswikiInputField' />
+-->
+    <input type='submit' value='Submit' class='foswikiSubmit' />
+  </div>
+  <div class='foswikiFormStep'>
+    <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemPerlDoc1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Child packages</span></a></span><span id="twistyIdSystemPerlDoc1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Child packages</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemPerlDoc1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<p></p>
+
+<ul><li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Store::Interfaces">Foswiki::Store::Interfaces</a></li>
+<li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Store::PlainFile">Foswiki::Store::PlainFile</a> - Single-file implementation of <code>Foswiki::Store</code> that uses normal files in a standard directory structure to store versions.</li>
+<li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Store::QueryAlgorithms">Foswiki::Store::QueryAlgorithms</a></li>
+<li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Store::Rcs">Foswiki::Store::Rcs</a></li>
+<li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Store::RcsLite">Foswiki::Store::RcsLite</a> - Implementation of <code>Foswiki::Store</code> for stores that use the RCS version control system to manage disk files. This class inherits most of its functionality from <code>Foswiki::Store::Rcs::Store</code>, which it shares with <code>Foswiki::Store::RcsWrap</code>.</li>
+<li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Store::RcsWrap">Foswiki::Store::RcsWrap</a> - Implementation of <code>Foswiki::Store</code> for stores that use the RCS version control system to manage disk files. This class inherits most of its functionality from <code>Foswiki::Store::Rcs::Store</code>, which it shares with <code>Foswiki::Store::RcsLite</code>.</li>
+<li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Store::SearchAlgorithms">Foswiki::Store::SearchAlgorithms</a></li>
+</ul>
+    </div></div>
+  </div>
+</div>
+</form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?module=Foswiki::Store#A_61internal_package_61_Foswiki::Store"> internal package Foswiki::Store </a> <ul>
+<li> <a href="?module=Foswiki::Store#A_61ClassMethod_61_new_40_41"> ClassMethod new() </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_finish_40_41"> ObjectMethod finish() </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61StaticMethod_61_cleanUpRevID_40_36rev_41_36integer"> StaticMethod cleanUpRevID( $rev ) &rarr; $integer </a> <ul>
+<li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_getWorkArea_40_36key_41_36directorypath"> ObjectMethod getWorkArea( $key ) &rarr; $directorypath </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_getAttachmentURL_40_36web_44_36topic_44_36attachment_44_37options_41_36url"> ObjectMethod getAttachmentURL( $web, $topic, $attachment, %options ) &rarr; $url </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61StaticMethod_61_decode_40_36octets_41_36unicode"> StaticMethod decode($octets) &rarr; $unicode </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61StaticMethod_61_encode_40_36unicode_44_CROAK_41_36octets"> StaticMethod encode($unicode, CROAK) &rarr; $octets </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_readTopic_40_36topicObject_44_36version_41_40_36rev_44_36isLatest_41"> ObjectMethod readTopic($topicObject, $version) &rarr; ($rev, $isLatest) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_moveAttachment_40_36oldTopicObject_44_36oldAttachment_44_36newTopicObject_44_36newAttachment_41"> ObjectMethod moveAttachment( $oldTopicObject, $oldAttachment, $newTopicObject, $newAttachment  ) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_copyAttachment_40_36oldTopicObject_44_36oldAttachment_44_36newTopicObject_44_36newAttachment_41"> ObjectMethod copyAttachment( $oldTopicObject, $oldAttachment, $newTopicObject, $newAttachment  ) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_attachmentExists_40_36topicObject_44_36att_41_36boolean"> ObjectMethod attachmentExists( $topicObject, $att ) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_moveTopic_40_36oldTopicObject_44_36newTopicObject_44_36cUID_41"> ObjectMethod moveTopic(  $oldTopicObject, $newTopicObject, $cUID ) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_moveWeb_40_36oldWebObject_44_36newWebObject_44_36cUID_41"> ObjectMethod moveWeb( $oldWebObject, $newWebObject, $cUID ) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_testAttachment_40_36topicObject_44_36attachment_44_36test_41_36value"> ObjectMethod testAttachment( $topicObject, $attachment, $test ) &rarr; $value </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_openAttachment_40_36topicObject_44_36attachment_44_36mode_44_37opts_41_36text"> ObjectMethod openAttachment( $topicObject, $attachment, $mode, %opts  ) &rarr; $text </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_getRevisionHistory_40_36topicObject_91_44_36attachment_93_41_36iterator"> ObjectMethod getRevisionHistory ( $topicObject [, $attachment]  ) &rarr; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_getNextRevision_40_36topicObject_41_36revision"> ObjectMethod getNextRevision ( $topicObject  ) &rarr; $revision </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_getRevisionDiff_40_36topicObject_44_36rev2_44_36contextLines_41_92_64diffArray"> ObjectMethod getRevisionDiff ( $topicObject, $rev2, $contextLines  ) &rarr; \@diffArray </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_getVersionInfo_40_36topicObject_44_36rev_44_36attachment_41_92_37info"> ObjectMethod getVersionInfo($topicObject, $rev, $attachment) &rarr; \%info </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_saveAttachment_40_36topicObject_44_36attachment_44_36stream_44_36cUID_44_92_37options_41_36revNum"> ObjectMethod saveAttachment( $topicObject, $attachment, $stream, $cUID, \%options ) &rarr; $revNum </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_saveTopic_40_36topicObject_44_36cUID_44_36options_41_36integer"> ObjectMethod saveTopic( $topicObject, $cUID, $options  ) &rarr; $integer </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_repRev_40_36topicObject_44_36cUID_44_37options_41_36rev"> ObjectMethod repRev( $topicObject, $cUID, %options ) &rarr; $rev </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_delRev_40_36topicObject_44_36cUID_41_36rev"> ObjectMethod delRev( $topicObject, $cUID ) &rarr; $rev </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_atomicLockInfo_40_36topicObject_41_40_36cUID_44_36time_41"> ObjectMethod atomicLockInfo( $topicObject ) &rarr; ($cUID, $time) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_atomicLock_40_36topicObject_44_36cUID_41"> ObjectMethod atomicLock( $topicObject, $cUID ) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_atomicUnlock_40_36topicObject_41"> ObjectMethod atomicUnlock( $topicObject ) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_webExists_40_36web_41_36boolean"> ObjectMethod webExists( $web ) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_topicExists_40_36web_44_36topic_41_36boolean"> ObjectMethod topicExists( $web, $topic ) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_getApproxRevTime_40_36web_44_36topic_41_36epochSecs"> ObjectMethod getApproxRevTime (  $web, $topic  ) &rarr; $epochSecs </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_eachChange_40_36meta_44_36time_41_36iterator"> ObjectMethod eachChange( $meta, $time ) &rarr; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_recordChange_40_37args_41"> ObjectMethod recordChange(%args) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_eachAttachment_40_36topicObject_41_92_36iterator"> ObjectMethod eachAttachment( $topicObject ) &rarr; \$iterator </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_eachTopic_40_36webObject_41_36iterator"> ObjectMethod eachTopic( $webObject ) &rarr; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_eachWeb_40_36webObject_44_36all_41_36iterator"> ObjectMethod eachWeb($webObject, $all ) &rarr; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_remove_40_36cUID_44_36om_44_36attachment_41"> ObjectMethod remove( $cUID, $om, $attachment ) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_query_40_36query_44_36inputTopicSet_44_36session_44_92_37options_41_36outputTopicSet"> ObjectMethod query($query, $inputTopicSet, $session, \%options) &rarr; $outputTopicSet </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_getRevisionAtTime_40_36topicObject_44_36time_41_36rev"> ObjectMethod getRevisionAtTime( $topicObject, $time ) &rarr; $rev </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_getLease_40_36topicObject_41_36lease"> ObjectMethod getLease( $topicObject ) &rarr; $lease </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_setLease_40_36topicObject_44_36length_41"> ObjectMethod setLease( $topicObject, $length ) </a>
+</li> <li> <a href="?module=Foswiki::Store#A_61ObjectMethod_61_removeSpuriousLeases_40_36web_41"> ObjectMethod removeSpuriousLeases( $web ) </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h2 id="A_61internal_package_61_Fosw_AN1">  <code>internal package</code> Foswiki::Store </h2>
+<p class='p'>This class is a pure virtual base class that specifies the interface
+between the actual store implementation and the rest of the Foswiki
+system.</p>
+
+<p class='p'>Subclasses of this class (known as "store implementations") are
+responsible for checking for topic existance, access permissions, and
+all the other general admin tasks required of a store.</p>
+
+This class knows <strong>nothing</strong> about how the data is actually <em>stored</em> -
+that knowledge is entirely encapsulated in the implementation.
+<p></p>
+
+The general contract for methods in the class requires that errors
+are signalled using exceptions. <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::AccessControlException">Foswiki::AccessControlException</a> is
+used for access control exceptions, and Error::Simple for all other
+types of error.
+<p></p>
+
+The reference implementations of this base class
+<code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Store::PlainFileStore">Foswiki::Store::PlainFileStore</a></code>,
+which can be obtained from <a href="/bin/view/System/PlainFileStoreContrib">PlainFileStoreContrib</a>.
+<p></p>
+
+Methods of this class and all subclasses should <strong>only</strong> be called from
+<code>Foswiki</code> and <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a></code>. All other system components must delegate
+store interactions via <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a></code>.
+<p></p>
+
+For readers who are familiar with Foswiki version 1.0.0, this class
+<em>describes</em> the interface to the old <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Store">Foswiki::Store</a></code> without actually
+<em>implementing</em> it.
+<p></p>
+
+Note that most methods are passed a <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> object. This pattern is
+employed to reinforce the encapsulation of a "path" in a meta object, and
+also to allow the store to modify META fields in the object, something it
+would be unable to do if passed $web, $topic.
+<p></p>
+
+Version numbers are required to be positive, non-zero integers. When
+passing in version numbers to the methods of a store implementation, 0, 
+undef and '' are treated as referring to the <strong>latest</strong> (most recent)
+revision of the object. Version numbers are required to increase (later
+version numbers are greater than earlier) but are <strong>not</strong> required to be
+sequential.
+<p></p>
+
+<strong>IMPORTANT:</strong> the store must be able to handle unicode topic and
+attachment names, and unicode topic content. The store is expected
+to do any necessary encoding/decoding from/to unicode.
+<p class='p'></p>
+
+<h3 id="A_61ClassMethod_61_new_40_41">  <code>ClassMethod</code> new() </h3>
+<p class='p'>Construct a Store module.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_finish_40_41">  <code>ObjectMethod</code> finish() </h3>
+Break circular references.
+<p class='p'></p>
+
+<h3 id="A_61StaticMethod_61_cleanUpRevID_40_36rev_41_36integer">  <code>StaticMethod</code> cleanUpRevID( $rev ) &rarr; $integer </h3>
+<p class='p'>Cleans up (maps) a user-supplied revision ID and converts it to an integer
+number that can be incremented to create a new revision number.</p>
+
+<p class='p'>This method should be used to sanitise user-provided revision IDs.</p>
+
+<p class='p'>Returns 0 if it was unable to determine a valid rev number from the
+string passed.</p>
+
+<p class='p'>Works with RCS format (e.g. 1.2) rev IDs and plain integer numbers.</p>
+
+<p class='p'></p>
+
+<h4 id="A_61ObjectMethod_61_getWorkArea_40_36key_41_36directorypath">  <code>ObjectMethod</code> getWorkArea( $key ) &rarr; $directorypath </h4>
+<p class='p'>Gets a private directory uniquely identified by $key. The directory is
+intended as a work area for plugins.</p>
+
+<p class='p'>The standard is a directory named the same as "key" under
+$Foswiki::cfg{WorkingDir}/work_areas</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getAttachmentURL_40_36web_44_36topic_44_36attachment_44_37options_41_36url">  <code>ObjectMethod</code> getAttachmentURL( $web, $topic, $attachment, %options ) &rarr; $url </h3>
+<p></p>
+
+Get a URL that points at an attachment. The URL may be absolute, or
+relative to the the page being rendered (if that makes sense for the
+store implementation). <ul>
+<li> =$session - the current Foswiki session
+</li> <li> <code>$web</code> - name of the web for the URL
+</li> <li> <code>$topic</code> - name of the topic
+</li> <li> <code>$attachment</code> - name of the attachment, defaults to no attachment
+</li> <li> %options - parameters to be attached to the URL
+</li></ul> 
+<p></p>
+
+Supported %options are: <ul>
+<li> <code>topic_version</code> - version of topic to retrieve attachment from
+</li> <li> <code>attachment_version</code> - version of attachment to retrieve
+</li> <li> <code>absolute</code> - if the returned URL must be absolute, rather than relative
+</li></ul> 
+<p></p>
+
+If <code>$web</code> is not given, <code>$topic</code> and <code>$attachment</code> are ignored/
+If <code>$topic</code> is not given, <code>$attachment</code> is ignored.
+<p></p>
+
+If <code>topic_version</code> is not given, the most recent revision of the topic
+should be linked. Similarly if attachment_version= is not given, the most recent
+revision of the attachment will be assumed. If <code>topic_version</code> is specified
+but <code>attachment_version</code> is not (or the specified <code>attachment_version</code> is not
+present), then the most recent version of the attachment in that topic version
+will be linked. Stores may not support <code>topic_version</code> and <code>attachment_version</code>.
+<p class='p'>The default implementation is suitable for use with stores that put
+attachments in a web-visible directory, pointed at by
+$Foswiki::cfg{PubUrlPath}. As such it may also be used as a
+fallback for distributed topics (such as those in System) when content is not
+held in the store itself (e.g. if the store doesn't recognise the web it
+can call SUPER::getAttachmentURL)</p>
+
+<p class='p'>As required by RFC3986, the returned URL may only contain the
+allowed characters -A-Za-z0-9_.~!*\'();:@&amp;=+$,/?%#[]</p>
+
+<p class='p'></p>
+
+<h3 id="A_61StaticMethod_61_decode_40_36octets_41_36unicode">  <code>StaticMethod</code> decode($octets) &rarr; $unicode </h3>
+<p class='p'>Utility function to decode a binary string of octets read from
+the store and known known to be encoded using the
+currently selected {Store}{Encoding} (or UTF-8 if none is set)
+into perl characters (unicode). May die if $octets contains
+an invalid byte sequence for the encoding.</p>
+
+<p class='p'>This utility function should not be used to decode topic text.
+For performance reasons, we don't need to NFC normalize file contents,
+only the filenames themselves.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61StaticMethod_61_encode_40_36unicode_44_CROAK_41_36octets">  <code>StaticMethod</code> encode($unicode, CROAK) &rarr; $octets </h3>
+<p class='p'>Utility function to encode a perl character string into
+a string of octets encoded using the currently selected
+{Store}{Encoding} (or UTF-8 if none is set).</p>
+
+If CROAK is true, it will die if <code>$unicode</code> cannot be
+represented in the {Store}{Encoding}.  Set this for filename
+encoding.   Leave false for content encoding.
+<p class='p'>If CROAK is false, then characters that cannot be represented
+will be converted to named entities if possible, otherwise
+numeric entities.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_readTopic_40_36topicObject_44_36version_41_40_36rev_44_36isLatest_41">  <code>ObjectMethod</code> readTopic($topicObject, $version) &rarr; ($rev, $isLatest) </h3> <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> object
+</li> <li> <code>$version</code> - revision identifier, or undef
+</li></ul> 
+Reads the given version of a topic, and populates the <code>$topicObject</code>.
+If the <code>$version</code> is <code>undef</code>, or there is no revision numbered <code>$version</code>, then
+reads the most recent version.
+<p></p>
+
+Returns the version identifier of the topic that was actually read. If
+the topic does not exist in the store, then <code>$rev</code> is <code>undef</code>. <code>$isLatest</code>
+will  be set to true if the version loaded (or not loaded) is the
+latest available version.
+<p></p>
+
+Note: Implementations of this method <strong>must</strong> call
+<code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a>::setLoadStatus($rev, $isLatest)</code>
+to set the load status of the meta object.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_moveAttachment_40_36oldTopicObject_44_36oldAttachment_44_36newTopicObject_44_36newAttachment_41">  <code>ObjectMethod</code> moveAttachment( $oldTopicObject, $oldAttachment, $newTopicObject, $newAttachment  ) </h3> <ul>
+<li> <code>$oldTopicObject, $oldAttachment</code> - spec of attachment to move
+</li> <li> $newTopicObject, $newAttachment= - where to move to
+</li></ul> 
+Move an attachment from one topic to another.
+<p class='p'>The caller to this routine should check that all topics are valid, and
+access is permitted. $oldAttachment and $newAttachment must be given and
+may not be perl false.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_copyAttachment_40_36oldTopicObject_44_36oldAttachment_44_36newTopicObject_44_36newAttachment_41">  <code>ObjectMethod</code> copyAttachment( $oldTopicObject, $oldAttachment, $newTopicObject, $newAttachment  ) </h3> <ul>
+<li> <code>$oldTopicObject, $oldAttachment</code> - spec of attachment to copy
+</li> <li> $newTopicObject, $newAttachment= - where to move to
+</li></ul> 
+Copy an attachment from one topic to another.
+<p class='p'>The caller to this routine should check that all topics are valid, and
+access is permitted. $oldAttachment and $newAttachment must be given and
+may not be perl false.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_attachmentExists_40_36topicObject_44_36att_41_36boolean">  <code>ObjectMethod</code> attachmentExists( $topicObject, $att ) &rarr; $boolean </h3>
+<p class='p'>Determine if the attachment already exists on the given topic</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_moveTopic_40_36oldTopicObject_44_36newTopicObject_44_36cUID_41">  <code>ObjectMethod</code> moveTopic(  $oldTopicObject, $newTopicObject, $cUID ) </h3>
+<p class='p'>All parameters must be defined and must be untainted.</p>
+
+<p class='p'>Implementation must invoke 'update' on event listeners.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_moveWeb_40_36oldWebObject_44_36newWebObject_44_36cUID_41">  <code>ObjectMethod</code> moveWeb( $oldWebObject, $newWebObject, $cUID ) </h3>
+<p class='p'>Move a web.</p>
+
+<p class='p'>Implementation must invoke 'update' on event listeners.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_testAttachment_40_36topicObject_44_36attachment_44_36test_41_36value">  <code>ObjectMethod</code> testAttachment( $topicObject, $attachment, $test ) &rarr; $value </h3>
+<p></p>
+
+Performs a type test on the given attachment file.
+    * <code>$attachment</code> - name of the attachment to test e.g <code>lolcat.gif</code>
+    * <code>$test</code> - the test to perform e.g. <code>'r'</code>
+<p class='p'>The return value is the value that would be returned by the standard
+perl file operations, as indicated by $type</p>
+
+<p class='p'>* r File is readable by current user
+    * w File is writable by current user
+    * e File exists.
+    * z File has zero size.
+    * s File has nonzero size (returns size).
+    * T File is an ASCII text file (heuristic guess).
+    * B File is a "binary" file (opposite of T).
+    * M Last modification time (epoch seconds).
+    * A Last access time (epoch seconds).</p>
+
+<p class='p'>Note that all these types should behave as the equivalent standard perl
+operator behaves, except M and A which are independent of the script start
+time (see perldoc -f -X for more information)</p>
+
+<p class='p'>Other standard Perl file tests may also be supported on some store
+implementations, but cannot be relied on.</p>
+
+<p class='p'>Errors will be signalled by an Error::Simple exception.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_openAttachment_40_36topicObject_44_36attachment_44_36mode_44_37opts_41_36text">  <code>ObjectMethod</code> openAttachment( $topicObject, $attachment, $mode, %opts  ) &rarr; $text </h3>
+<p></p>
+
+Opens a stream onto the attachment. This method is primarily to
+support virtual file systems, and as such access controls are <strong>not</strong>
+checked, plugin handlers are <strong>not</strong> called, and it does <strong>not</strong> update the
+meta-data in the topicObject.
+<p></p>
+
+<code>$mode</code> can be '&lt;', '&gt;' or '&gt;&gt;' for read, write, and append
+respectively. %
+<p></p>
+
+<code>%opts</code> can take different settings depending on <code>$mode</code>. <ul>
+<li> <code>$mode='&lt;'</code> <ul>
+<li> <code>version</code> - revision of the object to open e.g. <code>version =&gt; 6</code>
+</li></ul> 
+</li> <li> <code>$mode='&gt;'</code> or ='&gt;&gt;' <ul>
+<li> no options
+</li></ul> 
+</li></ul> 
+Errors will be signalled by an <code>Error</code> exception.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getRevisionHistory_40_36topicObject_91_44_36attachment_93_41_36iterator">  <code>ObjectMethod</code> getRevisionHistory ( $topicObject [, $attachment]  ) &rarr; $iterator </h3> <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> for the topic
+</li> <li> <code>$attachment</code> - name of an attachment (optional)
+</li></ul> 
+Get an iterator over the list of revisions of the object. The iterator returns
+the revision identifiers (which will usually be numbers) starting with the most
+recent revision.
+<p class='p'>MUST WORK FOR ATTACHMENTS AS WELL AS TOPICS</p>
+
+<p class='p'>If the object does not exist, returns an empty iterator ($iterator-&gt;hasNext() will be
+false).</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getNextRevision_40_36topicObject_41_36revision">  <code>ObjectMethod</code> getNextRevision ( $topicObject  ) &rarr; $revision </h3> <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> for the topic
+</li></ul> 
+Get the ientifier for the next revision of the topic. That is, the identifier
+for the revision that we will create when we next save.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getRevisionDiff_40_36topicObject_44_36rev2_44_36contextLines_41_92_64diffArray">  <code>ObjectMethod</code> getRevisionDiff ( $topicObject, $rev2, $contextLines  ) &rarr; \@diffArray </h3>
+<p class='p'>Get difference between two versions of the same topic. The differences are
+computed over the embedded store form.</p>
+
+Return reference to an array of differences <ul>
+<li> <code>$topicObject</code> - topic, first revision loaded
+</li> <li> <code>$rev2</code> - second revision
+</li> <li> <code>$contextLines</code> - number of lines of context required
+</li></ul> 
+<p></p>
+
+Each difference is of the form [ $type, $right, $left ] where
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/PerlDoc?module=Foswiki::Store;sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">type</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/PerlDoc?module=Foswiki::Store;sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Means</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>+</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>-</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Deleted </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>c</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Changed </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>u</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Unchanged </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>l</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Line Number </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getVersionInfo_40_36topicObject_44_36rev_44_36attachment_41_92_37info">  <code>ObjectMethod</code> getVersionInfo($topicObject, $rev, $attachment) &rarr; \%info </h3>
+<p></p>
+
+Get revision info for a topic or attachment. <ul>
+<li> <code>$topicObject</code> Topic object, required
+</li> <li> <code>$rev</code> revision number. If 0, undef, or out-of-range, will get info     about the most recent revision.
+</li> <li> <code>$attachment</code> (optional) attachment filename; undef for a topic
+</li></ul> 
+Return %info with at least:
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> date </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> in epochSec </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> user </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> user <strong>object</strong> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> version </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> the revision number </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> comment </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> comment in the store system, may or may not be the same as the comment in embedded meta-data </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+If <code>$attachment</code> and <code>$rev</code> are both given, then <code>$rev</code> applies to the
+attachment, not the topic.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_saveAttachment_40_36topicObject_44_36attachment_44_36stream_44_36cUID_44_92_37options_41_36revNum">  <code>ObjectMethod</code> saveAttachment( $topicObject, $attachment, $stream, $cUID, \%options ) &rarr; $revNum </h3>
+Save a new revision of an attachment, the content of which will come
+from an input stream <code>$stream</code>. <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> for the topic
+</li> <li> <code>$attachment</code> - name of the attachment
+</li> <li> <code>$stream</code> - input stream delivering attachment data
+</li> <li> <code>$cUID</code> - user doing the save
+</li> <li> <code>\%options</code> - Ref to hash of options
+</li></ul> 
+<code>\%options</code> may include: <ul>
+<li> <code>forcedate</code> - force the revision date to be this (epoch secs) <strong>X</strong> <code>forcedate</code> must be equal to or later than the date of the most recent revision already stored for the topic.
+</li> <li> <code>minor</code> - True if this is a minor change (used in log)
+</li> <li> <code>comment</code> - a comment associated with the save
+</li></ul> 
+Returns the number of the revision saved.
+<p></p>
+
+Note: <code>\%options</code> was added in Foswiki 2.0
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_saveTopic_40_36topicObject_44_36cUID_44_36options_41_36integer">  <code>ObjectMethod</code> saveTopic( $topicObject, $cUID, $options  ) &rarr; $integer </h3>
+<p></p>
+
+Save a topic or attachment <em>without</em> invoking plugin handlers. <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> for the topic
+</li> <li> <code>$cUID</code> - cUID of user doing the saving
+</li> <li> <code>$options</code> - Ref to hash of options
+</li></ul> 
+<code>$options</code> may include: <ul>
+<li> <code>forcenewrevision</code> - force a new revision even if one isn't needed
+</li> <li> <code>forcedate</code> - force the revision date to be this (epoch secs)    <strong>X</strong> <code>forcedate</code> must be equal to or later than the date of the most    recent revision already stored for the topic.
+</li> <li> <code>minor</code> - True if this is a minor change (used in log)
+</li> <li> <code>comment</code> - a comment associated with the save
+</li></ul> 
+<p class='p'>Returns the new revision identifier.</p>
+
+<p class='p'>Implementation must invoke 'update' on event listeners.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_repRev_40_36topicObject_44_36cUID_44_37options_41_36rev">  <code>ObjectMethod</code> repRev( $topicObject, $cUID, %options ) &rarr; $rev </h3> <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> topic object
+</li></ul> 
+Replace last (top) revision of a topic with different content. The different
+content is taken from the content currently loaded in $topicObject.
+<p></p>
+
+Parameters and return value as saveTopic, except <ul>
+<li> <code>%options</code> - as for saveTopic, with the extra options: <ul>
+<li> <code>operation</code> - set to the name of the operation performing the save.        This is used only in the log, and is normally <code>cmd</code> or <code>save</code>. It        defaults to <code>save</code>.
+</li></ul> 
+</li></ul> 
+<p class='p'>Used to try to avoid the deposition of 'unecessary' revisions, for example
+where a user quickly goes back and fixes a spelling error.</p>
+
+<p class='p'>Also provided as a means for administrators to rewrite history (forcedate).</p>
+
+<p class='p'>It is up to the store implementation if this is different
+to a normal save or not.</p>
+
+<p class='p'>Returns the id of the latest revision.</p>
+
+<p class='p'>Implementation must invoke 'update' on event listeners.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_delRev_40_36topicObject_44_36cUID_41_36rev">  <code>ObjectMethod</code> delRev( $topicObject, $cUID ) &rarr; $rev </h3> <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> topic object
+</li> <li> <code>$cUID</code> - cUID of user doing the deleting
+</li></ul> 
+<p class='p'>Parameters and return value as saveTopic.</p>
+
+<p class='p'>Provided as a means for administrators to rewrite history.</p>
+
+<p class='p'>Delete last entry in repository, restoring the previous
+revision.</p>
+
+<p class='p'>It is up to the store implementation whether this actually
+does delete a revision or not; some implementations will
+simply promote the previous revision up to the head.</p>
+
+<p class='p'>Implementation must invoke 'update' on event listeners.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_atomicLockInfo_40_36topicObject_41_40_36cUID_44_36time_41">  <code>ObjectMethod</code> atomicLockInfo( $topicObject ) &rarr; ($cUID, $time) </h3>
+If there is a lock on the topic, return it.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_atomicLock_40_36topicObject_44_36cUID_41">  <code>ObjectMethod</code> atomicLock( $topicObject, $cUID ) </h3>
+<p></p>
+ <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> topic object
+</li> <li> <code>$cUID</code> cUID of user doing the locking
+</li></ul> 
+Grab a topic lock on the given topic.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_atomicUnlock_40_36topicObject_41">  <code>ObjectMethod</code> atomicUnlock( $topicObject ) </h3>
+<p></p>
+ <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> topic object
+</li></ul> 
+Release the topic lock on the given topic. A topic lock will cause other
+processes that also try to claim a lock to block. It is important to
+release a topic lock after a guard section is complete. This should
+normally be done in a 'finally' block. See man Error for more info.
+<p></p>
+
+Topic locks are used to make store operations atomic. They are
+<em>note</em> the locks used when a topic is edited; those are Leases
+(see <code>getLease</code>)
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_webExists_40_36web_41_36boolean">  <code>ObjectMethod</code> webExists( $web ) &rarr; $boolean </h3>
+<p></p>
+
+Test if web exists <ul>
+<li> <code>$web</code> - Web name, required, e.g. <code>'Sandbox'</code>
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_topicExists_40_36web_44_36topic_41_36boolean">  <code>ObjectMethod</code> topicExists( $web, $topic ) &rarr; $boolean </h3>
+<p></p>
+
+Test if topic exists <ul>
+<li> <code>$web</code> - Web name, optional, e.g. <code>'Main'</code>
+</li> <li> <code>$topic</code> - Topic name, required, e.g. <code>'TokyoOffice'</code>, or <code>"Main.TokyoOffice"</code>
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getApproxRevTime_40_36web_44_36topic_41_36epochSecs">  <code>ObjectMethod</code> getApproxRevTime (  $web, $topic  ) &rarr; $epochSecs </h3>
+<p class='p'>Get an approximate rev time for the latest rev of the topic. This method
+is used to optimise searching. Needs to be as fast as possible.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_eachChange_40_36meta_44_36time_41_36iterator">  <code>ObjectMethod</code> eachChange( $meta, $time ) &rarr; $iterator </h3>
+<p></p>
+
+Get an iterator over the list of all the changes between
+<code>$time</code> and now. $time is a time in seconds since 1st Jan 1970, and is not
+guaranteed to return any changes that occurred before (now -
+{Store}{RememberChangesFor}). Changes are returned in most-recent-first
+order.
+<p></p>
+
+<code>$meta</code> may be a web or a topic. If it's a web, then all changes for all
+topics within that web will be iterated. If it's a topic, only changes
+for that topic (since the topic name was first used) will be iterated.
+Each change is returned as a reference to a hash containing the fields
+documented for <code>recordChange()</code>.
+<p></p>
+
+Store implementors should note that if compatibility with Foswiki &lt; 2 is
+required, the following additional fields must be returned: <ul>
+<li> <code>topic</code> - name of the topic the change occurred to
+</li> <li> <code>user</code> - wikiname of the changing user
+</li> <li> <code>more</code> - formatted string indicating if the change was minor or not
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_recordChange_40_37args_41">  <code>ObjectMethod</code> recordChange(%args) </h3>
+Record that the store item changed, and who changed it, and why
+<p></p>
+ <ul>
+<li> <code>verb</code> - the action - one of <ul>
+<li> <code>update</code> - a web, topic or attachment has been modified
+</li> <li> <code>insert</code> - a web, topic or attachment is being inserted
+</li> <li> <code>remove</code> - a topic or attachment is being removed
+</li></ul> 
+</li> <li> <code>cuid</code> - who is making the change
+</li> <li> <code>revision</code> - the revision of the topic that the change appears in
+</li> <li> <code>path</code> - canonical web.topic path for the affected object
+</li> <li> <code>attachment</code> - attachment name (optional)
+</li> <li> <code>oldpath</code> - canonical web.topic path for the origin of a move/rename
+</li> <li> <code>oldattachment</code> - origin of move
+</li> <li> <code>minor</code> - boolean true if this change is flagged as minor
+</li> <li> <code>comment</code> - descriptive text
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_eachAttachment_40_36topicObject_41_92_36iterator">  <code>ObjectMethod</code> eachAttachment( $topicObject ) &rarr; \$iterator </h3>
+<p class='p'>Return an iterator over the list of attachments stored for the given
+topic. This will get a list of the attachments actually stored for the
+topic, which may be a longer list than the list that comes from the
+topic meta-data, which only lists the attachments that are normally
+visible to the user.</p>
+
+<p class='p'>The iterator iterates over attachment names.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_eachTopic_40_36webObject_41_36iterator">  <code>ObjectMethod</code> eachTopic( $webObject ) &rarr; $iterator </h3>
+<p class='p'>Get list of all topics in a web as an iterator</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_eachWeb_40_36webObject_44_36all_41_36iterator">  <code>ObjectMethod</code> eachWeb($webObject, $all ) &rarr; $iterator </h3>
+<p></p>
+
+Return an iterator over each subweb. If $all is set, will return a list of all
+web names <strong>under</strong> $web. The iterator returns web pathnames relative to $web.
+<p></p>
+
+The list of web names is sorted alphabetically by full path name e.g. <ul>
+<li> AWeb
+</li> <li> AWeb/SubWeb
+</li> <li> AWeb/XWeb
+</li> <li> BWeb
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_remove_40_36cUID_44_36om_44_36attachment_41">  <code>ObjectMethod</code> remove( $cUID, $om, $attachment ) </h3> <ul>
+<li> <code>$cUID</code> who is doing the removing
+</li> <li> <code>$om</code> - thing being removed (web or topic)
+</li> <li> <code>$attachment</code> - optional attachment being removed
+</li></ul> 
+<p class='p'>Destroy a thing, utterly.</p>
+
+<p class='p'>Implementation must invoke 'remove' on event listeners.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_query_40_36query_44_36inputTopicSet_44_36session_44_92_37options_41_36outputTopicSet">  <code>ObjectMethod</code> query($query, $inputTopicSet, $session, \%options) &rarr; $outputTopicSet </h3>
+<p></p>
+
+Search for data in the store (not web based). <ul>
+<li> <code>$query</code> either a <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Search::Node">Foswiki::Search::Node</a></code> or a <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Query::Node">Foswiki::Query::Node</a></code>.
+</li> <li> <code>$inputTopicSet</code> is a reference to an iterator containing a list     of topic paths. If set to undef, the search/query algo will     create a new iterator using eachWeb()/eachTopic()      and the topic and excludetopics options
+</li></ul> 
+<p></p>
+
+Returns a <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Search::InfoCache">Foswiki::Search::InfoCache</a></code> iterator
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getRevisionAtTime_40_36topicObject_44_36time_41_36rev">  <code>ObjectMethod</code> getRevisionAtTime( $topicObject, $time ) &rarr; $rev </h3>
+<p></p>
+ <ul>
+<li> <code>$topicObject</code> - topic
+</li> <li> <code>$time</code> - time (in epoch secs) for the rev
+</li></ul> 
+<p class='p'>Get the revision identifier of a topic at a specific time.
+Returns a single-digit rev number or undef if it couldn't be determined
+(either because the topic isn't that old, or there was a problem)</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getLease_40_36topicObject_41_36lease">  <code>ObjectMethod</code> getLease( $topicObject ) &rarr; $lease </h3>
+<p></p>
+ <ul>
+<li> <code>$topicObject</code> - topic
+</li></ul> 
+<p></p>
+
+If there is an lease on the topic, return the lease, otherwise undef.
+A lease is a block of meta-information about a topic that can be
+recovered (this is a hash containing <code>user</code>, <code>taken</code> and <code>expires</code>).
+Leases are taken out when a topic is edited. Only one lease
+can be active on a topic at a time. Leases are used to warn if
+another user is already editing a topic.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_setLease_40_36topicObject_44_36length_41">  <code>ObjectMethod</code> setLease( $topicObject, $length ) </h3>
+<p></p>
+ <ul>
+<li> <code>$topicObject</code> - <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> topic object
+</li></ul> 
+Take out an lease on the given topic for this user for $length seconds.
+<p></p>
+
+See <code>getLease</code> for more details about Leases.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_removeSpuriousLeases_40_36web_41">  <code>ObjectMethod</code> removeSpuriousLeases( $web ) </h3>
+<p class='p'>Remove leases that are not related to a topic. These can get left behind in
+some store implementations when a topic is created, but never saved.</p>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671480' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/PerlDoc' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?cover=print;module=Foswiki::Store' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/PerlDoc?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671480;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/PerlDoc?foswiki_origin=GET%2cview%2c/bin/view/System/PerlDoc%3fmodule%3dFoswiki::Store">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.PerlDoc'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

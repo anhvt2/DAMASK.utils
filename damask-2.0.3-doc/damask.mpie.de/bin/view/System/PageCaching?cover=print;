@@ -1,0 +1,675 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> PageCaching &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/PageCaching?t=1627671207" type="application/x-wiki" title="edit PageCaching" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/PageCaching" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/03c5e579a66fd8a853102bd2048d96b2.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKINAME" : "WikiGuest",
+   "SYSTEMWEB" : "System",
+   "USERNAME" : "guest",
+   "SCRIPTURLPATH" : "/bin",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTSUFFIX" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SERVERTIME" : "30 Jul 2021 - 20:53",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "PUBURLPATH" : "/pub",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "USERSWEB" : "Main",
+   "TOPIC" : "PageCaching",
+   "WEB" : "System",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/PageCaching" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?94f772a3d52a4dca81c4f684a4b0cb08' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/PageCaching?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?c348d3481bbaf8c79125b26a4a65d9b4' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.PageCaching' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.PageCaching' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="Page_Caching">  Page Caching </h1>
+How to get the best from HTML Caching.
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?cover=print#Using_the_Cache"> Using the Cache </a> <ul>
+<li> <a href="?cover=print#Cache_Expiry"> Cache Expiry </a>
+</li> <li> <a href="?cover=print#Loading_parts_of_a_page_asynchronously"> Loading parts of a page asynchronously </a>
+</li> <li> <a href="?cover=print#Dirty_Areas"> Dirty Areas </a>
+</li> <li> <a href="?cover=print#Controlling_which_pages_to_cache_and_which_ones_not"> Controlling which pages to cache and which ones not </a>
+</li> <li> <a href="?cover=print#Refreshing_the_cache"> Refreshing the cache </a> <ul>
+<li> <a href="?cover=print#Command_line_cache_refresh"> Command line cache refresh </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Caching_SEARCH_results"> Caching SEARCH results </a>
+</li> <li> <a href="?cover=print#Caching_REST_results_40Developers_41"> Caching REST results (Developers) </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Configuring_the_Cache"> Configuring the Cache </a> <ul>
+<li> <a href="?cover=print#Choosing_a_database_engine"> Choosing a database engine </a> <ul>
+<li> <a href="?cover=print#SQLite"> SQLite </a>
+</li> <li> <a href="?cover=print#MySQL"> MySQL </a>
+</li> <li> <a href="?cover=print#PostgreSQL"> PostgreSQL </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Tuning"> Tuning </a> <ul>
+<li> <a href="?cover=print#Excluding_topics_from_the_dependency_check"> Excluding topics from the dependency check </a>
+</li> <li> <a href="?cover=print#Add_topics_to_the_dependency_check"> Add topics to the dependency check </a>
+</li> <li> <a href="?cover=print#HTTP_Compression"> HTTP Compression </a>
+</li></ul> 
+</li></ul> 
+</li> <li> <a href="?cover=print#Technical_notes"> Technical notes </a> <ul>
+<li> <a href="?cover=print#Working_with_browsers"> Working with browsers </a>
+</li> <li> <a href="?cover=print#Identifying_cache_entries"> Identifying cache entries </a>
+</li> <li> <a href="?cover=print#Software_requirements"> Software requirements </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p class='p'>By default, Foswiki pages are delivered to the browser using HTML, which is
+regenerated from the data stored in Foswiki each time the  page is requested.
+Page caching is the process of storing (caching) this HTML on the server, as
+and when it is generated, so that the next time someone asks for the same page
+it can be delivered from the cache instead of having to be re-rendered from
+scratch. Page caching can significantly improve the performance of a Foswiki
+site, especially where most requests are views (this is normal on most sites).
+Since version 1.1, Foswiki has built-in page caching.</p>
+
+For most Foswiki installations you can enable page caching by simply selecting
+the <code>{Cache}{Enabled}</code> option and connecting it to a database backend
+in the Tuning section of <code>configure</code>. However to
+get the most out of the cache, you need to understand what it is doing, and may
+want to tune the cache options for your site.
+<p></p>
+
+When Foswiki generates a page, it may refer to a lot of content stored in the
+Foswiki database. For example, a topic 'MyTopic' may be rendered differently
+depending on a setting in the web's WebPreferences, which is itself a topic. If
+WebPreferences were to be edited, then the cache of MyTopic would have to be
+regenerated, because the setting it depends on might have been changed during
+the edit. For an average page there are a large number of these <em>dependencies</em>
+that have to be tracked. This tracking has to be fast, so the cache uses a
+database engine to record the dependencies and save the rendered pages.
+<p></p>
+
+<h2 id="Using_the_Cache">  Using the Cache </h2>
+By its very nature, a cache should be invisible to the end user: editing and viewing
+a page should always deliver up-to-date content. To do so Foswiki's page cache
+tracks the ingredients used to render the page and keeps track of any change of them.
+<p></p>
+
+For example, a cached topic that <a href="/bin/view/System/VarINCLUDE">includes</a> another topic will
+be refreshed automatically whenever the included topic changes.
+<p></p>
+
+Foswiki's page cache performs a so called <em>deep dependency tracking</em> of every
+page it caches and stores this dependency graph into its <a class="foswikiCurrentTopicLink" href="#metadatadb">meta-data DB</a>.
+Based on this information, cache entries of topics are invalidated automatically.
+<p></p>
+
+While this works out for most normal wiki use cases, cache maintenance
+is not able to fully track <em>all</em> required dependencies of a page because some
+of them are either out of scope for Foswiki or simply not available a priori.
+<p></p>
+
+<h3 id="Cache_Expiry">  Cache Expiry </h3>
+Normally a page will be cached as long as it is valid, that is no newer version needs
+to be rendered. In addition to this basic strategy an expiry date or timespan can
+be added to a page specifying how long the cache entry is valid. When this timespan
+expires will a new page be created from scratch. This renewed page will then replace
+the old one in the cache.
+<p></p>
+
+The expiry time can be specified using the <code>CACHEEXPIRE</code> preference variable or the <code>cache_expire</code> url parameter. 
+As usual, this variable can be set per topic, per web, or per user as you like. By default the
+expiry time falls back to infinite so that pages are invalidated only by the normal
+displacement strategy. Note that whichever constraint - either the expiry time or the
+refreshing strategy - holds first will the page be refreshed.
+<p></p>
+
+The <code>CACHEEXPIRE</code> value can be specified using either absolute or relative values.
+Most of the time the relative timespan makes most sense in which case the page is 
+cached for that time and will be recomputed afterwards.
+<p class='p'>Examples for valid cache expiry values are:</p>
+ <ul>
+<li> +30s: 30 seconds from now
+</li> <li> +10m: ten minutes from now
+</li> <li> +1h: one hour from now
+</li> <li> +1d: one day from now
+</li> <li> +3M: in three months
+</li> <li> +10y: in ten years time
+</li> <li> Thursday, 25-Apr-1999 00:40:33 GMT  at the indicated time &amp; date
+</li></ul> 
+<p></p>
+
+<a name="jqloader"></a>
+<h3 id="Loading_parts_of_a_page_asynchronously">  Loading parts of a page asynchronously </h3>
+When a page is made up of a lot of independently computed fragments, like on a dashboard, then
+you might want to make use of <a href="/bin/view/System/JQueryLoader">JQueryLoader</a> to load these fragments asynchronously.
+While this generally can improve the load time of the page itself by delaying computation of fragments until
+required, it also helps caching. 
+<p class='p'>Firstly, the main page will be cached with asynchronously computed fragments taken out. As a consequence
+the main page will have less dependencies on additional content and is less likely to be invalidated from
+the page cache.</p>
+
+<p class='p'>Second, each fragment requested via an ajax call and inserted into the main page dynamically is computed
+and cached separately, each with its own set of dependencies. So when one fragment's dependency is fired (one of
+its ingredients has been updated), then only this single fragment and not the complete page nor the other fragments
+need recomputation.</p>
+
+<p class='p'>The general pattern for asynchronously loaded page fragments looks like this:</p>
+
+<pre class="tml">
+&#60;verbatim class&#61;&#34;jqLoader {section:&#39;name&#95;of&#95;section&#39;}&#34;&#62;
+&#37;STARTSECTION{&#34;name&#95;of&#95;section&#34;}&#37;
+&#37;SEARCH{
+...
+}&#37;
+&#37;ENDSECTION{&#34;name&#95;of&#95;section&#34;}&#37;
+&#60;/verbatim&#62;
+</pre>
+<p></p>
+
+See <a href="/bin/view/System/JQueryLoader">JQueryLoader</a> for more information.
+<p></p>
+
+<a name="dirtyarea"></a>
+<h3 id="Dirty_Areas">  Dirty Areas </h3>
+Sometimes caching complete pages is too coarse-grained. There may be parts of a
+page that change frequently, while the rest of the same page never changes. In
+this case the author of the topic can tell the cache not to save certain parts
+of it, called <em>dirty areas</em>. Dirty areas are marked in the topic using the
+<code>&lt;dirtyarea&gt;...&lt;/dirtyarea&gt;</code> tags. Foswiki markup within a dirty
+area is stored unrendered in the cache, and only rendered when the topic is
+served from the cache. For example,
+<p></p>
+
+<pre class="tml">
+This page was cached at &#37;SERVERTIME&#37;.
+
+&#60;dirtyarea&#62; The current time of your request is &#37;SERVERTIME&#37;. &#60;/dirtyarea&#62;
+</pre>
+<p></p>
+
+ensures that the cache will never store the SERVERTIME expression inside the <code>&lt;dirtyarea&gt; section</code>, forcing it to be
+re-computed every time the page is served. So both times will diverge the longer the
+page stays in cache.
+<p></p>
+
+<h3 id="Controlling_which_pages_to_cache_and_which_ones_not">  Controlling which pages to cache and which ones not </h3>
+When enabling the page cache in configure by switching on <code>{Cache}{Enabled}</code> every page
+is cached. This might be too aggressive for some topics or webs that you want to exclude
+from page caching all together. 
+<p></p>
+
+First choice is to try and figure out how to make a page cacheable at least partial using <a class="foswikiCurrentTopicLink" href="#dirtyarea">dirty areas</a>.
+If that doesn't work out or is simply to complicated to get right, a page or a complete web
+can be flagged to be non-cacheable all together. That way they won't ever end up in the cache store.
+<p></p>
+
+This is achieved by using the preference variable <code>CACHEABLE</code> in a topic, the <a href="/bin/view/Main/SitePreferences">SitePreferences</a> or any WebPreferences like this:
+<p></p>
+
+<pre>
+    &#42; Set CACHEABLE &#61; off
+</pre>
+<p></p>
+
+Adding it to a single topic will prevent this page from being cached. Adding it to WebPreferences will
+disable the page cache for the complete web. Adding it to <a href="/bin/view/Main/SitePreferences">SitePreferences</a> will switch off
+the page cache for the complete site. This makes sense only when switching <em>on</em> the page cache explicitly for
+a subset of pages and webs again using
+<p></p>
+
+<pre>
+    &#42; Set CACHEABLE &#61; on
+</pre>
+<p></p>
+
+<h3 id="Refreshing_the_cache">  Refreshing the cache </h3>
+Sometimes it is necessary to force a cache refresh manually. To support
+this, Foswiki provides the <code>refresh</code> url parameter, which works with all scripts
+that produce cacheable output. You may force the current topic to be recomputed
+by adding <code>refresh=on</code> or <code>refresh=cache</code> to an url.
+<p></p>
+
+<pre class="tml">
+&#60;a href&#61;&#34;&#37;SCRIPTURLPATH{&#34;view&#34;}&#37;/&#37;WEB&#37;/&#37;TOPIC&#37;?refresh&#61;cache&#34;&#62;Refresh this page.&#60;/a&#62;
+</pre>
+<p></p>
+
+The complete cache for all topics can be cleared as well using <code>refresh=all</code>. 
+<p></p>
+
+<div class="foswikiHelp">
+<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> The cache should be refreshed after installing a Foswiki upgrade, or after
+installing or upgrading any plugin that would change the output of macros.
+</div>
+<p></p>
+
+<h4 id="Command_line_cache_refresh">  Command line cache refresh </h4>
+<p></p>
+
+If you have topics that are updated externally to foswiki, which do not use the recomended <code>Foswiki::Func::saveTopic</code> API, you can 
+(carefully) call update from the commandline:
+<p></p>
+
+eg. <code>sudo -u www ./view /Tasks/Item12035&nbsp; -refresh=cache</code>. 
+<p></p>
+
+<strong><em>NOTE</em></strong> it is very important that you run this as the same user that the web server uses to access foswiki (and the cache).
+<p></p>
+
+see <a href="/bin/view/System/CommandAndCGIScripts">CommandAndCGIScripts</a>
+<p></p>
+
+<h3 id="Caching_SEARCH_results">  Caching SEARCH results </h3>
+When you enable the Foswiki page cache, all SEARCH results will automatically
+be cached as part of the process. As a consequence a SEARCH on a page will not
+be performed again as long as this page is cached. 
+<p class='p'>There are a few things to keep in mind when caching a page with a SEARCH:</p>
+ <ul>
+<li> If a new topic is created that the SEARCH should find, it will not be listed until after the page the SEARCH is on is recomputed.
+</li> <li> If content in an existing topic is changed so it will start being found by the SEARCH, it will not be listed.
+</li> <li> If the content of an already found topic changes the cached page will be updated automatically.
+</li></ul> 
+<p class='p'>To avoid this effect you can</p>
+ <ul>
+<li> Specify a <code>CACHEEXPIRE</code> timespan after which the SEARCH is performed again;      in the meantime the same cache results will     be displayed
+</li> <li> Put the SEARCH into an <a class="foswikiCurrentTopicLink" href="#jqloader">PageCaching</a>[asynchronously loaded fragment]]
+</li> <li> Put the SEARCH inside a <a class="foswikiCurrentTopicLink" href="#dirtyarea">dirty area</a>
+</li> <li> List the topic with the SEARCH in WEBDEPENDENCIES      Topics in this list will be refreshed whenever a topic in this web is editted.
+</li> <li> Add a refresh button to the page to allow users to manually refresh the page.
+</li></ul> 
+<p></p>
+
+Note that page caching doesn't only affect SEARCH. Every other information that changes without the
+dependency tracker noticing it will not be rendered up-to-date on a cached page. Other candidates
+are <a href="/bin/view/System/VarWEBLIST">WEBLIST</a>, as well as any plugin reading external
+information, for instance results of an SQL, SOAP or LDAP query being rendered on a Foswiki topic.
+<p class='p'>This class of SEARCH-like expressions all show the same caching artefact: results are not 100% up-to-date.
+At the same time these expressions are the candidates that benefit the most from caching as their computation
+are the most expensive ones.</p>
+
+<h3 id="Caching_REST_results_40Developers_41">  Caching REST results (Developers) </h3>
+If a function called to service a <code>rest</code> script returns it's result using <code>return</code>, then the result will be cached.
+If the function returns an empty result or undef, then the function is totally responsible for its own output, and there is no caching.
+<p></p>
+
+<h2 id="Configuring_the_Cache">  Configuring the Cache </h2>
+<h3 id="Choosing_a_database_engine">  Choosing a database engine </h3>
+The database used by the page cache is selected by the <code>{Cache}{Implementation}</code> setting in <code>configure</code>.
+It offers a set of standard connectors, i.e. using the perl DBI interface, to store meta data about cached
+pages in a database. For larger sites in production use, you should choose either <code>Foswiki::PageCache::DBI::MySQL</code>
+or <code>Foswiki::PageCache::DBI::PostgreSQL</code>. For smaller sites and personal wikis, <code>Foswiki::PageCache::DBI::SQLite</code>
+is approriate as well.
+<p></p>
+
+<h4 id="SQLite">  SQLite </h4>
+<p></p>
+
+SQLite can be used with no special configuration.   The page cache will be
+indexed by <code>working/sqllite.db</code>, and topics are cached in the <code>working/cache</code>
+directory.  There is one configuration parameter that can be changed: <ul>
+<li> <code>{Cache}{DBI}{SQLite}{Filename} = '$Foswiki::cfg{WorkingDir}/sqlite.db';</code>
+</li></ul> 
+<p></p>
+
+The SQLite database will grow over time and should be cleaned on occasion to
+reclaim space and defragment the data. Clearing the cache with the
+<code>?refresh=all</code> url option does not reclaim space.
+<p></p>
+
+Reclaim space by using the sqlite3 <code>vacuum</code> command. Be sure to run it as the
+web-server user:
+<p></p>
+
+<pre>
+ cd /path/to/foswiki/working
+ sudo -u www-data sqlite3 sqlite.db &#34;VACUUM;&#34;
+</pre>
+<p></p>
+
+<strong><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Caution:</strong> This can run a long time and can be disruptive to the wiki.
+<p></p>
+
+You can also manually clear the cache by: <ul>
+<li> Removing the <code>working/sqlite.db</code> file
+</li> <li> and removing all files in <code>working/cache</code> directory
+</li></ul> 
+<p></p>
+
+<h4 id="MySQL"> MySQL </h4>
+<p></p>
+
+Before Foswiki is able to use MySQL for caching, several conditions must be met: <ul>
+<li> The mysql server and the perl DBI / DBD modules for MySQL must be installed.
+</li> <li> A database, must be created.
+</li> <li> The user needs to be created, and appropriate permissions granted.  <pre>
+   foswikihost: ~ &#36; mysql -u root -p
+   Enter password:  ........
+   Welcome to the MySQL monitor.  Commands end with ; or \g.
+
+   mysql&#62; create database foswiki;
+   Query OK, 1 row affected (0.00 sec)
+
+   mysql&#62;  grant usage on &#42;.&#42; to foswiki&#64;localhost identified by &#39;foswikipass&#39;;
+   Query OK, 0 rows affected (0.00 sec)
+
+   mysql&#62; grant all privileges on foswiki.&#42; to foswiki&#64;localhost ;
+   Query OK, 0 rows affected (0.00 sec)
+   </pre>
+</li> <li> Foswiki must be configured with the database, user and password information.  For example: <ul>
+<li> <code>{Cache}{DBI}{MySQL}{Database} = 'foswiki';</code>
+</li> <li> <code>{Cache}{DBI}{MySQL}{Host} = 'localhost';</code>
+</li> <li> <code>{Cache}{DBI}{MySQL}{Password} = 'foswikipass';</code>
+</li> <li> <code>{Cache}{DBI}{MySQL}{Port} = '';</code>
+</li> <li> <code>{Cache}{DBI}{MySQL}{Username} = 'foswiki';</code>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h4 id="PostgreSQL"> PostgreSQL </h4>
+<p></p>
+
+Before Foswiki is able to use PostgreSQL for caching, several conditions must be met: <ul>
+<li> The PostgreSQL server and the perl DBI / DBD modules for PostgreSQL must be installed.
+</li> <li> A database, must be created.
+</li> <li> The user needs to be created, and appropriate permissions granted.  <pre>
+   user&#64;server: sudo su -- postgres
+   postgres&#64;server:/root&#36; createuser foswiki --pwprompt
+
+   postgres&#64;server:/root&#36; psql
+   psql (9.4.4)
+   Type &#34;help&#34; for help.
+
+   postgres&#61;# alter user foswiki with password &#39;foswikipass&#39;;
+   ALTER ROLE
+   postgres&#61;# create database foswiki;
+   CREATE DATABASE
+
+   \q
+   </pre>
+</li> <li> Foswiki must be configured with the database, user and password information.  For example: <ul>
+<li> <code>{Cache}{DBI}{PostgreSQL}{Database} = 'foswiki';</code>
+</li> <li> <code>{Cache}{DBI}{PostgreSQL}{Host} = 'localhost';</code>
+</li> <li> <code>{Cache}{DBI}{PostgreSQL}{Password} = 'foswikipass';</code>
+</li> <li> <code>{Cache}{DBI}{PostgreSQL}{Port} = '';</code>
+</li> <li> <code>{Cache}{DBI}{PostgreSQL}{Username} = 'foswiki';</code>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+See the <a href="/bin/view/System/PerlDoc?module=Foswiki::PageCache">Foswiki::PageCache</a>
+documentation for more detailed information.
+<p></p>
+
+<a name="#tuning"></a>
+<h3 id="Tuning">  Tuning </h3>
+A number of options exist to help you tune the cache so that it works better
+for your specific content.
+<p></p>
+
+<h4 id="Excluding_topics_from_the_dependency_check">  Excluding topics from the dependency check </h4>
+Some topics change so infrequently that it's worth telling the cache about them
+so they can be ignored when computing dependencies. The
+<code>{Cache}{DependencyFilter}</code> <strong>EXPERT</strong> setting in <code>configure</code> defines a regular
+expression that, when matched by the name of a topic, exclude the topic from
+dependencies in the cache. This helps to reduce the number of topics a page
+depends on, but at a higher risk that you may experience unwanted caching
+effects. These effects may be seen where a cached page is delivered that does
+not reflect changes made in a topic that matched the filter.
+<p></p>
+
+The default value for <code>{Cache}{DependencyFilter}</code> is set to
+<pre>System\..*|Trash\..*|TWiki\..*</pre>
+<p></p>
+
+So this will disable any dependencies to topics that match this expression.
+<div class="foswikiHelp">
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Caution: by default dependency tracking is switched off for all of the System web.
+Changing topics in the System web will <em>not</em> invalidate any cache entries.
+This is because the System web is considered read-only content.
+</div>
+<p></p>
+
+<h4 id="Add_topics_to_the_dependency_check">  Add topics to the dependency check </h4>
+Some other topics change automatically whenever <em>any</em> topic in the same web is
+changed. These are usually topics that are generated by searches over the
+content. You can list the names of these topics in the
+<code>{Cache}{WebDependencies}</code> <strong>EXPERT</strong> setting in <code>configure</code>.  Whenever any topic
+in the same web is saved, the cached versions of the listed topics are removed
+from the cache as well.
+<p></p>
+
+Web dependencies can also be specified using the <code>WEBDEPENDENCIES</code> web
+preference setting. If <code>WEBDEPENDENCIES</code> is set, it overrides the setting of
+<code>{Cache}{WebDependencies}</code> for that web. To use the preference set it to a
+comma separated list of topics (no wildcards are allowed). Example,
+<p></p>
+
+The default value for <code>{Cache}{WebDependencies}</code> is set to WebRss,
+WebAtom, WebTopicList, WebIndex, WebSearch and WebSearchAdvanced.
+<p class='p'>This means, that for instance WebRss is a page that is cached the first time it is accessed, so 
+every further request is speeded up. When one of the topics in the web it is in changes, a
+new rss feed is provided containing the most recent update as expected.</p>
+
+Example:
+<pre>
+    &#42; Set WEBDEPENDENCIES &#61; WebRss, WebAtom, WebTopicList, WebIndex,
+      WebSearch, WebSearchAdvanced, MyOwnProtectedTopic
+</pre>
+<p class='p'>This will add MyOwnProtectedTopic to the set of default topics to be refreshed
+on every change in the web it is in.</p>
+
+<h4 id="HTTP_Compression">  HTTP Compression </h4>
+Modern browsers can decompress content encoded using gzip compression. You can
+save a lot of network bandwidth by compressing pages, at the expense of some
+server performance spent on compressing the pages. Foswiki supports content
+compression when the <code>{HttpCompress}</code> option is enabled in <code>configure</code>, even
+when the cache is not enabled.
+<p></p>
+
+Content compression makes even more sense when used with the cache, as the
+cache by default stores pages on disk already compressed, so serving a
+compressed page is very fast. However if you don't have <code>Compress::Zlib</code>, or
+you're not using <code>{HttpCompress}</code> and do not care about disk space, you can
+disable this compression by disabling the <code>{Cache}{Compress}</code> <strong>EXPERT</strong> option
+in <code>configure</code>.
+<p></p>
+
+Note that only pages without any <a class="foswikiCurrentTopicLink" href="#dirtyarea">dirty areas</a> will be
+compressed. Any other page will be transmitted uncompressed.  Note also, that
+compressing a page requires computation on both sides, the server performing
+the compression and the browser to uncompress the received HTML before
+rendering it. So only use page compression when network bandwidth is a
+bottleneck.  Do not use compression on fast network connections that can easily
+deliver the same content uncompressed.
+<p></p>
+
+<h2 id="Technical_notes">  Technical notes </h2>
+<h3 id="Working_with_browsers">  Working with browsers </h3>
+The Foswiki cache works closely with the browser to optimise the use of network
+bandwidth. Whenever a page is cached, Foswiki also stores its
+<span class='externalLink'><a href="http://en.wikipedia.org/wiki/HTTP_ETag">etag</a></span>, computed based on the time it
+was added to the server cache. The <code>Etag</code> and <code>Last-Modified</code> headers will be
+added to the response. So whenever a page is requested again, using a request
+that includes the <code>If-None-Match</code> and/or <code>If-Modified-Since</code> request headers,
+then Foswiki will answer with a <code>304 - Not modified message</code> and an empty body.
+This tells the browser to reuse the page stored in its own client-side cache. 
+<p></p>
+
+<h3 id="Identifying_cache_entries">  Identifying cache entries </h3>
+Depending on the values of a number of different parameters, a generated page
+may have very different output.  For example, depending on the user who is
+logged in, a page might be displayed very differently.
+<p></p>
+
+The cache thus has to consider the <em>context</em> a page has been rendered within.
+The context holds all sort of environment information. This information is
+captured while storing pages as well as identifying them later on.
+<p class='p'>The context consists of:</p>
+ <ul>
+<li> The server serving the request (HTTP_HOST)
+</li> <li> The port number of the server serving the request (HTTP_PORT)
+</li> <li> The language of the current session, if any
+</li> <li> All session parameters EXCEPT: <ul>
+<li> All those starting with an underscore
+</li> <li> VALIDATION
+</li> <li> REMEMBER
+</li> <li> FOSWIKISTRIKEONE.*
+</li> <li> VALID_ACTIONS.*
+</li> <li> BREADCRUMB_TRAIL
+</li> <li> DGP_hash
+</li></ul> 
+</li> <li> All the request parameters EXCEPT: <ul>
+<li> All those starting with an underscore
+</li> <li> refresh
+</li> <li> foswiki_redirect_cache
+</li> <li> logout
+</li> <li> topic
+</li> <li> cache_ignore
+</li> <li> cache_expire
+</li> <li> request parameters listed in the <code>cache_ignore</code> request parameter
+</li></ul> 
+</li></ul> 
+<p class='p'>Note that this also means that users will never share cached pages among each other.
+This separation is required to prevent users from seeing pages that have been rendered
+with different access rights to the content than their own. For instance, a
+SEARCH will show rather differnt results based on the concrete clearance on the content.
+When such a page is cached it must only be retrieved for the identical user it was
+generated for the first time.</p>
+
+<h3 id="Software_requirements">  Software requirements </h3> <ul>
+<li> {HttpCompress} depend on <code>Compress::Zlib</code>,
+</li> <li> DBD::Pg to connect to a PostgreSQL database or
+</li> <li> DBD::mysql to connect to a MySQL database or
+</li> <li> DBD::SQLite to connect to an SQLite database.
+</li></ul> 
+<p class='p'>You will need either of one the DBD:: drivers to make use of page caching.</p>
+
+<p class='p'></p>
+</div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/Category">Category</a> &gt; <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>PageCaching <br />
+Topic revision:  <span class='patternRevInfo'>03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.PageCaching'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

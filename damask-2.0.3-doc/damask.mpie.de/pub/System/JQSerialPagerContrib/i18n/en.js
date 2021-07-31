@@ -1,0 +1,4 @@
+{
+  "prev": "prev",
+  "next": "next"
+}

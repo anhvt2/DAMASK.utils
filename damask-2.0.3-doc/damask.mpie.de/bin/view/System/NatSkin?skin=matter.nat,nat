@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html class="natHtml" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" lang="en"  >
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title class='foswikiContents' name='title' type='plain'>NatSkin | System | DAMASK</title>
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" />
+<link rel="manifest" href="/bin/rest/RenderPlugin/template?name=foswiki&expand=manifest_json&contenttype=text/json"><meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+<meta name="generator" content="Foswiki v2.1.0" />
+<meta name="description" content="NatSkin" />
+<meta name="keywords" content="Foswiki, System, NatSkin" />
+
+<meta property="og:url" content="https://damask.mpie.de/bin/view/System/NatSkin" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="NatSkin" />
+<meta property="og:image" content="/pub/System/NatSkin/NatSkinSnap1-200.png" />
+<meta property="og:description" content="NatSkin" />
+<meta property="og:site_name" content="DAMASK" />
+
+<link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/bin/view/System/WebAtom?contenttype=text/xml" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss?contenttype=text/xml&skin=xml" />
+<link rel="search" type="application/opensearchdescription+xml" href="/bin/rest/RenderPlugin/template?topic=System.WebSearch&amp;name=opensearch&amp;expand=opensearch::content&amp;contenttype=application/xml" title="DAMASK Content Search" />
+<link rel="search" type="application/opensearchdescription+xml" href="/bin/rest/RenderPlugin/template?topic=Main.WikiUsers&amp;name=opensearch&amp;expand=opensearch::person&amp;contenttype=application/xml" title="DAMASK Person Search" />
+
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/83c61981472048f2ac2317230423ad26.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::ANIMATE JQUERYPLUGIN::AUTOSUGGEST JQUERYPLUGIN::BLOCKUI JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::FONTAWESOME JQUERYPLUGIN::JQTWISTY JQUERYPLUGIN::LIKE JQUERYPLUGIN::MEDIAELEMENT JQUERYPLUGIN::PHOTOSWIPE JQUERYPLUGIN::PNOTIFY JQUERYPLUGIN::SUPERFISH JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TABPANE JQUERYPLUGIN::THEME JQUERYPLUGIN::TWISTY JQUERYPLUGIN::UPLOADER MATERIAL::CSS METACOMMENTPLUGIN::CSS METADATA::CSS NATSKIN SMILIESPLUGIN TOPICCREATOR head skincss' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableNatSkin3 {width:100%}
+body .foswikiTable#tableNatSkin3 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableNatSkin3 th.foswikiTableCol0 {width:7em}
+</style>
+
+<link class='skincss NATSKIN' rel='stylesheet' href='/pub/System/NatSkin/print.css' type='text/css' media='print' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::FORM' src='/pub/System/JQueryPlugin/plugins/form/jquery.form.js?version=3.51.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::EASING' src='/pub/System/JQueryPlugin/plugins/easing/jquery.easing.js?version=1.3'></script>
+<script class='script JQUERYPLUGIN::UI' src='/pub/System/JQueryPlugin/plugins/ui/jquery-ui.js?version=1.12.0'></script>
+<script class='script JQUERYPLUGIN::ANIMATE' src='/pub/System/JQueryPlugin/plugins/animate/animate.js?version=3.7.0'></script>
+<script class='script JQUERYPLUGIN::LOADER' src='/pub/System/JQueryPlugin/plugins/loader/jquery.loader.js?version=4.00'></script>
+<script class='script JQUERYPLUGIN::UI::TOOLTIP' src='/pub/System/JQueryPlugin/plugins/ui/jquery.ui.tooltip.init.js?version=1.12.0'></script>
+<script class='script JQUERYPLUGIN::JSONRPC' src='/pub/System/JsonRpcContrib/jquery.jsonrpc.js?version=1.0'></script>
+<script class='script JQUERYPLUGIN::BLOCKUI' src='/pub/System/JQueryPlugin/plugins/blockui/jquery.blockUI.js?version=2.70'></script>
+<script class='script JQUERYPLUGIN::BLOCKUI' src='/pub/System/JQueryPlugin/plugins/blockui/jquery.blockUI.init.js?version=2.70'></script>
+<script class='script JQUERYPLUGIN::PNOTIFY' src='/pub/System/JQueryPlugin/plugins/pnotify/jquery.pnotify.js?version=1.2.0'></script>
+<script class='script JQUERYPLUGIN::LIKE' src='/pub/System/LikePlugin/like.js?version=1.01'></script>
+<script class='script JQUERYPLUGIN::SCROLLTO' src='/pub/System/JQueryPlugin/plugins/scrollto/jquery.scrollTo.js?version=2.1.2'></script>
+<script class='script JQUERYPLUGIN::SCROLLTO' src='/pub/System/JQueryPlugin/plugins/scrollto/jquery.scrollTo.init.js?version=2.1.2'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::UI::DIALOG' src='/pub/System/JQueryPlugin/plugins/ui/jquery.ui.dialog.init.js?version=1.12.0'></script>
+<script class='script JQUERYPLUGIN::I18N' src='/pub/System/JQueryPlugin/plugins/i18n/i18n.js?version=1.1'></script>
+<script class='script JavascriptFiles/foswikiPref' type='text/javascript' src='/pub/System/JavascriptFiles/foswikiPref.js'></script>
+<script class='script JQUERYPLUGIN::UPLOADER' src='/pub/System/TopicInteractionPlugin/uploader.js?version=2.00'></script>
+<script class='script METADATA::JS' type='text/javascript' src='/pub/System/TopicInteractionPlugin/metadata.js'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script AUTOSUGGEST::EN::I8N' type='application/l10n' data-i18n-language='en' data-i18n-namespace='AUTOSUGGEST' src='/pub/System/SolrPlugin/i18n/en.js' ></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "PUBURLPATH" : "/pub",
+   "URLHOST" : "https://damask.mpie.de",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WEB" : "System",
+   "COOKIEREALM" : "",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SKIN" : "damask,famfamfam,pattern",
+   "USERNAME" : "guest",
+   "TOPIC" : "NatSkin",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATH" : "/bin",
+   "SERVERTIME" : "30 Jul 2021 - 21:35",
+   "USERSWEB" : "Main",
+   "SCRIPTSUFFIX" : "",
+   "SYSTEMWEB" : "System"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::VALIDATE' src='/pub/System/JQueryPlugin/plugins/validate/pkg.js?version=1.11.0'></script>
+<script class='script JQUERYPLUGIN::COOKIE' src='/pub/System/JQueryPlugin/plugins/cookie/jquery.cookie.js?version=20100921'></script>
+<script class='script JQUERYPLUGIN::UI::AUTOCOMPLETE' src='/pub/System/JQueryPlugin/plugins/ui/jquery.ui.autocomplete.init.js?version=1.12.0'></script>
+<script class='script JQUERYPLUGIN::RENDER' src='/pub/System/JQueryPlugin/plugins/render/jquery.render.js?version=0.9.90'></script>
+<script class='script JQUERYPLUGIN::RENDER' src='/pub/System/JQueryPlugin/plugins/render/jquery.template-loader.js?version=0.9.90'></script>
+<script class='script JQUERYPLUGIN::AUTOSUGGEST' src='/pub/System/SolrPlugin/jquery.autosuggest.js?version=2.20'></script>
+<script class='script SOLRPLUGIN::SEARCHBOX' type='text/javascript' src='/pub/System/SolrPlugin/solr-searchbox.js'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TABPANE' src='/pub/System/JQueryPlugin/plugins/tabpane/jquery.tabpane.js?version=2.10'></script>
+<script class='script JQUERYPLUGIN::PHOTOSWIPE' src='/pub/System/JQPhotoSwipeContrib/pkg.js?version=4.1.2'></script>
+<script class='script JQUERYPLUGIN::FOSWIKITEMPLATE' src='/pub/System/RenderPlugin/foswikiTemplate.js?version=1.1'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script NATSKIN::POLYFILLS' type='text/javascript' src="/pub/System/NatSkin/polyfills.js"></script>
+<script class='script JQUERYPLUGIN::HOVERINTENT' src='/pub/System/JQueryPlugin/plugins/hoverintent/jquery.hoverIntent.js?version=1.8.0'></script>
+<script class='script JQUERYPLUGIN::SUPERFISH' src='/pub/System/JQueryPlugin/plugins/superfish/jquery.superfish.js?version=1.7.7'></script>
+<script class='script JQUERYPLUGIN::WIKIWORD' src='/pub/System/JQueryPlugin/plugins/wikiword/wikiword.js?version=3.30'></script>
+<script class='script TOPICCREATOR' type='text/javascript' src='/pub/System/NatSkin/topiccreator.js'></script>
+<script class='script JQUERYPLUGIN::MEDIAELEMENT' src='/pub/System/MediaElementPlugin/build/pkg.js?version=4.2.10'></script>
+<script class='script UPLOADER::EN::I8N' type='application/l10n' data-i18n-language='en' data-i18n-namespace='UPLOADER' src='/pub/System/TopicInteractionPlugin/i18n/en.js' ></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script NATSKIN::PREFERENCES foswikiPreferences' type='text/json'>{
+	 "NatSkin" : {
+		"initWebMenu": true,
+		"initTopPanel": true,
+		"initTopBar": true,
+		"initOverflows": false,
+		"initSideBar": false,
+		"initRedDot": true,
+		"initBusyIndicator": false,
+		"initExternalLinks": true,
+		"initCookieInfo": true,
+		"sideBar": "on",
+		"layout": "fixed"
+	 }
+}</script>
+<script class='script METACOMMENTPLUGIN::JS' src='/pub/System/MetaCommentPlugin/metacomment.js'></script>
+<script class='script JQUERYPLUGIN::JQTWISTY' src='/pub/System/JQTwistyContrib/jquery.twisty.js?version=1.21'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::IMAGETOOLTIP' src='/pub/System/ImagePlugin/jquery.imagetooltip.js?version=2.0'></script>
+<script class='skinjs NATSKIN::JS' type='text/javascript' src="/pub/System/NatSkin/natskin.js"></script>
+<base href="https://damask.mpie.de/bin/view/System/NatSkin" /><!--[if IE]></base><![endif]-->
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head>
+<body id="body" class="foswikiNoJs natBody natBodyNotAuthorized foswikiHasNoChangePermission natBodyNotAuthenticated natBodyRight natBodyFixed natViewBody  natBodyWeb_System natBodyTopic_NatSkin"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/NatSkin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?3ab3698880c2e862c5f7649c297c934d' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/NatSkin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?e46d75cd4ebac2a9d1be366e690f75a8' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.NatSkin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.NatSkin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div><div class="natTopPanel" style="display:none">
+<div class="natTopPanelContents">
+<div class="natSearchBox foswikiHideOnPrint solrSearchBox" data-position-my="left top" data-position-at="left bottom" data-limit="3" data-limit-persons="3" data-limit-topics="3" data-limit-attachments="3" data-groups="persons, topics, attachments">
+  <form name="searchbox" id="searchbox" class="natSearchForm" action="/bin/view/System/WebSearch">
+	 <input type="text" class="foswikiInputField" placeholder="search" size="20" name="search" value="" title="Search" accesskey="f" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" /> 
+  </form>
+</div></div>
+</div><div class="natBodyContents" id="PageTop">
+<a href="#" class="natNavToggle fa fa-bars"></a>
+<div class="natTopBar clearfix"><div class="natTopBarContents clearfix">
+<div class="natWebTitle"><a href="https://damask.mpie.de/bin/view/Home/WebHome" title="Powered by Foswiki, The Free and Open Source Wiki"><span class="natWebLogo natWebLogoName">DAMASK</span></a></div>
+<div class="natWebMenu clearfix foswikiContents" name="webmenu::contents" reload="web">
+<div class="natWebMenuContents clearfix"> 
+  <ul>
+  <li><a href="/bin/view/Main/WebHome">Home</a></li>
+
+ <li><a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">Help</a>
+  <ul>
+    <li><a href="/bin/view/System/WelcomeGuest"><i class='foswikiIcon jqIcon ma ma-home'  ></i> Welcome</a></li>
+    <li><a href="/bin/view/System/UserDocumentationCategory"><i class='foswikiIcon jqIcon ma ma-book'  ></i> User docs</a></li>
+    <li><a href="/bin/view/System/AdminDocumentationCategory"><i class='foswikiIcon jqIcon ma ma-book'  ></i> Admin docs</a></li>
+    <li><a href="/bin/view/System/DeveloperDocumentationCategory"><i class='foswikiIcon jqIcon ma ma-book'  ></i> Developer docs</a></li>
+    <li><a href="/bin/view/System/ReferenceManual"><i class='foswikiIcon jqIcon ma ma-library-books'  ></i> Reference manual</a></li>
+    <li><a href="/bin/view/System/InstalledPlugins"><i class='foswikiIcon jqIcon ma ma-extension'  ></i> Installed plugins</a></li>
+    <li><hr /></li>
+    <li><a href="/bin/view/Sandbox/WebHome"><i class='foswikiIcon jqIcon fa fa-archive'  ></i> Sandbox</a></li>
+    <li><a href="/bin/view/System/ResetPassword"><i class='foswikiIcon jqIcon ma ma-vpn-key'  ></i> Password forgotten</a></li>
+    <li><hr /></li>
+    <li><span class='externalLink'><a href="https://foswiki.org/Support"><i class='foswikiIcon jqIcon ma ma-help'  ></i> Online support forum</a></span></li>
+    <li><span class='externalLink'><a href="https://foswiki.org/Support/FAQ"><i class='foswikiIcon jqIcon ma ma-help-outline'  ></i> Foswiki FAQ</a></span></li>
+    <li><span class='externalLink'><a href="https://foswiki.org/Support/WikiConsultants"><i class='foswikiIcon jqIcon ma ma-live-help'  ></i> Professional help</a></span></li>
+    <li><span class='externalLink'><a href="https://foswiki.org/Tasks"><i class='foswikiIcon jqIcon ma ma-bug-report'  ></i> Bugreport</a></span></li>
+  </ul>
+</li>
+</ul></div></div><div class="natPanelToggle">
+<a class="natPanelToggleSearch"><i class='foswikiIcon jqIcon fa fa-search'  ></i> Search</a>
+<a class="natPanelToggleClose"><i class='foswikiIcon jqIcon fa fa-times'  ></i> Close</a>
+</div><div class='natUserActions natGuestGreeter'><a class='natUserAction natLoginAction' rel='nofollow' href='/bin/login/System/NatSkin?foswiki_origin=GET%2cview%2c/bin/view/System/NatSkin%3fskin%3dmatter.nat%2cnat'><i class='foswikiIcon jqIcon ma ma-vpn-key'  ></i><span class='natTopicActionShortLabel'>Log in</span></a><a class='natUserAction natRegisterAction' rel='nofollow' href='/bin/view/System/UserRegistration'><i class='foswikiIcon jqIcon ma ma-group'  ></i><span class='natTopicActionShortLabel'>Register</span></a></div></div></div><div class="natMiddle foswikiContents" name="main::contents" page-in-effect="" page-out-effect="">
+<div class="natMiddleContents clearfix">
+<div class="natSideBar">
+<div class="natSideBarContents">
+
+<h2 class='webLink'><a class='current' href='/bin/view/System/WebHome'>System</a></h2>
+
+ <ul>
+<li> <a href="/bin/view/System/TwentyMinuteTutorial">Tutorial</a>
+</li> <li> <a href="/bin/view/System/UsersGuide">Users Guide</a>
+</li> <li> <a href="/bin/view/System/FrequentlyAskedQuestions">FAQ</a>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">User Tools</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">Admin Tools</a>
+</li> <li> <a href="/bin/view/System/SiteTools">Site Tools</a>
+</li></ul> 
+
+</div>
+</div><div itemscope itemtype="http://schema.org/Article" class="natMain clearfix">
+<div class="natMainHeaderContents clearfix" ><div class="natTopicActions clearfix" id="natTopicActions"></div><div class='natBreadCrumbs'> <span class='natBreadCrumbsYouAreHere'>You are here:</span> <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a><span class='natSep'> &#187;&nbsp;</span><a class="foswikiCurrentTopicLink" href="/bin/view/System/NatSkin">NatSkin</a></div>
+</div><div class="natMainContents clearfix" id="natMainContents"><h1 id="The_Natural_Skin">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/NatSkin">The Natural Skin</a> </h1><div class="foswikiRevision">
+<span class='foswikiRevisionDate'><i class='foswikiIcon jqIcon fa fa-calendar'  ></i> 
+  <a href="/bin/diff/System/NatSkin?rev=13">
+    <span itemprop='dateModified' content='2019-02-14T09:13:13Z'>14 Feb 2019 - 09:13</span>
+  </a>
+</span><span class='foswikiRevisionSep'>&#124;</span> 
+  <span class='foswikiRevisionID'>
+    <i class='foswikiIcon jqIcon fa fa-flag'  ></i> 
+    Version <span itemprop='version'>13</span>
+  </span><span class='foswikiRevisionSep'>&#124;</span> 
+  <span class='foswikiRevisionAuthor' itemprop='author'>
+    <i class='foswikiIcon jqIcon fa fa-user'  ></i> 
+    <a href="/bin/view/Main/UnknownUser"><span itemprop='name'>UnknownUser</span></a>
+  </span></div>
+Userfriendly Foswiki skin providing a flexible theming engine for professional webdesigns
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?skin=matter.nat%2cnat#Screenshots"> Screenshots </a>
+</li> <li> <a href="?skin=matter.nat%2cnat#Theme_switcher"> Theme switcher </a>
+</li> <li> <a href="?skin=matter.nat%2cnat#WebComponents"> WebComponents </a>
+</li> <li> <a href="?skin=matter.nat%2cnat#Documentation"> Documentation </a>
+</li> <li> <a href="?skin=matter.nat%2cnat#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?skin=matter.nat%2cnat#Dependencies"> Dependencies </a>
+</li> <li> <a href="?skin=matter.nat%2cnat#Skin_Info"> Skin Info </a>
+</li> <li> <a href="?skin=matter.nat%2cnat#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p class='p'>NatSkin improves your Foswiki experience by bringing together some of the most useful
+features from different plugins in a consistent way. NatSkin comes with a modern
+web design that improves readability of your wiki content as well as easing the way
+you interact with it as a wiki author and consumer.</p>
+
+<p class='p'>NatSkin also serves as a foundation for additional web designs. So you won't need to
+reinvent the wheel on every project over and over again.</p>
+
+<p class='p'>NatSkin allows you to choose between several kinds of page layouts. All of the
+predefined themes come with support for a 1, 2 and 3 columns designs in both a
+fluid and a fixed page layout.</p>
+
+<p class='p'>NatSkin provides a much improved usability when navigating among webs as well as
+when interacting with wiki content.</p>
+
+<h2 id="Screenshots">  Screenshots </h2>
+<p></p>
+
+<div class="screenshots">
+<a href="/pub/System/NatSkin/NatSkinSnap14.jpg"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap14-200.jpg' alt='NatSkinSnap14-200.jpg' title='NatSkinSnap14-200.jpg' width='401' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap1.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap1-200.png' alt='NatSkinSnap1-200.png' title='NatSkinSnap1-200.png' width='476' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinThemeSnap2.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinThemeSnap2-200.png' alt='NatSkinThemeSnap2-200.png' title='NatSkinThemeSnap2-200.png' width='322' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinThemeSnap4.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinThemeSnap4-200.png' alt='NatSkinThemeSnap4-200.png' title='NatSkinThemeSnap4-200.png' width='384' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinThemeSnap5.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinThemeSnap5-200.png' alt='NatSkinThemeSnap5-200.png' title='NatSkinThemeSnap5-200.png' width='322' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinThemeSnap6.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinThemeSnap6-200.png' alt='NatSkinThemeSnap6-200.png' title='NatSkinThemeSnap6-200.png' width='322' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap2.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap2-200.png' alt='NatSkinSnap2-200.png' title='NatSkinSnap2-200.png' width='114' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap3.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap3-200.png' alt='NatSkinSnap3-200.png' title='NatSkinSnap3-200.png' width='193' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap4.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap4-200.png' alt='NatSkinSnap4-200.png' title='NatSkinSnap4-200.png' width='210' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap5.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap5-200.png' alt='NatSkinSnap5-200.png' title='NatSkinSnap5-200.png' width='251' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap6.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap6-200.png' alt='NatSkinSnap6-200.png' title='NatSkinSnap6-200.png' width='259' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap7.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap7-200.png' alt='NatSkinSnap7-200.png' title='NatSkinSnap7-200.png' width='335' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap8.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap8-200.png' alt='NatSkinSnap8-200.png' title='NatSkinSnap8-200.png' width='160' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap9.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap9-200.png' alt='NatSkinSnap9-200.png' title='NatSkinSnap9-200.png' width='226' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap10.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap10-200.png' alt='NatSkinSnap10-200.png' title='NatSkinSnap10-200.png' width='145' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap11.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap11-200.png' alt='NatSkinSnap11-200.png' title='NatSkinSnap11-200.png' width='221' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap12.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap12-200.png' alt='NatSkinSnap12-200.png' title='NatSkinSnap12-200.png' width='306' height='200'    /></a>
+<a href="/pub/System/NatSkin/NatSkinSnap13.png"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap13-200.png' alt='NatSkinSnap13-200.png' title='NatSkinSnap13-200.png' width='285' height='200'    /></a>
+</div>
+<p></p>
+
+<span class='foswikiClear'></span>
+<p></p>
+
+<style>
+.screenshots a {
+  overflow:hidden; 
+  max-width:190px; 
+  max-height:200px;
+  float:left;
+  margin:0 1em 1em 0;
+}
+.screenshots img {
+  height:200px;
+}
+</style>
+
+<p></p>
+
+<h2 id="Theme_switcher">  Theme switcher </h2>
+<p class='p'>You can change design and layout aspects of every page as you like with just a few clicks.</p>
+
+<p class='p'>Configure the skin by changing:</p>
+ <ul>
+<li> the theme installed on your system,
+</li> <li> the style part of a theme,
+</li> <li> the variation added to the theme's style,
+</li> <li> the sidebar location,
+</li> <li> the page layout being either a fixed-width, or a fluid design or
+</li> <li> the navigation elements as displayed at the top of the page.
+</li></ul> 
+<p class='p'>The underlying templates that generate the pages are arranged in a flexible and
+manageable way to facilitate easy "skin mix-in", that is, overriding specific parts of
+the templates by using the NatSkin as a parent skin to create template modifications.</p>
+
+<p class='p'>There are three themes comming with NatSkin:</p>
+ <ol>
+<li> <a href="/bin/view/System/MatterTheme">MatterTheme</a> (default)
+</li> <li> <a href="/bin/view/System/CustomatoTheme">CustomatoTheme</a>
+</li> <li> <a href="/bin/view/System/JazzyNoteTheme">JazzyNoteTheme</a>
+</li></ol> 
+<p></p>
+
+All themes and layout variations can be tested out interactively on the <a href="/bin/view/System/NatSkinStyleBrowser">NatSkin Style Browser</a>
+<p></p>
+
+<h2 id="WebComponents"> WebComponents </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/NatSkin?skin=matter.nat%2cnat;sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/NatSkin?skin=matter.nat%2cnat;sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/NatSkin?skin=matter.nat%2cnat;sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Menu </td>
+			<td class="foswikiTableCol1"> navigation tabs above the topic area </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SiteMenu">SiteMenu</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> SideBar </td>
+			<td class="foswikiTableCol1"> a configurable navigation bar </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SiteSideBar">SiteSideBar</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> RightBar </td>
+			<td class="foswikiTableCol1"> when using two sidebars, this component holds the right sidebar, while the SideBar component is displayed on the left. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SiteRightBar">SiteRightBar</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Links </td>
+			<td class="foswikiTableCol1"> this is a sub-component of the SideBar component to plug in navigation links within </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SiteLinks">SiteLinks</a>, <a href="/bin/view/Main/WebLinks">WebLinks</a>, <a href="/bin/view/System/WebLinks">WebLinks</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> BottmBar </td>
+			<td class="foswikiTableCol1"> customize the content at the bottom area of a page </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SiteBottomBar">SiteBottomBar</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HtmlHead </td>
+			<td class="foswikiTableCol1"> additional stuff to be put into the html head, like javascript and/or css </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/SiteHtmlHead">SiteHtmlHead</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> HtmlBottom </td>
+			<td class="foswikiTableCol1"> similar to WebHtmlHead but putting additional stuff just before the closing &lt;/body&gt; tag of a page; this is useful when adding third party javascript code to a website, like tracking code </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> TopicActions </td>
+			<td class="foswikiTableCol1 foswikiLast"> configure the actions used to manipulate topics </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <a href="/bin/view/System/SiteTopicActions">SiteTopicActions</a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Documentation">  Documentation </h2> <ul>
+<li> <a href="/bin/view/System/NatSkinConfiguration">NatSkinConfiguration</a>
+</li> <li> <a href="/bin/view/System/NatSkinFAQ">NatSkinFAQ</a>
+</li> <li> <a href="/bin/view/System/NatSkinTopicCreator">NatSkin TopicCreator</a>
+</li> <li> <a href="/bin/view/System/NatSkinTypography">NatSkinTypography</a>
+</li> <li> <a href="/bin/view/System/NatSkinPlugin">NatSkinPlugin</a>
+</li></ul> 
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+Test if installed: <a href="/bin/view/System/NatSkin?skin=matter.nat,nat">click here</a>
+<p></p>
+
+Set this in your <a href="/bin/view/Main/SitePreferences">SitePreferences</a>:
+<p></p>
+
+<pre class="tml">   &#42; Set SKIN &#61; nat</pre>
+<p class='p'>to make the setting permanent.</p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Contrib::CopyContrib</td><td align="left">&gt;=2.0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Contrib::FamFamFamContrib</td><td align="left">&gt;=2075</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Contrib::JQSelect2Contrib</td><td align="left">&gt;1.01</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Contrib::WebFontsContrib</td><td align="left">&gt;=1</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::AutoTemplatePlugin</td><td align="left">&gt;=2.01</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::BreadCrumbsPlugin</td><td align="left">&gt;=4318</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::CaptchaPlugin</td><td align="left">&gt;=2.0.0</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::DBCachePlugin</td><td align="left">&gt;=12</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::DiffPlugin</td><td align="left">&gt;=2.0</td><td align="left">Required.</td></tr><tr><td align="left">Foswiki::Plugins::FilterPlugin</td><td align="left">&gt;=3491</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::FlexFormPlugin</td><td align="left">&gt;=5.3</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::FlexWebListPlugin</td><td align="left">&gt;=3493</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::GridLayoutPlugin</td><td align="left">&gt;=1.00</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::ImagePlugin</td><td align="left">&gt;=2.40</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::JQueryPlugin</td><td align="left">&gt;=7.00</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::ListyPlugin</td><td align="left">&gt;=1</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::MetaCommentPlugin</td><td align="left">&gt;=2.80</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::MimeIconPlugin</td><td align="left">&gt;=1</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::MoreFormfieldsPlugin</td><td align="left">&gt;=4.00</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::MultiLingualPlugin</td><td align="left">&gt;=2.00</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::NatEditPlugin</td><td align="left">&gt;=8.00</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::NatSkinPlugin</td><td align="left">&gt;=4.20</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::PageOptimizerPlugin</td><td align="left">&gt;=0.10</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::RedDotPlugin</td><td align="left">&gt;=1</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::RenderPlugin</td><td align="left">&gt;=6.00</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::SecurityHeadersPlugin</td><td align="left">&gt;=2.00</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::TopicInteractionPlugin</td><td align="left">&gt;=1340</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::WebLinkPlugin</td><td align="left">&gt;=1</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::ZonePlugin</td><td align="left">&gt;=3.1</td><td align="left">Required. required for Foswiki &lt; 1.1</td></tr><tr><td align="left">Foswiki::Plugins::TopicTitlePlugin</td><td align="left">&gt;1.00</td><td align="left">Required for Foswiki &lt; 2.2</td></tr></table>
+<p></p>
+
+<h2 id="Skin_Info">  Skin Info </h2>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Base Name: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> nat </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Screenshot: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <div style="overflow:hidden;height:200px"><a href="/pub/System/NatSkin/NatSkinSnap14.jpg"><img class='imagePlain imagePlain_none ' src='/pub/System/NatSkin/NatSkinSnap14-200.jpg' alt='NatSkinSnap14-200.jpg' title='NatSkinSnap14-200.jpg' width='401' height='200'    /></a></div> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> Preview: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <a href="https://damask.mpie.de/bin/view/System/NatSkin?skin=matter.nat,nat">Preview with this skin</a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<table class="foswikiTable" id="tableNatSkin3" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Feb 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> release 6.0 comes with a new default theme "matter" </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved logic how broadcast messages are shown and hidden </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> replace inline css and js by proper files created by AttachContentPlugin;                   added support for material icons;                   support for SocialSharePlugin;                   support for LikePlugin;                   new topic creator;                   new user template to centralize configuration of user profile photos;                   better password generator;                   removed unused attach templates as we are using TopicInteractionPlugin;                   fixed querying for outgoing links using SolrPlugin;                   improved OpenGraph meta data </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Feb 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixing ACLs in shipped default topics for Foswik-2;                   new icon set based on fontawesome;                   added support for <a class="interwikiLink" href="https://foswiki.org/Extensions/LikePlugin" title="'Extensions/LikePlugin' on foswiki.org">Foswiki:Extensions/LikePlugin</a>;                   added support for <a class="interwikiLink" href="https://foswiki.org/Extensions/WebSocketPlugin" title="'Extensions/WebSocketPlugin' on foswiki.org">Foswiki:Extensions/WebSocketPlugin</a>;                   added support for <a class="interwikiLink" href="https://foswiki.org/Extensions/GenPDFWeasyPlugin" title="'Extensions/GenPDFWeasyPlugin' on foswiki.org">Foswiki:Extensions/GenPDFWeasyPlugin</a>;                   improved support for <a class="interwikiLink" href="https://foswiki.org/Extensions/SocialSharePlugin" title="'Extensions/SocialSharePlugin' on foswiki.org">Foswiki:Extensions/SocialSharePlugin</a>;                   improved support for <a class="interwikiLink" href="https://foswiki.org/Extensions/AngularSkin" title="'Extensions/AngularSkin' on foswiki.org">Foswiki:Extensions/AngularSkin</a>;                   improved support for <a class="interwikiLink" href="https://foswiki.org/Extensions/WikiWorkbenchContrib's" title="'Extensions/WikiWorkbenchContrib's' on foswiki.org">Foswiki:Extensions/WikiWorkbenchContrib's</a> topic creator dialog;                   fixed transliteration of WikiNames in user registration;                   translation updates;                   new print dialog;                   improved backlinks, history, login, rename, newtopic and childtopics dialog;                   moving inline javascript into external javascript files for better content security;                   improved table css;                   external links open in a separate tab/window by default now;                   added ui to enable/disable voting on comments;                   improved SEO information in html header </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jul 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added compatibility with Foswiki-2.0;                   added new topic creator supporting <a class="interwikiLink" href="https://foswiki.org/Extensions/WikiWorkbenchContrib" title="'Extensions/WikiWorkbenchContrib' on foswiki.org">Foswiki:Extensions/WikiWorkbenchContrib</a> TopicTypes;                   faster implementation of <a href="/bin/view/System/WebTopicList">WebTopicList</a> based on <a class="interwikiLink" href="https://foswiki.org/Extensions/DBCachePlugin" title="'Extensions/DBCachePlugin' on foswiki.org">Foswiki:Extensions/DBCachePlugin</a>;                   now depending on <a class="interwikiLink" href="https://foswiki.org/Extensions/ListyPlugin" title="'Extensions/ListyPlugin' on foswiki.org">Foswiki:Extensions/ListyPlugin</a> for the my-sidebar feature;                   now depending on <a class="interwikiLink" href="https://foswiki.org/Extensions/WebFontsContrib" title="'Extensions/WebFontsContrib' on foswiki.org">Foswiki:Extensions/WebFontsContrib</a> for better typography;                   dynamic menu for mobile devices;                   added support for mega menus using the <code>natMegaMenu</code> css class;                   better seo by supporting Open Graph meta data;                   nicer change-form dialog supporting WikiWorkbenchContrib 3.00;                   improved child-topics dialog displaying topic titles properly;                   added natedit settings to eaily switch on/off wysiwyg mode per topic;                   rationalized templates for topic actions to ease configuration of icons </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Feb 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> final 4.00 which comes with the new customato theme </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Aug 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> third beta </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Dec 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> second beta </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Mar 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> first beta of new release </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 25 Jun 2003: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Initial version </td>
+		</tr>
+	</tbody></table>
+<span id="ContentBottom"></span></div><div class="natMainFooterContents"><span class='foswikiClear'></span><div class="foswikiMetaData foswikiHideOnPrint foswikiMetaDataNotAllowed">
+<div class='jqTabPane jqTabPanePlain'  data-select='1' data-auto-max-expand='false' data-animate='true' data-remember='false' data-min-height='0'>
+<div id='tab6843' class='jqTab dataform' style='display:none'>
+<h2 class='jqTabLabel'>Data form</h2>
+<div class='jqTabContents' >
+          <div class='foswikiPageForm foswikiDataForm jqUITooltip' data-theme='info' data-position='top' data-arrow='true'>
+            <a  class='jqButton jqButtonSimple foswikiRight' href='https://damask.mpie.de/bin/edit/System/NatSkin?_t=1627673751;action=form' title='Edit this DataForm' ><i class='jqButtonIcon fa fa-fw fa-pencil-square-o'></i><span class='jqButtonText'>Edit form</span></a>
+            <h2> <a href="/bin/view/System/PackageForm">PackageForm</a> </h2>
+            <span class='foswikiClear'></span>
+            <table class='foswikiLayoutTable'><tr>
+    <th class='foswikiTableFirstCol'>Author: </th>
+    <td class='foswikiFormValue'> Michael Daum </td>
+    </tr><tr>
+    <th class='foswikiTableFirstCol'>Version: </th>
+    <td class='foswikiFormValue'> 6.01 </td>
+    </tr><tr>
+    <th class='foswikiTableFirstCol'>Release: </th>
+    <td class='foswikiFormValue'> 14 Feb 2019 </td>
+    </tr><tr>
+    <th class='foswikiTableFirstCol'>Description: </th>
+    <td class='foswikiFormValue'> Userfriendly Foswiki skin providing a flexible theming engine for professional webdesigns </td>
+    </tr><tr>
+    <th class='foswikiTableFirstCol'>Repository: </th>
+    <td class='foswikiFormValue'> <a href="https://github.com/foswiki/NatSkin">https://github.com/foswiki/NatSkin</a> </td>
+    </tr><tr>
+    <th class='foswikiTableFirstCol'>Copyright: </th>
+    <td class='foswikiFormValue'> 2003-2019, Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td>
+    </tr><tr>
+    <th class='foswikiTableFirstCol'>License: </th>
+    <td class='foswikiFormValue'> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td>
+    </tr><tr>
+    <th class='foswikiTableFirstCol'>Home: </th>
+    <td class='foswikiFormValue'> <a class="interwikiLink" href="https://foswiki.org/Extensions/NatSkin" title="'Extensions/NatSkin' on foswiki.org">Foswiki:Extensions/NatSkin</a> </td>
+    </tr><tr>
+    <th class='foswikiTableFirstCol'>Support: </th>
+    <td class='foswikiFormValue'> <a class="interwikiLink" href="https://foswiki.org/Support/NatSkin" title="'Support/NatSkin' on foswiki.org">Foswiki:Support/NatSkin</a> </td>
+    </tr></table></div></div></div><div id='tab5723' class='jqTab attachments' style='display:none'>
+<h2 class='jqTabLabel'>Attachments <span class='foswikiAttachmentsCount'>($count)</span></h2>
+<div class='jqTabContents' ><div class='foswikiAttachments foswikiFormSteps foswikiAttachmentsCols1' data-show-empty='false' data-show-hidden='false' data-show-options='false' data-sort='date' data-reverse='true' data-topic='System.NatSkin' data-filter='' data-selection='' data-limit='6' data-skip='0'  data-cols='1'>
+<div class="foswikiFormStep foswikiFormFirst jqUITooltip" data-theme='info' data-position='top' data-arrow='true'>
+  <span class='jqButton jqButtonSimple jqUploadButton' data-topic='System.NatSkin'><i class='jqButtonIcon fa-fw fa fa-upload'></i><span class='jqButtonText'>Upload files</span><input type="file" name="files[]" multiple /></span><a  class='jqButton jqButtonSimple foswikiAttachmentsOptionsToggle i18n' href='#' title='Show/hide advanced options' ><i class='jqButtonIcon fa fa-fw fa-wrench'></i><span class='jqButtonText'>Show options</span></a><div class="foswikiAttachmentsOptionsToggleContainer" >
+    <div class="foswikiFormSteps foswikiAttachmentsOptions">
+      <span class='foswikiFilter'>
+        <b>Search:</b>
+        <input title='Enter a search pattern to filter the list of attachments' type='text' value='' class='foswikiInputField' size='15'/>
+      </span>
+      <span class='foswikiSortBy'>
+        <b>Sort by:</b> 
+        <select class="foswikiSelect">
+          <option class="foswikiOption"  value='name'>Name</option>
+          <option class="foswikiOption" selected value='date'>Date</option>
+          <option class="foswikiOption"  value='user'>Author</option>
+          <option class="foswikiOption"  value='size'>Size</option> 
+          <option class="foswikiOption"  value='type'>Type</option>
+        </select>
+      </span>
+      <span class='foswikiResultsPerPage'>
+        <b>Results per page:</b>
+        <select class="foswikiSelect">
+          <option class="foswikiOption" selected>6</option>
+          <option class="foswikiOption" >12</option>
+          <option class="foswikiOption" >24</option>
+          <option class="foswikiOption" >48</option>
+          <option class="foswikiOption" value="all" >all</option>
+        </select>
+      </span>
+      <span class='foswikiDisplayHidden '>
+        <label title="Enable/disable displaying hidden attachments">
+          <b>Display hidden:</b>
+          <input type='checkbox' class='foswikiCheckbox'  value='on' />
+        </label>
+      </span>
+    </div>
+  </div>
+</div><div class="foswikiFormStep">
+<p></p>
+
+</div><div class="foswikiFormStep foswikiAttachmentsBottomActions">
+  <table class="foswikiLayoutTable foswikiAttachmentsBulkAction">
+  <tr>
+    <td>
+      <select class="foswikiSelect" name="bulkaction">
+        <option class="foswikiOption" value="">More actions</option>
+        <option class="foswikiOption foswikiMetaDataEdit" value="createlink">Insert links</option>
+        <option class="foswikiOption foswikiMetaDataEdit" value="createlink_hidefile">Insert links &amp; hide</option>
+        <option class='foswikiOption foswikiMetaDataEdit' value='createimagegallery'>Create image gallery</option><option class="foswikiOption" value="download">Download</option>
+        <option class="foswikiOption foswikiMetaDataEdit" value="hide">Hide</option>
+        <option class="foswikiOption foswikiMetaDataEdit" value="unhide">Unhide</option>
+        <option class="foswikiOption foswikiMetaDataEdit" value="move">Move</option>
+        <option class="foswikiOption foswikiMetaDataEdit" value="delete">Delete</option>
+      </select>
+    </td>
+    <td>
+      <span class='foswikiAttachmentsSelected'>0</span> attachment(s)
+    </td>
+  </tr>
+  </table>
+  <div class="foswikiAttachmentsSelect jqUITooltip" data-theme='info' data-position='top' data-arrow='true'>
+    <a  class='jqButton jqButtonSimple foswikiRight foswikiAttachmentsSelectAll' href='#' title='select all attachments on this topic'  style='display:none' ><i class='jqButtonIcon fa fa-fw fa-plus-circle'></i><span class='jqButtonText'>Select all</span></a>
+    <a  class='jqButton jqButtonSimple foswikiRight foswikiAttachmentsClearAll' href='#' title='unselect all previously select attachments' ><i class='jqButtonIcon fa fa-fw fa-minus-circle'></i><span class='jqButtonText'>Clear all</span></a>
+    <span class='foswikiClear'></span>
+  </div>
+  <span class='foswikiClear'></span>
+</div>
+</div></nautolink></div></div></div></div><form id="editSettingsForm" name="editSettingsForm" class="foswikiHidden" action="/bin/manage/System/NatSkin" method="post" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?1bda4bea0df071853302a2bf1f3b5c15' /> 
+  <input type="hidden" name="action" value="editSettings" /> 
+</form></div></div>
+</div></div><div class="natBottomBar">
+<div class="natBottomBarContents">
+<div class="natSiteMap clearfix">
+<h3 >Sitemap</h3>
+<div class='natSiteMapItem'><a href='/bin/view/About/WebHome'>DAMASK</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/Development/WebHome'>Development</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/Documentation/WebHome'>Documentation</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/Download/WebHome'>Download</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/Examples/WebHome'>Examples</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/Home/WebHome'>Home</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/Installation/WebHome'>Installation</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/Main/WebHome'>Main</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/References/WebHome'>References</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/Sandbox/WebHome'>Sandbox</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/System/WebHome'>System</a></div>
+<div class='natSiteMapItem'><a href='/bin/view/Usage/WebHome'>Usage</a></div>
+</div>
+<div class="natCopyRight"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.NatSkin'>Send feedback</a> </div><div class='natCookieInfo'>
+  <div class='natCookieInfoContents'>
+	 This website is using cookies. <a href='http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm' target='_blank'>More info</a>. 
+	 <a class="natCookieInfoOK">That's Fine</a>
+  </div>
+</div></div>
+</div><a class="natScrollTop jqScrollToLink" data-target="0"  data-duration="500" title="Scroll to top"><i class='foswikiIcon jqIcon fa fa-angle-double-up'  ></i></a><span id="PageBottom"></span>
+</div>
+<div class="pswp body JQUERYPLUGIN::JQPHOTOSWIPECONTRIB::PSWP" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div></body>
+</html>

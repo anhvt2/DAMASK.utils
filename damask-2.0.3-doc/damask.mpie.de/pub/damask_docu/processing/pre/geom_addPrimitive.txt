@@ -1,0 +1,34 @@
+%SECTION0% geom_addPrimitive
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Positions a geometric object within the (three-dimensional) canvas of a spectral geometry description. Depending on the sign of the dimension parameters, these objects can be boxes, cylinders, or ellipsoids.
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; geom_addPrimitive options <a href=https://https://damask.mpie.de/Documentation/GeometryFormat>Geom file</a>(s) 
+</pre>
+
+%UPTOC%
+---++ Options
+   $=-c= / =--center=: 
+   a,b,c origin of primitive (0.0, 0.0, 0.0)
+   $=-d= / =--dimension=: 
+   a,b,c extension of hexahedral box; negative values are diameters
+   $=-e= / =--exponent=: 
+   i,j,k exponents for axes - 0 gives octahedron (|x|^(2^0) + |y|^(2^0) + |z|^(2^0) < 1),                   1 gives a sphere (|x|^(2^1) + |y|^(2^1) + |z|^(2^1) < 1),                   large values produce boxes, negative turns concave.
+   $=-f= / =--fill= [ *0* ]: 
+   grain index to fill primitive. "0" selects maximum microstructure index + 1
+   $=-q= / =--quaternion=: 
+   rotation of primitive as quaternion
+   $=-a= / =--angleaxis=: 
+   angle,x,y,z clockwise rotation of primitive about axis by angle
+   $=--degrees= [ *False* ]: 
+   angle is given in degrees
+   $=--nonperiodic= [ *True* ]: 
+   wrap around edges
+   $=--realspace= [ *origin,origin+size] instead of [0,grid* ]: 
+   -c and -d span coordinates

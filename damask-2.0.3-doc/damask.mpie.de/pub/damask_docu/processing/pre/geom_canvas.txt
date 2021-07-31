@@ -1,0 +1,26 @@
+%SECTION0% geom_canvas
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Changes the (three-dimensional) canvas of a spectral geometry description. Grid can be given as absolute or relative values, e.g. 16 16 16 or 2x 0.5x 32.
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; geom_canvas options <a href=https://https://damask.mpie.de/Documentation/GeometryFormat>Geom file</a>(s) 
+</pre>
+
+%UPTOC%
+---++ Options
+   $=-g= / =--grid= [ *auto* ]: 
+   a,b,c grid of hexahedral box.
+   $=-o= / =--offset=[ *0* *0* *0* ]: 
+   a,b,c offset from old to new origin of grid
+   $=-f= / =--fill= [ *0* ]: 
+   (background) canvas grain index. "0" selects maximum microstructure index + 1
+   $=--float=: 
+   use float input
+   $=--blank=: 
+   blank out (optional) input canvas content

@@ -1,0 +1,36 @@
+%SECTION0% geom_fromOsteonGeometry
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Generate a geometry file of an osteon enclosing the Harvesian canal and separated by interstitial tissue. The osteon phase is lamellar with a twisted plywood structure. Its fiber orientation is oscillating by +/- amplitude within one period.
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; geom_fromOsteonGeometry options option(s)] [<a href=https://https://damask.mpie.de/Documentation/GeometryFormat>Geom file</a> 
+</pre>
+
+%UPTOC%
+---++ Options
+   $=-g= / =--grid=[ *512* *512* ]: 
+   a,b grid of hexahedral box
+   $=-s= / =--size=[ *0.0003* *0.0003* ]: 
+   x,y size of hexahedral box
+   $=-c= / =--canal= [ *2.5e-05* ]: 
+   Haversian canal radius
+   $=-o= / =--osteon= [ *0.0001* ]: 
+   horizontal osteon radius
+   $=-l= / =--lamella= [ *5e-06* ]: 
+   lamella width
+   $=-a= / =--amplitude= [ *60* ]: 
+   amplitude of twisted plywood wiggle in deg
+   $=--aspect= [ *1.0* ]: 
+   vertical/horizontal osteon aspect ratio
+   $=-w= / =--omega= [ *0.0* ]: 
+   rotation angle around normal of osteon
+   $=--homogenization= [ *1* ]: 
+   homogenization index to be used
+   $=--crystallite= [ *1* ]: 
+   crystallite index to be used

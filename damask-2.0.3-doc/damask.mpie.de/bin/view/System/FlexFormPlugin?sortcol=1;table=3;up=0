@@ -1,0 +1,959 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> FlexFormPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/FlexFormPlugin?t=1627669700" type="application/x-wiki" title="edit FlexFormPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/FlexFormPlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/ade42efc7b2ef9c07aa73da6f252fcb6.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableFlexFormPlugin4 {width:100%}
+body .foswikiTable#tableFlexFormPlugin4 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableFlexFormPlugin4 th.foswikiTableCol0 {width:7em}
+</style>
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURLPATH" : "/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "USERSWEB" : "Main",
+   "USERNAME" : "guest",
+   "SCRIPTSUFFIX" : "",
+   "WEB" : "System",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SKIN" : "damask,famfamfam,pattern",
+   "WIKINAME" : "WikiGuest",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SERVERTIME" : "30 Jul 2021 - 20:28",
+   "COOKIEREALM" : "",
+   "TOPIC" : "FlexFormPlugin",
+   "SYSTEMWEB" : "System",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTURLPATH" : "/bin"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::TINYMCE' type='text/javascript' src='/pub/System/TinyMCEPlugin/foswiki_tiny.js'></script>
+<script class='script JQUERYPLUGIN::TINYMCE' type='text/javascript' src='/pub/System/TinyMCEPlugin/foswiki.js'></script>
+<script class='script JQUERYPLUGIN::TINYMCE' type='text/javascript' src='/pub/System/TinyMCEPlugin//tinymce/jscripts/tiny_mce/tiny_mce.js'></script>
+<script class='script TinyMCEPluginTextArea' type="text/javascript">
+jQuery(function($) { FoswikiTiny.install(); });
+FoswikiTiny.init = {
+"mode" : "textareas",
+"editor_selector" : "foswikiWysiwygEdit",
+"save_on_tinymce_forms" : true,
+"table_default_cellpadding" : 0,
+"table_default_cellspacing" : 1,
+"table_default_border" : 1,
+"theme" : "advanced",
+"convert_urls" : true,
+"relative_urls" : false,
+"remove_script_host" : false,
+"dialog_type" : "modal",
+"extended_valid_elements" : "li[type],a[rel|rev|charset|hreflang|tabindex|accesskey|type|name|href|target|title|class|onfocus|onblur|data*]",
+"setupcontent_callback" : "FoswikiTiny.setUpContent",
+"urlconverter_callback" : "FoswikiTiny.convertLink",
+"foswikipuburl_callback" : "FoswikiTiny.convertPubURL",
+"save_callback" : "FoswikiTiny.saveCallback",
+"debug" : true,
+"plugins" : "contextmenu, table, searchreplace, autosave, paste, legacyoutput, inlinepopups, fullscreen, -foswiki, -foswikibuttons, -foswikiimage",
+"foswiki_plugin_urls" : {
+    "foswiki" : "/pub/System/TinyMCEPlugin/plugins/foswiki/editor_plugin.js",
+    "foswikibuttons" : "/pub/System/TinyMCEPlugin/plugins/foswikibuttons/editor_plugin.js",
+    "foswikiimage" : "/pub/System/TinyMCEPlugin/plugins/foswikiimage/editor_plugin.js" },
+"foswiki_secret_id" : "WYSIWYG content - do not remove this comment, and never use this identical text in your topics",
+"foswiki_vars" : {
+    "PUBURLPATH" : "/pub",
+    "PUBURL" : "https://damask.mpie.de/pub",
+    "WEB" : "System",
+    "TOPIC" : "FlexFormPlugin",
+    "ATTACHURL" : "https://damask.mpie.de/pub/System/FlexFormPlugin",
+    "ATTACHURLPATH" : "/pub/System/FlexFormPlugin",
+    "VIEWSCRIPTURL" : "https://damask.mpie.de/bin/view",
+    "SCRIPTSUFFIX" : "",
+    "SCRIPTURL" : "https://damask.mpie.de/bin",
+    "SYSTEMWEB" : "System"
+},
+"theme_advanced_toolbar_align" : "left",
+"foswikibuttons_formats" : {
+    /* Use 'attributes : { class : "foo" }' instead of 'classes: "foo"'
+     * because this is how it's done in the default advanced theme shipped
+     * with System.TinyMCE which seems to be a few ms faster on cursor movement
+     */
+    "Normal" : { "remove" : "all" },
+    "Heading 1" : { "block" : "h1",  "remove" : "all" },
+    "Heading 2" : { "block" : "h2",  "remove" : "all" },
+    "Heading 3" : { "block" : "h3",  "remove" : "all" },
+    "Heading 4" : { "block" : "h4",  "remove" : "all" },
+    "Heading 5" : { "block" : "h5",  "remove" : "all" },
+    "Heading 6" : { "block" : "h6",  "remove" : "all" },
+    "VERBATIM"  : { "block" : "pre", "remove" : "all", "attributes" : { "class" : "TMLverbatim" } }, 
+    "LITERAL"   : { "block" : "div", "remove" : "all", "attributes" : { "class" : "WYSIWYG_LITERAL" } },
+    "Protect on save" : { "block" : "div", "remove" : "all", "attributes" : { "class" : "WYSIWYG_PROTECTED" } },
+    "Protect forever" : { "block" : "div", "remove" : "all", "attributes" : { "class" : "WYSIWYG_STICKY" } }
+},
+"foswikibuttons_cursoridletime" : 250,
+"paste_create_paragraphs" : true,
+"paste_create_linebreaks" : false,
+"paste_convert_middot_lists" : true,
+"paste_convert_headers_to_strong" : false,
+"paste_remove_spans" : true,
+"paste_remove_styles" : true,
+"paste_strip_class_attributes" : "all",
+"theme_advanced_buttons1" : "foswikiformat, separator, bold, italic, tt, colour, removeformat, separator, bullist, numlist, fwexdent, fwindent, blockquote, separator, link, unlink, anchor, separator, undo, redo, separator, search, replace",
+"theme_advanced_buttons2" : "tablecontrols, separator, attach, image, charmap, hr, separator, restoredraft, fullscreen, code, hide",
+"theme_advanced_buttons3" : "",
+"autosave_interval" : "180s",
+"autosave_retention" : "4320m",
+"entity_encoding" : "numeric",
+"theme_advanced_toolbar_location" : "top",
+"theme_advanced_resize_horizontal" : false,
+"theme_advanced_resizing" : true,
+"theme_advanced_path" : false,
+"theme_advanced_statusbar_location" : "none",
+"skin" : "o2k7",
+"skin_variant" : "silver",
+"keep_styles" : false,
+"content_css" : "/pub/System/TinyMCEPlugin/wysiwyg.css,/pub/System/SkinTemplates/base.css,/pub/System/PatternSkinThemeDamask/style.css,/pub/System/PatternSkinThemeFatWilly/colors.css"
+};
+</script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/FlexFormPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?4c6c0679f97e4937c719f00def1ad41f' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/FlexFormPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?9507b8af888c24c2b4fb99e5efd0c34a' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.FlexFormPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.FlexFormPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/FlexFormPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/FlexFormPlugin" title='Topic revision: 6 (12 Nov 2019 - 11:05:03)'>FlexFormPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/FlexFormPlugin?t=1627669700;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/FlexFormPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/FlexFormPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/FlexFormPlugin?raw=on&amp;rev=6' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=FlexFormPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/FlexFormPlugin?cover=print;sortcol=1;table=3;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/FlexFormPlugin?template=more&amp;maxrev=6&amp;currrev=6' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="FlexFormPlugin">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/FlexFormPlugin">FlexFormPlugin</a> </h1>
+Flexible way to render DataForms 
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Usage"> Usage </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#RENDERFOREDIT"> RENDERFOREDIT </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#RENDERFORDISPLAY"> RENDERFORDISPLAY </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#RENDERFORMDEF"> RENDERFORMDEF </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Form_layouts"> Form layouts </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Examples"> Examples </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Display_the_allowed_values_of_one_field_and_its_default"> Display the allowed values of one field and its default </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Dependencies"> Dependencies </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p></p>
+
+This plugin leverages the internal capabilities to render an interface for <a href="/bin/view/System/DataForms">DataForms</a>
+and adds insights to the acutal DataForm definition itself as used internally.
+This API is part of the <code>Foswiki::Form</code> and <code><a class="interwikiLink" href="https://foswiki.org/Form::FieldDefinition" title="'Form::FieldDefinition' on foswiki.org">Foswiki:Form::FieldDefinition</a></code> classes of Foswiki
+now available when writing custom EDIT_TEMPLATEs and VIEW_TEMPLATEs in wiki applications.
+<p class='p'>The %RENDEFFOREDIT and %RENDERFORDISPLAY macros allows wiki application authors
+to customize interfaces to DataForms while not losing the flexibility of defining a DataForm
+in one place.</p>
+
+Imagine you created an EDIT_TEMPLATE <em>without</em> %RENDERFOREDIT
+by creating an HTML input form manually. When you decide to extend or modify a form definition later
+you will always have to maintain these HTML forms in an EDIT_TEMPLATE as well. This redundancy can
+be avoided by using a %RENDERFOREDIT macro that loops over all formfields in your DataForm
+to render the input form in a more dynamic way while still customizing the overall output.
+<p></p>
+
+In addition, FlexFormPlugin facilitates the extraction of field default values (such as valid schema options) from 
+DataForm. See <a href="https://foswiki.org/Development/MacroForRetrievingFieldDefaultValues">https://foswiki.org/Development/MacroForRetrievingFieldDefaultValues</a> for background.
+<p class='p'>While %RENDERFOREDIT% and %%RENDERFORDISPLAY render forms for the net data using a DataForm
+the %RENDERFORMDEF= macro renders information about the DataForm definition itself identpendent of
+any topic actually using it. This may be used to provide more defailed insights into the DataForm definition.</p>
+
+<h2 id="Usage">  Usage </h2>
+<h3 id="RENDERFOREDIT">  RENDERFOREDIT </h3>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/FlexFormPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/FlexFormPlugin?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/FlexFormPlugin?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> "..." or topic="..." </td>
+			<td class="foswikiTableCol1"> name of a topic to render the edit form for </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> the base topic of the current url </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> revision="..." </td>
+			<td class="foswikiTableCol1"> topic revision which to use the data from while populating the edit form </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> excludeattr="..." </td>
+			<td class="foswikiTableCol1"> regular expression field attributes must match to be excluded from the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> undefined </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> exclude="..." </td>
+			<td class="foswikiTableCol1"> regular expression fieldnames must match to be excluded from the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> undefined </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> fields="&lt;fieldname1&gt;, &lt;fieldname2&gt;, ..." </td>
+			<td class="foswikiTableCol1"> list of formfields to render the interface for </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> all known formfields </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> prefix="..." </td>
+			<td class="foswikiTableCol1"> adds a prefix string to the name while rendering the editor for a formfield </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> footer="..." </td>
+			<td class="foswikiTableCol1"> footer string to apped to the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &lt;empty string&gt; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> format="..." </td>
+			<td class="foswikiTableCol1"> format string to render each formfield with, more info below </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>$edit$mandatory</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> form="..." </td>
+			<td class="foswikiTableCol1"> topic name containing the DataForm definition </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> form found at the base topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> type="div/table/grid" </td>
+			<td class="foswikiTableCol1"> specify the layout to be used in case no format is specified manually (using header,format,separator and footer parameters); grid is only available when <a class="interwikiLink" href="https://foswiki.org/Extensions/GridLayoutPlugin" title="'Extensions/GridLayoutPlugin' on foswiki.org">Foswiki:Extensions/GridLayoutPlugin</a> is installed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> div </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> header="..." </td>
+			<td class="foswikiTableCol1"> header string to be put in front of the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &lt;empty string&gt; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> hidden="..." </td>
+			<td class="foswikiTableCol1"> those fields that match this regular expression will be rendered hidden </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> undefined </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> hideempty="on/off" </td>
+			<td class="foswikiTableCol1"> hide empty formfields </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> includeattr="..." </td>
+			<td class="foswikiTableCol1"> regular expression field attributes must match to be included in the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> undefined </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> include="..." </td>
+			<td class="foswikiTableCol1"> regular expression fieldnames must match to be included in the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> undefined </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> mandatory="..." </td>
+			<td class="foswikiTableCol1"> string to be inserted when a field is mandatory </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <span class='foswikiAlert'>**</span> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> map="&lt;fieldname1&gt;=&lt;title1&gt;, &lt;fieldname2&gt;=&lt;title2&gt;, ..." </td>
+			<td class="foswikiTableCol1"> allows to map a fieldname to a different title string in the edit interface </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> original fieldnames are used as title string </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> separator="..." </td>
+			<td class="foswikiTableCol1"> string to be put between each formatted output per formfield </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &lt;empty string&gt; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> sort="on/off" </td>
+			<td class="foswikiTableCol1"> sort values of multi-valued formfields </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> on </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> valueseparator="..." </td>
+			<td class="foswikiTableCol1"> string to be put between each allowed value as defined in the form schema </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> , </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> value="..." </td>
+			<td class="foswikiTableCol1"> value to be inserted into the edit interface; makes sense for single-field calls only </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> stored value in the base topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> &lt;fieldname&gt;_attributes="..." <br />   &lt;fieldname&gt;_default="..." <br />   &lt;fieldname&gt;_description="..." <br />   &lt;fieldname&gt;_format="..." <br />   &lt;fieldname&gt;_name="..." <br />   &lt;fieldname&gt;_size="..." <br />   &lt;fieldname&gt;_title="..." <br />   &lt;fieldname&gt;_type="..." <br />   &lt;fieldname&gt;_values="..." <br /> </td>
+			<td class="foswikiTableCol1"> these parameters allow to override the formfield properties as specified in the DataForm definition; for example a <code>Teaser_type="text"</code> , <code>Teaser_size="30"</code> will override a definition of a <code>Teaser</code> formfield that otherwise is a <code>textarea</code> of size <code>80x25</code>; &lt;fieldname&gt;_values redefines the list of allowed values for that field </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> values as defined in the DataForm definition and the current topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> &lt;fieldname&gt;_value="..." </td>
+			<td class="foswikiTableCol1"> value to be inserted into the edit interface of the named field </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> looks for urlparam &lt;fieldname&gt;, defaults to stored value </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> &lt;fieldname&gt;_sort="..." </td>
+			<td class="foswikiTableCol1 foswikiLast"> on/off/asc/desc/rev - sort allowed values before displaying them </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> as defined in the DataForm </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="RENDERFORDISPLAY">  RENDERFORDISPLAY </h3>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/FlexFormPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/FlexFormPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/FlexFormPlugin?sortcol=2;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> "..." or topic="..." </td>
+			<td class="foswikiTableCol1"> name of a topic to display the form for </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> the base topic of the current url </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> revision="..." </td>
+			<td class="foswikiTableCol1"> topic revision to display </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> autolink="on/off" </td>
+			<td class="foswikiTableCol1"> enable/disable WikiWord autolinking when rendering a formfield; setting <code>autolink</code> sets the default for all fields specific settings of =&lt;fieldname&gt;_autolink=which can, that is you can disable autolinking globally and switch it back on per field </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> on </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> excludeattr="..." </td>
+			<td class="foswikiTableCol1"> regular expression field attributes must match to be excluded from the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> undefined </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> exclude="..." </td>
+			<td class="foswikiTableCol1"> regular expression fieldnames must match to be excluded from the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> undefined </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> fields="&lt;fieldname1&gt;, &lt;fieldname2&gt;, ..." </td>
+			<td class="foswikiTableCol1"> list of formfields to be displayed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> all known formfields </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> footer="..." </td>
+			<td class="foswikiTableCol1"> footer string to apped to the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &lt;empty string&gt; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> type="div/table/grid" </td>
+			<td class="foswikiTableCol1"> specify the layout to be used in case no format is specified manually (using header,format,separator and footer parameters); grid is only available when <a class="interwikiLink" href="https://foswiki.org/Extensions/GridLayoutPlugin" title="'Extensions/GridLayoutPlugin' on foswiki.org">Foswiki:Extensions/GridLayoutPlugin</a> is installed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> table </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> format="..." </td>
+			<td class="foswikiTableCol1"> format string to render each formfield with, more info below </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>$edit$mandatory</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> form="..." </td>
+			<td class="foswikiTableCol1"> topic name containing the DataForm definition </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> form found at the base topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> header="..." </td>
+			<td class="foswikiTableCol1"> header string to be put in front of the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &lt;empty string&gt; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> hideempty="on/off" </td>
+			<td class="foswikiTableCol1"> hide empty formfields </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> includeattr="..." </td>
+			<td class="foswikiTableCol1"> regular expression field attributes must match to be included in the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> undefined </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> include="..." </td>
+			<td class="foswikiTableCol1"> regular expression fieldnames must match to be included in the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> undefined </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> labelformat="..." </td>
+			<td class="foswikiTableCol1"> format string used for labels exclusively; labels aren't real input fields; they are part of the form definition but carry read-only values only if at all </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> same as <code>format</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> map="&lt;fieldname1&gt;=&lt;title1&gt;, &lt;fieldname2&gt;=&lt;title2&gt;, ..." </td>
+			<td class="foswikiTableCol1"> allows to map a fieldname to a different title string (<strong>deprecated</strong>: please use &lt;fieldname&gt;_title to redefine the title) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> original fieldnames are used as title string </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> separator="..." </td>
+			<td class="foswikiTableCol1"> string to be put between each formatted output per formfield </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &lt;empty string&gt; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> sort="on/off" </td>
+			<td class="foswikiTableCol1"> sort values of multi-valued formfields </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> on </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> valueseparator="..." </td>
+			<td class="foswikiTableCol1"> string to be put between each allowed value as defined in the form schema </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> , </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> &lt;fieldname&gt;_attributes="..." <br />   &lt;fieldname&gt;_autolink="..." <br />   &lt;fieldname&gt;_default="..." <br />   &lt;fieldname&gt;_description="..." <br />   &lt;fieldname&gt;_format="..." <br />   &lt;fieldname&gt;_size="..." <br />   &lt;fieldname&gt;_sort="..." <br />   &lt;fieldname&gt;_title="..." <br />   &lt;fieldname&gt;_type="..." <br />   &lt;fieldname&gt;_value="..." <br />   &lt;fieldname&gt;_values="..." <br /> </td>
+			<td class="foswikiTableCol1 foswikiLast"> see above </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> defaults as defined in the DataForm definition and the current topic </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+If all three <code>format</code>, <code>header</code> and <code>footer</code> are undefined a <code>foswikiFormSteps</code> block will be rendered as illustrated in the example below.
+<p></p>
+
+The <code>format</code> parameter may contain the following variables:
+<p></p>
+ <ul>
+<li> <code>$attrs</code>: attribute string as given in the DataForm definition
+</li> <li> <code>$description</code>: formfield description in DataForm 
+</li> <li> <code>$edit</code>: the HTML form element as specified by the DataForm definition, that is a input field, a textarea, a select box, whatever
+</li> <li> <code>$extra</code>: the "extra" return value of the <code>Foswiki::Form::renderForEdit()</code> call
+</li> <li> <code>$mandatory</code>: placeholder to display the <code>mandatory</code> flag when a formfield is mandatory; the format of the mandatroy flag can be defined in the <code>mandatory</code> parameter to RENDERFOREDIT
+</li> <li> <code>$name</code>: the original fieldname
+</li> <li> <code>$size</code>: size parameter of the formfield as given in the DataForm definition
+</li> <li> <code>$title</code>: the fieldtitle derived from the fieldname and remapped as specified in the <code>map</code> parameter
+</li> <li> <code>$tooltip</code>: formfield description in DataForm (<strong>deprecated</strong>: use <code>$description</code> instead)
+</li> <li> <code>$type</code>: type of formfield as given in the DataForm definition
+</li> <li> <code>$value</code>: current value of the formfield; for <code>+value</code> formfields this is the <em>mapped</em> value use <code>$origvalue</code> to get the original one
+</li> <li> <code>$origvalue</code>: current value of the formfield; for <code>+value</code> formfields this is the original <em>unmapped</em> value of the formfield
+</li> <li> <code>$values</code>: list of all allowed values for the formfield as defined in the DataForm definition
+</li> <li> <code>$origvalues</code>: list of all allowed values; for <code>+value</code> formfields this is the original <em>unmapped</em> value of the formfield
+</li> <li> <code>$default</code>: this is the default value if no value is specified in the topic itself
+</li></ul> 
+<p></p>
+
+<h3 id="RENDERFORMDEF">  RENDERFORMDEF </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/FlexFormPlugin?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/view/System/FlexFormPlugin?sortcol=1;table=3;up=1#sorted_table" rel="nofollow" title="Sort by this column">Description</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/FlexFormPlugin?sortcol=2;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> field="..." or fields="..." </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> a comma separated list of fields to render information about </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> all fields </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> footer </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> footer string appended to the result </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> format </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> format string for each field to be rendered in the result </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> header </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> header string prepended to the result </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> include="..." </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> regular expression a field name must match to be listed </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> exclude="..." </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> regular expression a field name must not match to be listed </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> excludeattr="..." </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> regular expression field attributes must match to be excluded from the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> undefined </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> includeattr="..." </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> regular expression field attributes must match to be included in the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> undefined </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> separator </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> separator between lines when field information is rendered </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> "..." or form="..." </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" rowspan="1"> the topic holding the DataForm definition </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast" rowspan="1"> current topic </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+The <code>format</code> parameter may contain the following variables:
+<p></p>
+ <ul>
+<li> <code>$name</code>: field name  
+</li> <li> <code>$title</code>: field title 
+</li> <li> <code>$type</code>: field type 
+</li> <li> <code>$size</code>: field size 
+</li> <li> <code>$attributes</code>: field attributes 
+</li> <li> <code>$description</code>: field description 
+</li> <li> <code>$definingtopic</code>: topic where allowed values are defined
+</li> <li> <code>$defaultvalue</code>: default value as specified in the defaults column
+</li> <li> <code>$value</code>: value as specified in the values column, or the default value
+</li></ul> 
+<p class='p'>Note that the actual results may vary depending on the formfield type of the DataForm.</p>
+
+<h2 id="Form_layouts">  Form layouts </h2>
+<p></p>
+
+There are three layouts that are supported by <code>%RENDERFORDISPLAY</code> and <code>%RENDERFOREDIT</code> that may be specified using the <code>type="..."</code> parameter:
+<p></p>
+ <ul>
+<li> <code>table</code>
+</li> <li> <code>div</code>
+</li> <li> <code>grid</code> (only supported if <a class="interwikiLink" href="https://foswiki.org/Extensions/GridLayoutPlugin" title="'Extensions/GridLayoutPlugin' on foswiki.org">GridLayoutPlugin</a> is installed)
+</li></ul> 
+<p></p>
+
+All of them have different advantages. A <code>table</code> layout aligns rows and columns nicely while using screen space quite economical.
+However tables don't behave responsive on mobile devices. A <code>div</code> based layout stacks formfields and their header from top to down
+thus using more screen space for the benefit of being well readable on mobile devices as well. The <code>grid</code> layout covers a middle ground
+between both: it looks like <code>table</code> layout on wide screens but will collaps columns into a stack as form elements fit better vertically
+than horizontal on mobile devices.
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<p></p>
+
+<pre>
+&#37;RENDERFOREDIT{
+  form&#61;&#34;&#37;USERSWEB&#37;.UserForm&#34;
+  topic&#61;&#34;Sandbox.TestTopic1&#34;
+  exclude&#61;&#34;Email&#124;Comment&#124;State&#34;
+  FirstName&#95;value&#61;&#34;Horst&#34;
+  LastName&#95;value&#61;&#34;Buchholz&#34;
+  map&#61;&#34;VoIP&#61;Skype&#34;
+}&#37;
+</pre>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Display_the_allowed_values_of_one_field_and_its_default">  Display the allowed values of one field and its default </h3>
+<p></p>
+
+<pre>
+&#37;RENDERFORDISPLAY{
+  form&#61;&#34;ValueTransactionForm&#34; 
+  field&#61;&#34;FromRole&#34; 
+  format&#61;&#34;allowed values for &#36;title are &#36;values, default is &#39;&#36;default&#39;&#34;
+}&#37;
+</pre>
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Plugins::MultiLingualPlugin</td><td align="left">&gt;=3.00</td><td align="left">Optional</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<table class="foswikiTable" id="tableFlexFormPlugin4" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Nov 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> normalize web parameter before caching topic objects </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Jul 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>type</code> parameter to RENDERFORDISPLAY and RENDERFOREDIT </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Aug 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>includeattr</code>, <code>excludeattr</code> to RENDERFORMDEF </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Sep 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved support to translate formfields using <a class="interwikiLink" href="https://foswiki.org/Extensions.MultiLingualPlugin" title="'Extensions.MultiLingualPlugin' on foswiki.org">Foswiki:Extensions.MultiLingualPlugin</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Mar 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> clean up formfield title before trying to translate it;                   added <code>hideempty</code> for RENDERFOREDIT </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jul 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed use of <code>param()</code> in list context </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Mar 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> working around encoding problems with CGI &gt;= 4.11 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Mar 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> restructured code to offer a proper perl api </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>$defaultvalue</code> variable;                   catch exceptions reading a form definition not to propagate up to the page level;                   by default hide rows marked as hidden;                   read formfield description either from the <code>tooltip</code> or <code>description</code> property </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Sep 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved cross-engine compatibility displaying formfield values </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Aug 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added new feature %RENDERFORMDEF </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Mar 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> work around different styles of inconsistencies in <code>renderForDisplay</code> across foswiki core releases </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Nov 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> properly render <code>checkbox+buttons</code> formfields </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Jul 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>revision</code> parameter to access non-top revisions;                   improved compatibility with foswiki-1.2.x </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Mar 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>&lt;fieldname&gt;_name</code> to temporarily override the input field name </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Oct 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> rationalized <code>include</code> and <code>exclude</code>; adding <code>$mandatory</code> to the default format </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Feb 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>$origvalues</code> to display unmapped values of +values formfields;                   added <code>prefix</code> parameter;                   protecting the editor of a formfield by surrounding it with &lt;literal&gt; tags </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Aug 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed rendering +value formields yet again; added <code>$origvalue</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Mar 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added autolink param;                   fixed getting default values;                   added global sort param;                   added fieldname_format param;                   protecting %MACROs in value attr of an input field </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Aug 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added fieldname_sort param to sort allowed field values before displaying them </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Aug 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>hideempty</code> to RENDERFORDISPLAY </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jul 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed rendering hidden fields when creating a new topic (<a class="interwikiLink" href="https://foswiki.org/Main/PasiHaekkinen" title="'Main/PasiHaekkinen' on foswiki.org">Foswiki:Main/PasiHaekkinen</a>) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Jul 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed not try to load a non-existing form definition;                   providing fallback method for retrieving default values from form definition for those formfield types that can't do that by themselves;                   fixed expanding field title before the formfield does;                   fixed expanding standard escapes at the very end of the rendering process;                   added better default format for RENDERFOREDIT </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jun 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>includeattr</code>, <code>excludeattr</code> to filter formfields by their attributes </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed error where topic values were not inserted into the edit form properly </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> cleaned up <code>$value</code> and <code>$values</code> variable in both RENDERFOREDIT and RENDERFORIDPLSAY;                  added <code>$default</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.MartinCleaver" title="'Main.MartinCleaver' on foswiki.org">Foswiki:Main.MartinCleaver</a> - added ability to extract allowed values of a field <a class="interwikiLink" href="https://foswiki.org/Tasks.Item8671" title="'Tasks.Item8671' on foswiki.org">Foswiki:Tasks.Item8671</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added fine-grained control over each formfield, i.e. remapping of the formfield type </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 08 Mar 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> initial release </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/FlexFormPlugin?t=1627669700;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/MichaelDaum" title="'MichaelDaum' on foswiki.org">Foswiki:MichaelDaum</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 6.01 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 21 Nov 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Flexible way to render DataForms </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/FlexFormPlugin">https://github.com/foswiki/FlexFormPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2009-2019 Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> <span class='externalLink'><a href="http://www.gnu.org/licenses/gpl.html">GPL (Gnu General Public License)</a></span> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a class="interwikiLink" href="https://foswiki.org/Extensions/FlexFormPlugin" title="'Extensions/FlexFormPlugin' on foswiki.org">Foswiki:Extensions/FlexFormPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Support/FlexFormPlugin" title="'Support/FlexFormPlugin' on foswiki.org">Foswiki:Support/FlexFormPlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/FlexFormPlugin?t=1627669700' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/FlexFormPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/FlexFormPlugin?cover=print;sortcol=1;table=3;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/FlexFormPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r6&nbsp;<a href="/bin/diff/System/FlexFormPlugin?rev1=5;rev2=6" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/FlexFormPlugin?rev=5" rel="nofollow">r5</a>&nbsp;<a href="/bin/diff/System/FlexFormPlugin?rev1=4;rev2=5" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/FlexFormPlugin?rev=4" rel="nofollow">r4</a>&nbsp;<a href="/bin/diff/System/FlexFormPlugin?rev1=3;rev2=4" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/FlexFormPlugin?rev=3" rel="nofollow">r3</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/FlexFormPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/FlexFormPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/FlexFormPlugin?t=1627669700;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/FlexFormPlugin?template=more&amp;maxrev=6&amp;currrev=6' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r6 - 12 Nov 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/FlexFormPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/FlexFormPlugin%3fsortcol%3d1%3btable%3d3%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.FlexFormPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

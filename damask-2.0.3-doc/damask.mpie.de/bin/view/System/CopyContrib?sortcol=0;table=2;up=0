@@ -1,0 +1,776 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> CopyContrib &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/CopyContrib?t=1627672092" type="application/x-wiki" title="edit CopyContrib" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/CopyContrib" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableCopyContrib7 {width:100%}
+body .foswikiTable#tableCopyContrib7 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableCopyContrib7 th.foswikiTableCol0 {width:7em}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/296c51dff364ca544551fceb04c37c81.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "USERNAME" : "guest",
+   "SYSTEMWEB" : "System",
+   "USERSWEB" : "Main",
+   "SKIN" : "damask,famfamfam,pattern",
+   "PUBURLPATH" : "/pub",
+   "WEB" : "System",
+   "SCRIPTSUFFIX" : "",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "URLHOST" : "https://damask.mpie.de",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATH" : "/bin",
+   "TOPIC" : "CopyContrib",
+   "SERVERTIME" : "30 Jul 2021 - 21:08",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/CopyContrib" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?fecfbd921258e53b39b363c945a90cd6' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/CopyContrib?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?44ff3f39ec63d492c660174d7f1c6775' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.CopyContrib' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.CopyContrib' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/CopyContrib"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/CopyContrib" title='Topic revision: 3 (12 Nov 2019 - 08:25:02)'>CopyContrib</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/CopyContrib?t=1627672092;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/CopyContrib' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/CopyContrib?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/CopyContrib?raw=on&amp;rev=3' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=CopyContrib' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/CopyContrib?cover=print;sortcol=0;table=2;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/CopyContrib?template=more&amp;maxrev=3&amp;currrev=3' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="CopyContrib">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/CopyContrib">CopyContrib</a> </h1>
+Copies webs, topics, attachments, or part of them
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=0;table=2;up=0#Usage"> Usage </a>
+</li> <li> <a href="?sortcol=0;table=2;up=0#Parameters"> Parameters </a> <ul>
+<li> <a href="?sortcol=0;table=2;up=0#General"> General </a>
+</li> <li> <a href="?sortcol=0;table=2;up=0#Mode:_61topic_61"> Mode: topic </a>
+</li> <li> <a href="?sortcol=0;table=2;up=0#Mode:_61topics_61"> Mode: topics </a>
+</li> <li> <a href="?sortcol=0;table=2;up=0#Mode:_61web_61"> Mode: web </a>
+</li> <li> <a href="?sortcol=0;table=2;up=0#Mode:_61application_61"> Mode: application </a>
+</li> <li> <a href="?sortcol=0;table=2;up=0#Mode:_61stub_61"> Mode: stub </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=0;table=2;up=0#Examples"> Examples </a> <ul>
+<li> <a href="?sortcol=0;table=2;up=0#Copy_one_or_more_topics_to_a_destination"> Copy one or more topics to a destination </a>
+</li> <li> <a href="?sortcol=0;table=2;up=0#Copy_a_web_but_strip_all_comments"> Copy a web but strip all comments </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=0;table=2;up=0#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?sortcol=0;table=2;up=0#Dependencies"> Dependencies </a>
+</li> <li> <a href="?sortcol=0;table=2;up=0#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p class='p'>This extension can be used to copy topics and webs. It allows to select which parts of an item is to copied.</p>
+
+<p class='p'>Typical use cases are:</p>
+ <ol>
+<li> <strong>duplicate topic assets</strong>: copy attachments, comments or preference settings to another existing topic
+</li> <li> <strong>deploy wiki applications</strong>: copy a selection of topics to a target web
+</li> <li> <strong>workflow scenarios</strong>: separate work on a draft topic from its last approved version by creating a copy first and copy the finished draft over as a newly approved version
+</li> <li> <strong>versioned webs</strong>: create a new web for each version of a product
+</li> <li> <strong>merge webs</strong>: create a new web by copying a list of webs to the new web
+</li> <li> <strong>publish content</strong>: from a closed quality-managed authors-only area to a public read-only web
+</li></ol> 
+<p></p>
+
+<h2 id="Usage">  Usage </h2>
+<p></p>
+
+The work horse for all operation modes is a single service script called <code>copy</code>. It takes a <code>mode</code> parameter for which
+a copy agent is created to perform the actual operation. The basic skeleton for a form to call the <code>copy</code> service looks like this:
+<p></p>
+
+<pre class="tml">
+&#60;form action&#61;&#34;&#37;SCRIPTURLPATH{&#34;copy&#34;}&#37;/&#37;WEB&#37;/&#37;TOPIC&#37;&#34; method&#61;&#34;post&#34;&#62;
+  &#60;input type&#61;&#34;hidden&#34; name&#61;&#34;mode&#34; value&#61;&#34;topic&#34; /&#62;
+  &#60;input type&#61;&#34;hidden&#34; name&#61;&#34;includepart&#34; value&#61;&#34;fields&#34; /&#62;
+  &#60;input type&#61;&#34;hidden&#34; name&#61;&#34;includepart&#34; value&#61;&#34;form&#34; /&#62;
+
+  &#60;input type&#61;&#34;text&#34; name&#61;&#34;destination&#34; size&#61;&#34;80&#34; /&#62;
+
+  &#60;!-- more parameters --&#62;
+
+  &#60;input type&#61;&#34;submit&#34; /&#62;
+&#60;/form&#62;
+</pre>
+<p></p>
+
+<h2 id="Parameters">  Parameters </h2>
+<p></p>
+
+<h3 id="General">  General  </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CopyContrib?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CopyContrib?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CopyContrib?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>mode</code> </td>
+			<td class="foswikiTableCol1"> select the type of operation; possible values are: <ul>  <li> <code>topic</code>: copy one topic or parts of it to a destination topic </li>  <li> <code>topics</code>: copy a list of topic to a destination </li>  <li> <code>web</code>: copy a web to a destination </li>  <li> <code>application</code>: Create a web supported by a given application </li>  <li> <code>stub</code>: create a stub for a given application topic </li> </ul> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>debug</code> </td>
+			<td class="foswikiTableCol1"> boolean flag to switch on/off debug output; messages are printed to the error log of the web browser </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>dry</code> </td>
+			<td class="foswikiTableCol1"> boolean flag to switch on/off a dry mode; if enabled none of the operations will actually be saved permanently </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>onlynew</code> </td>
+			<td class="foswikiTableCol1"> boolean flag to enable/disable a check for the destination to already exist; an exception will be raised if enabled and the target object already; the target object will be overwritten in case it already exists and the flag is disabled; to be precise, a new revision will be created in this case </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>on</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>forcenewrevision</code> </td>
+			<td class="foswikiTableCol1"> force the save to increment the revision counter </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>dontlog</code> </td>
+			<td class="foswikiTableCol1"> mark this change so it doesn't appear in the statistics </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>minor</code> </td>
+			<td class="foswikiTableCol1"> True if this change is not to be notified </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>clear</code> </td>
+			<td class="foswikiTableCol1"> boolean flag; when enabled data on the destination will be <em>deleted</em> first before copying the source data; (exception: text is always cleared before copying it over); when disabled data of source and destination will be merged </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>redirectto</code> </td>
+			<td class="foswikiTableCol1"> topic or url where to redirect the browser after a successful copy operation </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>nohandlers</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> boolean flag; when enabled plugin handlers will not be called, such as <code>beforeSaveHander</code> and <code>afterSaveHandler</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>off</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Mode:_61topic_61">  Mode: <code>topic</code> </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol"> <a href="/bin/view/System/CopyContrib?sortcol=0;table=2;up=1#sorted_table" rel="nofollow" title="Sort by this column">Name</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CopyContrib?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CopyContrib?sortcol=2;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>dstTopic</code>, <code>destination</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> the destination topic where to copy <code>source</code> to </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> <code>source</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>dstWeb</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> the destination web where to copy <code>source</code> to </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> <code>%BASEWEB%</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>exclude&lt;part-id&gt;</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> same as <code>include&lt;part-id&gt;</code> but in reverse logic </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>excludepart</code>, <code>excludeparts</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> a list of parts to exclude from the copy process </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>fromrev</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> specify the starting revision to be copied over; if left undefined, will only the top revision be copied </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>include&lt;part-id&gt;</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> when meta data is named as is the case for <code>fields</code> you may specify a regular expression in <code>includefields</code> that all fields must match when copying formfields </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>includepart</code>, <code>includeparts</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> a list of parts of a topic to be copied; known part-ids are <code>text</code>, <code>attachments</code>, <code>all</code>, <code>preferences</code>, <code>parent</code>, <code>form</code>, <code>fields</code>, or any other custom meta data alias such as <code>comment</code> from <a class="interwikiLink" href="https://foswiki.org/Extensions/MetaCommentPlugin" title="'Extensions/MetaCommentPlugin' on foswiki.org">MetaCommentPlugin</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> <code>all</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>preservetopicinfo</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> boolean flag; this will try to preserve the original date and authorship of the source; note that this may not always be possible when the top revision of the target is earlier than the revision(s) to be copied over; further note, that attachments of old revisions not present in the top revision cannot be recreated on the taregt topic as they are versioned independently </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>source</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> the source topic to be copied </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> <code>%BASEWEB%.%BASETOPIC%</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> <code>torev</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> specify the last revision to be copied over </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol foswikiLast" rowspan="1"> <code>trashsource</code> </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> boolean flag; this will trash the source after successfully copying it to the target; note: when only parts of the topic have been copied will the rest of it get lost! </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast" rowspan="1"> <code>off</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Mode:_61topics_61">  Mode: <code>topics</code> </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CopyContrib?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CopyContrib?sortcol=1;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CopyContrib?sortcol=2;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>source</code> </td>
+			<td class="foswikiTableCol1"> a list of topics to be copied </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>%BASEWEB%.%BASETOPIC%</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>destination</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> the destination where to copy all source topics to; this can either be a web or a topic; in the latter case all source topcis will be copied to the destination </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+All parameters of the <a class="foswikiCurrentTopicLink" href="#Mode:_61topic_61">topic mode</a> apply to each topic in the <code>source</code> list.
+<p></p>
+
+<h3 id="Mode:_61web_61">  Mode: <code>web</code> </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CopyContrib?sortcol=0;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CopyContrib?sortcol=1;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CopyContrib?sortcol=2;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>source</code> </td>
+			<td class="foswikiTableCol1"> the source web to be copied </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>%BASEWEB%</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>destination</code> </td>
+			<td class="foswikiTableCol1"> the destination web where to copy all topics of the source web to </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>template</code> </td>
+			<td class="foswikiTableCol1"> a template web to be used in case the destination web does not exist yet and needs to be created on the base of a template </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>_empty</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>search</code> </td>
+			<td class="foswikiTableCol1"> search expression to find topics in the source web. See <a href="/bin/view/System/QuerySearch">QuerySearch</a> for more information </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>.*</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>include</code> </td>
+			<td class="foswikiTableCol1"> regular expression topics in the source web must match to be included in the copy process </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>exclude</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> regluar expression; excludes matching topics from the source web </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Mode:_61application_61">  Mode: <code>application</code> </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CopyContrib?sortcol=0;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CopyContrib?sortcol=1;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CopyContrib?sortcol=2;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>source</code> </td>
+			<td class="foswikiTableCol1"> the source topicsto be copied </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>%BASEWEB%</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>destination</code> </td>
+			<td class="foswikiTableCol1"> the destination web where to copy all source topicsto </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>template</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> a template web to be used in case the destination web does not exist yet and needs to be created on the base of a template </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>_default</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Mode:_61stub_61">  Mode: <code>stub</code> </h3>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CopyContrib?sortcol=0;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CopyContrib?sortcol=1;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CopyContrib?sortcol=2;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>source</code> </td>
+			<td class="foswikiTableCol1"> the source topic to be copied </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>%BASEWEB%.%BASETOPIC%</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>destination</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> the destination topic where to copy <code>source</code> to </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>source</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<p></p>
+
+<h3 id="Copy_one_or_more_topics_to_a_destination">  Copy one or more topics to a destination </h3>
+<form action="/bin/copy/System/CopyContrib" method="post" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?b326b5106d9eea9ed4fc0991fa72b2bd' /> 
+<div class="foswikiFormSteps">
+  <input type="hidden" name="mode" value="topics" /> 
+  <input type="hidden" name="redirectto" value="System.CopyContrib" />
+  <div class="foswikiFormStep">
+    <h3>Source:</h3>
+    <input type="text" name="source" size="50" />
+    <div class="foswikiGrayText">separate multiple topics with a comma</div>
+    <h3>Destination:</h3>
+    <input type="text" name="destination" size="50" />
+    <div class="foswikiGrayText">can be a topic or a web</div>
+  </div>
+  <div class="foswikiFormStep">
+     <h3>Include parts:</h3>
+     <label><input type="checkbox" name="includepart" value="text" />Text</label> <br />
+     <label><input type="checkbox" name="includepart" value="attachments" />Attachments</label> <br />
+     <label><input type="checkbox" name="includepart" value="preferences" />Preferences</label><br />
+     <label><input type="checkbox" name="includepart" value="parent" />Parent</label><br />
+     <label><input type="checkbox" name="includeparts" value="form, fields" /> DataForm</label> <br />
+     <label><input type="checkbox" name="includepart" value="comment" />Comments</label> 
+     <div class="foswikiGrayText">leave unchecked to copy all</div>
+   </div>
+   <div class="foswikiFormStep">
+     <h3>Exclude parts:</h3>
+     <label><input type="checkbox" name="excludepart" value="text" />Text</label> <br />
+     <label><input type="checkbox" name="excludepart" value="attachments" />Attachments</label> <br />
+     <label><input type="checkbox" name="excludepart" value="preferences" />Preferences</label> <br />
+     <label><input type="checkbox" name="excludepart" value="parent" />Parent</label><br />
+     <label><input type="checkbox" name="excludeparts" value="form, fields" /> DataForm</label> <br />
+     <label><input type="checkbox" name="excludepart" value="comment" />Comments</label>
+   </div>
+   <div class="foswikiFormStep">
+     <h3>Options:</h3>
+     <label><input type="checkbox" name="onlynew" value="off">Allow overwrite</label> <br />
+     <label><input type="checkbox" name="forcenewrevision" value="off">Force a new revision</label> <br />
+     <label><input type="checkbox" name="minor" value="off">Minor change, don't notify others</label> <br />
+     <label><input type="checkbox" name="dontlog" value="off">Don't log changes</label> <br />
+     <label><input type="checkbox" name="clear" value="on">Clear before copying</label>
+  </div>
+  <div class="foswikiFormStep">
+    <h3>Advanced Options:</h3>
+    <table class='foswikiLayoutTable'>
+    <tr>
+      <th>From Version</th>
+      <td><input type="text" name="fromrev" class="foswikiInputField" value="3" size="3" /></td>
+    </tr>
+    <tr>
+      <th>To Version</th>
+      <td><input type="text" name="torev" class="foswikiInputField" value="3" size="3" /></td>
+    </tr>
+    </table>
+    <label><input type="checkbox" name="preservetopicinfo" value="on" checked />Preserver author and revision information</label>
+  </div>
+  <div class="foswikiFormStep">
+    <a  class='jqButton  jqSubmitButton' href='#'><span class='jqButtonIcon img' style='background-image:url(/pub/System/FamFamFamSilkIcons/tick.png)'></span><span class='jqButtonText'>Submit</span></a><input type='submit' style='display:none' /><span class='foswikiClear'></span>
+  </div>
+</div>
+</form> 
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Copy_a_web_but_strip_all_comments">  Copy a web but strip all comments </h3>
+<form action="/bin/copy/System/CopyContrib" method="post" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?66956e4dd2563efcd7795f89e26987f8' /> 
+<div class="foswikiFormSteps">
+  <input type="hidden" name="mode" value="web" /> 
+  <input type="hidden" name="onlynew" value="off" />
+  <input type="hidden" name="clear=" value="on" />
+  <input type="hidden" name="excludepart" value="comment" />
+  <input type="hidden" name="exclude=" value="^Web.*" />
+  <div class="foswikiFormStep">
+    <h3>Source:</h3>
+    <input type="text" name="source" size="50" />
+    <div class="foswikiGrayText">specify source web</div>
+    <h3>Filter:</h3>
+    <input type="text" name="search" size="50" />
+    <div class="foswikiGrayText">specify a search query</div>
+    <h3>Destination:</h3>
+    <input type="text" name="destination" size="50" />
+    <div class="foswikiGrayText">specify destination web</div>
+  </div>
+  <div class="foswikiFormStep">
+    <a  class='jqButton  jqSubmitButton' href='#'><span class='jqButtonIcon img' style='background-image:url(/pub/System/FamFamFamSilkIcons/tick.png)'></span><span class='jqButtonText'>Submit</span></a><input type='submit' style='display:none' /><span class='foswikiClear'></span>
+  </div>
+</div>
+</form> 
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+None
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<p></p>
+
+<table class="foswikiTable" id="tableCopyContrib7" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Nov 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fix copy cgi script </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Jul 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fix use of store; create a new revision when copying attachments instead of erasing anything that existed before </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jun 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>copy</code> perl api; added <code>nohandlers</code> option; fixed copying attachments </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Nov 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>trashsource</code> to topic agent; fixed memory leaks </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Feb 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added feature to restore a subset of topic revisions </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Jun 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>application</code> mode (by <a class="interwikiLink" href="https://foswiki.org/Main/BramVanOosterhout" title="'Main/BramVanOosterhout' on foswiki.org">Foswiki:Main/BramVanOosterhout</a>) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added support for unicode foswiki </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jun 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved error handling; make messages translatable </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 May 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added forcenewrevision, minor and dontlog </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 22 Oct 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> initial release </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/CopyContrib?t=1627672092;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> Michael Daum </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 4.01 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 12 Nov 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Copies webs, topics, attachments, or part of them </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/CopyContrib">https://github.com/foswiki/CopyContrib</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2013-2019, Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> <span class='externalLink'><a href="http://www.gnu.org/licenses/gpl.html">GPL (Gnu General Public License)</a></span> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="https://foswiki.org/Extensions/CopyContrib">https://foswiki.org/Extensions/CopyContrib</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="https://foswiki.org/Support/CopyContrib">https://foswiki.org/Support/CopyContrib</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/CopyContrib?t=1627672092' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/CopyContrib' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CopyContrib?cover=print;sortcol=0;table=2;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/CopyContrib?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r3&nbsp;<a href="/bin/diff/System/CopyContrib?rev1=2;rev2=3" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/CopyContrib?rev=2" rel="nofollow">r2</a>&nbsp;<a href="/bin/diff/System/CopyContrib?rev1=1;rev2=2" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/CopyContrib?rev=1" rel="nofollow">r1</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CopyContrib?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CopyContrib?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/CopyContrib?t=1627672092;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CopyContrib?template=more&amp;maxrev=3&amp;currrev=3' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r3 - 12 Nov 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/CopyContrib?foswiki_origin=GET%2cview%2c/bin/view/System/CopyContrib%3fsortcol%3d0%3btable%3d2%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.CopyContrib'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

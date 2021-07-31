@@ -1,0 +1,30 @@
+%SECTION0% geom_fromMinimalSurface
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Generate a geometry file of a bicontinuous structure of given type.
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; geom_fromMinimalSurface options option(s)] [<a href=https://https://damask.mpie.de/Documentation/GeometryFormat>Geom file</a> 
+</pre>
+
+%UPTOC%
+---++ Options
+   $=-t= / =--type= [ *primitive* ] ( _primitive,gyroid,diamond_ ): 
+   type of minimal surface
+   $=-f= / =--threshold= [ *0.0* ]: 
+   threshold value defining minimal surface
+   $=-g= / =--grid=[ *16* *16* *16* ]: 
+   a,b,c grid of hexahedral box
+   $=-s= / =--size=[ *1.0* *1.0* *1.0* ]: 
+   x,y,z size of hexahedral box
+   $=-p= / =--periods= [ *1* ]: 
+   number of repetitions of unit cell
+   $=--homogenization= [ *1* ]: 
+   homogenization index to be used
+   $=--m=[ *1* *2* ]: 
+   two microstructure indices to be used

@@ -1,0 +1,426 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> MacrosQuickReference &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/MacrosQuickReference?t=1627662091" type="application/x-wiki" title="edit MacrosQuickReference" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/MacrosQuickReference" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/d455f50b989b90897de6590af673cbff.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "USERSWEB" : "Main",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SYSTEMWEB" : "System",
+   "COOKIEREALM" : "",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SKIN" : "damask,famfamfam,pattern",
+   "URLHOST" : "https://damask.mpie.de",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "TOPIC" : "MacrosQuickReference",
+   "PUBURLPATH" : "/pub",
+   "SERVERTIME" : "30 Jul 2021 - 18:21",
+   "USERNAME" : "guest",
+   "WEB" : "System",
+   "SCRIPTSUFFIX" : ""
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/MacrosQuickReference"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/MacrosQuickReference" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>MacrosQuickReference</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/MacrosQuickReference?t=1627662091;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/MacrosQuickReference' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/MacrosQuickReference?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/MacrosQuickReference?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=MacrosQuickReference' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/MacrosQuickReference?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/MacrosQuickReference?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic">
+<h1 id="Macros_Quick_Reference">  Macros Quick Reference </h1>
+<p></p>
+
+See <a href="/bin/view/System/Macros">Macros</a> for a detailed description of how to use Macros
+<p></p>
+
+<h2 id="Predefined_Macros">  Predefined Macros </h2>
+<p></p>
+ <ul>
+<li> <a href="/bin/view/System/VarACTIVATEDPLUGINS">ACTIVATEDPLUGINS -- list of currently activated plugins</a>
+</li> <li> <a href="/bin/view/System/VarADDTOHEAD">ADDTOHEAD -- deprecated, use ADDTOZONE instead</a>
+</li> <li> <a href="/bin/view/System/VarADDTOZONE">ADDTOZONE -- add content to a named zone on the page</a>
+</li> <li> <a href="/bin/view/System/VarALLVARIABLES">ALLVARIABLES -- list of currently defined macros</a>
+</li> <li> <a href="/bin/view/System/VarATTACHURL">ATTACHURL -- full URL for attachments in the current topic</a>
+</li> <li> <a href="/bin/view/System/VarATTACHURLPATH">ATTACHURLPATH -- path of the attachment URL of the current topic</a>
+</li> <li> <a href="/bin/view/System/VarAUTHREALM">AUTHREALM -- authentication realm</a>
+</li> <li> <a href="/bin/view/System/VarBASETOPIC">BASETOPIC -- base topic where an INCLUDE started</a>
+</li> <li> <a href="/bin/view/System/VarBASEWEB">BASEWEB -- base web where an INCLUDE started</a>
+</li> <li> <a href="/bin/view/System/VarBUTTON">BUTTON -- renders a nice button </a>
+</li> <li> <a href="/bin/view/System/VarCALC">CALC -- add spreadsheet calculations to tables and outside tables</a>
+</li> <li> <a href="/bin/view/System/VarCALCULATE">CALCULATE -- add spreadsheet formulae calls using standard Macro evaluation order.</a>
+</li> <li> <a href="/bin/view/System/VarCOMMENT">COMMENT -- insert an edit box into the topic to easily add comments.</a>
+</li> <li> <a href="/bin/view/System/VarCOVER">COVER -- current skin cover</a>
+</li> <li> <a href="/bin/view/System/VarDATE">DATE -- signature format date</a>
+</li> <li> <a href="/bin/view/System/VarDISPLAYTIME">DISPLAYTIME -- display formatted time</a>
+</li> <li> <a href="/bin/view/System/VarDOCUMENTVIEWER">DOCUMENTVIEWER -- Embed a presentation, spreadsheet, PDF or other document in a viewer</a>
+</li> <li> <a href="/bin/view/System/VarENCODE">ENCODE -- encode characters in a string</a>
+</li> <li> <a href="/bin/view/System/VarENDCOLOR">ENDCOLOR -- end colored text</a>
+</li> <li> <a href="/bin/view/System/VarENDINCLUDE">ENDINCLUDE -- end position of topic text if included</a>
+</li> <li> <a href="/bin/view/System/VarENDSECTION">ENDSECTION -- marks the end of a named section within a topic</a>
+</li> <li> <a href="/bin/view/System/VarENDTAB">ENDTAB -- ending marker for a tab of a tabpane</a>
+</li> <li> <a href="/bin/view/System/VarENDTABPANE">ENDTABPANE -- ending tag for tabpane widget</a>
+</li> <li> <a href="/bin/view/System/VarENDTWISTY">ENDTWISTY -- complements an opening TWISTY tag to close a twisty</a>
+</li> <li> <a href="/bin/view/System/VarENDTWISTYTOGGLE">ENDTWISTYTOGGLE -- Twisty closure</a>
+</li> <li> <a href="/bin/view/System/VarENV">ENV -- inspect the value of an environment variable</a>
+</li> <li> <a href="/bin/view/System/VarEXAMPLETAG">EXAMPLETAG -- example macro tag</a>
+</li> <li> <a href="/bin/view/System/VarEXPAND">EXPAND -- expand macros in a string as if they were used in another topic</a>
+</li> <li> <a href="/bin/view/System/VarFAILEDPLUGINS">FAILEDPLUGINS -- debugging for plugins that failed to load</a>
+</li> <li> <a href="/bin/view/System/VarFORMAT">FORMAT -- format a list of objects</a>
+</li> <li> <a href="/bin/view/System/VarFORMFIELD">FORMFIELD -- renders a field in the form attached to some topic</a>
+</li> <li> <a href="/bin/view/System/VarGMTIME">GMTIME -- formatted Greenwich Mean Time (UTC)</a>
+</li> <li> <a href="/bin/view/System/VarGROUPINFO">GROUPINFO -- retrieve details about a group</a>
+</li> <li> <a href="/bin/view/System/VarGROUPS">GROUPS -- a formatted list of groups</a>
+</li> <li> <a href="/bin/view/System/VarHISTORY">HISTORY -- control attributes of tables and sorting of table columns</a>
+</li> <li> <a href="/bin/view/System/VarHOMETOPIC">HOMETOPIC -- home topic in each web</a>
+</li> <li> <a href="/bin/view/System/VarHTTP">HTTP -- get HTTP headers</a>
+</li> <li> <a href="/bin/view/System/VarHTTPHOST">HTTP_HOST -- environment variable</a>
+</li> <li> <a href="/bin/view/System/VarHTTPS">HTTPS -- get HTTPS headers</a>
+</li> <li> <a href="/bin/view/System/VarICON">ICON -- small documentation graphic or icon of common attachment types</a>
+</li> <li> <a href="/bin/view/System/VarICONURL">ICONURL -- URL of small documentation graphic or icon</a>
+</li> <li> <a href="/bin/view/System/VarICONURLPATH">ICONURLPATH -- URL path of small documentation graphic or icon</a>
+</li> <li> <a href="/bin/view/System/VarIF">IF -- simple conditionals</a>
+</li> <li> <a href="/bin/view/System/VarIMAGEGALLERY">IMAGEGALLERY{"topic" <i>options...</i>} -- render an image gallery</a>
+</li> <li> <a href="/bin/view/System/VarINCLUDE">INCLUDE -- include another topic, or subsection of a topic, or a URL, or Foswiki embedded documentation</a>
+</li> <li> <a href="/bin/view/System/VarINCLUDINGTOPIC">INCLUDINGTOPIC -- name of topic that includes current topic</a>
+</li> <li> <a href="/bin/view/System/VarINCLUDINGWEB">INCLUDINGWEB -- web that includes current topic</a>
+</li> <li> <a href="/bin/view/System/VarJQICON">JQICON -- render an image </a>
+</li> <li> <a href="/bin/view/System/VarJQICONPATH">JQICONPATH -- render the url path to an image icon</a>
+</li> <li> <a href="/bin/view/System/VarJQPLUGINS">JQPLUGINS -- display a summary of available plugins</a>
+</li> <li> <a href="/bin/view/System/VarJQREQUIRE">JQREQUIRE -- enable a plugin on the current page</a>
+</li> <li> <a href="/bin/view/System/VarJQTHEME">JQTHEME -- switch jQuery UI theme</a>
+</li> <li> <a href="/bin/view/System/VarLANG">LANG -- the language specified by the server locale</a>
+</li> <li> <a href="/bin/view/System/VarLANGUAGE">LANGUAGE -- language code for the current user</a>
+</li> <li> <a href="/bin/view/System/VarLANGUAGES">LANGUAGES -- list available languages</a>
+</li> <li> <a href="/bin/view/System/VarLOCALSITEPREFS">LOCALSITEPREFS -- web.topicname of site preferences topic</a>
+</li> <li> <a href="/bin/view/System/VarLOCALTIME">LOCALTIME{&hellip;} -- display formatted date and/or time</a>
+</li> <li> <a href="/bin/view/System/VarLOGIN">LOGIN -- present a full login link</a>
+</li> <li> <a href="/bin/view/System/VarLOGOUT">LOGOUT -- present a full logout link</a>
+</li> <li> <a href="/bin/view/System/VarMAINWEB">MAINWEB -- deprecated synonym for USERSWEB</a>
+</li> <li> <a href="/bin/view/System/VarMAKETEXT">MAKETEXT -- creates text using Foswiki's I18N infrastructure</a>
+</li> <li> <a href="/bin/view/System/VarMETA">META -- displays meta-data</a>
+</li> <li> <a href="/bin/view/System/VarMETASEARCH">METASEARCH -- special search of meta data</a>
+</li> <li> <a href="/bin/view/System/VarMIMEICON">MIMEICON{"filename"} -- return a meaningful icon for this filename</a>
+</li> <li> <a href="/bin/view/System/VarNONCE">NONCE -- generate a nonce (developers only)</a>
+</li> <li> <a href="/bin/view/System/VarNOP">NOP -- template text not to be expanded in instantiated topics</a>
+</li> <li> <a href="/bin/view/System/VarNOTIFYTOPIC">NOTIFYTOPIC -- name of the notify topic</a>
+</li> <li> <a href="/bin/view/System/VarPERLDEPENDENCYREPORT">PERLDEPENDENCYREPORT -- report perl module dependencies</a>
+</li> <li> <a href="/bin/view/System/VarPLUGINDESCRIPTIONS">PLUGINDESCRIPTIONS -- list of plugin descriptions</a>
+</li> <li> <a href="/bin/view/System/VarPLUGINVERSION">PLUGINVERSION -- the version of a Foswiki Plugin, or the Foswiki Plugins API</a>
+</li> <li> <a href="/bin/view/System/VarPOPUPWINDOW">POPUPWINDOW -- opens a topic or url in a new window</a>
+</li> <li> <a href="/bin/view/System/VarPUBURL">PUBURL -- generate an URL for an attachment</a>
+</li> <li> <a href="/bin/view/System/VarPUBURLPATH">PUBURLPATH -- generate a relative URL for an attachment</a>
+</li> <li> <a href="/bin/view/System/VarQUERY">QUERY -- get the value of meta-data</a>
+</li> <li> <a href="/bin/view/System/VarQUERYPARAMS">QUERYPARAMS -- show parameters to the query</a>
+</li> <li> <a href="/bin/view/System/VarQUERYSTRING">QUERYSTRING -- full, unprocessed string of parameters to this URL</a>
+</li> <li> <a href="/bin/view/System/VarREMOTEADDR">REMOTE_ADDR -- environment variable</a>
+</li> <li> <a href="/bin/view/System/VarREMOTEPORT">REMOTE_PORT -- environment variable</a>
+</li> <li> <a href="/bin/view/System/VarREMOTEUSER">REMOTE_USER -- environment variable</a>
+</li> <li> <a href="/bin/view/System/VarRENDERLIST">RENDERLIST -- render bullet lists in a variety of formats</a>
+</li> <li> <a href="/bin/view/System/VarRENDERZONE">RENDERZONE - render the content of a zone</a>
+</li> <li> <a href="/bin/view/System/VarREVARG">REVARG -- <code>&amp;rev=n</code> parameter of current request</a>
+</li> <li> <a href="/bin/view/System/VarREVINFO">REVINFO -- revision information of current topic</a>
+</li> <li> <a href="/bin/view/System/VarREVTITLE">REVTITLE -- The requested revision as displayed in topic breadcrumbs </a>
+</li> <li> <a href="/bin/view/System/VarSCRIPTNAME">SCRIPTNAME -- name of current script</a>
+</li> <li> <a href="/bin/view/System/VarSCRIPTSUFFIX">SCRIPTSUFFIX -- script suffix</a>
+</li> <li> <a href="/bin/view/System/VarSCRIPTURL">SCRIPTURL -- URL of script(s)</a>
+</li> <li> <a href="/bin/view/System/VarSCRIPTURLPATH">SCRIPTURLPATH -- URL path of script(s)</a>
+</li> <li> <a href="/bin/view/System/VarSEARCH">SEARCH -- search content</a>
+</li> <li> <a href="/bin/view/System/VarSERVERINFORMATION">SERVERINFORMATION -- report detailed web server information</a>
+</li> <li> <a href="/bin/view/System/VarSERVERTIME">SERVERTIME -- formatted server time</a>
+</li> <li> <a href="/bin/view/System/VarSESSIONID">SESSIONID -- unique ID for this session</a>
+</li> <li> <a href="/bin/view/System/VarSESSIONVAR">SESSIONVAR -- name of CGI and session variable that stores the session ID</a>
+</li> <li> <a href="/bin/view/System/VarSESSIONVARIABLE">SESSION_VARIABLE -- get, set or clear a session variable</a>
+</li> <li> <a href="/bin/view/System/VarSET">SET -- set a preference setting during runtime</a>
+</li> <li> <a href="/bin/view/System/VarSHOWPREFERENCE">SHOWPREFERENCE -- show where preferences are defined.</a>
+</li> <li> <a href="/bin/view/System/VarSKIN">SKIN -- current skin</a>
+</li> <li> <a href="/bin/view/System/VarSLIDESHOWEND">SLIDESHOWEND -- end slideshow</a>
+</li> <li> <a href="/bin/view/System/VarSLIDESHOWSTART">SLIDESHOWSTART -- convert a topic with headings into a slideshow</a>
+</li> <li> <a href="/bin/view/System/VarSPACEDTOPIC">SPACEDTOPIC -- topic name, spaced and URL-encoded <strong>deprecated</strong></a>
+</li> <li> <a href="/bin/view/System/VarSPACEOUT">SPACEOUT -- renders string with spaces inserted in sensible places</a>
+</li> <li> <a href="/bin/view/System/VarSTARTINCLUDE">STARTINCLUDE -- start position of topic text if included</a>
+</li> <li> <a href="/bin/view/System/VarSTARTSECTION">STARTSECTION -- marks the start of a section within a topic</a>
+</li> <li> <a href="/bin/view/System/VarSTATISTICSTOPIC">STATISTICSTOPIC -- name of statistics topic</a>
+</li> <li> <a href="/bin/view/System/VarSTOPINCLUDE">STOPINCLUDE -- Alias for ENDINCLUDE</a>
+</li> <li> <a href="/bin/view/System/VarSTOPSECTION">STOPSECTION -- Alias for ENDSECTION</a>
+</li> <li> <a href="/bin/view/System/VarSUBSCRIBE">SUBSCRIBE{ <em>attributes</em> } - subscribe the current user for notification of changes to the current topic</a>
+</li> <li> <a href="/bin/view/System/VarSYSTEMWEB">SYSTEMWEB -- name of documentation web</a>
+</li> <li> <a href="/bin/view/System/VarTAB">TAB -- tab inside a tabpane widget </a>
+</li> <li> <a href="/bin/view/System/VarTABLE">TABLE -- control attributes of tables and sorting of table columns</a>
+</li> <li> <a href="/bin/view/System/VarTABPANE">TABPANE -- tabpane widget</a>
+</li> <li> <a href="/bin/view/System/VarTOC">TOC -- table of contents</a>
+</li> <li> <a href="/bin/view/System/VarTOPIC">TOPIC -- name of current topic</a>
+</li> <li> <a href="/bin/view/System/VarTOPICLIST">TOPICLIST -- topic index of a web</a>
+</li> <li> <a href="/bin/view/System/VarTWIKIWEB">TWIKIWEB -- synonym for SYSTEMWEB</a>
+</li> <li> <a href="/bin/view/System/VarTWISTY">TWISTY -- generate content block with interactive visibility controls</a>
+</li> <li> <a href="/bin/view/System/VarTWISTYBUTTON">TWISTYBUTTON -- Shorthand version for TWISTYSHOW &amp; TWISTYHIDE</a>
+</li> <li> <a href="/bin/view/System/VarTWISTYHIDE">TWISTYHIDE - Hide/close link</a>
+</li> <li> <a href="/bin/view/System/VarTWISTYSHOW">TWISTYSHOW - Show/open link</a>
+</li> <li> <a href="/bin/view/System/VarTWISTYTOGGLE">TWISTYTOGGLE -- Twisty Toggle contents section</a>
+</li> <li> <a href="/bin/view/System/VarURLPARAM">URLPARAM -- get URL or HTTP POST parameter value</a>
+</li> <li> <a href="/bin/view/System/VarUSERINFO">USERINFO -- retrieve details about a user</a>
+</li> <li> <a href="/bin/view/System/VarUSERNAME">USERNAME -- your login username</a>
+</li> <li> <a href="/bin/view/System/VarUSERSWEB">USERSWEB -- name of users web</a>
+</li> <li> <a href="/bin/view/System/VarVAR">VAR -- get a preference value from another web </a>
+</li> <li> <a href="/bin/view/System/VarWEB">WEB -- name of current web</a>
+</li> <li> <a href="/bin/view/System/VarWEBLINK">WEBLINK</a>
+</li> <li> <a href="/bin/view/System/VarWEBLIST">WEBLIST -- index of all webs</a>
+</li> <li> <a href="/bin/view/System/VarWEBPREFSTOPIC">WEBPREFSTOPIC -- name of web preferences topic</a>
+</li> <li> <a href="/bin/view/System/VarWIKIHOMEURL">WIKIHOMEURL -- site home URL</a>
+</li> <li> <a href="/bin/view/System/VarWIKINAME">WIKINAME -- your Wiki username</a>
+</li> <li> <a href="/bin/view/System/VarWIKIPREFSTOPIC">WIKIPREFSTOPIC -- name of site-wide preferences topic</a>
+</li> <li> <a href="/bin/view/System/VarWIKITOOLNAME">WIKITOOLNAME -- name of your site</a>
+</li> <li> <a href="/bin/view/System/VarWIKIUSERNAME">WIKIUSERNAME -- your Wiki username with web prefix</a>
+</li> <li> <a href="/bin/view/System/VarWIKIUSERSTOPIC">WIKIUSERSTOPIC -- name of topic listing all registered users</a>
+</li> <li> <a href="/bin/view/System/VarWIKIVERSION">WIKIVERSION -- the version of the installed Foswiki engine</a>
+</li> <li> <a href="/bin/view/System/VarWIKIWEBMASTER">WIKIWEBMASTER -- feedback email address for site</a>
+</li> <li> <a href="/bin/view/System/VarWIKIWEBMASTERNAME">WIKIWEBMASTERNAME -- Name of the administrator for the site</a>
+</li> <li> <a href="/bin/view/System/VarWORKFLOW">WORKFLOW* -- macros associated with WorkflowPlugin</a>
+</li></ul> 
+<p></p>
+
+<h3 id="Deprecated_macros">  Deprecated macros </h3>
+The following macros are deprecated and should not be used. <ul>
+<li> <a href="/bin/view/System/VarADDTOHEAD">ADDTOHEAD -- deprecated, use ADDTOZONE instead</a>
+</li> <li> <a href="/bin/view/System/VarALLVARIABLES">ALLVARIABLES -- list of currently defined macros</a>
+</li> <li> <a href="/bin/view/System/VarGROUPS">GROUPS -- a formatted list of groups</a>
+</li> <li> <a href="/bin/view/System/VarMAINWEB">MAINWEB -- deprecated synonym for USERSWEB</a>
+</li> <li> <a href="/bin/view/System/VarMETASEARCH">METASEARCH -- special search of meta data</a>
+</li> <li> <a href="/bin/view/System/VarREVARG">REVARG -- <code>&amp;rev=n</code> parameter of current request</a>
+</li> <li> <a href="/bin/view/System/VarTWIKIWEB">TWIKIWEB -- synonym for SYSTEMWEB</a>
+</li></ul> 
+<p></p>
+
+<h2 id="Shortcuts">  Shortcuts </h2>
+<p></p>
+ <ul>
+<li> TOPICURL -- absolute URL for the current topic
+</li> <li> BR -- line break
+</li> <li> CLEAR -- clear floats
+</li> <li> BULLET -- &#8226;
+</li> <li> VBAR -- &#124;
+</li> <li> CARET -- &#94;
+</li> <li> BB -- line break and bullet
+</li></ul> 
+For example, <code>%CARET%</code> will appear as <code>&#94;</code>
+<p></p>
+
+<h2 id="Icons">  Icons </h2> <ul>
+<li> H - <img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" />
+</li> <li> I - <img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" />
+</li> <li> M - <img src="/pub/System/DocumentGraphics/arrowright.png" alt="MOVED TO..." title="MOVED TO..." width="16" height="16" />
+</li> <li> N - <img src="/pub/System/DocumentGraphics/new.png" alt="NEW" title="NEW" width="30" height="16" />
+</li> <li> P - <img src="/pub/System/DocumentGraphics/pencil.png" alt="REFACTOR" title="REFACTOR" width="16" height="16" />
+</li> <li> Q - <img src="/pub/System/DocumentGraphics/question.png" alt="QUESTION?" title="QUESTION?" width="16" height="16" />
+</li> <li> S - <img src="/pub/System/DocumentGraphics/starred.png" alt="PICK" title="PICK" width="16" height="16" />
+</li> <li> T - <img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" />
+</li> <li> U - <img src="/pub/System/DocumentGraphics/updated.png" alt="UPDATED" title="UPDATED" width="55" height="16" />
+</li> <li> X - <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" />
+</li> <li> Y - <img src="/pub/System/DocumentGraphics/choice-yes.png" alt="DONE" title="DONE" width="16" height="16" />
+</li></ul> 
+<hr />
+<strong>Related Topics:</strong> <a href="/bin/view/System/Macros">Macros</a>, <a href="/bin/view/System/PreferenceSettings">PreferenceSettings</a>, <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/MacrosQuickReference?t=1627662092' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/MacrosQuickReference' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/MacrosQuickReference?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/MacrosQuickReference?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/MacrosQuickReference?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/MacrosQuickReference?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/MacrosQuickReference?t=1627662092;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/MacrosQuickReference?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/MacrosQuickReference?foswiki_origin=GET%2cview%2c/bin/view/System/MacrosQuickReference">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a class="foswikiCurrentTopicLink" href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.MacrosQuickReference'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

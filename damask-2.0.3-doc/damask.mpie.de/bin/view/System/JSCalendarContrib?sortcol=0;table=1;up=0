@@ -1,0 +1,663 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> JSCalendarContrib &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/JSCalendarContrib?t=1627671381" type="application/x-wiki" title="edit JSCalendarContrib" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/JSCalendarContrib" /><!--[if IE]></base><![endif]-->
+<style class='head JSCalendarContrib/calendar-large' type='text/css' media='all'>
+    @import url('/pub/System/JSCalendarContrib/calendar-large.css');
+    .calendar {z-index:2000;}
+</style>
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableJSCalendarContrib1 td {border-style:solid; vertical-align:middle}
+body .foswikiTable#tableJSCalendarContrib1 td.foswikiTableCol0 {width:50%}
+body .foswikiTable#tableJSCalendarContrib1 td.foswikiTableCol1 {width:50%}
+body .foswikiTable#tableJSCalendarContrib1 th {border-style:solid; vertical-align:middle}
+body .foswikiTable#tableJSCalendarContrib1 th.foswikiTableCol0 {width:50%}
+body .foswikiTable#tableJSCalendarContrib1 th.foswikiTableCol1 {width:50%}
+body .foswikiTable#tableJSCalendarContrib1 tr.foswikiTableRowdataBg0 td {background-color:#fff}
+body .foswikiTable#tableJSCalendarContrib1 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#fff}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/05ff471f37762f296ce7adbeeefa5234.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURLPATH" : "/bin",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SERVERTIME" : "30 Jul 2021 - 20:56",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "TOPIC" : "JSCalendarContrib",
+   "USERNAME" : "guest",
+   "SCRIPTSUFFIX" : "",
+   "URLHOST" : "https://damask.mpie.de",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "PUBURLPATH" : "/pub",
+   "SYSTEMWEB" : "System",
+   "WEB" : "System",
+   "SKIN" : "damask,famfamfam,pattern",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "USERSWEB" : "Main"
+}
+</script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JSCalendarContrib/calendar' type="text/javascript" src="/pub/System/JSCalendarContrib/calendar.js"></script>
+<script class='script JSCalendarContrib/lang/calendar-en' type="text/javascript" src="/pub/System/JSCalendarContrib/lang/calendar-en.js"></script>
+<script class='script JSCalendarContrib/calendar-setup' type="text/javascript" src="/pub/System/JSCalendarContrib/calendar-setup.js"></script>
+<script class='script JSCalendarContrib/foswiki' type="text/javascript" src="/pub/System/JSCalendarContrib/foswiki.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/JSCalendarContrib" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?caf2862c5bf0f26297ea1badc7db7d5c' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/JSCalendarContrib?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?236e42ec992a3fd5a7d18a40890df57b' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.JSCalendarContrib' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.JSCalendarContrib' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/JSCalendarContrib"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Contribs">Contribs</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/JSCalendarContrib" title='Topic revision: 1 (22 Jan 2018 - 19:10:15)'>JSCalendarContrib</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/JSCalendarContrib?t=1627671382;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/JSCalendarContrib' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/JSCalendarContrib?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/JSCalendarContrib?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=JSCalendarContrib' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/JSCalendarContrib?cover=print;sortcol=0;table=1;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/JSCalendarContrib?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="JSCalendarContrib">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/JSCalendarContrib">JSCalendarContrib</a> </h1>
+<img class='imagePlain imagePlain_none foswikiRight' src='/pub/System/JSCalendarContrib/screenshot.gif' alt='screenshot.gif' title='screenshot.gif' width='307' height='273'    /><p></p>
+
+<span class='externalLink'><a href="http://dynarch.com/mishoo/calendar.epl">Mishoo JSCalendar</a></span> date and time picker, packaged for use by plugins, skins and add-ons
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=0;table=1;up=0#Summary_of_Contents"> Summary of Contents </a>
+</li> <li> <a href="?sortcol=0;table=1;up=0#Detailed_Documentation"> Detailed Documentation </a> <ul>
+<li> <a href="?sortcol=0;table=1;up=0#Foswiki::Contrib::JSCalendarContrib::renderDateForEdit_40_36name_44_36value_44_36format_91_44_92_37cssClass_93_41_45_62_36html"> Foswiki::Contrib::JSCalendarContrib::renderDateForEdit($name, $value, $format [, \%cssClass]) -&gt; $html </a>
+</li> <li> <a href="?sortcol=0;table=1;up=0#Foswiki::Contrib::JSCalendarContrib::addHEAD_40_36setup_41"> Foswiki::Contrib::JSCalendarContrib::addHEAD($setup) </a>
+</li> <li> <a href="?sortcol=0;table=1;up=0#Using_the_Calendar_for_picking_date_and_time"> Using the Calendar for picking date and time </a>
+</li> <li> <a href="?sortcol=0;table=1;up=0#Using_the_Calendar_in_forms"> Using the Calendar in forms </a> <ul>
+<li> <a href="?sortcol=0;table=1;up=0#Preparation"> Preparation </a>
+</li> <li> <a href="?sortcol=0;table=1;up=0#Displaying_the_calendar"> Displaying the calendar </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=0;table=1;up=0#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?sortcol=0;table=1;up=0#Customizing_the_appearance_of_the_calendar"> Customizing the appearance of the calendar </a>
+</li> <li> <a href="?sortcol=0;table=1;up=0#Contrib_Info"> Contrib Info </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Summary_of_Contents">  Summary of Contents </h2>
+This module packages the <span class='externalLink'><a href="http://dynarch.com/mishoo/calendar.epl">Mishoo JSCalendar</a></span> Javascript in a form suitable for use with Foswiki.
+<p></p>
+
+<h2 id="Detailed_Documentation">  Detailed Documentation </h2>
+<p></p>
+
+Read <a href="https://damask.mpie.de/pub/System/JSCalendarContrib/doc/html/reference.html">the Mishoo documentation</a> or
+<a href="https://damask.mpie.de/pub/System/JSCalendarContrib">visit the demo page</a> for detailed information on using the
+calendar widget.
+<p class='p'>This package also includes a small Perl module to make using the calendar
+easier from Foswiki plugins. This module includes the functions:</p>
+
+<p class='p'></p>
+
+<h3 id="Foswiki::Contrib::JSCalendarContrib::renderDateForEdit_40_36name_44_36value_44_36format_91_44_92_37cssClass_93_41_45_62_36html">  Foswiki::Contrib::JSCalendarContrib::renderDateForEdit($name, $value, $format [, \%cssClass]) -&gt; $html </h3>
+<p></p>
+
+This is the simplest way to use calendars from a plugin. <ul>
+<li> <code>$name</code> is the name of the CGI parameter for the calendar     (it should be unique),
+</li> <li> <code>$value</code> is the current value of the parameter (may be undef)
+</li> <li> <code>$format</code> is the format to use (optional; the default is set     in <code>configure</code>). The HTML returned will display a date field     and a drop-down calendar.
+</li> <li> <code>\%options</code> is an optional hash containing base options for     the textfield.
+</li></ul> 
+Example:
+<pre>
+use Foswiki::Contrib::JSCalendarContrib ();
+...
+my &#36;fromDate &#61; Foswiki::Contrib::JSCalendarContrib::renderDateForEdit(
+   &#39;from&#39;, &#39;1 April 1999&#39;);
+my &#36;toDate &#61; Foswiki::Contrib::JSCalendarContrib::renderDateForEdit(
+   &#39;to&#39;, undef, &#39;&#37;Y&#39;);
+</pre>
+<p class='p'></p>
+
+<h3 id="Foswiki::Contrib::JSCalendarContrib::addHEAD_40_36setup_41">  Foswiki::Contrib::JSCalendarContrib::addHEAD($setup) </h3>
+<p></p>
+
+This function will automatically add the headers for the calendar to the page
+being rendered. It's intended for use when you want more control over the
+formatting of your calendars than <code>renderDateForEdit</code> affords. <code>$setup</code> is
+the name of
+the calendar setup module; it can either be omitted, in which case the method
+described in the Mishoo documentation can be used to create calendars, or it
+can be <code>'foswiki'</code>, in which case a Javascript helper function called
+'showCalendar' is added that simplifies using calendars to set a value in a
+text field. For example, say we wanted to display the date with the calendar
+icon <em>before</em> the text field, using the format <code>%Y %b %e</code>
+<pre>
+# Add styles and javascript for the calendar
+use Foswiki::Contrib::JSCalendarContrib ();
+...
+
+sub commonTagsHandler {
+  ....
+  # Enable &#39;showCalendar&#39;
+  Foswiki::Contrib::JSCalendarContrib::addHEAD( &#39;foswiki&#39; );
+
+  my &#36;cal &#61; CGI::image&#95;button(
+      -name &#61;&#62; &#39;img&#95;datefield&#39;,
+      -onclick &#61;&#62;
+       &#34;return showCalendar(&#39;id&#95;datefield&#39;,&#39;&#37;Y &#37;b &#37;e&#39;)&#34;,
+      -src&#61;&#62; Foswiki::Func::getPubUrlPath() . &#39;/&#39; .
+             &#36;Foswiki::cfg{SystemWebName} .
+             &#39;/JSCalendarContrib/img.gif&#39;,
+      -alt &#61;&#62; &#39;Calendar&#39;,
+      -align &#61;&#62; &#39;middle&#39; )
+    . CGI::textfield(
+      { name &#61;&#62; &#39;date&#39;, id &#61;&#62; &#34;id&#95;datefield&#34; });
+  ....
+}
+</pre>
+The first parameter to <code>showCalendar</code> is the id of the textfield, and the second parameter is the date format. Default format is '%e %B %Y'.
+<p></p>
+
+<span id="FormatSpecifiers"></span>
+All available date specifiers:
+<pre>
+&#37;a - abbreviated weekday name 
+&#37;A - full weekday name 
+&#37;b - abbreviated month name 
+&#37;B - full month name 
+&#37;C - century number 
+&#37;d - the day of the month ( 00 .. 31 ) 
+&#37;e - the day of the month ( 0 .. 31 ) 
+&#37;H - hour ( 00 .. 23 ) 
+&#37;I - hour ( 01 .. 12 ) 
+&#37;j - day of the year ( 000 .. 366 ) 
+&#37;k - hour ( 0 .. 23 ) 
+&#37;l - hour ( 1 .. 12 ) 
+&#37;m - month ( 01 .. 12 ) 
+&#37;M - minute ( 00 .. 59 ) 
+&#37;n - a newline character 
+&#37;p - &#34;PM&#34; or &#34;AM&#34;
+&#37;P - &#34;pm&#34; or &#34;am&#34;
+&#37;S - second ( 00 .. 59 ) 
+&#37;s - number of seconds since Epoch (since Jan 01 1970 00:00:00 UTC) 
+&#37;t - a tab character 
+&#37;U, &#37;W, &#37;V - the week number
+   The week 01 is the week that has the Thursday in the current year,
+   which is equivalent to the week that contains the fourth day of January. 
+   Weeks start on Monday.
+&#37;u - the day of the week ( 1 .. 7, 1 &#61; MON ) 
+&#37;w - the day of the week ( 0 .. 6, 0 &#61; SUN ) 
+&#37;y - year without the century ( 00 .. 99 ) 
+&#37;Y - year including the century ( ex. 1979 ) 
+&#37;&#37; - a literal &#37; character 
+</pre>
+<p></p>
+
+<code>addHEAD</code> can be called from <code>commonTagsHandler</code> for adding the header to all pages, or from <code>beforeEditHandler</code> just for edit pages etc.
+<p></p>
+
+An alternative to <code>commonTagsHandler</code> is <code>postRenderingHandler</code> which is more efficient since it is called less often.
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Using_the_Calendar_for_picking_date_and_time">  Using the Calendar for picking date and time </h3>
+<p class='p'>The calendar is able to display a time-picker, in addition to the default date-picker, depending on the optional date format passed.</p>
+
+<table class="foswikiTable" id="tableJSCalendarContrib1" rules="all">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol"> <a href="/bin/view/System/JSCalendarContrib?sortcol=0;table=1;up=1#sorted_table" rel="nofollow" title="Sort by this column">Pick days and time</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/JSCalendarContrib?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Pick days only</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> A time format is set in <code>JSCALENDARCONTRIB_FORMAT</code>. For instance: <br /> <code>Set JSCALENDARCONTRIB_FORMAT = %Y-%m-%d %H:%M:%S</code> </td>
+			<td class="foswikiLastCol" rowspan="1"> All other cases </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol foswikiLast" rowspan="1"> When the passed format descriptions includes hours, minutes or am or pm specifiers. <br /> For instance: <code>%H, %I, %k, %l, %M, %p, %P</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast" rowspan="1"> All other cases </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Using_the_Calendar_in_forms">  Using the Calendar in forms </h3>
+The date picker is shown automatically in <a href="/bin/view/System/DataForms">DataForms</a> when a <code>date</code> field is specified.
+<p class='p'>You can also use the calendar directly in your own hand-built forms.</p>
+
+<h4 id="Preparation">  Preparation </h4>
+Just add this inline in the topic text:
+<pre class="tml">
+&#37;INCLUDE{&#34;&#37;SYSTEMWEB&#37;.JSCalendarContribInline&#34;}&#37;
+</pre>
+You may pass language and style options:
+<pre class="tml">
+&#37;INCLUDE{&#34;&#37;SYSTEMWEB&#37;.JSCalendarContribInline&#34; lang&#61;&#34;nl&#34; style&#61;&#34;blue&#34;}&#37;
+</pre>
+The default <code>lang</code> is <code>en</code>, the default <code>style</code> is <code>large</code>.
+<p></p>
+
+<h4 id="Displaying_the_calendar">  Displaying the calendar </h4>
+To display a calendar icon next to a text input field:
+<pre class="tml">
+&#60;input type&#61;&#34;text&#34; class&#61;&#34;foswikiInputField&#34; id&#61;&#34;cal&#95;val&#95;here&#34; /&#62;
+&#60;img src&#61;&#34;&#37;PUBURL&#37;/&#37;SYSTEMWEB&#37;/JSCalendarContrib/img.gif&#34;\
+  class&#61;&#34;foswikiButton foswikiEditFormCalendarButton&#34; \
+  onclick&#61;&#34;return showCalendar(&#39;cal&#95;val&#95;here&#39;,&#39;&#37;e &#37;B &#37;Y &#37;H:&#37;M:&#37;S &#39;)&#34; /&#62;
+</pre>
+If the contrib is installed, you will see such a field here:
+<p></p>
+
+<input type="text" class="foswikiInputField" id="cal_val_here" />
+<img class='imagePlain imagePlain_none foswikiButton foswikiEditFormCalendarButton' src='/pub/System/JSCalendarContrib/img.gif' alt='img.gif' title='img.gif' width='32' height='17'    /><p></p>
+
+<!-- <ul>
+<li> Set SHORTDESCRIPTION = <span class='externalLink'><a href="http://dynarch.com/mishoo/calendar.epl">Mishoo JSCalendar</a></span> date and time picker, packaged for use by plugins, skins and add-ons
+</li></ul> 
+-->
+<p></p>
+
+<h3 id="Installation_Instructions">  Installation Instructions </h3>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h3 id="Customizing_the_appearance_of_the_calendar">  Customizing the appearance of the calendar </h3>
+<p></p>
+ <ul>
+<li> An administrator can customize the default appearance of the calendar using the <code>configure</code> interface to set the style and language options.
+</li> <li> Users can customize the appearance of the calendar, overriding the administrator's choices, either system-wide (at <a href="/bin/view/Main/SitePreferences">SitePreferences</a>), by web (at the WebPreferences topic), and even or per-topic basis. To do that they need to define the following settings:          <table class="foswikiTable" rules="none">      	<thead>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/JSCalendarContrib?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Setting</a> </th>			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/JSCalendarContrib?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default value</a> </th>		</tr>	</thead>      	<tbody>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> JSCALENDARCONTRIB_FORMAT </td>			<td class="foswikiTableCol1 foswikiLastCol"> %e %b %Y </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> JSCALENDARCONTRIB_STYLE </td>			<td class="foswikiTableCol1 foswikiLastCol"> large </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> JSCALENDARCONTRIB_LANG </td>			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> en </td>		</tr>	</tbody>      </table>
+</li></ul> 
+<p></p>
+
+<h3 id="Contrib_Info">  Contrib Info </h3>
+<p></p>
+
+Another great Foswiki extension from the <img class='imagePlain imagePlain_none ' src='/pub/System/JSCalendarContrib/wikiringlogo20x20.png' alt='WikiRing' title='wikiringlogo20x20.png' width='20' height='20'    /> <strong>WikiRing</strong> - working together to improve your wiki experience!
+<p class='p'></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 08 Dec 2017 (1.56) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14554" title="'Item14554' on the 'Foswiki' issue tracking site">Foswikitask:Item14554</a>: remove link to unused wikiring.com domain. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 14 Jun 2015 (1.55) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Released with Foswiki 2.0, copyright updates, minor doc updates. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 18 Dec 2014 (1.54) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13099" title="'Item13099' on the 'Foswiki' issue tracking site">Foswikitask:Item13099</a>: fixed img button of date formfield, Delegated the PUBURL implementation to the store<br />                       <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12583" title="'Item12583' on the 'Foswiki' issue tracking site">Foswikitask:Item12583</a>: Convert back to simple decimal version strings. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Mar 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12070" title="'Item12070' on the 'Foswiki' issue tracking site">Foswikitask:Item12070</a>: fixed too many calls to <code>expandTML</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Nov 2012 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12213" title="'Item12213' on the 'Foswiki' issue tracking site">Foswikitask:Item12213</a>: Button icon made transparent.  <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11267" title="'Item11267' on the 'Foswiki' issue tracking site">Foswikitask:Item11267</a>: Convert to perl version strings. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2012 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11568" title="'Item11568' on the 'Foswiki' issue tracking site">Foswikitask:Item11568</a>: Re-introduce style options and updated default calendar style.<br />                 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11701" title="'Item11701' on the 'Foswiki' issue tracking site">Foswikitask:Item11701</a>: Fallback to numbers for month if month name is expected, but numbers are entered. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Nov 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Revert changes since 30 July.  Bump release to 1.5. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Jul 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Arthur Clemens: Several bug fixes related to using seconds. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Apr 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Version released with Foswiki 1.1.3. Only a minor change related to how the plugin is being upgraded </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jul 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9415" title="'Item9415' on the 'Foswiki' issue tracking site">Foswikitask:Item9415</a> - Documentation updates </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Apr 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added possibility of local configuration of the calendar (<a class="interwikiLink" href="https://foswiki.org/Main.AntonioTerceiro" title="'Main.AntonioTerceiro' on foswiki.org">Foswiki:Main.AntonioTerceiro</a>). </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Apr 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Calendar displays the built-in Time-Picker if the optional format string contains time format specifiers (<a class="interwikiLink" href="https://foswiki.org/Main.RaulFRodriguez" title="'Main.RaulFRodriguez' on foswiki.org">Foswiki:Main.RaulFRodriguez</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Jan 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Adding the Config.spec file with the 3 settings so that people do not have to manually create the file. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Small documentation update in connection with release of Foswiki 1.0.7 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Foswiki version </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Sep 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Bugs:Item5991 Applied patch to fix rendering on IE7 . </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Sep 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Bugs:Item4030 Added doc for using the calendar in user forms </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13603 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Bugs:Item2982 cleaned up the interface to the contrib, re-added a date rendering function with a more generic interface </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11594 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Allow format to be configured. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11415 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Add a <code>renderFormFieldForEditHandler</code> so other plugins can forward to this handler to add the date field to the <a href="/bin/view/System/DataForms">DataForms</a>. (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.ThomasWeigert" title="'Main.ThomasWeigert' on TWiki.org">TWiki:Main.ThomasWeigert</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10247 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Bugs:Item2054 put the calendar at z-index 2000, way above pattern skin divs. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 6634 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Bugs:Item453  removed <a class="foswikiNewLink" href="/bin/edit/System/EditTablePlugins?topicparent=System.JSCalendarContrib" rel="nofollow" title="Create this topic">EditTablePlugins</a> private copy of the Mishoo JS calendar, and made sure it works with <a class="foswikiCurrentTopicLink" href="/bin/view/System/JSCalendarContrib">JSCalendarContrib</a>. Improved the documentation of the JSCalendar while I was there. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 6626 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Bugs:Item468  updated docs for Dakar release </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 5048 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Cairo readiness </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 5039 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Split from SharedCode </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Dec 2005 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> updated to calendar version 1.0; set style for Safari to win2k-1 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Aug 2004 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Separated out from SharedCode module </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> Dependencies: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Plugins::JQueryPlugin</td><td align="left">&gt;=6.00</td><td align="left">Required.</td></tr></table> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<hr />
+<strong>Related Topics:</strong> <a href="/bin/view/Main/SitePreferences">SitePreferences</a>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/JSCalendarContrib?t=1627671382;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main/CrawfordCurrie" title="'Main/CrawfordCurrie' on foswiki.org">Foswiki:Main/CrawfordCurrie</a> <a href="http://c-dot.co.uk">http://c-dot.co.uk</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 1.56 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 08 Dec 2017 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/distro">https://github.com/foswiki/distro</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> Foswiki Contributors, All Rights Reserved </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="http://foswiki.org/Extensions/JSCalendarContrib">http://foswiki.org/Extensions/JSCalendarContrib</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="http://foswiki.org/Support/JSCalendarContrib">http://foswiki.org/Support/JSCalendarContrib</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/JSCalendarContrib?t=1627671382' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/JSCalendarContrib' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JSCalendarContrib?cover=print;sortcol=0;table=1;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/JSCalendarContrib?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JSCalendarContrib?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JSCalendarContrib?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/JSCalendarContrib?t=1627671382;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JSCalendarContrib?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 22 Jan 2018, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/JSCalendarContrib?foswiki_origin=GET%2cview%2c/bin/view/System/JSCalendarContrib%3fsortcol%3d0%3btable%3d1%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.JSCalendarContrib'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

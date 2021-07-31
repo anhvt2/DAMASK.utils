@@ -1,0 +1,964 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> SolrSearchBaseTemplate &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/SolrSearchBaseTemplate?t=1627672037" type="application/x-wiki" title="edit SolrSearchBaseTemplate" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/SolrSearchBaseTemplate" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/e7e7b3ee7d12f6284073cee480054fa2.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "URLHOST" : "https://damask.mpie.de",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATH" : "/bin",
+   "USERSWEB" : "Main",
+   "WEB" : "System",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "USERNAME" : "guest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SERVERTIME" : "30 Jul 2021 - 21:07",
+   "TOPIC" : "SolrSearchBaseTemplate",
+   "COOKIEREALM" : "",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTSUFFIX" : "",
+   "PUBURLPATH" : "/pub",
+   "SKIN" : "damask,famfamfam,pattern"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/SolrSearchBaseTemplate" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?0f6d05aa1ef294189b41b5f276447823' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/SolrSearchBaseTemplate?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?c99441fcccad245d006652a24dcebb3a' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.SolrSearchBaseTemplate' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.SolrSearchBaseTemplate' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <pre class="tml">&#37;{ ###########################################################################
+   template inheritance and general presets 
+}&#37;
+&#37;TMPL:INCLUDE{&#34;view&#34;}&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   customization section
+}&#37;
+&#37;TMPL:DEF{&#34;solr::defaultweb&#34;}&#37;all&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::instantsearch&#34;}&#37;false&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::defaultexactsearch&#34;}&#37;false&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::defaultrows&#34;}&#37;10&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::defaultquerytype&#34;}&#37;edismax&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::defaultsort&#34;}&#37;score desc&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::dateformat&#34;}&#37;dddd, Do MMMM YYYY, HH:mm&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::fields&#34;}&#37;&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::queryfields&#34;}&#37;&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::extrafilter&#34;}&#37;&#60;literal&#62;&#37;SOLR&#95;EXTRAFILTER{default&#61;&#34;&#34;}&#37;&#60;/literal&#62; &#37;IF{ &#34;not &#36;USERNAME ingroup &#39;AdminGroup&#39;&#34; then&#61;&#34;-web&#95;search:Applications&#34; }&#37;&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::exactsearch&#34;}&#37;title&#95;std^7 catchall&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::facet::include::web&#34;}&#37;&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::facet::exclude::web&#34;}&#37;^(&#95;.&#42;&#37;IF{ &#34;not &#36;USERNAME ingroup &#39;AdminGroup&#39;&#34; then&#61;&#34;&#124;Application.&#42;&#34; }&#37;)&#36;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   content: main definition that puts together all pieces
+}&#37;
+&#37;TMPL:DEF{&#34;content&#34;}&#37;&#60;noautolink&#62;
+&#60;div id&#61;&#39;solrSearch&#39; style&#61;&#39;display:none&#39; data-more-fields&#61;&#39;&#37;TMPL:P{&#34;solr::fields&#34;}&#37;&#39; &#37;FORMATLIST{&#34;&#37;TMPL:P{&#34;solr::queryfields&#34;}&#37;&#34; header&#61;&#34;data-query-fields&#61;&#39;&#34; footer&#61;&#34;&#39;&#34; separator&#61;&#34; &#34; split&#61;&#34; &#34;}&#37; data-solr-url&#61;&#39;&#37;SCRIPTURL{&#34;rest&#34;}&#37;/SolrPlugin/proxy&#39; data-solr-params&#61;&#39;{&#34;topic&#34;: &#34;&#37;WEB&#37;.&#37;TOPIC&#37;&#34;, &#34;qt&#34;:&#34;&#37;TMPL:P{&#34;solr::defaultquerytype&#34;}&#37;&#34;, &#34;rows&#34;: &#37;TMPL:P{&#34;solr::defaultrows&#34;}&#37; &#37;IF{&#34;&#39;&#37;TMPL:P{&#34;solr::defaultexactsearch&#34;}&#37;&#39;&#61;&#39;true&#39;&#34; then&#61;&#34;, \&#34;qf\&#34;: \&#34;&#36;percntTMPL:P{\&#34;solr::exactsearch\&#34;}&#36;percnt\&#34;&#34;}&#37;}&#39; data-extra-filter&#61;&#39;&#37;TMPL:P{&#34;solr::extrafilter&#34;}&#37;&#39; &#62;
+&#37;TMPL:P{&#34;solr::title&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::header&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::hits&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::footer&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::assets&#34;}&#37;&#37;{}&#37;
+&#60;/div&#62;
+&#37;TMPL:P{&#34;solr::templates&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::dictionary&#34;}&#37;&#37;{}&#37;
+&#60;/noautolink&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::assets - css and js to be added to the html head
+}&#37;
+&#37;TMPL:DEF{&#34;solr::assets&#34;}&#37;&#37;JQREQUIRE{&#34;livequery,focus, serialpager, photoswipe, render, jqtwisty, moment, blockui, imagetooltip&#34; warn&#61;&#34;off&#34;}&#37;&#37;{}&#37;
+&#37;ADDTOZONE{&#34;script&#34;
+  id&#61;&#34;SOLRPLUGIN::AJAX&#34;
+  requires&#61;&#34;JQUERYPLUGIN::LIVEQUERY, JQUERYPLUGIN::BLOCKUI, JQUERYPLUGIN::MOMENT&#34;
+  text&#61;&#34;&#60;script type&#61;&#39;text/javascript&#39; src&#61;&#39;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/SolrPlugin/ajax-solr.js&#39;&#62;&#60;/script&#62;
+&#60;script type&#61;&#39;text/javascript&#39; src&#61;&#39;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/SolrPlugin/ajax-solr-widgets.js&#39;&#62;&#60;/script&#62;
+&#60;script type&#61;&#39;text/javascript&#39; src&#61;&#39;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/SolrPlugin/ajax-solr-init.js&#39;&#62;&#60;/script&#62;&#34;
+}&#37;&#37;ADDTOZONE{&#34;head&#34;
+  id&#61;&#34;SOLRPLUGIN&#34;
+  text&#61;&#34;&#60;link rel&#61;&#39;stylesheet&#39; href&#61;&#39;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/SolrPlugin/solrplugin.css&#39; type&#61;&#39;text/css&#39; media&#61;&#39;all&#39; /&#62;&#34;
+}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::dictionary - defines a set of keys to be displayed using a different lable
+}&#37;
+&#37;TMPL:DEF{&#34;solr::dictionary&#34;}&#37;&#60;literal&#62;
+&#60;div class&#61;&#34;solrDictionary solrJsonData&#34; data-id&#61;&#34;default&#34;&#62;
+{
+  &#37;FLEXWEBLIST{
+    webs&#61;&#34;public&#34;
+    exclude&#61;&#34;Trash.&#42;&#34;
+    format&#61;&#34;\&#34;&#36;web\&#34;: \&#34;&#36;percntENCODE{\&#34;&#36;title\&#34; type&#61;\&#34;quote\&#34;}&#36;percnt\&#34;&#34;
+    subheader&#61;&#34;,&#36;n&#34;
+    separator&#61;&#34;,&#36;n&#34;
+  }&#37;,
+  &#34;keyword&#34;: &#34;&#37;MAKETEXT{&#34;keyword&#34;}&#37;&#34;,
+  &#34;tag&#34;: &#34;&#37;MAKETEXT{&#34;tag&#34;}&#37;&#34;,
+  &#34;webcat&#34;: &#34;&#37;MAKETEXT{&#34;Category&#34;}&#37;&#34;,
+  &#34;field&#95;TopicType&#95;lst&#34;: &#34;&#37;MAKETEXT{&#34;Type&#34;}&#37;&#34;,
+  &#34;ar&#34;:&#34;Arabic&#34;,
+  &#34;bg&#34;:&#34;Bulgarian&#34;,
+  &#34;ca&#34;:&#34;Catalan&#34;,
+  &#34;ckb&#34;:&#34;Kurdish&#34;,
+  &#34;cjk&#34;:&#34;Japanese&#34;,
+  &#34;cz&#34;:&#34;Czech&#34;,
+  &#34;da&#34;:&#34;Danish&#34;,
+  &#34;de&#34;:&#34;German&#34;,
+  &#34;el&#34;:&#34;Greek&#34;,
+  &#34;en&#34;:&#34;English&#34;,
+  &#34;es&#34;:&#34;Spanish&#34;,
+  &#34;fa&#34;:&#34;Persian&#34;,
+  &#34;fi&#34;:&#34;Finnish&#34;,
+  &#34;fr&#34;:&#34;French&#34;,
+  &#34;ga&#34;:&#34;Irish&#34;,
+  &#34;gl&#34;:&#34;Galician&#34;,
+  &#34;hi&#34;:&#34;Hindi&#34;,
+  &#34;hu&#34;:&#34;Hungarian&#34;,
+  &#34;hy&#34;:&#34;Armenian&#34;,
+  &#34;id&#34;:&#34;Indonesian&#34;,
+  &#34;it&#34;:&#34;Italian&#34;,
+  &#34;ja&#34;:&#34;Japanese&#34;,
+  &#34;ko&#34;:&#34;Korean&#34;,
+  &#34;lv&#34;:&#34;Latvian&#34;,
+  &#34;nl&#34;:&#34;Dutch&#34;,
+  &#34;no&#34;:&#34;Norwegian&#34;,
+  &#34;pl&#34;:&#34;Polish&#34;,
+  &#34;pt-br&#34;:&#34;Portuguese&#34;,
+  &#34;pt&#34;:&#34;Portuguese&#34;,
+  &#34;ro&#34;:&#34;Romanian&#34;,
+  &#34;ru&#34;:&#34;Russian&#34;,
+  &#34;sv&#34;:&#34;Swedish&#34;,
+  &#34;tr&#34;:&#34;Turkish&#34;,
+  &#34;uk&#34;:&#34;Ukrainian&#34;,
+  &#34;zh-cn&#34;:&#34;Chinese&#34;,
+  &#34;zh-tw&#34;:&#34;Chinese&#34;
+}
+&#60;/div&#62;
+&#60;/literal&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::templates - defines all jquery.tmpl templates required
+}&#37;
+&#37;TMPL:DEF{&#34;solr::templates&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::templates::hits&#34;}&#37;
+&#37;TMPL:P{&#34;solr::templates::facetfield&#34;}&#37;
+&#37;TMPL:P{&#34;solr::templates::currentselection&#34;}&#37;
+&#37;TMPL:P{&#34;solr::templates::togglefacet&#34;}&#37;
+&#37;TMPL:P{&#34;solr::templates::toggle&#34;}&#37;
+&#37;TMPL:P{&#34;solr::templates::tagcloud&#34;}&#37;
+&#37;TMPL:P{&#34;solr::templates::hierarchy&#34;}&#37;
+&#37;TMPL:P{&#34;solr::templates::resultsperpage&#34;}&#37;
+&#37;TMPL:P{&#34;solr::templates::spellcorrection&#34;}&#37;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::templates::hits - defines all jquery.tmpl templates to render search hits
+   of different types. each type has got a ...::&#60;name-of-type&#62; sup-template that
+   is customized to that type.
+}&#37;
+&#37;TMPL:DEF{&#34;solr::templates::hits&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::templates::hits::topic&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::templates::hits::image&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::templates::hits::comment&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::templates::hits::listy&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::templates::hits::misc&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::templates::hits::ClassifiedTopic&#34;}&#37;&#37;{}&#37;
+&#60;script id&#61;&#34;solrHitTemplate&#34; type&#61;&#34;text/x-jsrender&#34;&#62; 
+{{include tmpl&#61;~getTemplateName() /}}
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::thumbnail&#34;}&#37;
+{{if thumbnail}}
+      &#60;div class&#61;&#39;solrThumbnail&#39;&#62;
+        &#60;a href&#61;&#39;{{:url}}&#39; title&#61;&#39;{{:name}}&#39; class&#61;&#39;imageHref imageSimple jqImageTooltip&#39; data-web&#61;&#39;{{:web}}&#39; data-topic&#61;&#39;{{:topic}}&#39; data-image&#61;&#39;{{:thumbnail}}&#39; data-orig-width&#61;&#39;{{:width}}&#39; data-orig-height&#61;&#39;{{:height}}&#39;&#62;
+          &#60;img src&#61;&#39;&#37;SCRIPTURLPATH{&#34;rest&#34;}&#37;/ImagePlugin/resize?topic&#61;{{:web}}.{{:topic}};file&#61;{{:~encodeURIComponent(thumbnail)}};size&#61;70&#62;;crop&#61;center&#39; alt&#61;&#39;{{:thumbnail}}&#39; /&#62;
+        &#60;/a&#62;
+      &#60;/div&#62;
+{{/if}}
+&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::hits::ClassifiedTopic&#34;}&#37;&#60;script id&#61;&#34;solrHitTemplate&#95;ClassifiedTopic&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+  &#60;div class&#61;&#39;solrSearchHit solrTopicHit clearfix&#39;&#62;
+    &#60;h3&#62;
+      &#60;i class&#61;&#39;solrHitIcon foswikiIcon jqIcon fa {{if icon}}{{:icon}}{{else}}fa-file-o{{/if}}&#39;&#62;&#60;/i&#62;
+      &#60;a href&#61;&#39;{{:url}}&#39;&#62;{{:title}}&#60;/a&#62;
+      &#60;span class&#61;&#39; solrContainerLink foswikiGrayText foswikiNormal&#39;&#62;
+        &#37;MAKETEXT{&#34;in &#91;&#95;1&#93;&#34; args&#61;&#34;&#60;a href&#61;&#39;{{:container&#95;url}}&#39;&#62;{{:container&#95;title}}&#60;/a&#62;&#34;}&#37;
+      &#60;/span&#62;
+    &#60;/h3&#62;
+    &#60;div class&#61;&#39;foswikiTopicSummary&#39;&#62;{{:summary}}&#60;/div&#62;
+    &#60;div class&#61;&#39;solrRevision&#39;&#62; 
+      {{:~formatDate(date,&#39;&#37;TMPL:P{&#34;solr::dateformat&#34;}&#37;&#39;)}}, {{:author&#95;title}}
+    &#60;/div&#62;
+    &#37;TMPL:P{&#34;solr::thumbnail&#34;}&#37;
+    &#60;div class&#61;&#39;solrHilite&#39;&#62;
+      {{:~getHilite(id)}}
+    &#60;/div&#62;
+    &#60;span class&#61;&#39;foswikiClear&#39;&#62;&#60;/span&#62;
+    &#60;div class&#61;&#39;solrTopicInfo foswikiGrayText&#39;&#62;
+      {{:~renderTopicInfo()}}
+    &#60;/div&#62;
+  &#60;/div&#62;
+&#60;/script&#62;
+&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::hits::topic&#34;}&#37;&#60;script id&#61;&#34;solrHitTemplate&#95;topic&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+  &#60;div class&#61;&#39;solrSearchHit solrTopicHit clearfix&#39;&#62;
+    &#60;h3&#62;
+      &#60;i class&#61;&#39;solrHitIcon foswikiIcon jqIcon fa {{if icon}}{{:icon}}{{else}}fa-file-o{{/if}}&#39;&#62;&#60;/i&#62;
+      &#60;a href&#61;&#39;{{:url}}&#39;&#62;{{:title}}&#60;/a&#62;
+      &#60;span class&#61;&#39;foswikiGrayText foswikiNormal solrContainerLink&#39;&#62;
+        &#37;MAKETEXT{&#34;in &#91;&#95;1&#93;&#34; args&#61;&#34;&#60;a href&#61;&#39;{{:container&#95;url}}&#39;&#62;{{:container&#95;title}}&#60;/a&#62;&#34;}&#37;
+      &#60;/span&#62;
+    &#60;/h3&#62;
+    &#60;div class&#61;&#39;foswikiTopicSummary&#39;&#62;{{:summary}}&#60;/div&#62;
+    &#60;div class&#61;&#39;solrRevision&#39;&#62; 
+      {{:~formatDate(date,&#39;&#37;TMPL:P{&#34;solr::dateformat&#34;}&#37;&#39;)}}, {{:author&#95;title}}
+    &#60;/div&#62;
+    &#37;TMPL:P{&#34;solr::thumbnail&#34;}&#37;
+    &#60;div class&#61;&#39;solrHilite&#39;&#62;
+      {{:~getHilite(id)}}
+    &#60;/div&#62;
+  &#60;/div&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::hits::image&#34;}&#37;&#60;script id&#61;&#34;solrHitTemplate&#95;image&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+  &#60;div class&#61;&#39;solrSearchHit solrImageHit clearfix&#39;&#62;
+    &#60;div class&#61;&#39;solrImageFrame&#39;&#62;
+      &#60;a href&#61;&#39;{{:url}}&#39; title&#61;&#39;{{:name}}&#39; class&#61;&#39;imageHref imageSimple jqImageTooltip&#39; data-web&#61;&#39;{{:web}}&#39; data-topic&#61;&#39;{{:topic}}&#39; data-image&#61;&#39;{{:name}}&#39; data-orig-width&#61;&#39;{{:width}}&#39; data-orig-height&#61;&#39;{{:height}}&#39;&#62;
+        &#60;img src&#61;&#39;&#37;SCRIPTURLPATH{&#34;rest&#34;}&#37;/ImagePlugin/resize?topic&#61;{{:web}}.{{:topic}};file&#61;{{:~encodeURIComponent(name)}};size&#61;70&#62;;crop&#61;center&#39; alt&#61;&#39;{{:name}}&#39; /&#62;
+      &#60;/a&#62;
+    &#60;/div&#62;
+    &#60;h3&#62;
+      &#60;i class&#61;&#39;solrHitIcon foswikiIcon jqIcon fa {{if icon}}{{:icon}}{{else}}fa-file-o{{/if}}&#39;&#62;&#60;/i&#62;
+      &#60;a href&#61;&#39;{{:url}}&#39;&#62;{{:name}}&#60;/a&#62;
+      &#60;span class&#61;&#39;foswikiGrayText foswikiNormal solrContainerLink&#39;&#62;
+        &#37;MAKETEXT{&#34;in &#91;&#95;1&#93;&#34; args&#61;&#34;&#60;a href&#61;&#39;{{:container&#95;url}}&#39;&#62;{{:container&#95;title}}&#60;/a&#62;&#34;}&#37;
+      &#60;/span&#62;
+    &#60;/h3&#62;
+    &#60;div class&#61;&#39;foswikiTopicSummary&#39;&#62;{{:summary}}&#60;/div&#62;
+    &#60;div class&#61;&#39;solrRevision&#39;&#62; 
+      {{:~formatDate(date,&#39;&#37;TMPL:P{&#34;solr::dateformat&#34;}&#37;&#39;)}}, {{:author&#95;title}}
+    &#60;/div&#62;
+  &#60;/div&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::hits::comment&#34;}&#37;&#60;script id&#61;&#34;solrHitTemplate&#95;comment&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+  &#60;div class&#61;&#39;solrSearchHit solrCommentHit clearfix&#39;&#62;
+    &#60;h3&#62;
+      &#60;i class&#61;&#39;solrHitIcon foswikiIcon jqIcon fa {{if icon}}{{:icon}}{{else}}fa-file-o{{/if}}&#39;&#62;&#60;/i&#62;
+      &#60;a href&#61;&#39;{{:url}}&#39;&#62;{{:title}}&#60;/a&#62;
+      &#60;span class&#61;&#39;foswikiGrayText foswikiNormal solrContainerLink&#39;&#62;
+        &#37;MAKETEXT{&#34;in &#91;&#95;1&#93;&#34; args&#61;&#34;&#60;a href&#61;&#39;{{:container&#95;url}}&#39;&#62;{{:container&#95;title}}&#60;/a&#62;&#34;}&#37;
+      &#60;/span&#62;
+    &#60;/h3&#62;
+    &#60;div class&#61;&#39;foswikiTopicSummary&#39;&#62;{{:summary}}&#60;/div&#62;
+    &#60;div class&#61;&#39;solrRevision&#39;&#62; 
+      {{:~formatDate(date,&#39;&#37;TMPL:P{&#34;solr::dateformat&#34;}&#37;&#39;)}}, {{:author&#95;title}}
+    &#60;/div&#62;
+    &#60;div class&#61;&#39;solrHilite&#39;&#62;
+      {{:~getHilite(id)}}
+    &#60;/div&#62;
+  &#60;/div&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::hits::listy&#34;}&#37;&#60;script id&#61;&#34;solrHitTemplate&#95;listy&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+  &#60;div class&#61;&#39;solrSearchHit solrListyHit clearfix&#39;&#62;
+    &#60;h3&#62;
+      &#60;i class&#61;&#39;solrHitIcon foswikiIcon jqIcon fa {{if icon}}{{:icon}}{{else}}fa-file-o{{/if}}&#39;&#62;&#60;/i&#62;
+      &#60;a href&#61;&#39;{{:url}}&#39;&#62;{{:title}}&#60;/a&#62;
+      &#60;span class&#61;&#39;foswikiGrayText foswikiNormal solrContainerLink&#39;&#62;
+        &#37;MAKETEXT{&#34;in &#91;&#95;1&#93;&#34; args&#61;&#34;&#60;a href&#61;&#39;{{:container&#95;url}}&#39;&#62;{{:container&#95;title}}&#60;/a&#62;&#34;}&#37;
+      &#60;/span&#62;
+    &#60;/h3&#62;
+    &#60;div class&#61;&#39;foswikiTopicSummary&#39;&#62;{{:summary}}&#60;/div&#62;
+    &#60;div class&#61;&#39;solrRevision&#39;&#62; 
+      {{:~formatDate(date,&#39;&#37;TMPL:P{&#34;solr::dateformat&#34;}&#37;&#39;)}}, {{:author&#95;title}}
+    &#60;/div&#62;
+    &#60;div class&#61;&#39;solrHilite&#39;&#62;
+      {{:~getHilite(id)}}
+    &#60;/div&#62;
+  &#60;/div&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::hits::misc&#34;}&#37;&#60;script id&#61;&#34;solrHitTemplate&#95;misc&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+  &#60;div class&#61;&#39;solrSearchHit solrMiscHit clearfix&#39;&#62;
+    &#60;h3&#62;
+      &#60;i class&#61;&#39;solrHitIcon foswikiIcon jqIcon fa {{if icon}}{{:icon}}{{else}}fa-file-o{{/if}}&#39;&#62;&#60;/i&#62;
+      &#60;a href&#61;&#39;{{:url}}&#39;&#62;{{:name}}&#60;/a&#62;
+      &#60;span class&#61;&#39;foswikiGrayText foswikiNormal solrContainerLink&#39; &#62;
+        &#37;MAKETEXT{&#34;in &#91;&#95;1&#93;&#34; args&#61;&#34;&#60;a href&#61;&#39;{{:container&#95;url}}&#39;&#62;{{:container&#95;title}}&#60;/a&#62;&#34;}&#37;
+      &#60;/span&#62;
+    &#60;/h3&#62;
+    &#60;div class&#61;&#39;foswikiTopicSummary&#39;&#62;{{:summary}}&#60;/div&#62;
+    &#60;div class&#61;&#39;solrRevision&#39;&#62; 
+      {{:~formatDate(date,&#39;&#37;TMPL:P{&#34;solr::dateformat&#34;}&#37;&#39;)}}, {{:author&#95;title}}
+    &#60;/div&#62;
+    &#60;div class&#61;&#39;solrHilite&#39;&#62;
+      {{:~getHilite(id)}}
+    &#60;/div&#62;
+    {{if comment}}
+      &#60;div class&#61;&#39;foswikiGrayText&#39;&#62;{{:comment}}&#60;/div&#62;
+    {{/if}}
+  &#60;/div&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+%TMPL:DEF{"solr::templates::facetfield"}%<script id="solrFacetFieldTemplate" type="text/x-jsrender"> 
+  <div class="jqSerialPager" data-pagesize="10">
+    <ul>
+      {{for widget.facetCounts ~widget=widget}}
+        <li>
+          <table class='foswikiLayoutTable' width='100%'>
+            <tr>
+            <td width='12px'>
+              <input type='{{:~widget.inputType}}' name='{{:~widget.field}}' title='{{:~getFacetKey(facet)}}' value='{{:~getFacetValue(facet)}}' id='{{:~widget.field}}_{{:#index}}' autocomplete='off' class='solrFacetValue' {{:~checked(facet)}} />
+            </td>
+            <td><label for='{{:~widget.field}}_{{:#index}}' style='display:block'>{{:~getFacetKey(facet)}} <span class='foswikiGrayText'>({{:count}})</span></label></td>
+            </tr>
+          </table>
+        </li>
+      {{/for}}
+    </ul>
+  </div>
+</script>%TMPL:END%
+%{</verbatim>}%
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::currentselection&#34;}&#37;&#60;script id&#61;&#34;solrCurrentSelectionTemplate&#34; type&#61;&#34;text/x-jsrender&#34;&#62; 
+  &#60;li&#62;
+    &#60;table class&#61;&#39;foswikiLayoutTable&#39; width&#61;&#39;100&#37;&#39;&#62;
+      &#60;tr&#62;
+        &#60;td width&#61;&#39;12px&#39;&#62;
+          &#60;input type&#61;&#39;checkbox&#39; class&#61;&#39;foswikiCheckbox&#39; id&#61;&#39;{{:id}}&#39; name&#61;&#39;filter&#39; checked&#61;&#39;checked&#39;/&#62;
+        &#60;/td&#62;
+        &#60;td&#62;
+          &#60;label for&#61;&#39;{{:id}}&#39; style&#61;&#39;display:block&#39;&#62;{{:facet}} &#60;nobr&#62;({{:field}})&#60;/nobr&#62;&#60;/label&#62;
+        &#60;/td&#62;
+      &#60;/tr&#62;
+    &#60;/table&#62;
+  &#60;/li&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::togglefacet&#34;}&#37;&#60;script id&#61;&#34;solrToggleFacetTemplate&#34; type&#61;&#34;text/x-jsrender&#34;&#62; 
+  &#60;input type&#61;&#39;checkbox&#39; class&#61;&#39;foswikiCheckbox&#39; id&#61;&#39;{{:id}}&#39; /&#62;
+  &#60;label class&#61;&#39;foswikiLabel&#39; for&#61;&#39;{{:id}}&#39;&#62;{{:title}}&#60;/label&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::toggle&#34;}&#37;&#60;script id&#61;&#34;solrToggleTemplate&#34; type&#61;&#34;text/x-jsrender&#34;&#62; 
+  &#60;input type&#61;&#39;checkbox&#39; class&#61;&#39;foswikiCheckbox&#39; id&#61;&#39;{{:id}}&#39; /&#62;
+  &#60;label class&#61;&#39;foswikiLabel&#39; for&#61;&#39;{{:id}}&#39;&#62;{{:title}}&#60;/label&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::tagcloud&#34;}&#37;&#60;script id&#61;&#34;solrTagCloudTemplate&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+{{:group}}&#60;span style&#61;&#39;font-size:{{:weight}}px&#39;&#62;&#60;a href&#61;&#39;#&#39; title&#61;&#39;{{:count}}&#39; style&#61;&#39;color:{{:color}};&#39; class&#61;&#39;solrFacetValue {{:current}} tag&#95;{{:facet}}&#39;&#62;{{:facet}}&#60;/a&#62; &#60;/span&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::hierarchy&#34;}&#37;&#60;script id&#61;&#34;solrHierarchyTemplate&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+&#60;li&#62;&#60;i class&#61;&#39;solrHitIcon foswikiIcon jqIcon fa {{:icon}}&#39;&#62;&#60;/i&#62;&#60;a href&#61;&#39;#&#39; class&#61;&#39;solrFacetFalue cat&#95;{{:id}}&#39; data-value&#61;&#39;{{:id}}&#39;&#62;{{:title}}&#60;/a&#62; {{:~renderFacetCount(id)}}
+&#60;div class&#61;&#39;solrHierarchyChildren&#39;&#62;
+{{for ~getChildren}}
+  {{if index &#60; 5}}
+    &#60;a href&#61;&#39;#&#39; class&#61;&#39;solrFacetValue&#39; data-cat&#61;&#39;cat&#95;{{:id}}&#39; data-value&#61;&#39;{{:id}}&#39;&#62;{{:title}}&#60;/a&#62;
+  {{/if}}
+{{/for}}
+{{if ~getChildren().length &#62;&#61; 5}} 
+  &#60;a href&#61;&#39;#&#39; class&#61;&#39;solrFacetFalue cat&#95;{{:id}}&#39; data-value&#61;&#39;{{:id}}&#39;&#62;...&#60;/a&#62;
+{{/if}}
+&#60;/div&#62;
+&#60;/li&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::resultsperpage&#34;}&#37;&#60;script id&#61;&#34;solrResultsPerPageTemplate&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+&#60;table class&#61;&#34;foswikiNullTable&#34; width&#61;&#34;100&#37;&#34;&#62;
+  &#60;tr&#62;
+    &#60;td&#62;
+     {{if count &#62; 0}}
+       &#37;MAKETEXT{&#34;Results &#91;&#95;1&#93; - &#91;&#95;2&#93; of &#60;b&#62;&#91;&#95;3&#93;&#60;/b&#62;&#34; args&#61;&#34;{{:from}}, {{:to}}, {{:count}}&#34;}&#37;
+     {{else}}
+        &#60;span class&#61;&#34;foswikiAlert&#34;&#62;&#37;MAKETEXT{&#34;nothing found&#34;}&#37;&#60;/span&#62;
+     {{/if}}
+    &#60;/td&#62;
+    &#60;td align&#61;&#34;right&#34;&#62;
+      &#60;table class&#61;&#34;foswikiNullTable solrRows&#34;&#62;
+        &#60;tr&#62;
+          &#60;th&#62;&#37;MAKETEXT{&#34;Results per page&#34;}&#37;:&#60;/th&#62;
+          &#60;td&#62;
+            &#60;select class&#61;&#34;foswikiSelect&#34;&#62;
+              &#60;option class&#61;&#34;foswikiOption&#34; value&#61;&#34;5&#34;&#62;5&#60;/option&#62;
+              &#60;option class&#61;&#34;foswikiOption&#34; value&#61;&#34;10&#34;&#62;10&#60;/option&#62;
+              &#60;option class&#61;&#34;foswikiOption&#34; value&#61;&#34;20&#34;&#62;20&#60;/option&#62;
+              &#60;option class&#61;&#34;foswikiOption&#34; value&#61;&#34;30&#34;&#62;30&#60;/option&#62;
+              &#60;option class&#61;&#34;foswikiOption&#34; value&#61;&#34;40&#34;&#62;40&#60;/option&#62;
+              &#60;option class&#61;&#34;foswikiOption&#34; value&#61;&#34;50&#34;&#62;50&#60;/option&#62;
+              &#60;option class&#61;&#34;foswikiOption&#34; value&#61;&#34;100&#34;&#62;100&#60;/option&#62;
+            &#60;/select&#62;
+          &#60;/td&#62;
+        &#60;/tr&#62;
+      &#60;/table&#62;
+    &#60;/td&#62;
+  &#60;/tr&#62;
+&#60;/table&#62;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::templates::spellcorrection&#34;}&#37;&#60;script id&#61;&#34;solrSpellCorrectionTemplate&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+&#37;MAKETEXT{&#34;Did you mean &#91;&#95;1&#93;?&#34; args&#61;&#34;{{for suggestions}}{{if #index &#62; 0}} or {{/if}} &#60;a class&#61;&#39;solrCorrection&#39; href&#61;&#39;#&#39;&#62;{{:#data}}&#60;/a&#62;{{/for}}&#34;}&#37;
+&#60;/script&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::header - header to be put infront of the search hits. this provides
+   the containers for spellcheck corrections, pagination, counters and the like.
+   It also calls the &#34;solr::searchform&#34; to display the search input field.
+}&#37;
+&#37;TMPL:DEF{&#34;solr::header&#34;}&#37;&#60;div class&#61;&#39;solrHeader&#39;&#62;
+&#37;TMPL:P{&#34;solr::searchform&#34;}&#37;
+&#37;TMPL:P{&#34;DISsolr::hierarchystep&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::spellchecker&#34;}&#37;
+&#37;TMPL:P{&#34;solr::resultsperpage&#34;}&#37;
+&#37;TMPL:P{&#34;solr::pager&#34;}&#37;
+&#60;/div&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;TMPL:DEF{&#34;solr::spellchecker&#34;}&#37;&#60;div class&#61;&#39;solrSpellchecking&#39;&#62;&#60;/div&#62;&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::resultsperpage&#34;}&#37;&#60;div class&#61;&#39;solrResultsPerPage&#39;&#62;&#60;/div&#62;&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::pager&#34;}&#37;&#60;div class&#61;&#39;solrPager clearfix&#39; data-next-text&#61;&#34;&#37;MAKETEXT{&#34;Next&#34;}&#37;&#34; data-prev-text&#61;&#34;&#37;MAKETEXT{&#34;Previous&#34;}&#37;&#34;&#62;&#60;/div&#62;&#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;solr::footer&#34;}&#37;&#60;div class&#61;&#39;solrFooter&#39;&#62;&#37;TMPL:P{&#34;solr::pager&#34;}&#37;&#60;/div&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::searchform - this calls the separate steps comprising the form steps.
+   this macro can be redefined to include more steps as needed.
+}&#37;
+&#37;TMPL:DEF{&#34;solr::searchform&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::formstart&#34;}&#37;
+&#37;TMPL:P{&#34;solr::inputstep&#34;}&#37;
+&#37;TMPL:P{&#34;solr::tagcloudstep&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::formend&#34;}&#37;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::formstart - beginning of the solr::searchform. contains the starting form 
+}&#37;
+&#37;TMPL:DEF{&#34;solr::formstart&#34;}&#37;&#37;{}&#37;
+&#60;form name&#61;&#34;searchform&#34; class&#61;&#39;solrSearchForm&#39; id&#61;&#39;solrSearchBox&#39; data-instant-search&#61;&#39;&#37;TMPL:P{&#34;solr::instantsearch&#34;}&#37;&#39;&#62;
+&#60;div class&#61;&#39;foswikiFormSteps&#39;&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::inputstep - this is a part of the solr::searchform defining the 
+   actual input field, as well as some basic select and checkboxes
+}&#37;
+&#37;TMPL:DEF{&#34;solr::inputstep&#34;}&#37;&#37;{}&#37;
+&#60;div class&#61;&#39;foswikiFormStep clearfix&#39;&#62;
+  &#60;div class&#61;&#39;foswikiLeft&#39;&#62;
+    &#60;table class&#61;&#39;foswikiNullTable&#39;&#62;
+      &#60;tr&#62;
+        &#60;td&#62;
+          &#60;input type&#61;&#39;text&#39; autocomplete&#61;&#39;off&#39; class&#61;&#39;foswikiInputField jqFocus solrSearchField&#39; size&#61;&#39;50&#39; style&#61;&#39;margin-right:8px;&#39; /&#62;
+        &#60;/td&#62;
+        &#60;td&#62;
+          &#37;BUTTON{&#34;&#37;MAKETEXT{&#34;Search&#34;}&#37;&#34; type&#61;&#34;submit&#34; icon&#61;&#34;find&#34; class&#61;&#34;solrSubmitButton&#34;}&#37;
+        &#60;/td&#62;
+      &#60;/tr&#62;
+    &#60;/table&#62;
+    &#37;TMPL:P{&#34;solr::input::checkboxes&#34;}&#37;&#37;{}&#37;
+  &#60;/div&#62;
+  &#60;div class&#61;&#39;foswikiRight&#39;&#62;
+    &#37;TMPL:P{&#34;solr::sortby&#34;}&#37;&#37;{}&#37;
+    &#37;TMPL:P{&#34;DISsolr::displayas&#34;}&#37;&#37;{}&#37;
+  &#60;/div&#62;
+&#60;/div&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::formend - closing markup of the solr::searchform
+}&#37;
+&#37;TMPL:DEF{&#34;solr::formend&#34;}&#37;&#37;{}&#37;
+&#60;/div&#62;
+&#60;/form&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::sidebar: this hooks into the skin to display all sidebar facets. the topmost
+   widget is the &#34;your selection&#34; area displaying a summary of the current filters
+   followed by the list of facets. Each facet is displayed calling the &#34;facet&#34; macro
+}&#37;
+&#37;TMPL:DEF{&#34;solr::sidebar&#34;}&#37;&#37;{}&#37;
+&#60;noautolink&#62;
+&#37;TMPL:P{&#34;solr::selection&#34;}&#37;
+&#60;/noautolink&#62;
+&#37;TMPL:P{&#34;solr::facet&#34;
+  id&#61;&#34;web&#34;
+  class&#61;&#34;solrWebFacetField&#34;
+  title&#61;&#34;&#37;MAKETEXT{&#34;Web&#34;}&#37;&#34;
+  include&#61;&#34;&#37;TMPL:P{&#34;solr::facet::include::web&#34;}&#37;&#34;
+  exclude&#61;&#34;&#37;TMPL:P{&#34;solr::facet::exclude::web&#34;}&#37;&#34;
+  multivalue&#61;&#34;true&#34; 
+  union&#61;&#34;true&#34; 
+  exclusion&#61;&#34;true&#34; 
+  sort&#61;&#34;title&#34; 
+  limit&#61;&#34;-1&#34;
+}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::facet&#34;
+  id&#61;&#34;field&#95;TopicType&#95;lst&#34;
+  exclude&#61;&#34;ApplicationLicense&#124;ApplicationTopic&#124;DataForm&#124;DocuTopic&#124;TopicStub&#124;WebTool&#124;WikiApplication&#124;WikiTopic&#124;TaggedTopic&#124;CategorizedTopic&#34;
+  title&#61;&#34;&#37;MAKETEXT{&#34;Type&#34;}&#37;&#34;
+}&#37;
+&#37;TMPL:P{&#34;solr::facet&#34;
+  id&#61;&#34;type&#34;
+  title&#61;&#34;&#37;MAKETEXT{&#34;Media&#34;}&#37;&#34;
+  multivalue&#61;&#34;true&#34; 
+  exclude&#61;&#34;attachment&#34;
+}&#37;
+&#37;TMPL:P{&#34;solr::facetquery&#34;
+  id&#61;&#34;date&#34;
+  exclusion&#61;&#34;true&#34; 
+  title&#61;&#34;&#37;MAKETEXT{&#34;Recent changes&#34;}&#37;&#34;
+  queries&#61;&#34;&#91;
+      { \&#34;key\&#34;: \&#34;&#37;MAKETEXT{&#34;1 hour&#34;}&#37;\&#34;, \&#34;value\&#34;: \&#34;date:&#91;NOW-1HOUR TO NOW&#93;\&#34; }, 
+      { \&#34;key\&#34;: \&#34;&#37;MAKETEXT{&#34;4 hours&#34;}&#37;\&#34;, \&#34;value\&#34;: \&#34;date:&#91;NOW-4HOUR TO NOW&#93;\&#34; },
+      { \&#34;key\&#34;: \&#34;&#37;MAKETEXT{&#34;today&#34;}&#37;\&#34;, \&#34;value\&#34;: \&#34;date:&#91;NOW/DAY TO NOW&#93;\&#34; },
+      { \&#34;key\&#34;: \&#34;&#37;MAKETEXT{&#34;2 days&#34;}&#37;\&#34;, \&#34;value\&#34;: \&#34;date:&#91;NOW/DAY-1DAY TO NOW&#93;\&#34; },
+      { \&#34;key\&#34;: \&#34;&#37;MAKETEXT{&#34;7 days&#34;}&#37;\&#34;, \&#34;value\&#34;: \&#34;date:&#91;NOW/DAY-7DAY TO NOW&#93;\&#34; },
+      { \&#34;key\&#34;: \&#34;&#37;MAKETEXT{&#34;1 month&#34;}&#37;\&#34;, \&#34;value\&#34;: \&#34;date:&#91;NOW-1MONTH TO NOW&#93;\&#34; },
+      { \&#34;key\&#34;: \&#34;&#37;MAKETEXT{&#34;2 months&#34;}&#37;\&#34;, \&#34;value\&#34;: \&#34;date:&#91;NOW-2MONTH TO NOW&#93;\&#34; },
+      { \&#34;key\&#34;: \&#34;&#37;MAKETEXT{&#34;1 year&#34;}&#37;\&#34;, \&#34;value\&#34;: \&#34;date:&#91;NOW-1YEAR TO NOW&#93;\&#34; },
+      { \&#34;key\&#34;: \&#34;&#37;MAKETEXT{&#34;older&#34;}&#37;\&#34;, \&#34;value\&#34;: \&#34;date:&#91;&#42; TO NOW/YEAR&#93;\&#34; }
+    &#93;&#34;
+}&#37;
+&#37;TMPL:P{&#34;solr::facet&#34;
+  id&#61;&#34;language&#34;
+  title&#61;&#34;&#37;MAKETEXT{&#34;Language&#34;}&#37;&#34;
+  hidefilter&#61;&#34;true&#34;
+}&#37;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::facet - format a facet for the given field id
+
+   Parameters:
+      &#42; id - the field name of the facet, e.g. category, author
+      &#42; title - the heading 
+      &#42; multivalue - boolean
+      &#42; union - boolean
+      &#42; exclusion - boolean
+      &#42; sort - count or title
+      &#42; reverse - boolean
+      &#42; exclude - count or title
+      &#42; include - count or title
+      &#42; mincount - lower boundary for facet values to display
+      &#42; hidesingle - boolean
+      &#42; hidenullvalues - boolean
+      &#42; hidefilter - boolean
+      &#42; initialstate - boolean: open (default)/ close
+      &#42; limit - max number of facet values to return
+}&#37;
+&#37;TMPL:DEF{&#34;solr::facet&#34;}&#37;&#60;div data-field&#61;&#39;&#37;id&#37;&#39; &#37;IF{
+  &#34;not &#39;&#37;class&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;class&#37;)?&#36;&#39;&#34;
+  then&#61;&#34;class&#61;&#39;&#37;class&#37;&#39;&#34;
+  else&#61;&#34;class&#61;&#39;solrFacetField&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;hidesingle&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;hidesingle&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-hide-single&#61;&#39;&#37;hidesingle&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;hidenullvalues&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;hidenullvalues&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-hide-null-values&#61;&#39;&#37;hidenullvalues&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;multivalue&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;multivalue&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-multi-value&#61;&#39;&#37;multivalue&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;union&#37;&#39;&#61;~&#39;^&#91;&#37;&#93;union&#37;&#36;&#39;&#34;
+  then&#61;&#34; data-union&#61;&#39;&#37;union&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;exclusion&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;exclusion&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-exclusion&#61;&#39;&#37;exclusion&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;sort&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;sort&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-facet-sort&#61;&#39;&#37;sort&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;exclude&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;exclude&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-exclude&#61;&#39;&#37;exclude&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;mincount&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;mincount&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-facet-mincount&#61;&#39;&#37;mincount&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;limit&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;limit&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-facet-limit&#61;&#39;&#37;limit&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;include&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;include&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-include&#61;&#39;&#37;include&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;reverse&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;reverse&#37;)?&#36;&#39;&#34;
+  then&#61;&#34;data-facet-sort-reverse&#61;&#39;&#37;reverse&#37;&#39;&#34;
+}&#37;&#62;
+&#60;h2 class&#61;&#39;clearfix&#39;&#62;
+&#60;span class&#61;&#39;jqTwisty&#39; data-initial-state&#61;&#39;&#37;IF{&#34;not &#39;&#37;initialstate&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;initialstate&#37;)?&#36;&#39;&#34; then&#61;&#34;&#37;initialstate&#37;&#34; else&#61;&#34;open&#34;}&#37;&#39; data-target&#61;&#39;#solrFacetField&#95;&#37;id&#37;&#39;&#62;&#37;title&#37;&#60;/span&#62;
+&#37;IF{
+  &#34;&#39;&#37;hidefilter&#37;&#39;!&#61;&#39;on&#39; and &#39;&#37;hidefilter&#37;&#39;!&#61;&#39;true&#39;&#34;
+  then&#61;&#34;&#60;div class&#61;&#39;jqTwisty solrFacetFieldTwisty foswikiRight&#39; data-initial-state&#61;&#39;close&#39;&#62;&#37;JQICON{&#34;fa-binoculars&#34;}&#37;&#60;/div&#62;
+        &#60;div class&#61;&#39;solrFacetFieldFilter foswikiRight&#39;&#62;&#60;input type&#61;&#39;text&#39; size&#61;&#39;20&#39; class&#61;&#39;foswikiInputField&#39; placeholder&#61;&#39;&#37;MAKETEXT{&#34;Filter&#34;}&#37;&#39; /&#62;&#60;/div&#62;&#34;
+}&#37;&#60;/h2&#62;
+  &#60;div class&#61;&#39;solrFacetFieldContainer&#39; id&#61;&#39;solrFacetField&#95;&#37;id&#37;&#39;&#62;&#60;/div&#62;
+&#60;/div&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::facetquery - format a facet query
+
+   Parameters: 
+      &#42; id - the field name
+      &#42; title - the heading 
+      &#42; queries - json object of the form &#91; {&#34;key&#34;:&#34;some label&#34;, &#34;value&#34;: &#34;some query&#34;}, ...&#93;
+      &#42; multivalue - boolean
+      &#42; union - boolean
+      &#42; exclusion - boolean
+}&#37;
+&#37;TMPL:DEF{&#34;solr::facetquery&#34;}&#37;&#60;div class&#61;&#39;solrFacetField&#39; data-field&#61;&#39;&#37;id&#37;&#39; data-facet-type&#61;&#39;facet&#95;queries&#39; &#37;IF{
+  &#34;not &#39;&#37;multivalue&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;multivalue&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-multi-value&#61;&#39;&#37;multivalue&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;union&#37;&#39;&#61;~&#39;^&#91;&#37;&#93;union&#37;&#36;&#39;&#34;
+  then&#61;&#34; data-union&#61;&#39;&#37;union&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;exclusion&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;exclusion&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-exclusion&#61;&#39;&#37;exclusion&#37;&#39;&#34;
+}&#37;&#62;
+  &#60;literal&#62;
+  &#60;div class&#61;&#34;solrJsonData&#34;&#62;&#37;queries&#37;&#60;/div&#62;
+  &#60;/literal&#62;
+  &#60;h2 class&#61;&#39;jqTwisty&#39; data-initial-state&#61;&#39;open&#39;&#62;&#37;title&#37;&#60;/h2&#62;
+  &#60;div class&#61;&#39;solrFacetFieldContainer&#39;&#62;&#60;/div&#62;
+&#60;/div&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::facetrange - renders a range facet
+
+   Parameters:
+      &#42; id - the field name
+      &#42; title - the heading 
+      &#42; start - start of range
+      &#42; end - end of range
+      &#42; gap - increment from start to end
+      &#42; other - TODO: look up solr docu
+      &#42; include - TODO: look up solr docu
+      &#42; dateformat - format string used when the facet goes over a date range
+      &#42; hidesingle - boolean
+      &#42; sort - count or title
+      &#42; reverse - boolean
+}&#37;
+&#37;TMPL:DEF{&#34;solr::facetrange&#34;}&#37;&#60;div class&#61;&#39;solrFacetField&#39; data-field&#61;&#39;&#37;id&#37;&#39; data-facet-type&#61;&#39;facet&#95;ranges&#39;&#37;IF{
+  &#34;not &#39;&#37;start&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;start&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-facet-range-start&#61;&#39;&#37;start&#37;&#39;&#34;
+  else&#61;&#34; date-facet-range-start&#61;&#39;NOW/DAY-7DAYS&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;hidesingle&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;hidesingle&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-hide-single&#61;&#39;&#37;hidesingle&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;dateformat&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;dateformat&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-date-format&#61;&#39;&#37;dateformat&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;end&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;end&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-facet-range-end&#61;&#39;&#37;end&#37;&#39;&#34;
+  else&#61;&#34; data-facet-range-end&#61;&#39;NOW/DAY+1DAYS&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;gap&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;gap&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-facet-range-gap&#61;&#39;&#37;gap&#37;&#39;&#34;
+  else&#61;&#34; data-facet-range-gap&#61;&#39;+1DAY&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;other&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;other&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-facet-range-other&#61;&#39;&#37;other&#37;&#39;&#34;
+  else&#61;&#34; data-facet-range-other&#61;&#39;before&#39;&#34;
+}&#37;&#37;IF{ 
+  &#34;not &#39;&#37;sort&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;sort&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-facet-sort&#61;&#39;&#37;sort&#37;&#39;&#34;
+}&#37;&#37;IF{
+  &#34;not &#39;&#37;reverse&#37;&#39;&#61;~&#39;^(&#91;&#37;&#93;reverse&#37;)?&#36;&#39;&#34;
+  then&#61;&#34; data-facet-sort-reverse&#61;&#39;&#37;reverse&#37;&#39;&#34;
+}&#37;&#62;
+  &#60;h2 class&#61;&#39;jqTwisty&#39; data-initial-state&#61;&#39;open&#39;&#62;&#37;title&#37;&#60;/h2&#62;
+  &#60;div class&#61;&#39;solrFacetFieldContainer&#39;&#62;&#60;/div&#62;
+&#60;/div&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::selection - renders the &#34;your selection&#34; part in the solr::sidebar
+}&#37;
+&#37;TMPL:DEF{&#34;solr::selection&#34;}&#37;&#37;{}&#37;
+&#60;h2 class&#61;&#39;solrFilterResultsHeading&#39; &#62;&#37;MAKETEXT{&#34;Filter results&#34;}&#37;&#60;/h2&#62;
+&#60;div id&#61;&#39;solrCurrentSelection&#39;&#62;
+  &#60;h3&#62;&#37;MAKETEXT{&#34;Your selection&#34;}&#37;:&#60;/h3&#62;
+  &#60;ul&#62;
+    &#60;li class&#61;&#39;solrNoSelection&#39;&#62;&#37;MAKETEXT{&#34;(none)&#34;}&#37;&#60;/li&#62;
+  &#60;/ul&#62;
+  &#60;a href&#61;&#39;#&#39; class&#61;&#34;solrClear&#34;&#62;&#37;MAKETEXT{&#34;Clear&#34;}&#37;&#60;/a&#62;
+  &#60;span class&#61;&#39;foswikiClear&#39;&#62;&#60;/span&#62;
+&#60;/div&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::hits - display all search hits
+}&#37;
+&#37;TMPL:DEF{&#34;solr::hits&#34;}&#37;&#60;div class&#61;&#34;solrSearchHits jqPhotoSwipe&#34; data-history&#61;&#34;false&#34; data-enable-scroll&#61;&#34;true&#34; data-item-selector&#61;&#34;.solrImageFrame a&#34; data-block-ui&#61;&#34;window&#34;&#62;&#60;/div&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::sortby - renders the sort interface
+}&#37;
+&#37;TMPL:DEF{&#34;solr::sortby&#34;}&#37;&#37;{}&#37;
+&#60;table class&#61;&#39;foswikiNullTable&#39;&#62;
+  &#60;tr&#62;
+    &#60;th&#62;&#37;MAKETEXT{&#34;Sort by&#34;}&#37;:&#38;nbsp;&#60;/th&#62;
+    &#60;td&#62;
+      &#60;select class&#61;&#39;foswikiSelect&#39; id&#61;&#39;solrSorting&#39; data-default-sort&#61;&#34;&#37;TMPL:P{&#34;solr::defaultsort&#34;}&#37;&#34;&#62;
+        &#60;option class&#61;&#39;foswikiOption&#39; value&#61;&#39;score desc&#39;&#62;&#37;MAKETEXT{&#34;Relevance&#34;}&#37;&#60;/option&#62;
+        &#60;option class&#61;&#39;foswikiOption&#39; value&#61;&#39;date desc&#39;&#62;&#37;MAKETEXT{&#34;Last changed&#34;}&#37;&#60;/option&#62;
+        &#60;option class&#61;&#39;foswikiOption&#39; value&#61;&#39;createdate desc&#39;&#62;&#37;MAKETEXT{&#34;Create date&#34;}&#37;&#60;/option&#62;
+        &#60;option class&#61;&#39;foswikiOption&#39; value&#61;&#39;title&#95;sort asc&#39;&#62;&#37;MAKETEXT{&#34;Name&#34;}&#37;&#60;/option&#62;
+      &#60;/select&#62;
+    &#60;/td&#62;
+  &#60;/tr&#62;
+&#60;/table&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::displayas - render the display switcher
+}&#37;
+&#37;TMPL:DEF{&#34;solr::displayas&#34;}&#37;&#37;{}&#37;
+&#60;table class&#61;&#39;foswikiLayoutTable&#39;&#62;
+  &#60;tr&#62;
+    &#60;th&#62;&#37;MAKETEXT{&#34;Display as&#34;}&#37;:&#60;/th&#62;
+    &#60;td&#62;
+      &#60;input type&#61;&#39;radio&#39; class&#61;&#39;foswikiRadio solrDisplay&#39; id&#61;&#39;display&#95;list&#39; value&#61;&#39;list&#39; name&#61;&#39;display&#39;&#62;
+      &#60;label class&#61;&#39;foswikiLabel&#39; for&#61;&#39;display&#95;list&#39;&#62;&#37;MAKETEXT{&#34;list&#34;}&#37;&#60;/label&#62;
+    &#60;/td&#62;
+    &#60;td&#62;
+      &#60;input type&#61;&#39;radio&#39; class&#61;&#39;foswikiRadio solrDisplay&#39; id&#61;&#39;display&#95;grid&#39; value&#61;&#39;grid&#39; name&#61;&#39;display&#39;&#62;
+      &#60;label class&#61;&#39;foswikiLabel&#39; for&#61;&#39;display&#95;grid&#39;&#62;&#37;MAKETEXT{&#34;grid&#34;}&#37;&#60;/label&#62;
+    &#60;/td&#62;
+  &#60;/tr&#62;
+&#60;/table&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::input::checkboxes - some convenience checkbox selections under the input field
+}&#37;
+&#37;TMPL:DEF{&#34;solr::input::checkboxes&#34;}&#37;&#60;div class&#61;&#39;solrCheckboxContainer&#39;&#62;
+&#37;IF{&#34;&#39;&#37;TMPL:P{&#34;solr::defaultweb&#34;}&#37;&#39;&#61;&#39;all&#39;&#34; 
+  then&#61;&#34;&#36;percntTMPL:P{\&#34;solr::input::checkboxes::incurrentweb\&#34;}&#36;percnt&#34;
+  else&#61;&#34;&#36;percntTMPL:P{\&#34;solr::input::checkboxes::inallwebs\&#34;}&#36;percnt&#34;
+}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::input::checkboxes::inweb&#34;}&#37;&#37;{}&#37;
+&#37;TMPL:P{&#34;solr::input::checkboxes::exactsearch&#34;}&#37;&#37;{}&#37;
+&#60;/div&#62;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::input::checkboxes::inweb - display a &#34;Search in current web only&#34; checkbox
+}&#37;
+&#37;TMPL:DEF{&#34;solr::input::checkboxes::incurrentweb&#34;}&#37;&#37;{}&#37;
+&#60;span class&#61;&#39;solrToggleFacet&#39; data-field&#61;&#39;web&#39; data-value&#61;&#39;&#37;FORMATLIST{&#34;&#37;BASEWEB&#37;&#34; split&#61;&#34;/&#34; separator&#61;&#34;.&#34;}&#37;&#39; data-title&#61;&#39;&#37;MAKETEXT{&#34;In current web&#34;}&#37;&#39;&#62;&#60;/span&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::input::checkboxes::inallwebs - display a &#34;Search in all webs&#34; checkbox
+}&#37;
+&#37;TMPL:DEF{&#34;solr::input::checkboxes::inallwebs&#34;}&#37;&#37;{}&#37;
+&#60;span class&#61;&#39;solrToggleFacet&#39; data-field&#61;&#39;web&#39; data-value&#61;&#39;&#37;TMPL:P{&#34;solr::defaultweb&#34;}&#37;&#39; data-inverse&#61;&#39;true&#39; data-title&#61;&#39;&#37;MAKETEXT{&#34;In all webs&#34;}&#37;&#39;&#62;&#60;/span&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::input::checkboxes::inmycontribs - display a &#34;Search in my contribs&#34; checkbox
+}&#37;
+&#37;TMPL:DEF{&#34;solr::input::checkboxes::inmycontribs&#34;}&#37;&#37;{}&#37;
+&#60;span class&#61;&#39;solrToggleFacet&#39; data-field&#61;&#39;contributor&#39; data-value&#61;&#39;&#37;USERINFO{format&#61;&#34;&#36;wikiname&#34;}&#37;&#39; data-title&#61;&#39;&#37;MAKETEXT{&#34;In my contributions&#34;}&#37;&#39;&#62;&#60;/span&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::input::checkboxes::exactsearch - display a &#34;Exact Search&#34; checkbox
+}&#37;
+&#37;TMPL:DEF{&#34;solr::input::checkboxes::exactsearch&#34;}&#37;&#37;{}&#37;
+&#60;span class&#61;&#39;solrToggle&#39; data-field&#61;&#39;qf&#39; data-value&#61;&#39;&#37;TMPL:P{&#34;solr::exactsearch&#34;}&#37;&#39; data-title&#61;&#39;&#37;MAKETEXT{&#34;Exact search&#34;}&#37;&#39;&#62;&#60;/span&#62;
+&#37;{}&#37;&#37;TMPL:END&#37;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::tagcloudstep - part of the solr::searchform. this contains the tagcloud facet
+}&#37;
+&#37;TMPL:DEF{&#34;solr::tagcloudstep&#34;}&#37;&#37;{}&#37;
+&#60;div class&#61;&#39;foswikiFormStep solrTagCloud&#39; data-field&#61;&#39;tag&#39; data-start-color&#61;&#34;&#91;&#37;TAGCLOUD&#95;START{default&#61;&#34;111, 169, 255&#34;}&#37;&#93;&#34; data-end-color&#61;&#39;&#91;&#37;TAGCLOUD&#95;END{default&#61;&#34;0, 89, 224&#34;}&#37;&#93;&#39;&#62;
+  &#60;div class&#61;&#39;foswikiFormStep&#39;&#62;
+    &#60;hr /&#62;
+    &#60;h3&#62;&#60;a href&#61;&#39;#&#39; class&#61;&#39;jqTwisty&#39; data-target&#61;&#39;.solrTagCloudContainer&#39; data-open-img&#61;&#39;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/SolrPlugin/toggle-collapse.png&#39; data-close-img&#61;&#39;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/SolrPlugin/toggle.png&#39;&#62;&#37;MAKETEXT{&#34;Popular tags&#34;}&#37;&#60;/a&#62;&#60;/h3&#62;
+    &#60;div class&#61;&#39;solrTagCloudContainer tagCloud&#39;&#62;&#60;/div&#62;
+  &#60;/div&#62;
+&#60;/div&#62;</pre>
+<p></p>
+
+<pre class="tml">&#37;{ ###########################################################################
+   solr::hierarchystep - part of the solr::searchform. this contains the category list
+}&#37;
+&#37;TMPL:DEF{&#34;solr::hierarchystep&#34;}&#37;&#37;{}&#37;
+&#60;div class&#61;&#39;solrHierarchy&#39; data-field&#61;&#39;webcat&#39; data-facet-sort&#61;&#39;title&#39;&#62;
+  &#60;div class&#61;&#39;solrHierarchyBreadcrumbs&#39;&#62;
+    &#60;span class&#61;&#39;solrHierarchyBreadcrumbsTitle&#39;&#62;&#37;MAKETEXT{&#34;You are here:&#34;}&#37;&#60;/span&#62;
+    &#60;span class&#61;&#39;solrHierarchyBreadcrumbsContainer&#39;&#62;&#60;/span&#62;
+  &#60;/div&#62;
+  &#60;ul class&#61;&#39;solrHierarchyContainer clearfix&#39;&#62;&#60;/ul&#62;
+&#60;/div&#62;</pre></div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/SolrPlugin">SolrPlugin</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>SolrSearchBaseTemplate <br />
+Topic revision:  <span class='patternRevInfo'>31 Jan 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.SolrSearchBaseTemplate'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

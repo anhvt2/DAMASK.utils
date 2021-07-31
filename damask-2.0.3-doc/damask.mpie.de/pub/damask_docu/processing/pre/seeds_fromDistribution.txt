@@ -1,0 +1,34 @@
+%SECTION0% seeds_fromDistribution
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Monte Carlo simulation to produce seed file that gives same size distribution like given geometry file.
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; seeds_fromDistribution options file[s] 
+</pre>
+
+%UPTOC%
+---++ Options
+   $=-s= / =--seeds= [ *seeds* ]: 
+   name of the intial seed file. If not found, a new one is created
+   $=-g= / =--grid=[ *64* *64* *64* ]: 
+   a,b,c grid of hexahedral box
+   $=-t= / =--threads= [ *2* ]: 
+   number of parallel executions
+   $=-r= / =--rnd= [ *none* ]: 
+   seed of random number generator
+   $=--target= [ *geom* ]: 
+   name of the geom file with target distribution
+   $=--tolerance= [ *20* ]: 
+   stopping criterion (bin number)
+   $=--scale= [ *1.0* ]: 
+   maximum moving distance of perturbed seed in pixel
+   $=--bins= [ *15* ]: 
+   bins to sort beyond current best fit
+   $=--maxseeds= [ *number of seeds* ]: 
+   maximum number of seeds to move simulateneously

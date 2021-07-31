@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> InterwikiPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/InterwikiPlugin?t=1627667889" type="application/x-wiki" title="edit InterwikiPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/InterwikiPlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/fe5de1305712f15c9494a85344e6d5bb.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATH" : "/bin",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SERVERTIME" : "30 Jul 2021 - 19:58",
+   "SCRIPTSUFFIX" : "",
+   "USERSWEB" : "Main",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "COOKIEREALM" : "",
+   "TOPIC" : "InterwikiPlugin",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURLPATH" : "/pub",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "USERNAME" : "guest",
+   "WIKINAME" : "WikiGuest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WEB" : "System"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/InterwikiPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Plugins">Plugins</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/InterwikiPlugin" title='Topic revision: 1 (22 Jan 2018 - 17:14:59)'>InterwikiPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/InterwikiPlugin?t=1627667889;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/InterwikiPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/InterwikiPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/InterwikiPlugin?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=InterwikiPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/InterwikiPlugin?cover=print;sortcol=2;table=1;up=1' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/InterwikiPlugin?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Interwiki_Plugin">  Interwiki Plugin </h1>
+<!-- <ul>
+<li> Set SHORTDESCRIPTION = Link ExternalSite:Page text to external sites based on aliases defined in a rules topic
+</li></ul> 
+-->
+<p></p>
+
+The InterwikiPlugin links <code><b>ExternalSite:Page</b></code> text to external sites based on aliases defined in the <a href="/bin/view/System/InterWikis">InterWikis</a> topic. This plugin is inspired by UseMod Wiki's inter-wiki links, <a href="http://www.usemod.com/cgi-bin/wiki.pl?InterWiki">http://www.usemod.com/cgi-bin/wiki.pl?InterWiki</a>.
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=2;table=1;up=1#Link_Syntax_Rules"> Link Syntax Rules </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Definition_Syntax_Rules"> Definition Syntax Rules </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#InterwikiPlugin_Settings"> InterwikiPlugin Settings </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Plugin_Installation_Instructions"> Plugin Installation Instructions </a>
+</li> <li> <a href="?sortcol=2;table=1;up=1#Plugin_Info"> Plugin Info </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Link_Syntax_Rules">  Link Syntax Rules </h2>
+<p></p>
+ <ul>
+<li> Enter <code><b>ExternalSite:Page</b></code> to create a link that points to the <code><b>Page</b></code> on the <code><b>ExternalSite</b></code> server. <ul>
+<li> If <code><b>Page</b></code> contains spaces, it can be enclosed in single or double quotes. Example: <code><b>MySite:'My Photo.jpg'</b></code>.  Special characters contained within the quotes are URL encoded.
+</li></ul> 
+</li> <li> Enter <code><b>[[ExternalSite:Page][any label]]</b></code> to specify a custom label.
+</li> <li> All <code><b>ExternalSite</b></code> aliases are defined in the <a href="/bin/view/System/InterWikis">InterWikis</a> topic or as specified by the <code>INTERWIKIPLUGIN_RULESTOPIC</code> topic list.
+</li></ul> 
+<p></p>
+
+<h2 id="Definition_Syntax_Rules">  Definition Syntax Rules </h2>
+<p></p>
+
+Add and edit aliases in <a href="/bin/view/System/InterWikis">InterWikis</a>. <ul>
+<li> Each entry must be 3 or 4 columns of format: <br /> <code><b>| External site alias | URL | Tooltip help text | Optional INTERLINKFORMAT override |</b></code>.
+</li> <li> The Alias must start with an upper case letter and may contain alphanumeric characters.
+</li> <li> The URL and Tooltip Text may contain optional <code><b>$page</b></code> formatting tokens; the token gets expanded to the page name.
+</li> <li> The URL may contain foswiki macros.  They are expanded when the URL is rendered.
+</li> <li> The Tooltip Text must <strong><em>not</em></strong> contain: <ul>
+<li> any HTML tags (including <code><b>&lt;nop&gt;</b></code> escape code),
+</li> <li> any internal <a href="/bin/view/System/WikiWord">WikiWord</a> links
+</li> <li> any external links.
+</li> <li> Hint: Escape <code><b>'WikiWords'</b></code> and <code><b>'$page'</b></code>.
+</li> <li> If the link format override is provided, it overrides the <code>INTERWIKIPLUGIN_INTERLINKFORMAT</code> for just that entry.
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> Note that Interwiki links do not properly resolve
+when part of an INCLUDEd topic.</div>
+<p></p>
+
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> For Foswiki and TWiki sites, both the <strong>web</strong> and the <strong>topic</strong> have to be specified: <code><b>Foswiki:Webname/SomePage</b></code>
+<a class="interwikiLink" href="https://foswiki.org/Extensions/InterwikiPlugin" title="'Extensions/InterwikiPlugin' on foswiki.org">Foswiki:Extensions/InterwikiPlugin</a> or <a class="interwikiLink" href="https://foswiki.org/Extensions.InterwikiPlugin" title="'Extensions.InterwikiPlugin' on foswiki.org">Foswiki:Extensions.InterwikiPlugin</a>
+</div>
+<p></p>
+
+<div class="foswikiHelp">
+<img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> For links with paranthesis you will need to write as <code><b>[[Wikipedia:Fork_(software_development)]]</b></code>, or quoted, as <code><b>Wikipedia:'Fork_(software_development)'</b></code> as we assume that the closing paranthesis is not part of the link. 
+</div>
+<p class='p'></p>
+
+<h2 id="InterwikiPlugin_Settings"> InterwikiPlugin Settings </h2>
+<p></p>
+
+You can override the default settings using <a href="/bin/view/System/PreferenceSettings">preferences</a>. These preferences can be set in your <a href="/bin/view/Main/SitePreferences">SitePreferences</a>, or in any WebPreferences, or in individual topics.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/InterwikiPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Preference</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/InterwikiPlugin?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Use to</a> </th>
+			<th class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol"> <a href="/bin/view/System/InterwikiPlugin?sortcol=2;table=1;up=2#sorted_table" rel="nofollow" title="Sort by this column">Default</a><a name="sorted_table"></a><span class="tableSortIcon tableSortDown"><img alt="Sorted descending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortdown.gif" title="Sorted descending" width="11" /></span> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>INTERWIKIPLUGIN_RULESTOPIC</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> The topic(s) containing the inter-wiki rules. Can be a comma separated list. See <a href="/bin/view/System/InterWikis#AddingYourOwn">InterWikis</a> for more details </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <a href="/bin/view/System/InterWikis">InterWikis</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <code>INTERWIKIPLUGIN_INTERLINKFORMAT</code> </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> Set the interlink format </td>
+			<td class="foswikiTableCol2 foswikiSortedDescendingCol foswikiSortedCol foswikiLastCol foswikiLast" rowspan="1"> <code>&lt;a class="interwikiLink" href="$url" title="$tooltip" class="interwikiLink"&gt;&lt;noautolink&gt;$label&lt;/noautolink&gt;&lt;/a&gt;</code> </td>
+		</tr>
+	</tbody></table>
+The <code>INTERWIKIPLUGIN_INTERLINKFORMAT</code> supports a number of formatting tokens:
+           <table class="foswikiTable" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/InterwikiPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Token</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/InterwikiPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Meaning</a> </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $site </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Site alias </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $page </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Page (part after colon) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $url </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Site URL (might contain $page) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $label </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Equal to $site:$page </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> $tooltip </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Tooltip message </td>
+		</tr>
+	</tbody>     </table>
+<p class='p'></p>
+
+<h2 id="Plugin_Installation_Instructions">  Plugin Installation Instructions </h2>
+<p class='p'>You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.</p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+ <ul>
+<li> <strong>Test:</strong> If the Plugin is correctly installed, this <a class="interwikiLink" href="http://c2.com/cgi/wiki?InterWiki" title="'InterWiki' on the original 'WikiWikiWeb' site">Wiki:InterWiki</a> link should point to <a href="http://c2.com/cgi/wiki?InterWiki">http://c2.com/cgi/wiki?InterWiki</a> topic - try it out.
+</li></ul> 
+<p></p>
+
+<h2 id="Plugin_Info">  Plugin Info </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 8 Dec 2017: (1.25) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14395" title="'Item14395' on the 'Foswiki' issue tracking site">Foswikitask:Item14395</a>: Failure to check result from readTopic causes error. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 8 Feb 2071: (1.24) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14321" title="'Item14321' on the 'Foswiki' issue tracking site">Foswikitask:Item14321</a>: Fix some stale default Interwiki links. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 8 Apr 2016: (1.23) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14022" title="'Item14022' on the 'Foswiki' issue tracking site">Foswikitask:Item14022</a>: Change foswiki.org links to https. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 14 Jun 2014: (1.22) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13287" title="'Item13287' on the 'Foswiki' issue tracking site">Foswikitask:Item13287</a>: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13387" title="'Item13387' on the 'Foswiki' issue tracking site">Foswikitask:Item13387</a>: Regular expression enhancements, better UTF-8 support. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 03 Oct 2014: (1.21) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13045" title="'Item13045' on the 'Foswiki' issue tracking site">Foswikitask:Item13045</a>: Add per-link override of INTERLINKFORMAT </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 24 May 2014: (1.20) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12819" title="'Item12819' on the 'Foswiki' issue tracking site">Foswikitask:Item12819</a>: Expand variables defined in InterWiki links<br />                           <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11587" title="'Item11587' on the 'Foswiki' issue tracking site">Foswikitask:Item11587</a>: Replace call to deprecated <code>Foswiki::Func::readTopicText()</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Oct 2013: (1.1.7) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12555" title="'Item12555' on the 'Foswiki' issue tracking site">Foswikitask:Item12555</a>: Documentation updates </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Nov 1012: (1.1.6) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> update CPAN link to goto metacpan and remove some ancient links that have been broken for years. Convert to perl version strings </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Dec 2011: (1.1.2) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Release with Foswiki 1.1.4 - Minor code and documentation cleanup </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Oct 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.GeorgeClark" title="'Main.GeorgeClark' on foswiki.org">Foswiki:Main.GeorgeClark</a> - Add support for quoted page references from <a class="foswikiNewLink" href="/bin/edit/System/TimotheLitt?topicparent=System.InterwikiPlugin" rel="nofollow" title="Create this topic">TimotheLitt</a> (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item10872" title="'Item10872' on the 'Foswiki' issue tracking site">Foswikitask:Item10872</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Apr 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> - Links can now be formatted (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item10619" title="'Item10619' on the 'Foswiki' issue tracking site">Foswikitask:Item10619</a>) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Dec 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> - Fix inter-wiki's with parentheses (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item10151" title="'Item10151' on the 'Foswiki' issue tracking site">Foswikitask:Item10151</a>). Note, you will need to write as <code><b>[[Wikipedia:Fork_(software_development)]]</b></code>, as we assume the closing parenthesis is not part of the link. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Dec 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> - Allow the <code>INTERWIKIPLUGIN_RULESTOPIC</code> to be a comma separated list. Implements <a class="interwikiLink" href="https://foswiki.org/Development/InheritWikiLinksTopics" title="'Development/InheritWikiLinksTopics' on foswiki.org">Foswiki:Development/InheritWikiLinksTopics</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Jul 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> - Check access controls on InterWikis topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jul 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <code>mod_perl</code> and <code>FastCGI</code> compatible </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Sep 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Version from 15 Apr now included with Foswiki 1.0.7 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Apr 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.CrawfordCurrie" title="'Main.CrawfordCurrie' on foswiki.org">Foswiki:Main.CrawfordCurrie</a> - removed plugin preferences from this topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.KennethLavrsen" title="'Main.KennethLavrsen' on foswiki.org">Foswiki:Main.KennethLavrsen</a> - Foswiki version - no features changed </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Aug 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> TWiki 4.2.1 release version </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Jan 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> TWiki 4.2.0 release version </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Nov 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 15752 - <a class="interwikiLink" href="http://develop.twiki.org/~twiki4/cgi-bin/view/Bugs/Item5006" title="'Item5006' on the TWiki issue tracking site">TWikibug:Item5006</a> - Renamed Bugs rule to TWikibug rule (PTh) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Aug 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 14545 - <a class="interwikiLink" href="http://develop.twiki.org/~twiki4/cgi-bin/view/Bugs/Item4451" title="'Item4451' on the TWiki issue tracking site">TWikibug:Item4451</a> - Added Bugs: rule (<a class="interwikiLink" href="https://foswiki.org/Main.CrawfordCurrie" title="'Main.CrawfordCurrie' on foswiki.org">Foswiki:Main.CrawfordCurrie</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Aug 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 14538 - Fixed broken ISBN link (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.PeterThoeny" title="'Main.PeterThoeny' on TWiki.org">TWiki:Main.PeterThoeny</a>) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Nov 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 11935 - Added css <code>class="interwikiLink"</code> (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.PeterThoeny" title="'Main.PeterThoeny' on TWiki.org">TWiki:Main.PeterThoeny</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Nov 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 11924 - Added INTERLINKFORMAT; removed redundant SUPPRESSTOOLTIP; allow @ signs in page part of interwiki link; support single digit page part (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.PeterThoeny" title="'Main.PeterThoeny' on TWiki.org">TWiki:Main.PeterThoeny</a>) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Feb 2005: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.008 <a class="interwikiLink" href="https://foswiki.org/Main.CrawfordCurrie" title="'Main.CrawfordCurrie' on foswiki.org">Foswiki:Main.CrawfordCurrie</a> cleaned up code and made Dakar-ready </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Aug 2004: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.005 <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.PeterThoeny" title="'Main.PeterThoeny' on TWiki.org">TWiki:Main.PeterThoeny</a> updated <a href="/bin/view/System/InterWikis">InterWikis</a> link rules (no code change) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Mar 2004: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Internal changes: Use only official TWiki::Func Plugin API; for increased speed, moved Interwiki link handling from outsidePREHandler to startRenderingHandler </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Feb 2004: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Support <code>[[Site:Page][label]]</code> Interwiki links (PTh); use TWiki::Func interface for I18N regular expressions (Walter Mundt) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Jan 2003: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Allow number sign <code>#</code> in Page name (PTh) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Aug 2002: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Allow percent sign <code>%</code> in page name (PTh) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Jul 2001: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Allow numbers <code>0-9</code> in site name </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Jul 2001: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Fixed alternating missed link bug due to greedy $postfixPattern (fix by Richard Donkin) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Jul 2001: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Changed to plug &amp; play </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Jun 2001: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Made tooltips optional; prevent <code><b>Module::Sub</b></code> type of link </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Jun 2001: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added optional tool tips (IE only); added the link rules topic name variable; added flexible link patterns; optional <code><b>$page</b></code> in URL </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jun 2001: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Changed rules topic to table-based syntax </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 20 Feb 2001: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.AndreaSterbini" title="'Main.AndreaSterbini' on TWiki.org">TWiki:Main.AndreaSterbini</a>, <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.PeterThoeny" title="'Main.PeterThoeny' on TWiki.org">TWiki:Main.PeterThoeny</a> - Initial version </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/InterwikiPlugin?t=1627667889;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main.AndreaSterbini" title="'Main.AndreaSterbini' on foswiki.org">Foswiki:Main.AndreaSterbini</a>, <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.PeterThoeny" title="'Main.PeterThoeny' on TWiki.org">TWiki:Main.PeterThoeny</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 1.25 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 8 Dec 2017 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/distro">https://github.com/foswiki/distro</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2001-2007, Andrea Sterbini, Peter Thoeny (<span class='externalLink'><a href="http://www.twiki.net/">TWIKI.NET</a></span>), 2007-2017 <a href="/bin/view/System/ProjectContributor">ProjectContributor</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="http://foswiki.org/Extensions/InterwikiPlugin">http://foswiki.org/Extensions/InterwikiPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="http://foswiki.org/Support/InterwikiPlugin">http://foswiki.org/Support/InterwikiPlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/InterwikiPlugin?t=1627667889' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/InterwikiPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/InterwikiPlugin?cover=print;sortcol=2;table=1;up=1' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/InterwikiPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/InterwikiPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/InterwikiPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/InterwikiPlugin?t=1627667889;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/InterwikiPlugin?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 22 Jan 2018, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/InterwikiPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/InterwikiPlugin%3fsortcol%3d2%3btable%3d1%3bup%3d1">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.InterwikiPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

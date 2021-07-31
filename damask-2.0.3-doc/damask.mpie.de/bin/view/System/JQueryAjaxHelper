@@ -1,0 +1,753 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> JQueryAjaxHelper &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/JQueryAjaxHelper?t=1627665045" type="application/x-wiki" title="edit JQueryAjaxHelper" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/JQueryAjaxHelper" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/ac9643c06c6c1f27b3ba798812ab2ed0.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::THEME SMILIESPLUGIN head' media='all' />
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::EASING' src='/pub/System/JQueryPlugin/plugins/easing/jquery.easing.js?version=1.3'></script>
+<script class='script JQUERYPLUGIN::UI' src='/pub/System/JQueryPlugin/plugins/ui/jquery-ui.js?version=1.12.0'></script>
+<script class='script JQUERYPLUGIN::UI::AUTOCOMPLETE' src='/pub/System/JQueryPlugin/plugins/ui/jquery.ui.autocomplete.init.js?version=1.12.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SERVERTIME" : "30 Jul 2021 - 19:10",
+   "PUBURLPATH" : "/pub",
+   "WEB" : "System",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SCRIPTSUFFIX" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SYSTEMWEB" : "System",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATH" : "/bin",
+   "USERSWEB" : "Main",
+   "WIKINAME" : "WikiGuest",
+   "SKIN" : "damask,famfamfam,pattern",
+   "TOPIC" : "JQueryAjaxHelper",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "URLHOST" : "https://damask.mpie.de",
+   "USERNAME" : "guest",
+   "WIKIUSERNAME" : "Main.WikiGuest"
+}
+</script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<script>
+jQuery(function($){
+  $(".jqJumpBox").each(function() {
+    var $this = $(this), 
+        opts = $.extend({}, $this.metadata());
+    $this.autocomplete({
+      source: foswiki.getScriptUrl('view', foswiki.getPreference('SYSTEMWEB'), 'JQueryAjaxHelper', {
+        section: 'topic',
+        skin: 'text',
+        contenttype: 'application/json',
+        baseweb: opts.baseweb,
+      }),
+      select: function(event, ui) {
+        window.location.href = foswiki.getScriptUrl('view', undefined, ui.item.value);
+      }
+    });
+  });
+});
+</script>
+
+<script>
+jQuery(function($){
+  $(".jqUserSelector").data("ui-autocomplete")._renderItem = function(ul, item) {
+    if (typeof(item.label) !== 'undefined') {
+      return $("<li></li>")
+        .data("item.autocomplete", item)
+        .append("<a><table width='100%'><tr><td width='60px'><img width='50' src='"+item.img+"' /></td><td>"+item.label+"<br />"+item.email+"</td></tr></table></a>")
+        .appendTo(ul);
+    }
+  };
+});
+</script>
+
+<script>
+jQuery(function($){
+  $("#jqQueryExample").click(function() {
+     $.get(foswiki.getScriptUrl('view', foswiki.getPreference('SYSTEMWEB'), 'JQueryAjaxHelper', {
+          section: 'query',
+          source: 'System.JQueryAjaxHelper',
+          query: 'parent.name',
+          skin: 'text'
+         }),
+         function(data) {
+             // This is the function that will be executed when the
+             // data is fetched
+             alert('parent.name is ' + data);
+         });
+  });
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/JQueryAjaxHelper"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/JQueryAjaxHelper" title='Topic revision: 7 (18 Nov 2019 - 12:18:19)'>JQueryAjaxHelper</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/JQueryAjaxHelper?t=1627665045;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/JQueryAjaxHelper' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/JQueryAjaxHelper?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/JQueryAjaxHelper?raw=on&amp;rev=7' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=JQueryAjaxHelper' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/JQueryAjaxHelper?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/JQueryAjaxHelper?template=more&amp;maxrev=7&amp;currrev=7' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="JQueryAjaxHelper">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQueryAjaxHelper">JQueryAjaxHelper</a> </h1>
+<p class='p'></p>
+
+This page contains a set of example <a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a> helpers that can be used in
+wiki applications. The examples demonstrate how you can
+dynamically populate autocomplete enabled input boxes using <a href="/bin/view/System/JQueryUIAutocomplete">JQueryUIAutocomplete</a>.
+<p></p>
+
+Examples are in two parts; a <strong>Client</strong> section and a <strong>Server</strong> section.
+The <strong>Client</strong> section is designed to be included into your topics using
+<code><a href="/bin/view/System/VarINCLUDE">%INCLUDE</a></code>. The <strong>Server</strong> section is expanded in
+response to an AJAX request from a jQuery plugin.
+<p></p>
+
+This page also acts as a library of some commonly-used form inputs. For
+example, the <a class="foswikiCurrentTopicLink" href="#Topic_selector">Topic selector</a> example can be used
+in your own topics to define an HTML form input with the name <code>newtopic</code>
+by putting this in your topic:
+<pre class="tml">
+&#37;JQREQUIRE{&#34;ui::autocomplete&#34;}&#37;
+&#37;INCLUDE{
+ &#34;&#37;SYSTEMWEB&#37;.JQueryAjaxHelper&#34;
+ section&#61;&#34;topicselector&#34;
+ INPUT&#95;NAME&#61;&#34;newtopic&#34;
+ EXCLUDE&#61;&#34;Web&#42;&#34;
+}&#37;
+</pre>
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#Topic_selector"> Topic selector </a> <ul>
+<li> <a href="#Client_section"> Client section </a>
+</li> <li> <a href="#Server_section"> Server section </a>
+</li> <li> <a href="#Example"> Example </a>
+</li></ul> 
+</li> <li> <a href="#Web_selector"> Web selector </a> <ul>
+<li> <a href="#Client_section_AN1"> Client section </a>
+</li> <li> <a href="#Server_section_AN1"> Server section </a>
+</li> <li> <a href="#Example_AN1"> Example </a>
+</li></ul> 
+</li> <li> <a href="#Jump_box"> Jump box </a> <ul>
+<li> <a href="#Client_section_AN2"> Client section </a>
+</li> <li> <a href="#Server_section_AN2"> Server section </a>
+</li> <li> <a href="#Examples"> Examples </a> <ul>
+<li> <a href="#Jump_to_a_topic_in_the_current_web"> Jump to a topic in the current web </a>
+</li> <li> <a href="#Jump_to_a_topic_in_any_web"> Jump to a topic in any web </a>
+</li></ul> 
+</li></ul> 
+</li> <li> <a href="#User_selector"> User selector </a> <ul>
+<li> <a href="#Client_section_AN3"> Client section </a>
+</li> <li> <a href="#Server_section_AN3"> Server section </a>
+</li> <li> <a href="#Example_AN2"> Example </a>
+</li></ul> 
+</li> <li> <a href="#Query_fetcher"> Query fetcher </a> <ul>
+<li> <a href="#Client_section_AN4"> Client section </a>
+</li> <li> <a href="#Server_section_AN4"> Server section </a>
+</li> <li> <a href="#Example_AN3"> Example </a>
+</li></ul> 
+</li> <li> <a href="#Other_selectors"> Other selectors </a> <ul>
+<li> <a href="#Formfield"> Formfield </a> <ul>
+<li> <a href="#Server_section_AN5"> Server section </a>
+</li></ul> 
+</li> <li> <a href="#User_photo"> User photo </a> <ul>
+<li> <a href="#Server_section_AN6"> Server section </a>
+</li></ul> 
+</li> <li> <a href="#Expand_TML"> Expand TML </a> <ul>
+<li> <a href="#Server_section_AN7"> Server section </a>
+</li></ul> 
+</li></ul> 
+</li></ul> 
+</div>
+<p></p>
+
+Note that the examples below are implemented
+using base Foswiki functionality. There are a range of plugins, such as
+<a class="interwikiLink" href="https://foswiki.org/Extensions.RenderPlugin" title="'Extensions.RenderPlugin' on foswiki.org">Foswiki:Extensions.RenderPlugin</a>, <a class="interwikiLink" href="https://foswiki.org/Extensions.FlexWebListPlugin" title="'Extensions.FlexWebListPlugin' on foswiki.org">Foswiki:Extensions.FlexWebListPlugin</a> and
+<a class="interwikiLink" href="https://foswiki.org/Extensions.DBCachePlugin" title="'Extensions.DBCachePlugin' on foswiki.org">Foswiki:Extensions.DBCachePlugin</a> that can be used to simplify or improve
+these sections when building up your own library of input types. Some
+examples of the use of these plugins are given at the end of this topic.
+<p></p>
+
+<h2 id="Topic_selector">  Topic selector </h2>
+Select a topic in the current web. <a href="/bin/view/System/JQueryUIAutocomplete">JQueryUIAutocomplete</a> is given a url that
+loads the <code>topic</code> section of this topic, which expands to the topic list.
+<p></p>
+
+<h3 id="Client_section">  Client section </h3>
+<strong>INCLUDE Parameters</strong> <ul>
+<li> <code>INPUT_NAME</code>: name (and id) of HTML input field
+</li> <li> <code>INPUT_VALUE</code>: preselected value
+</li> <li> <code>PLACEHOLDER</code>: example value
+</li> <li> <code>EXCLUDE</code>: exclude expression to filter out unwanted topics, see the     <code>excludetopic</code> parameter in <a href="/bin/view/System/VarSEARCH">VarSEARCH</a>
+</li></ul> 
+<pre class="tml">
+&#37;STARTSECTION{&#34;topicselector&#34;}&#37;&#60;!-- topicselector  --&#62;
+&#60;input type&#61;&#34;text&#34; class&#61;&#34;foswikiInputField&#34; name&#61;&#34;&#37;INPUT&#95;NAME&#37;&#34; id&#61;&#34;&#37;INPUT&#95;NAME&#37;&#34; &#37;IF{&#34;defined PLACEHOLDER&#34; then&#61;&#34;placeholder&#61;\&#34;&#37;PLACEHOLDER&#37;\&#34;&#34;}&#37; autocomplete&#61;&#34;&#37;SCRIPTURL{&#34;view&#34;}&#37;/&#37;SYSTEMWEB&#37;/JQueryAjaxHelper?section&#61;topic;skin&#61;text;contenttype&#61;application/json;baseweb&#61;&#37;BASEWEB&#37;;&#37;IF{&#34;defined EXCLUDE&#34; then&#61;&#34;exclude&#61;&#37;EXCLUDE&#37;&#34;}&#37;&#34; size&#61;&#34;60&#34; value&#61;&#34;&#37;IF{&#34;defined INPUT&#95;VALUE&#34; then&#61;&#34;&#37;INPUT&#95;VALUE&#37;&#34;}&#37;&#34; /&#62;
+&#60;!-- //topicselector --&#62;&#37;ENDSECTION{&#34;topicselector&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="Server_section">  Server section </h3>
+<strong>URL parameters</strong> <ul>
+<li> <code>term</code>: search term substring typed so far
+</li> <li> <code>limit</code>: number of search results to return, defaults to 10
+</li> <li> <code>baseweb</code>: the web where to search for topics
+</li> <li> <code>exclude</code>: exclude expression to filter out unwanted topics
+</li></ul> 
+<pre class="tml">
+&#37;STARTSECTION{&#34;topic&#34;}&#37;&#91;&#37;SEARCH{
+  &#34;^&#37;URLPARAM{&#34;term&#34; default&#61;&#34;does not exist&#34;}&#37;.&#42;&#34;
+  type&#61;&#34;regex&#34;
+  scope&#61;&#34;topic&#34;
+  format&#61;&#34;&#60;nop&#62;&#37;URLPARAM{&#34;format&#34; encode&#61;&#34;safe,quote&#34; default&#61;&#34;{\\&#34;label\\&#34;:\\&#34;&#36;topic\\&#34;, \\&#34;value\\&#34;:\\&#34;&#36;topic\\&#34;}&#34;}&#37;&#34;
+  separator&#61;&#34;,&#34;
+  limit&#61;&#34;&#37;URLPARAM{&#34;limit&#34; default&#61;&#34;10&#34;}&#37;&#34;
+  nonoise&#61;&#34;on&#34;
+  excludetopic&#61;&#34;&#37;URLPARAM{&#34;exclude&#34;}&#37;&#34;
+  web&#61;&#34;&#37;URLPARAM{&#34;baseweb&#34; default&#61;&#34;&#37;BASEWEB&#37;&#34;}&#37;&#34;
+}&#37;&#93;&#37;ENDSECTION{&#34;topic&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="Example">  Example </h3>
+<form>
+<div class="foswikiFormSteps">
+<div class="foswikiFormStep">
+<h3 >Select a topic:</h3>
+
+<input type="text" class="foswikiInputField" name="newtopic" id="newtopic" placeholder="(Begin typing topic name)" autocomplete="https://damask.mpie.de/bin/view/System/JQueryAjaxHelper?section=topic;skin=text;contenttype=application/json;baseweb=System;exclude=FamFamFamMint*" size="60" value="" />
+
+</div>
+</div>
+</form>
+<p></p>
+
+<h2 id="Web_selector">  Web selector </h2>
+Select from a list of webs, using autocomplete
+<p></p>
+
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong><em>Note:</em></strong> there is currently no way to filter a list of webs in the
+default Foswiki core. This
+example uses the <a href="/bin/view/System/FlexWebListPlugin">FlexWebListPlugin</a> to obtain the list of webs. </div>
+<p></p>
+
+<h3 id="Client_section_AN1">  Client section </h3>
+<strong>INCLUDE Parameters</strong> <ul>
+<li> <code>INPUT_NAME</code>: name of text input field
+</li> <li> <code>INPUT_VALUE</code>: preselected value
+</li> <li> <code>PLACEHOLDER</code>: example value
+</li></ul> 
+<pre class="tml">
+&#37;STARTSECTION{&#34;webselector&#34;}&#37;&#60;!-- webselector  --&#62;
+&#60;input type&#61;&#34;text&#34; class&#61;&#34;foswikiInputField&#34; name&#61;&#34;&#37;INPUT&#95;NAME&#37;&#34; id&#61;&#34;&#37;INPUT&#95;NAME&#37;&#34; &#37;IF{&#34;defined PLACEHOLDER&#34; then&#61;&#34;placeholder&#61;\&#34;&#37;PLACEHOLDER&#37;\&#34;&#34;}&#37; autocomplete&#61;&#34;&#37;SCRIPTURL{&#34;view&#34;}&#37;/&#37;SYSTEMWEB&#37;/JQueryAjaxHelper?section&#61;web;skin&#61;text;contenttype&#61;application/json;&#37;IF{&#34;defined EXCLUDE&#34; then&#61;&#34;exclude&#61;&#37;EXCLUDE&#37;&#34;}&#37;&#34; size&#61;&#34;60&#34; value&#61;&#34;&#37;IF{&#34;defined INPUT&#95;VALUE&#34; then&#61;&#34;&#37;INPUT&#95;VALUE&#37;&#34;}&#37;&#34; /&#62;
+&#60;!-- //webselector --&#62;&#37;ENDSECTION{&#34;webselector&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="Server_section_AN1">  Server section </h3>
+<strong>URL parameters</strong> <ul>
+<li> <code>term</code>: search term substring typed so far
+</li> <li> <code>limit</code>: number of search results to return, defaults to 10
+</li></ul> 
+<pre class="tml">
+&#37;STARTSECTION{&#34;web&#34;}&#37;&#37;FLEXWEBLIST{
+  include&#61;&#34;^&#37;URLPARAM{&#34;term&#34; default&#61;&#34;does not exist&#34;}&#37;.&#42;&#34;
+  ignorecase&#61;&#34;on&#34;
+  limit&#61;&#34;&#37;URLPARAM{&#34;limit&#34; default&#61;&#34;10&#34;}&#37;&#34;
+  header&#61;&#34;&#91;&#34;
+  format&#61;&#34;\&#34;&#60;nop&#62;&#36;web\&#34;&#34;
+  footer&#61;&#34;&#93;&#34;
+  separator&#61;&#34;, &#34;
+  subheader&#61;&#34;, &#34;
+  subfooter&#61;&#34; &#34;
+}&#37;&#37;ENDSECTION{&#34;web&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="Example_AN1">  Example </h3>
+<form>
+<div class="foswikiFormSteps">
+<div class="foswikiFormStep">
+<h3 >Select a web:</h3>
+
+<input type="text" class="foswikiInputField" name="newweb" id="newweb"  autocomplete="https://damask.mpie.de/bin/view/System/JQueryAjaxHelper?section=web;skin=text;contenttype=application/json;" size="60" value="" />
+
+</div>
+</div>
+</form>
+<p></p>
+
+<h2 id="Jump_box">  Jump box </h2>
+Jump to specific topics.
+<p></p>
+
+<h3 id="Client_section_AN2">  Client section </h3>
+<strong>INCLUDE Parameters</strong> <ul>
+<li> <code>GLOBAL</code>: toggle search for topics in all webs on/off, defaults to off
+</li> <li> <code>PLACEHOLDER</code>: Example text
+</li></ul> 
+<pre class="tml">
+&#37;STARTSECTION{&#34;jumpbox&#34;}&#37;&#60;!-- jumpbox --&#62;
+&#60;input type&#61;&#34;text&#34; class&#61;&#34;foswikiInputField jqJumpBox {&#37;IF{
+  &#34;&#36;GLOBAL &#61; &#39;on&#39;&#34;
+  then&#61;&#34;global: true, baseweb:&#39;all, -&#37;TRASHWEB&#37;&#39;&#34;
+  else&#61;&#34;global: false, baseweb:&#39;&#37;BASEWEB&#37;&#39;&#34;
+}&#37;}&#34; name&#61;&#34;topic&#34; &#37;IF{&#34;defined PLACEHOLDER&#34; then&#61;&#34;placeholder&#61;\&#34;&#37;PLACEHOLDER&#37;\&#34;&#34;}&#37; autocomplete&#61;&#34;off&#34; size&#61;&#34;60&#34; /&#62;
+&#37;ADDTOZONE{&#34;script&#34;
+  tag&#61;&#34;jumpbox::js&#34;
+  section&#61;&#34;jumpbox::js&#34;
+  requires&#61;&#34;JQUERYPLUGIN::UI::AUTOCOMPLETE&#34;
+}&#37;
+&#60;!-- //jumpbox --&#62;&#37;ENDSECTION{&#34;jumpbox&#34;}&#37;
+</pre>
+The following section is used by the section above; it adds a special Javascript function to the page.
+<pre class="tml">
+&#37;STARTSECTION{&#34;jumpbox::js&#34;}&#37;&#60;literal&#62;
+&#60;script&#62;
+jQuery(function(&#36;){
+  &#36;(&#34;.jqJumpBox&#34;).each(function() {
+    var &#36;this &#61; &#36;(this), 
+        opts &#61; &#36;.extend({}, &#36;this.metadata());
+    &#36;this.autocomplete({
+      source: foswiki.getScriptUrl(&#39;view&#39;, foswiki.getPreference(&#39;SYSTEMWEB&#39;), &#39;JQueryAjaxHelper&#39;, {
+        section: &#39;topic&#39;,
+        skin: &#39;text&#39;,
+        contenttype: &#39;application/json&#39;,
+        baseweb: opts.baseweb,
+      }),
+      select: function(event, ui) {
+        window.location.href &#61; foswiki.getScriptUrl(&#39;view&#39;, undefined, ui.item.value);
+      }
+    });
+  });
+});
+&#60;/script&#62;
+&#60;/literal&#62;&#37;ENDSECTION{&#34;jumpbox::js&#34;}&#37;
+</pre>
+<h3 id="Server_section_AN2">  Server section </h3>
+Uses the <code><a class="foswikiCurrentTopicLink" href="#Topic_selector">topic</a></code> server section, defined above.
+<p></p>
+
+<h3 id="Examples">  Examples </h3>
+<h4 id="Jump_to_a_topic_in_the_current_web">  Jump to a topic in the current web </h4>
+<form>
+<div class="foswikiFormSteps">
+<div class="foswikiFormStep">
+<h3 >Local Jump:</h3>
+
+<input type="text" class="foswikiInputField jqJumpBox {global: false, baseweb:'System'}" name="topic" placeholder="(Begin typing topic name)" autocomplete="off" size="60" />
+<p></p>
+
+</div>
+</div>
+</form>
+<h4 id="Jump_to_a_topic_in_any_web">  Jump to a topic in any web </h4>
+<form>
+<div class="foswikiFormSteps">
+<div class="foswikiFormStep">
+<h3 >Global Jump:</h3>
+
+<input type="text" class="foswikiInputField jqJumpBox {global: true, baseweb:'all, -Trash'}" name="topic" placeholder="(Begin typing topic name)" autocomplete="off" size="60" />
+<p></p>
+
+</div>
+</div>
+</form>
+<p></p>
+
+<h2 id="User_selector">  User selector  </h2>
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Note:</strong> This example obtains user information with the %USERINFO% macro.   If the wiki is configured to hide user details (<code>$Foswiki::cfg{AntiSpam}{HideUserDetails}</code>), then this example will not work unless you are an administrator.</div>
+<p></p>
+
+<h3 id="Client_section_AN3">  Client section </h3>
+<strong>INCLUDE Parameters</strong> <ul>
+<li> <code>INPUT_NAME</code>: name of text input field
+</li> <li> <code>INPUT_VALUE</code>: preselected user
+</li> <li> <code>PLACEHOLDER</code>: example value 
+</li></ul> 
+<pre class="tml">
+&#37;STARTSECTION{&#34;userselector&#34;}&#37;&#60;!-- userselector --&#62;
+&#60;input type&#61;&#34;text&#34; class&#61;&#34;foswikiInputField jqUserSelector&#34; name&#61;&#34;&#37;INPUT&#95;NAME&#37;&#34; id&#61;&#34;&#37;INPUT&#95;NAME&#37;&#34; &#37;IF{&#34;defined PLACEHOLDER&#34; then&#61;&#34;placeholder&#61;\&#34;&#37;PLACEHOLDER&#37;\&#34;&#34;}&#37; autocomplete&#61;&#34;&#37;SCRIPTURL{&#34;view&#34;}&#37;/&#37;SYSTEMWEB&#37;/JQueryAjaxHelper?section&#61;user;skin&#61;text;contenttype&#61;application/json&#34; size&#61;&#34;60&#34; value&#61;&#34;&#37;IF{&#34;defined INPUT&#95;VALUE&#34; then&#61;&#34;&#37;INPUT&#95;VALUE&#37;&#34;}&#37;&#34; /&#62;
+&#37;ADDTOZONE{&#34;script&#34;
+  tag&#61;&#34;userselector::js&#34;
+  section&#61;&#34;userselector::js&#34;
+  requires&#61;&#34;JQUERYPLUGIN::UI::AUTOCOMPLETE&#34;
+}&#37;
+&#60;!-- //userselector --&#62;&#37;ENDSECTION{&#34;userselector&#34;}&#37;
+</pre>
+The following section is used by the section above; it adds a special Javascript function to the page.
+<pre class="tml">
+&#37;STARTSECTION{&#34;userselector::js&#34;}&#37;&#60;literal&#62;
+&#60;script&#62;
+jQuery(function(&#36;){
+  &#36;(&#34;.jqUserSelector&#34;).data(&#34;ui-autocomplete&#34;).&#95;renderItem &#61; function(ul, item) {
+    if (typeof(item.label) !&#61;&#61; &#39;undefined&#39;) {
+      return &#36;(&#34;&#60;li&#62;&#60;/li&#62;&#34;)
+        .data(&#34;item.autocomplete&#34;, item)
+        .append(&#34;&#60;a&#62;&#60;table width&#61;&#39;100&#37;&#39;&#62;&#60;tr&#62;&#60;td width&#61;&#39;60px&#39;&#62;&#60;img width&#61;&#39;50&#39; src&#61;&#39;&#34;+item.img+&#34;&#39; /&#62;&#60;/td&#62;&#60;td&#62;&#34;+item.label+&#34;&#60;br /&#62;&#34;+item.email+&#34;&#60;/td&#62;&#60;/tr&#62;&#60;/table&#62;&#60;/a&#62;&#34;)
+        .appendTo(ul);
+    }
+  };
+});
+&#60;/script&#62;
+&#60;/literal&#62;&#37;ENDSECTION{&#34;userselector::js&#34;}&#37;
+</pre>
+<h3 id="Server_section_AN3">  Server section </h3>
+<strong>URL parameters</strong> <ul>
+<li> <code>term</code>: search term substring typed so far
+</li> <li> <code>limit</code>: number of search results to return, defaults to 10
+</li></ul> 
+<pre class="tml">
+&#37;STARTSECTION{&#34;user&#34;}&#37;&#60;literal&#62;&#91;&#37;FORMAT{
+  &#34;&#37;SEARCH{
+     &#34;.&#42;&#37;URLPARAM{&#34;term&#34; default&#61;&#34;does not exist&#34;}&#37;.&#42;&#34;
+     type&#61;&#34;regex&#34;
+     scope&#61;&#34;topic&#34;
+     format&#61;&#34;&#36;percntIF{\&#34;&#39;&#36;percntGROUPINFO{\&#34;&#36;topic\&#34; format&#61;\&#34;&#36;dollarname, \&#34; limit&#61;\&#34;1\&#34;}&#36;percnt&#39;&#61;&#39;&#39;\&#34;
+          then&#61;\&#34;&#36;percntUSERINFO{\&#34;&#36;topic\&#34; format&#61;\&#34;&#36;dollarwikiname, \&#34;}&#36;percnt\&#34;
+          else&#61;\&#34;&#36;percntGROUPINFO{\&#34;&#36;topic\&#34; format&#61;\&#34;&#36;dollarname, \&#34; limit&#61;\&#34;1\&#34;}&#36;percnt\&#34;
+        }&#36;percnt&#34;
+     separator&#61;&#34;&#34;
+     limit&#61;&#34;&#37;URLPARAM{&#34;limit&#34; default&#61;&#34;10&#34;}&#37;&#34;
+     nonoise&#61;&#34;on&#34;
+     web&#61;&#34;&#37;USERSWEB&#37;&#34;
+  }&#37;&#34;
+  type&#61;&#34;string&#34;
+  format&#61;&#34;  {\&#34;label\&#34;:\&#34;&#60;nop&#62;&#36;item\&#34;, 
+    \&#34;email\&#34;:\&#34;&#36;percntUSERINFO{\&#34;&#36;item\&#34; format&#61;\&#34;&#36;emails\&#34;}&#36;percnt\&#34;, 
+    \&#34;img\&#34;:\&#34;&#36;percntFORMFIELD{\&#34;Photo\&#34; 
+      topic&#61;\&#34;&#37;USERSWEB&#37;.&#36;item\&#34; 
+      default&#61;\&#34;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/JQueryPlugin/images/nobody.gif\&#34; 
+      alttext&#61;\&#34;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/JQueryPlugin/images/nobody.gif\&#34; 
+    }&#36;percnt\&#34;
+  }&#34;
+  separator&#61;&#34;,&#36;n&#34;
+}&#37;&#93;&#60;/literal&#62;&#37;ENDSECTION{&#34;user&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="Example_AN2">  Example </h3>
+<form>
+<div class="foswikiFormSteps">
+<div class="foswikiFormStep">
+<h3 >Find user:</h3>
+
+<input type="text" class="foswikiInputField jqUserSelector" name="user" id="user"  autocomplete="https://damask.mpie.de/bin/view/System/JQueryAjaxHelper?section=user;skin=text;contenttype=application/json" size="60" value="" />
+<p></p>
+
+</div>
+</div>
+</form>
+<p></p>
+
+<h2 id="Query_fetcher">  Query fetcher </h2>
+Perform a <code><a href="/bin/view/System/VarQUERY">%QUERY</a></code> asynchronously (requires Foswiki 1.1
+or later).
+<p></p>
+
+<h3 id="Client_section_AN4">  Client section </h3>
+<strong>INCLUDE Parameters</strong> <ul>
+<li> <code>ID</code>: id of an element to bind an onclick event to
+</li> <li> <code>SOURCE</code>: topic to get the field from
+</li> <li> <code>QUERY</code>: query to perform
+</li></ul> 
+<pre class="tml">
+&#37;STARTSECTION{&#34;queryfetcher&#34;}&#37;&#37;ADDTOZONE{&#34;script&#34;
+  tag&#61;&#34;query::js&#34;
+  requires&#61;&#34;JQUERYPLUGIN&#34;
+  text &#61;&#34;&#60;literal&#62;
+&#60;script&#62;
+jQuery(function(&#36;){
+  &#36;(\&#34;#&#37;ID&#37;\&#34;).click(function() {
+     &#36;.get(foswiki.getScriptUrl(&#39;view&#39;, foswiki.getPreference(&#39;SYSTEMWEB&#39;), &#39;JQueryAjaxHelper&#39;, {
+          section: &#39;query&#39;,
+          source: &#39;&#37;SOURCE&#37;&#39;,
+          query: &#39;&#37;QUERY&#37;&#39;,
+          skin: &#39;text&#39;
+         }),
+         function(data) {
+             // This is the function that will be executed when the
+             // data is fetched
+             alert(&#39;&#37;QUERY&#37; is &#39; + data);
+         });
+  });
+});
+&#60;/script&#62;&#60;/literal&#62;
+&#34;}&#37;&#37;ENDSECTION{&#34;queryfetcher&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="Server_section_AN4">  Server section </h3>
+<strong>URL parameters</strong> <ul>
+<li> <code>source</code>: source topic 
+</li> <li> <code>query</code>: query to perform
+</li></ul> 
+<pre class="tml">
+&#37;STARTSECTION{&#34;query&#34;}&#37;&#60;noautolink&#62;&#37;QUERY{
+  &#34;&#39;&#37;URLPARAM{&#34;source&#34; default&#61;&#34;&#37;BASEWEB&#37;.&#37;BASETOPIC&#37;&#34;}&#37;&#39;/&#37;URLPARAM{&#34;query&#34; default&#61;&#34;query missing&#34;}&#37;&#34;
+  style&#61;&#34;json&#34;
+}&#37;&#60;/noautolink&#62;&#37;ENDSECTION{&#34;query&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="Example_AN3">  Example </h3>
+<p></p>
+
+<input type="button" class="foswikiButton" id="jqQueryExample" value="Click here" /> to get the parent of this topic asynchronously (should be 'JQueryPlugin')
+<p></p>
+
+<h2 id="Other_selectors">  Other selectors </h2>
+Server sections for some other selectors that are common in wiki applications.
+<p></p>
+
+<h3 id="Formfield">  Formfield </h3>
+Fetch a formfield from a topic asynchronously.
+Uses <a href="/bin/view/System/VarFORMFIELD">FORMFIELD</a>, which is deprecated in Foswiki 1.1. Foswiki 1.1 and later should use <a href="/bin/view/System/VarQUERY">QUERY</a>
+<p></p>
+
+<strong>URL Parameters</strong> <ul>
+<li> <code>source</code>: source topic 
+</li> <li> <code>formfield</code>: name of formfiled to retrieve
+</li></ul> 
+<p></p>
+
+<h4 id="Server_section_AN5">  Server section </h4>
+<pre class="tml">
+&#37;STARTSECTION{&#34;formfield&#34;}&#37;&#37;FORMFIELD{
+  &#34;&#37;URLPARAM{&#34;formfield&#34; default&#61;&#34;does not exist&#34;}&#37;&#34;
+  topic&#61;&#34;&#37;URLPARAM{&#34;source&#34; default&#61;&#34;does not exist&#34;}&#37;&#34;
+}&#37;&#37;ENDSECTION{&#34;formfield&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="User_photo">  User photo </h3>
+This one returns an <code>&lt;img...&gt;</code> to a user's photo. See the User selector example above.
+<p></p>
+
+<strong>URL Parameters</strong> <ul>
+<li> <code>name</code>: name of user
+</li> <li> <code>height</code>: image height, defaults to 50
+</li></ul> 
+<p></p>
+
+<h4 id="Server_section_AN6">  Server section </h4>
+<pre class="tml">
+&#37;STARTSECTION{&#34;userphoto&#34;}&#37;&#60;img src&#61;&#39;&#37;FORMFIELD{&#34;Photo&#34; topic&#61;&#34;&#37;USERINFO{&#34;&#37;URLPARAM{&#34;name&#34; default&#61;&#34;does not exist&#34;}&#37;&#34; format&#61;&#34;&#36;wikiusername&#34;}&#37;&#34; default&#61;&#34;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/JQueryPlugin/images/nobody.gif&#34; alttext&#61;&#34;&#37;PUBURLPATH&#37;/&#37;SYSTEMWEB&#37;/JQueryPlugin/images/nobody.gif&#34;}&#37;&#39; alt&#61;&#39;&#37;URLPARAM{&#34;name&#34;}&#37;&#39; height&#61;&#39;&#37;URLPARAM{&#34;height&#34; default&#61;&#34;50&#34;}&#37;&#39; /&#62;&#37;ENDSECTION{&#34;userphoto&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="Expand_TML">  Expand TML </h3>
+expand a TML expression in the given scope
+<p></p>
+
+<h4 id="Server_section_AN7">  Server section </h4>
+<strong>URL parameters</strong> <ul>
+<li> <code>expression</code>: TML to be evaluated; will be wrapped into %...% before executing it
+</li> <li> <code>scope</code>: optionally defines the topic within which the expression is expanded
+</li></ul> 
+<p></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;expand&#34;}&#37;&#37;EXPAND{&#34;&#36;percnt&#37;URLPARAM{&#34;expression&#34;}&#37;&#36;percnt&#34; scope&#61;&#34;&#37;URLPARAM{&#34;scope&#34; default&#61;&#34;&#37;BASEWEB&#37;.&#37;BASETOPIC&#37;&#34;}&#37;&#34;}&#37;&#37;ENDSECTION{&#34;expand&#34;}&#37;
+</pre> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/JQueryAjaxHelper?t=1627665045' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/JQueryAjaxHelper' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQueryAjaxHelper?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/JQueryAjaxHelper?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r7&nbsp;<a href="/bin/diff/System/JQueryAjaxHelper?rev1=6;rev2=7" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/JQueryAjaxHelper?rev=6" rel="nofollow">r6</a>&nbsp;<a href="/bin/diff/System/JQueryAjaxHelper?rev1=5;rev2=6" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/JQueryAjaxHelper?rev=5" rel="nofollow">r5</a>&nbsp;<a href="/bin/diff/System/JQueryAjaxHelper?rev1=4;rev2=5" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/JQueryAjaxHelper?rev=4" rel="nofollow">r4</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQueryAjaxHelper?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQueryAjaxHelper?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/JQueryAjaxHelper?t=1627665045;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQueryAjaxHelper?template=more&amp;maxrev=7&amp;currrev=7' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r7 - 18 Nov 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/JQueryAjaxHelper?foswiki_origin=GET%2cview%2c/bin/view/System/JQueryAjaxHelper">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.JQueryAjaxHelper'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

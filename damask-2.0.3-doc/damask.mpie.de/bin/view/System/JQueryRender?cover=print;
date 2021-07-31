@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> JQueryRender &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/JQueryRender?t=1627673167" type="application/x-wiki" title="edit JQueryRender" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/JQueryRender" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/32ff17ced6614f649223db8345ad2ab7.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::RENDER' src='/pub/System/JQueryPlugin/plugins/render/jquery.render.js?version=0.9.90'></script>
+<script class='script JQUERYPLUGIN::RENDER' src='/pub/System/JQueryPlugin/plugins/render/jquery.template-loader.js?version=0.9.90'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WEB" : "System",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTSUFFIX" : "",
+   "USERSWEB" : "Main",
+   "TOPIC" : "JQueryRender",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURLPATH" : "/bin",
+   "USERNAME" : "guest",
+   "SYSTEMWEB" : "System",
+   "URLHOST" : "https://damask.mpie.de",
+   "SERVERTIME" : "30 Jul 2021 - 21:26",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WIKINAME" : "WikiGuest"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script>
+var arrayOfPersons = [
+   {
+      firstName:'David',
+      lastName:'Duchovny'
+   },
+   {
+      firstName:'Natascha',
+      lastName:'McElhone',
+   },
+   {
+      firstName:'Evan',
+      lastName:'Handler'
+   },
+   {
+      firstName:'Madeleine',
+      lastName:'Martin'
+   },
+   {
+      firstName:'Pamela',
+      lastName:'Adlon'
+   }
+];
+
+jQuery(function($) {
+   $('#container1').html($('#personTemplate1').render(arrayOfPersons));
+});
+</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script>
+jQuery(function($) {
+   $('#container2').html($('#personTemplate2').render(arrayOfPersons));
+});
+</script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/JQueryRender" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?ad9996033d83622e1921966885d1a838' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/JQueryRender?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?e1b2d1396fe464af66a28146c60a29dd' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.JQueryRender' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.JQueryRender' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="JQueryRender">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQueryRender">JQueryRender</a> </h1>
+<p class='p'></p>
+
+    Homepage: <a href="http://www.jsviews.com">http://www.jsviews.com</a> <br />
+    Author(s): Boris Moore <br />
+    Version: 0.9.90
+<p class='p'></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?cover=print#Usage"> Usage </a>
+</li> <li> <a href="?cover=print#Further_reading"> Further reading </a>
+</li> <li> <a href="?cover=print#Syntax"> Syntax </a>
+</li></ul> 
+</div>
+<p></p>
+
+<img class='imagePlain imagePlain_none ' src='/pub/System/JQueryRender/logo-jsr.png' alt='logo-jsr.png' title='logo-jsr.png' width='120' height='120'    /><p class='p'></p>
+
+This plugin brings modern template based javascript apps to Foswiki based on the libraries by Boris Moore. It is intended to supersede <code>jquery.tmpl</code>.
+<a class="foswikiNewLink" href="/bin/edit/System/JsRender?topicparent=System.JQueryRender" rel="nofollow" title="Create this topic">JsRender</a> is a light-weight but powerful templating engine, highly extensible, and optimized for high-performance pure string-based rendering, without DOM or jQuery dependency.
+<p class='p'></p>
+
+<h2 id="Usage">  Usage </h2>
+<p class='p'></p>
+
+<p class='p'>Have you ever found yourself writing code like this?</p>
+
+<pre class="js">
+&#60;script&#62;
+var i &#61; 1;
+
+&#36;(arrayOfPersons).each(function () {
+   var person &#61; this;
+   &#36;(&#34;#container&#34;).append(
+      &#34;&#60;div&#62;&#34; + 
+      i++ + 
+      &#34;: &#34; + 
+      person.firstName + 
+      &#34; &#34; + 
+      person.lastName + 
+    &#34;&#60;/div&#62;&#34;);
+});
+&#60;/script&#62;
+</pre>
+<p class='p'>This is rather cumbersome and a nightmare to actually extend, even more so when you meet this kind of common jQuery code in real-life applications.
+Instead of "DOM plumbing" use a templates like this one:</p>
+
+<pre class="js">
+&#60;script id&#61;&#34;personTemplate&#34; type&#61;&#34;text/x-jsrender &#34;&#62;
+  &#60;div&#62;{{:#index+1}}: {{:firstName}} {{:lastName}}&#60;/div&#62;
+&#60;/script&#62;
+</pre>
+<p></p>
+
+This is straight forward and resembles the intended output much closer. Then make use of this template by expanding it for each <code>person</code> in your <code>arrayOfPersons</code>:
+<p></p>
+
+<pre class="js">
+&#60;script&#62;
+   var result &#61; &#36;(&#34;#personTemplate&#34;).render(arrayOfPersons);
+   &#36;(&#34;#container&#34;).html(result);
+&#60;/script&#62;
+</pre>
+<p class='p'>See how this works out:</p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<div id="container1"></div>
+<p></p>
+
+<script id="personTemplate1" type="text/x-jsrender ">
+  <p>
+   #{{:#index+1}} <br />
+   <b>First Name:</b> {{:firstName}} <br />
+   <b>Last Name:</b> {{:lastName}}</p>
+
+</script>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'>Whenever you'd like to use a different layout for the same data just use a different template. No big deal.
+Imagine doing the same using DOM plumbing...</p>
+
+<pre class="js">
+&#60;script id&#61;&#34;personTemplate2&#34; type&#61;&#34;text/x-jsrender &#34;&#62;
+  &#60;li&#62;{{:firstName}} {{:lastName}}&#60;/li&#62;
+&#60;/script&#62;
+</pre>
+<p></p>
+
+<ol id="container2"></ol>
+<p></p>
+
+<script id="personTemplate2" type="text/x-jsrender ">
+  <li>{{:firstName}} {{:lastName}}</li>
+</script>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h2 id="Further_reading">  Further reading </h2>
+<p></p>
+ <ul>
+<li> <a href="http://www.jsviews.com">http://www.jsviews.com</a>
+</li> <li> <span class='externalLink'><a href="http://borismoore.github.io/jsrender/demos/demos.html">JsRender Demos</a></span>
+</li> <li> <span class='externalLink'><a href="http://msdn.microsoft.com/en-us/magazine/hh882454.aspx">Using JsRender with JavaScript and HTML</a></span>
+</li> <li> <span class='externalLink'><a href="http://msdn.microsoft.com/en-us/magazine/hh975379.aspx">Advanced JsRender Templating Features</a></span>
+</li></ul> 
+<p></p>
+
+<h2 id="Syntax">  Syntax  </h2>
+<p></p>
+
+JsRender templates consist of HTML markup plus JsRender tags, such as the <code>{{for ..}}</code> tag or <code>{{: ...}}</code>. 
+All JsRender template tags are wrapped with double curly braces. The tag name can be followed by one or more parameters or expressions. 
+In the case of the <code>{{: }}</code> tag, the result of the expression would then be rendered. A template is used while looping over elements of a JSON array.
+In each iteration the template is used as a blueprint to process the current property of the JSON object under consideration. All expansions of a template
+are then concatenated.
+Templates can also be used to render just a single element. You don't necessarily need to pass an array as data. JsRender can also take a single JSON object
+and return the rendered template.
+<p></p>
+
+(see also <a href="http://www.jsviews.com/#jsrapi">http://www.jsviews.com/#jsrapi</a>)
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Tag </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Example </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{:&nbsp;pathOrExpr }}</code> </td>
+			<td class="foswikiTableCol1"> get the value of the data path or expression, and insert it into the rendered output as a string </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{:address.street}}</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{&gt;&nbsp;pathOrExpr }}</code> </td>
+			<td class="foswikiTableCol1"> get the HTML-encoded value of the data path or expression, and insert it into the rendered output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{&gt;address.street}}</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{include&nbsp;tmpl&#61;nameOrExpr /}}</code> </td>
+			<td class="foswikiTableCol1"> template composition: Iinclude the referenced template: tmpl, rendered using the current data context </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{:name}} lives in {{include tmpl&#61;"#addressTemplate"/}}</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{for&nbsp;pathOrExpr }} <br /> ... {{/for}}</code> </td>
+			<td class="foswikiTableCol1"> template composition: render the block content of the <code>{{for}}</code> tag using the object or array specified by the path or expression as data context. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{for billing.address}} {{:city}} {{/for}}</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{for&nbsp;pathOrExpr tmpl&#61;nameOrExpr /}}</code> </td>
+			<td class="foswikiTableCol1"> template composition: render the referenced external template using the specified object or array </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{for billing.address tmpl&#61;"addressTmpl" /}}</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{props pathOrExpr}} <br /> ... {{/props}}</code> </td>
+			<td class="foswikiTableCol1"> template composition: iterate over the properties of the object, and render the block content of the {{props}} tag (or the referenced external template) once for each property -- using as data context <code>{key: propertyName, prop: propertyValue}</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{props billing.address}} {{:key}}: {{:prop}} {{/props}}</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{props&nbsp;pathOrExpr tmpl&#61;nameOrExpr /}}</code> </td>
+			<td class="foswikiTableCol1"> template composition: iterate over the properties of the object, and render the referenced external template once for each property -- using as data context <code>{key: propertyName, prop: propertyValue}</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{props billing.address tmpl&#61;"addressTmpl" /}}</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{if&nbsp;pathOrExpr }} <br /> ... {{/if}}</code> </td>
+			<td class="foswikiTableCol1"> conditional inclusion: render the block content of the <code>{{if}}</code> tag only if the data-path or expression evaluates to true </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{if nickname}} Nickname: {{:nickname}} {{/if}})</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{if&nbsp;pathOrExpr tmpl&#61;nameOrExpr /}}</code> </td>
+			<td class="foswikiTableCol1"> conditional inclusion: render the referenced external template only if the data-path or expression evaluates to true </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{if nickname tmpl&#61;"nicknameTemplate" /}}</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{if&nbsp;...}} <br /> ... {{else}} <br /> ... {{/if}}</code> </td>
+			<td class="foswikiTableCol1"> conditional inclusion: render the block content of the <code>{{if}}</code> tag if the expression is true, otherwise render the <code>{{else}}</code> block </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{if nickname}} Nickname: {{:nickname}} {{else}} No nickname {/if}}</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{if&nbsp;pathOrExpr1&nbsp;tmpl&#61;nameOrExpr1 }} <br /> {{else&nbsp;tmpl&#61;nameOrExpr2 }} <br /> {{/if}}</code> </td>
+			<td class="foswikiTableCol1"> conditional inclusion: render different templates depending on one or more expressions </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> ={{if nickname tmpl&#61;"nicknameTemplate"}} {{else tmpl="noNicknameTemplate"}} {{/if}} = </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{if&nbsp;pathOrExpr1 }} <br /> ... {{else&nbsp;pathOrExpr2}} <br /> ... {{else}} <br /> ... {{/if}}</code> </td>
+			<td class="foswikiTableCol1"> conditional blocks: render the first <code>{{if}}</code> or <code>{{else}}</code> block for which the expression is true; if none are true, and there is an <code>{{else}}</code> without an expression, render that block </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{if nickname}} Nickname: {{:nickname}} {{else altnickname}} Alternate nickname: {{:altnickname}} {{else}} No nickname {{/if}}</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>{{else ... }}</code> </td>
+			<td class="foswikiTableCol1"> acts as a separator, to divide the content of a tag into two or more different content blocks; <code>{{else}}</code> can be used with <code>{{if}}</code>, <code>{{for}}</code> or any custom tag </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>{{for members}} Member Name: {{:name}} {{else}} There are currently no member {{/for}}</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>{{!-- ... --}}</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> comments to templates, or commenting out sections of a template </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>{{!-- this is a comment --}}</code> </td>
+		</tr>
+	</tbody></table></div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>JQueryRender <br />
+Topic revision:  <span class='patternRevInfo'>18 Nov 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.JQueryRender'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

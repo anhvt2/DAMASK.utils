@@ -1,0 +1,26 @@
+%SECTION0% hybridIA_linODFsampling
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Transform linear binned ODF data into given number of orientations. IA: integral approximation, STAT: Van Houtte, MC: Monte Carlo
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; hybridIA_linODFsampling options file[s] 
+</pre>
+
+%UPTOC%
+---++ Options
+   $=-n= / =--nsamples= [ *500* ]: 
+   number of orientations to be generated
+   $=-a= / =--algorithm= [ *IA* ] ( _IA_, _STAT_, _MC_ ): 
+   sampling algorithm
+   $=-p= / =--phase= [ *1* ]: 
+   phase index to be used
+   $=--crystallite= [ *1* ]: 
+   crystallite index to be used
+   $=-r= / =--rnd= [ *none* ]: 
+   seed of random number generator

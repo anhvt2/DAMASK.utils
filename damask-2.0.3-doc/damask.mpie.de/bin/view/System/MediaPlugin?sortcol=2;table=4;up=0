@@ -1,0 +1,1067 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> MediaPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/MediaPlugin?t=1627670083" type="application/x-wiki" title="edit MediaPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/MediaPlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/f37a23665a06002a7f48b3aa74fa5000.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableMediaPlugin2 th {text-align:left}
+body .foswikiTable#tableMediaPlugin2 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableMediaPlugin2 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableMediaPlugin3 th {text-align:left}
+body .foswikiTable#tableMediaPlugin3 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableMediaPlugin3 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableMediaPlugin4 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableMediaPlugin4 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableMediaPlugin6 td {vertical-align:middle; vertical-align:top}
+body .foswikiTable#tableMediaPlugin6 td.foswikiTableCol0 {text-align:left}
+body .foswikiTable#tableMediaPlugin6 td.foswikiTableCol1 {text-align:left}
+body .foswikiTable#tableMediaPlugin6 td.foswikiTableCol2 {text-align:left}
+body .foswikiTable#tableMediaPlugin6 td.foswikiTableCol3 {text-align:right}
+body .foswikiTable#tableMediaPlugin6 td.foswikiTableCol4 {text-align:left}
+body .foswikiTable#tableMediaPlugin6 td.foswikiTableCol5 {text-align:left}
+body .foswikiTable#tableMediaPlugin6 td.foswikiTableCol6 {text-align:left}
+body .foswikiTable#tableMediaPlugin6 td.foswikiTableCol7 {text-align:left}
+body .foswikiTable#tableMediaPlugin6 th {vertical-align:middle; background-color:#ffffff; color:#0066cc; text-align:left}
+body .foswikiTable#tableMediaPlugin6 th a:link {color:#0066cc}
+body .foswikiTable#tableMediaPlugin6 th a:visited {color:#0066cc}
+body .foswikiTable#tableMediaPlugin6 th a:hover {color:#0066cc; background-color:#ffffff}
+body .foswikiTable#tableMediaPlugin6 th.foswikiSortedCol {background-color:#eeeeee}
+body .foswikiTable#tableMediaPlugin6 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableMediaPlugin6 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f5f5f5}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "WEB" : "System",
+   "SKIN" : "damask,famfamfam,pattern",
+   "TOPIC" : "MediaPlugin",
+   "USERSWEB" : "Main",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SYSTEMWEB" : "System",
+   "SCRIPTSUFFIX" : "",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "COOKIEREALM" : "",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "PUBURLPATH" : "/pub",
+   "WIKINAME" : "WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "USERNAME" : "guest",
+   "SERVERTIME" : "30 Jul 2021 - 20:34",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   }
+}
+</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/MediaPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?834e4e2f88e4bf46c9af553ae53a6309' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/MediaPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?d9e4bec35c8a218da089121870849dd8' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.MediaPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.MediaPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/MediaPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/MediaPlugin" title='Topic revision: 8 (02 Jun 2016 - 09:27:20)'>MediaPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/MediaPlugin?t=1627670083;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/MediaPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/MediaPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/MediaPlugin?raw=on&amp;rev=8' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=MediaPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/MediaPlugin?cover=print;sortcol=2;table=4;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/MediaPlugin?template=more&amp;maxrev=8&amp;currrev=8' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Media_Plugin">  Media Plugin </h1>
+<p class='p'>Embed multimedia objects such as Flash or QuickTime in topics.</p>
+
+Uses the <code>OBJECT</code> html tag to embed arbitrary content into a page, with a particular bent towards media: common media formats are detected and some "agnostic best-guess" html is used (derived from that recommended by
+the plugin providers).
+However, any content can be embedded using the object tag: java, pdf, other html, svg, even images (although for the latter is of course no real reason to do so this way).
+The plugin uses generic syntax when it cannot detect the type of file being embedded.
+<p></p>
+
+The plugin stores a range of default values (defined here on this page)
+which allow you to specify a bare minimum of info in your markup and still
+get acceptable results (see <a class="foswikiCurrentTopicLink" href="#Basic_Usage">Basic Usage</a> below).
+These defaults can of course be overridden on a use-by-use basis.
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=2;table=4;up=0#Basic_Usage"> Basic Usage </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Advanced_Usage"> Advanced Usage </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Syntax"> Syntax </a> <ul>
+<li> <a href="?sortcol=2;table=4;up=0#Syntax_for_QuickTime_mov"> Syntax for QuickTime mov </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Syntax_for_Flash_swf"> Syntax for Flash swf </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=4;up=0#Syntax_for_generic_objects"> Syntax for generic objects </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Syntax_for_wmv"> Syntax for wmv </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Examples"> Examples </a> <ul>
+<li> <a href="?sortcol=2;table=4;up=0#wmv"> wmv </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#mov"> mov </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#swf"> swf </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#swf_with_params"> swf with params </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Flash_from_other_sites"> Flash from other sites </a> <ul>
+<li> <a href="?sortcol=2;table=4;up=0#Yahoo_Maps_in_Flash"> Yahoo Maps in Flash </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=4;up=0#pdf"> pdf </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#mp3"> mp3 </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#wav"> wav </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#midi"> midi </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=4;up=0#Notes_for_developers"> Notes for developers </a> <ul>
+<li> <a href="?sortcol=2;table=4;up=0#Detection_of_media_type_47_recommended_plugin_syntax"> Detection of media type / recommended plugin syntax </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Defining_additional_file_formats"> Defining additional file formats </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=4;up=0#Plugin_Settings"> Plugin Settings </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Plugin_Info"> Plugin Info </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Basic_Usage">  Basic Usage </h2>
+<p></p>
+
+You <strong>could</strong> call the plugin as simply as:
+<p></p>
+
+<pre>
+&#37;MEDIA{&#34;SomeMovie.mov&#34;}&#37;
+</pre>
+<p></p>
+
+This will detect that the embedded file is a QuickTime and use "media-like" syntax (and pass the correct <code>classid</code> to IE - why it can't work out which plugin to use is a little beyond me). However, unlike an <code>IMG</code> tag, plugins do not autosize to their content, and the movie would display at the default size. You could use media of only one size site-wide and specify the dimensions as defaults, but realistically the minimum markup you need to embed things into your wiki pages is:
+<p></p>
+
+<code>%MEDIA{"SomeMovie.swf" width="320" height="180"}%</code>
+<p></p>
+
+<h2 id="Advanced_Usage">  Advanced Usage </h2>
+<p class='p'>A call to the MediaPlugin could get as complicated as:</p>
+
+<pre>
+&#37;MEDIA{
+src&#61;&#34;SomeMovie.wmv&#34;
+width&#61;&#34;320&#34;
+height&#61;&#34;180&#34;
+controller&#61;&#34;FALSE&#34;
+play&#61;&#34;TRUE&#34;
+myparam1&#61;&#34;3.1419&#34;
+myparam2&#61;&#34;edinburgh&#34;
+}&#37;
+</pre>
+<p class='p'>See for possible attributes below.</p>
+
+<p class='p'>Note that MediaPlugin figures out the correct mime type parameter so that the correct plugin will be called to deal with that content.</p>
+
+<h2 id="Syntax">  Syntax </h2>
+<p></p>
+
+MediaPlugin supports arbitrary parameters. If you pass it <code>cowtype="Jersey"</code>, it will passed on to the browser.
+<p class='p'>A few parameters are defined and get handled a little differently (they may be "translated" to a particular browser plugins syntax).</p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/MediaPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/MediaPlugin?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Value</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/MediaPlugin?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol3 foswikiLastCol"> <a href="/bin/view/System/MediaPlugin?sortcol=3;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Notes</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>""</code>, <code>src</code>, <code>data</code> </td>
+			<td class="foswikiTableCol1"> URI or file name </td>
+			<td class="foswikiTableCol2"> The content to embed. Relative URIs are interpreted with respect to the <code>codebase</code> attribute if it is given. </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>width</code> </td>
+			<td class="foswikiTableCol1"> Standard web measure (px, %, em) </td>
+			<td class="foswikiTableCol2"> Width of box holding content </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>height</code> </td>
+			<td class="foswikiTableCol1"> Standard web measure (px, %, em) </td>
+			<td class="foswikiTableCol2"> Height of box holding content </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>controller</code> </td>
+			<td class="foswikiTableCol1"> text boolean ("TRUE" or "FALSE") </td>
+			<td class="foswikiTableCol2"> Whether to display controls </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> automatically added </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>play</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> text boolean </td>
+			<td class="foswikiTableCol2 foswikiLast"> whether to auto-play the content </td>
+			<td class="foswikiTableCol3 foswikiLastCol foswikiLast"> Automatically added for QuickTime and Flash </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Syntax_for_QuickTime_mov">  Syntax for QuickTime mov </h3>
+<p></p>
+
+See <span class='externalLink'><a href="http://www.apple.com/quicktime/tutorials/embed2.html">Overview of Embed Tag Attributes</a></span> for QuickTime.
+<p></p>
+
+<h3 id="Syntax_for_Flash_swf">  Syntax for Flash swf </h3>
+<p></p>
+
+Pass Flash movie attributes within the <code>%MEDIA{...}%</code> accolades (all values within quotes). When a particular parameter is not specified, the default value will be used (see table below).
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><h4><span id="twistyIdSystemMediaPlugin1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">&#9658; Attributes for Flash</span></a></span><span id="twistyIdSystemMediaPlugin1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">&#9660; Attributes for Flash</span></a></span></h4></div><div class="twistyPlugin"><div id="twistyIdSystemMediaPlugin1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableMediaPlugin2" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Example </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiFirstCol" colspan="4"> <strong>Required attributes</strong> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>src</code> </td>
+			<td class="foswikiTableCol1"> Filepath of the movie; should have suffix <code>.swf</code> ("src=" can be omitted) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>mypath/flashmovie.swf</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiFirstCol" colspan="3"> <strong>General attributes</strong> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>width</code> </td>
+			<td class="foswikiTableCol1"> Width of Flash movie in pixels, or a percentage. 100% means one hundred percent of the available width on the page. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"50%"</code> or <code>"500px"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>height</code> </td>
+			<td class="foswikiTableCol1"> Height of Flash movie in pixels, or a percentage. 100% means one hundred percent of the available height on the page. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"50%"</code> or <code>"500px"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>bgcolor</code> </td>
+			<td class="foswikiTableCol1"> Background color of Flash movie in hex string. When omitted, no background color will be specified and the background color of the Flash movie will be used. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"#cccccc"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiFirstCol" colspan="3"> <strong>Advanced attributes</strong> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>align</code> </td>
+			<td class="foswikiTableCol1"> Default centers the movie in the browser window and crops edges if the browser window is smaller than the movie. <code>l</code> (left), <code>r</code> (right), <code>t</code> (top), and <code>b</code> (bottom) align the movie along the corresponding edge of the browser window and crop the remaining three sides as needed. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"l"</code>, <code>"r"</code>, <code>"t"</code>, <code>"b"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>salign</code> </td>
+			<td class="foswikiTableCol1"> <code>l</code>, <code>r</code>, <code>t</code>, and <code>b</code> align the movie along the left, right, top or bottom edge, respectively, of the browser window and crop the remaining three sides as needed. <br /> <code>tl</code> and <code>tr</code> align the movie to the top left and top right corner, respectively, of the browser window and crop the bottom and remaining right or left side as needed. <br /> <code>bl</code> and <code>br</code> align the movie to the bottom left and bottom right corner, respectively, of the browser window and crop the top and remaining right or left side as needed. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"l"</code>, <code>"t"</code>, <code>"r"</code>, <code>"b"</code>, <code>"tl"</code>, <code>"tr"</code>, <code>"bl"</code>, <code>"br"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>scale</code> </td>
+			<td class="foswikiTableCol1"> Scaling of Flash movie. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"noborder"</code>, <code>"exactfit"</code>, <code>"noscale"</code>, <code>"showall"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>quality</code> </td>
+			<td class="foswikiTableCol1"> Playback quality. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"best"</code>, <code>"high"</code>, <code>"medium"</code>, <code>"low"</code>, <code>"autohigh"</code>, <code>"autolow"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>menu</code> </td>
+			<td class="foswikiTableCol1"> Should right-click on Flash movie show a (default) menu? Note that with the Flash 7 player the menu cannot be removed. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"true"</code> or <code>"false"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>id</code> </td>
+			<td class="foswikiTableCol1"> ID of Flash movie; should be the same value as <code>name</code> (specify both) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"movie2"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>wmode</code> </td>
+			<td class="foswikiTableCol1"> Sets the Window Mode property of the Flash movie for transparency, layering, and positioning in the browser. <br /> <code>window</code> - movie plays in its own rectangular window on a web page. <br /> <code>opaque</code> - the movie hides everything on the page behind it. <br /> <code>transparent</code> - the background of the HTML page shows through all transparent portions of the movie, this may slow animation performance. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"window"</code>, <code>"opaque"</code> or <code>"transparent"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>play</code> </td>
+			<td class="foswikiTableCol1"> Specifies whether the movie begins playing immediately on loading in the browser. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"true"</code> or <code>"false"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>loop</code> </td>
+			<td class="foswikiTableCol1"> Specifies whether the movie repeats indefinitely or stops when it reaches the last frame. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"true"</code> or <code>"false"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>allowscriptaccess</code> </td>
+			<td class="foswikiTableCol1"> Controls the ability to perform outbound scripting from within a Flash SWF. <br /> When allowScriptAccess is <code>never</code>, outbound scripting always fails. <br /> When allowScriptAccess is <code>always</code>, outbound scripting always succeeds. <br /> If allowScriptAccess is <code>sameDomain</code> (it is supported in SWFs from Flash Player 8), outbound scripting is allowed only if the SWF file resides in the same domain as the hosting web page. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"sameDomain"</code>, <code>"always"</code> or <code>"never"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>fullscreen</code> </td>
+			<td class="foswikiTableCol1"> Enabled scriptable fullscreen mode. An overlay dialog box will appear when the movie enters full-screen mode, instructing the user how to exit and return to normal mode. The dialog box appears for a few seconds and then fades out. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"true"</code> or <code>"false"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>base</code> </td>
+			<td class="foswikiTableCol1"> Specifies the base directory or URL used to resolve all relative path statements in the Flash Player movie. This attribute is helpful when your Flash Player movies are kept in a different directory from your other files. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> any directory URL, or empty string <code>""</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>swliveconnect</code> </td>
+			<td class="foswikiTableCol1"> Specifies whether the browser should start Java when loading the Flash Player for the first time. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"true"</code> or <code>"false"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>flashvars</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Variables to be passed to the Flash movie. Multiple variables are separated by <code>&amp;</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>flashvars="x=50&amp;y=100&amp;url=%ATTACHURL%/picture.jpg"</code> </td>
+		</tr>
+	</tbody></table>
+</div></div>
+<p></p>
+
+More information on  <span class='externalLink'><a href="http://kb.adobe.com/selfservice/viewContent.do?externalId=tn_12701&amp;sliceId=1">Flash OBJECT and EMBED tag attributes</a></span> (Adobe TechNote).
+<p></p>
+
+<h2 id="Syntax_for_generic_objects">  Syntax for generic objects </h2>
+The attributes described at Syntax above is mostly all you need. For advanced usage see the table below.
+<p></p>
+
+<div class="twistyPlugin foswikiMakeVisible"><h4><span id="twistyIdSystemMediaPlugin2show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">&#9658; Attributes for generic objects</span></a></span><span id="twistyIdSystemMediaPlugin2hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">&#9660; Attributes for generic objects</span></a></span></h4></div><div class="twistyPlugin"><div id="twistyIdSystemMediaPlugin2toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableMediaPlugin3" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Value </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Description </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>align</code> </td>
+			<td class="foswikiTableCol1"> left, right, top, bottom </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines the text alignment around the object </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>archive</code> </td>
+			<td class="foswikiTableCol1"> URL </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> A space separated list of URL's to archives. The archives contains resources relevant to the object </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>border</code> </td>
+			<td class="foswikiTableCol1"> pixels </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines a border around the object </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>classid</code> </td>
+			<td class="foswikiTableCol1"> class ID </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines a class ID value as set in the Windows Registry or a URL </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>codebase</code> </td>
+			<td class="foswikiTableCol1"> URL </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines where to find the code for the object </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>codetype</code> </td>
+			<td class="foswikiTableCol1"> MIME type </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> The internet media type of the code referred to by the classid attribute </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>data</code> </td>
+			<td class="foswikiTableCol1"> URL </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines a URL that refers to the object's data </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>declare</code> </td>
+			<td class="foswikiTableCol1"> declare </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines that the object should only be declared, not created or instantiated until needed </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>height</code> </td>
+			<td class="foswikiTableCol1"> pixels </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines the height of the object </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hspace</code> </td>
+			<td class="foswikiTableCol1"> pixels </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines the horizontal spacing around the object </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>name</code> </td>
+			<td class="foswikiTableCol1"> unique_name </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines a unique name for the object (to use in scripts) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>standby</code> </td>
+			<td class="foswikiTableCol1"> text </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines a text to display while the object is loading </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>type</code> </td>
+			<td class="foswikiTableCol1"> MIME_type </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines the MIME type of data specified in the data attribute. See <span class='externalLink'><a href="http://www.iana.org/assignments/media-types/">MIME Media Types</a></span>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>usemap</code> </td>
+			<td class="foswikiTableCol1"> URL </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Specifies a URL of a client-side image map to be used with the object </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>vspace</code> </td>
+			<td class="foswikiTableCol1"> pixels </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Defines the vertical spacing around the object </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>width</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> pixels </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Defines the width of the object </td>
+		</tr>
+	</tbody></table>
+</div></div>
+<p></p>
+
+<h2 id="Syntax_for_wmv">  Syntax for wmv </h2>
+Sorry - I could not find any page for this.
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<p></p>
+
+<h3 id="wmv">  wmv </h3>
+<pre>
+&#37;MEDIA{
+&#34;http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wmv&#34;
+height&#61;&#34;240&#34;
+width&#61;&#34;320&#34;
+}&#37;
+</pre>
+generates:
+<p></p>
+
+<object classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab" height="286" width="320"><param name="ShowControls" value="true" /><param name="autostart" value="true" /><param name="type" value="application/x-mplayer2" /><embed ShowControls="true" autostart="true" height="286" pluginspage="http://www.microsoft.com/windows/windowsmedia/download/AllDownloads.aspx/" src="http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wmv" type="application/x-mplayer2" width="320"/></object><p></p>
+
+<h3 id="mov">  mov </h3>
+<pre>
+&#37;MEDIA{
+&#34;&#37;ATTACHURL&#37;/sample.mov&#34;
+height&#61;&#34;180&#34;
+width&#61;&#34;320&#34;
+}&#37;
+</pre>
+generates:
+<p></p>
+
+<object classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab" height="196" width="320"><param name="autoplay" value="true" /><param name="controller" value="true" /><param name="src" value="https://damask.mpie.de/pub/System/MediaPlugin/sample.mov" /><embed autoplay="true" controller="true" height="196" pluginspage="/quicktime/download/" src="https://damask.mpie.de/pub/System/MediaPlugin/sample.mov" width="320"/></object><p></p>
+
+By default the controller is shown (unless attribute <code>controller="false"</code>), and the controller height (16px) is automatically added to the movie height.
+<p></p>
+
+<h3 id="swf">  swf </h3>
+<pre>
+&#37;MEDIA{
+&#34;&#37;ATTACHURL&#37;/sample.swf&#34;
+height&#61;&#34;180&#34;
+width&#61;&#34;320&#34;
+}&#37;
+</pre>
+generates:
+<p></p>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" height="180" width="320"><param name="movie" value="https://damask.mpie.de/pub/System/MediaPlugin/sample.swf" /><embed height="180" src="https://damask.mpie.de/pub/System/MediaPlugin/sample.swf" width="320"/></object><p></p>
+
+<h3 id="swf_with_params">  swf with params </h3>
+These are just a number of example parameters; not all are effective in this movie.
+<pre>
+&#37;MEDIA{
+src&#61;&#34;&#37;ATTACHURL&#37;/swf/ThumbController.swf&#34;
+width&#61;&#34;430&#34;
+height&#61;&#34;370&#34;
+bgcolor&#61;&#34;#ffffff&#34;
+menu&#61;&#34;false&#34;
+base&#61;&#34;&#37;ATTACHURL&#37;/swf/&#34;
+}&#37;
+</pre>
+generates:
+<p></p>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" height="370" width="430"><param name="base" value="https://damask.mpie.de/pub/System/MediaPlugin/swf/" /><param name="bgcolor" value="#ffffff" /><param name="menu" value="false" /><param name="movie" value="https://damask.mpie.de/pub/System/MediaPlugin/swf/ThumbController.swf" /><embed base="https://damask.mpie.de/pub/System/MediaPlugin/swf/" bgcolor="#ffffff" height="370" menu="false" src="https://damask.mpie.de/pub/System/MediaPlugin/swf/ThumbController.swf" width="430"/></object><p></p>
+
+<h3 id="Flash_from_other_sites">  Flash from other sites </h3>
+<p></p>
+
+<h4 id="Yahoo_Maps_in_Flash">  Yahoo Maps in Flash </h4>
+<pre>
+&#37;MEDIA{
+&#34;http://developer.yahoo.com/maps/flash/V3.5/asGS.01.swf&#34; 
+base&#61;&#34;http://developer.yahoo.com/maps/flash/V3.5/&#34;
+width&#61;&#34;600px&#34;
+height&#61;&#34;400px&#34;
+}&#37;
+</pre>
+<p></p>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" height="400px" width="600px"><param name="base" value="http://developer.yahoo.com/maps/flash/V3.5/" /><param name="movie" value="http://developer.yahoo.com/maps/flash/V3.5/asGS.01.swf" /><embed base="http://developer.yahoo.com/maps/flash/V3.5/" height="400px" src="http://developer.yahoo.com/maps/flash/V3.5/asGS.01.swf" width="600px"/></object><p class='p'></p>
+
+<h3 id="pdf">  pdf </h3>
+<pre>
+&#37;MEDIA{
+&#34;http://www.pdf-tools.com/public/downloads/whitepapers/whitepaper-pdfprimer.pdf&#34;
+width&#61;&#34;100&#37;&#34;
+height&#61;&#34;100&#37;&#34;
+}&#37;
+</pre>
+generates:
+<p></p>
+
+<object height="100%" width="100%"><param name="data" value="http://www.pdf-tools.com/public/downloads/whitepapers/whitepaper-pdfprimer.pdf" /><param name="type" value="application/pdf" /></object><p></p>
+
+<h3 id="mp3">  mp3 </h3>
+<pre>
+&#37;MEDIA{
+&#34;&#37;ATTACHURL&#37;/test.mp3&#34;
+play&#61;&#34;false&#34;
+autoplay&#61;&#34;false&#34;
+height&#61;&#34;20&#34;
+}&#37;
+</pre>
+generates:
+<p></p>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" height="20" width="320"><param name="autoplay" value="false" /><param name="autostart" value="false" /><param name="data" value="https://damask.mpie.de/pub/System/MediaPlugin/test.mp3" /><param name="play" value="false" /><embed autoplay="false" autostart="false" data="https://damask.mpie.de/pub/System/MediaPlugin/test.mp3" height="20" play="false" src="https://damask.mpie.de/pub/System/MediaPlugin/test.mp3" width="320"/></object><p></p>
+
+<h3 id="wav">  wav </h3>
+<pre>
+&#37;MEDIA{
+&#34;&#37;ATTACHURL&#37;/test.wav&#34;
+play&#61;&#34;false&#34;
+autoplay&#61;&#34;false&#34;
+height&#61;&#34;20&#34;
+}&#37;
+</pre>
+generates:
+<p></p>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" height="20" width="320"><param name="autoplay" value="false" /><param name="autostart" value="false" /><param name="data" value="https://damask.mpie.de/pub/System/MediaPlugin/test.wav" /><param name="play" value="false" /><embed autoplay="false" autostart="false" data="https://damask.mpie.de/pub/System/MediaPlugin/test.wav" height="20" play="false" src="https://damask.mpie.de/pub/System/MediaPlugin/test.wav" width="320"/></object><p class='p'></p>
+
+<h3 id="midi">  midi </h3>
+<pre>
+&#37;MEDIA{
+&#34;&#37;ATTACHURL&#37;/test.mid&#34;
+play&#61;&#34;false&#34;
+autoplay&#61;&#34;false&#34;
+height&#61;&#34;20&#34;
+}&#37;
+</pre>
+generates:
+<p></p>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" height="20" width="320"><param name="autoplay" value="false" /><param name="autostart" value="false" /><param name="data" value="https://damask.mpie.de/pub/System/MediaPlugin/test.mid" /><param name="play" value="false" /><embed autoplay="false" autostart="false" data="https://damask.mpie.de/pub/System/MediaPlugin/test.mid" height="20" play="false" src="https://damask.mpie.de/pub/System/MediaPlugin/test.mid" width="320"/></object><p></p>
+
+<h2 id="Notes_for_developers">  Notes for developers </h2>
+<h3 id="Detection_of_media_type_47_recommended_plugin_syntax">  Detection of media type / recommended plugin syntax </h3>
+<p></p>
+
+The plugin detects most media types and uses a hybrid of the html markup
+recommended by the browser plugin makers - in the hope of providing maximum compatibility.
+This is done simply by checking the extension of the filename. Or, if the filename contains <code>youtube.com</code> it will automatically use Flash.
+<p class='p'>Originally, the plugin used (almost) the exact recommended HTML on a type-by-type basis, but I've abandoned this in favor of "one markup fits all" because you don't know which plugin will be handling what - the various ISO formats (MPEG1,2,4, MP3) will be taken by whatever plugin was installed last, and QuickTime now handles Windows Media on Macintosh systems (at Microsoft's recommendation!).</p>
+
+While most of the HTML is as generic as possible, the <code>classid</code> value and some
+other mime-type information is unique to a particular file-type, and for Flash,
+QuickTime and Windows Media the Microsoft-sanctioned values are sent.
+I understand MSIE has to have this info or it totally burns ...
+<p class='p'>I haven't bothered with Real. If there's huge demand, it wouldn't be hard to add - but it may also be handled quite well by the generic media syntax already.</p>
+
+<p class='p'></p>
+
+<h3 id="Defining_additional_file_formats">  Defining additional file formats </h3>
+The output of this plugin is partially governed by Foswiki templates. The <code>mov</code> file output is defined in <code>templates/objectplugin_mov.tmpl</code>:
+<pre>
+&#37;TMPL:DEF{&#34;object&#34;}&#37;&#60;object{MP&#95;OBJECT&#95;ATTRIBUTES}&#62;{MP&#95;OBJECT&#95;PARAMS}&#60;embed{MP&#95;EMBED&#95;ATTRIBUTES}/&#62;&#60;/object&#62;&#37;TMPL:END&#37;
+</pre>
+Placeholders <code>{MP_...}</code> are replaced by <code>%MEDIA{...}%</code> parameters. 
+<p></p>
+
+To add other types add your own template using the same naming scheme (<code>objectplugin_ext.tmpl</code>).
+<p class='p'></p>
+
+<h2 id="Plugin_Settings">  Plugin Settings </h2>
+Change default settings in <a href="https://damask.mpie.de/bin/configure/#MediaPlugin$Extensions">configure</a>.
+<p></p>
+
+<!-- <ul>
+<li> Set SHORTDESCRIPTION = Embed multimedia objects such as Flash or QuickTime in topics
+</li></ul> 
+-->
+<table class="foswikiTable" id="tableMediaPlugin4" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/MediaPlugin?sortcol=0;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Configure setting</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/MediaPlugin?sortcol=1;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Meaning</a> </th>
+			<th class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol"> <a href="/bin/view/System/MediaPlugin?sortcol=2;table=4;up=1#sorted_table" rel="nofollow" title="Sort by this column">Default</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>{Debug}</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> If set to <code>1</code>, writes debugging info to <code>data/debug.txt</code> </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <code>0</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>{ShowController}</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> Switch that defines if the controller is shown </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <code>1</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>{AutoPlay}</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> Switch that defines if the media is played automatically </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <code>1</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>{Height}</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> Default height of player </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> <code>180</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <code>{Width}</code> </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> Default width of player </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol foswikiLast" rowspan="1"> <code>320</code> </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p class='p'>Open configure, and open the "Extensions" section. Use "Find More Extensions" to get a list of available extensions. Select "Install".</p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="http://foswiki.org/Support/ManuallyInstallingExtensions">http://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h2 id="Plugin_Info">  Plugin Info </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Plugin Authors: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.PiersGoodhew" title="'Main.PiersGoodhew' on TWiki.org">TWiki:Main.PiersGoodhew</a>, <a class="interwikiLink" href="https://foswiki.org/Main.SvenDowideit" title="'Main.SvenDowideit' on foswiki.org">Foswiki:Main.SvenDowideit</a>, <a class="interwikiLink" href="https://foswiki.org/Main.ArthurClemens" title="'Main.ArthurClemens' on foswiki.org">Foswiki:Main.ArthurClemens</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Copyright: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &copy; 2006 <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.PiersGoodhew" title="'Main.PiersGoodhew' on TWiki.org">TWiki:Main.PiersGoodhew</a>, 2008-2009 <a class="interwikiLink" href="https://foswiki.org/Main.SvenDowideit" title="'Main.SvenDowideit' on foswiki.org">Foswiki:Main.SvenDowideit</a>, <a class="interwikiLink" href="https://foswiki.org/Main.ArthurClemens" title="'Main.ArthurClemens' on foswiki.org">Foswiki:Main.ArthurClemens</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> License: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <span class='externalLink'><a href="http://www.gnu.org/licenses/gpl.html">GPL (Gnu General Public License)</a></span> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Version: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 12678 (2011-10-01) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Release: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.3.4 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Oct 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.3.4 Arthur Clemens: Fixed an issue where the filetype was not read if it was appended with a query string. Fixes a bug where default attributes read from the <code>tmpl</code> could not be overridden. Added audio examples. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.3.3 Arthur Clemens: small refactoring; moved default settings to Configure. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Jun 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.3.2 Arthur Clemens: Fixed call to unreleased internal function <code>openAttachment</code>. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Jun 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.3.1: Arthur Clemens: Fixes media type lookup. For performance, plugin settings must now be done in <a href="/bin/view/Main/SitePreferences">SitePreferences</a>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Mar 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.3: Mime types are now automatically added, so it is easier to get the browser call the right browser plugin. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Mar 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.2: Integrated EmbedFlashPlugin; major code refactoring. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Mar 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> ObjectPlugin renamed to MediaPlugin </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Feb 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Ported to Foswiki </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Oct 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Modernise with <a class="interwikiLink" href="https://foswiki.org/Extensions.BuildContrib" title="'Extensions.BuildContrib' on foswiki.org">Foswiki:Extensions.BuildContrib</a>, add EMBED Tag, remove WikiWord issues, templatise html output, add YouTube supprt - <a class="interwikiLink" href="https://foswiki.org/Main.SvenDowideit" title="'Main.SvenDowideit' on foswiki.org">Foswiki:Main.SvenDowideit</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Oct 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Initial version </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Dependencies: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> None </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Plugin Home: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a href="http://foswiki.org/Extensions/MediaPlugin">http://foswiki.org/Extensions/MediaPlugin</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> Support: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <a href="http://foswiki.org/Support/MediaPlugin">http://foswiki.org/Support/MediaPlugin</a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiAttachments foswikiFormStep" style="overflow:auto">
+<div class="twistyPlugin foswikiMakeVisible"><span id="topicattachmentslist3show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleopen.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>8</span></span></a></span><span id="topicattachmentslist3hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleclose.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>8</span></span></a></span></div><div class="twistyPlugin"><div id="topicattachmentslist3toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableMediaPlugin6" rules="none" summary="Topic attachments"><caption>Topic attachments</caption>
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/MediaPlugin?sortcol=0;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">I</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/MediaPlugin?sortcol=1;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Attachment</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/MediaPlugin?sortcol=2;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Action</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/System/MediaPlugin?sortcol=3;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Size</a> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/System/MediaPlugin?sortcol=4;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol5"> <a href="/bin/view/System/MediaPlugin?sortcol=5;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Who</a> </th>
+			<th class="foswikiTableCol6 foswikiLastCol"> <a href="/bin/view/System/MediaPlugin?sortcol=6;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Comment</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/txt.png' width='16' height='16' alt='mimetypes.txt' /></span><span class="foswikiHidden">txt</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/MediaPlugin/mimetypes.txt">mimetypes.txt</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/MediaPlugin?filename=mimetypes.txt;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 13 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">02 Oct 2011 - 00:23</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/fla.png' width='16' height='16' alt='sample.fla' /></span><span class="foswikiHidden">fla</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/MediaPlugin/sample.fla">sample.fla</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/MediaPlugin?filename=sample.fla;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 42 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">19 Nov 2008 - 17:24</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/UnknownUser">UnknownUser</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/html.png' width='16' height='16' alt='sample.html' /></span><span class="foswikiHidden">html</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/MediaPlugin/sample.html">sample.html</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/MediaPlugin?filename=sample.html;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 110 bytes </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">02 Oct 2011 - 00:23</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/mov.png' width='16' height='16' alt='sample.mov' /></span><span class="foswikiHidden">mov</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/MediaPlugin/sample.mov">sample.mov</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/MediaPlugin?filename=sample.mov;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 21 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">02 Oct 2011 - 00:23</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/swf.png' width='16' height='16' alt='sample.swf' /></span><span class="foswikiHidden">swf</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/MediaPlugin/sample.swf">sample.swf</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/MediaPlugin?filename=sample.swf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 1 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">02 Oct 2011 - 00:23</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wav.png' width='16' height='16' alt='test.mid' /></span><span class="foswikiHidden">mid</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/MediaPlugin/test.mid">test.mid</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/MediaPlugin?filename=test.mid;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 15 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">02 Oct 2011 - 00:23</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/mp3.png' width='16' height='16' alt='test.mp3' /></span><span class="foswikiHidden">mp3</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/MediaPlugin/test.mp3">test.mp3</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/MediaPlugin?filename=test.mp3;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 18 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">02 Oct 2011 - 00:23</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wav.png' width='16' height='16' alt='test.wav' /></span><span class="foswikiHidden">wav</span> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/pub/System/MediaPlugin/test.wav">test.wav</a> </td>
+			<td class="foswikiTableCol2 foswikiLast"> <a href="/bin/attach/System/MediaPlugin?filename=test.wav;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiLast" style="text-align:right"> 202 K </td>
+			<td class="foswikiTableCol4 foswikiLast"> <span class="foswikiNoBreak">02 Oct 2011 - 00:23</span> </td>
+			<td class="foswikiTableCol5 foswikiLast"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+</div></div></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/MediaPlugin?t=1627670083' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/MediaPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/MediaPlugin?cover=print;sortcol=2;table=4;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/MediaPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r8&nbsp;<a href="/bin/diff/System/MediaPlugin?rev1=7;rev2=8" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/MediaPlugin?rev=7" rel="nofollow">r7</a>&nbsp;<a href="/bin/diff/System/MediaPlugin?rev1=6;rev2=7" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/MediaPlugin?rev=6" rel="nofollow">r6</a>&nbsp;<a href="/bin/diff/System/MediaPlugin?rev1=5;rev2=6" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/MediaPlugin?rev=5" rel="nofollow">r5</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/MediaPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/MediaPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/MediaPlugin?t=1627670083;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/MediaPlugin?template=more&amp;maxrev=8&amp;currrev=8' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r8 - 02 Jun 2016, <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/MediaPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/MediaPlugin%3fsortcol%3d2%3btable%3d4%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.MediaPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

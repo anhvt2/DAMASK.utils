@@ -1,0 +1,664 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> UserAuthentication &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/UserAuthentication?t=1627663973" type="application/x-wiki" title="edit UserAuthentication" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/UserAuthentication" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/86d5293ae9fd89f50a562865ee0a759c.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "TOPIC" : "UserAuthentication",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTSUFFIX" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "USERSWEB" : "Main",
+   "USERNAME" : "guest",
+   "URLHOST" : "https://damask.mpie.de",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURLPATH" : "/bin",
+   "WEB" : "System",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SERVERTIME" : "30 Jul 2021 - 18:52",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SYSTEMWEB" : "System",
+   "COOKIEREALM" : "",
+   "WIKINAME" : "WikiGuest"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/UserAuthentication"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/UserAuthentication" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>UserAuthentication</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/UserAuthentication?t=1627663973;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/UserAuthentication' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/UserAuthentication?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/UserAuthentication?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=UserAuthentication' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/UserAuthentication?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/UserAuthentication?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic">
+<h1 id="User_Authentication">  User Authentication </h1>
+<p class='p'>Controlling who can access your site</p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#Overview"> Overview </a>
+</li> <li> <a href="#Password_Management"> Password Management </a> <ul>
+<li> <a href="#The_default_Password_Manager_44_61HtPasswdUser_61"> The default Password Manager, HtPasswdUser </a>
+</li> <li> <a href="#Changing_Passwords_40and_Email_Addresses_41"> Changing Passwords (and Email Addresses) </a>
+</li></ul> 
+</li> <li> <a href="#User_Mapping"> User Mapping </a> <ul>
+<li> <a href="#The_default_User_Mapping_Manager_44_61TopicUserMapping_61"> The default User Mapping Manager, TopicUserMapping </a>
+</li></ul> 
+</li> <li> <a href="#User_Registration"> User Registration </a> <ul>
+<li> <a href="#Configuration"> Configuration </a>
+</li> <li> <a href="#How_registration_works:"> How registration works: </a>
+</li> <li> <a href="#Custom_registration_page"> Custom registration page </a>
+</li> <li> <a href="#Automatic_Group_Membership"> Automatic Group Membership </a>
+</li></ul> 
+</li> <li> <a href="#Login_Management"> Login Management </a> <ul>
+<li> <a href="#No_Login"> No Login </a>
+</li> <li> <a href="#Template_Login"> Template Login </a> <ul>
+<li> <a href="#Enabling_Template_Login"> Enabling Template Login </a>
+</li> <li> <a href="#Controlling_access_to_individual_scripts"> Controlling access to individual scripts </a>
+</li></ul> 
+</li> <li> <a href="#Enabling_Webserver_Login"> Enabling Webserver Login </a> <ul>
+<li> <a href="#Logons_via_bin_47logon"> Logons via bin/logon </a>
+</li> <li> <a href="#Controlling_access_to_indivi_AN1"> Controlling access to individual scripts </a>
+</li></ul> 
+</li> <li> <a href="#Sessions"> Sessions </a> <ul>
+<li> <a href="#Getting_44_Setting_44_and_Clearing_Session_Variables"> Getting, Setting, and Clearing Session Variables </a>
+</li> <li> <a href="#Cookies_and_Transparent_Session_IDs"> Cookies and Transparent Session IDs </a>
+</li> <li> <a href="#Sessions_and_Roaming_or_Mobile_Users"> Sessions and Roaming or Mobile Users </a>
+</li> <li> <a href="#Optional_Sessions_for_Guest_users"> Optional Sessions for Guest users </a>
+</li></ul> 
+</li></ul> 
+</li> <li> <a href="#Important_Considerations"> Important Considerations </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Overview">  Overview </h2>
+<p class='p'>Authentication, or "login", is the process by which a user lets Foswiki know who they are.</p>
+
+<p class='p'>Knowing who is accessing your site isn't just to do with controlling access, it's a critical part of what makes Foswiki a social medium. Foswiki uses user identities to manage a wide range of personal settings. Most importantly, it means every contribution is automatically attributed to the person who made it.</p>
+
+<p class='p'>Foswiki authentication is very flexible, and can either stand alone, or integrate with existing authentication systems. You can set up Foswiki to require authentication for every access, or only for changes.</p>
+
+<strong>Quick Authentication Test</strong> - Use the %USERINFO% macro to return your current identity: <ul>
+<li> You are guest, <a href="/bin/view/Main/WikiGuest">WikiGuest</a>, 
+</li></ul> 
+<p class='p'>Foswiki user authentication is split into four sections; password management, user mapping, user registration, and login management. Password management deals with how users personal data is stored. Registration deals with how new users are added to the wiki. Login management deals with how users log in.</p>
+
+Once a user is logged on, they can be remembered using a <em>Session</em> stored (for example) in a cookie in the browser. This avoids them having to log on again and again.
+<p></p>
+
+Foswiki user authentication is configured through the Security Settings pane in the <a href="/bin/configure">configure</a> interface, <code>Security and Authentication</code> tab. Selecting an authentication method is a complex business, and you may want to read the <a class="foswikiCurrentTopicLink" href="#HowTo">Important Considerations</a> section before you do so.
+<p></p>
+
+<span id="PasswordManagement"></span>
+<h2 id="Password_Management">  Password Management </h2>
+<p class='p'>'Password management' is the process by which user identies and passwords are stored and checked. This work of password management is done by a module called the 'Password Manager'.</p>
+
+The Password Manager is selected using the <code>{PasswordManager}</code> setting in the <strong>Security and Authentication</strong> -&gt; <strong>Passwords</strong> tab in <a href="https://damask.mpie.de/bin/configure">configure</a>.
+<p class='p'>Out of the box, Foswiki comes with a default password manager. Alternatively you can install one of several different password managers to interface to third-party authentication databases (such as LDAP).</p>
+
+<h3 id="The_default_Password_Manager_44_61HtPasswdUser_61">  The default Password Manager, <code>HtPasswdUser</code> </h3>
+This password manager uses <code>.htpasswd</code> files stored on the server. These files can be unique to Foswiki, or can be shared with other applications (such as an Apache webserver).
+<p></p>
+
+A variety of password encodings are supported for flexibility when re-using existing files. See the descriptive comments in <code>configure</code> for more details.
+<p></p>
+
+<div class='foswikiHelp'>
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Caution:</strong> By default Foswiki uses the <code>.htpasswd</code> file to also store the e-mail addresses of registered users.  If the <code>.htpasswd</code> file will be shared with another application, it is critical to preserve the e-mail address stored as the last field in each line of the file.
+</div>
+<span id="ChangingPasswords"></span>
+<h3 id="Changing_Passwords_40and_Email_Addresses_41">  Changing Passwords (and Email Addresses) </h3>
+<p></p>
+
+If your <code>{PasswordManager}</code> supports password changing, you can change and reset passwords using forms on regular pages.
+<p></p>
+ <ul>
+<li> The <a href="/bin/view/System/ChangePassword">ChangePassword</a> form ( <code><b>Foswiki/ChangePassword</b></code> )
+</li> <li> The <a href="/bin/view/System/ResetPassword">ResetPassword</a> form ( <code><b>Foswiki/ResetPassword</b></code> )
+</li></ul> 
+<p></p>
+
+If the <code>{PasswordManager}</code> does not support password changing, the <a href="/bin/view/System/ChangePassword">ChangePassword</a> and <a href="/bin/view/System/ResetPassword">ResetPassword</a> will show a simple message. This message is defined by the setting CHANGEPASSWORDDISABLEDMESSAGE in <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>. You can redefine this setting by copying it to <a href="/bin/view/Main/SitePreferences">SitePreferences</a> and change it to include a link to the password management website of your organisation.
+<p></p>
+
+If the active <code>{PasswordManager}</code> supports storage and retrieval of user e-mail addresses, you can change your e-mail using a regular page. As shipped, this is true only for the Apache 'htpasswd' password manager.
+<p></p>
+ <ul>
+<li> The <a href="/bin/view/System/ChangeEmailAddress">ChangeEmailAddress</a> form ( <code><b>Foswiki/ChangeEmailAddress</b></code> )
+</li></ul> 
+<p></p>
+
+If the <code>{PasswordManager}</code> does not support password changing, <a href="/bin/view/System/ChangeEmailAddress">ChangeEmailAddress</a> will guide the user to define the e-mail address in the user topic.
+<p></p>
+
+<span id="UserMapping"></span>
+<h2 id="User_Mapping">  User Mapping </h2>
+<p></p>
+
+Usually when you are using an external authentication method, you want to map from an unfriendly 'login name' to a more friendly <a href="/bin/view/System/WikiName">WikiName</a>. This process is called 'User Mapping' and is performed in Foswiki by a module called the 'User Mapping Manager'.
+<p></p>
+
+The user mapping manager is selected using the <code>{UserMappingManager}</code> setting in the <strong>Security and Authentication</strong> -&gt; <strong>User mapping</strong> tab in <a href="https://damask.mpie.de/bin/configure">configure</a>.
+<p class='p'>A secondary function of the User Mapping Manager is to import information such as user groups from an external user authentication module.</p>
+
+<p class='p'>Out of the box, Foswiki comes with a default user mapping manager that maps usernames to wikinames, and supports Foswiki groups internal to Foswiki. If you want, you can plug in an alternate user mapping module to support import of groups etc.</p>
+
+<h3 id="The_default_User_Mapping_Manager_44_61TopicUserMapping_61">  The default User Mapping Manager, <code>TopicUserMapping</code> </h3>
+This module uses the content of certain specific Foswiki topics to map usernames to wikinames, and supports Foswiki groups internal to Foswiki. This module is described in depth in <a href="/bin/view/System/TopicUserMappingContrib">TopicUserMappingContrib</a>.
+<p></p>
+
+<span id="UserRegistration"></span>
+<h2 id="User_Registration">  User Registration </h2>
+<p></p>
+
+'User registration' is the process by which a new user registers to use the wiki. Foswiki new user registration is a sophisticated process which negotiates with the  Password Manager
+and User Mapping Manager to establish the identity of the user, to set and change passwords, and store e-mail addresses and other user meta-data. The process includes: <ul>
+<li> new user verification
+</li> <li> optional new user approval
+</li> <li> <strong>single user registration</strong> via the <a href="/bin/view/System/UserRegistration">UserRegistration</a> page,
+</li> <li> <strong>bulk user registration</strong> via the <a href="/bin/view/System/BulkRegistration">BulkRegistration</a> page (for admins only).
+</li></ul> 
+<p></p>
+
+<h3 id="Configuration">  Configuration </h3>
+<p></p>
+
+Registration options are selected in the <strong>Security and Authentication</strong> -&gt; <strong>Registration</strong> tab in <a href="https://damask.mpie.de/bin/configure">configure</a>.  Options controlled by configure include: <ul>
+<li> Enable user registration: <code>{Register}{EnableNewUserRegistration}</code>
+</li> <li> Use login names separate from the <a href="/bin/view/System/WikiName">WikiName</a>: <code>{Register}{AllowLoginName}</code>
+</li> <li> Verify the user's email address: <code>{Register}{NeedVerification}</code>
+</li> <li> Expiration of unverified pending registrations: <code>{Register}{ExpireAfter}</code>
+</li> <li> Approve registrations by a 3rd party: <code>{Register}{NeedApproval}</code>
+</li> <li> Block duplicate registrations by same email address: <code>{Register}{UniqueEmail}</code>
+</li> <li> Filter registering email addresses by domain: <code>{Register}{EmailFilter}</code>
+</li></ul> 
+<p></p>
+
+<h3 id="How_registration_works:">  How registration works: </h3>
+<p></p>
+
+The default "landing page" for user registration is <a href="/bin/view/System/UserRegistration">UserRegistration</a>, however this page is a "director" page, and displays one of two pages: <ul>
+<li> <a href="/bin/view/Main/UserRegistration">UserRegistration</a> or if that page does not exist,
+</li> <li> <a href="/bin/view/System/DefaultUserRegistration">DefaultUserRegistration</a>
+</li></ul> 
+These are the default registration pages, but as of Foswiki 2.1, any page name can be used as the registration page.  This can accomodate customized registrations, such as CustomerRegistration, VendorRegistration, etc.
+each with its own settings.  This page (from System or Main) or other custom registration pages each sets a number of additional registration defaults, and then INCLUDEs the components that together compose the operational page.  These settings include: <ul>
+<li> <code>%NEWUSERTEMPLATE%</code> - Specifies the template topic used to create the new user's topic.  If not set, %USERSWEB.NewUserTemplate or if that does not exist,  <a href="/bin/view/System/NewUserTemplate">NewUserTemplate</a> is used.
+</li> <li> <code>%REGPARTS%</code> - Specifies a list of topics used to resolve the INCLUDEs used to build the registration form.  Defaults to the current topic, and then <a href="/bin/view/System/UserRegistrationParts">UserRegistrationParts</a>.
+</li> <li> <code>%FIELDS%</code> - List optional fields to add to the registration form.  They correspond to <em>sections</em> in the topics listed in &#37;REGPARTS%
+</li> <li> <code>%REGISTRATIONGROUPTYPE%</code> and  <code>%REGISTRATIONGROUPS%</code>, which controls automatic group membership upon registration.
+</li></ul> 
+<p></p>
+
+<strong>Note:</strong> It is important to use the new <code>%SET{}%</code> macro to establish these defaults. Traditional bullet style <code>" &nbsp; * Set field=value</code> statements do not get processed when the topic is included.
+<h3 id="Custom_registration_page">  Custom registration page </h3>
+<p></p>
+
+You can customize the default <a href="/bin/view/System/UserRegistration">UserRegistration</a> topic, or create new registration topics, by copying <a href="/bin/view/System/DefaultUserRegistration">DefaultUserRegistration</a> to UserRegistration (or another registration topic) in Main web.
+This will ensure that your changes will remain intact next time you upgrade. There are some brief instructions on <a href="/bin/view/System/UserRegistration">UserRegistration</a> that helps you accomplish this.
+<p></p>
+
+The user registration page is assembled from <code>INCLUDE</code> blocks either hidden on that page, or by default blocks found in <a href="/bin/view/System/UserRegistrationParts">UserRegistrationParts</a>. Details of these INCLUDE blocks
+are documented in that page. The user registration page is included in the INCLUDE search order, so new include blocks can be added to the page without the need to update System topics.
+<p></p>
+
+New fields may also be added to the Registration. <ul>
+<li> The <code>name=""</code> parameter of the <code>&lt;input&gt;</code> tags must start with: <code>"Fwk0..."</code> (if this is an optional entry), or <code>"Fwk1..."</code> (if this is a required entry).
+</li> <li> The field name (without the Fwk* prefix) should be added to the <a class="foswikiNewLink" href="/bin/edit/Main/UserForm?topicparent=System.UserAuthentication" rel="nofollow" title="Create this topic">UserForm</a> (or whaver form you use for user registration) so that they are stored in the user topics.
+</li></ul> 
+This ensures that the fields are carried over into the user home page correctly.
+<p></p>
+
+For example, you want to add a "DepartmentName" field. Find a similar block in <a href="/bin/view/System/UserRegistrationParts">UserRegistrationParts</a>, (<a href="/bin/view/System/UserRegistrationParts#Optional_field:_61OrganisationName_61">OrganisationName</a> for ex.) and copy the entire block to the bottom of your custom registration topic.
+Name it to create your new field, <em>DepartmentName</em>, and then add the name of the block to the list in the <code>%SET{"FIELDS" value="..."</code>   You can hide the block by enclosing it in HTML comments <code>&lt;!--</code> and <code>--&gt;</code>
+<p></p>
+
+<h3 id="Automatic_Group_Membership">  Automatic Group Membership </h3>
+<p></p>
+
+You can also automatically enrol users into groups during registration. Note however that this feature is done through the user interface. It cannot be used to force a user into a <a class="foswikiNewLink" href="/bin/edit/System/NewUsersGroup?topicparent=System.UserAuthentication" rel="nofollow" title="Create this topic">NewUsersGroup</a> for example if the user submits the registration through a bot or script that submits the form data omitting the group fields.
+<p></p>
+
+Options include: <ul>
+<li> Automatically enrolling users in one or more groups during registration
+</li> <li> Allow the user to select multiple groups from a list of eligible groups
+</li> <li> Allow the user to choose only <em>one</em> group from a list of eligible groups
+</li> <li> Don't do any group enrolment during registration.
+</li></ul> 
+<p></p>
+
+The list of eligible groups can be generated in one of two ways: <ul>
+<li> Manually by configuration. This fixed list of groups will always be listed.
+</li> <li> Automatically based upon CHANGE permission on the group topics.
+</li></ul> 
+<p></p>
+
+There are two registration scenarios that apply: <dl>
+<dt> Self-registration by Guest users </dt><dd> The actual registration will be processed by the special internal user <a href="/bin/view/Main/RegistrationAgent">RegistrationAgent</a>. Group topics must include an ALLOWTOPICCHANGE = <a href="/bin/view/Main/RegistrationAgent">RegistrationAgent</a> to be eligible for enrolment.
+</dd> <dt> Registration by logged-in users </dt><dd> The registration form is filled out by some other logged-in user. In this case, the <a href="/bin/view/Main/RegistrationAgent">RegistrationAgent</a> is <strong>not</strong> used for Group updates. The current user must have ALLOWTOPICCHANGE permission for groups for them to be eligible for enrollment.
+</dd></dl> 
+<p></p>
+
+Note: During registration, if it turns out that the current user or <a href="/bin/view/Main/RegistrationAgent">RegistrationAgent</a> doesn't have permission to update the group topic, the group update will be silently skipped.  The user will still be able to register.
+<p></p>
+
+The settings that control group memberships during registration are located at the top of the <a href="/bin/view/System/DefaultUserRegistration">DefaultUserRegistration</a> topic. You also must add <code>extraField_groups</code> to the list of optional fields in the <code>=%SET{"FIELDS" value="..."</code> macro in the <code>optionalFields</code> section.
+<p></p>
+
+<span id="LoginManagement"></span>
+<h2 id="Login_Management">  Login Management </h2>
+<p class='p'>'Login management' controls the way users have to log in. There are three basic options; no login, login via a Foswiki login page, and login using the webserver authentication support. Login management is performed by a module called the 'Login Manager'.</p>
+
+The Login Manager is selected using the <code>{LoginManager}</code> setting in the <strong>Security and Authentication</strong> -&gt; <strong>Login</strong> tab in <a href="https://damask.mpie.de/bin/configure">configure</a>.
+<p></p>
+
+<span id="NoLogin"></span>
+<h3 id="No_Login">  No Login </h3>
+<p></p>
+
+Does exactly what it says on the tin. Forget about authentication to make your site completely public - anyone can browse and edit freely, in classic Wiki style. All visitors are given the <a href="/bin/view/Main/WikiGuest">WikiGuest</a> default identity, so you can't track individual user activity.
+<p></p>
+
+<div class='foswikiHelp'> <strong><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note:</strong> This setup is <strong>not</strong> recommended on public websites for security reasons; anyone would be able to change system settings and perform tasks usually restricted to administrators.</div>
+<p></p>
+
+<span id="TemplateLogin"></span>
+<h3 id="Template_Login">  Template Login </h3>
+<p class='p'>Template Login asks for a username (or optionally e-mail address) and password in a web page, and processes them using whatever Password Manager you choose. Users can log in and log out. Client Sessions are used to remember users. Users can choose to have their session remembered so they will automatically be logged in the next time they start their browser.</p>
+
+<h4 id="Enabling_Template_Login">  Enabling Template Login </h4>
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> By default, your Foswiki installation is probably already using TemplateLogin, HtPasswdUser and <a href="/bin/view/System/TopicUserMappingContrib">TopicUserMappingContrib</a> as the default <code>Login</code>, <code>Password</code> and <code>user mapping</code> options.</div> <ol>
+<li> Using <a href="/bin/configure">configure</a>, <code>Security And Authentication</code> tab <ol>
+<li> Navigate to the <code>Login</code> tab on the <code>Security and Authentication</code> panel. Select the <code>Foswiki::LoginManager::TemplateLogin</code> login manager.
+</li> <li> Navigate to the <code>Passwords</code> tab. Select the appropriate <code>PasswordManager</code> for your system - the default is <code>Foswiki::Users::HtPasswdUser</code>.      <div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> There is an EXPERT configure setting <code>{TemplateLogin}{PreventBrowserRememberingPassword}</code> that you can set to prevent Browsers from remembering username and passwords if you are concerned about public terminal usage.</div>      <div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> There is an EXPERT configure setting <code>{TemplateLogin}{AllowLoginUsingEmailAddress}</code> that you can set to allow users to login using their password system registered e-mail addresses.</div>
+</li></ol> 
+</li> <li> Verify that registration works by registering yourself with the <a href="/bin/view/System/UserRegistration">UserRegistration</a> topic. If there are problems, try these troubleshooting tips:  <ol>
+<li> <strong>Note:</strong> If e-mail is enabled in <a href="/bin/configure">configure</a>, Foswiki will  not allow any new registrations unless e-mail is functional. In order to avoid issues, return to the <code>Mail and Proxies</code>, <code>Email Test</code> tab in <code>configure</code> and verify that Foswiki can successfully send e-mail.
+</li> <li> If your PasswordManager is <code>HtPasswdUser</code> (the default), check the <code>.htpasswd</code> file is being updated correctly with a new entry. If not, check <code>{Htpasswd}{FileName}</code> is correct (under <code>Security and Authentication</code> on the <code>Password</code> tab in <code>configure</code>), and that the webserver user has write permission.
+</li></ol> 
+</li> <li> Create a new topic (in <a href="/bin/view/Sandbox/WebHome">Sandbox</a> web for example) to confirm that authentication works.
+</li> <li> <strong>Add users to the <a href="/bin/view/Main/AdminGroup">AdminGroup</a></strong>. Edit the <a href="/bin/view/Main/AdminGroup">AdminGroup</a> topic in the Main web to include users that should have administrator status. Read <a href="/bin/view/System/InstallationGuide#DefineAdminUser">defining adminstrator user(s)</a> for more information.   <div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>This is a very important step</strong>, as users in this group can access <em>all</em> topics, independent of Foswiki access controls.</div>
+</li></ol> 
+<p></p>
+
+<a href="/bin/view/System/AccessControl">AccessControl</a> has more information on setting up access controls.
+<p></p>
+
+<div class='foswikiHelp'>
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Foswiki <a href="/bin/view/System/AccessControl">AccessControls</a> do not protect topic attachments unless the web server has been configured to do so using the <code>viewfile</code> script. Visit <a class="interwikiLink" href="https://foswiki.org/Support.ApacheConfigGenerator" title="'Support.ApacheConfigGenerator' on foswiki.org">Foswiki:Support.ApacheConfigGenerator</a> for examples using Apache.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> As Template Login uses a wiki page for its login prompt, there is a great deal of flexibility in customizing the login page for your purposes.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> The default new user template page is in <a href="/bin/view/System/NewUserTemplate">System.NewUserTemplate</a>. The same macros get expanded as in the <a href="/bin/view/System/TemplateTopics">TemplateTopics</a>. You can create a custom new user topic by creating the NewUserTemplate topic in Main web, which will then override the default in System web. See <a href="/bin/view/System/UserForm">UserForm</a> for copy instructions.</div>
+<p></p>
+
+<h4 id="Controlling_access_to_individual_scripts">  Controlling access to individual scripts </h4>
+<p></p>
+
+You may want to add or remove scripts from the list of scripts that require authentication. <img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> Any scripts listed as requiring authentication will not be usable by the Guest user.  If you require that <a href="/bin/view/Main/WikiGuest">WikiGuest</a> be allowed to edit topics on your site, <code>edit</code> and <code>save</code> must be removed from the list of scripts requiring authentication. To do this, update the <code>{AuthScripts}</code> list using the <strong>Security and Authentication" -&gt; *Login</strong> tab of <a href="/bin/configure">configure</a>.
+<p></p>
+
+<span id="ApacheLogin"></span>
+<h3 id="Enabling_Webserver_Login">  Enabling Webserver Login </h3>
+<p class='p'>With Apache Login enabled, when Foswiki needs to authenticate the user, the standard HTTP authentication mechanism is used: the browser itself will prompt for a user name and password.</p>
+
+<p class='p'>The rest of this section describes Webserver Login using the Apache web server, but the same process is applicable to other webserver implementations as well (though you may require a customised version of the ApacheLogin module to do it).</p>
+
+The advantage of this scheme is that if you have an existing website authentication scheme using Apache modules such as <code>mod_auth_ldap</code> or <code>mod_auth_mysql</code> you can just plug in to them directly.
+<p class='p'>The disadvantage is that because the user identity is cached in the browser, you can log in, but you can't log out again unless you restart the browser.</p>
+
+Foswiki maps the <code>REMOTE_USER</code> that was used to log in to the webserver to a <a href="/bin/view/System/WikiName">WikiName</a> using the table in <a href="/bin/view/Main/WikiUsers">WikiUsers</a>. This table is updated whenever a user registers, so users can choose not to register (in which case their webserver username is used for their signature) or register (in which case that username is mapped to their <a href="/bin/view/System/WikiName">WikiName</a>).
+<p></p>
+
+The same private <code>.htpasswd</code> file used in Foswiki Template Login can be used to authenticate Apache users, using the Apache Basic Authentication support.
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Do <strong>not</strong> use the Apache <code>htpasswd</code> program to modify <code>.htpasswd</code> files generated by Foswiki! <code>htpasswd</code> wipes out e-mail addresses that Foswiki saves in the info fields of this file.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> Apache Login is required for Apache-based login methods such as <code>mod_ldap</code>
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> You can use any Apache authentication module that sets the <code>REMOTE_USER</code> environment variable.
+</div>
+<p class='p'>To set up Apache Login, perform the following steps:</p>
+ <ol>
+<li> <strong>Configure Apache Login.</strong> Under the <code>Security and Authentication</code> pane on the <code>Login</code> tab in <code>configure</code>: <ol>
+<li> Select <code>Foswiki::LoginManager::ApacheLogin</code> for <code>{LoginManager}</code>.
+</li> <li> Select <code>Foswiki::Users::HtPasswdUser</code> for <code>{PasswordManager}</code>.
+</li> <li> Select <code>Foswiki::Users::TopicUserMapping</code> for <code>{UserMappingManager}</code>.
+</li> <li> Save your settings.
+</li> <li> Configure your Apache settings for HTTP authentication. Use the <a class="interwikiLink" href="https://foswiki.org/Support.ApacheConfigGenerator" title="'Support.ApacheConfigGenerator' on foswiki.org">Foswiki:Support.ApacheConfigGenerator</a> tool or the <code>foswiki/bin-htaccess.txt</code> file to set the following Apache directives on the <code>bin</code> scripts:(This example is for Apache 2.2, there are changes required if using Apache 2.4)       <pre>
+ AuthType Basic
+ &#60;FilesMatch &#34;(attach&#124;edit&#124;manage&#124;rename&#124;save&#124;upload&#124;mail&#124;logon&#124;.&#42;auth).&#42;&#34;&#62;
+ require valid-user
+ &#60;/FilesMatch&#62;</pre>      You can also refer to the sample <code>foswiki_httpd_conf.txt</code> and <code>bin-htaccess.txt</code> files to see how the appropriate Apache directives are specified.
+</li></ol> 
+</li> <li> Verify that registration works by registering yourself with the <a href="/bin/view/System/UserRegistration">UserRegistration</a> topic. If there are problems, try these troubleshooting tips:  <ol>
+<li> <strong>Note:</strong> If e-mail is enabled in <a href="/bin/configure">configure</a>, Foswiki will  not allow any new registrations unless e-mail is functional. In order to avoid issues, return to the <code>Mail and Proxies</code>, <code>Email Test</code> tab in <code>configure</code> and verify that Foswiki can successfully send e-mail.
+</li> <li> If your PasswordManager is <code>HtPasswdUser</code> (the default), check the <code>.htpasswd</code> file is being updated correctly with a new entry. If not, check <code>{Htpasswd}{FileName}</code> is correct (under <code>Security and Authentication</code> on the <code>Password</code> tab in <code>configure</code>), and that the webserver user has write permission.
+</li></ol> 
+</li> <li> Create a new topic (in <a href="/bin/view/Sandbox/WebHome">Sandbox</a> web for example) to confirm that authentication works.
+</li> <li> <strong>Add users to the <a href="/bin/view/Main/AdminGroup">AdminGroup</a></strong>. Edit the <a href="/bin/view/Main/AdminGroup">AdminGroup</a> topic in the Main web to include users that should have administrator status. Read <a href="/bin/view/System/InstallationGuide#DefineAdminUser">defining adminstrator user(s)</a> for more information.   <div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>This is a very important step</strong>, as users in this group can access <em>all</em> topics, independent of Foswiki access controls.</div>
+</li></ol> 
+<p></p>
+
+<h4 id="Logons_via_bin_47logon">  Logons via bin/logon </h4>
+<p class='p'>Any time a user requests a page that needs authentication, they will be forced to log on. It may be convenient to have a "logon" link as well, to give the system a chance to identify the user and retrieve their personal settings. It may be convenient to force them to log on.</p>
+
+The <code><b>bin/logon</b></code> script enables this. If you are using Apache Login, the <code><b>bin/logon</b></code> script must be set up in the Apache configuration or <code><b>bin/.htaccess</b></code> file to be a script which requires a <code>valid user</code>. Once authenticated, it will redirect the user to the view URL for the page from which the <code>logon</code> script was linked.
+<p></p>
+
+<h4 id="Controlling_access_to_indivi_AN1">  Controlling access to individual scripts </h4>
+<p></p>
+
+You may want to add or remove scripts from the list of scripts that require authentication. <img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> Any scripts listed as requiring authentication will not be usable by the Guest user.  If you require that <a href="/bin/view/Main/WikiGuest">WikiGuest</a> be allowed to edit topics on your site, <code>edit</code> and <code>save</code> must be removed from the list of scripts requiring authentication. To do this, add/remove the script from <code>bin/.htaccess</code>, or from the =FilesMatch= line in the Apache configuration.
+<p></p>
+
+<span id="TrackSessions"></span>
+<h3 id="Sessions">  Sessions </h3>
+<p></p>
+
+Foswiki uses the <a class="interwikiLink" href="https://metacpan.org/module/CGI::Session" title="CPAN perl repository">CPAN:CGI::Session</a> and <a class="interwikiLink" href="https://metacpan.org/module/CGI::Cookie" title="CPAN perl repository">CPAN:CGI::Cookie</a> modules to track sessions. These modules are de facto standards for session management among Perl programmers. If you can't use Cookies for any reason, <a class="interwikiLink" href="https://metacpan.org/module/CGI::Session" title="CPAN perl repository">CPAN:CGI::Session</a> also supports session tracking using the client IP address.
+<p></p>
+
+You don't <em>have</em> to enable sessions to support logins in Foswiki. However it is <strong>strongly</strong> recommended. Foswiki needs some way to remember the fact that you logged in from a particular browser, and it uses sessions to do this. If you don;t enable sessions, Foswiki will try hard to remember you, but due to limitations in the browsers it may also forget you (and then suddenly remember you again later!). So for the best user experience, you should enable sessions.
+<p></p>
+
+There are a number of <a href="/bin/view/System/Macros">macros</a> available that you can use to interrogate your current session. You can even add your own session variables to the Foswiki cookie. Session variables are referred to as "sticky" variables.
+<p></p>
+
+<h4 id="Getting_44_Setting_44_and_Clearing_Session_Variables">  Getting, Setting, and Clearing Session Variables </h4>
+<p></p>
+
+You can get, set, and clear session variables from within Foswiki web pages or by using script parameters. This allows you to use the session as a personal "persistent memory space" that is not lost until the web browser is closed. Also note that if a session variable has the same name as a Foswiki preference, the session variables value takes precedence over the Foswiki preference. <strong>This allows for per-session preferences.</strong>
+<p class='p'>To make use of these features, use the tags:</p>
+
+<pre class='tml'>
+&#37;SESSION&#95;VARIABLE{ &#34;varName&#34; }&#37;
+&#37;SESSION&#95;VARIABLE{ &#34;varName&#34; set&#61;&#34;varValue&#34; }&#37;
+&#37;SESSION&#95;VARIABLE{ &#34;varName&#34; clear&#61;&#34;&#34; }&#37;</pre>
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <a href="/bin/view/System/AccessControl">Access controls</a> cannot be modified in this way</div>
+<p></p>
+
+<h4 id="Cookies_and_Transparent_Session_IDs">  Cookies and Transparent Session IDs </h4>
+<p class='p'>Foswiki normally uses cookies to store session information on a client computer. Cookies are a common way to pass session information from client to server. Foswiki cookies simply hold a unique session identifier that is used to look up a database of session information on the Foswiki server.</p>
+
+<p class='p'>For a number of reasons, it may not be possible to use cookies. In this case, Foswiki has a fallback mechanism; it will automatically rewrite every internal URL it sees on pages being generated to one that also passes session information.  Passing session identification in the URL is not considered secure and is strongly discouraged.</p>
+
+<h4 id="Sessions_and_Roaming_or_Mobile_Users">  Sessions and Roaming or Mobile Users </h4>
+<p></p>
+
+If <code>$Foswiki::cfg{Sessions}{UseIPMatching}</code> is enabled,  <code>CGI::Session</code> code will compare the current user's IP Address to the address that was used
+when the session was initially created.
+If the IP address has changed, then the session is invalidated and the user is required to re-authenticate.
+There is further information about this option in the <a href="/bin/configure">configure</a> interface, <code>Security And Authentication</code> tab.
+<p class='p'>This option is enabled by default in Foswiki 2.0.  It should be disabled if mobile users encounter issues due to frequent IP address changes.  It is of
+limited value if the users access Foswiki via a proxy or other device that causes multiple users to share the same IP address.</p>
+
+<h4 id="Optional_Sessions_for_Guest_users">  Optional Sessions for Guest users </h4>
+<p></p>
+
+<em>EXPERIMENTAL feature:</em> In Foswiki version 2.0, sessions can be suppressed for guest users.   This is generally safe if guests have no ability to update.
+However if guests are permitted to update, such as by using the <a href="/bin/view/System/CommentPlugin">CommentPlugin</a>, or if any wiki applications make use Session Variables, (See <a href="/bin/view/System/VarSESSIONVAR">VarSESSIONVAR</a>) then guest sessions should be enabled. See the
+<a href="/bin/configure">configure</a> interface, <code>Security And Authentication</code> tab for more information.
+<p></p>
+
+<span id="HowTo"></span>
+<h2 id="Important_Considerations">  Important Considerations </h2>
+<p class='p'>Finally, some points you need to consider when selecting an authentication method.</p>
+
+<p class='p'>One of the key features of Foswiki is that it is possible to add HTML to topics. No authentication method is 100% secure on a website where end users can add HTML, as there is always a risk that a malicious user can add code to a topic that gathers user information, such as session IDs. The Foswiki developers have been forced to make certain tradeoffs, in the pursuit of efficiency, that may be exploited by a hacker.</p>
+
+<p class='p'>This section discusses some of the known risks. You can be sure that any potential hackers have read this section as well!</p>
+
+The most secure method is to only use Foswiki via SSL (Secure Sockets Layer), with a login manager installed and Client Sessions turned <strong>off</strong>. However this is rather extreme. Using Foswiki with sessions turned off is a pain, though, as with all the login managers there are occasions where Foswiki will forget who you are. The best user experience is achieved with sessions turned <strong>on</strong>.
+<p></p>
+
+As soon as you allow the server to maintain information about a logged-in user, you open a door to potential attacks. There are a variety of ways a malicious user can pervert Foswiki to obtain another users session ID, the most common of which is known as a <span class='externalLink'><a href="http://www.perl.com/pub/a/2002/02/20/css.html">cross-site scripting</a></span> attack. Once a hacker has an SID they can pretend to be that user.
+<p></p>
+
+To help prevent these sorts of attacks, Foswiki supports <strong>IP matching</strong>, which ensures that the IP address of the user requesting a specific session is the same as the IP address of the user who created the session. This works well as long as IP addresses are unique to each client, and as long as the IP address of the client can't be faked.
+<p class='p'>Session IDs are usually stored by Foswiki in cookies, which are stored in the client browser. Cookies work well, but not all environments or users permit cookies to be stored in browsers. So Foswiki also supports two other methods of determining the session ID. The first method uses the client IP address to determine the session ID. The second uses a rewriting method that rewrites local URLs in Foswiki pages to include the session ID in the URL.</p>
+
+The first method works well as long as IP addresses are <strong>unique</strong> to each individual client, and client IP addresses can't be faked by a hacker. If IP addresses are unique and can't be faked, it is almost as secure as cookies + IP matching, so it ranks as the <strong>fourth most secure method</strong>.
+<p class='p'>If you have to turn IP matching off, and cookies can't be relied on, then you may have to rely on the second method, URL rewriting. This method exposes the session IDs very publicly, so should be regarded as "rather dodgy".</p>
+
+Most Foswiki sites don't use SSL, so, as is the case with <strong>most</strong> sites that don't use SSL, there is always a possibility that a password could be picked out of the aether. Browsers do not encrypt passwords sent over non-SSL links, so using Apache Login is no more secure than Template Login.
+<p class='p'>Of the two shipped login managers:</p>
+
+<strong>Apache Login</strong> is useful if you want to do this sort of thing:
+<tt>wget --http-user=RogerRabbit --http-password=i'mnottelling http://www.example.com/bin/save/Sandbox/StuffAUTOINC0?text=hohoho,%20this%20is%20interesting</tt>
+i.e. pass in a user and password to a request from the command-line. However it doesn't let you log out.
+<p></p>
+
+<strong>Template Login</strong> degrades to url re-writing when you use a client like dillo that does not support cookies. However, you can log out and back in as a different user.
+<p class='p'>Finally, it would be really neat if someone was to work out how to use certificates to identify users.....</p>
+
+See <a class="interwikiLink" href="https://foswiki.org/Support.SupplementalDocuments" title="'Support.SupplementalDocuments' on foswiki.org">Foswiki:Support.SupplementalDocuments</a> for more information.
+<p class='p'></p>
+
+<!-- <ol>
+<li> Verify that registration works by registering yourself with the <a href="/bin/view/System/UserRegistration">UserRegistration</a> topic. If there are problems, try these troubleshooting tips:  <ol>
+<li> <strong>Note:</strong> If e-mail is enabled in <a href="/bin/configure">configure</a>, Foswiki will  not allow any new registrations unless e-mail is functional. In order to avoid issues, return to the <code>Mail and Proxies</code>, <code>Email Test</code> tab in <code>configure</code> and verify that Foswiki can successfully send e-mail.
+</li> <li> If your PasswordManager is <code>HtPasswdUser</code> (the default), check the <code>.htpasswd</code> file is being updated correctly with a new entry. If not, check <code>{Htpasswd}{FileName}</code> is correct (under <code>Security and Authentication</code> on the <code>Password</code> tab in <code>configure</code>), and that the webserver user has write permission.
+</li></ol> 
+</li> <li> Create a new topic (in <a href="/bin/view/Sandbox/WebHome">Sandbox</a> web for example) to confirm that authentication works.
+</li> <li> <strong>Add users to the <a href="/bin/view/Main/AdminGroup">AdminGroup</a></strong>. Edit the <a href="/bin/view/Main/AdminGroup">AdminGroup</a> topic in the Main web to include users that should have administrator status. Read <a href="/bin/view/System/InstallationGuide#DefineAdminUser">defining adminstrator user(s)</a> for more information.   <div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>This is a very important step</strong>, as users in this group can access <em>all</em> topics, independent of Foswiki access controls.</div>
+</li></ol> 
+-->
+<hr />
+<p></p>
+
+<strong>Related Topics:</strong> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>, <a href="/bin/view/System/AccessControl">AccessControl</a> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/UserAuthentication?t=1627663974' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/UserAuthentication' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/UserAuthentication?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/UserAuthentication?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/UserAuthentication?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/UserAuthentication?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/UserAuthentication?t=1627663974;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/UserAuthentication?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/UserAuthentication?foswiki_origin=GET%2cview%2c/bin/view/System/UserAuthentication">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.UserAuthentication'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

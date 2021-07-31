@@ -1,0 +1,924 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> CommentPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/CommentPlugin?t=1627669496" type="application/x-wiki" title="edit CommentPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/CommentPlugin" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/526ce35bfd84cca0d308159080ebc7c3.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "USERNAME" : "guest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SERVERTIME" : "30 Jul 2021 - 20:24",
+   "PUBURLPATH" : "/pub",
+   "USERSWEB" : "Main",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "WEB" : "System",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURLPATH" : "/bin",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "TOPIC" : "CommentPlugin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SCRIPTSUFFIX" : "",
+   "SYSTEMWEB" : "System",
+   "WIKINAME" : "WikiGuest"
+}
+</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/CommentPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?47f2b45499ab57ccc9b03eb13456f03a' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/CommentPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?926b50306f1c8055b06eea7587760ec1' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.CommentPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.CommentPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/CommentPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Plugins">Plugins</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/CommentPlugin" title='Topic revision: 1 (22 Jan 2018 - 16:53:44)'>CommentPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/CommentPlugin?t=1627669497;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/CommentPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/CommentPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/CommentPlugin?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=CommentPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/CommentPlugin?cover=print;sortcol=1;table=3;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/CommentPlugin?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Comment_Plugin">  Comment Plugin </h1>
+<p class='p'>Comment Plugin lets users quickly post comments to a page without an edit/preview/save cycle.</p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Features"> Features </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Syntax"> Syntax </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Parameters"> Parameters </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Positioning_the_comment"> Positioning the comment </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Location_relative_to_37COMMENT_tag"> Location relative to <code>%COMMENT</code> tag </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Location_relative_to_an_anchor"> Location relative to an anchor </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Default_templates"> Default templates </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Customization"> Customization </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Defining_custom_templates"> Defining custom templates </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Customization_example"> Customization example </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#The_61PROMPT_61_template"> The PROMPT template </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#The_61FORM_61_template"> The FORM template </a> <ul>
+<li> <a href="?sortcol=1;table=3;up=0#Providing_attribute_values"> Providing attribute values </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Special_macros"> Special macros </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Customisation_example_with_custom_form_template"> Customisation example with custom form template </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#The_61OUTPUT_61_template"> The OUTPUT template </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Custom_access_controls"> Custom access controls </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=3;up=0#Settings"> Settings </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Upgrade_Instructions"> Upgrade Instructions </a>
+</li> <li> <a href="?sortcol=1;table=3;up=0#Info"> Info </a>
+</li></ul> 
+</div>
+<p></p>
+
+Related topics: <a href="/bin/view/System/CommentPluginTemplate">CommentPluginTemplates</a>, <a href="/bin/view/Sandbox/CommentPluginExamples">CommentPluginExamples</a>
+<p></p>
+
+<h2 id="Features">  Features </h2>
+<p></p>
+
+Inserts an edit box into the page that allows users to type in and save comments. Comments can be made <ul>
+<li> in different formats (as defined by a template),
+</li> <li> in both forward and reverse chronological order,  
+</li> <li> signed or unsigned, dated or undated (as defined by a template),
+</li> <li> in other topics, or other positions within the current topic.
+</li></ul> 
+<p class='p'>Supports the definition of custom templates for prompts and for formatting
+what is placed into topics.</p>
+
+<p class='p'>Supports custom access controls, allowing you to use it to add content to
+topics where the commenting user doesn't have CHANGE permissions.</p>
+
+<p class='p'>Uses Javascript (if available) to ensure feedback is as rapid as possible.</p>
+
+<h2 id="Syntax">  Syntax </h2>
+<span id="StandardAttrs"></span>
+Write <code>%COMMENT{<i>attributes</i>}%</code> anywhere in a topic.
+<p></p>
+
+<h2 id="Parameters">  Parameters </h2> <ul>
+<li> The following standard attributes are recognized                <table class="foswikiTable" id="tableCommentPlugin1" rules="none">     	<thead>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<th class="foswikiTableCol0 foswikiFirstCol"> Name </th>			<th class="foswikiTableCol1"> Description </th>			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>		</tr>	</thead>     	<tbody>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>type</code> </td>			<td class="foswikiTableCol1"> This is the name of the template to use for this comment. Comment templates are defined in a Foswiki template - see <a class="foswikiCurrentTopicLink" href="#TemPlates">Customisation</a>, below. If this attribute is not defined, the type is whatever is defined by <code>COMMENTPLUGIN_DEFAULT_TYPE</code> <a href="/bin/view/System/PreferenceSettings">preference setting</a>. </td>			<td class="foswikiTableCol2 foswikiLastCol"> <code>below</code> </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>default</code> </td>			<td class="foswikiTableCol1"> Default text to put into the prompt. </td>			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>target</code> </td>			<td class="foswikiTableCol1"> Name of the topic to add the comment to </td>			<td class="foswikiTableCol2 foswikiLastCol"> the current topic </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>mode</code> </td>			<td class="foswikiTableCol1"> For compatibility with older versions only, synonymous with <code>type</code> </td>			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>nonotify</code> </td>			<td class="foswikiTableCol1"> Set to "on" to disable change notification for target topics </td>			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>noform</code> </td>			<td class="foswikiTableCol1"> Set to "on" to disable the automatic form that is generated around your comment prompt if you don't provide a <code>FORM</code> template. See <a href="/bin/view/Sandbox/CommentPluginExamples#noform">CommentPluginExamples:noform</a> for an example. </td>			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>nopost</code> </td>			<td class="foswikiTableCol1"> Set to "on" to disable insertion of the posted text into the topic. </td>			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>remove</code> </td>			<td class="foswikiTableCol1"> Set to "on" to remove the comment prompt after the first time it is clicked. </td>			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>button</code> </td>			<td class="foswikiTableCol1 foswikiLast"> Button label text </td>			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>Add comment</code> </td>		</tr>	</tbody>     </table>
+</li></ul> 
+<p></p>
+
+(See also <a class="foswikiCurrentTopicLink" href="#MoreAttrs">additional attributes</a>)
+<p></p>
+
+<h3 id="Positioning_the_comment">  Positioning the comment </h3>
+<code>%COMMENT</code> supports several ways to specify <em>where</em> a comment should be inserted in the target topic. This is referred to as the <em>location</em> of the comment.
+<p></p>
+
+<h4 id="Location_relative_to_37COMMENT_tag">  Location relative to <code>%COMMENT</code> tag </h4>
+The default <em>location</em> is the <code>%COMMENT</code> tag itself. For example:
+<pre class="tml">
+&#37;COMMENT{type&#61;&#34;below&#34;}&#37;
+</pre>
+will add comments in the current topic, directly below the <code>%COMMENT</code> tag.
+<p></p>
+
+<h4 id="Location_relative_to_an_anchor">  Location relative to an anchor </h4>
+The <code>target</code> attribute may specify a web, and may also specify an anchor within the target topic; for example, 
+<pre class="tml">
+&#37;COMMENT{type&#61;&#34;above&#34; target&#61;&#34;&#37;USERSWEB&#37;.PersonalRemarks#InsertHere&#34;}&#37;
+</pre>
+This uses a standard in-topic anchor as the insertion location. See <a href="/bin/view/System/EditingShorthand">EditingShorthand</a> for more about Foswiki anchors.
+<p></p>
+
+<h3 id="Default_templates">  Default templates </h3>
+Templates are used to define the "comment style" i.e. how comments appear in the page. The default is to add comments in "Blog like" style using bulleted lists, with the most recent comment at the top, but many other styles are available such as tables or Wiki thread mode comments. It is easy to define your own customer styles as well.
+<p></p>
+
+A set of default comment templates are shipped with the plugin - see also <a href="/bin/view/System/CommentPluginTemplate">CommentPluginTemplates</a>:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommentPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Template type</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/CommentPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>top</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Comments, signed and dated (server time), added at top of the topic (the anchor is ignored) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>bottom</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Comments, signed and dated (server time), added at end of the target topic (the anchor is ignored) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>above</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Comments, signed and dated (server time), added immediately before the target anchor, or the <code>%COMMENT</code> if no anchor is specified </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>bulletabove</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Comments, signed and dated (server time), bullet point added immediately before the target anchor, or the <code>%COMMENT</code> if no anchor is specified (inputsize="20" can be used to set the input length) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>below</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Comments, signed and dated (server time), added immediately below the target anchor, or the <code>%COMMENT</code> if no anchor is specified </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>after</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Comments, signed and dated (server time), added added before the comment box, after the last comment </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>belowthreadmode</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Comments, signed and dated, added recurse after comment box </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>threadmode</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Wiki thread mode comment, signed and dated (server time) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tableprepend</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Comments, signed and dated (server time), formatted as an HTML table row, added below the anchor (which must be in an HTML &lt;table&gt;) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tableappend</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Comments, signed and dated (server time), formatted as an HTML table row, added above the anchor (which must be in an HTML &lt;table&gt;) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>action</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Action added to action table directly above comment box (see <a href="#Installation">Plugin Installation Instructions</a> below for important notes) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>table</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Tablerows adding on end </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>toctalk</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Talk using TOC adding on end </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>bookmark</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Create a list of annotated bookmarks </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>return</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Post to a different topic and return </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Your local installation may add more template types as well - see <a class="foswikiCurrentTopicLink" href="#TemPlates">Customization</a>, below.
+<p></p>
+
+<span id="TemPlates"></span>
+<h2 id="Customization">  Customization </h2>
+Customization of the comment plugin requires <ul>
+<li> familiarity with HTML forms
+</li> <li> some familiarity with the <a href="/bin/view/System/SkinTemplates">Skin Templates</a>.
+</li></ul> 
+<p></p>
+
+To define a comment type, you have to provide at least two simple template definitions in the template file; one for the prompt box, and one for the generated output. If we have a template type "mytype", these are named <code>PROMPT:mytype</code> and <code>OUTPUT:mytype</code> respectively. See <code>comments.tmpl</code> in the templates directory for examples.
+<p></p>
+
+The plugin picks up these template definitions from a standard template file, <code>templates/comments.tmpl</code>. This allows different templates to be defined for different Foswiki skins.
+<p></p>
+
+<h3 id="Defining_custom_templates">  Defining custom templates </h3>
+By default, <code>templates/comments.tmpl</code> includes the topic <a href="/bin/view/System/CommentPluginTemplate">CommentPluginTemplate</a>, which contains all the shipped standard templates and in turn includes System.UserCommentsTemplate that can include non-standard customizations.
+<p></p>
+
+This allows for several levels of customization: <ol>
+<li> To <strong>override all default templates, everywhere</strong>, change <code>comments.tmpl</code> to include a different topic (this customization will be lost next time you upgrade, though).
+</li> <li> To add <strong>site-wide local template customizations</strong>, add them to <a class="foswikiNewLink" href="/bin/edit/System/UserCommentsTemplate?topicparent=System.CommentPlugin" rel="nofollow" title="Create this topic">UserCommentsTemplate</a> (create if it does not exist yet). You can redefine the standard templates here if you want, and your definitions will override the standard definitions.
+</li> <li> To override templates on a <strong>web-by-web basis</strong>, add a topic <code>UserCommentsTemplate</code> to the web (this will replace System.UserCommentsTemplate)
+</li> <li> To override templates <strong>for a specific skin</strong>, add them to System.UserComments&lt;Skin&gt;Template (where &lt;Skin&gt; is the name of the skin with the first letter capitalized, e.g. Pattern)
+</li></ol> 
+<p></p>
+
+You can also define a <strong>comment template in a topic</strong>, by passing the topic location with <code>templatetopic</code>. For example:
+<p></p>
+
+<pre class="tml">
+&#37;COMMENT{
+   type&#61;&#34;blogpost&#34;
+   templatetopic&#61;&#34;BlogPostCommentTemplate&#34;
+   target&#61;&#34;&#37;TOPIC&#37;&#34;
+   button&#61;&#34;Add comment&#34;
+}&#37;
+</pre>
+<p></p>
+
+<code>templatetopic</code> accepts <code>topic</code> or <code>web.topic</code> syntax. See an example in <a href="/bin/view/Sandbox/CommentPluginExamples#TemplateTopic">CommentPluginExamples:templatetopic</a>.
+<p class='p'></p>
+
+<p class='p'></p>
+
+<div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Templates are picked up by following the <a href="/bin/view/System/SkinTemplates#FindingTemplates">standard rules for locating template files</a>. Note that you can use <code>%TMPL:INCLUDE</code> to include other files of templates.</div>
+<p></p>
+
+<h3 id="Customization_example">  Customization example </h3>
+Provide both a <code>PROMPT</code> and an <code>OUTPUT</code> definition:
+<p></p>
+
+<pre class="tml">
+&#37;TMPL:DEF{PROMPT:myComment}&#37;&#37;TMPL:P{promptbox}&#37;&#37;TMPL:END&#37;
+&#37;TMPL:DEF{OUTPUT:myComment}&#37;&#37;TMPL:P{outputoneliner}&#37;&#37;POS:TOP&#37;
+&#37;TMPL:END&#37;
+</pre>
+<p class='p'>Call your custom comment with:</p>
+
+<pre class="tml">
+&#37;COMMENT{type&#61;&#34;myComment&#34;}&#37;
+</pre>
+<p></p>
+
+<h3 id="The_61PROMPT_61_template">  The <code>PROMPT</code> template </h3>
+The <code>PROMPT</code> template defines the contents of an HTML form that is used to capture the comment. This form invokes the comment generator when submitted. Parameters to the comment generator are defined using standard HTML input fields, such as <code>input</code>, <code>textarea</code> and <code>select</code>. The user enters values for these parameters, and these are then available when the <code>OUTPUT</code> template is expanded, in the form of <code>%URLPARAM%</code>s.
+<p></p>
+
+<h3 id="The_61FORM_61_template">  The <code>FORM</code> template </h3>
+The <code>FORM</code> template can optionally be provided if you want to explicitly
+define the form (the <code>&lt;form&gt;</code> and <code>&lt;/form&gt;</code> tHTML ags) that wraps around the <code>PROMPT</code> template. If you don't define
+a <code>FORM=template, one is automatically generated for you (unless the =noform="on"</code> parameter is given).
+<p></p>
+
+<span id="MoreAttrs"></span>
+<h4 id="Providing_attribute_values">  Providing attribute values </h4>
+If an attribute is given to the <code>%COMMENT</code> tag that is not one of the <a class="foswikiCurrentTopicLink" href="#StandardAttrs">standard attributes</a>, then that attribute is taken as the name of a parameter to be expanded in the <code>PROMPT</code> template. Expressions in the template of the form <code>%</code><i>param</i><code>|</code><i>default</i><code>%</code> (e.g. <code>%rows|3%</code>, <code>%button|Push me%</code>) are expanded to the values given in the <code>%COMMENT</code>. For example, if the <code>PROMPT</code> template 'example' contains:
+<pre class="tml">
+&#60;textarea rows&#61;&#34;&#37;rows&#124;3&#37;&#34; cols&#61;&#34;&#37;cols&#124;50&#37;&#34; value&#61;&#34;&#37;tval&#124;Rubbish&#37;&#34;&#62;
+</pre>
+and the %COMMENT tag is:
+<pre class="tml">
+&#37;COMMENT{type&#61;&#34;example&#34; cols&#61;&#34;75&#34;}&#37;
+</pre>
+then the template will be expanded as
+<pre class="tml">
+&#60;textarea rows&#61;&#34;3&#34; cols&#61;&#34;75&#34; value&#61;&#34;Rubbish&#34;&#62;
+</pre>
+<p></p>
+
+<h4 id="Special_macros">  Special macros </h4>
+As well as support for all the usual macros in templates, the following special macros are supported in the <code>PROMPT</code> definition:
+       <table class="foswikiTable" rules="none">    
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommentPlugin?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Macro</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol"> <a href="/bin/view/System/CommentPlugin?sortcol=1;table=3;up=1#sorted_table" rel="nofollow" title="Sort by this column">Description</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+		</tr>
+	</thead>    
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>%DISABLED%</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> Set to 'disabled' when you cannot comment (e.g. in preview mode). </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <code>%MESSAGE%</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol foswikiLast" rowspan="1"> The text specified by <code>default</code>. This may be overridden by a helpful message when the prompt is DISABLED. </td>
+		</tr>
+	</tbody>    </table>
+<p></p>
+
+Within a <code>FORM</code> definition, the body of the prompt is expanded to replace
+the <code>%COMMENTPROMPT%</code> macro.
+<p></p>
+
+<strong>EXPERT</strong> Note that when a comment is saved, the <code>rest</code> script is invoked on the target topic, with a number of parameters provided by the comment form. Normally the <a class="foswikiCurrentTopicLink" href="/bin/view/System/CommentPlugin">CommentPlugin</a> will provide these fields in the form, but experts can also provide the fields themselves in order to get finer control over what is submitted, or you might want to define your own HTML forms that do comment submission. The parameters that the <a class="foswikiCurrentTopicLink" href="/bin/view/System/CommentPlugin">CommentPlugin</a> recognises are as follows:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommentPlugin?sortcol=0;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">CGI parameter</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/CommentPlugin?sortcol=1;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>comment_action</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Must be <code>save</code> to get the <a class="foswikiCurrentTopicLink" href="/bin/view/System/CommentPlugin">CommentPlugin</a> to perform </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>comment_type</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Type of the OUTPUT template </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>comment_index</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Zero-based index of the %COMMENT in the source topic. Used to place a post relative to an existing %COMMENT. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>comment_anchor</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Anchor taken from the <code>target</code> spec </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>comment_nonotify</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> As passed to %COMMENT </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>comment_remove</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Zero-based index of a %COMMENT to remove from the target topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>comment_nopost</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> As passed to %COMMENT </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>comment_templatetopic</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> As passed to %COMMENT </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>comment_target</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Alternate save topic as passed to %COMMENT </td>
+		</tr>
+	</tbody></table>
+Note that <code>comment_anchor</code> overrides <code>comment_index</code>. Example, shows an "I Approve" button that adds your approval signature to the end of the topic:
+<pre class="tml">
+&#60;form method&#61;&#34;post&#34; action&#61;&#34;&#37;SCRIPTURL{restauth}&#37;/CommentPlugin/comment&#34; &#62;
+&#60;input type&#61;&#34;submit&#34; value&#61;&#34;I Approve&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;topic&#34; value&#61;&#34;&#37;WEB&#37;/&#37;TOPIC&#37;&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;redirectto&#34; value&#61;&#34;&#37;WEB&#37;/&#37;TOPIC&#37;&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;comment&#95;action&#34; value&#61;&#34;save&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;comment&#95;type&#34; value&#61;&#34;bottom&#34; /&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;comment&#34; value&#61;&#34;I Approve&#34; /&#62;
+&#60;/form&#62;
+</pre>
+<p></p>
+
+<h4 id="Customisation_example_with_custom_form_template">  Customisation example with custom form template </h4>
+<div class="foswikiAlert"> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>This method has critical differences from the version shipped with Foswiki 1.1.4!</strong> (Identified by <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" />) </div>
+Write a custom form in a topic. <ul>
+<li> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> In the form, the <code>action</code> must be <code>%SCRIPTURL{"rest"}%/CommentPlugin/comment</code>.   The save script used in previous versions will not work.
+</li> <li> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> In the form, the <code>topic</code> must be set to a valid, existing <code>Web.Topic</code>.  <code>topic</code> is validated by the <code>rest</code> script which will reject the request if invalid.
+</li> <li> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> In the form, if the target topic will be provided by user input, use the <code>comment_target</code> input field to identify the target, otherwise it defaults to <code>topic</code> setting.  <code>comment_target</code> is more flexible and can omit the Web part.
+</li> <li> In the form set the location of the prompt with <code>%COMMENTPROMPT%</code>; the prompt will be positioned here.
+</li> <li> In %COMMENT use parameter <code>noform="on"</code>
+</li> <li> In %COMMENT use parameter <code>templatetopic</code> to point to the topic with the form template
+</li></ul> 
+<p></p>
+
+Example form:
+<pre class="tml">
+&#37;TMPL:DEF{FORM:example}&#37;
+&#60;form method&#61;&#34;post&#34; action&#61;&#34;&#37;SCRIPTURL{rest}&#37;/CommentPlugin/comment&#34; enctype&#61;&#34;application/x-www-form-urlencoded&#34; name&#61;&#34;examplecomment&#34; id&#61;&#34;examplecomment&#34;&#62;
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;topic&#34;  value&#61;&#34;&#37;BASEWEB&#37;/&#37;BASETOPIC&#37;&#34; /&#62; 
+&#60;input type&#61;&#34;hidden&#34; name&#61;&#34;redirectto&#34; value&#61;&#34;&#37;BASEWEB&#37;.&#37;BASETOPIC&#37;&#34; /&#62;
+&#37;COMMENTPROMPT&#37;
+&#60;/form&#62;
+&#37;TMPL:END&#37;
+</pre>
+<p></p>
+
+Example comment:
+<pre class="tml">
+&#37;COMMENT{
+   type&#61;&#34;example&#34;
+   templatetopic&#61;&#34;&#37;SANDBOXWEB&#37;.CommentPluginTemplateExample&#34;
+   target&#61;&#34;&#37;TOPIC&#37;&#34;
+   button&#61;&#34;Add comment&#34;
+}&#37;
+</pre>
+<p></p>
+
+<h3 id="The_61OUTPUT_61_template">  The <code>OUTPUT</code> template </h3>
+The <code>OUTPUT</code> template defines the format for the text that actually gets embedded into the topic. All the usual macros are available in the <code>PROMPT</code> definition,
+but note that a subset of macros are expanded <em>when the comment is inserted in the text</em>, so time, date and username will refer to the time and date when the comment was made, and the user who made it.
+<p></p>
+
+The expanded variables are: <ul>
+<li> <code>%DATE%</code> Signature-format date <a href="/bin/view/System/VarDATE">VarDATE</a>
+</li> <li> <code>%SERVERTIME%</code> See <a href="/bin/view/System/VarSERVERTIME">VarSERVERTIME</a>
+</li> <li> <code>%GMTIME%</code> See <a href="/bin/view/System/VarGMTIME">VarGMTIME</a>
+</li> <li> <code>%USERNAME%</code> Base login name - <a href="/bin/view/System/VarUSERNAME">VarUSERNAME</a>
+</li> <li> <code>%WIKINAME%</code> Wiki name - <a href="/bin/view/System/VarWIKINAME">VarWIKINAME</a>
+</li> <li> <code>%WIKIUSERNAME%</code> Wiki name with prepended web - <a href="/bin/view/System/VarWIKIUSERNAME">VarWIKIUSERNAME</a>
+</li> <li> <code>%URLPARAM{...}%</code> - Parameters to the current CGI query - <a href="/bin/view/System/VarURLPARAM">VarURLPARAM</a>
+</li> <li> <code>%NOP%</code> No-op - <a href="/bin/view/System/VarNOP">VarNOP</a>
+</li></ul> 
+<p class='p'>All other Macros are inserted into the topic un-expanded and are expanded by standard rendering when the topic containing the comment is viewed.</p>
+
+In addition to Macros, there is one "token" expanded during output.  <code>$encodeguest</code> will be set to "off" when the commenting user is logged in, and set to "entity" for anonymous comments.
+This is used in combination with the <code>%URLPARAM%</code> macro.  Any user input from untrusted users should be entity encoded.  For example:
+<pre>
+&#37;TMPL:DEF{outputoneliner}&#37;   &#42; &#37;URLPARAM{&#34;comment&#34; encode&#61;&#34;&#36;encodeguest&#34;}&#37; -- &#37;WIKIUSERNAME&#37; - &#37;GMTIME{&#34;&#36;day &#36;month &#36;year&#34;}&#37;&#37;TMPL:END&#37;
+</pre>
+<p></p>
+
+There are also four position tags that are used to indicate where the comment should be placed, relative to the location defined in the <code>%COMMENT</code> tag:
+<p></p>
+
+        <table class="foswikiTable" rules="none">    
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%POS:TOP%</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> If present, comments will be inserted <strong>at the top of the topic</strong> i.e. before any other text </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%POS:BOTTOM%</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> If present, comments will be inserted <strong>at the end of the topic</strong> i.e. after all existing text </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%POS:BEFORE%</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> If present, comments will be inserted <b>immediately before the <code>%COMMENT%</code> tag</b> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>%POS:AFTER%</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> If present, comments will be inserted <b>immediately after the <code>%COMMENT%</code> tag</b> </td>
+		</tr>
+	</tbody>    </table>
+Note that these position tags are obviously mutually exclusive. If you define more than one, the result is undefined. If none is present, the default is taken from the plugin setting <code>DEFAULT_TYPE</code>
+<p></p>
+
+     <table class="foswikiTable" rules="none">    
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>%COMMENTPROMPT%</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Use with a custom form. If present, the comment prompt will be positioned here. </td>
+		</tr>
+	</tbody>    </table>
+<p></p>
+
+All the <a href="/bin/view/System/TemplateTopics#TemplateTopicsVars">usual macros</a> that can be used in a topic template can also be used in an <code>OUTPUT</code> template.
+<p></p>
+
+<h3 id="Custom_access_controls">  Custom access controls </h3>
+Using <code>configure</code>, the plugin can be configured to use a different access control domain than the default CHANGE.
+This allows you to use the plugin to add content to topics where the commenting user does not have CHANGE (or even VIEW) access.
+<p></p>
+
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Caution</strong> If you configure this plugin to use <code>COMMENT</code> permission instead of <code>CHANGE</code>, you should ensure that every web has the desired
+default permission by configuring <code>ALLOWWEBCOMMENT</code> or <code>DENYWEBCOMMENT</code> in every WebPreferences topic.  You should also configure appropriate defaults in the <code>_default</code> Template web.
+If default permissions are not configured, then commenting will be permitted.
+</div>
+<p></p>
+
+<h2 id="Settings">  Settings </h2>
+<!-- Not used by the plugin <ul>
+<li> Set SHORTDESCRIPTION = Quickly post comments to a page without an edit/save cycle
+</li></ul> 
+<p></p>
+
+-->
+Two <a href="/bin/view/System/PreferenceSettings">preference settings</a> are recognised by the <a class="foswikiCurrentTopicLink" href="/bin/view/System/CommentPlugin">CommentPlugin</a>:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/CommentPlugin?sortcol=0;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Preference</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/CommentPlugin?sortcol=1;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/CommentPlugin?sortcol=2;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%COMMENTPLUGIN_TEMPLATES%</code> </td>
+			<td class="foswikiTableCol1"> <code>comments</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Name of template file in the 'templates' directory that contains the comment templates. The default 'comments.tmpl' automatically includes user templates from <a href="/bin/view/System/CommentPluginTemplate">CommentPluginTemplate</a>, which in turn includes <a class="foswikiNewLink" href="/bin/edit/System/UserCommentsTemplate?topicparent=System.CommentPlugin" rel="nofollow" title="Create this topic">UserCommentsTemplate</a>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>%COMMENTPLUGIN_DEFAULT_TYPE%</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>above</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Default template type </td>
+		</tr>
+	</tbody></table>
+These can be set in <a href="/bin/view/Main/SitePreferences">SitePreferences</a>, in each web's WebPreferences, or in individual topics.
+<p></p>
+
+#Installation
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+Note that if you want to use the <code>action</code> template then you must also: <ol>
+<li> Install the <a class="interwikiLink" href="https://foswiki.org/Extensions/ActionTrackerPlugin" title="'Extensions/ActionTrackerPlugin' on foswiki.org">Foswiki:Extensions/ActionTrackerPlugin</a>;
+</li> <li> Put the CommentPlugin <strong>before</strong> the ActionTrackerPlugin in the <code>{PluginsOrder}</code> configuration option (in <code>configure</code>)
+</li></ol> 
+<p></p>
+
+<h2 id="Upgrade_Instructions">  Upgrade Instructions </h2>
+<p></p>
+
+This plugin has been significantly changed from the <code>10 April 2011</code> version shipped with Foswiki 1.1.4.   <ul>
+<li> The plugin uses a <code>rest</code> handler to update topics.  By default this script does not require authentication, and can now permit anonymous commenting.  Examine the <a href="https://damask.mpie.de/bin/configure">https://damask.mpie.de/bin/configure</a> ( <code>Security and Authentication</code> tab, <code>Login</code> sub-tab ) configuration <code>{AuthScripts}</code> setting, and the scripts requiring authentication in the Apache configuration.
+</li> <li> The plugin no longer processes %COMMENT macros during save.  If you have developed any forms using the <a href="/bin/view/Sandbox/CommentPluginExamples#NoForm"><code>noform</code> and <code>templatetopic</code> examples</a> they must be revised.
+</li></ul> 
+<p></p>
+
+<h2 id="Info">  Info </h2>
+<p></p>
+
+Another great Foswiki extension from the <img class='imagePlain imagePlain_none ' src='/pub/System/CommentPlugin/wikiringlogo20x20.png' alt='WikiRing' title='wikiringlogo20x20.png' width='20' height='20'    /> <strong>WikiRing</strong> - working together to improve your wiki experience!
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.93 (22 Jan 2018) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14554" title="'Item14554' on the 'Foswiki' issue tracking site">Foswikitask:Item14554</a>: remove link to unused wikiring.com domain.<br/>                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14605" title="'Item14605' on the 'Foswiki' issue tracking site">Foswikitask:Item14605</a>: Unescaped brace in Regular Expression,   Perl 5.27.8. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.92 (21 Jan 2017) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14009" title="'Item14009' on the 'Foswiki' issue tracking site">Foswikitask:Item14009</a>: Comment plugin does not properly identify location to insert comment when specified as an anchor. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.91 (08 Apr 2016) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14022" title="'Item14022' on the 'Foswiki' issue tracking site">Foswikitask:Item14022</a>: Update Foswiki.org links to https. Released with Foswiki 2.1.1. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.9 (03 Feb 2016) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13854" title="'Item13854' on the 'Foswiki' issue tracking site">Foswikitask:Item13854</a>: Set ALLOWTOPICVIEW = "*" on Comment Template.  <strong>Requires compatibility patch on Foswiki 1.x or Foswiki 1.1.10.</strong> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.8 (15 Nov 2015) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13852" title="'Item13852' on the 'Foswiki' issue tracking site">Foswikitask:Item13852</a>: Warn that COMMENT ACLs should be configured if enabled. Also suppress guest session warning on Foswiki 1.1. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.7 (29 Sep 2015) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13576" title="'Item13576' on the 'Foswiki' issue tracking site">Foswikitask:Item13576</a>: Disable fields during submit, then clear input fields after comment is posted.<br/>                       <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13764" title="'Item13764' on the 'Foswiki' issue tracking site">Foswikitask:Item13764</a>: Entity encode any comments by guest users. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.6 (24 Jul 2015) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13502" title="'Item13502' on the 'Foswiki' issue tracking site">Foswikitask:Item13502</a>: Expand macros when returning an inline Ajax response. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.5 (24 Jun 2015) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13474" title="'Item13474' on the 'Foswiki' issue tracking site">Foswikitask:Item13474</a>: Unicode fix </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.4 (14 Jun 2015) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13423" title="'Item13423' on the 'Foswiki' issue tracking site">Foswikitask:Item13423</a>: Perl 5.20 deprecations<br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13345" title="'Item13345' on the 'Foswiki' issue tracking site">Foswikitask:Item13345</a>: CGI deprecations<br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13287" title="'Item13287' on the 'Foswiki' issue tracking site">Foswikitask:Item13287</a>: Regular expression fixes<br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13125" title="'Item13125' on the 'Foswiki' issue tracking site">Foswikitask:Item13125</a>: CGI parm calling changes </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.3 (18 Dec 2014) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12855" title="'Item12855' on the 'Foswiki' issue tracking site">Foswikitask:Item12855</a>: Core extensions should require <a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a> 6.00<br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13125" title="'Item13125' on the 'Foswiki' issue tracking site">Foswikitask:Item13125</a>: CGI changes for multi-value parameters<br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13096" title="'Item13096' on the 'Foswiki' issue tracking site">Foswikitask:Item13096</a>: incorrect handling of unauthorised response<br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13105" title="'Item13105' on the 'Foswiki' issue tracking site">Foswikitask:Item13105</a>: Eliminate sort from tables in Macros<br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13106" title="'Item13106' on the 'Foswiki' issue tracking site">Foswikitask:Item13106</a>: removed blockquote where possible<br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13027" title="'Item13027' on the 'Foswiki' issue tracking site">Foswikitask:Item13027</a>: Most try..catch clauses were catching Error::Simple s/b Error<br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11737" title="'Item11737' on the 'Foswiki' issue tracking site">Foswikitask:Item11737</a>: Change hardcoded Main to <code>%USERSWEB%</code> Replace Sandbox with <code>%SANDBOXWEB%</code> <br />                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12900" title="'Item12900' on the 'Foswiki' issue tracking site">Foswikitask:Item12900</a>: Implement some session handling improvements </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.2 (26 Sep 2014) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12931" title="'Item12931' on the 'Foswiki' issue tracking site">Foswikitask:Item12931</a>: add a highlight to JS-added comments; fix no-JS comments </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.1 (25 Apr 2014) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10191" title="'Item10191' on the 'Foswiki' issue tracking site">Foswikitask:Item10191</a>: Recoded REST as a proper JQuery plugin, with correctly formatted insertions. Note that the old <code>location</code> parameter has been <strong>removed</strong>, as it never worked properly, could cause damage to topics, and could not work with client comments. If you were using it, apologies, but it had to go. Correct use of validation and authentication. Ready for 2.0. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.0.3 (22 Feb 2012) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11448" title="'Item11448' on the 'Foswiki' issue tracking site">Foswikitask:Item11448</a> - Implement {GuestCanComment}. If enabled, guests can comment on topics that they can not edit. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.0.2 (30 Jan 2012) 12887 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11447" title="'Item11447' on the 'Foswiki' issue tracking site">Foswikitask:Item11447</a> - "noform" examples not working - add comment_target parameter. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 2.0.1 (15 Jan 2012) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11443" title="'Item11443' on the 'Foswiki' issue tracking site">Foswikitask:Item11443</a> - better handling if target topic or web do not exist. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Apr 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10263" title="'Item10263' on the 'Foswiki' issue tracking site">Foswikitask:Item10263</a> - remove wrap="soft" to make templates validate. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Nov 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10050" title="'Item10050' on the 'Foswiki' issue tracking site">Foswikitask:Item10050</a> - <a class="foswikiCurrentTopicLink" href="/bin/view/System/CommentPlugin">CommentPlugin</a> prompt must not add newlines that prevent COMMENT inside TML tables </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Oct 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item3499" title="'Item3499' on the 'Foswiki' issue tracking site">Foswikitask:Item3499</a> - support COMMENT (and other) ACL preferences<br />                 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9592" title="'Item9592' on the 'Foswiki' issue tracking site">Foswikitask:Item9592</a> - added AJAX example<br />                 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9601" title="'Item9601' on the 'Foswiki' issue tracking site">Foswikitask:Item9601</a> - Prevent uprev of topic for every comment<br />                 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item4423" title="'Item4423' on the 'Foswiki' issue tracking site">Foswikitask:Item4423</a> - Spreadsheet calculations do not execute within comment templates<br />                 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9568" title="'Item9568' on the 'Foswiki' issue tracking site">Foswikitask:Item9568</a> (and others) - Redesigned core. Change commonTagsHandler to registered COMMENT macro, convert to REST handler instead of save script with beforeSaveHandler<br />                 <a class="interwikiLink" href="https://foswiki.org/Tasks/Item5897" title="'Item5897' on the 'Foswiki' issue tracking site">Foswikitask:Item5897</a> - if COMMENT target topic is missing, it should be created. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Oct 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9857" title="'Item9857' on the 'Foswiki' issue tracking site">Foswikitask:Item9857</a> - Restored the CommentPluginTemplate to how it was before. All the changes done to make it look nice causes many errors. Never again add newlines, never again add trailing \ on existing templates. It does not always work. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jul 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9415" title="'Item9415' on the 'Foswiki' issue tracking site">Foswikitask:Item9415</a> - Documentation updates </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 May 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Moved example topic <a href="/bin/view/Sandbox/CommentPluginExamples">CommentPluginExamples</a> to Sandbox web. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Feb 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item8611" title="'Item8611' on the 'Foswiki' issue tracking site">Foswikitask:Item8611</a> - block comments resulting from calls to saveTopic from within an afterSaveHandler </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item8269" title="'Item8269' on the 'Foswiki' issue tracking site">Foswikitask:Item8269</a> - Targeting anchors broken by Item727 is fixed. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Jun 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item1668" title="'Item1668' on the 'Foswiki' issue tracking site">Foswikitask:Item1668</a> - The action template used with ActionTrackerPlugin now uses new syntax ending with %ENDACTION. This makes each action item appear on a new line. Additionally new lines are now correctly saved as html br tags and not as html encoded br tag <br /> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item1640" title="'Item1640' on the 'Foswiki' issue tracking site">Foswikitask:Item1640</a> - Templates shipped with the plugin no longer encodes the user date entered when the date is saved so that it is possible for the user to use macros. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Jan 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item727" title="'Item727' on the 'Foswiki' issue tracking site">Foswikitask:Item727</a> - data loss issue when missing anchor or location </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Jan 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item736" title="'Item736' on the 'Foswiki' issue tracking site">Foswikitask:Item736</a> - Make CommentPlugin aware of <a href="/bin/view/System/CompareRevisionsAddOn">CompareRevisionsAddOn</a> bin script. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Foswiki version </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 06 Mar 2002 </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> initial commit </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/CommentPlugin?t=1627669497;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main.CrawfordCurrie" title="'Main.CrawfordCurrie' on foswiki.org">Foswiki:Main.CrawfordCurrie</a> <a href="http://www.c-dot.co.uk">http://www.c-dot.co.uk</a> inspired by the work of <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.DavidWeller" title="'Main.DavidWeller' on TWiki.org">TWiki:Main.DavidWeller</a> and <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.PeterMasiar" title="'Main.PeterMasiar' on TWiki.org">TWiki:Main.PeterMasiar</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 2.93 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 22 Jan 2018 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/distro">https://github.com/foswiki/distro</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2004, Foswiki:Main.CrawfordCurrie<br />&copy; 2004-2016 <a class="interwikiLink" href="https://foswiki.org/System.ProjectContributor" title="'System.ProjectContributor' on foswiki.org">Foswiki:System.ProjectContributor</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="http://foswiki.org/Extensions/CommentPlugin">http://foswiki.org/Extensions/CommentPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="http://foswiki.org/Support/CommentPlugin">http://foswiki.org/Support/CommentPlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/CommentPlugin?t=1627669497' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/CommentPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CommentPlugin?cover=print;sortcol=1;table=3;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/CommentPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CommentPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CommentPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/CommentPlugin?t=1627669497;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/CommentPlugin?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 22 Jan 2018, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/CommentPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/CommentPlugin%3fsortcol%3d1%3btable%3d3%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.CommentPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

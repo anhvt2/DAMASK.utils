@@ -1,0 +1,1443 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> TablePlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/TablePlugin?t=1627667976" type="application/x-wiki" title="edit TablePlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/TablePlugin" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/8bdb73ecbab2c8bc2fbfd0be73f33fba.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableTablePlugin1 {width:100%}
+body .foswikiTable#tableTablePlugin1 td.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin1 td.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin1 td.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin1 td.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin1 th {background-color:#f5f5f5; color:#333333}
+body .foswikiTable#tableTablePlugin1 th a:link {color:#333333}
+body .foswikiTable#tableTablePlugin1 th a:visited {color:#333333}
+body .foswikiTable#tableTablePlugin1 th a:hover {color:#333333; background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin1 th.foswikiSortedCol {background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin1 th.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin1 th.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin1 th.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin1 th.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin1 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin1 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin11 td {border-style:none solid}
+body .foswikiTable#tableTablePlugin11 th {border-style:none solid}
+body .foswikiTable#tableTablePlugin15 td.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin15 td.foswikiTableCol1 {width:90%}
+body .foswikiTable#tableTablePlugin15 th.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin15 th.foswikiTableCol1 {width:90%}
+body .foswikiTable#tableTablePlugin2 {width:100%}
+body .foswikiTable#tableTablePlugin2 td.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin2 td.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin2 td.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin2 td.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin2 th {background-color:#f5f5f5; color:#333333}
+body .foswikiTable#tableTablePlugin2 th a:link {color:#333333}
+body .foswikiTable#tableTablePlugin2 th a:visited {color:#333333}
+body .foswikiTable#tableTablePlugin2 th a:hover {color:#333333; background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin2 th.foswikiSortedCol {background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin2 th.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin2 th.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin2 th.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin2 th.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin2 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin2 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin3 {width:100%}
+body .foswikiTable#tableTablePlugin3 td.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin3 td.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin3 td.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin3 td.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin3 th {background-color:#f5f5f5; color:#333333}
+body .foswikiTable#tableTablePlugin3 th a:link {color:#333333}
+body .foswikiTable#tableTablePlugin3 th a:visited {color:#333333}
+body .foswikiTable#tableTablePlugin3 th a:hover {color:#333333; background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin3 th.foswikiSortedCol {background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin3 th.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin3 th.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin3 th.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin3 th.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin3 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin3 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin4 {width:100%}
+body .foswikiTable#tableTablePlugin4 td.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin4 td.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin4 td.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin4 td.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin4 th {background-color:#f5f5f5; color:#333333}
+body .foswikiTable#tableTablePlugin4 th a:link {color:#333333}
+body .foswikiTable#tableTablePlugin4 th a:visited {color:#333333}
+body .foswikiTable#tableTablePlugin4 th a:hover {color:#333333; background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin4 th.foswikiSortedCol {background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin4 th.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin4 th.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin4 th.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin4 th.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin4 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin4 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin5 {width:100%}
+body .foswikiTable#tableTablePlugin5 td.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin5 td.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin5 td.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin5 td.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin5 th {background-color:#f5f5f5; color:#333333}
+body .foswikiTable#tableTablePlugin5 th a:link {color:#333333}
+body .foswikiTable#tableTablePlugin5 th a:visited {color:#333333}
+body .foswikiTable#tableTablePlugin5 th a:hover {color:#333333; background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin5 th.foswikiSortedCol {background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin5 th.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin5 th.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin5 th.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin5 th.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin5 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin5 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin6 {width:100%}
+body .foswikiTable#tableTablePlugin6 td.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin6 td.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin6 td.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin6 td.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin6 th {background-color:#f5f5f5; color:#333333}
+body .foswikiTable#tableTablePlugin6 th a:link {color:#333333}
+body .foswikiTable#tableTablePlugin6 th a:visited {color:#333333}
+body .foswikiTable#tableTablePlugin6 th a:hover {color:#333333; background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin6 th.foswikiSortedCol {background-color:#f5f5f5}
+body .foswikiTable#tableTablePlugin6 th.foswikiTableCol0 {width:10%}
+body .foswikiTable#tableTablePlugin6 th.foswikiTableCol1 {width:45%}
+body .foswikiTable#tableTablePlugin6 th.foswikiTableCol2 {width:20%}
+body .foswikiTable#tableTablePlugin6 th.foswikiTableCol3 {width:25%}
+body .foswikiTable#tableTablePlugin6 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin6 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffffff}
+body .foswikiTable#tableTablePlugin7 {border-width:0px; border-collapse:separate; border-spacing:3px}
+body .foswikiTable#tableTablePlugin7 td {padding:4px; border-width:0px; border-style:solid}
+body .foswikiTable#tableTablePlugin7 th {padding:4px; border-width:0px; border-style:solid; background-color:#D5CCB1; color:#666}
+body .foswikiTable#tableTablePlugin7 th a:link {color:#666}
+body .foswikiTable#tableTablePlugin7 th a:visited {color:#666}
+body .foswikiTable#tableTablePlugin7 th a:hover {color:#666; background-color:#D5CCB1}
+body .foswikiTable#tableTablePlugin7 th.foswikiSortedCol {background-color:#D5CCB1}
+body .foswikiTable#tableTablePlugin7 tr.foswikiTableRowdataBg0 td {background-color:#FAF0D4}
+body .foswikiTable#tableTablePlugin7 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#FAF0D4}
+body .foswikiTable#tableTablePlugin7 tr.foswikiTableRowdataBg1 td {background-color:#F3DFA8}
+body .foswikiTable#tableTablePlugin7 tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#F3DFA8}
+body .foswikiTable#tableTablePlugin8 th {background-color:#990033; color:#ffffff}
+body .foswikiTable#tableTablePlugin8 th a:link {color:#ffffff}
+body .foswikiTable#tableTablePlugin8 th a:visited {color:#ffffff}
+body .foswikiTable#tableTablePlugin8 th a:hover {color:#ffffff; background-color:#990033}
+body .foswikiTable#tableTablePlugin8 th.foswikiSortedCol {background-color:#660000}
+body .foswikiTable#tableTablePlugin8 tr.foswikiTableRowdataBg0 td {background-color:#ffffcc}
+body .foswikiTable#tableTablePlugin8 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#ffcc33}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "PUBURLPATH" : "/pub",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTSUFFIX" : "",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATH" : "/bin",
+   "USERNAME" : "guest",
+   "USERSWEB" : "Main",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WEB" : "System",
+   "TOPIC" : "TablePlugin",
+   "SERVERTIME" : "30 Jul 2021 - 19:59",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SKIN" : "damask,famfamfam,pattern",
+   "SYSTEMWEB" : "System"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/TablePlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Plugins">Plugins</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/TablePlugin" title='Topic revision: 1 (22 Jan 2018 - 17:57:15)'>TablePlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/TablePlugin?t=1627667976;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/TablePlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/TablePlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/TablePlugin?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=TablePlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/TablePlugin?cover=print;sortcol=5;table=7;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/TablePlugin?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Table_Plugin">  Table Plugin </h1>
+<p></p>
+
+Gives extra control of table display: <ul>
+<li> Sorting
+</li> <li> Setting visual table properties like border width, cell spacing and cell padding
+</li> <li> Setting the background color and text color of header cells
+</li> <li> Setting the background color and text color for data cells, for instance to get an alternating zebra pattern
+</li> <li> Merging cells (row and col spans)
+</li></ul> 
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=5;table=7;up=0#Table_Attributes"> Table Attributes </a> <ul>
+ <li>
+ <ul>
+<li> <a href="?sortcol=5;table=7;up=0#Attributes_for_tables"> Attributes for tables </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Attributes_for_table_sorting"> Attributes for table sorting </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Attributes_for_table_cells"> Attributes for table cells </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Attributes_for_data_cells"> Attributes for data cells </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Attributes_for_headers"> Attributes for headers </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Other_attributes"> Other attributes </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=5;table=7;up=0#Specifying_and_overriding_attributes"> Specifying and overriding attributes </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Reserved_attributes"> Reserved attributes </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=5;table=7;up=0#Examples"> Examples </a> <ul>
+<li> <a href="?sortcol=5;table=7;up=0#Use_of_37TABLE_123..._125_37"> Use of  </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Sorting"> Sorting </a> <ul>
+<li> <a href="?sortcol=5;table=7;up=0#Sorting_example"> Sorting example </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=5;table=7;up=0#Row_spans"> Row spans </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Col_spans"> Col spans </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=5;table=7;up=0#TablePlugin_Global_Settings"> TablePlugin Global Settings </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#TablePlugin_and_CSS"> TablePlugin and CSS </a> <ul>
+<li> <a href="?sortcol=5;table=7;up=0#CSS_written_by_TablePlugin"> CSS written by TablePlugin </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Images_used_by_TablePlugin"> Images used by TablePlugin </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=5;table=7;up=0#Plugin_Installation_Instructions"> Plugin Installation Instructions </a>
+</li> <li> <a href="?sortcol=5;table=7;up=0#Plugin_Info"> Plugin Info </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Table_Attributes">  Table Attributes </h2>
+<p></p>
+
+Attributes are defined as a <code>TABLEPLUGIN_TABLEATTRIBUTES</code> <a href="/bin/view/System/PreferenceSettings">preference</a>, or on the line before the table using <code>%TABLE{...}%</code>:
+<p></p>
+
+<h4 id="Attributes_for_tables">  Attributes for tables </h4>
+                  <table class="foswikiTable" id="tableTablePlugin1" rules="none" width="100%">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2"> Default </th>
+			<th class="foswikiTableCol3 foswikiLastCol"> Example </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tableborder</code> </td>
+			<td class="foswikiTableCol1"> Table border width (pixels). </td>
+			<td class="foswikiTableCol2"> <code>"1"</code> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>tableborder="2"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tablebordercolor</code> </td>
+			<td class="foswikiTableCol1"> Table border color. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>tablebordercolor="#333"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tableframe</code> </td>
+			<td class="foswikiTableCol1"> Table frame, set to <code>"void"</code> (no sides), <code>"above"</code> (the top side only), <code>"below"</code> (the bottom side only), <code>"hsides"</code> (the top and bottom sides only), <code>"lhs"</code> (the left-hand side only), <code>"rhs"</code> (the right-hand side only), <code>"vsides"</code> (the right and left sides only), <code>"box"</code> (all four sides), <code>"border"</code> (all four sides). </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>tableframe="hsides"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tablerules</code> </td>
+			<td class="foswikiTableCol1"> Table rules, set to <code>"none"</code> (no rules), <code>"groups"</code> (rules will appear between row groups and column groups only), <code>"rows"</code> (rules will appear between rows only), <code>"cols"</code> (rules will appear between columns only), <code>"all"</code> (rules will appear between all rows and columns). See also: <code>headerrules</code> and <code>datarules</code>. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>tablerules="rows"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tablewidth</code> </td>
+			<td class="foswikiTableCol1"> Table width: percentage of window width, or absolute pixel value. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>tablewidth="100%"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>headerrows</code> </td>
+			<td class="foswikiTableCol1"> Number of header rows to exclude from sort. (will be rendered in a HTML <code>thead</code> section) </td>
+			<td class="foswikiTableCol2"> <code>"1"</code> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>headerrows="1"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>footerrows</code> </td>
+			<td class="foswikiTableCol1"> Number of footer rows to exclude from sort. (will be rendered in a HTML <code>tfoot</code> section) </td>
+			<td class="foswikiTableCol2"> <code>"0"</code> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>footerrows="1"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>id</code> </td>
+			<td class="foswikiTableCol1"> Unique table identifier string, used for targeting a table with CSS. </td>
+			<td class="foswikiTableCol2"> <code>tableN</code> (where N is the table order number on the page) </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>id="userTable"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>summary</code> </td>
+			<td class="foswikiTableCol1"> Table summary used by screen readers: A summary of what the table presents. It should provide an orientation for someone who listens to the table. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>summary="List of subscribed users"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>caption</code> </td>
+			<td class="foswikiTableCol1"> Table caption: A title that will be displayed just above the table. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>caption="Users"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>inlinemarkup</code> </td>
+			<td class="foswikiTableCol1"> Set to "on" to generate inline markup HTML (in addition to the CSS markup); useful if you need to copy the table, for instance to paste the table into an email). </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>inlinemarkup="on"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>class</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Add specified class to the default <code>foswikiTable</code> class. </td>
+			<td class="foswikiTableCol2 foswikiLast"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol foswikiLast"> <code>class="mytable"</code> </td>
+		</tr>
+	</tbody>     </table>
+<p></p>
+
+<h4 id="Attributes_for_table_sorting">  Attributes for table sorting </h4>
+          <table class="foswikiTable" id="tableTablePlugin2" rules="none" width="100%">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2"> Default </th>
+			<th class="foswikiTableCol3 foswikiLastCol"> Example </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>sort</code> </td>
+			<td class="foswikiTableCol1"> Set the table sorting user interface (clickable column headers) <code>"on"</code> or <code>"off"</code>. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>sort="on"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>initsort</code> </td>
+			<td class="foswikiTableCol1"> Column to sort initially (use <code>"1"</code> for the first column). If specified, sorting is enabled; by setting <code>sort="off"</code> the sorting interface can be hidden. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>initsort="2"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>initdirection</code> </td>
+			<td class="foswikiTableCol1"> Initial sorting direction for <code>initsort</code>, set to  <code>"up"</code> (descending, or decreasing in value) or <code>"down"</code> (ascending, or increasing in value). </td>
+			<td class="foswikiTableCol2"> <code>down</code> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>initdirection="up"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>disableallsort</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Disable all sorting, both initsort and header sort. This is mainly used by plugins such as the <a class="foswikiNewLink" href="/bin/edit/System/EditTablePlugin?topicparent=System.TablePlugin" rel="nofollow" title="Create this topic">EditTablePlugin</a> to disable sorting in a table while editing the table. </td>
+			<td class="foswikiTableCol2 foswikiLast"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol foswikiLast"> <code>disableallsort="on"</code> </td>
+		</tr>
+	</tbody>     </table>
+<p></p>
+
+<h4 id="Attributes_for_table_cells">  Attributes for table cells </h4>
+           <table class="foswikiTable" id="tableTablePlugin3" rules="none" width="100%">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Argument </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2"> Default </th>
+			<th class="foswikiTableCol3 foswikiLastCol"> Example </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>cellpadding</code> </td>
+			<td class="foswikiTableCol1"> Cell padding (pixels). </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>cellpadding="0"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>cellspacing</code> </td>
+			<td class="foswikiTableCol1"> Cell spacing (pixels). </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>cellspacing="3"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>cellborder</code> </td>
+			<td class="foswikiTableCol1"> Cell border width (pixels). </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>cellborder="0"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>valign</code> </td>
+			<td class="foswikiTableCol1"> Vertical alignment of cells and headers, set to <code>"top"</code>, <code>"middle"</code>, <code>"bottom"</code> or <code>"baseline"</code>. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>valign="top"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>columnwidths</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Column widths: Comma delimited list of column widths, percentage or absolute pixel value. </td>
+			<td class="foswikiTableCol2 foswikiLast"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol foswikiLast"> <code>columnwidths="80%,20%"</code> </td>
+		</tr>
+	</tbody>     </table>
+<p></p>
+
+<h4 id="Attributes_for_data_cells">  Attributes for data cells </h4>
+            <table class="foswikiTable" id="tableTablePlugin4" rules="none" width="100%">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2"> Default </th>
+			<th class="foswikiTableCol3 foswikiLastCol"> Example </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>datarules</code> </td>
+			<td class="foswikiTableCol1"> Set to <code>"none"</code> (no rules), <code>"rows"</code> (rules will appear between rows only), <code>"cols"</code> (rules will appear between columns only), <code>"all"</code> (rules will appear between all rows and columns). Overrides <code>tablerules</code> for data cells. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>datarules="none"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>datavalign</code> </td>
+			<td class="foswikiTableCol1"> Vertical alignment of data cells; overrides <code>valign</code>. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>datavalign="top"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>dataalign</code> </td>
+			<td class="foswikiTableCol1"> Data cell alignment, one value for all columns, or a comma separated list for different alignment of individual columns. Set to <code>"left"</code>, <code>"center"</code>, <code>"right"</code> or <code>"justify"</code>. Overrides individual cell settings. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>dataalign="center"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>databg</code> </td>
+			<td class="foswikiTableCol1"> Data cell background colour, a comma separated list. Specify <code>"none"</code> for no colour, that is to use the colour/background of the page the table is on. </td>
+			<td class="foswikiTableCol2"> <code>"#edf4f9,#fff"</code> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>databg="#f2f2f2,#fff"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>databgsorted</code> </td>
+			<td class="foswikiTableCol1"> Data cell background colour of a sorted column; see <code>databg</code>. </td>
+			<td class="foswikiTableCol2"> the values of <code>databg</code> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>databgsorted="#d4e8e4, #e5f5ea"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>datacolor</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Data cell text colour, a comma separated list. </td>
+			<td class="foswikiTableCol2 foswikiLast"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol foswikiLast"> <code>datacolor="#00c, #000"</code> </td>
+		</tr>
+	</tbody>     </table>
+<p></p>
+
+<h4 id="Attributes_for_headers">  Attributes for headers </h4>
+             <table class="foswikiTable" id="tableTablePlugin5" rules="none" width="100%">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2"> Default </th>
+			<th class="foswikiTableCol3 foswikiLastCol"> Example </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>headerrules</code> </td>
+			<td class="foswikiTableCol1"> Set to <code>"none"</code> (no rules), <code>"rows"</code> (rules will appear between rows only), <code>"cols"</code> (rules will appear between columns only), <code>"all"</code> (rules will appear between all rows and columns). Overrides <code>tablerules</code> for header cells. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>headerrules="none"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>headerbg</code> </td>
+			<td class="foswikiTableCol1"> Header cell background colour. Specify <code>"none"</code> for no colour, that is to use the colour/background of the page the table is on. </td>
+			<td class="foswikiTableCol2"> <code>"#6b7f93"</code> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>headerbg="#999"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>headerbgsorted</code> </td>
+			<td class="foswikiTableCol1"> Header cell background colour of a sorted column. Specify <code>"none"</code> for no colour, that is to use the colour/background of the page the table is on. </td>
+			<td class="foswikiTableCol2"> the value of <code>headerbg</code> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>headerbgsorted="#32596c"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>headercolor</code> </td>
+			<td class="foswikiTableCol1"> Header cell text colour. </td>
+			<td class="foswikiTableCol2"> <code>"#fff"</code> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>headercolor="#00c"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>headervalign</code> </td>
+			<td class="foswikiTableCol1"> Vertical alignment of header cells; overrides <code>valign</code>. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>headervalign="top"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>headeralign</code> </td>
+			<td class="foswikiTableCol1"> Header cell alignment, one value for all columns, or a comma separated list for different alignment of individual columns. Set to <code>"left"</code>, <code>"center"</code>, <code>"right"</code> or <code>"justify"</code>. Overrides individual cell settings. </td>
+			<td class="foswikiTableCol2"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol"> <code>headeralign="left,right"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>headerrows</code> </td>
+			<td class="foswikiLast" colspan="3"> See: Attributes for tables </td>
+		</tr>
+	</tbody>     </table>
+<p></p>
+
+<h4 id="Other_attributes">  Other attributes </h4>
+       <table class="foswikiTable" id="tableTablePlugin6" rules="none" width="100%">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2"> Default </th>
+			<th class="foswikiTableCol3 foswikiLastCol"> Example </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>include</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Other topic defining the <code>TABLE</code> parameters. The first <code>%TABLE%</code> in the topic is used. This is useful if you have many topics with the same table format and you want to update the format in one place. Use <code>topic</code> or <code>web.topic</code> notation. </td>
+			<td class="foswikiTableCol2 foswikiLast"> <span class="foswikiGrayText">unspecified</span> </td>
+			<td class="foswikiTableCol3 foswikiLastCol foswikiLast"> <code>include="Main.WebHome"</code> </td>
+		</tr>
+	</tbody>     </table>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Specifying_and_overriding_attributes">  Specifying and overriding attributes </h3>
+Table attributes can be set in different ways. In top down order: <ol>
+<li> As default preference in <a href="https://damask.mpie.de/bin/configure">Configure -&gt; <code>Extensions</code> tab -&gt; <code>TablePlugin</code> sub-tab</a>.
+</li> <li> As preference in a topic: <code>TABLEPLUGIN_TABLEATTRIBUTES</code>: <code>Set TABLEPLUGIN_TABLEATTRIBUTES = tableborder="0" cellpadding="1" ...</code>
+</li> <li> As parameters to the <code>TABLE</code> macro: <code>%TABLE{ tableborder="0" cellpadding="4" cellspacing="3" cellborder="0" }%</code>
+</li></ol> 
+<p></p>
+
+The preference <code>TABLEPLUGIN_TABLEATTRIBUTES = ...</code> competely overrides previous preferences (for example in <a href="/bin/view/Main/SitePreferences">SitePreferences</a> or Configure):
+<pre class="tml">
+   * Set TABLEPLUGIN_TABLEATTRIBUTES = cellpadding="0" <span class="foswikiGrayText">&lt;&lt;&lt; this will remove previously set preferences and leave only 1 attribute</span>
+</pre>
+If you pass <code>%TABLE{...}%</code> parameters, you partially override previously set preferences:
+<pre class="tml">
+   * %TABLE{datacolor="#f00"}% <span class="foswikiGrayText">&lt;&lt;&lt; this will only change the data color attribute</span>
+</pre>
+<p></p>
+
+<h3 id="Reserved_attributes">  Reserved attributes </h3>
+The setting <code>disableallsort</code> is normally not used as a TABLE or TABLEPLUGIN_TABLEATTRIBUTES setting. Plugins such as <a class="foswikiNewLink" href="/bin/edit/System/EditTablePlugin?topicparent=System.TablePlugin" rel="nofollow" title="Create this topic">EditTablePlugin</a> dynamically sets <code>disableallsort</code> to disable sorting while editing a table. For this to work it is important that <a class="foswikiNewLink" href="/bin/edit/System/EditTablePlugin?topicparent=System.TablePlugin" rel="nofollow" title="Create this topic">EditTablePlugin</a> runs before <a class="foswikiCurrentTopicLink" href="/bin/view/System/TablePlugin">TablePlugin</a>, which is the default. The setting <code>sort</code> can be overwritten by a URL parameter or hidden formfield of the same name. Plugins such as <a class="foswikiNewLink" href="/bin/edit/System/EditTablePlugin?topicparent=System.TablePlugin" rel="nofollow" title="Create this topic">EditTablePlugin</a> can use this to disable table header sorting while in edit mode.
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<p></p>
+
+<h3 id="Use_of_37TABLE_123..._125_37">  Use of %TABLE{...}% </h3>
+<p></p>
+
+Line before table: <pre class="tml">%TABLE{ sort="on" tableborder="0" cellpadding="4" cellspacing="3" cellborder="0" headerbg="#D5CCB1" headercolor="#666" databg="#FAF0D4, #F3DFA8" headerrows="2" footerrows="1" }%</pre>
+<p></p>
+
+<table class="foswikiTable" id="tableTablePlugin7" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiFirstCol" colspan="6"> Table with two Header Rows and Footer Row </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/TablePlugin?sortcol=0;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Num</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/TablePlugin?sortcol=1;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Status</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/TablePlugin?sortcol=2;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Action</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/System/TablePlugin?sortcol=3;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">Who</a> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/System/TablePlugin?sortcol=4;table=7;up=0#sorted_table" rel="nofollow" title="Sort by this column">When</a> </th>
+			<th class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol"> <a href="/bin/view/System/TablePlugin?sortcol=5;table=7;up=1#sorted_table" rel="nofollow" title="Sort by this column">Progress</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<th class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Num </th>
+			<th class="foswikiTableCol1 foswikiLast"> Status </th>
+			<th class="foswikiTableCol2 foswikiLast"> Action </th>
+			<th class="foswikiTableCol3 foswikiLast"> Who </th>
+			<th class="foswikiTableCol4 foswikiLast"> When </th>
+			<th class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol foswikiLast"> Progress </th>
+		</tr>
+	</tfoot>
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> 1 </td>
+			<td class="foswikiTableCol1" rowspan="1"> C </td>
+			<td class="foswikiTableCol2" rowspan="1"> Chose new colours </td>
+			<td class="foswikiTableCol3" rowspan="1"> John </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1-Dec-02 </td>
+			<td class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> 2 </td>
+			<td class="foswikiTableCol1" rowspan="1"> X </td>
+			<td class="foswikiTableCol2" rowspan="1"> Release </td>
+			<td class="foswikiTableCol3" rowspan="1"> John </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1-Apr-02 </td>
+			<td class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> 3 </td>
+			<td class="foswikiTableCol1" rowspan="1"> &nbsp; </td>
+			<td class="foswikiTableCol2" rowspan="1"> Get feedback </td>
+			<td class="foswikiTableCol3" rowspan="1"> Anne </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1-Feb-02 </td>
+			<td class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> 12 </td>
+			<td class="foswikiTableCol1" rowspan="1"> C </td>
+			<td class="foswikiTableCol2" rowspan="1"> Spec error handling </td>
+			<td class="foswikiTableCol3" rowspan="1"> Jack </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1-Dec-02 </td>
+			<td class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> 5 </td>
+			<td class="foswikiTableCol1" rowspan="1"> &nbsp; </td>
+			<td class="foswikiTableCol2" rowspan="1"> Abc </td>
+			<td class="foswikiTableCol3" rowspan="1"> John </td>
+			<td class="foswikiTableCol4" rowspan="1"> &nbsp; </td>
+			<td class="foswikiTableCol5 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Sorting">  Sorting </h3>
+Click on column heading text to sort by a column. Initial column will be sorted in descending order, click again to get ascending order.  The type of data in the cell is determined automatically:
+<p></p>
+ <ul>
+<li> Date with supported date formats
+</li></ul> 
+<span class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemTablePlugin1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">View date formats</span></a></span><span id="twistyIdSystemTablePlugin1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="" href="#"><span class="foswikiLinkLabel foswikiUnvisited">View date formats</span></a></span></span><span class="twistyPlugin"><span id="twistyIdSystemTablePlugin1toggle" style="" class="twistyRememberSetting twistyContent twistyInited"> <ul>
+ <li>
+ <ul>
+<li> Default Foswiki format <ul>
+<li> 31 Dec 2001 - 23:59
+</li> <li> 31-Dec-2001 - 23:59
+</li></ul> 
+</li> <li> Foswiki format without time (defaults to 00:00) <ul>
+<li> 31 Dec 2001
+</li> <li> 31-Dec-2001
+</li></ul> 
+</li> <li> Date separated by '/', '.' or '-', time with '.' or ':'
+</li> <li> Date and time separated by ' ', '.' and/or '-' <ul>
+<li> 2001/12/31 23:59:59
+</li> <li> 2001.12.31.23.59.59
+</li> <li> 2001/12/31 23:59
+</li> <li> 2001.12.31.23.59
+</li> <li> 2001-12-31 23:59
+</li> <li> 2001-12-31 - 23:59
+</li> <li> 2009-1-12
+</li> <li> 2009-1
+</li> <li> 2009
+</li></ul> 
+</li> <li> ISO format <ul>
+<li> 2001-12-31T23:59:59
+</li> <li> 2001-12-31T
+</li></ul> 
+</li> <li> ISO dates may have a timezone specifier, either Z or a signed difference in hh:mm format. For example: <ul>
+<li> 2001-12-31T23:59:59+01:00
+</li> <li> 2001-12-31T23:59Z
+</li></ul> 
+</li></ul> 
+</li></ul> 
+</span></span> <ul>
+<li> Number is digits, with optional decimal point
+</li> <li> Otherwise treated as text
+</li></ul> 
+<p></p>
+
+If you specify <code>headerrows</code>, then the row with the sort links is the row
+closest to the data (the last row in the header). If you do not specify
+<code>headerrows</code>, the first row that has a heading in the first column is the
+sort row. To sort by the first <em>footer</em> row, set <code>headerrows="0"</code>.
+<p></p>
+
+<h4 id="Sorting_example">  Sorting example </h4>
+<table class="foswikiTable" id="tableTablePlugin8" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol"> <a href="/bin/view/System/TablePlugin?sortcol=0;table=8;up=1#sorted_table" rel="nofollow" title="Sort by this column">Number</a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/TablePlugin?sortcol=1;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Decimal</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/TablePlugin?sortcol=2;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Alpha</a> </th>
+			<th class="foswikiTableCol3 foswikiLastCol"> <a href="/bin/view/System/TablePlugin?sortcol=3;table=8;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> 1 </td>
+			<td class="foswikiTableCol1" rowspan="1"> 9.9 </td>
+			<td class="foswikiTableCol2" rowspan="1"> vwx </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> 01 Jan 1990 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol" rowspan="1"> 2 </td>
+			<td class="foswikiTableCol1" rowspan="1"> 9.91 </td>
+			<td class="foswikiTableCol2" rowspan="1"> stu </td>
+			<td class="foswikiTableCol3 foswikiLastCol" rowspan="1"> 31 Dec 1999 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiSortedAscendingCol foswikiSortedCol foswikiFirstCol foswikiLast" rowspan="1"> 3 </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> 9.09 </td>
+			<td class="foswikiTableCol2 foswikiLast" rowspan="1"> pqr </td>
+			<td class="foswikiTableCol3 foswikiLastCol foswikiLast" rowspan="1"> 15 Jan 2006 </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Row_spans">  Row spans </h3>
+<p class='p'>Table cells with a single caret indicate follow-up rows of multi-row spans. For example,</p>
+
+<pre class="tml">
+&#124; One One &#124; One Two &#124; One Three &#124;
+&#124; ^ &#124; Two Two &#124; Two Three &#124;
+&#124; Three One &#124; ^ &#124; Three Three &#124;
+</pre>
+<p></p>
+
+Results in:
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="2"> One One </td>
+			<td class="foswikiTableCol1"> One Two </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> One Three </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol1 foswikiLast" rowspan="2"> Two Two </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Two Three </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Three One </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Three Three </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<strong>Note:</strong> Row spans do not work across the header and body boundaries of a table. So it you have a header row, the row cells beneath (in the body section) cannot be merged with the header row cells. Row spans within header cells are possible.
+<p></p>
+
+<pre class="tml">
+&#37;TABLE{headerrows&#61;&#34;2&#34; sort&#61;&#34;off&#34;}&#37;
+&#124; &#42;One One&#42; &#124; &#42;One Two&#42; &#124; &#42;One Three&#42; &#124;
+&#124; ^ &#124; &#42;Two Two&#42; &#124; &#42;Two Three&#42; &#124;
+&#124; Two One &#124; Two Two &#124; Two Three &#124;
+&#124; Three One &#124; ^ &#124; Three Three &#124;
+</pre>
+<p></p>
+
+Results in:
+<table class="foswikiTable" id="tableTablePlugin10" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" rowspan="2"> One One </th>
+			<th class="foswikiTableCol1"> One Two </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> One Three </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol1"> Two Two </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Two Three </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Two One </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="2"> Two Two </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Two Three </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Three One </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Three Three </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Col_spans">  Col spans </h3>
+Col spans can be achieved by writing table cell separators without contents or spacing:
+<pre class="tml">
+&#37;TABLE{tablerules&#61;&#34;cols&#34;}&#37;
+&#124; &#42;Mammals&#42; &#124;&#124;
+&#124; Monotremes &#124; Echidna, Platypus &#124;
+&#124; Marsupials &#124; Kangaroo, Koala &#124;
+&#124; Placentals &#124;&#124;
+&#124; Fish (to write) &#124;&#124;
+</pre>
+<p></p>
+
+Results in:
+<table class="foswikiTable" id="tableTablePlugin11" rules="cols">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2"> Mammals </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Monotremes </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Echidna, Platypus </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Marsupials </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Kangaroo, Koala </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" colspan="2"> Placentals </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" colspan="2"> Fish (to write) </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="TablePlugin_Global_Settings"> TablePlugin Global Settings </h2>
+<p></p>
+
+You can override the default settings for the plugin by defining the following <a href="/bin/view/System/PreferenceSettings">preferences</a>.
+<p></p>
+
+<!-- <ul>
+ <li>
+ <ul>
+<li> Set SHORTDESCRIPTION = Control attributes of tables and sorting of table columns
+</li></ul> 
+</li></ul> 
+-->
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/TablePlugin?sortcol=0;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">Preference</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/TablePlugin?sortcol=1;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">Meaning</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/TablePlugin?sortcol=2;table=12;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> TABLEPLUGIN_SORT </td>
+			<td class="foswikiTableCol1"> Make all tables in a topic sortable. If this is set to <code>all</code>, all tables that have a header row (including those that do not have %TABLE before them) will be made sortable. If set to <code>none</code>, only tables with %TABLE will be sortable. Topic rendering is faster if this is set to <code>none</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>all</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> TABLEPLUGIN_TABLEATTRIBUTES </td>
+			<td class="foswikiTableCol1 foswikiLast"> Default table attributes. These are first defined in <a href="https://damask.mpie.de/bin/configure">Configure Extensions tab, TablePlugin sub-tab</a>, and can be set on site level in <a href="/bin/view/Main/SitePreferences">SitePreferences</a>, on web level in any WebPreferences or on topic level. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>tableborder="1" valign="top" headercolor="#000000" headerbg="#d6d3cf" headerbgsorted="#c4c1ba" databg="#ffffff,#edf4f9" databgsorted="#f1f7fc,#ddebf6" tablerules="rows" headerrules="cols"</code> </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<h2 id="TablePlugin_and_CSS"> TablePlugin and CSS </h2>
+Information for programmers.
+<p></p>
+
+TablePlugin implements the following precedence: <ul>
+<li> the <code>TABLEATTRIBUTE</code> settings only write html styling, no CSS
+</li> <li> the <code>TABLEATTRIBUTE</code> settings can be overridden by a skin's CSS
+</li> <li> the <code>TABLE</code> tag attributes are converted to CSS styling, written in the head; these override any skin's CSS
+</li></ul> 
+<p></p>
+
+<h3 id="CSS_written_by_TablePlugin">  CSS written by TablePlugin </h3>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.foswikiTable</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> The table </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.foswikiSortedCol</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A sorted column </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.foswikiSortedAscendingCol</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Sorted column, ascending </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.foswikiSortedDescendingCol</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Sorted column, descending </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.tableSortIcon</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> The sort icon holder (span) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.foswikiFirstCol</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> The first column </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.foswikiTableEven</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Even numbered rows </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.foswikiTableOdd</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Odd numbered rows </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>.foswikiTableCol</code> + column number </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Unique column identifier, for instance: <code>foswikiTableCol0</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>.foswikiTableRow</code> + type + row number </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Unique row identifier, for instance: <code>foswikiTableRowdataBg0</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Images_used_by_TablePlugin">  Images used by TablePlugin </h3>
+Sort icons in the header are read from <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>.
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <img src="https://damask.mpie.de/pub/System/DocumentGraphics/tablesortup.png" width="11" height="13" alt="Sort table ascending" border="0" /> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Sort ascending </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <img src="https://damask.mpie.de/pub/System/DocumentGraphics/tablesortdown.png" width="11" height="13" alt="Sort table descending" border="0" /> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Sort descending </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <img src="https://damask.mpie.de/pub/System/DocumentGraphics/tablesortdiamond.png" width="11" height="13" alt="Sort table" border="0" /> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Generic sort button if header label is a link, not a sort link </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Plugin_Installation_Instructions">  Plugin Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p></p>
+ <ul>
+<li> Test if the plugin is correctly installed: <ul>
+<li> Check above example if the table renders as expected
+</li> <li> Try click on heading to sort.  Other tables should also be sortable
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h2 id="Plugin_Info">  Plugin Info </h2>
+<p></p>
+
+<table class="foswikiTable" id="tableTablePlugin15" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Jan 2018 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.160: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14574" title="'Item14574' on the 'Foswiki' issue tracking site">Foswikitask:Item14574</a> - fixed cellspacing, cellpadding and tableborder using css properties instead of html attributes now </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Feb 2016 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.154: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13881" title="'Item13881' on the 'Foswiki' issue tracking site">Foswikitask:Item13881</a> - Unicode column heading are incorrectly encoded,<br/>                        <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13405" title="'Item13405' on the 'Foswiki' issue tracking site">Foswikitask:Item13405</a> - Unicode NFC normalization </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Dec 2015 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.153: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13436" title="'Item13436' on the 'Foswiki' issue tracking site">Foswikitask:Item13436</a> - Add class parameter to the TABLE macro to permit custom class specifications. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Dec 2015 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.152: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12569" title="'Item12569' on the 'Foswiki' issue tracking site">Foswikitask:Item12569</a> - Improve sorting of UNICODE data by NFKD normalizing the comparisons. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Sep 2015 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.151: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13688" title="'Item13688' on the 'Foswiki' issue tracking site">Foswikitask:Item13688</a> - fixed css precedence for table css emitted by TablePlugin; removed hard-coded vertical alignment; <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13695" title="'Item13695' on the 'Foswiki' issue tracking site">Foswikitask:Item13695</a> - add support for common css units </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 May 2013 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.142: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12480" title="'Item12480' on the 'Foswiki' issue tracking site">Foswikitask:Item12480</a> - memory leak amasses css styles from all visited pages </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Nov 2012 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.141: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12233" title="'Item12233' on the 'Foswiki' issue tracking site">Foswikitask:Item12233</a> - Don't generate table sort links when rendering static html. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2012 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.140: Arthur Clemens: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11354" title="'Item11354' on the 'Foswiki' issue tracking site">Foswikitask:Item11354</a> adds warning message when <code>include</code> parameter fails. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jan 2012 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.139: Michael Daum: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11423" title="'Item11423' on the 'Foswiki' issue tracking site">Foswikitask:Item11423</a> fixed disabling default table attributes when setting them to the empty string </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Dec 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.138: George Clark: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11350" title="'Item11350' on the 'Foswiki' issue tracking site">Foswikitask:Item11350</a> <a class="foswikiCurrentTopicLink" href="/bin/view/System/TablePlugin">TablePlugin</a> issues a die if included table is not found. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Dec 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.137: Paul Harvey: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11331" title="'Item11331' on the 'Foswiki' issue tracking site">Foswikitask:Item11331</a>: Further improvements for persistent perls. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Oct 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.136: George Clark:  <a class="interwikiLink" href="https://foswiki.org/Tasks/Item8647" title="'Item8647' on the 'Foswiki' issue tracking site">Foswikitask:Item8647</a>: <a class="foswikiCurrentTopicLink" href="/bin/view/System/TablePlugin">TablePlugin</a> generates empty tfoot, even when there are footer rows. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Sep 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.135: George Clark:  <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10559" title="'Item10559' on the 'Foswiki' issue tracking site">Foswikitask:Item10559</a>: perl errors about non-numeric or uninitialized variables for the URL parameters. <a class="interwikiLink" href="https://foswiki.org/Tasks/item10971" title="'item10971' on the 'Foswiki' issue tracking site">Foswikitask:item10971</a>: reload settings in persistent perl environment. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Aug 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.134: Arthur Clemens: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11083" title="'Item11083' on the 'Foswiki' issue tracking site">Foswikitask:Item11083</a>: table should sort if sort is off but initsort has a column number. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jun 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.133: Arthur Clemens: setting <code>databg</code> and <code>headerbg</code> to <code>"none"</code> now makes the cell transparent. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Apr 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.132: Version released with Foswiki 1.1.3. Only a minor change related to how the plugin is being upgraded </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Mar 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.131: Arthur Clemens: fix sorting bug that was not properly fixed in 1.128. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Mar 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.130: Michael Daum: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10456" title="'Item10456' on the 'Foswiki' issue tracking site">Foswikitask:Item10456</a>: fixed initialization in persistent perl environments. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Mar 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.129: Arthur Clemens: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item8302" title="'Item8302' on the 'Foswiki' issue tracking site">Foswikitask:Item8302</a>: init sorting is broken if no header row. <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10016" title="'Item10016' on the 'Foswiki' issue tracking site">Foswikitask:Item10016</a>: No rowspan in header rows possible. <a class="interwikiLink" href="https://foswiki.org/Tasks/Item5864" title="'Item5864' on the 'Foswiki' issue tracking site">Foswikitask:Item5864</a>: documentation needs better coverage of spans from header row. <a class="interwikiLink" href="https://foswiki.org/Tasks/Item8991" title="'Item8991' on the 'Foswiki' issue tracking site">Foswikitask:Item8991</a>: header-only table violates XHTML DTD. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Mar 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.128: Arthur Clemens: disable sorting if <code>sort="off"</code> is set in <code>TABLEPLUGIN_TABLEATTRIBUTES</code>. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Feb 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.127: Michael Daum: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10357" title="'Item10357' on the 'Foswiki' issue tracking site">Foswikitask:Item10357</a>: only emit inline css when there's a foswikiTable on the current page </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Aug 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.126: Paul harvey: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9415" title="'Item9415' on the 'Foswiki' issue tracking site">Foswikitask:Item9415</a>: minor documentation changes </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Aug 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.125: Crawford Currie: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item8303" title="'Item8303' on the 'Foswiki' issue tracking site">Foswikitask:Item8303</a>: fixed sorting with multiple headers </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jul 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.124: Arthur Clemens: Added attribute <code>inlinemarkup</code> to optionally add HTML markup for better copy/pasting. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Apr 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.123: New default colors. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Mar 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.122: Arthur Clemens: Fixed sorting of columns with mixed data types: numbers, dates, strings, empty cells. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.121: Arthur Clemens: Improved documentation for date formats. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.120: Arthur Clemens: Added <code>include</code> parameter. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.110: Arthur Clemens: Added attributes <code>headerrules</code> and <code>datarules</code>. Fixed potential bug where Explorer won't render more than 20 table CSS tags. Fix sorting on IP addresses. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.100: Arthur Clemens: Removed HTML formatting in favor of a pure CSS rendering. Code refactoring and bug fixes: <br />&#8226; Fixed a bug that ignored <code>cellspacing</code> (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item8270" title="'Item8270' on the 'Foswiki' issue tracking site">Foswikitask:Item8270</a>). <br />&#8226; Sorting is now possible with multiple header rows (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item8122" title="'Item8122' on the 'Foswiki' issue tracking site">Foswikitask:Item8122</a>). <br />&#8226; Fixed sorting of dates prior to 1970. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.043: Kenneth Lavrsen: Added check for valid value for initsort. Ignore if it is not a number. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.042: Kenneth Lavrsen: Added a new API call initialiseWhenRender which plugins like CompareRevisionsAddOn can use to reset the table counters between two renderings of the same topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.041: Kenneth Lavrsen: Fix for crash when cell contains the number 0. Allow sorting of negative numbers even when suffixed with unit. Treat whitespace as zero if pure numerical context. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.040: Kenneth Lavrsen: Fixed the fix of parsing date-time columns so that plain numbers are not interpreted as dates causing wrong sorting </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Jun 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.039: Michael Daum: fixed parsing date-time columns </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Apr 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.038: Removed support for settings in the plugin topic which is a bad idea anyway as they get overwritten at each Foswiki upgrade. Define the global settings in Main.SitePreferences instead. <br />Fixed an issue where <a class="foswikiCurrentTopicLink" href="/bin/view/System/TablePlugin">TablePlugin</a> produced invalid css if no 'px' or '%' is passed in a size parameter. <br />Small refactoring in style attribute handling. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.037: Foswiki version </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Sep 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.035: Fix sorting of attachment date column. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Aug 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.034: TWiki 4.2.1 release version </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Mar 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.033: <a class="interwikiLink" href="http://develop.twiki.org/~twiki4/cgi-bin/view/Bugs/Item5387" title="'Item5387' on the TWiki issue tracking site">TWikibug:Item5387</a>: allow rowspanned columns to contain HTML tags; otherwise it is impossible to add an invisible anchor to a rowspanned cell </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.030: Kenneth Lavrsen: Fixed the problem of tables being sorted by by <a class="foswikiCurrentTopicLink" href="/bin/view/System/TablePlugin">TablePlugin</a> while the table is being edited by plugins such as <a class="foswikiNewLink" href="/bin/edit/System/EditTablePlugin?topicparent=System.TablePlugin" rel="nofollow" title="Create this topic">EditTablePlugin</a>. This required adding a new attribute <code>disableallsort</code> so plugins such as <a class="foswikiNewLink" href="/bin/edit/System/EditTablePlugin?topicparent=System.TablePlugin" rel="nofollow" title="Create this topic">EditTablePlugin</a> can temporarily disable all sorting for a table. Additionally the CGI variable (URL parameter or hidden formfield) <code>sort</code> can be set to "off" which disables all header sorting in the topic. This is used by plugins such as <a class="foswikiNewLink" href="/bin/edit/System/EditTablePlugin?topicparent=System.TablePlugin" rel="nofollow" title="Create this topic">EditTablePlugin</a> to disable the sorting by clicking header fields during editing of tables. Ref: <a class="interwikiLink" href="http://develop.twiki.org/~twiki4/cgi-bin/view/Bugs/Item5135" title="'Item5135' on the TWiki issue tracking site">TWikibug:Item5135</a> and <a class="interwikiLink" href="http://develop.twiki.org/~twiki4/cgi-bin/view/Bugs/Item2690" title="'Item2690' on the TWiki issue tracking site">TWikibug:Item2690</a>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Dec 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Arthur Clemens: Fixed rendering and order of html elements <code>thead</code>, <code>tfoot</code> and <code>tbody</code>; corrected <code>id</code> parameter. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Nov 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Arthur Clemens: Fixed sorting of columns with only icons; also removed TWiki formatting before sorting. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Oct 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 15180: PTh: Added <a href="/bin/view/System/VarTABLE">VarTABLE</a> to have it listed in System.Macros </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Jun 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.024 - 1.027: Various small bug fixes. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Jun 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.023: Arthur Clemens: Inline styles are now written to the head; updated default sort icons (from <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>). </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jun 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.022: Arthur Clemens: Fixed styling of param <code>tablerules</code> on Internet Explorer. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 May 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.021: Michael Daum: Fixed css attribute priority to cooperate nicely with skin themes. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Dec 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.020: Kenneth Lavrsen: Fixed initsort so all tables can be initsorted and not only the first. When you sort a table by clicking on the header of a column the table gets sorted accordingly. When you click the header of another table the previously sorted table goes back being sorted as specified by initsort. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Dec 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.019: Arthur Clemens: Prevent sorting of columns that do no exist. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Dec 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.018: Arthur Clemens: Data rows now start with first <code>datacolor</code> and <code>databgcolor</code>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Nov 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.017: Arthur Clemens: Better support for <code>tablerules</code>. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Nov 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.016: Arthur Clemens: Added new attribute <code>cellborder</code>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Oct 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.015: Arthur Clemens: Added support for background colors of sorted column. Columns can be unsorted - sorting order is now: sort ascending, sort descending, unsort. Added attributes <code>headervalign</code> and <code>datavalign</code>. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Aug 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Michael Daum: Added CSS support for even/odd table rows </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Dec 2005 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Arthur Clemens: Added support for <code>id</code>, <code>summary</code> and <code>caption</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Mar 2005 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.014: Crawford Currie eliminated deprecated handlers for Dakar </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Aug 2004 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Arthur Clemens: Added CSS support for first column and ascending/descending table headers </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Mar 2004 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Internal change: Fixed reference to unofficial variable </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Jan 2004 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Alternating data row colors restart again after each header row </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Dec 2003 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Fixed error when footerrows was specified on an empty table, contributed by <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/PaulineCheung" title="'Main/PaulineCheung' on TWiki.org">TWiki:Main/PaulineCheung</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 May 2003 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: New <code>&#124;^&#124;</code> rule for multi row span (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/WalterMundt" title="'Main/WalterMundt' on TWiki.org">TWiki:Main/WalterMundt</a>); added tableframe and tablerules (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/JohannesMartin" title="'Main/JohannesMartin' on TWiki.org">TWiki:Main/JohannesMartin</a>); ignore columnwidths for multi column span; validate headerrows and footerrows (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/DarrylGreen" title="'Main/DarrylGreen' on TWiki.org">TWiki:Main/DarrylGreen</a>); fixed link color problem and up/down icon color problem for dark header background </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Dec 2002 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Removed individual table Plugin settings; added TABLEATTRIBUTES Plugins setting and TABLEATTRIBUTES preferences setting </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Dec 2002 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Added headerrows and footerrows params (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/DarrylGreen" title="'Main/DarrylGreen' on TWiki.org">TWiki:Main/DarrylGreen</a>, <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/WoutMertens" title="'Main/WoutMertens' on TWiki.org">TWiki:Main/WoutMertens</a>); added tablewidth and columnwidths params (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/ThorstenSommermann" title="'Main/ThorstenSommermann' on TWiki.org">TWiki:Main/ThorstenSommermann</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Dec 2002 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Added headercolor and datacolor parameters </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Jun 2002 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Added "none" value to databg parameter (suggested by <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/TaitCyrus" title="'Main/TaitCyrus' on TWiki.org">TWiki:Main/TaitCyrus</a>); fixed sorting by stripping HTML tags, removing links and making sort ignore case (suggested by <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/ShawnBradford" title="'Main/ShawnBradford' on TWiki.org">TWiki:Main/ShawnBradford</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Mar 2002 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Added <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/ShawnBradford" title="'Main/ShawnBradford' on TWiki.org">TWiki:Main/ShawnBradford</a> 's initsort and initdirection </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Mar 2002 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Added valign, headeralign and dataalign; fixed bug of swapped cellpadding/cellspacing; fixed warning of uninitialized value </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Jan 2002 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Fixed sorting bug of cells with leading white space </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Dec 2001 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Fixed date sorting bug <br /> 03 Dec 2001 PTh: Fixed sort="off" bug and more </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Nov 2001 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Fixed Perl warnings </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Nov 2001 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> PTh: Added table border, cell spacing, cell padding, gif files </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 07 Oct 2001 </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> JT: Initial version </td>
+		</tr>
+	</tbody></table>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/TablePlugin?t=1627667976;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a href="/bin/view/System/ProjectContributor">ProjectContributor</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 1.160 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 22 Jan 2018 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/distro">https://github.com/foswiki/distro</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> Copyright (C) 2001-2008 <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/JohnTalintyre" title="'Main/JohnTalintyre' on TWiki.org">TWiki:Main/JohnTalintyre</a>, Peter Thoeny, <a href="mailto&#58;peter&#64;thoeny&#46;org">peter&#64;thoeny.org</a> and TWiki Contributors; &copy; 2008-2016 Foswiki Contributors </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="http://foswiki.org/Extensions/TablePlugin">http://foswiki.org/Extensions/TablePlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="http://foswiki.org/Support/TablePlugin">http://foswiki.org/Support/TablePlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/TablePlugin?t=1627667976' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/TablePlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TablePlugin?cover=print;sortcol=5;table=7;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/TablePlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TablePlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TablePlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/TablePlugin?t=1627667976;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/TablePlugin?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 22 Jan 2018, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/TablePlugin?foswiki_origin=GET%2cview%2c/bin/view/System/TablePlugin%3fsortcol%3d5%3btable%3d7%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.TablePlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

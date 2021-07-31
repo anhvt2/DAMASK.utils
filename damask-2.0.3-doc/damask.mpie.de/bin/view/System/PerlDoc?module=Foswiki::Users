@@ -1,0 +1,703 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> PerlDoc &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671486" type="application/x-wiki" title="edit PerlDoc" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/PerlDoc" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/b7571648f5010b662927624db5b40abb.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "WIKINAME" : "WikiGuest",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "TOPIC" : "PerlDoc",
+   "COOKIEREALM" : "",
+   "USERSWEB" : "Main",
+   "SYSTEMWEB" : "System",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SERVERTIME" : "30 Jul 2021 - 20:58",
+   "USERNAME" : "guest",
+   "PUBURLPATH" : "/pub",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTSUFFIX" : "",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WEB" : "System"
+}
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/PerlDoc" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?a4f0b063ff5498eb3c6c9addbe277da3' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/PerlDoc?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?c0e0dab60eb1a3f7060d3c245fab0abc' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.PerlDoc' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.PerlDoc' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/PerlDoc"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/PerlDoc" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>PerlDoc</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671486;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/PerlDoc' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/PerlDoc?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/PerlDoc?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=PerlDoc' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/PerlDoc?cover=print;module=Foswiki::Users' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/PerlDoc?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h2 id="A_61internal_package_61_Foswiki::Users">   <code>internal package</code> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki">Foswiki</a>::Users </h2>
+<form class='foswikiForm' action='/bin/view/System/PerlDoc'>
+<div class='foswikiFormSteps'>
+  <div class='foswikiFormStep'>
+      See <a href="/bin/view/System/PublishedAPI">PublishedAPI</a> for packages intended to be used by Plugin and Contrib authors, or <a class="foswikiCurrentTopicLink" href="/bin/view/System/PerlDoc?module=Foswiki">browse all packages</a>.<br>
+      See also <a href="/bin/view/System/DevelopingPlugins">Developing plugins</a>, <a class="interwikiLink" href="https://foswiki.org/Development.DevelopersBible" title="'Development.DevelopersBible' on foswiki.org">Developer's Bible</a>, <a class="interwikiLink" href="https://foswiki.org/Development.TechnicalOverview" title="'Development.TechnicalOverview' on foswiki.org">Technical Overview</a> 
+  </div>
+  <div class='foswikiFormStep'>
+    <label for='module'><b>Perl Module:</b></label>
+    <input type='text' name='module' id='module' size='60' value='Foswiki::Users' class='foswikiInputField' />
+<!--
+Commented this out right before 1.1.5 - we should distinguish between 'public' and 'published' classes.
+    <label for='publicOnly'><b>Public Only:</b></label>
+    <input type='checkbox' name='publicOnly' id='publicOnly' value='on'  class='foswikiInputField' />
+-->
+    <input type='submit' value='Submit' class='foswikiSubmit' />
+  </div>
+  <div class='foswikiFormStep'>
+    <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemPerlDoc1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Child packages</span></a></span><span id="twistyIdSystemPerlDoc1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Child packages</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemPerlDoc1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<p></p>
+
+<ul><li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Users::BaseUserMapping">Foswiki::Users::BaseUserMapping</a> - User mapping is the process by which Foswiki maps from a username (a login name) to a display name and back. It is also where groups are maintained.</li>
+<li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Users::HtPasswdUser">Foswiki::Users::HtPasswdUser</a> - Support for htpasswd and htdigest format password files.</li>
+<li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Users::Password">Foswiki::Users::Password</a> - Base class of all password handlers. Default behaviour is no passwords, so anyone can be anyone they like.</li>
+<li><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Users::TopicUserMapping">Foswiki::Users::TopicUserMapping</a></li>
+</ul>
+    </div></div>
+  </div>
+</div>
+</form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?module=Foswiki::Users#A_61internal_package_61_Foswiki::Users"> internal package Foswiki::Users </a> <ul>
+<li> <a href="?module=Foswiki::Users#A_61ClassMethod_61_new_40_36session_41"> ClassMethod new ($session) </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_loadSession_40_41"> ObjectMethod loadSession() </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_finish_40_41"> ObjectMethod finish() </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_loginTemplateName_40_41_templateFile"> ObjectMethod loginTemplateName () &rarr; templateFile </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_supportsRegistration_40_41_boolean"> ObjectMethod supportsRegistration () &rarr; boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_validateRegistrationField_40_36field_44_36value_41_text"> ObjectMethod validateRegistrationField ( $field, $value ) &rarr; text </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_initialiseUser_40_36login_41_36cUID"> ObjectMethod initialiseUser ($login) &rarr; $cUID </a>
+</li> <li> <a href="?module=Foswiki::Users#randomPassword_40_41"> randomPassword() </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_addUser_40_36login_44_36wikiname_44_36password_44_36emails_41_36cUID"> ObjectMethod addUser($login, $wikiname, $password, $emails) &rarr; $cUID </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61StaticMethod_61_mapLogin2cUID_40_36login_41_36cUID"> StaticMethod mapLogin2cUID( $login ) &rarr; $cUID </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_getCGISession_40_41"> ObjectMethod getCGISession() </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_getLoginManager_40_41_36loginManager"> ObjectMethod getLoginManager() &rarr; $loginManager </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_getCanonicalUserID_40_36identifier_41_36cUID"> ObjectMethod getCanonicalUserID( $identifier ) &rarr; $cUID </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_findUserByWikiName_40_36wn_41_92_64users"> ObjectMethod findUserByWikiName( $wn ) &rarr; \@users </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_findUserByEmail_40_36email_41_92_64users"> ObjectMethod findUserByEmail( $email ) &rarr; \@users </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_getEmails_40_36name_41_64emailAddress"> ObjectMethod getEmails($name) &rarr; @emailAddress </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_setEmails_40_36cUID_44_64emails_41"> ObjectMethod setEmails($cUID, @emails) </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_isAdmin_40_36cUID_41_36boolean"> ObjectMethod isAdmin( $cUID ) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_isInUserList_40_36cUID_44_92_64list_41_36boolean"> ObjectMethod isInUserList( $cUID, \@list ) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_getLoginName_40_36cUID_41_36login"> ObjectMethod getLoginName($cUID) &rarr; $login </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_getWikiName_40_36cUID_41_36wikiName"> ObjectMethod getWikiName($cUID) &rarr; $wikiName </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_webDotWikiName_40_36cUID_41_36webDotWiki"> ObjectMethod webDotWikiName($cUID) &rarr; $webDotWiki </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_userExists_40_36cUID_41_36boolean"> ObjectMethod userExists($cUID) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_eachUser_40_41_Foswiki::Iterator_of_cUIDs"> ObjectMethod eachUser() &rarr; Foswiki::Iterator of cUIDs </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_eachGroup_40_41_36iterator"> ObjectMethod eachGroup() &rarr; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_eachGroupMember_40_36group_41_36iterator"> ObjectMethod eachGroupMember($group) &rarr; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_isGroup_40_36name_41_boolean"> ObjectMethod isGroup($name) &rarr; boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_isInGroup_40_36cUID_44_36group_44_36options_41_36boolean"> ObjectMethod isInGroup( $cUID, $group, $options) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_eachMembership_40_36cUID_41_36iterator"> ObjectMethod eachMembership($cUID) &rarr; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_groupAllowsView_40_36group_41_boolean"> ObjectMethod groupAllowsView($group) &rarr; boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_groupAllowsChange_40_36group_44_36cuid_41_boolean"> ObjectMethod groupAllowsChange($group, $cuid) &rarr; boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_addToGroup_40_36cuid_44_36group_44_36create_41_36boolean"> ObjectMethod addToGroup( $cuid, $group, $create ) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_removeFromGroup_40_36cuid_44_36group_41_36boolean"> ObjectMethod removeFromGroup( $cuid, $group ) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_checkLogin_40_36login_44_36passwordU_41_36boolean"> ObjectMethod checkLogin( $login, $passwordU ) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_setPassword_40_36cUID_44_36newPassU_44_36oldPassU_41_36boolean"> ObjectMethod setPassword( $cUID, $newPassU, $oldPassU ) &rarr; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_passwordError_40_36cUID_41_36string"> ObjectMethod passwordError($cUID) &rarr; $string </a>
+</li> <li> <a href="?module=Foswiki::Users#A_61ObjectMethod_61_removeUser_40_36cUID_41_36boolean"> ObjectMethod removeUser( $cUID ) &rarr; $boolean </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h2 id="A_61internal_package_61_Fosw_AN1">  <code>internal package</code> Foswiki::Users </h2>
+This package provides services for the lookup and manipulation of login and
+wiki names of users, and their authentication.
+<p></p>
+
+It is a Facade that presents a common interface to the User Mapping
+and Password modules. The rest of the core should <strong>only</strong> use the methods
+of this package, and should <strong>never</strong> call the mapping or password managers
+directly.
+<p></p>
+
+Foswiki uses the concept of a <em>login name</em> which is used to authenticate a
+user. A login name maps to a <em>wiki name</em> that is used to identify the user
+for display. Each login name is unique to a single user, though several
+login names may map to the same wiki name.
+<p></p>
+
+Using this module (and the associated plug-in user mapper) Foswiki supports
+the concept of <em>groups</em>. Groups are sets of login names that are treated
+equally for the purposes of access control. Group names do not have to be
+wiki names, though it is helpful for display if they are.
+<p></p>
+
+Internally in the code Foswiki uses something referred to as a _canonical user
+id_ or just <em>user id</em>. The user id is also used externally to uniquely identify
+the user when (for example) recording topic histories. The user id is <strong>usually</strong>
+just the login name, but it doesn't need to be. It just has to be a unique
+7-bit alphanumeric and underscore string that can be mapped to/from login
+and wiki names by the user mapper.
+<p></p>
+
+The canonical user id should <strong>never</strong> be seen by a user. On the other hand,
+core code should never use anything <strong>but</strong> a canonical user id to refer
+to a user.
+<p></p>
+
+<strong>Terminology</strong> <ul>
+<li> A <strong>login name</strong> is the name used to log in to Foswiki. Each login name is     assumed to be unique to a human. The Password module is responsible for     authenticating and manipulating login names.
+</li> <li> A <strong>canonical user id</strong> is an internal Foswiki representation of a user. Each     canonical user id maps 1:1 to a login name.
+</li> <li> A <strong>wikiname</strong> is how a user is displayed. Many user ids may map to a     single wikiname. The user mapping module is responsible for mapping     the user id to a wikiname.
+</li> <li> A <strong>group id</strong> represents a group of users and other groups.     The user mapping module is responsible for mapping from a group id to     a list of canonical user ids for the users in that group.
+</li> <li> An <strong>email</strong> is an email address asscoiated with a <strong>login name</strong>. A single     login name may have many emails.
+</li></ul> 
+<p></p>
+
+<strong>NOTE:</strong>  <ul>
+<li> wherever the code references $cUID, its a canonical_id
+</li> <li> wherever the code references $group, its a group_name
+</li> <li> $name may be a group or a cUID
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="A_61ClassMethod_61_new_40_36session_41">  <code>ClassMethod</code> new ($session) </h3>
+Construct the user management object that is the facade to the <a class="foswikiNewLink" href="/bin/edit/System/BaseUserMapping?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">BaseUserMapping</a>
+and the user mapping chosen in the configuration.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_loadSession_40_41">  <code>ObjectMethod</code> loadSession() </h3>
+<p class='p'>Setup the cgi session, from a cookie or the url. this may return
+the login, but even if it does, plugins will get the chance to
+override (in Foswiki.pm)</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_finish_40_41">  <code>ObjectMethod</code> finish() </h3>
+Break circular references.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_loginTemplateName_40_41_templateFile">  <code>ObjectMethod</code> loginTemplateName () &rarr; templateFile </h3>
+<p></p>
+
+allows <a class="foswikiNewLink" href="/bin/edit/System/UserMappings?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">UserMappings</a> to come with customised login screens - that should preffereably only over-ride the UI function
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_supportsRegistration_40_41_boolean">  <code>ObjectMethod</code> supportsRegistration () &rarr; boolean </h3>
+<p></p>
+
+#return 1 if the  main <a class="foswikiNewLink" href="/bin/edit/System/UserMapper?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">UserMapper</a> supports registration (ie can create new users)
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_validateRegistrationField_40_36field_44_36value_41_text">  <code>ObjectMethod</code> validateRegistrationField ( $field, $value ) &rarr; text </h3>
+<p class='p'>Return the registration formfield sanitized by the mapper,  or oops thrown to block the registration.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_initialiseUser_40_36login_41_36cUID">  <code>ObjectMethod</code> initialiseUser ($login) &rarr; $cUID </h3>
+<p class='p'>Given a login (which must have been authenticated) determine the cUID that
+corresponds to that user. This method is used from Foswiki.pm to map the
+$REMOTE_USER to a cUID.</p>
+
+<p class='p'></p>
+
+<h3 id="randomPassword_40_41">  randomPassword() </h3>
+Static function that returns a random password. This function is not used
+in this module; it is provided as a service for other modules, such as
+custom mappers and registration modules.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_addUser_40_36login_44_36wikiname_44_36password_44_36emails_41_36cUID">  <code>ObjectMethod</code> addUser($login, $wikiname, $password, $emails) &rarr; $cUID </h3>
+<p></p>
+ <ul>
+<li> <code>$login</code> - user login name. If <code>undef</code>, <code>$wikiname</code> will be used as     the login name.
+</li> <li> <code>$wikiname</code> - user wikiname. If <code>undef</code>, the user mapper will be asked     to provide it.
+</li> <li> <code>$password</code> - password. If undef, a password will be generated.
+</li></ul> 
+<p class='p'>Add a new Foswiki user identity, returning the canonical user id for the new
+user. Used ONLY for user registration.</p>
+
+<p class='p'>The user is added to the password system (if there is one, and if it accepts
+changes). If the user already exists in the password system, then the password
+is checked and an exception thrown if it doesn't match. If there is no
+existing user, and no password is given, a random password is generated.</p>
+
+<p class='p'>$login can be undef; $wikiname must always have a value.</p>
+
+<p class='p'>The return value is the canonical user id that is used
+by Foswiki to identify the user.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61StaticMethod_61_mapLogin2cUID_40_36login_41_36cUID">  <code>StaticMethod</code> mapLogin2cUID( $login ) &rarr; $cUID </h3>
+<p class='p'>This function maps an arbitrary string into a valid cUID. The transformation
+is reversible, but the function is not idempotent (a cUID passed to this
+function will NOT be returned unchanged). The generated cUID will be unique
+for the given login name.</p>
+
+<p class='p'>This static function is designed to be called from custom user mappers that
+support 1:1 login-to-cUID mappings.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getCGISession_40_41">  <code>ObjectMethod</code> getCGISession() </h3>
+Get the currect CGI session object
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getLoginManager_40_41_36loginManager">  <code>ObjectMethod</code> getLoginManager() &rarr; $loginManager </h3>
+<p></p>
+
+Get the <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::LoginManager">Foswiki::LoginManager</a> object associated with this session, if there is
+one. May return undef.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getCanonicalUserID_40_36identifier_41_36cUID">  <code>ObjectMethod</code> getCanonicalUserID( $identifier ) &rarr; $cUID </h3>
+<p class='p'>Works out the Foswiki canonical user identifier for the user who either
+(1) logs in with the login name $identifier or (2) has the wikiname
+$identifier.</p>
+
+<p class='p'>The canonical user ID is an alphanumeric string that is unique
+to the login name, and can be mapped back to a login name and the
+corresponding wiki name using the methods of this class.</p>
+
+<p class='p'>Note that if the login name to wiki name mapping is not 1:1, this
+method will map a wikiname to one of the login names that corresponds
+to the wiki name, but there is no guarantee which one.</p>
+
+<p class='p'>Returns undef if the user does not exist.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_findUserByWikiName_40_36wn_41_92_64users">  <code>ObjectMethod</code> findUserByWikiName( $wn ) &rarr; \@users </h3> <ul>
+<li> <code>$wn</code> - wikiname to look up
+</li></ul> 
+Return a list of canonical user names for the users that have this wikiname.
+Since a single wikiname might be used by multiple login ids, we need a list.
+<p></p>
+
+If $wn is the name of a group, the group will <strong>not</strong> be expanded.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_findUserByEmail_40_36email_41_92_64users">  <code>ObjectMethod</code> findUserByEmail( $email ) &rarr; \@users </h3> <ul>
+<li> <code>$email</code> - email address to look up
+</li></ul> 
+Return a list of canonical user names for the users that have this email
+registered with the user mapping managers.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getEmails_40_36name_41_64emailAddress">  <code>ObjectMethod</code> getEmails($name) &rarr; @emailAddress </h3>
+<p class='p'>If $name is a cUID, return their email addresses. If it is a group,
+return the addresses of everyone in the group.</p>
+
+<p class='p'>The password manager and user mapping manager are both consulted for emails
+for each user (where they are actually found is implementation defined).</p>
+
+<p class='p'>Duplicates are removed from the list.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_setEmails_40_36cUID_44_64emails_41">  <code>ObjectMethod</code> setEmails($cUID, @emails) </h3>
+<p class='p'>Set the email address(es) for the given user.
+The password manager is tried first, and if it doesn't want to know the
+user mapping manager is tried.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_isAdmin_40_36cUID_41_36boolean">  <code>ObjectMethod</code> isAdmin( $cUID ) &rarr; $boolean </h3>
+<p></p>
+
+True if the user is an admin <ul>
+<li> is $Foswiki::cfg{SuperAdminGroup}
+</li> <li> is a member of the $Foswiki::cfg{SuperAdminGroup}
+</li> <li> Foswiki is bootstrapping a new configuration
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_isInUserList_40_36cUID_44_92_64list_41_36boolean">  <code>ObjectMethod</code> isInUserList( $cUID, \@list ) &rarr; $boolean </h3>
+<p></p>
+
+Return true if $cUID is in a list of user <strong>wikinames</strong>, <strong>logins</strong> and group ids.
+<p class='p'>The list may contain the conventional web specifiers (which are ignored).</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getLoginName_40_36cUID_41_36login">  <code>ObjectMethod</code> getLoginName($cUID) &rarr; $login </h3>
+<p class='p'>Get the login name of a user. Returns undef if the user is not known.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_getWikiName_40_36cUID_41_36wikiName">  <code>ObjectMethod</code> getWikiName($cUID) &rarr; $wikiName </h3>
+<p class='p'>Get the wikiname to display for a canonical user identifier.</p>
+
+<p class='p'>Can return undef if the user is not in the mapping system
+(or the special case from initialiseUser)</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_webDotWikiName_40_36cUID_41_36webDotWiki">  <code>ObjectMethod</code> webDotWikiName($cUID) &rarr; $webDotWiki </h3>
+<p class='p'>Return the fully qualified wikiname of the user</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_userExists_40_36cUID_41_36boolean">  <code>ObjectMethod</code> userExists($cUID) &rarr; $boolean </h3>
+<p class='p'>Determine if the user already exists or not. A user exists if they are
+known to to the user mapper.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_eachUser_40_41_Foswiki::Iterator_of_cUIDs">  <code>ObjectMethod</code> eachUser() &rarr; <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Iterator">Foswiki::Iterator</a> of cUIDs </h3>
+<p></p>
+
+Get an iterator over the list of all the registered users <strong>not</strong> including
+groups.
+<p class='p'>list of canonical_ids ???</p>
+
+Use it as follows:
+<pre>
+    my &#36;iterator &#61; &#36;umm-&#62;eachUser();
+    while (&#36;iterator-&#62;hasNext()) {
+        my &#36;user &#61; &#36;iterator-&#62;next();
+        ...
+    }
+</pre>
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_eachGroup_40_41_36iterator">  <code>ObjectMethod</code> eachGroup() &rarr; $iterator </h3>
+<p class='p'>Get an iterator over the list of all the group names.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_eachGroupMember_40_36group_41_36iterator">  <code>ObjectMethod</code> eachGroupMember($group) &rarr; $iterator </h3>
+<p class='p'>Return a iterator of user ids that are members of this group.
+Should only be called on groups.</p>
+
+Note that groups may be defined recursively, so a group may contain other
+groups. This method should <strong>only</strong> return users i.e. all contained groups
+should be fully expanded.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_isGroup_40_36name_41_boolean">  <code>ObjectMethod</code> isGroup($name) &rarr; boolean </h3>
+<p class='p'>Establish if a $name refers to a group or not. If $name is not
+a group name it will probably be a canonical user id, though that
+should not be assumed.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_isInGroup_40_36cUID_44_36group_44_36options_41_36boolean">  <code>ObjectMethod</code> isInGroup( $cUID, $group, $options) &rarr; $boolean </h3>
+<p class='p'>Test if the user identified by $cUID is in the given group.   Options
+is a hash array of options effecting the search.  Available options are:</p>
+ <ul>
+<li> <code>expand =&gt; 1</code>  0/1 - should nested groups be expanded when searching for the user. Default is 1, to expand nested groups.
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_eachMembership_40_36cUID_41_36iterator">  <code>ObjectMethod</code> eachMembership($cUID) &rarr; $iterator </h3>
+<p class='p'>Return an iterator over the groups that $cUID
+is a member of.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_groupAllowsView_40_36group_41_boolean">  <code>ObjectMethod</code> groupAllowsView($group) &rarr; boolean </h3>
+<p class='p'>returns 1 if the group is able to be modified by the current logged in user</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_groupAllowsChange_40_36group_44_36cuid_41_boolean">  <code>ObjectMethod</code> groupAllowsChange($group, $cuid) &rarr; boolean </h3>
+<p class='p'>returns 1 if the group is able to be modified by the current logged in user</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_addToGroup_40_36cuid_44_36group_44_36create_41_36boolean">  <code>ObjectMethod</code> addToGroup( $cuid, $group, $create ) &rarr; $boolean </h3>
+adds the user specified by the cuid to the group.
+If the group does not exist, it will return false and do nothing, unless the create flag is set.
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_removeFromGroup_40_36cuid_44_36group_41_36boolean">  <code>ObjectMethod</code> removeFromGroup( $cuid, $group ) &rarr; $boolean </h3>
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_checkLogin_40_36login_44_36passwordU_41_36boolean">  <code>ObjectMethod</code> checkLogin( $login, $passwordU ) &rarr; $boolean </h3>
+<p class='p'>Finds if the password is valid for the given user. This method is
+called using the login name rather than the $cUID so that it can be called
+with a user who can be authenticated, but may not be mappable to a
+cUID (yet).</p>
+
+<p class='p'>Returns 1 on success, undef on failure.</p>
+
+TODO: add special check for <a class="foswikiNewLink" href="/bin/edit/System/BaseMapping?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">BaseMapping</a> admin user's login, and if
+its there (and we're in sudo_context?) use that..
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_setPassword_40_36cUID_44_36newPassU_44_36oldPassU_41_36boolean">  <code>ObjectMethod</code> setPassword( $cUID, $newPassU, $oldPassU ) &rarr; $boolean </h3>
+<p class='p'>If the $oldPassU matches matches the user's password, then it will
+replace it with $newPassU.</p>
+
+<p class='p'>If $oldPassU is not correct and not 1, will return 0.</p>
+
+<p class='p'>If $oldPassU is 1, will force the change irrespective of
+the existing password, adding the user if necessary.</p>
+
+<p class='p'>Otherwise returns 1 on success, undef on failure.</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_passwordError_40_36cUID_41_36string">  <code>ObjectMethod</code> passwordError($cUID) &rarr; $string </h3>
+<p class='p'>Returns a string indicating the error that happened in the password handler
+The cUID is used to determine which mapper is handling the user.  If called
+without a cUID, then the Base mapping is used.</p>
+
+<p class='p'>TODO: these delayed error's should be replaced with Exceptions.</p>
+
+<p class='p'>returns undef if no error</p>
+
+<p class='p'></p>
+
+<h3 id="A_61ObjectMethod_61_removeUser_40_36cUID_41_36boolean">  <code>ObjectMethod</code> removeUser( $cUID ) &rarr; $boolean </h3>
+<p></p>
+
+Delete the users entry. Removes the user from the password
+manager and user mapping manager. Does <strong>not</strong> remove their personal
+topics, which may still be linked.
+<p></p>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671486' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/PerlDoc' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?cover=print;module=Foswiki::Users' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/PerlDoc?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671486;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/PerlDoc?foswiki_origin=GET%2cview%2c/bin/view/System/PerlDoc%3fmodule%3dFoswiki::Users">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.PerlDoc'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

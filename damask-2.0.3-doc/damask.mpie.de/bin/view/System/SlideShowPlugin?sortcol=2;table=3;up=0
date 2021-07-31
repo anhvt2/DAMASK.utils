@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> SlideShowPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/SlideShowPlugin?t=1627669297" type="application/x-wiki" title="edit SlideShowPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/SlideShowPlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/bbe6507a9f963756b5b80dab5145d51c.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::FONTAWESOME JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKINAME" : "WikiGuest",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SCRIPTSUFFIX" : "",
+   "SERVERTIME" : "30 Jul 2021 - 20:21",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WEB" : "System",
+   "COOKIEREALM" : "",
+   "USERNAME" : "guest",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SYSTEMWEB" : "System",
+   "TOPIC" : "SlideShowPlugin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "URLHOST" : "https://damask.mpie.de",
+   "USERSWEB" : "Main"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/SlideShowPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Plugins">Plugins</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/SlideShowPlugin" title='Topic revision: 1 (13 Feb 2017 - 20:09:42)'>SlideShowPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/SlideShowPlugin?t=1627669297;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/SlideShowPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/SlideShowPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/SlideShowPlugin?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=SlideShowPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/SlideShowPlugin?cover=print;sortcol=2;table=3;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/SlideShowPlugin?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Slide_Show_Plugin">  Slide Show Plugin </h1>
+<p class='p'>Create web based presentations based on topics with headings</p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#Introduction"> Introduction </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Syntax_rules"> Syntax rules </a> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#How_to_create_a_slideshow"> How to create a slideshow </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#How_to_create_your_own_slide_template"> How to create your own slide template </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=3;up=0#Example"> Example </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Slide_2:_Hamlet_meets_his_father_39s_ghost"> Slide 2: Hamlet meets his father's ghost </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Slide_3:_This_is_rather_upsetting"> Slide 3: This is rather upsetting </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Slide_4:_Meanwhile..."> Slide 4: Meanwhile... </a> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#Comments"> Comments </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=3;up=0#Slide_5:_Please_tune_this_template"> Slide 5: Please tune this template </a> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#Comments_AN1"> Comments </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=3;up=0#SlideShowPlugin_preferences"> SlideShowPlugin preferences </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Default_slide_template"> Default slide template </a> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#Customizing_the_look_of_your_presentation"> Customizing the look of your presentation </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Current_default_template"> Current default template </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=3;up=0#Plugin_installation_instructions"> Plugin installation instructions </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Plugin_info"> Plugin info </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Introduction">  Introduction </h2>
+<p></p>
+
+There is already a <em>de facto</em> standard for presentations, so why this plugin?
+This plugin makes sense for organizations that already have lots of content in Foswiki:
+It is easy to create a web based presentation that contains many links to related content.
+The plugin does not try to compete with the bells and whistles of other presentation programs.
+However, the markup of Foswiki and other plugins such as <a class="interwikiLink" href="https://foswiki.org/Extensions/ChartPlugin" title="'Extensions/ChartPlugin' on foswiki.org">Foswiki:Extensions/ChartPlugin</a>, <a class="interwikiLink" href="https://foswiki.org/Extensions/GaugePlugin" title="'Extensions/GaugePlugin' on foswiki.org">Foswiki:Extensions/GaugePlugin</a>, <a class="interwikiLink" href="https://foswiki.org/Extensions/SpreadSheetPlugin" title="'Extensions/SpreadSheetPlugin' on foswiki.org">Foswiki:Extensions/SpreadSheetPlugin</a>, <a class="interwikiLink" href="https://foswiki.org/Extensions/JHotDrawPlugin" title="'Extensions/JHotDrawPlugin' on foswiki.org">Foswiki:Extensions/JHotDrawPlugin</a> can be used to create appealing presentations.
+<p></p>
+
+Any topic with headings can be converted into a slideshow.
+Each slide starts with a <code>"---++"</code> heading.
+There are two modes to view a topic:
+<p></p>
+ <ul>
+<li> Normal topic view mode:     Headings and text are shown in the usual Foswiki rendering,     representing the outline of the slideshow.     This mode is useful for printing handouts.
+</li></ul> 
+<p></p>
+ <ul>
+<li> Presentation mode:     Each heading with text is shown as a slide;     the format is based on a slide template.     Navigation buttons are added to go to the "First", "Previous", and "Next" slide.     Slide navigation is quick because it is done with anchor jumps to the same page. 
+</li></ul> 
+<p class='p'>You can start the presentation by clicking on the "Start presentation" button.</p>
+
+<h2 id="Syntax_rules">  Syntax rules </h2>
+<p></p>
+
+<h3 id="How_to_create_a_slideshow">  How to create a slideshow </h3>
+<p></p>
+ <ul>
+<li> Start with <code>%SLIDESHOWSTART%</code> <ul>
+<li> Use the optional <code>template</code> parameter to specify your own slide template topic,        e.g. <code>%SLIDESHOWSTART{ template="MyOwnSlideTemplate" }%</code>
+</li></ul> 
+</li> <li> Create the slides.     Start each slide with a <code>"---++"</code> heading and add text     such as paragraphs, bullets, tables and images. <ul>
+<li> <strong>Hint:</strong> Make sure to keep each slide short enough        that you do not need to scroll to see all text of a slide during the presentation.
+</li> <li> <strong>Note:</strong> You can use any heading levels you like,        but use the same levels for all slides.
+</li></ul> 
+</li> <li> End your slideshow with <code>%SLIDESHOWEND%</code>
+</li></ul> 
+<p></p>
+
+<h3 id="How_to_create_your_own_slide_template">  How to create your own slide template </h3>
+<p></p>
+
+To create your own template topic,
+copy the "Default Slide Template" section below into your own slide template topic
+and customize it to your needs.
+It can be activated as the default template in the plugin's <code>TEMPLATE</code> setting,
+or per slideshow with the <code>%SLIDESHOWSTART{ template="MyOwnSlideTemplate" }%</code> setting.
+<p></p>
+ <ul>
+<li> Use a DIV or an HTML table that defines a slide.     For example, create one row for the slide title, another one for the slide text.
+</li> <li> These keywords can be used:           <table class="foswikiTable" rules="none">     	<thead>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SlideShowPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Keyword</a> </th>			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/SlideShowPlugin?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">What it means</a> </th>		</tr>	</thead>     	<tbody>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%SLIDETITLE%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> The heading of the slide </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%SLIDETEXT%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> The text of the slide </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%SLIDECOMMENT%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> The comment of the slide (optional; appended to slide of missing) </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%SLIDENUM%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> The current slide number </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>%SLIDEMAX%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> The last slide number </td>		</tr>	</tbody>     </table>  * And for navigation buttons:           <table class="foswikiTable" rules="none">     	<tbody>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%SLIDENAV%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> The navigation buttons for "First", "Previous", "Next" slide </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%SLIDENAVALL%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> The navigation buttons for "First", "Previous", "Next", "Last" slide </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%SLIDENAVFIRST%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> The navigation button for "First slide" </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%SLIDENAVPREV%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> The navigation button for "Previous slide" </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>%SLIDENAVNEXT%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> The navigation button for "Next slide" </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>%SLIDENAVLAST%</code> </td>			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> The navigation button for "Last slide" </td>		</tr>	</tbody>     </table>
+</li> <li> Only text between <code>%STARTINCLUDE%</code> and <code>%STOPINCLUDE%</code> is used for the template.
+</li></ul> 
+<p></p>
+
+<h2 id="Example">  Example </h2>
+<p class='p'>This is a short example of a slideshow.
+You should see a "Start presentation" button if this plugin is installed:</p>
+
+<p class='p'></p>
+
+<span id="StartPresentation"></span>
+<span class='slideShowControls'><a  class='jqButton slideShowStart' href='https://damask.mpie.de/bin/view/System/SlideShowPlugin?slideshow=on;cover=slideshow;sortcol=2;table=3;up=0#GoSlide1'><i class='jqButtonIcon fa fa-fw fa-television'></i><span class='jqButtonText'>Start presentation</span></a></span>
+<p></p>
+
+<h2 id="Slide_1:_Introduction">  Slide 1: Introduction </h2>
+This is slide one. 
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC2"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#Introduction"> Introduction </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Syntax_rules"> Syntax rules </a> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#How_to_create_a_slideshow"> How to create a slideshow </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#How_to_create_your_own_slide_template"> How to create your own slide template </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=3;up=0#Example"> Example </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Slide_2:_Hamlet_meets_his_father_39s_ghost"> Slide 2: Hamlet meets his father's ghost </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Slide_3:_This_is_rather_upsetting"> Slide 3: This is rather upsetting </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Slide_4:_Meanwhile..."> Slide 4: Meanwhile... </a> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#Comments"> Comments </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=3;up=0#Slide_5:_Please_tune_this_template"> Slide 5: Please tune this template </a> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#Comments_AN1"> Comments </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=3;up=0#SlideShowPlugin_preferences"> SlideShowPlugin preferences </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Default_slide_template"> Default slide template </a> <ul>
+<li> <a href="?sortcol=2;table=3;up=0#Customizing_the_look_of_your_presentation"> Customizing the look of your presentation </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Current_default_template"> Current default template </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=3;up=0#Plugin_installation_instructions"> Plugin installation instructions </a>
+</li> <li> <a href="?sortcol=2;table=3;up=0#Plugin_info"> Plugin info </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Slide_2:_Hamlet_meets_his_father_39s_ghost">  Slide 2: Hamlet meets his father's ghost </h2>
+<p></p>
+ <ul>
+<li> Hamlet learns that his father was killed by his brother Claudius and Queen Gertrude.
+</li> <li> Claudius has quickly become king.
+</li></ul> 
+<p></p>
+
+<h2 id="Slide_3:_This_is_rather_upsetting">  Slide 3: This is rather upsetting </h2>
+<p></p>
+ <ul>
+<li> The ghost demands revenge.
+</li> <li> Hamlet agrees.
+</li> <li> His friends swear to keep what they have seen a secret.
+</li></ul> 
+<p></p>
+
+<h2 id="Slide_4:_Meanwhile...">  Slide 4: Meanwhile... </h2>
+<p></p>
+ <ul>
+<li> the King's advisor Polonius meets his daughter Ophelia. Hamlet has upset her.
+</li> <li> Hamlet is acting mad
+</li></ul> 
+<p></p>
+
+<h3 id="Comments">  Comments </h3>
+<p></p>
+ <ul>
+<li> This text is not shown in the slide if HIDECOMMENTS is set to on.
+</li> <li> It can have
+</li> <li> many
+</li> <li> more
+</li> <li> bullets
+</li></ul> 
+<p></p>
+
+<h2 id="Slide_5:_Please_tune_this_template">  Slide 5: Please tune this template </h2>
+<p></p>
+
+Tune the look of this template by using CSS
+(<code>slideshow.css</code> attached to this document).
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Comments_AN1">  Comments </h3>
+<p class='p'>One-liner: this text is not shown in the slide if HIDECOMMENTS is set to "on".</p>
+
+<p class='p'></p>
+
+<p class='p'>This text is not part of the slideshow.</p>
+
+<h2 id="SlideShowPlugin_preferences"> SlideShowPlugin preferences </h2>
+<p></p>
+
+You can override the default settings for the plugin by defining the following <a href="/bin/view/System/PreferenceSettings">preferences</a>.
+<!-- <ul>
+<li> Set SHORTDESCRIPTION = Create web based presentations based on topics with headings
+</li></ul> 
+<p></p>
+
+-->
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/SlideShowPlugin?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Preference</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/SlideShowPlugin?sortcol=1;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Meaning</a> </th>
+			<th class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol"> <a href="/bin/view/System/SlideShowPlugin?sortcol=2;table=3;up=1#sorted_table" rel="nofollow" title="Sort by this column">Default</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> SLIDESHOWPLUGIN_HIDECOMMENTS </td>
+			<td class="foswikiTableCol1" rowspan="1"> Hide text starting with a <code>---+++ %COMMENTS_LABEL%</code> heading </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> SLIDESHOWPLUGIN_COMMENTS_LABEL </td>
+			<td class="foswikiTableCol1" rowspan="1"> Label for Comments section </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> Comments </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> SLIDESHOWPLUGIN_TEMPLATE </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> Default template for slides: </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol foswikiLast" rowspan="1"> <a class="foswikiCurrentTopicLink" href="/bin/view/System/SlideShowPlugin">SlideShowPlugin</a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Default_slide_template">  Default slide template </h2>
+<p></p>
+
+You can create a new topic (MyWeb.SlidesTemplate) somewhere
+and add <code>STARTINCLUDE &lt;your template&gt; STOPINCLUDE</code> to it.
+Afterwards, you can add <code>%SLIDESHOWSTART{template="MyWeb.SlidesTemplate"}%</code>
+to show your presentations with this new template.
+<br />
+<p></p>
+
+<h3 id="Customizing_the_look_of_your_presentation">  Customizing the look of your presentation </h3>
+<p></p>
+
+Just customize the attached <code>slideshow.css</code> file to improve the view.
+<p></p>
+
+<h3 id="Current_default_template">  Current default template </h3>
+<p></p>
+
+The part between the rulers defines the default format of a slide:
+<pre class="tml">
+&#37;STARTINCLUDE&#37;
+&#60;div class&#61;&#34;slideText&#34;&#62;
+&#60;h1&#62;&#37;SLIDETITLE&#37;&#60;/h1&#62;
+&#37;SLIDETEXT&#37;
+&#37;SLIDECOMMENT&#37;
+&#60;/div&#62;
+&#60;div class&#61;&#34;slideShowFooter&#34;&#62;
+&#60;div class&#61;&#34;foswikiRight slideShowControls&#34;&#62;&#37;SLIDENAVALL&#37;&#60;/div&#62;
+&#60;div class&#61;&#34;foswikiLeft slideShowNum&#34;&#62;Slide &#37;SLIDENUM&#37; of &#37;SLIDEMAX&#37;&#60;/div&#62;
+&#37;CLEAR&#37;
+&#60;/div&#62;
+&#37;STOPINCLUDE&#37; 
+</pre>
+<p></p>
+
+<h2 id="Plugin_installation_instructions">  Plugin installation instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p class='p'>Open configure, and open the "Extensions" section. Use "Find More Extensions" to get a list of available extensions. Select "Install".</p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="http://foswiki.org/Support/ManuallyInstallingExtensions">http://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p></p>
+ <ul>
+<li> Test above example if the installation was successful.
+</li></ul> 
+<p></p>
+
+<h2 id="Plugin_info">  Plugin info </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Sep 2016: (2.32) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14125" title="'Item14125' on the 'Foswiki' issue tracking site">Foswikitask:Item14125</a>: fix encoding of url parms of "start presentation" button; <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14170" title="'Item14170' on the 'Foswiki' issue tracking site">Foswikitask:Item14170</a>: improved button layout </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Apr 2016: (2.31) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14022" title="'Item14022' on the 'Foswiki' issue tracking site">Foswikitask:Item14022</a>: Change all foswiki.org links to https. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Sep 2015: (2.30) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13685" title="'Item13685' on the 'Foswiki' issue tracking site">Foswikitask:Item13685</a>: add support for scrolling slides </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Mar 2015: (2.21) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13281" title="'Item13281' on the 'Foswiki' issue tracking site">Foswikitask:Item13281</a>: improved printout </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jan 2014: (2.20) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13198" title="'Item13198' on the 'Foswiki' issue tracking site">Foswikitask:Item13198</a>: Fully qualify default template topic.<br />                         <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12583" title="'Item12583' on the 'Foswiki' issue tracking site">Foswikitask:Item12583</a>: Revert to simple decimal version strings. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Nov 2012: (2.1.6) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11267" title="'Item11267' on the 'Foswiki' issue tracking site">Foswikitask:Item11267</a>: Convert to perl version strings. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2012: (2.1.5) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.RichMorin" title="'Main.RichMorin' on foswiki.org">Foswiki:Main.RichMorin</a> documentation cleanup<br />                          <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11649" title="'Item11649' on the 'Foswiki' issue tracking site">Foswikitask:Item11649</a>: <a class="foswikiCurrentTopicLink" href="/bin/view/System/SlideShowPlugin">SlideShowPlugin</a> un-necessarily breaks jquery widgets (TABPANES for eg are just blank). </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Aug 2011: (2.1.4) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> URL encoding of query parameters did not include the parameter names </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Apr 2011: (2.1.3) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Version released with Foswiki 1.1.3. Only a minor change related to how the plugin is being upgraded </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Nov 2010: (2.1.2) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Changed the <a href="/bin/view/System/VarSLIDESHOWSTART">VarSLIDESHOWSTART</a> so the example does not add to the TOC of the Macros listing </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Sep 2010: (2.1.1) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Restored default template to HTML table as the CSS one was unfinished and not at all showing what the plugin can do. Re-added the 20 empty lines after each slide so you do not see the next slide below. Changed from using cover to using skin so the left bar margin in pattern skin is not destroying the layout </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jul 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9415" title="'Item9415' on the 'Foswiki' issue tracking site">Foswikitask:Item9415</a> - Documentation updates </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jun 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.0 Arthur Clemens: optimize to default template and CSS to make the plugin work with older templates. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Mar 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.GilmarSantosJr" title="'Main.GilmarSantosJr' on foswiki.org">GilmarSantosJr</a>: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item1401" title="'Tasks/Item1401' on foswiki.org">Foswiki:Tasks/Item1401</a> - Make it work in persistent environments </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Feb 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Fixed <code>HIDECOMMENTS</code> to really hide the comment if value is <code>on</code> - otherwise the comment is shown in the comments section; added customizable <code>COMMENTS_LABEL</code> for all non-English speaking people. Updated default template and css; cleaned up code: now uses a <code>cover</code> instead of a <code>skin</code> so the style of the installed skin is used (unless redefined in the css file); use a custom template; when in slideshow mode, hide topic text; removed extraneously generated spaces; improved error messages; from the button "End presentation" link back to the start button. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Feb 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Updated graphics; made html and css validate. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Jan 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Exchanged the current default skin by something which is not written in totaly broken html and looking acceptable ( still needs an update, still table ugly design..). You can style by CSS now <br /> Tuned the docs a bit </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Foswiki version </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Aug 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Fixed corruption of preview </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Sep 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added <a href="/bin/view/System/VarSLIDESHOWSTART">VarSLIDESHOWSTART</a> and <a href="/bin/view/System/VarSLIDESHOWEND">VarSLIDESHOWEND</a> to have them listed in <a href="/bin/view/System/Macros">Macros</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Feb 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed construction of view urls (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/MichaelDaum" title="'Main/MichaelDaum' on TWiki.org">TWiki:Main/MichaelDaum</a>) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Nov 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 12011: Preserve URL parameters in slideshow (suggested by <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/ThomasWeigert" title="'Main/ThomasWeigert' on TWiki.org">TWiki:Main/ThomasWeigert</a>); changed logo in default template to T-logo; fixed warning errors introduced by 1.005 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Mar 2005: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.005 Crawford Currie prepped for Dakar, and fixed multiple evaluation bug </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Nov 2004: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.004 Added support for <code>%SLIDECOMMENT%</code> template keyword (<a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main/ArthurClemens" title="'Main/ArthurClemens' on TWiki.org">TWiki:Main/ArthurClemens</a>); added benchmarks </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Mar 2004: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Internal change: Fixed unofficial function call </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Dec 2002: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added <code>%SLIDENAVALL%</code> template keyword; added HIDECOMMENTS setting </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Nov 2002: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added <code>%SLIDENAVLAST%</code> template keyword; using print Skin for presentation mode </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Nov 2002: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added "Start presentation" and "End presentation" buttons; added <code>%SLIDENAVFIRST%</code>, <code>%SLIDENAVPREV%</code>, <code>%SLIDENAVNEXT%</code> template keywords </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 17 Nov 2002: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Initial version </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/SlideShowPlugin?t=1627669297;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main.EugenMayer" title="'Main.EugenMayer' on foswiki.org">Foswiki:Main.EugenMayer</a>, <a class="interwikiLink" href="https://foswiki.org/Main.ArthurClemens" title="'Main.ArthurClemens' on foswiki.org">Foswiki:Main.ArthurClemens</a>, <a class="interwikiLink" href="https://foswiki.org/Main.MichaelDaum" title="'Main.MichaelDaum' on foswiki.org">Foswiki:Main.MichaelDaum</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 2.32 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 06 Sep 2016 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Create web based presentations based on topics with headings </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/distro">https://github.com/foswiki/distro</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> Copyright (C) 2006-2007 Peter Thoeny, <a href="mailto&#58;peter&#64;thoeny&#46;org">peter&#64;thoeny.org</a> and Foswiki Contributors; 2008-2015 Foswiki Contributors </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="https://foswiki.org/Extensions/SlideShowPlugin">https://foswiki.org/Extensions/SlideShowPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="https://foswiki.org/Support/SlideShowPlugin">https://foswiki.org/Support/SlideShowPlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/SlideShowPlugin?t=1627669297' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/SlideShowPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SlideShowPlugin?cover=print;sortcol=2;table=3;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/SlideShowPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SlideShowPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SlideShowPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/SlideShowPlugin?t=1627669297;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SlideShowPlugin?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 13 Feb 2017, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/SlideShowPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/SlideShowPlugin%3fsortcol%3d2%3btable%3d3%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.SlideShowPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

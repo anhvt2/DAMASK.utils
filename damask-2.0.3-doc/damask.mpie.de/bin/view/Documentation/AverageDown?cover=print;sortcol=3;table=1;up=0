@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> AverageDown &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/AverageDown?t=1627663180" type="application/x-wiki" title="edit AverageDown" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/AverageDown" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/488ffe18b3e0907187236575c5089c9a.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableAverageDown1 td {vertical-align:middle; vertical-align:top}
+body .foswikiTable#tableAverageDown1 td.foswikiTableCol0 {text-align:left}
+body .foswikiTable#tableAverageDown1 td.foswikiTableCol1 {text-align:left}
+body .foswikiTable#tableAverageDown1 td.foswikiTableCol2 {text-align:left}
+body .foswikiTable#tableAverageDown1 td.foswikiTableCol3 {text-align:right}
+body .foswikiTable#tableAverageDown1 td.foswikiTableCol4 {text-align:left}
+body .foswikiTable#tableAverageDown1 td.foswikiTableCol5 {text-align:left}
+body .foswikiTable#tableAverageDown1 td.foswikiTableCol6 {text-align:left}
+body .foswikiTable#tableAverageDown1 td.foswikiTableCol7 {text-align:left}
+body .foswikiTable#tableAverageDown1 th {vertical-align:middle; background-color:#ffffff; color:#0066cc; text-align:left}
+body .foswikiTable#tableAverageDown1 th a:link {color:#0066cc}
+body .foswikiTable#tableAverageDown1 th a:visited {color:#0066cc}
+body .foswikiTable#tableAverageDown1 th a:hover {color:#0066cc; background-color:#ffffff}
+body .foswikiTable#tableAverageDown1 th.foswikiSortedCol {background-color:#eeeeee}
+body .foswikiTable#tableAverageDown1 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableAverageDown1 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f5f5f5}
+</style>
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "TOPIC" : "AverageDown",
+   "SERVERTIME" : "30 Jul 2021 - 18:39",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "URLHOST" : "https://damask.mpie.de",
+   "WEB" : "Documentation",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "USERSWEB" : "Main",
+   "SCRIPTSUFFIX" : "",
+   "SYSTEMWEB" : "System",
+   "COOKIEREALM" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "USERNAME" : "guest",
+   "WIKINAME" : "WikiGuest"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="A_2.2.23._averageDown"> <A name="Section_2.2.23."></A>2.2.23.  averageDown </h1>
+<span id="TableOfContents"></span>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?cover=print;sortcol=3;table=1;up=0#Purpose"> Purpose </a>
+</li> <li> <a href="?cover=print;sortcol=3;table=1;up=0#Usage"> Usage </a>
+</li> <li> <a href="?cover=print;sortcol=3;table=1;up=0#Options"> Options </a>
+</li> <li> <a href="?cover=print;sortcol=3;table=1;up=0#Details"> Details </a>
+</li></ul> 
+</div>
+<p></p>
+
+<hr />
+<h2 id="Purpose">  Purpose  </h2>
+Average each data block of size 'packing' into single values thus reducing the former grid to grid/packing.
+<p></p>
+
+<span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Usage">  Usage  </h2>
+<pre>
+&gt; averageDown options <a href=https://damask.mpie.de/Documentation/AsciiTableFormat>ASCII table</a>(s) 
+</pre>
+<p></p>
+
+<span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Options">  Options  </h2> <dl>
+<dt> <code>-c</code> / <code>--coordinates</code> [ <strong>pos</strong> ] </dt><dd>    column label of coordinates
+</dd> <dt> <code>-p</code> / =--packing=[ <strong>2</strong> <strong>2</strong> <strong>2</strong> ] </dt><dd>    size of packed group
+</dd> <dt> =--shift=[ <strong>0</strong> <strong>0</strong> <strong>0</strong> ] </dt><dd>    shift vector of packing stencil
+</dd> <dt> <code>-g</code> / <code>--grid</code> </dt><dd>    grid in x,y,z (optional)
+</dd> <dt> <code>-s</code> / <code>--size</code> </dt><dd>    size in x,y,z (optional)
+</dd></dl> 
+<p class='p'></p>
+
+<hr />
+<h2 id="Details">  Details  </h2>
+<div style="width:50%; float:right; background:#f4fcf4; margin: 8pt 0pt 8pt 16pt;">
+<p></p>
+
+<a name="fig:packingStencil"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<center><a href="https://damask.mpie.de/pub/Documentation/AverageDown/averageDown.pdf" title="PDF vector version"><img src="https://damask.mpie.de/pub/Documentation/AverageDown/averageDown.png"></a></center>
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 1</strong>: Packing stencil concept exemplified in two dimensions.</td><td></tr>
+</table>
+<p></p>
+
+<!--<a name="fig:8"></a><table width="100%" border="0">
+<tr><td><td align="center"></td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 2</strong>:  </td><td></tr>
+</table> This dummy figure needs to be placed -- otherwise <a class="foswikiNewLink" href="/bin/edit/Documentation/LaTeXModePlugin?topicparent=Documentation.AverageDown" rel="nofollow" title="Create this topic">LaTeXModePlugin</a> refuses to render the first one correctly! -->
+<p></p>
+
+</div>
+<p></p>
+
+For a periodic and regular grid stored in an  <a href="/bin/view/Documentation/AsciiTableFormat">ASCII table</a> with x as fastest and z as slowest varying coordinate, calculate the average per block of given size.
+Grid resolution is reduced by the factor resulting from the chosen size of the packing stencil.
+<p></p>
+
+Figure <a href="#fig:packingStencil">1</a> illustrates the concept in two dimensions with a 2 by 2 packing stencil.
+The original 4 by 4 grid is shown in light gray and might result from a 2 by 2 finite element mesh (black lines) with linear interpolation functions, thus containing four integration points each.
+During averaging, the stencil is moved across the whole grid in steps of 2 grid points along x and 2 grid points along y, i.e., in a non-overlapping fashion.
+<p class='p'>The (black) points of the resulting 4/2 by 4/2 = 2 by 2 grid fall into the center of the finite elements since a stencil shift of (0, 0) was employed in this example.</p>
+
+Using a stencil shift of either (-1,-1), (-1,1), (1,1), or (1,-1) in the example of Figure <a href="#fig:packingStencil">1</a> would result in the new grid coinciding with the nodes of the finite elements and averaged from their four neighboring integration points (light gray; periodicity of the original data is always implied).</div>
+<p class='p'></p>
+
+<div class="foswikiAttachments foswikiFormStep" style="overflow:auto">
+<div class="twistyPlugin foswikiMakeVisible"><span id="topicattachmentslist1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleopen.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>2</span></span></a></span><span id="topicattachmentslist1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleclose.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>2</span></span></a></span></div><div class="twistyPlugin"><div id="topicattachmentslist1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableAverageDown1" rules="none" summary="Topic attachments"><caption>Topic attachments</caption>
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> I </th>
+			<th class="foswikiTableCol1"> Attachment </th>
+			<th class="foswikiTableCol2"> Action </th>
+			<th class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol"> Size </th>
+			<th class="foswikiTableCol4"> Date </th>
+			<th class="foswikiTableCol5"> Who </th>
+			<th class="foswikiTableCol6 foswikiLastCol"> Comment </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='averageDown.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/Documentation/AverageDown/averageDown.pdf">averageDown.pdf</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/Documentation/AverageDown?filename=averageDown.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" style="text-align:right"> 258 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">16 Feb 2012 - 10:04</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> packing stencil concept used in averageDown postprocessing script </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='averageDown.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/pub/Documentation/AverageDown/averageDown.png">averageDown.png</a> </td>
+			<td class="foswikiTableCol2 foswikiLast"> <a href="/bin/attach/Documentation/AverageDown?filename=averageDown.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" style="text-align:right"> 9 K </td>
+			<td class="foswikiTableCol4 foswikiLast"> <span class="foswikiNoBreak">16 Feb 2012 - 10:20</span> </td>
+			<td class="foswikiTableCol5 foswikiLast"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol foswikiLast"> packing stencil concept used in averageDown postprocessing script </td>
+		</tr>
+	</tbody></table>
+</div></div></div></div>
+<div class="patternInfo">This topic: Documentation<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/Documentation/Processing">Processing</a> &gt; <a href="/bin/view/Documentation/PostProcessing">PostProcessing</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>AverageDown <br />
+Topic revision:  <span class='patternRevInfo'>19 Feb 2019, <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.AverageDown'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> SearchPatternCookbook &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/SearchPatternCookbook?t=1627664359" type="application/x-wiki" title="edit SearchPatternCookbook" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/SearchPatternCookbook" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/1efaa8948f7226b7610aedd2b47891e5.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::ANIMATE JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::ANIMATE' src='/pub/System/JQueryPlugin/plugins/animate/animate.js?version=3.7.0'></script>
+<script class='script JQUERYPLUGIN::LOADER' src='/pub/System/JQueryPlugin/plugins/loader/jquery.loader.js?version=4.00'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "USERNAME" : "guest",
+   "TOPIC" : "SearchPatternCookbook",
+   "SCRIPTSUFFIX" : "",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WEB" : "System",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "COOKIEREALM" : "",
+   "SERVERTIME" : "30 Jul 2021 - 18:59",
+   "PUBURLPATH" : "/pub",
+   "URLHOST" : "https://damask.mpie.de",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SYSTEMWEB" : "System",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "USERSWEB" : "Main",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATH" : "/bin"
+}
+</script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/SearchPatternCookbook"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/SearchPatternCookbook" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>SearchPatternCookbook</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/SearchPatternCookbook?t=1627664360;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/SearchPatternCookbook' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/SearchPatternCookbook?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/SearchPatternCookbook?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=SearchPatternCookbook' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/SearchPatternCookbook?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/SearchPatternCookbook?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Search_Pattern_Cookbook">  Search Pattern Cookbook </h1>
+<p></p>
+
+The Search function is very powerful. Searches using a <a href="/bin/view/System/RegularExpression">RegularExpression</a> play an important part of tapping Foswiki's full potential. Unfortunately <a href="/bin/view/System/RegularExpression">RegularExpressions</a> can be incredibly obscure to the uninitiated. 
+<p class='p'>Most people not familiar (enough) with Regular Expressions mostly cut and paste (and maybe tweak) from existing examples. This page intends to collect lots of examples together.</p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#Pattern_1:_Extract_values_from_a_table"> Pattern 1: Extract values from a table </a>
+</li> <li> <a href="#Pattern_2:_List_generated_from_form_classification"> Pattern 2: List generated from form classification </a>
+</li> <li> <a href="#Pattern_3:_Extract_the_parent_of_a_given_topic"> Pattern 3: Extract the parent of a given topic </a>
+</li> <li> <a href="#Pattern_4:_Show_all_Children_of_a_given_topic"> Pattern 4: Show all Children of a given topic </a>
+</li> <li> <a href="#Pattern_5:_Search_and_display_the_home_topics_of_public_webs_in_a_list"> Pattern 5: Search and display the home topics of public webs in a list </a>
+</li> <li> <a href="#Pattern_6:_Create_a_select_box_with_values_from_a_bullet_list"> Pattern 6: Create a select box with values from a bullet list </a>
+</li> <li> <a href="#Pattern_7:_Search_all_topics_that_have_been_moved"> Pattern 7: Search all topics that have been moved </a>
+</li> <li> <a href="#Pattern_8:_Extract_level_451_headings"> Pattern 8: Extract level-1 headings </a>
+</li></ul> 
+</div>
+<p></p>
+
+<span id="SearchTables"></span>
+<h2 id="Pattern_1:_Extract_values_from_a_table">  Pattern 1: Extract values from a table </h2>
+<p></p>
+
+<h3 id="Problem_definition">  Problem definition </h3>
+<p></p>
+
+Suppose there is a topic with a table defining entries in a <a href="/bin/view/System/DataForms">data form</a>. I.e. they define select menu items in a form definition. They are then formatted like:
+<p></p>
+
+<pre class="tml">
+&#124; &#42;Name&#42;  &#124; &#42;Type&#42; &#124; &#42;Tooltip message&#42; &#124;
+&#124; option1 &#124; option &#124;                   &#124;
+&#124; option2 &#124; option &#124;                   &#124;
+&#124; option3 &#124; option &#124;                   &#124;
+</pre>
+<p class='p'>How to extract the 'name' values, i.e. 'option1', 'option2' and 'option3' and put them in a HTML form select input?</p>
+
+<h3 id="Solution_1">  Solution 1 </h3>
+The following search pattern can be employed:
+<p></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution1&#34;}&#37;
+&#60;form&#62;
+    &#60;select&#62;
+        &#37;SEARCH{
+            &#34;^\&#124;&#91;^\&#124;&#93;&#42;\&#124; &#42;option &#42;\&#124;&#34;
+            topic&#61;&#34;&#37;TOPIC&#37;&#34;
+            type&#61;&#34;regex&#34;
+            multiple&#61;&#34;on&#34;
+            nonoise&#61;&#34;on&#34;
+            format&#61;&#34;&#60;option&#62;&#36;pattern(^\&#124; &#42;(.&#42;?) &#42;\&#124;.&#42;)&#60;/option&#62;&#34;
+        }&#37;
+    &#60;/select&#62;
+&#60;/form&#62;
+&#37;ENDSECTION{&#34;solution1&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution1').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution1'}" id="solution1"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Solution_2">  Solution 2 </h3>
+If your table has this format:
+<pre class="tml">
+&#124; &#42;Country&#42;      &#124;
+&#124;                &#124;
+&#124; Afghanistan    &#124;
+&#124; Aland Islands  &#124;
+&#124; Albania        &#124;
+&#124; Algeria        &#124;
+&#124; American Samoa &#124;
+&#124; Andorra        &#124;
+</pre>
+<p></p>
+
+You need to skip the header row. Use this search:
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution2&#34;}&#37;
+&#60;select&#62;
+    &#37;SEARCH{
+        &#34;^\&#124;&#91;^\&#42;\&#124;&#93;&#42;\&#124;&#34;
+        topic&#61;&#34;CountryList&#34;
+        type&#61;&#34;regex&#34;
+        multiple&#61;&#34;on&#34;
+        nonoise&#61;&#34;on&#34;
+        format&#61;&#34;&#60;option&#62;&#36;pattern(^\&#124; &#42;(.&#42;?) &#42;\&#124;.&#42;)&#60;/option&#62;&#34;
+    }&#37;
+&#60;/select&#62;
+&#37;ENDSECTION{&#34;solution2&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution2').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution2'}" id="solution2"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="Solution_3">  Solution 3 </h3>
+If you want to grab the complete row for each occurrence of a string in a table, for instance the word "Marketing":
+<pre class="tml">
+&#124; a &#124; b &#124; c &#124; d &#124; e &#124;
+&#124; Marketing &#124; b &#124; c &#124; d &#124; e&#124;
+&#124; a &#124; b &#124; c &#124; d &#124; e &#124;
+&#124; a &#124; marketing &#124; c &#124; d &#124; e &#124; 
+&#124; a &#124; b &#124; c &#124; d &#124; marketing &#124; 
+</pre>
+<p></p>
+
+use this query:
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution3&#34;}&#37;
+&#37;SEARCH{
+    &#34;^\&#124;.&#42;?Marketing.&#42;&#34;
+    type&#61;&#34;regex&#34;
+    topic&#61;&#34;&#37;TOPIC&#37;&#34;
+    multiple&#61;&#34;on&#34;
+    nonoise&#61;&#34;on&#34;
+    format&#61;&#34;&#124; &#36;pattern(^\&#124; &#42;(.&#42;?) &#42;&#124;.&#42;)&#34;
+}&#37;
+&#37;ENDSECTION{&#34;solution3&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution3').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution3'}" id="solution3"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<span id="SearchFormClassification"></span>
+<h2 id="Pattern_2:_List_generated_from_form_classification">  Pattern 2: List generated from form classification </h2>
+<p></p>
+
+<h3 id="Problem">  Problem </h3>
+<p></p>
+
+Imagine a form-based topic classification, i.e. every page has a form with several fields. How to: <ol>
+<li> create a search to display all topics where one form field is set to a certain value
+</li> <li> create a search to filter the list above based on the values of a second form field
+</li></ol> 
+<p></p>
+
+<h3 id="Test_case">  Test case </h3>
+<p></p>
+
+In practice: <br />
+Image a form with two fields: <ul>
+<li> TopicClassification = One, Two or Three
+</li> <li> TopicStatus = Test or Final
+</li></ul> 
+<p></p>
+
+We will: <ol>
+<li> List all topics where the TopicClassification field is set to 'Two'
+</li> <li> Enable the user to filter this list based on the values of TopicStatus
+</li></ol> 
+<p></p>
+
+<h3 id="Solution">  Solution </h3>
+<p></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution4&#34;}&#37;
+&#37;SEARCH{
+    &#34;TopicClassification&#61;&#39;&#37;URLPARAM{&#34;type&#34; default&#61;&#34;FrequentlyAskedQuestion&#34;}&#37;&#39;&#34;
+    type&#61;&#34;query&#34;
+    nonoise&#61;&#34;on&#34;
+    sort&#61;&#34;topic&#34;
+    format&#61;&#34;   &#42; &#91;&#91;&#36;topic&#93;&#93; - &#60;span class&#61;&#39;foswikiGrayText&#39;&#62;&#36;date, &#91;&#91;&#36;wikiusername&#93;&#93;&#60;/span&#62;&#34;
+}&#37;
+&#37;ENDSECTION{&#34;solution4&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution4').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution4'}" id="solution4"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'>The filtering select dialogue is created as in Pattern 1:</p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution5&#34;}&#37;
+&#42;Filter:&#42; 
+&#60;form name&#61;&#34;selectType&#34; action&#61;&#34;&#37;SCRIPTURLPATH{&#34;view&#34;}&#37;/&#37;WEB&#37;/&#34; &#62;
+    &#60;select name&#61;&#34;type&#34; size&#61;&#34;1&#34; onchange&#61;&#34;document.location&#61;this.value;&#34;&#62; 
+        &#37;SEARCH{
+            &#34;^\&#124;&#91;^\&#124;&#93;&#42;\&#124; &#42;option &#42;\&#124;&#34;
+            topic&#61;&#34;TopicClassification&#34;
+            type&#61;&#34;regex&#34; 
+            nonoise&#61;&#34;on&#34;
+            format&#61;&#34;&#60;option value&#61;&#39;&#37;BASETOPIC&#37;?type&#61;&#36;pattern(^\&#124; &#42;(.&#42;?) &#42;\&#124;.&#42;)&#39;&#62;
+                &#36;pattern(^\&#124; &#42;(.&#42;?) &#42;\&#124;.&#42;)&#60;/option&#62;&#34;
+        }&#37; 
+        &#60;option value&#61;&#39;&#37;BASETOPIC&#37;&#39;&#62;All pages&#60;/option&#62;
+    &#60;/select&#62;
+&#60;/form&#62;
+&#37;ENDSECTION{&#34;solution5&#34;}&#37;
+</pre>
+<p></p>
+
+This will create similar functionality as <a class="interwikiLink" href="https://foswiki.org/Extensions.TopicClassificationAddOn" title="'Extensions.TopicClassificationAddOn' on foswiki.org">Foswiki:Extensions.TopicClassificationAddOn</a>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution5').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution5'}" id="solution5"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<span id="SearchTopicParent"></span>
+<h2 id="Pattern_3:_Extract_the_parent_of_a_given_topic">  Pattern 3: Extract the parent of a given topic </h2>
+<p></p>
+
+<h3 id="Problem_AN1">  Problem </h3>
+<p class='p'>How to get to the parent of the current topic to display on the page?</p>
+
+<h3 id="Solution_1:_Using_QUERY">  Solution 1: Using QUERY </h3>
+<p class='p'>Use the QUERY macro:</p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution6&#34;}&#37;
+Parent of &#91;&#91;&#37;TOPIC&#37;&#93;&#93; is &#91;&#91;&#37;QUERY{ &#34;parent.name&#34; }&#37;&#93;&#93;
+&#37;ENDSECTION{&#34;solution6&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution6').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution6'}" id="solution6"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<span id="SearchTopicChildren"></span>
+<h2 id="Pattern_4:_Show_all_Children_of_a_given_topic">  Pattern 4: Show all Children of a given topic </h2>
+<p></p>
+
+<h3 id="Problem_AN2">  Problem </h3>
+<p class='p'>How to get to the list of all children of the current topic to display on the page?</p>
+
+<h3 id="Solution_AN1">  Solution </h3>
+<p class='p'>The parent information is stored in the topic meta data. Do a SEARCH to find all topic parent meta data pointing to the current topic:</p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution7&#34;}&#37;
+&#37;SEARCH{
+    &#34;parent.name&#61;&#39;&#37;HOMETOPIC&#37;&#39;&#34;
+    type&#61;&#34;query&#34;
+    nonoise&#61;&#34;on&#34;
+    header&#61;&#34;&#42;Children:&#42; &#34;
+    format&#61;&#34;&#91;&#91;&#36;topic&#93;&#93;&#34;
+    separator&#61;&#34;, &#34;
+}&#37;
+&#37;ENDSECTION{&#34;solution7&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution7').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution7'}" id="solution7"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+See also <a href="/bin/view/System/HierarchicalNavigation">HierarchicalNavigation</a> for an elaborate example.
+<p></p>
+
+<span id="SearchPublicWebsList"></span>
+<h2 id="Pattern_5:_Search_and_display_the_home_topics_of_public_webs_in_a_list">  Pattern 5: Search and display the home topics of public webs in a list </h2>
+<p></p>
+
+<h3 id="Problem_AN3">  Problem </h3>
+<p class='p'>How to find and display public webs in a drop down list box.</p>
+
+<h3 id="Solution_AN2">  Solution </h3>
+<p></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution8&#34;}&#37;
+&#60;form&#62;
+    &#60;select name&#61;&#34;topic&#34;&#62;
+        &#60;option value&#61;&#34;&#37;TOPIC&#37;&#34;&#62;Select...&#60;/option&#62;
+            &#37;SEARCH{
+                &#34;&#37;HOMETOPIC&#37;&#34;
+                scope&#61;&#34;topic&#34;
+                web&#61;&#34;all&#34;
+                topic&#61;&#34;&#37;HOMETOPIC&#37;&#34;
+                format&#61;&#34;&#60;option value&#61;&#39;&#36;web.&#36;topic&#39;&#62;&#36;web&#60;/option&#62;&#34;
+                separator&#61;&#34; &#34;
+            }&#37;
+    &#60;/select&#62;
+    &#60;input type&#61;&#34;submit&#34; class&#61;&#34;foswikiSubmit&#34; value&#61;&#34;Go&#34; /&#62;
+&#60;/form&#62;
+&#37;ENDSECTION{&#34;solution8&#34;}&#37;
+</pre>
+<p class='p'>Public webs can be found with the %WEBLIST% macro.</p>
+
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution8').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution8'}" id="solution8"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<span id="SearchBulletList"></span>
+<h2 id="Pattern_6:_Create_a_select_box_with_values_from_a_bullet_list">  Pattern 6: Create a select box with values from a bullet list </h2>
+<p></p>
+
+<h3 id="Problem_AN4">  Problem </h3>
+<p class='p'>We have a topic with a bullet list with category names. In another topic we want to offer these values in a select box dropdown.</p>
+
+For example, CategoryList has: <ul>
+<li> Clients
+</li> <li> People
+</li> <li> Rooms
+</li> <li> Buildings
+</li></ul> 
+<p></p>
+
+<h3 id="Solution_AN3">  Solution </h3>
+<p class='p'>The following search pattern can be employed:</p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution9&#34;}&#37;
+&#60;select name&#61;&#34;type&#34;&#62;
+    &#60;option&#62;Select category...&#60;/option&#62;
+    &#37;SEARCH{
+        &#34;   &#42;\s&#42;.&#42;?&#34;
+        topic&#61;&#34;CategoryList&#34;
+        type&#61;&#34;regex&#34;
+        multiple&#61;&#34;on&#34;
+        casesensitive&#61;&#34;on&#34;
+        nonoise&#61;&#34;on&#34;
+        format&#61;&#34;&#60;option&#62;&#36;pattern(.&#42;   \&#42;\s&#42;(&#91;^\n&#93;&#42;).&#42;)&#60;/option&#62;&#34;
+    }&#37;
+&#60;/select&#62;
+&#37;ENDSECTION{&#34;solution9&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution9').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution9'}" id="solution9"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+To render the bullet list as a comma-separated list, use the <code>separator</code> parameter:
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution10&#34;}&#37;
+&#37;SEARCH{
+    &#34;   &#42;\s&#42;.&#42;?&#34;
+    topic&#61;&#34;CategoryList&#34;
+    type&#61;&#34;regex&#34;
+    multiple&#61;&#34;on&#34;
+    casesensitive&#61;&#34;on&#34;
+    nonoise&#61;&#34;on&#34;
+    separator&#61;&#34;,&#34;
+    format&#61;&#34;&#36;pattern(.&#42;   \&#42;\s&#42;(&#91;^\n&#93;&#42;).&#42;)&#34;
+}&#37;
+&#37;ENDSECTION{&#34;solution10&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution10').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution10'}" id="solution10"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<span id="MovedTopics"></span>
+<h2 id="Pattern_7:_Search_all_topics_that_have_been_moved">  Pattern 7: Search all topics that have been moved </h2>
+<p></p>
+
+<h3 id="Problem_AN5">  Problem </h3>
+<p class='p'>How would I go about listing all moved topics ?</p>
+
+<h3 id="Solution_AN4">  Solution </h3>
+<p class='p'>Search for the 'moved' meta data.</p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution11&#34;}&#37;
+&#42;Moved topics&#42;: &#37;SEARCH{
+    &#34;moved.from&#61;~&#39;\w+&#39;&#34;
+    web&#61;&#34;all&#34;
+    type&#61;&#34;query&#34;
+    separator&#61;&#34;, &#34;
+    format&#61;&#34;&#91;&#91;&#36;web.&#36;topic&#93;&#93;&#34;
+    nonoise&#61;&#34;on&#34;
+}&#37;
+&#37;ENDSECTION{&#34;solution11&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution11').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution11'}" id="solution11"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h2 id="Pattern_8:_Extract_level_451_headings">  Pattern 8: Extract level-1 headings </h2>
+<p></p>
+
+<h3 id="How_do_I_go_about_extracting_the_first_occurance_of_a_level_451_heading_63">  How do I go about extracting the first occurance of a level-1 heading? </h3>
+<p></p>
+
+<h3 id="Solution_AN5">  Solution </h3>
+Use the <code>$pattern()</code> token. 
+<p class='p'></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;solution12&#34;}&#37;
+&#37;SEARCH{
+    &#34;^---&#91;+&#93;&#91;^+&#93;&#91;^\r\n&#93;+&#91;\r\n&#93;&#34;
+    type&#61;&#34;regex&#34;
+    nonoise&#61;&#34;on&#34;
+    header&#61;&#34;Headings:&#34;
+    limit&#61;&#34;5&#34;
+    format&#61;&#34;   &#42; &#91;&#91;&#36;topic&#93;&#91;&#36;pattern(&#91;\r\n\-+!&#93;+(&#91;^\r\n&#93;&#42;?)&#91;\r\n&#93;.&#42;)&#93;&#93;&#34;
+    footer&#61;&#34;Found &#36;ntopics topics with level-1 headings&#34;
+}&#37;
+&#37;ENDSECTION{&#34;solution12&#34;}&#37;
+</pre>
+<p class='p'></p>
+
+<a  class='jqButton ' href='#' onclick="jQuery('#solution12').trigger('refresh');return false;" ><span class='jqButtonText'>Click to execute</span></a>
+<p></p>
+
+<div class="jqLoader {mode:'manual', web:'System', topic:'SearchPatternCookbook', section:'solution12'}" id="solution12"></div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<hr />
+<strong>Related Topics:</strong> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>, <a href="/bin/view/System/SearchHelp">SearchHelp</a>, <a href="/bin/view/System/Macros">Macros</a>, <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>, <a href="/bin/view/System/RegularExpression">RegularExpression</a>
+<p></p>
+
+<pre class="foswikiHidden">
+&#37;STARTSECTION{&#34;click2exec&#34;}&#37;
+&#37;BUTTON{&#34;Click to execute&#34; onclick&#61;&#34;jQuery(&#39;#&#37;id&#37;&#39;).trigger(&#39;refresh&#39;)&#34;}&#37;
+
+&#60;div class&#61;&#34;jqLoader {mode:&#39;manual&#39;, web:&#39;&#37;INCLUDINGWEB&#37;&#39;, topic:&#39;&#37;INCLUDINGTOPIC&#37;&#39;, section:&#39;&#37;id&#37;&#39;}&#34; id&#61;&#34;&#37;id&#37;&#34;&#62;&#60;/div&#62;
+&#37;JQREQUIRE{&#34;loader&#34;}&#37;
+&#37;ENDSECTION{&#34;click2exec&#34;}&#37;
+</pre> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/SearchPatternCookbook?t=1627664360' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/SearchPatternCookbook' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SearchPatternCookbook?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/SearchPatternCookbook?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SearchPatternCookbook?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SearchPatternCookbook?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/SearchPatternCookbook?t=1627664360;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/SearchPatternCookbook?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/SearchPatternCookbook?foswiki_origin=GET%2cview%2c/bin/view/System/SearchPatternCookbook">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.SearchPatternCookbook'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

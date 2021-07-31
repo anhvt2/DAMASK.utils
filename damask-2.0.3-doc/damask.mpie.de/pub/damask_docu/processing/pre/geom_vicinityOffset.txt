@@ -1,0 +1,24 @@
+%SECTION0% geom_vicinityOffset
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Offset microstructure index for points which see a microstructure different from themselves (or listed as triggers) within a given (cubic) vicinity, i.e. within the region close to a grain/phase boundary.
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; geom_vicinityOffset options file[s] 
+</pre>
+
+%UPTOC%
+---++ Options
+   $=-v= / =--vicinity= [ *1* ]: 
+   voxel distance checked for presence of other microstructure
+   $=-m= / =--microstructureoffset= [ *0* ]: 
+   offset (positive or negative) for tagged microstructure indices. "0" selects maximum microstructure index
+   $=-t= / =--trigger=: 
+   list of microstructure indices triggering a change
+   $=-n= / =--nonperiodic=: 
+   assume geometry to be non-periodic

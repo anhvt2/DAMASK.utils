@@ -1,0 +1,590 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> WebStatistics &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/WebStatistics?t=1627667088" type="application/x-wiki" title="edit WebStatistics" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/WebStatistics" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/d81badf1195fb9b640c0972660420507.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "WEB" : "Documentation",
+   "USERSWEB" : "Main",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WIKINAME" : "WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTSUFFIX" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "COOKIEREALM" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SYSTEMWEB" : "System",
+   "TOPIC" : "WebStatistics",
+   "SCRIPTURLPATH" : "/bin",
+   "SERVERTIME" : "30 Jul 2021 - 19:44",
+   "USERNAME" : "guest",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURLPATH" : "/pub",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Documentation/WebStatistics"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Documentation/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Documentation" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="active">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/WebHome">Documentation</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Documentation/WebStatistics" title='Topic revision: 1 (08 Feb 2016 - 14:18:07)'>WebStatistics</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Documentation/WebStatistics?t=1627667088;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Documentation/WebStatistics' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Documentation/WebStatistics?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/WebStatistics?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Documentation/WebCreateNewTopic?topicparent=WebStatistics' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/WebStatistics?cover=print;sortcol=3;table=1;up=1' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Documentation/WebStatistics?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h2 id="Statistics_for_Documentation_Web">  Statistics for Documentation Web </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/Documentation/WebStatistics?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Month:</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/Documentation/WebStatistics?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Topic <br /> views:</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/Documentation/WebStatistics?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Topic <br /> saves:</a> </th>
+			<th class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol"> <a href="/bin/view/Documentation/WebStatistics?sortcol=3;table=1;up=2#sorted_table" rel="nofollow" title="Sort by this column">File <br /> uploads:</a><a name="sorted_table"></a><span class="tableSortIcon tableSortDown"><img alt="Sorted descending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortdown.gif" title="Sorted descending" width="11" /></span> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/Documentation/WebStatistics?sortcol=4;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Most popular <br /> topic views:</a> </th>
+			<th class="foswikiTableCol5 foswikiLastCol"> <a href="/bin/view/Documentation/WebStatistics?sortcol=5;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Top contributors for <br /> topic save and uploads:</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"></td>
+			<td class="foswikiTableCol1" rowspan="1"></td>
+			<td class="foswikiTableCol2" rowspan="1"></td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1"></td>
+			<td class="foswikiTableCol4" rowspan="1"></td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"></td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Mar 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 4808 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 343 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 240 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 582 <a href="/bin/view/Documentation/SpectralSolver">SpectralSolver</a><br />524 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />457 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />173 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />147 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />&nbsp;80 <a href="/bin/view/Documentation/Background">Background</a><br />&nbsp;78 <a href="/bin/view/Documentation/J2">J2</a><br />&nbsp;74 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />&nbsp;74 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />&nbsp;72 <a href="/bin/view/Documentation/HomogenizationScheme">HomogenizationScheme</a><br />&nbsp;71 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 226 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />194 <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a><br />162 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/HenryHutasoit">HenryHutasoit</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Oct 2012 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 13676 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 388 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 38 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 3903 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />3236 <a href="/bin/view/Documentation/FileFormats">FileFormats</a><br />1646 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />1395 <a href="/bin/view/Documentation/ConfigurationFiles">ConfigurationFiles</a><br />718 <a class="foswikiNewLink" href="/bin/edit/Documentation/SpectralSolverFiles?topicparent=Documentation.WebStatistics" rel="nofollow" title="Create this topic">SpectralSolverFiles</a><br />345 <a href="/bin/view/Documentation/CrystalLattice">CrystalLattice</a><br />268 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />180 <a href="/bin/view/Documentation/Plasticity">Plasticity</a><br />159 <a href="/bin/view/Documentation/PostProcessing">PostProcessing</a><br />135 <a href="/bin/view/Documentation/PreProcessing">PreProcessing</a><br />134 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 266 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;76 <a href="/bin/view/Main/PratheekShanthraj">PratheekShanthraj</a><br />&nbsp;42 <a href="/bin/view/Main/NaderZaafarani">NaderZaafarani</a><br />&nbsp;37 <a href="/bin/view/Main/NicolloGrilli">NicolloGrilli</a><br />&nbsp;&nbsp;3 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/ChristophKords">ChristophKords</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Nov 2012 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 17023 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 405 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 35 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 3013 <a href="/bin/view/Documentation/FileFormats">FileFormats</a><br />2092 <a class="foswikiNewLink" href="/bin/edit/Documentation/SpectralSolverFiles?topicparent=Documentation.WebStatistics" rel="nofollow" title="Create this topic">SpectralSolverFiles</a><br />1756 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />1502 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />1199 <a href="/bin/view/Documentation/ConfigurationFiles">ConfigurationFiles</a><br />1090 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />906 <a href="/bin/view/Documentation/Background">Background</a><br />583 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />428 <a href="/bin/view/Documentation/HomogenizationScheme">HomogenizationScheme</a><br />426 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />378 <a href="/bin/view/Documentation/RelaxedGrainCluster">RelaxedGrainCluster</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 376 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;32 <a href="/bin/view/Main/NaderZaafarani">NaderZaafarani</a><br />&nbsp;30 <a href="/bin/view/Main/FranzRoters">FranzRoters</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> May 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 4906 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 151 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 31 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 364 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />203 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />134 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />128 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />127 <a href="/bin/view/Documentation/SpectralSolver">SpectralSolver</a><br />121 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />110 <a href="/bin/view/Documentation/Hex">Hex</a><br />106 <a href="/bin/view/Documentation/PreProcessing">PreProcessing</a><br />102 <a href="/bin/view/Documentation/GeomFromOsteonGeometry">GeomFromOsteonGeometry</a><br />101 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />&nbsp;99 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 127 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;47 <a href="/bin/view/Main/DavidMercier">DavidMercier</a><br />&nbsp;&nbsp;8 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Apr 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 12764 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 15 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 16 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1575 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />793 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />536 <a href="/bin/view/Documentation/FCC">FCC</a><br />348 <a href="/bin/view/Documentation/MentatSpectralBox">MentatSpectralBox</a><br />346 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />304 <a href="/bin/view/Documentation/BCC">BCC</a><br />228 <a href="/bin/view/Documentation/Hex">Hex</a><br />223 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />193 <a href="/bin/view/Documentation/GeometryFormat">GeometryFormat</a><br />185 <a href="/bin/view/Documentation/J2">J2</a><br />179 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;29 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/DavidMercier">DavidMercier</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jun 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 4276 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 177 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 16 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 433 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />189 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />164 <a href="/bin/view/Documentation/FCC">FCC</a><br />123 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />115 <a href="/bin/view/Documentation/PreProcessing">PreProcessing</a><br />112 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />111 <a href="/bin/view/Documentation/Hex">Hex</a><br />&nbsp;98 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />&nbsp;95 <a href="/bin/view/Documentation/SpectralSolver">SpectralSolver</a><br />&nbsp;82 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />&nbsp;82 <a href="/bin/view/Documentation/BCC">BCC</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 100 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;64 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;19 <a href="/bin/view/Main/DavidMercier">DavidMercier</a><br />&nbsp;10 <a href="/bin/view/Main/HarshaPhukan">HarshaPhukan</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Mar 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 10142 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 34 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 8 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 738 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />568 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />429 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />365 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />225 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />201 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a><br />201 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />194 <a href="/bin/view/Documentation/Hex">Hex</a><br />191 <a href="/bin/view/Documentation/FCC">FCC</a><br />188 <a href="/bin/view/Documentation/BCC">BCC</a><br />187 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;30 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;11 <a href="/bin/view/Main/ChristophKords">ChristophKords</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Dec 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 34805 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 67 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 7 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 4043 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />3180 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />1871 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />1439 <a href="/bin/view/Documentation/Hex">Hex</a><br />1278 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />1156 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />917 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />749 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a><br />735 <a href="/bin/view/Documentation/GeomVicinityOffset">GeomVicinityOffset</a><br />728 <a href="/bin/view/Documentation/FCC">FCC</a><br />722 <a href="/bin/view/Documentation/BCC">BCC</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;72 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/SimonWyatt">SimonWyatt</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> May 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 32622 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 23 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 6 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 2508 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />2394 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />1742 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />1247 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />1041 <a href="/bin/view/Documentation/GeomRescale">GeomRescale</a><br />894 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />867 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a><br />722 <a href="/bin/view/Documentation/GeomFromOsteonGeometry">GeomFromOsteonGeometry</a><br />717 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />676 <a href="/bin/view/Documentation/FCC">FCC</a><br />655 <a href="/bin/view/Documentation/GeomFromVoronoiTessellation">GeomFromVoronoiTessellation</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;29 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> May 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 6282 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 10 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 6 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 541 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />505 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />247 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />150 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />141 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />135 <a href="/bin/view/Documentation/GeomFromVoronoiTessellation">GeomFromVoronoiTessellation</a><br />133 <a href="/bin/view/Documentation/Hex">Hex</a><br />117 <a href="/bin/view/Documentation/BCC">BCC</a><br />116 <a href="/bin/view/Documentation/FCC">FCC</a><br />&nbsp;97 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />&nbsp;96 <a href="/bin/view/Documentation/PreProcessing">PreProcessing</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;16 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Apr 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 3767 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 47 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 5 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 353 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />147 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />130 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />&nbsp;96 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />&nbsp;83 <a href="/bin/view/Documentation/J2">J2</a><br />&nbsp;82 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />&nbsp;81 <a href="/bin/view/Documentation/SpectralSolver">SpectralSolver</a><br />&nbsp;78 <a href="/bin/view/Documentation/GeomFromOsteonGeometry">GeomFromOsteonGeometry</a><br />&nbsp;75 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />&nbsp;75 <a href="/bin/view/Documentation/ConfigurationFiles">ConfigurationFiles</a><br />&nbsp;73 <a href="/bin/view/Documentation/Hex">Hex</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;36 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;16 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jul 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 5202 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 98 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 332 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />237 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />225 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />219 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />175 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />142 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />108 <a href="/bin/view/Documentation/Hex">Hex</a><br />104 <a href="/bin/view/Documentation/GeometryFormat">GeometryFormat</a><br />100 <a href="/bin/view/Documentation/SpectralSolver">SpectralSolver</a><br />&nbsp;99 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />&nbsp;91 <a href="/bin/view/Documentation/GeomRescale">GeomRescale</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;52 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;37 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;12 <a href="/bin/view/Main/DavidMercier">DavidMercier</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Oct 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 5153 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 25 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 517 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />472 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />182 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />154 <a href="/bin/view/Documentation/Hex">Hex</a><br />133 <a href="/bin/view/Documentation/FCC">FCC</a><br />133 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />129 <a href="/bin/view/Documentation/GeomFromVoronoiTessellation">GeomFromVoronoiTessellation</a><br />105 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />103 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />100 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />&nbsp;92 <a href="/bin/view/Documentation/BCC">BCC</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;13 <a href="/bin/view/Main/DavidMercier">DavidMercier</a><br />&nbsp;&nbsp;7 <a href="/bin/view/Main/FranzRoters">FranzRoters</a><br />&nbsp;&nbsp;7 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jan 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 5182 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 253 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 404 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />287 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />256 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />208 <a href="/bin/view/Documentation/J2">J2</a><br />139 <a href="/bin/view/Documentation/Hooke">Hooke</a><br />136 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />134 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />117 <a href="/bin/view/Documentation/Hex">Hex</a><br />107 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />103 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />&nbsp;95 <a href="/bin/view/Documentation/TensorNotation">TensorNotation</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 218 <a href="/bin/view/Main/ChristophKords">ChristophKords</a><br />&nbsp;33 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;4 <a href="/bin/view/Main/TiasMaiti">TiasMaiti</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Feb 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 3330 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 88 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 391 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />245 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />156 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />&nbsp;90 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />&nbsp;70 <a href="/bin/view/Documentation/HomogenizationScheme">HomogenizationScheme</a><br />&nbsp;67 <a href="/bin/view/Documentation/Plasticity">Plasticity</a><br />&nbsp;64 <a href="/bin/view/Documentation/FileFormats">FileFormats</a><br />&nbsp;63 <a href="/bin/view/Documentation/PreProcessing">PreProcessing</a><br />&nbsp;61 <a href="/bin/view/Documentation/ConfigurationFiles">ConfigurationFiles</a><br />&nbsp;58 <a href="/bin/view/Documentation/Elasticity">Elasticity</a><br />&nbsp;57 <a href="/bin/view/Documentation/Processing">Processing</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;72 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;18 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jan 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 12053 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 285 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 6238 <a href="/bin/view/Documentation/PostProcessing">PostProcessing</a><br />660 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />409 <a href="/bin/view/Documentation/PreProcessing">PreProcessing</a><br />329 <a href="/bin/view/Documentation/HomogenizationScheme">HomogenizationScheme</a><br />317 <a href="/bin/view/Documentation/Plasticity">Plasticity</a><br />180 <a href="/bin/view/Documentation/Elasticity">Elasticity</a><br />173 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />147 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />136 <a href="/bin/view/Documentation/ConfigurationFiles">ConfigurationFiles</a><br />126 <a class="foswikiNewLink" href="/bin/edit/Documentation/CodeStructure?topicparent=Documentation.WebStatistics" rel="nofollow" title="Create this topic">CodeStructure</a><br />125 <a href="/bin/view/Documentation/FileFormats">FileFormats</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> 148 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />114 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;25 <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Feb 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 9361 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 41 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 915 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />710 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />507 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />235 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />221 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />197 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />181 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />171 <a class="foswikiNewLink" href="/bin/edit/Documentation/GeomFromAng?topicparent=Documentation.WebStatistics" rel="nofollow" title="Create this topic">GeomFromAng</a><br />164 <a href="/bin/view/Documentation/HomogenizationScheme">HomogenizationScheme</a><br />153 <a href="/bin/view/Documentation/GeometryFormat">GeometryFormat</a><br />138 <a href="/bin/view/Documentation/J2">J2</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;37 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;5 <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Oct 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 7318 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 99 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 522 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />495 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />433 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />286 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />251 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />184 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />181 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />159 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />151 <a href="/bin/view/Documentation/GeomFromVoronoiTessellation">GeomFromVoronoiTessellation</a><br />150 <a href="/bin/view/Documentation/SpectralSolver">SpectralSolver</a><br />138 <a href="/bin/view/Documentation/Hex">Hex</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;49 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;26 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;25 <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Feb 2016 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> &nbsp; </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jan 2016 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 39639 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 3638 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />2187 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />1947 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />1927 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />1239 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />1145 <a href="/bin/view/Documentation/Hex">Hex</a><br />1098 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />981 <a href="/bin/view/Documentation/BCC">BCC</a><br />963 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />778 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a><br />770 <a href="/bin/view/Documentation/FCC">FCC</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;1 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Nov 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 19409 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 15 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1487 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />1443 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />980 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />786 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />749 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />642 <a href="/bin/view/Documentation/Hex">Hex</a><br />633 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />628 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />461 <a href="/bin/view/Documentation/ImageData">ImageData</a><br />333 <a href="/bin/view/Documentation/FCC">FCC</a><br />323 <a href="/bin/view/Documentation/BCC">BCC</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;10 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;4 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Oct 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 32072 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 2176 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />1539 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />1346 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />1175 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />1061 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />969 <a href="/bin/view/Documentation/Hex">Hex</a><br />800 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />755 <a href="/bin/view/Documentation/FCC">FCC</a><br />682 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />681 <a href="/bin/view/Documentation/BCC">BCC</a><br />676 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Sep 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 27587 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 2 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1917 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />1378 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />1283 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />1280 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />1057 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />809 <a href="/bin/view/Documentation/Hex">Hex</a><br />575 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />536 <a href="/bin/view/Documentation/BCC">BCC</a><br />524 <a href="/bin/view/Documentation/FCC">FCC</a><br />519 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a><br />468 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;2 <a href="/bin/view/Main/ChenZhang">ChenZhang</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Aug 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 29954 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 3 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 2977 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />1730 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />1730 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />1313 <a href="/bin/view/Documentation/FCC">FCC</a><br />1209 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />1163 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />986 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />901 <a href="/bin/view/Documentation/GeomAddPrimitive">GeomAddPrimitive</a><br />626 <a href="/bin/view/Documentation/Hex">Hex</a><br />545 <a href="/bin/view/Documentation/GeomCanvas">GeomCanvas</a><br />538 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;3 <a href="/bin/view/Main/FranzRoters">FranzRoters</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jul 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 26058 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 12 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 2281 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />2011 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />1927 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />1266 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />1073 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />1035 <a href="/bin/view/Documentation/FCC">FCC</a><br />901 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />610 <a href="/bin/view/Documentation/Hex">Hex</a><br />588 <a href="/bin/view/Documentation/BCC">BCC</a><br />558 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />499 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;12 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jun 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 31490 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 19 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1662 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />1400 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />1258 <a href="/bin/view/Documentation/BCC">BCC</a><br />1251 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />1128 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />1075 <a href="/bin/view/Documentation/FCC">FCC</a><br />1038 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />1036 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />836 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />772 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a><br />766 <a href="/bin/view/Documentation/Hex">Hex</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;19 <a href="/bin/view/Main/TiasMaiti">TiasMaiti</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Mar 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 25282 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 36 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1628 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />1275 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />956 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />762 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />752 <a href="/bin/view/Documentation/BCC">BCC</a><br />641 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />481 <a href="/bin/view/Documentation/PerceptualUniformColorMap">PerceptualUniformColorMap</a><br />433 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />431 <a href="/bin/view/Documentation/GeomRescale">GeomRescale</a><br />424 <a href="/bin/view/Documentation/FCC">FCC</a><br />410 <a href="/bin/view/Documentation/AverageDown">AverageDown</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;31 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;4 <a href="/bin/view/Main/FranzRoters">FranzRoters</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Feb 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 10649 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 11 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1123 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />756 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />431 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />233 <a href="/bin/view/Documentation/FCC">FCC</a><br />230 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />205 <a href="/bin/view/Documentation/BCC">BCC</a><br />194 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />160 <a href="/bin/view/Documentation/J2">J2</a><br />144 <a href="/bin/view/Documentation/Hex">Hex</a><br />142 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />131 <a href="/bin/view/Documentation/Background">Background</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;6 <a href="/bin/view/Main/FranzRoters">FranzRoters</a><br />&nbsp;&nbsp;4 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jan 2015 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 43647 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 126 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 4223 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />1942 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />1766 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />1732 <a href="/bin/view/Documentation/FCC">FCC</a><br />1708 <a href="/bin/view/Documentation/BCC">BCC</a><br />1690 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />1606 <a href="/bin/view/Documentation/Hex">Hex</a><br />1600 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />917 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />837 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a><br />802 <a href="/bin/view/Documentation/PerceptualUniformColorMap">PerceptualUniformColorMap</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;73 <a href="/bin/view/Main/LuvSharma">LuvSharma</a><br />&nbsp;43 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;6 <a href="/bin/view/Main/PratheekShanthraj">PratheekShanthraj</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/TiasMaiti">TiasMaiti</a><br />&nbsp;&nbsp;2 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Dec 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 14796 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1321 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />923 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />678 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />433 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />369 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />332 <a href="/bin/view/Documentation/FCC">FCC</a><br />323 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />268 <a href="/bin/view/Documentation/Hex">Hex</a><br />254 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />249 <a href="/bin/view/Documentation/BCC">BCC</a><br />208 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;1 <a href="/bin/view/Main/TiasMaiti">TiasMaiti</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Nov 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 8779 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 15 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 645 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />555 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />386 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />322 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />209 <a href="/bin/view/Documentation/FCC">FCC</a><br />209 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />201 <a href="/bin/view/Documentation/BCC">BCC</a><br />197 <a href="/bin/view/Documentation/J2">J2</a><br />189 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />182 <a href="/bin/view/Documentation/Hex">Hex</a><br />154 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;15 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Sep 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 8091 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 2 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 645 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />457 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />373 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />309 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />239 <a href="/bin/view/Documentation/Hex">Hex</a><br />202 <a href="/bin/view/Documentation/FCC">FCC</a><br />184 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />178 <a href="/bin/view/Documentation/BCC">BCC</a><br />169 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />147 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a><br />135 <a href="/bin/view/Documentation/PerceptualUniformColorMap">PerceptualUniformColorMap</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;2 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Aug 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 5383 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 19 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 524 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />453 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />267 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />172 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />139 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />125 <a href="/bin/view/Documentation/FCC">FCC</a><br />119 <a href="/bin/view/Documentation/Hex">Hex</a><br />111 <a href="/bin/view/Documentation/BCC">BCC</a><br />&nbsp;86 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />&nbsp;86 <a href="/bin/view/Documentation/PhenoPowerLaw">PhenoPowerLaw</a><br />&nbsp;77 <a href="/bin/view/Documentation/GeometryFormat">GeometryFormat</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;19 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jul 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 4740 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 592 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />468 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />215 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />165 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />105 <a href="/bin/view/Documentation/FCC">FCC</a><br />105 <a href="/bin/view/Documentation/Hex">Hex</a><br />102 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />&nbsp;92 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />&nbsp;91 <a href="/bin/view/Documentation/BCC">BCC</a><br />&nbsp;90 <a href="/bin/view/Documentation/GeomFromVoronoiTessellation">GeomFromVoronoiTessellation</a><br />&nbsp;83 <a href="/bin/view/Documentation/HomogenizationScheme">HomogenizationScheme</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;1 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Jun 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 4562 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 12 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 528 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />359 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />252 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />125 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />115 <a href="/bin/view/Documentation/PhenoPowerLaw">PhenoPowerLaw</a><br />110 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />101 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />&nbsp;97 <a href="/bin/view/Documentation/Hex">Hex</a><br />&nbsp;84 <a href="/bin/view/Documentation/HomogenizationScheme">HomogenizationScheme</a><br />&nbsp;81 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />&nbsp;76 <a href="/bin/view/Documentation/Plasticity">Plasticity</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;6 <a href="/bin/view/Main/LuvSharma">LuvSharma</a><br />&nbsp;&nbsp;5 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Apr 2014 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 9083 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 19 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1010 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />549 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />390 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />302 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />265 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />221 <a href="/bin/view/Documentation/PostResults">PostResults</a><br />203 <a href="/bin/view/Documentation/FCC">FCC</a><br />164 <a href="/bin/view/Documentation/GeomFromVoronoiTessellation">GeomFromVoronoiTessellation</a><br />162 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />157 <a href="/bin/view/Documentation/PostProcessing">PostProcessing</a><br />145 <a href="/bin/view/Documentation/Hex">Hex</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;19 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Dec 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 5339 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 63 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 367 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />360 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />247 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />243 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />188 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />147 <a href="/bin/view/Documentation/SpectralSolver">SpectralSolver</a><br />136 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />136 <a href="/bin/view/Documentation/Hex">Hex</a><br />111 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />101 <a href="/bin/view/Documentation/SingleCrystalTimeIntegration">SingleCrystalTimeIntegration</a><br />&nbsp;97 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;60 <a href="/bin/view/Main/ChristophKords">ChristophKords</a><br />&nbsp;&nbsp;3 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Nov 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 8467 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 35 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 470 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />396 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />365 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />327 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />247 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />242 <a href="/bin/view/Documentation/Hex">Hex</a><br />239 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />218 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />179 <a href="/bin/view/Documentation/IsoStrain">IsoStrain</a><br />171 <a href="/bin/view/Documentation/GeomFromMinimalSurface">GeomFromMinimalSurface</a><br />170 <a href="/bin/view/Documentation/BCC">BCC</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;18 <a href="/bin/view/Main/LuvSharma">LuvSharma</a><br />&nbsp;12 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a><br />&nbsp;&nbsp;5 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Sep 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 3221 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 9 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 230 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />221 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />150 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />143 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />&nbsp;91 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />&nbsp;83 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />&nbsp;67 <a href="/bin/view/Documentation/J2">J2</a><br />&nbsp;67 <a href="/bin/view/Documentation/PhenoPowerLaw">PhenoPowerLaw</a><br />&nbsp;60 <a href="/bin/view/Documentation/Hex">Hex</a><br />&nbsp;59 <a href="/bin/view/Documentation/NumericsConfig">NumericsConfig</a><br />&nbsp;58 <a href="/bin/view/Documentation/GeometryFormat">GeometryFormat</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;7 <a href="/bin/view/Main/DavidMercier">DavidMercier</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;1 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> Aug 2013 </td>
+			<td class="foswikiTableCol1" rowspan="1" style="text-align:right"> 8631 </td>
+			<td class="foswikiTableCol2" rowspan="1" style="text-align:right"> 11 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4" rowspan="1"> 1086 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />352 <a class="foswikiCurrentTopicLink" href="/bin/view/Documentation/WebStatistics">WebStatistics</a><br />335 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />273 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />214 <a href="/bin/view/Documentation/ElementType">ElementType</a><br />213 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />207 <a href="/bin/view/Documentation/Hex">Hex</a><br />192 <a href="/bin/view/Documentation/GeomFromVoronoiTessellation">GeomFromVoronoiTessellation</a><br />180 <a href="/bin/view/Documentation/FCC">FCC</a><br />180 <a href="/bin/view/Documentation/BCC">BCC</a><br />153 <a class="foswikiNewLink" href="/bin/edit/Documentation/GeomFromAng?topicparent=Documentation.WebStatistics" rel="nofollow" title="Create this topic">GeomFromAng</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol" rowspan="1"> &nbsp;&nbsp;8 <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a><br />&nbsp;&nbsp;3 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> Dec 2012 </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1" style="text-align:right"> 6474 </td>
+			<td class="foswikiTableCol2 foswikiLast" rowspan="1" style="text-align:right"> 279 </td>
+			<td class="foswikiTableCol3 foswikiSortedDescendingCol foswikiSortedCol foswikiLast" rowspan="1" style="text-align:right"> 0 </td>
+			<td class="foswikiTableCol4 foswikiLast" rowspan="1"> 873 <a href="/bin/view/Documentation/MaterialConfig">MaterialConfig</a><br />666 <a href="/bin/view/Documentation/J2">J2</a><br />642 <a class="foswikiNewLink" href="/bin/edit/Documentation/SpectralSolverFiles?topicparent=Documentation.WebStatistics" rel="nofollow" title="Create this topic">SpectralSolverFiles</a><br />625 <a href="/bin/view/Documentation/Elasticity">Elasticity</a><br />614 <a href="/bin/view/Documentation/Plasticity">Plasticity</a><br />531 <a href="/bin/view/Documentation/ResultFiles">ResultFiles</a><br />315 <a class="foswikiCurrentWebHomeLink" href="/bin/view/Documentation/WebHome">Documentation</a><br />222 <a href="/bin/view/Documentation/WebCreateNewTopic">WebCreateNewTopic</a><br />139 <a href="/bin/view/Documentation/LoadDefinition">LoadDefinition</a><br />115 <a href="/bin/view/Documentation/PostProcessing">PostProcessing</a><br />&nbsp;71 <a class="foswikiNewLink" href="/bin/edit/Documentation/CodeStructure?topicparent=Documentation.WebStatistics" rel="nofollow" title="Create this topic">CodeStructure</a> </td>
+			<td class="foswikiTableCol5 foswikiLastCol foswikiLast" rowspan="1"> 219 <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a><br />&nbsp;60 <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<strong>Notes:</strong> <ul>
+<li> Do not edit this topic, it is updated automatically. (You can also <a href="https://damask.mpie.de/bin/statistics/Documentation">force</a> an update)
+</li> <li> <a href="/bin/view/System/SiteTools#WebStatistics_site_statistics">Site tools</a> tells you how to enable the automatic updates of the statistics.
+</li> <li> Suggestion: You could archive this topic once a year and delete the previous year's statistics from the table.
+</li></ul>  </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/WebStatistics?t=1627667088' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Documentation/WebStatistics' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/WebStatistics?cover=print;sortcol=3;table=1;up=1' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Documentation/WebStatistics?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/WebStatistics?template=backlinksweb' rel='nofollow' title='Search the Documentation Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/WebStatistics?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/WebStatistics?t=1627667088;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/WebStatistics?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 08 Feb 2016, <a href="/bin/view/Main/AdminUser">AdminUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Documentation/WebStatistics?foswiki_origin=GET%2cview%2c/bin/view/Documentation/WebStatistics%3fsortcol%3d3%3btable%3d1%3bup%3d1">Log In</a></li></ul>
+</div>
+<p></p>
+
+<hr /> <ul>
+<li> <strong>News</strong>
+</li>  </ul><dl>
+<dt> 14 Sep 2020 </dt><dd> <del> <strong>CMCn2020</strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung</del> (cancelled)
+</dd> <dt> 22 Aug 2020 </dt><dd> Release of first preview version of <strong><a href="https://damask.mpie.de/bin/view/Download/Preview">DAMASK 3</a></strong>
+</dd> <dt> 19 Feb 2020 </dt><dd> DAMASK made it to the <span class='externalLink'><a href="https://onlinelibrary.wiley.com/doi/toc/10.1002/(ISSN)1527-2648.HallofFame">Advanved Engineering Materials Hall of Fame</a></span>
+</dd> <dt> 26 Mar 2019 </dt><dd> <strong><span class='externalLink'><a href="http://dream3d.bluequartz.net/">DREAM.3D</a></span> 6.5.119</strong> <br />(released 2019/03/22) comes with a DAMASK export filter
+</dd> <dt> 25 Mar 2019 </dt><dd> Release of version <strong><a href="/bin/view/Download/Current">v2.0.3</a></strong>
+</dd> <dt> 21 Jan 2019 </dt><dd> <strong>DAMASK overview paper</strong> finally <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">published</a></span> with full citation information available
+</dd> <dt> 01 Dec 2018 </dt><dd> <strong>DAMASK overview paper</strong> now <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">online</a></span>
+</dd> <dt> 17 Sep 2018 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2018">CMCn2018</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 22 May 2018 </dt><dd> Release of version <strong>v2.0.2</strong>
+</dd> <dt> 01 Sep 2016 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2016">CMCn2016</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 25 Jul 2016 </dt><dd> Release of version <strong>v2.0.1</strong>
+</dd> <dt> 08 Mar 2016 </dt><dd> Release of version <strong>v2.0.0</strong>
+</dd> <dt> 22 Feb 2016 </dt><dd> <strong>New webserver</strong> up and running
+</dd> <dt> 09 Feb 2016 </dt><dd> <strong>Migrated <span class='externalLink'><a href="https://magit1.mpie.de">code repository</a></span></strong> from Subversion to <strong><span class='externalLink'><a href="https://about.gitlab.com/">GitLab</a></span></strong>
+</dd> <dt> 17 Dec 2014 </dt><dd> Release of <strong>revision 3813</strong>
+</dd> <dt> 14 May 2014 </dt><dd> Release of <strong>revision 3108</strong>
+</dd> <dt> 02 Apr 2014 </dt><dd> Release of <strong>revision 3062</strong>
+</dd> <dt> 16 Oct 2013 </dt><dd> Release of <strong>revision 2689</strong>
+</dd> <dt> 15 Jul 2013 </dt><dd> Release of <strong>revision 2555</strong>
+</dd> <dt> 15 Feb 2013 </dt><dd> Release of <strong>revision 2174</strong>
+</dd> <dt> 13 Feb 2013 </dt><dd> <a href='http://www.doxygen.org/' title='Doxygen.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='104' data-orig-height='31'><img src='/pub/Main/News/igp_57415553ffe254df6d853b56c3b46f7d_Doxygen.png' alt='Doxygen' width='52' height='16'   /></a>  documentation
+</dd> <dt> 16 Dec 2012 </dt><dd> <a href='http://www.mathjax.org/' title='mj logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='167' data-orig-height='57'><img src='/pub/Main/News/igp_f1d42d3712de2aa46a85b866685e127a_mj_logo.png' alt='Powered by MathJax' width='55' height='19'   /></a> rendering
+</dd> <dt> 23 Nov 2012 </dt><dd> Release of <strong>revision 1955</strong>
+</dd> <dt> 15 Nov 2012 </dt><dd> Release of <strong>revision 1924</strong>
+</dd> <dt> 01 Nov 2012 </dt><dd> Updated <strong>sidebar</strong>
+</dd> <dt> 30 Oct 2012 </dt><dd> Significant <strong>website updates</strong> and <strong>content extensions</strong>
+</dd></dl> 
+<p></p>
+
+<!-- Keep this to have global readability:
+<p></p>
+ <ul>
+<li> Set DENYTOPICVIEW = 
+</li></ul> 
+-->
+<hr />
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.WebStatistics'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

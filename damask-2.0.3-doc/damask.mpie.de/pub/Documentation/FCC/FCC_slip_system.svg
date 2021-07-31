@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="200"
+  height="200">
+  <defs>
+    <!-- -0.23570226 = - √2/6 -->
+    <radialGradient
+      gradientUnits="userSpaceOnUse"
+      id="gradientred"
+      r="1.3333333"
+      cx="-0.23570226"
+      cy="-0.23570226"
+      fx="-0.23570226"
+      fy="-0.23570226">
+      <stop
+        offset="0"
+        style="stop-color:#ffecec"/>
+      <stop
+        offset="1"
+        style="stop-color:#200808"/>
+    </radialGradient>
+    <!-- 29.282032 = 40·√3 - 40 -->
+    <circle
+      id="atomb"
+      r="1"
+      style="fill:url(#gradientred);fill-opacity:0.9"
+      transform="scale(29.282032)"/>
+    <radialGradient
+      gradientUnits="userSpaceOnUse"
+      id="gradientgray"
+      r="1.3333333"
+      cx="-0.23570226"
+      cy="-0.23570226"
+      fx="-0.23570226"
+      fy="-0.23570226">
+      <stop
+        offset="0"
+        style="stop-color:#ececff"/>
+      <stop
+        offset="1"
+        style="stop-color:#4f4f55"/>
+    </radialGradient>
+    <!-- 29.282032 = 40·√3 - 40 -->
+    <circle
+      id="atomo"
+      r="1"
+      style="fill:url(#gradientgray);fill-opacity:0.9"
+      transform="scale(29.282032)"/>
+  </defs>
+  <!--
+    x = X·(40·√6 - 40·√2) - Z·(40·√6 + 40·√3 - 40·√2 - 120) + 100
+    y = Y·(40·√2 - 40·√6) + Z·(40·√6 + 40·√3 - 40·√2 - 120) + 100
+  -->
+  <!-- [-1, -1, 1] -->
+  <use
+    xlink:href="#atomo"
+    x="67.895874"
+    y="132.10413"/>
+  <!-- [1, -1, 1] -->
+  <use
+    xlink:href="#atomo"
+    x="150.71797"
+    y="132.10413"/>
+  <!-- [-1, 1, 1] -->
+  <use
+    xlink:href="#atomo"
+    x="67.895874"
+    y="49.282032"/>
+  <!-- [1, 1, 1] -->
+  <use
+    xlink:href="#atomb"
+    x="150.71797"
+    y="49.282032"/>
+  <!-- [0, 0, 1] -->
+  <use
+    xlink:href="#atomo"
+    x="109.30692"
+    y="90.69308"/>
+  <!-- [0, -1, 0] -->
+  <use
+    xlink:href="#atomo"
+    x="100"
+    y="141.41105"/>
+  <!-- [-1, 0, 0] -->
+  <use
+    xlink:href="#atomo"
+    x="58.58895"
+    y="100"/>
+  <!-- [1, 0, 0] -->
+  <use
+    xlink:href="#atomb"
+    x="141.41105"
+    y="100"/>
+  <!-- [0, 1, 0] -->
+  <use
+    xlink:href="#atomb"
+    x="100"
+    y="58.58895"/>
+  <!-- [-1, -1, -1] -->
+  <use
+    xlink:href="#atomo"
+    x="49.282032"
+    y="150.71797"/>
+  <!-- [1, -1, -1] -->
+  <use
+    xlink:href="#atomb"
+    x="132.10413"
+    y="150.71797"/>
+  <!-- [-1, 1, -1] -->
+  <use
+    xlink:href="#atomb"
+    x="49.282032"
+    y="67.895874"/>
+  <!-- [1, 1, -1] -->
+  <use
+    xlink:href="#atomo"
+    x="132.10413"
+    y="67.895874"/>
+  <!-- [0, 0, -1] -->
+  <use
+    xlink:href="#atomb"
+    x="90.69308"
+    y="109.30692"/>
+  <!-- diagonal line -->
+  <line x1="49.282032"
+        y1="67.895874"
+        x2="90.69308"
+        y2="109.30692" style="stroke: black;stroke-opacity:0.5"/> 
+</svg>

@@ -1,0 +1,1075 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> PerlDoc &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671419" type="application/x-wiki" title="edit PerlDoc" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/PerlDoc" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/d544d19b6220703c4fc28e1bbfeb7488.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "WIKINAME" : "WikiGuest",
+   "TOPIC" : "PerlDoc",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WEB" : "System",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "PUBURLPATH" : "/pub",
+   "SYSTEMWEB" : "System",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "USERNAME" : "guest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SERVERTIME" : "30 Jul 2021 - 20:56",
+   "COOKIEREALM" : "",
+   "URLHOST" : "https://damask.mpie.de",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTSUFFIX" : "",
+   "USERSWEB" : "Main"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/PerlDoc" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?99c10a17c62304694808699ca19035b3' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/PerlDoc?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?bd93fce0d72c33a80241b191635a78f3' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.PerlDoc' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.PerlDoc' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/PerlDoc"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/PerlDoc" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>PerlDoc</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671419;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/PerlDoc' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/PerlDoc?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/PerlDoc?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=PerlDoc' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/PerlDoc?cover=print;module=Foswiki::Plugins::EmptyPlugin' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/PerlDoc?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h2 id="A_61internal_package_61_Foswiki::Plugins::EmptyPlugin">   <code>internal package</code> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki">Foswiki</a>::<a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins">Plugins</a>::EmptyPlugin </h2>
+<form class='foswikiForm' action='/bin/view/System/PerlDoc'>
+<div class='foswikiFormSteps'>
+  <div class='foswikiFormStep'>
+      See <a href="/bin/view/System/PublishedAPI">PublishedAPI</a> for packages intended to be used by Plugin and Contrib authors, or <a class="foswikiCurrentTopicLink" href="/bin/view/System/PerlDoc?module=Foswiki">browse all packages</a>.<br>
+      See also <a href="/bin/view/System/DevelopingPlugins">Developing plugins</a>, <a class="interwikiLink" href="https://foswiki.org/Development.DevelopersBible" title="'Development.DevelopersBible' on foswiki.org">Developer's Bible</a>, <a class="interwikiLink" href="https://foswiki.org/Development.TechnicalOverview" title="'Development.TechnicalOverview' on foswiki.org">Technical Overview</a> 
+  </div>
+  <div class='foswikiFormStep'>
+    <label for='module'><b>Perl Module:</b></label>
+    <input type='text' name='module' id='module' size='60' value='Foswiki::Plugins::EmptyPlugin' class='foswikiInputField' />
+<!--
+Commented this out right before 1.1.5 - we should distinguish between 'public' and 'published' classes.
+    <label for='publicOnly'><b>Public Only:</b></label>
+    <input type='checkbox' name='publicOnly' id='publicOnly' value='on'  class='foswikiInputField' />
+-->
+    <input type='submit' value='Submit' class='foswikiSubmit' />
+  </div>
+  <div class='foswikiFormStep'>
+    <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemPerlDoc1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Child packages</span></a></span><span id="twistyIdSystemPerlDoc1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Child packages</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemPerlDoc1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<p></p>
+
+<ul></ul>
+    </div></div>
+  </div>
+</div>
+</form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?module=Foswiki::Plugins::EmptyPlugin#A_61internal_package_61_Foswiki::Plugins::EmptyPlugin"> internal package Foswiki::Plugins::EmptyPlugin </a> <ul>
+<li> <a href="?module=Foswiki::Plugins::EmptyPlugin#initPlugin_40_36topic_44_36web_44_36user_41_45_62_36boolean"> initPlugin($topic, $web, $user) -&gt; $boolean </a> <ul>
+<li> <a href="?module=Foswiki::Plugins::EmptyPlugin#preload_40_36class_44_36session_41"> preload($class, $session) </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#earlyInitPlugin_40_41"> earlyInitPlugin() </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#initializeUserHandler_40_36loginName_44_36url_44_36pathInfo_41"> initializeUserHandler( $loginName, $url, $pathInfo ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#finishPlugin_40_41"> finishPlugin() </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#validateRegistrationHandler_40_36data_41"> validateRegistrationHandler($data) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#registrationHandler_40_36web_44_36wikiName_44_36loginName_44_36data_41"> registrationHandler($web, $wikiName, $loginName, $data ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#commonTagsHandler_40_36text_44_36topic_44_36web_44_36included_44_36meta_41"> commonTagsHandler($text, $topic, $web, $included, $meta ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#beforeCommonTagsHandler_40_36text_44_36topic_44_36web_44_36meta_41"> beforeCommonTagsHandler($text, $topic, $web, $meta ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#afterCommonTagsHandler_40_36text_44_36topic_44_36web_44_36meta_41"> afterCommonTagsHandler($text, $topic, $web, $meta ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#preRenderingHandler_40_36text_44_92_37map_41"> preRenderingHandler( $text, \%map ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#postRenderingHandler_40_36text_41"> postRenderingHandler( $text ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#beforeEditHandler_40_36text_44_36topic_44_36web_41"> beforeEditHandler($text, $topic, $web ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#afterEditHandler_40_36text_44_36topic_44_36web_44_36meta_41"> afterEditHandler($text, $topic, $web, $meta ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#beforeSaveHandler_40_36text_44_36topic_44_36web_44_36meta_41"> beforeSaveHandler($text, $topic, $web, $meta ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#afterSaveHandler_40_36text_44_36topic_44_36web_44_36error_44_36meta_41"> afterSaveHandler($text, $topic, $web, $error, $meta ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#afterRenameHandler_40_36oldWeb_44_36oldTopic_44_36oldAttachment_44_36newWeb_44_36newTopic_44_36newAttachment_41"> afterRenameHandler( $oldWeb, $oldTopic, $oldAttachment, $newWeb, $newTopic, $newAttachment ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#beforeUploadHandler_40_92_37attrHash_44_36meta_41"> beforeUploadHandler(\%attrHash, $meta ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#afterUploadHandler_40_92_37attrHash_44_36meta_41"> afterUploadHandler(\%attrHash, $meta ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#mergeHandler_40_36diff_44_36old_44_36new_44_92_37info_41_45_62_36text"> mergeHandler( $diff, $old, $new, \%info ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#modifyHeaderHandler_40_92_37headers_44_36query_41"> modifyHeaderHandler( \%headers, $query ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#renderFormFieldForEditHandler_40_36name_44_36type_44_36size_44_36value_44_36attributes_44_36possibleValues_41_45_62_36html"> renderFormFieldForEditHandler($name, $type, $size, $value, $attributes, $possibleValues) -&gt; $html </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#renderWikiWordHandler_40_36linkText_44_36hasExplicitLinkLabel_44_36web_44_36topic_41_45_62_36linkText"> renderWikiWordHandler($linkText, $hasExplicitLinkLabel, $web, $topic) -&gt; $linkText </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#completePageHandler_40_36html_44_36httpHeaders_41"> completePageHandler($html, $httpHeaders) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#restExample_40_36session_44_36subject_44_36verb_44_36response_41_45_62_36text"> restExample($session, $subject, $verb, $response) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#Deprecated_handlers"> Deprecated handlers </a> <ul>
+<li> <a href="?module=Foswiki::Plugins::EmptyPlugin#redirectCgiQueryHandler_40_36query_44_36url_41"> redirectCgiQueryHandler($query, $url ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#beforeAttachmentSaveHandler_40_92_37attrHash_44_36topic_44_36web_41"> beforeAttachmentSaveHandler(\%attrHash, $topic, $web ) </a>
+</li> <li> <a href="?module=Foswiki::Plugins::EmptyPlugin#afterAttachmentSaveHandler_40_92_37attrHash_44_36topic_44_36web_41"> afterAttachmentSaveHandler(\%attrHash, $topic, $web ) </a>
+</li></ul> 
+</li></ul> 
+</li></ul> 
+</div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h2 id="A_61internal_package_61_Fosw_AN1">  <code>internal package</code> Foswiki::Plugins::EmptyPlugin </h2>
+<p class='p'>Foswiki plugins 'listen' to events happening in the core by registering an
+interest in those events. They do this by declaring 'plugin handlers'. These
+are simply functions with a particular name that, if they exist in your
+plugin, will be called by the core.</p>
+
+<p class='p'>This is an empty Foswiki plugin. It is a fully defined plugin, but is
+disabled by default in a Foswiki installation. Use it as a template
+for your own plugins.</p>
+
+To interact with Foswiki use ONLY the official APIs
+documented in <a href="/bin/view/System/DevelopingPlugins">DevelopingPlugins</a>. <strong>Do not reference any
+packages, functions or variables elsewhere in Foswiki</strong>, as these are
+subject to change without prior warning, and your plugin may suddenly stop
+working.
+<p></p>
+
+Error messages can be output using the <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a></code> <code>writeWarning</code> and
+<code>writeDebug</code> functions. These logs can be found in the Foswiki/working/logs
+directory.  You can also <code>print STDERR</code>; the output will appear in the
+webserver error log.  The ENVironment setting <code>$ENV{FOSWIKI_ASSERTS}</code> setting makes
+Foswiki less tolerant of errors, and it is recommended to set it during
+development.  It can be set by editing <code>bin/LocalLib.cfg</code>, (If missing, see <code>bin/LocalLib.cfg.txt</code>)
+Most handlers can also throw exceptions (e.g.
+[[https://damask.mpie.de/bin/view/System/PerlDoc?module=<a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::OopsException">Foswiki::OopsException</a>][<a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::OopsException">Foswiki::OopsException</a>]])
+<p></p>
+
+For increased performance, all handler functions except <code>initPlugin</code> are
+commented out below. <strong>To enable a handler</strong> remove the leading <code>#</code> from
+each line of the function. For efficiency and clarity, you should
+only uncomment handlers you actually use.
+<p></p>
+
+<strong><em>NOTE:</em></strong> When developing a plugin it is important to remember that
+Foswiki is tolerant of plugins that do not compile. In this case,
+the failure will be silent but the plugin will not be available.
+See <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a> for error messages.
+<p></p>
+
+<strong><em>NOTE:</em></strong> <a class="interwikiLink" href="https://foswiki.org/Development.StepByStepRenderingOrder" title="'Development.StepByStepRenderingOrder' on foswiki.org">Foswiki:Development.StepByStepRenderingOrder</a> helps you decide which
+rendering handler to use. When writing handlers, keep in mind that these may
+be invoked on included topics. For example, if a plugin generates links to the
+current topic, these need to be generated before the <code>afterCommonTagsHandler</code>
+is run. After that point in the rendering loop we have lost the information
+that the text had been included from another topic.
+<p></p>
+
+<strong><em>NOTE:</em></strong> Not all handlers (and not all parameters passed to handlers) are
+available with all versions of Foswiki. Where a handler has been added
+the POD comment will indicate this with a "Since" line
+e.g. <strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 1.1
+<p class='p'>Deprecated handlers are still available, and can continue to be used to
+maintain compatibility with earlier releases, but will be removed at some
+point in the future. If you do implement deprecated handlers, then you can
+do no harm by simply keeping them in your code, but you are recommended to
+implement the alternative as soon as possible.</p>
+
+See <a href="http://foswiki.org/Download/ReleaseDates">http://foswiki.org/Download/ReleaseDates</a> for a breakdown of release
+versions.
+<p class='p'></p>
+
+<h3 id="initPlugin_40_36topic_44_36web_44_36user_41_45_62_36boolean">  initPlugin($topic, $web, $user) -&gt; $boolean </h3> <ul>
+<li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li> <li> <code>$user</code> - the login name of the user
+</li> <li> <code>$installWeb</code> - the name of the web the plugin topic is in     (usually the same as <code>$Foswiki::cfg{SystemWebName}</code>)
+</li></ul> 
+<p></p>
+
+<strong>REQUIRED</strong>
+<p></p>
+
+Called to initialise the plugin. If everything is OK, should return
+a non-zero value. On non-fatal failure, should write a message
+using <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::writeWarning</code> and return 0. In this case
+%FAILEDPLUGINS% will indicate which plugins failed.
+<p class='p'>In the case of a catastrophic failure that will prevent the whole
+installation from working safely, this handler may use 'die', which
+will be trapped and reported in the browser.</p>
+
+<strong><em>Note:</em></strong> Please align macro names with the Plugin name, e.g. if
+your Plugin is called FooBarPlugin, name macros FOOBAR and/or
+FOOBARSOMETHING. This avoids namespace issues.
+<p class='p'></p>
+
+<h4 id="preload_40_36class_44_36session_41">  preload($class, $session) </h4>
+<p></p>
+
+This method is called as early as possible in the processing of a request;
+before <code>initPlugin</code> is called, before any preferences are loaded, before
+even the store is loaded, and before the user has been identified.
+<p class='p'>It is intended for use when there is sufficient information available
+from the request object and the environment to make a decision
+on something. For example, it could be used to check the source IP
+address of a request, and decide whether to service it or not.</p>
+
+<code>preload</code> can use the methods of <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a></code> to access the request,
+but must not access the store, or any user or preference information.
+Caveat emptor! You have been warned!
+<p></p>
+
+The best way to terminate the request from <code>preload</code> is to throw an
+exception. You can do this using a <code>die</code>, which will result in a
+<code>text/plain</code> response being sent to the client. More sophisticated
+implementations can use <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::OopsException">Foswiki::OopsException</a></code> to craft a response.
+<p></p>
+
+<strong>Since:</strong> Foswiki 2.0
+<p class='p'></p>
+
+<h3 id="earlyInitPlugin_40_41">  earlyInitPlugin() </h3>
+<p></p>
+
+This method is called after <code>preload</code> but before <code>initPlugin</code>. It is
+called after the Foswiki infrastructure has been set up. If it returns
+a non-null error string, the plugin will be disabled. You can also
+terminate the request from this method by throwing one of the
+exceptions handled by <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::UI">Foswiki::UI</a></code> (for example, <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::OopsException">Foswiki::OopsException</a></code>).
+<p class='p'></p>
+
+<h3 id="initializeUserHandler_40_36loginName_44_36url_44_36pathInfo_41">  initializeUserHandler( $loginName, $url, $pathInfo ) </h3> <ul>
+<li> <code>$loginName</code> - login name recovered from $ENV{REMOTE_USER}
+</li> <li> <code>$url</code> - request url
+</li> <li> <code>$path_info</code> - path_info from the <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Request">Foswiki::Request</a>
+</li></ul> 
+Allows a plugin to set the username. Normally Foswiki gets the username
+from the login manager. This handler gives you a chance to override the
+login manager.
+<p></p>
+
+Return the <strong>login</strong> name.
+<p></p>
+
+This handler is called very early, immediately after <code>earlyInitPlugin</code>.
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = '2.0'
+<p class='p'></p>
+
+<h3 id="finishPlugin_40_41">  finishPlugin() </h3>
+<p class='p'>Called when Foswiki is shutting down, this handler can be used by the plugin
+to release resources - for example, shut down open database connections,
+release allocated memory etc.</p>
+
+<p class='p'>Note that it's important to break any cycles in memory allocated by plugins,
+or that memory will be lost when Foswiki is run in a persistent context
+e.g. mod_perl.</p>
+
+<p class='p'></p>
+
+<h3 id="validateRegistrationHandler_40_36data_41">  validateRegistrationHandler($data) </h3> <ul>
+<li> <code>$data</code> - a hashref containing all the formfields POSTed to the registration script
+</li></ul> 
+<p></p>
+
+Called when a new user registers with this Foswiki. The handler is called after the
+user data has been validated by the core, but <strong>before</strong> the user is created and <strong>before</strong>
+any validation mail is sent out. The handler will be called on all plugins that implement
+it.
+<p class='p'>Note that the handler may modify fields in the $data record, but must be aware that
+these fields have already been checked and validated before the handler is called,
+so modifying them is dangerous, and strictly at the plugin author's own risk.</p>
+
+If the handler needs to abort the registration for any reason it can do so by raising
+an exception ( e.g. using <code>die</code> )
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = '2.0'
+<p class='p'></p>
+
+<h3 id="registrationHandler_40_36web_44_36wikiName_44_36loginName_44_36data_41">  registrationHandler($web, $wikiName, $loginName, $data ) </h3> <ul>
+<li> <code>$web</code> - the name of the web in the current CGI query
+</li> <li> <code>$wikiName</code> - users wiki name
+</li> <li> <code>$loginName</code> - users login name
+</li> <li> <code>$data</code> - a hashref containing all the formfields POSTed to the registration script
+</li></ul> 
+<p class='p'>Called when a new user registers with this Foswiki.</p>
+
+Note that the handler is <strong>not</strong> called when the user submits the registration
+form if {Register}{NeedVerification} is enabled. In this case it is called when
+the user submits the activation code. The handler is only called once, on the first
+plugin seen that implements it.
+<p></p>
+
+<strong>WARNING</strong> The handler is called <strong>after</strong> the user has been created, and is really
+designed for nothing more sophisticated than adding a cookie at registration
+time. For most purposes it is useless, and you really wanted to implement the
+validateRegistrationHandler instead.
+<p></p>
+
+<strong>Deprecated in:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.3
+<p class='p'></p>
+
+<h3 id="commonTagsHandler_40_36text_44_36topic_44_36web_44_36included_44_36meta_41">  commonTagsHandler($text, $topic, $web, $included, $meta ) </h3> <ul>
+<li> <code>$text</code> - text to be processed
+</li> <li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li> <li> <code>$included</code> - Boolean flag indicating whether the handler is     invoked on an included topic
+</li> <li> <code>$meta</code> - meta-data object for the topic MAY BE <code>undef</code>
+</li></ul> 
+This handler is called by the code that expands %MACROS% syntax in
+the topic body and in form fields. It may be called many times while
+a topic is being rendered.
+<p></p>
+
+Only plugins that have to parse the entire topic content should implement
+this function. For expanding macros with trivial syntax it is <strong>far</strong> more
+efficient to use <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::registerTagHandler</code> (see <code>initPlugin</code>).
+<p></p>
+
+Internal Foswiki macros, (and any macros declared using
+<code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::registerTagHandler</code>) are expanded <em>before</em>, and then again
+<em>after</em>, this function is called to ensure all %MACROS% are expanded.
+<p></p>
+
+<strong>NOTE:</strong> when this handler is called, &lt;verbatim&gt; blocks have been
+removed from the text (though all other blocks such as &lt;pre&gt; and
+&lt;noautolink&gt; are still present).
+<p></p>
+
+<strong>NOTE:</strong> meta-data is <em>not</em> embedded in the text passed to this
+handler. Use the <code>$meta</code> object.
+<p></p>
+
+<strong>NOTE:</strong> Read the developer supplement at
+<a class="interwikiLink" href="https://foswiki.org/Development.AddToZoneFromPluginHandlers" title="'Development.AddToZoneFromPluginHandlers' on foswiki.org">Foswiki:Development.AddToZoneFromPluginHandlers</a> if you are calling
+<code>addToZone()</code> from this handler
+<p></p>
+
+<strong>Since:</strong> $<a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.0
+<p class='p'></p>
+
+<h3 id="beforeCommonTagsHandler_40_36text_44_36topic_44_36web_44_36meta_41">  beforeCommonTagsHandler($text, $topic, $web, $meta ) </h3> <ul>
+<li> <code>$text</code> - text to be processed
+</li> <li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li> <li> <code>$meta</code> - meta-data object for the topic MAY BE <code>undef</code>
+</li></ul> 
+This handler is called before Foswiki does any expansion of its own
+internal variables. It is designed for use by cache plugins. Note that
+when this handler is called, &lt;verbatim&gt; blocks are still present
+in the text.
+<p></p>
+
+<strong>NOTE</strong>: This handler is called once for each call to
+<code>commonTagsHandler</code> i.e. it may be called many times during the
+rendering of a topic.
+<p></p>
+
+<strong>NOTE:</strong> meta-data is <em>not</em> embedded in the text passed to this
+handler.
+<p></p>
+
+<strong>NOTE:</strong> This handler is not separately called on included topics.
+<p></p>
+
+<strong>NOTE:</strong> Read the developer supplement at
+<a class="interwikiLink" href="https://foswiki.org/Development.AddToZoneFromPluginHandlers" title="'Development.AddToZoneFromPluginHandlers' on foswiki.org">Foswiki:Development.AddToZoneFromPluginHandlers</a> if you are calling
+<code>addToZone()</code> from this handler
+<p class='p'></p>
+
+<h3 id="afterCommonTagsHandler_40_36text_44_36topic_44_36web_44_36meta_41">  afterCommonTagsHandler($text, $topic, $web, $meta ) </h3> <ul>
+<li> <code>$text</code> - text to be processed
+</li> <li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li> <li> <code>$meta</code> - meta-data object for the topic MAY BE <code>undef</code>
+</li></ul> 
+This handler is called after Foswiki has completed expansion of %MACROS%.
+It is designed for use by cache plugins. Note that when this handler
+is called, &lt;verbatim&gt; blocks are present in the text.
+<p></p>
+
+<strong>NOTE</strong>: This handler is called once for each call to
+<code>commonTagsHandler</code> i.e. it may be called many times during the
+rendering of a topic.
+<p></p>
+
+<strong>NOTE:</strong> meta-data is <em>not</em> embedded in the text passed to this
+handler.
+<p></p>
+
+<strong>NOTE:</strong> Read the developer supplement at
+<a class="interwikiLink" href="https://foswiki.org/Development.AddToZoneFromPluginHandlers" title="'Development.AddToZoneFromPluginHandlers' on foswiki.org">Foswiki:Development.AddToZoneFromPluginHandlers</a> if you are calling
+<code>addToZone()</code> from this handler
+<p class='p'></p>
+
+<h3 id="preRenderingHandler_40_36text_44_92_37map_41">  preRenderingHandler( $text, \%map ) </h3> <ul>
+<li> <code>$text</code> - text, with the head, verbatim and pre blocks replaced     with placeholders
+</li> <li> <code>\%removed</code> - reference to a hash that maps the placeholders to     the removed blocks.
+</li></ul> 
+<p class='p'>Handler called immediately before Foswiki syntax structures (such as lists) are
+processed, but after all variables have been expanded. Use this handler to
+process special syntax only recognised by your plugin.</p>
+
+<p class='p'>Placeholders are text strings constructed using the tag name and a
+sequence number e.g. 'pre1', "verbatim6", "head1" etc. Placeholders are
+inserted into the text inside &lt;!--!marker!--&gt; characters so the
+text will contain &lt;!--!pre1!--&gt; for placeholder pre1.</p>
+
+Each removed block is represented by the block text and the parameters
+passed to the tag (usually empty) e.g. for
+<pre>
+&#60;pre class&#61;&#39;slobadob&#39;&#62;
+XYZ
+&#60;/pre&#62;
+</pre>
+the map will contain:
+<pre>
+$removed->{'pre1'}{text}:   XYZ
+$removed->{'pre1'}{params}: class="slobadob"
+</pre>
+Iterating over blocks for a single tag is easy. For example, to prepend a
+line number to every line of every pre block you might use this code:
+<pre>
+foreach my &#36;placeholder ( keys &#37;&#36;map ) {
+    if( &#36;placeholder &#61;~ m/^pre/i ) {
+        my &#36;n &#61; 1;
+        &#36;map-&#62;{&#36;placeholder}{text} &#61;~ s/^/&#36;n++/gem;
+    }
+}
+</pre>
+<p></p>
+
+<strong><em>NOTE</em></strong>: This handler is called once for each rendered block of text i.e.
+it may be called several times during the rendering of a topic.
+<p></p>
+
+<strong>NOTE:</strong> meta-data is <em>not</em> embedded in the text passed to this
+handler.
+<p></p>
+
+<strong>NOTE:</strong> Read the developer supplement at
+<a class="interwikiLink" href="https://foswiki.org/Development.AddToZoneFromPluginHandlers" title="'Development.AddToZoneFromPluginHandlers' on foswiki.org">Foswiki:Development.AddToZoneFromPluginHandlers</a> if you are calling
+<code>addToZone()</code> from this handler
+<p></p>
+
+Since <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = '2.0'
+<p class='p'></p>
+
+<h3 id="postRenderingHandler_40_36text_41">  postRenderingHandler( $text ) </h3> <ul>
+<li> <code>$text</code> - the text that has just been rendered. May be modified in place.
+</li></ul> 
+<p></p>
+
+<strong>NOTE</strong>: This handler is called once for each rendered block of text i.e. 
+it may be called several times during the rendering of a topic.
+<p></p>
+
+<strong>NOTE:</strong> meta-data is <em>not</em> embedded in the text passed to this
+handler.
+<p></p>
+
+<strong>NOTE:</strong> Read the developer supplement at
+<a class="interwikiLink" href="https://foswiki.org/Development.AddToZoneFromPluginHandlers" title="'Development.AddToZoneFromPluginHandlers' on foswiki.org">Foswiki:Development.AddToZoneFromPluginHandlers</a> if you are calling
+<code>addToZone()</code> from this handler
+<p></p>
+
+Since <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = '2.0'
+<p class='p'></p>
+
+<h3 id="beforeEditHandler_40_36text_44_36topic_44_36web_41">  beforeEditHandler($text, $topic, $web ) </h3> <ul>
+<li> <code>$text</code> - text that will be edited
+</li> <li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li></ul> 
+This handler is called by the edit script just before presenting the edit text
+in the edit box. It is called once when the <code>edit</code> script is run.
+<p></p>
+
+<strong>NOTE</strong>: meta-data may be embedded in the text passed to this handler 
+(using %META: tags)
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = '2.0'
+<p class='p'></p>
+
+<h3 id="afterEditHandler_40_36text_44_36topic_44_36web_44_36meta_41">  afterEditHandler($text, $topic, $web, $meta ) </h3> <ul>
+<li> <code>$text</code> - text that is being previewed
+</li> <li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li> <li> <code>$meta</code> - meta-data for the topic.
+</li></ul> 
+This handler is called by the preview script just before presenting the text.
+It is called once when the <code>preview</code> script is run.
+<p></p>
+
+<strong>NOTE:</strong> this handler is <em>not</em> called unless the text is previewed.
+<p></p>
+
+<strong>NOTE:</strong> meta-data is <em>not</em> embedded in the text passed to this
+handler. Use the <code>$meta</code> object.
+<p></p>
+
+<strong>Since:</strong> $<a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.0
+<p class='p'></p>
+
+<h3 id="beforeSaveHandler_40_36text_44_36topic_44_36web_44_36meta_41">  beforeSaveHandler($text, $topic, $web, $meta ) </h3> <ul>
+<li> <code>$text</code> - text <em>with embedded meta-data tags</em>
+</li> <li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li> <li> <code>$meta</code> - the metadata of the topic being saved, represented by a <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> object.
+</li></ul> 
+<p class='p'>This handler is called each time a topic is saved.</p>
+
+<strong>NOTE:</strong> meta-data is embedded in <code>$text</code> (using %META: tags). If you modify
+the <code>$meta</code> object, then it will override any changes to the meta-data
+embedded in the text. Modify <strong>either</strong> the META in the text <strong>or</strong> the <code>$meta</code>
+object, never both. You are recommended to modify the <code>$meta</code> object rather
+than the text, as this approach is proof against changes in the embedded
+text format.
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = 2.0
+<p class='p'></p>
+
+<h3 id="afterSaveHandler_40_36text_44_36topic_44_36web_44_36error_44_36meta_41">  afterSaveHandler($text, $topic, $web, $error, $meta ) </h3> <ul>
+<li> <code>$text</code> - the text of the topic <em>excluding meta-data tags</em>     (see beforeSaveHandler)
+</li> <li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li> <li> <code>$error</code> - any error string returned by the save.
+</li> <li> <code>$meta</code> - the metadata of the saved topic, represented by a <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> object 
+</li></ul> 
+<p class='p'>This handler is called each time a topic is saved.</p>
+
+<strong>NOTE:</strong> meta-data is embedded in $text (using %META: tags)
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.0
+<p class='p'></p>
+
+<h3 id="afterRenameHandler_40_36oldWeb_44_36oldTopic_44_36oldAttachment_44_36newWeb_44_36newTopic_44_36newAttachment_41">  afterRenameHandler( $oldWeb, $oldTopic, $oldAttachment, $newWeb, $newTopic, $newAttachment ) </h3>
+<p></p>
+ <ul>
+<li> <code>$oldWeb</code> - name of old web
+</li> <li> <code>$oldTopic</code> - name of old topic (empty string if web rename)
+</li> <li> <code>$oldAttachment</code> - name of old attachment (empty string if web or topic rename)
+</li> <li> <code>$newWeb</code> - name of new web
+</li> <li> <code>$newTopic</code> - name of new topic (empty string if web rename)
+</li> <li> <code>$newAttachment</code> - name of new attachment (empty string if web or topic rename)
+</li></ul> 
+<p class='p'>This handler is called just after the rename/move/delete action of a web, topic or attachment.</p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = '2.0'
+<p class='p'></p>
+
+<h3 id="beforeUploadHandler_40_92_37attrHash_44_36meta_41">  beforeUploadHandler(\%attrHash, $meta ) </h3> <ul>
+<li> <code>\%attrHash</code> - reference to hash of attachment attribute values
+</li> <li> <code>$meta</code> - the <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> object where the upload will happen
+</li></ul> 
+<p></p>
+
+This handler is called once when an attachment is uploaded. When this
+handler is called, the attachment has <strong>not</strong> been recorded in the database.
+<p></p>
+
+The attributes hash will include at least the following attributes: <ul>
+<li> <code>attachment</code> =&gt; the attachment name - must not be modified
+</li> <li> <code>user</code> - the user id - must not be modified
+</li> <li> <code>comment</code> - the comment - may be modified
+</li> <li> <code>stream</code> - an input stream that will deliver the data for the     attachment. The stream can be assumed to be seekable, and the file     pointer will be positioned at the start. It is <strong>not</strong> necessary to     reset the file pointer to the start of the stream after you are     done, nor is it necessary to close the stream.
+</li></ul> 
+<p></p>
+
+The handler may wish to replace the original data served by the stream
+with new data. In this case, the handler can set the <code>{stream}</code> to a
+new stream.
+<p></p>
+
+For example:
+<pre>
+sub beforeUploadHandler {
+    my ( &#36;attrs, &#36;meta ) &#61; &#64;&#95;;
+    my &#36;fh &#61; &#36;attrs-&#62;{stream};
+    local &#36;/;
+    # read the whole stream
+    my &#36;text &#61; &#60;&#36;fh&#62;;
+    # Modify the content
+    &#36;text &#61;~ s/investment bank/den of thieves/gi;
+    &#36;fh &#61; new File::Temp();
+    print &#36;fh &#36;text;
+    &#36;attrs-&#62;{stream} &#61; &#36;fh;
+
+}
+</pre>
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = 2.1
+<p class='p'></p>
+
+<h3 id="afterUploadHandler_40_92_37attrHash_44_36meta_41">  afterUploadHandler(\%attrHash, $meta ) </h3> <ul>
+<li> <code>\%attrHash</code> - reference to hash of attachment attribute values
+</li> <li> <code>$meta</code> - a <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a>  object where the upload has happened
+</li></ul> 
+<p></p>
+
+This handler is called just after the after the attachment
+meta-data in the topic has been saved. The attributes hash
+will include at least the following attributes, all of which are read-only: <ul>
+<li> <code>attachment</code> =&gt; the attachment name
+</li> <li> <code>comment</code> - the comment
+</li> <li> <code>user</code> - the user id
+</li></ul> 
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = 2.1
+<p class='p'></p>
+
+<h3 id="mergeHandler_40_36diff_44_36old_44_36new_44_92_37info_41_45_62_36text">  mergeHandler( $diff, $old, $new, \%info ) -&gt; $text </h3>
+Try to resolve a difference encountered during merge. The <code>differences</code> 
+array is an array of hash references, where each hash contains the 
+following fields: <ul>
+<li> <code>$diff</code> =&gt; one of the characters '+', '-', 'c' or ' '. <ul>
+<li> '+' - <code>new</code> contains text inserted in the new version
+</li> <li> '-' - <code>old</code> contains text deleted from the old version
+</li> <li> 'c' - <code>old</code> contains text from the old version, and <code>new</code> text        from the version being saved
+</li> <li> ' ' - <code>new</code> contains text common to both versions, or the change        only involved whitespace
+</li></ul> 
+</li> <li> <code>$old</code> =&gt; text from version currently saved
+</li> <li> <code>$new</code> =&gt; text from version being saved
+</li> <li> <code>\%info</code> is a reference to the form field description { name, title,     type, size, value, tooltip, attributes, referenced }. It must <em>not</em>     be wrtten to. This parameter will be undef when merging the body     text of the topic.
+</li></ul> 
+<p></p>
+
+Plugins should try to resolve differences and return the merged text. 
+For example, a radio button field where we have 
+<code>{ diff=&gt;'c', old=&gt;'Leafy', new=&gt;'Barky' }</code> might be resolved as 
+<code>'Treelike'</code>. If the plugin cannot resolve a difference it should return 
+undef.
+<p class='p'>The merge handler will be called several times during a save; once for 
+each difference that needs resolution.</p>
+
+If any merges are left unresolved after all plugins have been given a 
+chance to intercede, the following algorithm is used to decide how to 
+merge the data: <ol>
+<li> <code>new</code> is taken for all <code>radio</code>, <code>checkbox</code> and <code>select</code> fields to      resolve 'c' conflicts
+</li> <li> '+' and '-' text is always included in the the body text and text     fields
+</li> <li> <code>&lt;del&gt;conflict&lt;/del&gt; &lt;ins&gt;markers&lt;/ins&gt;</code> are used to      mark 'c' merges in text fields
+</li></ol> 
+<p class='p'>The merge handler is called whenever a topic is saved, and a merge is 
+required to resolve concurrent edits on a topic.</p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> = 2.0
+<p class='p'></p>
+
+<h3 id="modifyHeaderHandler_40_92_37headers_44_36query_41">  modifyHeaderHandler( \%headers, $query ) </h3> <ul>
+<li> <code>\%headers</code> - reference to a hash of existing header values
+</li> <li> <code>$query</code> - reference to CGI query object
+</li></ul> 
+Lets the plugin modify the HTTP headers that will be emitted when a
+page is written to the browser. \%headers= will contain the headers
+proposed by the core, plus any modifications made by other plugins that also
+implement this method that come earlier in the plugins list.
+<pre>
+&#36;headers-&#62;{expires} &#61; &#39;+1h&#39;;
+</pre>
+<p></p>
+
+Note that this is the HTTP header which is <em>not</em> the same as the HTML
+&lt;HEAD&gt; tag. The contents of the &lt;HEAD&gt; tag may be manipulated
+using the <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::addToHEAD</code> method.
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.0
+<p class='p'></p>
+
+<h3 id="renderFormFieldForEditHandler_40_36name_44_36type_44_36size_44_36value_44_36attributes_44_36possibleValues_41_45_62_36html">  renderFormFieldForEditHandler($name, $type, $size, $value, $attributes, $possibleValues) -&gt; $html </h3>
+<p></p>
+
+This handler is called before built-in types are considered. It generates 
+the HTML text rendering this form field, or false, if the rendering 
+should be done by the built-in type handlers. <ul>
+<li> <code>$name</code> - name of form field
+</li> <li> <code>$type</code> - type of form field (checkbox, radio etc)
+</li> <li> <code>$size</code> - size of form field
+</li> <li> <code>$value</code> - value held in the form field
+</li> <li> <code>$attributes</code> - attributes of form field 
+</li> <li> <code>$possibleValues</code> - the values defined as options for form field, if     any. May be a scalar (one legal value) or a ref to an array     (several legal values)
+</li></ul> 
+<p class='p'>Return HTML text that renders this field. If false, form rendering
+continues by considering the built-in types.</p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.0
+<p></p>
+
+Note that you can also extend the range of available
+types by providing a subclass of <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Form::FieldDefinition">Foswiki::Form::FieldDefinition</a></code> to implement
+the new type (see <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Extensions">Foswiki::Extensions</a>.JSCalendarContrib</code> and
+<code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Extensions">Foswiki::Extensions</a>.RatingContrib</code> for examples). This is the preferred way to
+extend the form field types.
+<p class='p'></p>
+
+<h3 id="renderWikiWordHandler_40_36linkText_44_36hasExplicitLinkLabel_44_36web_44_36topic_41_45_62_36linkText">  renderWikiWordHandler($linkText, $hasExplicitLinkLabel, $web, $topic) -&gt; $linkText </h3> <ul>
+<li> <code>$linkText</code> - the text for the link i.e. for <code>[[Link][blah blah]]</code>     it's <code>blah blah</code>, for <code>BlahBlah</code> it's <code>BlahBlah</code>, and for <a class="foswikiNewLink" href="/bin/edit/System/BlahBlah?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">BlahBlah</a> it's <code>Blah Blah</code>.
+</li> <li> <code>$hasExplicitLinkLabel</code> - true if the link is of the form <code>[[Link][blah blah]]</code> (false if it's <code>=[Blah]] or =BlahBlah</code>)
+</li> <li> <code>$web</code>, <code>$topic</code> - specify the link being rendered
+</li></ul> 
+<p class='p'>Called during rendering, this handler allows the plugin a chance to change
+the rendering of labels used for links.</p>
+
+<p class='p'>Return the new link text.</p>
+
+NOTE: this handler is to allow a plugin to change the link text for a possible link - it may never be used.
+for example, Set ALLOWTOPICVIEW = is a possible <a href="/bin/view/System/ACRONYM">ACRONYM</a> link that will not be displayed unless the topic exists
+similarly, this handler is called before the Plurals code has a chance to remove the 's' from <a href="/bin/view/System/WikiWord">WikiWords</a>
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.0
+<p class='p'></p>
+
+<h3 id="completePageHandler_40_36html_44_36httpHeaders_41">  completePageHandler($html, $httpHeaders) </h3>
+<p></p>
+
+This handler is called on the ingredients of every page that is
+output by the standard CGI scripts. It is designed primarily for use by
+cache and security plugins. <ul>
+<li> <code>$html</code> - the body of the page (normally &lt;html&gt;..$lt;/html&gt;)
+</li> <li> <code>$httpHeaders</code> - the HTTP headers. Note that the headers do not contain     a <code>Content-length</code>. That will be computed and added immediately before     the page is actually written. This is a string, which must end in \n\n.
+</li></ul> 
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.0
+<p class='p'></p>
+
+<h3 id="restExample_40_36session_44_36subject_44_36verb_44_36response_41_45_62_36text">  restExample($session, $subject, $verb, $response) -&gt; $text </h3> <ul>
+<li> <code>$session</code> - The Foswiki object associated with this request.
+</li> <li> <code>$subject</code> - The invoked subject (may be ignored)
+</li> <li> <code>$verb</code> - The invoked verb (may be ignored)
+</li> <li> <code>$response</code> reference to the <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Response">Foswiki::Response</a> object that is used to compose a reply to the request
+</li></ul> 
+<p></p>
+
+If the <code>redirectto</code> parameter is not present on the request, then the return
+value from the handler is used to determine the endpoint for the
+request. It can be: <ul>
+<li> <code>undef</code> - causes the core to assume the handler handled the complete     request i.e. the core will not generate any response to the request.
+</li> <li> <code>text</code> - any other non-undef value will be written out as the content     of an HTTP 200 response. Only the standard headers in the response are     written.
+</li></ul> 
+<p class='p'>Additional parameters can be recovered via the query object in the $session, for example:</p>
+
+<p class='p'>my $query = $session-&gt;{request};
+my $web = $query-&gt;{param}-&gt;{web}[0];</p>
+
+If your rest handler adds or replaces equivalent functionality to a standard script
+provided with Foswiki, it should set the appropriate context in its switchboard entry.
+In addition to the obvous contexts:  <code>view</code>, <code>diff</code>,  etc. the <code>static</code> context is used
+to indicate that the resulting output will be read offline, such as in a PDF,  and 
+dynamic links (edit, sorting, etc) should not be rendered.
+<p></p>
+
+A comprehensive list of core context identifiers used by Foswiki is found in
+<a href="/bin/view/System/IfStatements#Context_identifiers.">IfStatements</a> Please be careful not to
+overwrite any of these identifiers!
+<p></p>
+
+For more information, check <a href="/bin/view/System/CommandAndCGIScripts#rest">CommandAndCGIScripts</a>
+<p></p>
+
+For information about handling error returns from REST handlers, see
+<a class="interwikiLink" href="https://foswiki.org/Support.Faq1" title="'Support.Faq1' on foswiki.org">Foswiki:Support.Faq1</a>
+<p></p>
+
+<strong>Since:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.0
+<p class='p'></p>
+
+<h3 id="Deprecated_handlers">  Deprecated handlers </h3>
+<p></p>
+
+<h4 id="redirectCgiQueryHandler_40_36query_44_36url_41">  redirectCgiQueryHandler($query, $url ) </h4> <ul>
+<li> <code>$query</code> - the CGI query
+</li> <li> <code>$url</code> - the URL to redirect to
+</li></ul> 
+<p class='p'>This handler can be used to replace Foswiki's internal redirect function.</p>
+
+<p class='p'>If this handler is defined in more than one plugin, only the handler
+in the earliest plugin in the INSTALLEDPLUGINS list will be called. All
+the others will be ignored.</p>
+
+<strong>Deprecated in:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.1
+<p class='p'>This handler was deprecated because it cannot be guaranteed to work, and
+caused a significant impediment to code improvements in the core.</p>
+
+<h4 id="beforeAttachmentSaveHandler_40_92_37attrHash_44_36topic_44_36web_41">  beforeAttachmentSaveHandler(\%attrHash, $topic, $web ) </h4>
+<p></p>
+ <ul>
+<li> <code>\%attrHash</code> - reference to hash of attachment attribute values
+</li> <li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li></ul> 
+This handler is called once when an attachment is uploaded. When this
+handler is called, the attachment has <strong>not</strong> been recorded in the database.
+<p></p>
+
+The attributes hash will include at least the following attributes: <ul>
+<li> <code>attachment</code> =&gt; the attachment name
+</li> <li> <code>comment</code> - the comment
+</li> <li> <code>user</code> - the user id
+</li> <li> <code>tmpFilename</code> - name of a temporary file containing the attachment data
+</li></ul> 
+<p></p>
+
+<strong>Deprecated in:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.1
+<p></p>
+
+The efficiency of this handler (and therefore it's impact on performance)
+is very bad. Please use <code>beforeUploadHandler()</code> instead.
+<p class='p'></p>
+
+<h4 id="afterAttachmentSaveHandler_40_92_37attrHash_44_36topic_44_36web_41">  afterAttachmentSaveHandler(\%attrHash, $topic, $web ) </h4>
+<p></p>
+ <ul>
+<li> <code>\%attrHash</code> - reference to hash of attachment attribute values
+</li> <li> <code>$topic</code> - the name of the topic in the current CGI query
+</li> <li> <code>$web</code> - the name of the web in the current CGI query
+</li> <li> <code>$error</code> - any error string generated during the save process (always     undef in 2.1)
+</li></ul> 
+<p></p>
+
+This handler is called just after the save action. The attributes hash
+will include at least the following attributes: <ul>
+<li> <code>attachment</code> =&gt; the attachment name
+</li> <li> <code>comment</code> - the comment
+</li> <li> <code>user</code> - the user id
+</li></ul> 
+<p></p>
+
+<strong>Deprecated in:</strong> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::VERSION">Foswiki::Plugins::VERSION</a> 2.1
+<p></p>
+
+This handler has a number of problems including security and performance
+issues. Please use <code>afterUploadHandler()</code> instead.
+<p></p>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671419' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/PerlDoc' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?cover=print;module=Foswiki::Plugins::EmptyPlugin' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/PerlDoc?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627671419;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/PerlDoc?foswiki_origin=GET%2cview%2c/bin/view/System/PerlDoc%3fmodule%3dFoswiki::Plugins::EmptyPlugin">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.PerlDoc'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

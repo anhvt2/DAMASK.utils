@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> PostResults &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/PostResults?t=1627663031" type="application/x-wiki" title="edit PostResults" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/PostResults" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/655fb012a012ecbb84a63665bd58565a.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<script class='head MATHJAX_PLUGIN' type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    processEscapes: true
+    },
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    Macros: {
+      bm: ["{\\mathbf{#1}}",1],
+      vctr: ["{\\mathbf{#1}}",1],
+      tnsr: ["{\\mathbf{#1}}",1],
+      tnsrfour: ["{\\mathbb{#1}}",1]
+    },
+  equationNumbers: { autoNumber: "AMS" }
+    }
+});
+</script>
+  <script class='head MATHJAX_PLUGIN' id="MathJax-script" async src="https://damask.mpie.de/pub/System/MathJaxPlugin/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "USERSWEB" : "Main",
+   "WIKINAME" : "WikiGuest",
+   "SYSTEMWEB" : "System",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTURLPATH" : "/bin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "USERNAME" : "guest",
+   "TOPIC" : "PostResults",
+   "SERVERTIME" : "30 Jul 2021 - 18:37",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTSUFFIX" : "",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "COOKIEREALM" : "",
+   "URLHOST" : "https://damask.mpie.de",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "PUBURLPATH" : "/pub",
+   "WEB" : "Documentation"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="A_2.2.1._postResults"> <A name="Section_2.2.1."></A>2.2.1.  postResults </h1>
+<span id="TableOfContents"></span>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?cover=print#Purpose"> Purpose </a>
+</li> <li> <a href="?cover=print#Background"> Background </a> <ul>
+<li> <a href="?cover=print#Supported_file_formats"> Supported file formats </a>
+</li> <li> <a href="?cover=print#Types_of_output"> Types of output </a>
+</li> <li> <a href="?cover=print#Output_processing"> Output processing </a>
+</li> <li> <a href="?cover=print#File_positions_and_increments"> File positions and increments </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Usage"> Usage </a>
+</li> <li> <a href="?cover=print#Switches"> Switches </a>
+</li> <li> <a href="?cover=print#Options"> Options </a>
+</li> <li> <a href="?cover=print#Examples"> Examples </a>
+</li></ul> 
+</div>
+<script type="math/tex"></script><p class='p'></p>
+
+<hr />
+<h2 id="Purpose">  Purpose </h2>
+Extract data from a simulation result file into an <a href="/bin/view/Documentation/AsciiTableFormat">ASCII table</a>.
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Background">  Background </h2>
+<h3 id="Supported_file_formats">  Supported file formats </h3> <ul>
+<li> MSC.Marc (<span class='foswikiMaroonFG'>*.t16</span>)
+</li> <li> DAMASK_spectral (<span class='foswikiMaroonFG'>*.spectralOut</span>)
+</li></ul> 
+<p></p>
+
+<h3 id="Types_of_output">  Types of output </h3> <ul>
+<li> nodal scalar (displacement, temperature, ...)
+</li> <li> elemental scalar (equivalent stress, ...)
+</li> <li> elemental tensor (stress, strain, ...)
+</li> <li> homogenization output
+</li> <li> crystallite output (phase, orientation, deformation gradient, ...)
+</li> <li> constitutive output (dislocation density, slip resistance, twin volume fraction, ...)
+</li></ul> 
+<p></p>
+
+<h3 id="Output_processing">  Output processing </h3>
+The result extraction internally comprises three steps: <ul>
+<li> <strong>filtering</strong> the data according to geometry or mesh properties. Use the <code>--filter</code> option to specify filtering conditions.
+</li> <li> <strong>grouping</strong> the filtered data by user-defined criteria based on geometry and mesh properties. Use the <code>--separation</code> option to indicate which discrimination criteria you want for grouping.
+</li> <li> <strong>mapping</strong> the values in each group to one scalar quantity by a user-defined function. Use the <code>--map</code> option to indicate how to map all values of a group to a single scalar.  
+</li></ul> 
+<p></p>
+
+<h3 id="File_positions_and_increments">  File positions and increments </h3>
+<p class='p'>Typically, a result file contains more than one time step but, for instance, a number $N$ of them.
+We distinguish between &raquo;positions&laquo;, which follow a strictly  consecutive numbering $1,\ldots,N$, and &raquo;increments&laquo;, which follow the numbering that the respective increment had in the course of the overall simulation.
+Example: suppose a simulation comprises 100 increments of which only every tenth is written to the result file.
+The result file will then contain positions $0,1,\ldots,10$ and increments $0,10,\ldots,100$ (because the initial configuration is always included as position 0 and increment 0).</p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Usage">  Usage </h2>
+<pre style="clear:both">
+&gt; postResults [<em>options</em>] <em>resultfile</em>
+</pre>
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Switches">  Switches </h2> <dl>
+<dt> <code>--info</code> / <code>-i</code> [ <strong>False</strong> ] </dt><dd>    just list contents of <span class='foswikiMaroonFG'><em>resultfile</em></span>
+</dd> <dt> <code>--legacy</code> / <code>-l</code> [ <strong>False</strong> ] </dt><dd>    interpret user block according to legacy (prior to DAMASK rev 1115) format
+</dd> <dt> <code>--split</code> / <code>-s</code> [ <strong>False</strong> ] </dt><dd>    split output into one separate file per increment
+</dd> <dt> <code>--increments</code> [ <strong>False</strong> ] </dt><dd>    range indicator addresses true increment numbers, not plain positions in file
+</dd> <dt> <code>--sloppy</code> [ <strong>False</strong> ] </dt><dd>    do not pre-check validity of increment range
+</dd> <dt> <code>--time</code> / <code>-t</code> [ <strong>False</strong> ] </dt><dd>    output time of increment (as first data column)
+</dd> <dt> <code>--nodal</code> / <code>-n</code> [ <strong>False</strong> ] </dt><dd>    data is extrapolated to nodal value
+</dd></dl> 
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Options">  Options </h2> <dl>
+<dt> <code>--type</code> / <code>-p</code> <em>string</em> [ auto ] </dt><dd>    type of <span class='foswikiMaroonFG'><em>resultfile</em></span>
+</dd> <dt> <code>--prefix</code> <em>string</em> [ none ] </dt><dd>    prefix to output file name
+</dd> <dt> <code>--suffix</code> <em>string</em> [ none ] </dt><dd>    suffix to output file name
+</dd> <dt> <code>--dir</code> / <code>-d</code> <em>string</em> [ <strong>postProc</strong> ] </dt><dd>    name of subdirectory to hold output
+</dd> <dt> <code>--range</code> / <code>-r</code> <em>start</em> <em>end</em> <em>step</em> [ all ] </dt><dd>    range of positions (or increments) to output
+</dd></dl> 
+<p></p>
+ <dl>
+<dt> <code>--homogenization</code> <em>string</em> or <em>int</em> [ <strong>1</strong> ] </dt><dd>    homogenization identifier (section in <span class='foswikiMaroonFG'>material.config</span> part &lt;homogenization&gt;)
+</dd> <dt> <code>--crystallite</code> <em>string</em> or <em>int</em> [ <strong>1</strong> ] </dt><dd>    crystallite identifier (section in <span class='foswikiMaroonFG'>material.config</span> part &lt;crystallite&gt;)
+</dd> <dt> <code>--phase</code> <em>string</em> or <em>int</em> [ <strong>1</strong> ] </dt><dd>    phase identifier (section in <span class='foswikiMaroonFG'>material.config</span> part &lt;phase&gt;)
+</dd></dl> 
+<p></p>
+ <dl>
+<dt> <code>--ns</code> <em>list</em> </dt><dd>    nodal scalars to extract
+</dd> <dt> <code>--es</code> <em>list</em> </dt><dd>    elemental scalars to extract
+</dd> <dt> <code>--et</code> <em>list</em> </dt><dd>    elemental tensors to extract
+</dd> <dt> <code>--ho</code> <em>list</em> </dt><dd>    homogenization results to extract
+</dd> <dt> <code>--cr</code> <em>list</em> </dt><dd>    crystallite results to extract
+</dd> <dt> <code>--co</code> <em>list</em> </dt><dd>    constitutive results to extract
+</dd></dl> 
+<p></p>
+ <dl>
+<dt> <code>--filter</code> / <code>-f</code> <em>PythonCode</em> </dt><dd>    condition(s) to filter results. keywords interpreted in the <em>PythonCode</em> are 'elem', 'node', 'ip', 'grain', and 'x', 'y', 'z'.
+</dd> <dt> <code>--separation</code> <em>list</em> </dt><dd>    properties to separate (and sort) results. keywords are 'elem', 'node', 'ip', 'grain', and 'x', 'y', 'z'.
+</dd> <dt> <code>--sort</code> <em>list</em> </dt><dd>    properties to sort results (overrides --separate order). keywords are 'none', 'elem', 'node', 'ip', 'grain', and 'x', 'y', 'z'.
+</dd> <dt> <code>--map</code> / <code>-m</code> <em>string</em> or <em>PythonLambda</em> </dt><dd>    function applied to map multiple values to one scalar quantity per group.   User-defined mappings (<code>lambda a,b,n:</code>) are formulated in an incremental fashion for each new data point, a(dd),   and may use the current (incremental) result, b(ase), as well as the number, n(umber),   of already processed data points for evaluation.   Predefined options are <ul>
+<li> <code>min</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: min(b,a)
+</li> <li> <code>max</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: max(b,a)
+</li> <li> <code>avg</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: (n*b+a)/(n+1)
+</li> <li> <code>avgabs</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: (n*b+abs(a))/(n+1)
+</li> <li> <code>sum</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: b+a
+</li> <li> <code>sumabs</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: b+abs(a)
+</li></ul> 
+</dd></dl> 
+<p class='p'></p>
+
+<p class='p'></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Examples">  Examples </h2>
+<p></p>
+ <ul>
+<li> volume-averaged results of deformation gradient and first PiolaKirchhoff stress for all increments   <pre>--cr f,p</pre>
+</li> <li> spatially resolved slip resistance (of phenopowerlaw) in separate files for increments 10, 11, and 12   <pre>--range 10 12 1 --increments --split --separation x,y,z --co resistance_slip</pre>
+</li> <li> get averaged results in slices perpendicular to x for all negative y coordinates split per increment    <pre>--filter 'y < 0.0'  --split --separation x --map 'avg'</pre>
+</li> <li> global sum of squared data falling into first quadrant arc between R1 and R2   <pre>--filter 'x >= 0.0 and y >= 0.0 and x*x + y*y >= R1*R1 and x*x + y*y <=R2*R2' --map 'lambda n,b,a: n*b+a*a'</pre>
+</li></ul> </div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: Documentation<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/Documentation/Processing">Processing</a> &gt; <a href="/bin/view/Documentation/PostProcessing">PostProcessing</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>PostResults <br />
+Topic revision:  <span class='patternRevInfo'>15 Apr 2014, <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.PostResults'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

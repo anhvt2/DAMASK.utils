@@ -1,0 +1,683 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> QuerySearch &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/QuerySearch?t=1627676285" type="application/x-wiki" title="edit QuerySearch" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/QuerySearch" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/e7e7b3ee7d12f6284073cee480054fa2.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "URLHOST" : "https://damask.mpie.de",
+   "USERNAME" : "guest",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "USERSWEB" : "Main",
+   "PUBURLPATH" : "/pub",
+   "SKIN" : "damask,famfamfam,pattern",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SYSTEMWEB" : "System",
+   "WIKINAME" : "WikiGuest",
+   "COOKIEREALM" : "",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SCRIPTURLPATH" : "/bin",
+   "SERVERTIME" : "30 Jul 2021 - 22:18",
+   "SCRIPTSUFFIX" : "",
+   "TOPIC" : "QuerySearch",
+   "WEB" : "System"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/QuerySearch" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?c4842aafb1ff2db85d33e3964b1f17d1' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/QuerySearch?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?b6bc87431ea2e82ad8dd89312a853675' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.QuerySearch' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.QuerySearch' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> 
+<h1 id="Query_Search">  Query Search </h1>
+Query searches help you search the contents of forms attached to your topics, as well as the values of other meta-data attached to the topic. Using query searches you can search: <ol>
+<li> The fields of forms
+</li> <li> Parent relationships
+</li> <li> File attachment information (but <strong>not</strong> the attached files themselves)
+</li></ol> 
+<p></p>
+
+Query searches are defined using a simple query language. The language consists of <em>field specifiers</em> and <em>constants</em> joined with <em>operators</em>.
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?cover=print#Field_specifiers"> Field specifiers </a>
+</li> <li> <a href="?cover=print#Basic_Types"> Basic Types </a> <ul>
+<li> <a href="?cover=print#Boolean_values"> Boolean values </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Constants"> Constants </a>
+</li> <li> <a href="?cover=print#String_Constants"> String Constants </a>
+</li> <li> <a href="?cover=print#Numerical_constants"> Numerical constants </a>
+</li> <li> <a href="?cover=print#Named_constants"> Named constants </a>
+</li> <li> <a href="?cover=print#Operators"> Operators </a>
+</li> <li> <a href="?cover=print#Putting_it_all_together"> Putting it all together </a>
+</li> <li> <a href="?cover=print#Case_sensitivity"> Case sensitivity </a>
+</li> <li> <a href="?cover=print#Working_with_arrays"> Working with arrays </a>
+</li> <li> <a href="?cover=print#Working_with_versions"> Working with versions </a>
+</li> <li> <a href="?cover=print#Gotchas"> Gotchas </a>
+</li> <li> <a href="?cover=print#Examples"> Examples </a> <ul>
+<li> <a href="?cover=print#Query_examples"> Query examples </a>
+</li> <li> <a href="?cover=print#Search_examples"> Search examples </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Field_specifiers">  Field specifiers </h2>
+You use field specifiers to say what value from the topic you are interested
+in.
+<p class='p'>All meta-data in a topic is referenced according to a simple plan.</p>
+ <ul>
+<li> <code>name</code> - name of the topic
+</li> <li> <code>web</code> - name of the web the topic is within
+</li> <li> <code>text</code> - the body text of the topic (without embedded meta-data)
+</li> <li> <code>META:FILEATTACHMENT</code> <ul>
+<li> <em>for each attachment</em> <ul>
+<li> <code>name</code>
+</li> <li> <code>attr</code>
+</li> <li> <code>path</code>
+</li> <li> <code>size</code>
+</li> <li> <code>user</code>
+</li> <li> <code>rev</code>
+</li> <li> <code>date</code>
+</li> <li> <code>comment</code>
+</li></ul> 
+</li></ul> 
+</li> <li> <code>META:TOPICPARENT</code> <ul>
+<li> <code>name</code>
+</li></ul> 
+</li> <li> <code>META:TOPICINFO</code> <ul>
+<li> <code>author</code>
+</li> <li> <code>date</code>
+</li> <li> <code>format</code>
+</li> <li> <code>version</code> - topic version (integer)
+</li></ul> 
+</li> <li> <code>META:CREATEINFO</code> - version info for the first version of the topic <ul>
+<li> <code>author</code>
+</li> <li> <code>date</code>
+</li> <li> <code>version</code> - topic version (integer)
+</li></ul> 
+</li> <li> <code>META:TOPICMOVED</code> <ul>
+<li> <code>by</code>
+</li> <li> <code>date</code>
+</li> <li> <code>from</code>
+</li> <li> <code>to</code>
+</li></ul> 
+</li> <li> <code>META:FORM</code> - the main form of the topic <ul>
+<li> <code>name</code>
+</li></ul> 
+</li> <li> <code>META:FIELD</code> - the fields in the form. <ul>
+<li> <em>for each field in the form</em> <ul>
+<li> <code>name</code> - name of the field
+</li> <li> <code>title</code> - title of the field
+</li> <li> <code>value</code> - what is stored in the field
+</li> <li> <code>form</code> - name of the form the field is in (currently always equal to META:FORM.name)
+</li> <li> <code>attributes</code> - string stored in the attributes, like <code>H</code> for hidden
+</li></ul> 
+</li></ul> 
+</li> <li> <code>META:PREFERENCE</code> <ul>
+<li> <em>for each preference in the topic</em> <ul>
+<li> <code>name</code>
+</li> <li> <code>value</code>
+</li></ul> 
+</li></ul> 
+</li></ul> 
+By default all queries are performed on the <em>latest</em> version of a topic. If you need to access <em>older</em> versions of the topic, then you can use the <code>versions</code> field to do so: <ul>
+<li> <code>versions</code> <ul>
+<li> <em>for each older version (<strong>most recent first</strong>)</em> <ul>
+<li> <em>repeat of all the above fields</em> (except <code>versions</code>).
+</li> <li> See <a class="foswikiCurrentTopicLink" href="#Working_with_Versions">Working with versions</a> for more details.
+</li></ul> 
+</li></ul> 
+</li></ul> 
+<p></p>
+
+See <a href="/bin/view/System/MetaData">MetaData</a> for details of what all these entries mean. Note that the set
+of meta-data types (and the aliases used to refer to them) may be extended
+by Foswiki extensions.
+<p></p>
+
+Most things at the top level of the plan - <code>META:TOPICPARENT</code>, <code>META:TOPICINFO</code> etc - are <em>structures</em> which are indexed by <em>keys</em>. For example, <code>META:TOPICINFO</code> has 4 entries, which are indexed by the keys <code>author</code>, <code>date</code>, <code>format</code> and <code>version</code>. <code>META:FILEATTACHMENT</code>, <code>META:FIELD</code> and <code>META:PREFERENCE</code> are all <em><a class="foswikiCurrentTopicLink" href="#Working_with_Arrays">arrays</a></em>, which means they can have any number of records under them. Arrays are indexed by <em>numbers</em> - for example, the first entry in the <code>META:FIELD</code> array is entry [0].
+<p></p>
+
+It's a bit clumsy having to type <code>META:FILEATTACHMENT</code> every time you want to refer to the array of attachments in a topic, so there are some predefined aliases that make it a bit less typing: <ul>
+<li> <code>attachments</code> means the same as <code>META:FILEATTACHMENT</code>
+</li> <li> <code>info</code> means the same as <code>META:TOPICINFO</code>
+</li> <li> <code>createinfo</code> means the same as <code>META:CREATEINFO</code>
+</li> <li> <code>parent</code> means the same as <code>META:TOPICPARENT</code>. <strong>Note:</strong> <code>parent</code> is itself a map; use <code>parent.name</code> to access the name of the parent topic
+</li> <li> <code>moved</code> means the same as <code>META:TOPICMOVED</code>
+</li> <li> <code>form</code> means the same as <code>META:FORM</code>, so to test if a topic has a form named 'UserForm' you test for <code>"form.name ~ '*.UserForm'"</code>
+</li> <li> <code>fields</code> means the same as <code>META:FIELD</code>, You can also use the name of the form (the value of <code>form.name</code> e.g. <code>PersonForm</code>)
+</li> <li> <code>preferences</code> means the same as <code>META:PREFERENCE</code>
+</li> <li> extensions may add additional aliases when they register new meta-data types
+</li></ul> 
+<p></p>
+
+Fields in this plan are referenced using a simple <em>field specifier</em> syntax:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Syntax </th>
+			<th class="foswikiTableCol1"> Means </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Examples </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>X</code> </td>
+			<td class="foswikiTableCol1"> refers to the field named <code>X</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>info</code>, <code>META:TOPICMOVED</code>, <code>attachments</code>, <code>name</code>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>X.Y</code> </td>
+			<td class="foswikiTableCol1"> refers to the entry with the key <code>Y</code> in the structure named <code>X</code>. If <code>X</code> is an array of structure, then it returns an array made up from the <code>Y</code> entry of each member of the array. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>info.date</code>, <code>moved.by</code>, <code>META:TOPICPARENT.name</code>, <code>attachments.name</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>X[<i>query</i>]</code> </td>
+			<td class="foswikiTableCol1"> refers to all the elements of the <a class="foswikiCurrentTopicLink" href="#Working_with_Arrays">array</a> <code>X</code> that match <em>query</em>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>attachments[size&gt;1024]</code>, <code>DocumentContainer[name!='Summary' AND value~'top secret'].value</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>X[N]</code> </td>
+			<td class="foswikiTableCol1"> where <code>X</code> is an <a class="foswikiCurrentTopicLink" href="#Working_with_Arrays">array</a> and <code>N</code> is an integer number &gt;= 0, gets the Nth element of the array <code>X</code>. Negative indices can be used to index the array from the end e.g. <code>attachments[-1]</code> to get the last attachment. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>attachments[3]</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>X/Y</code> </td>
+			<td class="foswikiTableCol1"> accesses <code>Y</code> from the topic specified by the <em>value</em> of <code>X</code>. <code>X</code> must evaluate to a topic name </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>parent.name/(form.name='ExampleForm')</code> will evaluate to true if (1) the topic has a parent, (2) the parent topic has the main form type <code>ExampleForm</code>. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>{X}</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> expands to the value of the <code>configure</code> setting {X}, if it is accessible, or '' otherwise </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> only some configuration settings are available: <code>{AccessControlACL}{EnableDeprecatedEmptyDeny}</code>, <code>{AccessibleCFG}</code>, <code>{AdminUserLogin}</code>, <code>{AdminUserWikiName}</code>, <code>{AntiSpam}{EmailPadding}</code>, <code>{AntiSpam}{EntityEncode}</code>, <code>{AntiSpam}{HideUserDetails}</code>, <code>{AntiSpam}{RobotsAreWelcome}</code>, <code>{AttachmentNameFilter}</code>, <code>{AuthRealm}</code>, <code>{AuthScripts}</code>, <code>{Cache}{Enabled}</code>, <code>{DefaultDateFormat}</code>, <code>{DefaultUrlHost}</code>, <code>{DenyDotDotInclude}</code>, <code>{DisplayTimeValues}</code>, <code>{EnableEmail}</code>, <code>{EnableHierarchicalWebs}</code>, <code>{FormTypes}</code>, <code>{HomeTopicName}</code>, <code>{LeaseLength}</code>, <code>{LeaseLengthLessForceful}</code>, <code>{LinkProtocolPattern}</code>, <code>{LocalSitePreferences}</code>, <code>{LoginNameFilterIn}</code>, <code>{LowerNational}</code>, <code>{MaxRevisionsInADiff}</code>, <code>{MinPasswordLength}</code>, <code>{NameFilter}</code>, <code>{NotifyTopicName}</code>, <code>{NumberOfRevisions}</code>, <code>{PluginsOrder}</code>, <code>{Plugins}{WebSearchPath}</code>, <code>{PluralToSingular}</code>, <code>{Register}{AllowLoginName}</code>, <code>{Register}{Approvers}</code>, <code>{Register}{DisablePasswordConfirmation}</code>, <code>{Register}{EnableNewUserRegistration}</code>, <code>{Register}{NeedApproval}</code>, <code>{Register}{NeedVerification}</code>, <code>{Register}{RegistrationAgentWikiName}</code>, <code>{ReplaceIfEditedAgainWithin}</code>, <code>{ScriptSuffix}</code>, <code>{ScriptUrlPath}</code>, <code>{Site}{Locale}</code>, <code>{Site}{LocaleRegexes}</code>, <code>{SitePrefsTopicName}</code>, <code>{Stats}{TopContrib}</code>, <code>{Stats}{TopicName}</code>, <code>{Stats}{TopViews}</code>, <code>{SuperAdminGroup}</code>, <code>{SystemWebName}</code>, <code>{TemplateLogin}{AllowLoginUsingEmailAddress}</code>, <code>{TemplatePath}</code>, <code>{TrashWebName}</code>, <code>{UploadFilter}</code>, <code>{UpperNational}</code>, <code>{UseLocale}</code>, <code>{UserInterfaceInternationalisation}</code>, <code>{UsersTopicName}</code>, <code>{UsersWebName}</code>, <code>{Validation}{Method}</code>, <code>{WebMasterEmail}</code>, <code>{WebMasterName}</code>, <code>{WebPrefsTopicName}</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Note: at some point Foswiki may support multiple forms in the same topic. For this reason you can use the name of the form on the left-hand side of <code>.</code> and <code>[]</code> expressions. As long as there is only one form in the topic, it will have the same effect as the <code>fields</code> accessor.
+<p></p>
+
+If you use the name of a field (for example, <code>LastName</code>) in the query without a . before it, that is taken to mean "the value of the field named this". This works if and only if the field name isn't the same as of the top level entry names or their aliases described above. For example, the following expressions will all evaluate to the same thing: <ul>
+<li> <code>Lastname</code>
+</li> <li> <code>PersonForm.Lastname</code>
+</li> <li> <code>Lastname.value</code>
+</li></ul> 
+If the field name would conflict with the name of an entry or alias (e.g. it's <code>moved</code> or maybe <code>parent</code>), you can prepend the name of the form followed by a dot, as shown in the last example. You cannot refer to fields that have
+the same name as operators (e.g. <code>AND</code>, <code>not</code> etc)
+<p class='p'>Note: some search implementations have difficulty with expressions that rely
+on database values to disambiguate the syntax of the expression. If you don't
+get the expected result from a query search, then make sure all references
+are fully qualified.</p>
+
+<h2 id="Basic_Types">  Basic Types </h2>
+The query language supports five basic types: <ul>
+<li> String - string constants are delimited by single quotes. Any values taked from topics (such as field values) are by default interpreted as strings. The empty string evaluates to boolean 'false', as does the string "0". All others evaluate to 'true'.
+</li> <li> Number - numerical constants can be expressed using standard floating point number notation. Strings can also be used wherever a number is expected, in which case the string will be parsed as a number. Numerical 0 evaluates to boolean 'false', all others to 'true'.
+</li> <li> Undefined - an undefined value is a placeholder for a value.
+</li> <li> Array - ordered collections of values
+</li> <li> Structure - also known as a "hash", a structure is an associative array that maps names to values. Topics are structures, with fields as described above.
+</li></ul> 
+<p></p>
+
+<h3 id="Boolean_values">  Boolean values </h3>
+Foswiki is implemented in Perl, and the query language inherits perl semantics for the query operators. This is usually only a problem when determining if a value is "true" or not.
+<p></p>
+
+<h2 id="Constants">  Constants </h2>
+You use constants for the values that you compare with fields. Constants are either strings, or numbers.
+<p></p>
+
+<h2 id="String_Constants">  String Constants </h2>
+String constants are always delimited by single-quotes. You can use backslash <code>\</code> to include the following special characters:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Code </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> Meaning </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>\n</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> newline </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>\t</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> tab </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>\033</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> octal character code </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>\x7f</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> hexadecimal character code </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>\x{1234}</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> hexadecimal wide character code </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>\\</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> a single <code>\</code> </td>
+		</tr>
+	</tbody></table>
+All other occurrences of backslashes are carried through into the string, so <code>\d</code> means <code>\d</code> (unless the string is used as a regular expression, in which case it means any digit).
+<p></p>
+
+<h2 id="Numerical_constants">  Numerical constants </h2>
+Numbers can be any signed or unsigned integer or floating point number using standard scientific notation e.g. -1.2e-3 represents -0.0012
+<p></p>
+
+<h2 id="Named_constants">  Named constants </h2>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Name </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> Meaning </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>UNDEFINED</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> The undefined value </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>NOW</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> The current time, in seconds since midnight on 1st Jan, 1970 </td>
+		</tr>
+	</tbody></table>
+Note that constant names are <strong>not</strong> case sensitive. <code>NOW</code> is the same as <code>now</code>.
+<p></p>
+
+<h2 id="Operators">  Operators </h2>
+Field specifiers and constants are combined using <em>operators</em> to create queries.
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Operator </th>
+			<th class="foswikiTableCol1"> Meaning </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Example </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>=</code> </td>
+			<td class="foswikiTableCol1"> Left-hand side (LHS) exactly matches the value on the Right-hand side (RHS). </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>field = 'String'</code>, <code>age = 1</code>. Numbers and strings can be compared. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>!=</code> </td>
+			<td class="foswikiTableCol1"> Inverse of <code>=</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>age = 2</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>~</code> </td>
+			<td class="foswikiTableCol1"> wildcard match ('*' will match any number of characters, '?' will match any single character </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> "PersonForm.Surname ~ '*Smit?'") Note: Surname ~ 'Smith' is the same as Surname = 'Smith' </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>=~</code> </td>
+			<td class="foswikiTableCol1"> regular expression match, see <a href="/bin/view/System/RegularExpression">RegularExpressions</a> for details. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>number =~ '^\d+$'</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&lt;</code> </td>
+			<td class="foswikiTableCol1"> LHS is less than RHS. If both sides are numbers, the order is numeric. Otherwise it is lexical (applies to all comparison operators) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>5 &lt; 4</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&gt;</code> </td>
+			<td class="foswikiTableCol1"> greater than </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>4 &gt; 5</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&lt;=</code> </td>
+			<td class="foswikiTableCol1"> less than or equal to </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>2 &lt;= 1</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>&gt;=</code> </td>
+			<td class="foswikiTableCol1"> greater than or equal to </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>2 &gt;= 1</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>LC</code> </td>
+			<td class="foswikiTableCol1"> Converts string to lower case, Use for caseless comparisons. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>lc 'XYZ'</code> will yield <code>'xyz'</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>UC</code> </td>
+			<td class="foswikiTableCol1"> Converts string to UPPER CASE. Use for caseless comparisons. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>uc 'xyz'</code> will yield <code>'XYZ'</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>D2N</code> </td>
+			<td class="foswikiTableCol1"> Converts a string representing a date (expressed in <a href="/bin/view/System/TimeSpecifications">one of the formats that Foswiki can parse</a>) to a number of seconds since 1st Jan 1970. This is the format dates are stored in inside Foswiki, and you have to convert a string date using <code>D2N</code> before you can compare it with - for example - the date an attachment was uploaded. Times without a timezone are assumed to be in server local time. If the text string is not recognised as a valid date, then <code>D2N</code> will return <code>undefined</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>d2n '25-Dec-2011'</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>NOT</code> </td>
+			<td class="foswikiTableCol1"> Invert the result of the subquery </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>not(Size &lt; 2)</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>AND</code> </td>
+			<td class="foswikiTableCol1"> Combine two subqueries </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>(Length &gt; Width) and (Age &lt; Beauty)</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>OR</code> </td>
+			<td class="foswikiTableCol1"> Combine two subqueries </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>(Length &gt; Width) or (Age &lt; Beauty)</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>INT</code> </td>
+			<td class="foswikiTableCol1"> return the integer portion of a value (returns undef if the string isn't an integer, so beware.) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>int <a class="foswikiNewLink" href="/bin/edit/System/SomeField?topicparent=System.QuerySearch" rel="nofollow" title="Create this topic">SomeField</a></code> or <code>int -1.5</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>()</code> </td>
+			<td class="foswikiTableCol1"> Bracketed subquery </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>(Length &gt; Width)</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>,</code> </td>
+			<td class="foswikiTableCol1"> Array separator. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>(1,2,3)</code> expands to an array containing the scalar values <code>[1,2,3]</code>, If either side of this operator returns an array value, that array will be flattened into the result i.e. <code>((1,2),(3,4))</code> is equivalent to <code>(1,2,3,4)</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>+</code> </td>
+			<td class="foswikiTableCol1"> Arithmetic addition, and string concatenation. String concatenation applies if either side of the expression does not evaluate to a number. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>1 + 2</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>-</code> </td>
+			<td class="foswikiTableCol1"> Arithmetic subtraction </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>2 - 1</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>-</code> </td>
+			<td class="foswikiTableCol1"> Unary minus </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>-Size</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>*</code> </td>
+			<td class="foswikiTableCol1"> Arithmetic multiplication </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>Buck * Doe</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>DIV</code> </td>
+			<td class="foswikiTableCol1"> Arithmetic (real number) division </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>Rabbits div Stoats</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>IN</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Test if a value is in a list </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>1 in (2, 3, 4)</code> </td>
+		</tr>
+	</tbody></table>
+Note that operator names are <strong>not</strong> case sensitive. <code>AND</code> is the same as <code>and</code>.
+<p></p>
+
+<div class="foswikiHelp">
+<img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> The same operators are supported by the <a href="/bin/view/System/VarIF">%IF</a> and <a href="/bin/view/System/VarQUERY">%QUERY</a> macros.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> If you want to know if a field is undefined (has never been given a value) then you can compare it with <code>undefined</code>.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> In the operators (<code> = != ~ =~ &lt; &gt; &lt;= &gt;= NOT AND OR</code>) an undefined operand is treated the same as numerical 0. For <code>lc uc d2n</code> an undefined operand will give an undefined result. For <code>length</code> and undefined operand will give a result of 0.
+<p></p>
+
+</div>
+<p></p>
+
+<h2 id="Putting_it_all_together">  Putting it all together </h2>
+When a query is applied to a topic, the goal is to reduce to a TRUE or FALSE value that indicates whether the topic matches that query or not. If the query returns TRUE, then the topic is included in the search results.
+<p></p>
+
+A query matches if the query returns one or more values when it is applied to the topic. So if I have a very simple query, such as <code>"attachments"</code>, then this will return TRUE for all topics that have one or more attachments. If I write <code>"attachments[size&gt;1024 AND name ~ '*.gif']"</code> then it will return TRUE for all topics that have at least one attachment larger than 1024 bytes with a name ending in <code>.gif</code>.
+<p></p>
+
+<h2 id="Case_sensitivity">  Case sensitivity </h2>
+<p></p>
+
+The <code>type=query</code> search is always case sensitive, with the exceptions of: <ul>
+<li> operator names (<code>and</code> and <code>AND</code> are the same)
+</li> <li> constants (<code>now</code> and <code>NOW</code> are the same)
+</li></ul> 
+Everything else is case sensitive.    In order to do comparisons that are case insensitive, the recommended solution is to  Use the <code><b>lc()</b></code> or <code><b>uc()</b></code> functions to convert either side of the comparison to be lower or upper case.
+This is further demonstrated below in the examples.
+<p></p>
+
+<h2 id="Working_with_arrays">  Working with arrays </h2>
+A number of fields in a topic are <em>arrays</em>, meaning that they refer to a list of values rather than a single value. Arrays are accessed using the square brackets ([]) and dot (.) operators.
+<p></p>
+
+The square brackets operator is actually a bit more clever than a simple query or array index. You can use the <em>comma</em> <code>,</code> operator inside the brackets to select a number of matching elements. For example,
+<pre>
+versions&#91;0,-1&#93;
+</pre>
+will select the <em>most recent</em> version (stored at index 0) and the <em>oldest</em> version.
+<p></p>
+
+You can even <em>mix</em> integer indices and conditions. For example, let's say we want to select all versions that are authored by 'RoaldDahl' and also select the <em>oldest</em> revision.
+<pre>
+versions&#91;-1,info.author&#61;&#39;RoaldDahl&#39;&#93;
+</pre>
+Note that if 'RoaldDahl' authored the first revision, then you will get that revision <em>twice</em> in the result.
+<p class='p'>When the dot operator is applied to an array, it is applied to each element of the array, and the result is a new array containing the results of each application.</p>
+
+<h2 id="Working_with_versions">  Working with versions </h2>
+The <code>versions</code> field is mainly used with <code><a href="/bin/view/System/VarQUERY">%QUERY</a></code> to provide a powerful view into the history of a topic. It is an <a class="foswikiCurrentTopicLink" href="#Working_with_Arrays">array</a> of objects, one for each revision of the topic (including the most recent), where the most recent revision is in position [0] in the array, and the second most recent in [1] etc. You can use the <code>versions</code> field to select old versions based on a query. For example,
+<pre>
+versions&#91;info.author&#61;&#39;RoaldDahl&#39;&#93;
+</pre>
+will return a list of all versions authored by RoaldDahl. You can access field
+values in the topics <em>as they were at the time</em> - for example,
+<pre>
+versions&#91;info.author&#61;&#39;RoaldDahl&#39;&#93;.Published
+</pre>
+will return an array of the values of the Published field in all versions authored by RoaldDahl.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> When you access the topic history using the <code>versions</code> field, the history of the topic is loaded with the <strong>most recent revision first</strong> i.e. at index [0]. So versions[1] does <strong>not</strong> refer to version 1 of the topic; it refers to the version at position 1 in the array i.e. one before the most recent revision. If you want to access the version numbered '1', then you must use <code>versions[info.version=1]</code> (or <code>versions[-1]</code>).
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> WARNING: Some of the Foswiki store implementations use an external tool called <code>RCS</code> to store topic histories. RCS has very poor performance when it comes to recovering all versions. For this reason you should avoid use of queries that use <code>versions</code> if you are using one of these stores.
+<p></p>
+
+<h2 id="Gotchas">  Gotchas </h2> <ul>
+<li> Remember that in the query language, topic names are <em>constants</em>. You cannot write <code>Main.UserTopic/UserForm.firstName</code> because <code>Main.UserTopic</code> will be interpreted as a form field name. If you want to refer to topics you <strong>must</strong> enclose the topic name in quotes i.e. <code>'Main.UserTopic'/UserForm.firstName</code>
+</li> <li> Query operations are performed in the context of =%WEB% and =%TOPIC%. This can cause confusing when they are used in an  <code>%INCLUDE</code>ed topic, where you might expect them to operate in the context of the <em>including</em> topic, rather than the <em>included</em> topic.
+</li></ul> 
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<h3 id="Query_examples">  Query examples </h3> <ul>
+<li> <code>attachments[name='purdey.gif']</code> - true if there is an attachment call <code>purdey.gif</code> on the topic
+</li> <li> <code>(fields[name='Firstname'].value='Emma' OR fields[name='Firstname'].value='John') AND fields[name='Lastname'].value='Peel'</code> - true for 'Emma Peel' and 'John Peel' but <strong>not</strong> 'Robert Peel' or 'Emma Thompson'
+</li> <li> <code>(Firstname='Emma' OR Firstname='John') AND Lastname='Peel'</code> - shortcut form of the previous query
+</li> <li> <code>HistoryForm[name='Age'].value&gt;2</code> - true if the topic has a <code>HistoryForm</code>, and the form has a field called <code>Age</code> with a value &gt; 2
+</li> <li> <code>HistoryForm.Age &gt; 2</code> - shortcut for the previous query
+</li> <li> <code>preferences[name='FaveColour' AND value='Tangerine']</code> - true if the topic has the given <a href="/bin/view/System/PreferenceSettings">preference settings</a> and value
+</li> <li> <code>Person/(ClothesForm[name='Headgear'].value ~ '*Bowler*' AND attachments[name~'*hat.gif' AND date &lt; d2n('2007-01-01')])</code> - true if the form attached to the topic has a field called <code>Person</code> that has a value that is the name of a topic, and that topic contains the form <code>ClothesForm</code>, with a field called <code>Headgear</code>, and the value of that field contains the string <code>'Bowler'</code>, and the topic also has at least one attachment that has a name matching <code>*hat.gif</code> and a date before 1st Jan 2007. (Phew!)
+</li> <li> <code>length(fields[NOT lc(attributes)=~'h'])</code> - the number of fields that are not hidden
+</li> <li> <code>lc(name)=~'.*ann.*'</code> - Would match Anne, Maryann, MaryAnn, AnnMarie...
+</li></ul> 
+<p></p>
+
+<h3 id="Search_examples">  Search examples </h3>
+Find all topics that are children of this topic in the current web
+<pre class="tml">
+&#37;SEARCH{&#34;parent.name &#61; &#39;&#37;TOPIC&#37;&#39;&#34; web&#61;&#34;&#37;WEB&#37;&#34; type&#61;&#34;query&#34;}&#37;
+</pre>
+Find all topics that have an attachment called 'grunge.gif'
+<pre class="tml">
+&#37;SEARCH{&#34;attachments&#91;name&#61;&#39;grunge.gif&#39;&#93;&#34; type&#61;&#34;query&#34;}&#37;
+</pre>
+Find all topics that have form <code>ColourForm</code> where the form field 'Shades' is 'green' or 'yellow' but not 'brown'
+<pre class="tml">
+&#37;SEARCH{&#34;(lc(Shades)&#61;&#39;green&#39; OR lc(Shades)&#61;&#39;yellow&#39;) AND NOT(lc(Shades) ~ &#39;brown&#39;)&#34; type&#61;&#34;query&#34;}&#37;
+</pre>
+Find all topics that have PNG attachments that have been added since 26th March 2007
+<pre class="tml">
+&#37;SEARCH{&#34;attachments&#91;name ~ &#39;&#42;.png&#39; AND date &#62;&#61; d2n(&#39;2007-03-26&#39;)&#93;&#34; type&#61;&#34;query&#34;}&#37;
+</pre>
+Find all topics that have a field 'Threat' set to 'Amber' and 'cold virus' somewhere in the topic text.
+<pre class="tml">
+&#37;SEARCH{&#34;Threat&#61;&#39;Amber&#39; AND text ~ &#39;&#42;cold virus&#42;&#39;&#34; type&#61;&#34;query&#34;}&#37;
+</pre>
+Find all topics newer than one week old
+<pre class="tml">
+&#37;SEARCH{&#34;info.date &#62;&#61; &#37;CALC{&#34;&#36;TIMEADD(&#36;TIME(), -7, day)&#34;}&#37;&#34; type&#61;&#34;query&#34;}&#37;
+</pre>
+Search for topic based upon browser input
+<pre class="tml">
+&#37;SEARCH{&#34;lc(name)&#61;~lc(&#39;.&#42;&#37;URLPARAM{&#34;q&#34;}&#37;.&#42;&#39;)&#34; type&#61;&#34;query&#34;}&#37;
+</pre>
+<strong><em>Related Topics:</em></strong> <a href="/bin/view/System/SearchHelp">SearchHelp</a>, <a href="/bin/view/System/VarSEARCH">VarSEARCH</a>, <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>, <a href="/bin/view/System/QuerySearchPatternCookbook">QuerySearchPatternCookbook</a>
+</div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/Category">Category</a> &gt; <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>QuerySearch <br />
+Topic revision:  <span class='patternRevInfo'>03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.QuerySearch'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

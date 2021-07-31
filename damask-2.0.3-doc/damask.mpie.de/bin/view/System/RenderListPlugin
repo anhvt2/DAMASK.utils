@@ -1,0 +1,897 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> RenderListPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/RenderListPlugin?t=1627664521" type="application/x-wiki" title="edit RenderListPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/RenderListPlugin" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/782328895b33915a70daa19232915b8b.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WIKINAME" : "WikiGuest",
+   "SYSTEMWEB" : "System",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "USERNAME" : "guest",
+   "URLHOST" : "https://damask.mpie.de",
+   "WEB" : "System",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SCRIPTSUFFIX" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SERVERTIME" : "30 Jul 2021 - 19:02",
+   "TOPIC" : "RenderListPlugin",
+   "PUBURLPATH" : "/pub",
+   "USERSWEB" : "Main"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/RenderListPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Plugins">Plugins</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/RenderListPlugin" title='Topic revision: 1 (01 May 2016 - 13:15:43)'>RenderListPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/RenderListPlugin?t=1627664521;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/RenderListPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/RenderListPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/RenderListPlugin?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=RenderListPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/RenderListPlugin?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/RenderListPlugin?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Render_List_Plugin">  Render List Plugin </h1>
+<p></p>
+
+<!-- <ul>
+<li> Set SHORTDESCRIPTION = Render bullet lists in a variety of formats
+</li></ul> 
+-->
+Render bullet lists in a variety of formats
+<p></p>
+
+<h2 id="Syntax_Rules">  Syntax Rules </h2>
+<p></p>
+
+<h3 id="RENDERLIST_Macro">  RENDERLIST Macro </h3>
+<p></p>
+ <ul>
+<li> Place a <code>%RENDERLIST{ &lt;parameters&gt; }%</code> before any bullet list <ul>
+<li> The lists can be handcrafted, generated by another Plugin, a <code>%TOC%</code>, or the result of a <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li></ul> 
+</li> <li> Supported parameters:         <table class="foswikiTable" rules="none">      	<tbody>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"name"</code> or<br /> <code>theme="name"</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> Select a rendering theme </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>focus="any&nbsp;text"</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> Focus list on a bullet with specified text </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>depth="2"</code> </td>			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Remove bullets with an indent greater then the depth. The depth is relative to the highlighted bullet in case <code>focus</code> is specified </td>		</tr>	</tbody>      </table>
+</li> <li> Rendering themes can be defined by <code>&lt;name&gt;_THEME</code> Plugin settings <ul>
+<li> Each theme is defined by a comma separated list containing the render type and parameters required by that render type
+</li> <li> There are different render types; this initial Plugin version has <strong>tree</strong> and <strong>icon</strong> render types
+</li></ul> 
+</li> <li> Format of the <strong>tree</strong> render type: <ul>
+<li> <code>Set &lt;name&gt;_THEME = tree, &lt;0/1 flag to suppress/show lines of first level&gt;</code>
+</li></ul> 
+</li> <li> Format of the <strong>icon</strong> render type: <ul>
+<li> <code>Set &lt;name&gt;_THEME = icon, &lt;0/1 flag to suppress/show lines of first level&gt;, &lt;icon width&gt;, &lt;icon height&gt;, &lt;spacer graph&gt;, &lt;T-line graph&gt;, &lt;I-line graph&gt;, &lt;L-line graph&gt;, &lt;icon image&gt;</code>
+</li> <li> To define new Icon themes, attach images to this Plugin topic and set the parameters accordingly
+</li></ul> 
+</li> <li> Focus bullet list: <ul>
+<li> Search bullet list for text. If a bullet is found: <ol>
+<li> Highlight text and remove <code>[[][]]</code> links on bullet where text is found
+</li> <li> Reduce bullet list to show only its parents and children
+</li></ol> 
+</li> <li> This is useful to maintain one large bullet list with links to team pages, representing the organization of a company. Each team page can INCLUDE the bullet list with focus set to itself.
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h3 id="Bullets">  Bullets </h3>
+<p></p>
+ <ul>
+<li> Use regular <code><b>*</b></code> bullets
+</li> <li> Start with level one <ul>
+<li> Increase indentation only one level at a time <ul>
+<li> <code>Like this</code>
+</li></ul> 
+</li></ul> 
+</li> <li> Decreasing indentation many levels at a time is OK
+</li> <li> Wrap long text with continuation lines, the Plugin does not do that for you<br />     <code>Align continuation lines with leading spaces like this</code>
+</li> <li> You can specify an icon for a bullet of render type <strong>tree</strong> or <strong>icon</strong>: <ul>
+<li> Attach the icon to this Plugin topic, e.g. <code>myicon.gif</code>, or
+</li> <li> Use one of the existing icons: <a href='/pub/System/RenderListPlugin/globe.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/globe.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_b6d35333d22d05de5802e43383497c02_globe.gif' alt='globe.gif' title='globe.gif' width='16' height='16'    /></a> <code>globe.gif</code>, <a href='/pub/System/RenderListPlugin/home.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/home.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></a> <code>home.gif</code>, <a href='/pub/System/RenderListPlugin/virtualhome.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/virtualhome.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_178f7cdc0449ab00b55d9b0ca511bd08_virtualhome.gif' alt='virtualhome.gif' title='virtualhome.gif' width='16' height='16'    /></a> <code>virtualhome.gif</code>, <a href='/pub/System/RenderListPlugin/group.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/group.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_178f7cdc0449ab00b55d9b0ca511bd08_group.gif' alt='group.gif' title='group.gif' width='16' height='16'    /></a> <code>group.gif</code>, <a href='/pub/System/RenderListPlugin/persons.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/persons.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_d01d84451faca4bce0fdf048f188b0e0_persons.gif' alt='persons.gif' title='persons.gif' width='16' height='16'    /></a> <code>persons.gif</code>, <a href='/pub/System/RenderListPlugin/virtualpersons.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/virtualpersons.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_563b849f5e4e69cfc90bb4cd7a68bf63_virtualpersons.gif' alt='virtualpersons.gif' title='virtualpersons.gif' width='16' height='16'    /></a> <code>virtualpersons.gif</code>, <a href='/pub/System/RenderListPlugin/person.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/person.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_459c09033b377d98fc39d22c5d66e98c_person.gif' alt='person.gif' title='person.gif' width='16' height='16'    /></a> <code>person.gif</code>, <a href='/pub/System/RenderListPlugin/virtualperson.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/virtualperson.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_a4f3dea81805ba334c5b96722d23ae56_virtualperson.gif' alt='virtualperson.gif' title='virtualperson.gif' width='16' height='16'    /></a> <code>virtualperson.gif</code>, <a href='/pub/System/RenderListPlugin/email.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/email.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3f098ae46b232ee7d36d01e9fb98dc25_email.gif' alt='email.gif' title='email.gif' width='16' height='16'    /></a> <code>email.gif</code>, <a href='/pub/System/RenderListPlugin/trend.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/trend.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_a4f3dea81805ba334c5b96722d23ae56_trend.gif' alt='trend.gif' title='trend.gif' width='16' height='16'    /></a> <code>trend.gif</code>, <a href='/pub/System/RenderListPlugin/folder.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/folder.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3a60508d533808db38cd952e25c24903_folder.gif' alt='folder.gif' title='folder.gif' width='16' height='16'    /></a> <code>folder.gif</code>, <a href='/pub/System/RenderListPlugin/folders.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/folders.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_25c5aa4000d1c6118b4ff983fd1a5d0c_folders.gif' alt='folders.gif' title='folders.gif' width='16' height='16'    /></a> <code>folders.gif</code>, <a href='/pub/System/RenderListPlugin/file.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/file.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_afafb579591f5ebf24a503d69d496218_file.gif' alt='file.gif' title='file.gif' width='16' height='16'    /></a> <code>file.gif</code>, <a href='/pub/System/RenderListPlugin/files.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/files.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_ae6baa02dce2f7b4f46c77597c10d45c_files.gif' alt='files.gif' title='files.gif' width='16' height='16'    /></a> <code>files.gif</code>, <a href='/pub/System/RenderListPlugin/doc.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/doc.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_31778b740e39ee9bf4382860b2f4fb7f_doc.gif' alt='doc.gif' title='doc.gif' width='16' height='16'    /></a> <code>doc.gif</code>, <a href='/pub/System/RenderListPlugin/image.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/image.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_e1285118c10bdee4f8e43844f1fa5411_image.gif' alt='image.gif' title='image.gif' width='16' height='16'    /></a> <code>image.gif</code>, <a href='/pub/System/RenderListPlugin/pdf.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/pdf.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_0c1cbbfd0e0068bd35c4b08e1daed01d_pdf.gif' alt='pdf.gif' title='pdf.gif' width='16' height='16'    /></a> <code>pdf.gif</code>, <a href='/pub/System/RenderListPlugin/ppt.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/ppt.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_2b247ec64c3576199c93f99bf171feb8_ppt.gif' alt='ppt.gif' title='ppt.gif' width='16' height='16'    /></a> <code>ppt.gif</code>, <a href='/pub/System/RenderListPlugin/sound.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/sound.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8deb15f7219832a1d02a6bae21f599c6_sound.gif' alt='sound.gif' title='sound.gif' width='16' height='16'    /></a> <code>sound.gif</code>, <a href='/pub/System/RenderListPlugin/xls.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/xls.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67a6173bc58ac751832d4c3087bf71f1_xls.gif' alt='xls.gif' title='xls.gif' width='16' height='16'    /></a> <code>xls.gif</code>, <a href='/pub/System/RenderListPlugin/zip.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/zip.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_54bd68ff65b56e260d3c77c04f5aa35f_zip.gif' alt='zip.gif' title='zip.gif' width='16' height='16'    /></a> <code>zip.gif</code>, <a href='/pub/System/RenderListPlugin/see.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/see.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_6ab80d22e7d0d94710c1bd46b1a43f35_see.gif' alt='see.gif' title='see.gif' width='16' height='16'    /></a> <code>see.gif</code>
+</li> <li> Refer to an attached icon at the beginning of the bullet with: <ul>
+<li> <code>icon:myicon Followed by normal bullet text</code>
+</li></ul> 
+</li> <li> Any <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icon can be used as well: <ul>
+<li> <code>%ICON{name}% Followed by normal bullet text</code>
+</li></ul> 
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<p></p>
+
+<table border="0" cellspacing="5" cellpadding="3"><tr><th valign="top" bgcolor="#CCCCC">
+<strong>You type:</strong>
+</th><th valign="top" bgcolor="#CCCCC">
+<strong>You get: (simulated)</strong>
+</th><th valign="top" bgcolor="#CCCCC">
+<strong>You get: (if installed)</strong>
+</th></tr>
+<tr><td valign="top" bgcolor="#EEEEEE">
+<pre class="tml">
+%RENDERLIST{"thread"}%
+   * one
+      * one.a
+         * one.a.x
+      * one.b
+         * one.b.x
+           continue
+         * one.b.y
+            * icon:person Tim
+            * icon:person Mico
+   * two
+   * three
+</pre>
+</td><td valign="top" bgcolor="#EEEEEE">
+<p></p>
+
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > one </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > one.a </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > one.a.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > one.b </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > one.b.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > continue </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > one.b.y </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_459c09033b377d98fc39d22c5d66e98c_person.gif' alt='person.gif' title='person.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > Tim </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_459c09033b377d98fc39d22c5d66e98c_person.gif' alt='person.gif' title='person.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > Mico </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top"> two </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" > three </td>
+</tr></table>
+<p></p>
+
+</td><td valign="top" bgcolor="#EEEEEE">
+<p></p>
+
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" > one </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" > one.a </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" > one.a.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" > one.b </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" > one.b.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" > continue </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" > one.b.y </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/person.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Tim </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/person.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Mico </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" > two </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" > three </td>
+</tr></table>
+<p class='p'></p>
+
+</td></tr>
+<tr><td valign="top" bgcolor="#EEEEEE">
+<pre class="tml">
+%RENDERLIST{"org"}%
+   * one
+      * one.a
+         * one.a.x
+      * one.b
+         * one.b.x
+           continue
+         * one.b.y
+            * icon:person Tim
+            * icon:person Mico
+   * two
+   * three
+</pre>
+</td><td valign="top" bgcolor="#EEEEEE">
+<p></p>
+
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.a </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.a.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top class="foswikiNoBreak" ">&nbsp; one.b </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.b.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; continue </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.b.y </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_459c09033b377d98fc39d22c5d66e98c_person.gif' alt='person.gif' title='person.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Tim </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_459c09033b377d98fc39d22c5d66e98c_person.gif' alt='person.gif' title='person.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Mico </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top">&nbsp; two </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; three </td>
+</tr></table>
+<p></p>
+
+</td><td valign="top" bgcolor="#EEEEEE">
+<p></p>
+
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.a </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.a.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.b </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.b.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; continue </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.b.y </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/person.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Tim </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/person.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Mico </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; two </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; three </td>
+</tr></table>
+<p class='p'></p>
+
+</td></tr>
+<tr><td valign="top" bgcolor="#EEEEEE">
+<pre class="tml">
+%RENDERLIST{ "org" focus="one.b" }%
+   * one
+      * one.a
+         * one.a.x
+      * one.b
+         * one.b.x
+           continue
+         * one.b.y
+            * icon:person Tim
+            * icon:person Mico
+   * two
+   * three
+</pre>
+</td><td valign="top" bgcolor="#EEEEEE">
+<p></p>
+
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; <b> one.b </b> </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.b.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; continue </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.b.y </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_459c09033b377d98fc39d22c5d66e98c_person.gif' alt='person.gif' title='person.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Tim </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></td>
+<td valign="top"><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_459c09033b377d98fc39d22c5d66e98c_person.gif' alt='person.gif' title='person.gif' width='16' height='16'    /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Mico </td>
+</tr></table>
+<p></p>
+
+</td><td valign="top" bgcolor="#EEEEEE">
+<p></p>
+
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; <b> one.b </b> </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.b.x </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ud.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; continue </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/home.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; one.b.y </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_udr.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/person.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Tim </td>
+</tr></table>
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/dot_ur.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top"><img src="https://damask.mpie.de/pub/System/RenderListPlugin/person.gif" width="16" height="16" alt="" border="0" /></td>
+<td valign="top" class="foswikiNoBreak" >&nbsp; Mico </td>
+</tr></table>
+<p class='p'></p>
+
+</td></tr></table>
+<p></p>
+
+<h2 id="Themes">  Themes </h2>
+Themes are defined by setting a <a href="/bin/view/System/PreferenceSettings">preference</a> called <code>RENDERLISTPLUGIN_&lt;SOMETHING&gt;_THEME</code> (for example, <code>RENDERLISTPLUGIN_THREAD_THEME</code> ) and contain a comma-delimited list of render type and parameters. The default themes are:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/RenderListPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Theme</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/RenderListPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Render type</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> THREAD </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> tree, 1 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> ORG </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> icon, 0, 16, 16, <a href='/pub/System/RenderListPlugin/empty.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_udr.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot udr.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ud.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ud.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ur.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ur.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/home.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/home.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> GROUP </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> icon, 0, 16, 16, <a href='/pub/System/RenderListPlugin/empty.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_udr.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot udr.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ud.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ud.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ur.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ur.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/group.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/group.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_178f7cdc0449ab00b55d9b0ca511bd08_group.gif' alt='group.gif' title='group.gif' width='16' height='16'    /></a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> EMAIL </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> icon, 0, 16, 16, <a href='/pub/System/RenderListPlugin/empty.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_udr.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot udr.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ud.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ud.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ur.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ur.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/email.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/email.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3f098ae46b232ee7d36d01e9fb98dc25_email.gif' alt='email.gif' title='email.gif' width='16' height='16'    /></a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> TREND </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> icon, 0, 16, 16, <a href='/pub/System/RenderListPlugin/empty.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_udr.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot udr.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ud.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ud.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ur.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ur.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/trend.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/trend.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_a4f3dea81805ba334c5b96722d23ae56_trend.gif' alt='trend.gif' title='trend.gif' width='16' height='16'    /></a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> FILE </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> icon, 0, 16, 16, <a href='/pub/System/RenderListPlugin/empty.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_udr.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot udr.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ud.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ud.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ur.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ur.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/file.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/file.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_afafb579591f5ebf24a503d69d496218_file.gif' alt='file.gif' title='file.gif' width='16' height='16'    /></a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Plugin_Installation_Instructions">  Plugin Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p class='p'>Open configure, and open the "Extensions" section. Use "Find More Extensions" to get a list of available extensions. Select "Install".</p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="http://foswiki.org/Support/ManuallyInstallingExtensions">http://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p></p>
+ <ul>
+<li> Test if the installation was successful: See if above examples work
+</li></ul> 
+<p></p>
+
+<h2 id="Plugin_Info">  Plugin Info </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Apr 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.28: <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14022" title="'Item14022' on the 'Foswiki' issue tracking site">Foswikitask:Item14022</a> Change all foswiki.org links to https. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Jun 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.27: Foswiki 2.0 release. <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12864" title="'Item12864' on the 'Foswiki' issue tracking site">Foswikitask:Item12864</a>: Use simple decimal versions.  <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13423" title="'Item13423' on the 'Foswiki' issue tracking site">Foswikitask:Item13423</a>: Perl 5.22 deprecations. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Nov 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.2.7: Foswiki 1.1.6 release.  Item11267: Convert to perl version string. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.2.6: Foswiki 1.1.5 release.  Item11453: convert to preRenderingHandler. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Dec 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.2.5: Foswiki 1.1.4 release.  Minor code and topic cleanup. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Jul 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.2.4: fixed line parser - <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10969" title="'Item10969' on the 'Foswiki' issue tracking site">Foswikitask:Item10969</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Apr 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.2.3: Version released with Foswiki 1.1.3. Only a minor change related to how the plugin is being upgraded </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Sep 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.2.2: Will Norris. <code>&lt;nobr&gt;</code> modernization - <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9415" title="'Item9415' on the 'Foswiki' issue tracking site">Foswikitask:Item9415</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Aug 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.2.1: Paul Harvey. Documentation updates - <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9415" title="'Item9415' on the 'Foswiki' issue tracking site">Foswikitask:Item9415</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Sep 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.2: Crawford Currie. Moved default themes out of plugin topic for efficiency. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.1: Kenneth Lavrsen. Foswiki version </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Jan 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.0: Kenneth Lavrsen. No more reporting warnings in the error log when a render list starts at deeper level than 1 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Sep 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added <a href="/bin/view/System/VarRENDERLIST">VarRENDERLIST</a> to have it listed in <a href="/bin/view/System/Macros">Macros</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Sep 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Support for img tag and image URL after <code>icon:</code> (suggested by <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.JanFilipsky" title="'Main.JanFilipsky' on TWiki.org">TWiki:Main.JanFilipsky</a>); support for <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a> icons, such as <code>%ICON{folder}%</code> instead of <code>icon:folder</code>; added files.gif and folders.gif (contributed by <a class="interwikiLink" href="http://twiki.org/cgi-bin/view/Main.SteveHobbs" title="'Main.SteveHobbs' on TWiki.org">TWiki:Main.SteveHobbs</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Apr 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> SVN sync, Cairo + Dakar compatibility </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Apr 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <span class='externalLink'><a href="http://TWiki.org/cgi-bin/view/Codev/TWikiRelease04x00">TWikiRelease04x00</a></span> compatibility update </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Nov 2004: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added benchmarks (no code changes) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Mar 2004: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Internal change: Fixed unofficial function call </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Mar 2004: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added FILE_THEME and folder/file icons </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Dec 2003: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Fixed rendering issue if focus bullet contains <code>icon:name</code>; added TREND_THEME </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2003: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Specify icons with <code>icon:name</code> syntax </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Dec 2003: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added <code>focus</code> and <code>depth</code> parameters </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Dec 2003: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Fixed rendering issue with IE; added EMAIL_THEME </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Dec 2003: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Initial version </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> Plugin Home: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <a href="https://foswiki.org/Extensions/RenderListPlugin">https://foswiki.org/Extensions/RenderListPlugin</a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<hr />
+<strong>Related Topics:</strong> <a href="/bin/view/System/Plugins">Plugins</a>, <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>, <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>, <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>, <a href="/bin/view/Main/SitePreferences">SitePreferences</a>, <a class="interwikiLink" href="https://foswiki.org/Extensions/TreePlugin" title="'Extensions/TreePlugin' on foswiki.org">Foswiki:Extensions/TreePlugin</a>
+
+<p></p>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/RenderListPlugin?t=1627664521;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a href="/bin/view/System/ProjectContributor">ProjectContributor</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 2.28 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 2.28 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/distro">https://github.com/foswiki/distro</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> Copyright (C) 2006-2007 Peter Thoeny, <a href="mailto&#58;peter&#64;thoeny&#46;org">peter&#64;thoeny.org</a> and TWiki Contributors; 2008-2015 Foswiki Contributors </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> icon, 1, 16, 16, <a href='/pub/System/RenderListPlugin/empty.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/empty.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_702822c767952e5da7f80a8587a71e29_empty.gif' alt='empty.gif' title='empty.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_udr.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot udr.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_8efd3bf4bb7def5d1b069638ec0d4b67_dot_udr.gif' alt='dot udr.gif' title='dot udr.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ud.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ud.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_3951bc99053d9d3fa1300c7358db9ee4_dot_ud.gif' alt='dot ud.gif' title='dot ud.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/dot_ur.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/dot ur.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_67e96969dfb7e60a5e9fd8a78cc623b6_dot_ur.gif' alt='dot ur.gif' title='dot ur.gif' width='16' height='16'    /></a>, <a href='/pub/System/RenderListPlugin/home.gif' title='https://damask.mpie.de/pub/System/RenderListPlugin/home.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='16' data-orig-height='16'><img class='imagePlain imagePlain_none ' src='/pub/System/RenderListPlugin/igp_50fee00d2d2dcbc459eb70a8b387d4a4_home.gif' alt='home.gif' title='home.gif' width='16' height='16'    /></a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="https://foswiki.org/Support/RenderListPlugin">https://foswiki.org/Support/RenderListPlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/RenderListPlugin?t=1627664521' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/RenderListPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/RenderListPlugin?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/RenderListPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/RenderListPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/RenderListPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/RenderListPlugin?t=1627664521;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/RenderListPlugin?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 01 May 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/RenderListPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/RenderListPlugin">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.RenderListPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

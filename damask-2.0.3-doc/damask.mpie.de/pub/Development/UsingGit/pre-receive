@@ -1,0 +1,218 @@
+#!/bin/bash
+while read oldrev newrev refname; do
+  
+  # if syntax check (sc) should be skipped, exit here   
+  lastCommitMessage=$(git log $newrev -n1 --format=%B)
+  if [[ "$lastCommitMessage" =~ ('[skip sc]'|'[sc skip]') ]]; then
+    >&2 echo "Skipping syntax check"
+    exit 0 
+  fi
+ 
+  if [ 0 -ne $(expr "$oldrev" : "0*$") ]; then
+    >&2 echo "New branch, comparing to current development"
+    oldrev=`git show-ref development --heads --hash`
+  fi
+  git diff --name-only --ignore-submodules --diff-filter=ACMRTUXB $oldrev $newrev | while read file; do        # loop over filenames, ignore deleted files http://stackoverflow.com/questions/3692152/suppressing-diffs-for-deleted-files-in-git
+
+    # check for long lines
+    lineLengthLimit=132
+    if   [[ "$file" =~ "lattice.f90" ]]; then                                              # ignore these files
+      maxLineLength=0
+    elif [[ "$file" =~ \.(py|sh|csh|zsh|yml)$ ]]; then
+      maxLineLength=`git show $newrev:$file | sed -e 's/#.*$//' -e 's/[ \t]*$//' | wc -L`  # ignore comments (#) and trailing spaces
+    elif [[ "$file" =~ \.(f|f90|f03)$ ]]; then
+      maxLineLength=`git show $newrev:$file | sed -e 's/!.*$//' -e 's/[ \t]*$//' | wc -L`  # ignore comments (!) and trailing spaces
+    else
+      maxLineLength=0
+    fi
+    if [ "$maxLineLength" -gt "$lineLengthLimit" ]; then
+      >&2 echo "$file exceeds line length limit (maximum line length $maxLineLength > $lineLengthLimit)"
+      exit 1
+    fi
+
+    # check for old style syntax
+    Nold=0
+    if [[ "$file" =~ \.(f|f90|f03)$ ]]; then
+      Nold=`git show $newrev:$file | sed -e 's/#.*$//' | grep -o '\.le\.\|\.ge\.\|\.lt\.\|\.gt\.\|\.eq\.\|\.ne\.' | wc -l`
+    fi
+    if [ "$Nold" -gt 0 ]; then
+      >&2 echo "$file must not contain any of '.le.', '.ge.', '.lt.', '.gt.', '.eq.', and '.ne.'"
+      exit 2
+    fi
+
+    # check for tabs
+    Ntabs=0
+    if [[ "$file" =~ \.(py|sh|csh|zsh|f|f90|f03|c|cc)$ ]]; then
+      Ntabs=`git show $newrev:$file | od -c | grep -o '\\\t' | wc -l`                         # http://stackoverflow.com/questions/15517363/how-to-count-number-of-tabs-in-each-line-using-shell-script
+    fi
+    if [ "$Ntabs" -gt 0 ]; then
+      >&2 echo "$file must not contain tabstops (found $Ntabs tabstops)"
+      exit 3
+    fi
+
+    # check for carriage return (windows line ending)
+    N_CR=0
+    if [[ "$file" =~ \.(py|sh|csh|zsh|f|f90|f03|c|cc)$ ]]; then
+      N_CR=`git show $newrev:$file | grep -c ''`
+    fi
+    if [ "$N_CR" -gt 0 ]; then
+      >&2 echo "$file must not have windows line ending (CRLF)"
+      exit 4
+    fi
+
+    # check encoding (needs to be UTF-8 or subset, so try to convert from UTF-8 to UTF-8)
+    if [[ "$file" =~ \.(py|sh|csh|zsh|f|f90|f03|c|cc)$ ]]; then
+      git show $newrev:$file | iconv -f UTF-8 -t UTF-8 >/dev/null 2>&1                       # http://stackoverflow.com/questions/3148731/how-to-make-a-pre-commit-hook-that-prevents-non-utf-8-file-encodings
+    fi
+    if [ "$?" -gt 0 ]; then
+      >&2 echo "$file must be encoded in UTF-8"
+      exit 5
+    fi
+
+    # check python scripts for valid python 2 syntax
+    pyError=0
+    tempDir=`mktemp -d`
+    cp /var/opt/gitlab/git-data/repositories/damask/DAMASK.git/custom_hooks/DAMASK.yaml $tempDir/.
+    if [[ "$file" =~ \.py$ ]]; then
+      baseFileName=`basename $file`
+      git show $newrev:$file >$tempDir/$baseFileName
+      logProspector=`mktemp`
+      cd $tempDir
+      python2 /usr/local/lib/python2.7/dist-packages/prospector/run.py --profile DAMASK.yaml -t pep8 -t pyflakes -t dodgy -t profile-validator -t pep257 -M $baseFileName >$logProspector
+      pyError=$?
+      cd - >/dev/null
+    fi
+    if [ "$pyError" -gt 0 ]; then
+      >&2 echo "$file contains invalid python2 code" 
+      cat $logProspector | tail -n +5 1>&2
+      exit 6
+    fi
+
+    # check python scripts for valid python 3 syntax
+    pyError=0
+    tempDir=`mktemp -d`
+    cp /var/opt/gitlab/git-data/repositories/damask/DAMASK.git/custom_hooks/DAMASK.yaml $tempDir/.
+    if [[ "$file" =~ \.py$ ]]; then
+      baseFileName=`basename $file`
+      git show $newrev:$file >$tempDir/$baseFileName
+      logProspector=`mktemp`
+      cd $tempDir
+      /usr/local/bin/prospector --profile DAMASK.yaml -t pep8 -t pyflakes -t dodgy -t profile-validator -t pep257 -M $baseFileName >$logProspector
+      pyError=$?
+      cd - >/dev/null
+    fi
+    if [ "$pyError" -gt 0 ]; then
+      >&2 echo "$file contains invalid python3 code" 
+      cat $logProspector | tail -n +5 1>&2
+      exit 7
+    fi
+
+    # check yaml files (i.e. .gitlab.yaml) syntax
+    YAMLError=0
+    tempDir=`mktemp -d`
+    if [[ "$file" =~ \.yml$ ]]; then
+      baseFileName=`basename $file`
+      git show $newrev:$file >$tempDir/$baseFileName
+      logYAMLLint=`mktemp`
+      cd $tempDir
+      yamllint -d "{extends: default, rules: {line-length: {max: 1024}, colons: {max-spaces-after: 200}}}" $baseFileName >$logYAMLLint
+      YAMLError=$?
+      cd - >/dev/null
+    fi
+    if [ "$YAMLError" -gt 0 ]; then
+      >&2 echo "$file contains invalid YAML statements" 
+      cat $logYAMLLint 1>&2
+      exit 8
+    fi
+
+    # check if bash and python scripts in installation and processing are executable
+    filemode=$(git diff $oldrev:$file $newrev:$file | grep -P "new .*?mode")
+    if [[ "$file" =~ \.(py|sh)$  && ( "${file:0:10}" == "processing" || "${file:0:12}" == "installation" || "{file}" == "DAMASK_prerequisites.sh" ) ]]; then
+      if [[ ! x"$filemode" == "x" ]] && [[ ! "$filemode" =~ 755 ]]; then
+        >&2 echo "$file should be executable"
+        exit 9
+      fi
+    else
+      if [[ ! x"$filemode" == "x" ]] && [[ ! "$filemode" =~ 644 ]]; then
+        >&2 echo "$file should not be executable"
+        exit 10
+      fi
+    fi
+
+  done || exit $?                                                                     #exit with error code of sub shell for do loop
+
+  # check if current commit in submodule PRIVATE exists
+  file=$(git diff --name-only $oldrev $newrev)
+  if [[ "$file" == "PRIVATE" ]]; then
+    commit=$(git diff $oldrev $newrev)
+    commit=${commit##* }
+    cd /var/opt/gitlab/git-data/repositories/damask/PRIVATE.git 
+    success=$(unset GIT_OBJECT_DIRECTORY; git cat-file -t $commit)
+    if [[  ! "$success" == "commit" ]]; then
+      >&2 echo "$commit does not exist in PRIVATE"
+      exit 11
+    fi
+  fi || exit $?                                                                     #exit with error code of sub shell for do loop
+
+  git diff --name-only --diff-filter=DACMRTUXB $oldrev $newrev | while read file; do  # loop over filenames, consider deleted files
+
+    # if something in the src folder was changed, run dummy make for spectral solver
+    if [[ "${file:0:3}" == "src" ]]; then
+      >&2 echo 
+      >&2 echo 'checking Fortran syntax for the spectral solver'
+      >&2 echo 
+      # Since the repo is bare, we need to put the actual files someplace, 
+      tempDir=`mktemp -d`
+      git archive $newrev | tar -x -C $tempDir
+
+      PETSC_MINOR=$(cat $tempDir/src/spectral_interface.f90 | grep -oP PETSC_VERSION_MINOR\*\?\!=\*\?[0-9]\+ | grep -oP [0-9]\+)
+      if [[ ! x"$PETSC_MINOR" != "x" ]]; then
+        export PETSC_DIR=/opt/petsc-3.7.7
+      else
+        export PETSC_DIR=/opt/petsc-3.9.1
+      fi
+      export PETSC_ARCH=gfortran7
+
+      cd $tempDir
+      make spectral BUILD_TYPE=SYNTAXONLY &>LogSyntaxCheck
+
+      if [ "$?" -gt 0 ]; then
+        >&2 echo "invalid Fortran code" 
+        grep -m1 -B 4 -A 1 Error LogSyntaxCheck 1>&2
+        exit 12
+      else
+        exit 0
+      fi
+    fi
+
+  done || exit $?                                                                         # exit with error code of sub shell for do loop
+
+  git diff --name-only --diff-filter=DACMRTUXB $oldrev $newrev | while read file; do  # loop over filenames, consider deleted files
+
+    # if something in the src folder was changed, run Marc cummy compilation
+    if [[ "${file:0:3}" == "src" ]]; then                                              # file in src subfolder changed
+      >&2 echo 
+      >&2 echo 'checking Fortran syntax for MSC.Marc'
+      >&2 echo 
+      # Since the repo is bare, we need to put the actual files someplace, 
+      tempDir=`mktemp -d`
+      git archive $newrev | tar -x -C $tempDir
+
+      cd $tempDir/src
+      source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh intel64
+      ifort DAMASK_marc.f90 -fpp -DMarc4DAMASK=2016 -DFLOAT=8 -DINT=4 -DDAMASKVERSION="'X'" -fsyntax-only &> LogSyntaxCheck
+
+      if [ "$?" -gt 0 ]; then
+        >&2 echo "invalid Fortran code" 
+        grep -A 2 Error LogSyntaxCheck 1>&2
+        exit 13
+      else
+        exit 0
+      fi
+    fi
+
+  done || exit $?                                                                         # exit with error code of sub shell for do loop
+  # Only run this script for the development branch.
+  #if [[ $refname = "refs/heads/development" ]] ; then                                      # might be useful for later use to trigger tests
+
+done || exit $?

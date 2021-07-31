@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> PostResults &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/PostResults?t=1627659480" type="application/x-wiki" title="edit PostResults" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/PostResults" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<script class='head MATHJAX_PLUGIN' type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    processEscapes: true
+    },
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    Macros: {
+      bm: ["{\\mathbf{#1}}",1],
+      vctr: ["{\\mathbf{#1}}",1],
+      tnsr: ["{\\mathbf{#1}}",1],
+      tnsrfour: ["{\\mathbb{#1}}",1]
+    },
+  equationNumbers: { autoNumber: "AMS" }
+    }
+});
+</script>
+  <script class='head MATHJAX_PLUGIN' id="MathJax-script" async src="https://damask.mpie.de/pub/System/MathJaxPlugin/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/121c886876ad0b936ac5a4f043b0f86e.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WEB" : "Documentation",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "USERNAME" : "guest",
+   "USERSWEB" : "Main",
+   "SERVERTIME" : "30 Jul 2021 - 17:38",
+   "SCRIPTSUFFIX" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "TOPIC" : "PostResults",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SCRIPTURLPATH" : "/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SYSTEMWEB" : "System",
+   "URLHOST" : "https://damask.mpie.de",
+   "COOKIEREALM" : "",
+   "PUBURLPATH" : "/pub"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Documentation/PostResults"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Documentation/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Documentation" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="active">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/WebHome">Documentation</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/Processing">Processing</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/PostProcessing">PostProcessing</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Documentation/PostResults" title='Topic revision: 10 (15 Apr 2014 - 17:20:39)'>PostResults</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Documentation/PostResults?t=1627659480;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Documentation/PostResults' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Documentation/PostResults?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/PostResults?raw=on&amp;rev=10' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Documentation/WebCreateNewTopic?topicparent=PostResults' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/PostResults?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Documentation/PostResults?template=more&amp;maxrev=10&amp;currrev=10' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="A_2.2.1._postResults"> <A name="Section_2.2.1."></A>2.2.1.  postResults </h1>
+<span id="TableOfContents"></span>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="#Purpose"> Purpose </a>
+</li> <li> <a href="#Background"> Background </a> <ul>
+<li> <a href="#Supported_file_formats"> Supported file formats </a>
+</li> <li> <a href="#Types_of_output"> Types of output </a>
+</li> <li> <a href="#Output_processing"> Output processing </a>
+</li> <li> <a href="#File_positions_and_increments"> File positions and increments </a>
+</li></ul> 
+</li> <li> <a href="#Usage"> Usage </a>
+</li> <li> <a href="#Switches"> Switches </a>
+</li> <li> <a href="#Options"> Options </a>
+</li> <li> <a href="#Examples"> Examples </a>
+</li></ul> 
+</div>
+<script type="math/tex"></script><p class='p'></p>
+
+<hr />
+<h2 id="Purpose">  Purpose </h2>
+Extract data from a simulation result file into an <a href="/bin/view/Documentation/AsciiTableFormat">ASCII table</a>.
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Background">  Background </h2>
+<h3 id="Supported_file_formats">  Supported file formats </h3> <ul>
+<li> MSC.Marc (<span class='foswikiMaroonFG'>*.t16</span>)
+</li> <li> DAMASK_spectral (<span class='foswikiMaroonFG'>*.spectralOut</span>)
+</li></ul> 
+<p></p>
+
+<h3 id="Types_of_output">  Types of output </h3> <ul>
+<li> nodal scalar (displacement, temperature, ...)
+</li> <li> elemental scalar (equivalent stress, ...)
+</li> <li> elemental tensor (stress, strain, ...)
+</li> <li> homogenization output
+</li> <li> crystallite output (phase, orientation, deformation gradient, ...)
+</li> <li> constitutive output (dislocation density, slip resistance, twin volume fraction, ...)
+</li></ul> 
+<p></p>
+
+<h3 id="Output_processing">  Output processing </h3>
+The result extraction internally comprises three steps: <ul>
+<li> <strong>filtering</strong> the data according to geometry or mesh properties. Use the <code>--filter</code> option to specify filtering conditions.
+</li> <li> <strong>grouping</strong> the filtered data by user-defined criteria based on geometry and mesh properties. Use the <code>--separation</code> option to indicate which discrimination criteria you want for grouping.
+</li> <li> <strong>mapping</strong> the values in each group to one scalar quantity by a user-defined function. Use the <code>--map</code> option to indicate how to map all values of a group to a single scalar.  
+</li></ul> 
+<p></p>
+
+<h3 id="File_positions_and_increments">  File positions and increments </h3>
+<p class='p'>Typically, a result file contains more than one time step but, for instance, a number $N$ of them.
+We distinguish between &raquo;positions&laquo;, which follow a strictly  consecutive numbering $1,\ldots,N$, and &raquo;increments&laquo;, which follow the numbering that the respective increment had in the course of the overall simulation.
+Example: suppose a simulation comprises 100 increments of which only every tenth is written to the result file.
+The result file will then contain positions $0,1,\ldots,10$ and increments $0,10,\ldots,100$ (because the initial configuration is always included as position 0 and increment 0).</p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Usage">  Usage </h2>
+<pre style="clear:both">
+&gt; postResults [<em>options</em>] <em>resultfile</em>
+</pre>
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Switches">  Switches </h2> <dl>
+<dt> <code>--info</code> / <code>-i</code> [ <strong>False</strong> ] </dt><dd>    just list contents of <span class='foswikiMaroonFG'><em>resultfile</em></span>
+</dd> <dt> <code>--legacy</code> / <code>-l</code> [ <strong>False</strong> ] </dt><dd>    interpret user block according to legacy (prior to DAMASK rev 1115) format
+</dd> <dt> <code>--split</code> / <code>-s</code> [ <strong>False</strong> ] </dt><dd>    split output into one separate file per increment
+</dd> <dt> <code>--increments</code> [ <strong>False</strong> ] </dt><dd>    range indicator addresses true increment numbers, not plain positions in file
+</dd> <dt> <code>--sloppy</code> [ <strong>False</strong> ] </dt><dd>    do not pre-check validity of increment range
+</dd> <dt> <code>--time</code> / <code>-t</code> [ <strong>False</strong> ] </dt><dd>    output time of increment (as first data column)
+</dd> <dt> <code>--nodal</code> / <code>-n</code> [ <strong>False</strong> ] </dt><dd>    data is extrapolated to nodal value
+</dd></dl> 
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Options">  Options </h2> <dl>
+<dt> <code>--type</code> / <code>-p</code> <em>string</em> [ auto ] </dt><dd>    type of <span class='foswikiMaroonFG'><em>resultfile</em></span>
+</dd> <dt> <code>--prefix</code> <em>string</em> [ none ] </dt><dd>    prefix to output file name
+</dd> <dt> <code>--suffix</code> <em>string</em> [ none ] </dt><dd>    suffix to output file name
+</dd> <dt> <code>--dir</code> / <code>-d</code> <em>string</em> [ <strong>postProc</strong> ] </dt><dd>    name of subdirectory to hold output
+</dd> <dt> <code>--range</code> / <code>-r</code> <em>start</em> <em>end</em> <em>step</em> [ all ] </dt><dd>    range of positions (or increments) to output
+</dd></dl> 
+<p></p>
+ <dl>
+<dt> <code>--homogenization</code> <em>string</em> or <em>int</em> [ <strong>1</strong> ] </dt><dd>    homogenization identifier (section in <span class='foswikiMaroonFG'>material.config</span> part &lt;homogenization&gt;)
+</dd> <dt> <code>--crystallite</code> <em>string</em> or <em>int</em> [ <strong>1</strong> ] </dt><dd>    crystallite identifier (section in <span class='foswikiMaroonFG'>material.config</span> part &lt;crystallite&gt;)
+</dd> <dt> <code>--phase</code> <em>string</em> or <em>int</em> [ <strong>1</strong> ] </dt><dd>    phase identifier (section in <span class='foswikiMaroonFG'>material.config</span> part &lt;phase&gt;)
+</dd></dl> 
+<p></p>
+ <dl>
+<dt> <code>--ns</code> <em>list</em> </dt><dd>    nodal scalars to extract
+</dd> <dt> <code>--es</code> <em>list</em> </dt><dd>    elemental scalars to extract
+</dd> <dt> <code>--et</code> <em>list</em> </dt><dd>    elemental tensors to extract
+</dd> <dt> <code>--ho</code> <em>list</em> </dt><dd>    homogenization results to extract
+</dd> <dt> <code>--cr</code> <em>list</em> </dt><dd>    crystallite results to extract
+</dd> <dt> <code>--co</code> <em>list</em> </dt><dd>    constitutive results to extract
+</dd></dl> 
+<p></p>
+ <dl>
+<dt> <code>--filter</code> / <code>-f</code> <em>PythonCode</em> </dt><dd>    condition(s) to filter results. keywords interpreted in the <em>PythonCode</em> are 'elem', 'node', 'ip', 'grain', and 'x', 'y', 'z'.
+</dd> <dt> <code>--separation</code> <em>list</em> </dt><dd>    properties to separate (and sort) results. keywords are 'elem', 'node', 'ip', 'grain', and 'x', 'y', 'z'.
+</dd> <dt> <code>--sort</code> <em>list</em> </dt><dd>    properties to sort results (overrides --separate order). keywords are 'none', 'elem', 'node', 'ip', 'grain', and 'x', 'y', 'z'.
+</dd> <dt> <code>--map</code> / <code>-m</code> <em>string</em> or <em>PythonLambda</em> </dt><dd>    function applied to map multiple values to one scalar quantity per group.   User-defined mappings (<code>lambda a,b,n:</code>) are formulated in an incremental fashion for each new data point, a(dd),   and may use the current (incremental) result, b(ase), as well as the number, n(umber),   of already processed data points for evaluation.   Predefined options are <ul>
+<li> <code>min</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: min(b,a)
+</li> <li> <code>max</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: max(b,a)
+</li> <li> <code>avg</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: (n*b+a)/(n+1)
+</li> <li> <code>avgabs</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: (n*b+abs(a))/(n+1)
+</li> <li> <code>sum</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: b+a
+</li> <li> <code>sumabs</code> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/right.png' width='16' height='16' alt='right' /></span> lambda n,b,a: b+abs(a)
+</li></ul> 
+</dd></dl> 
+<p class='p'></p>
+
+<p class='p'></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Examples">  Examples </h2>
+<p></p>
+ <ul>
+<li> volume-averaged results of deformation gradient and first PiolaKirchhoff stress for all increments   <pre>--cr f,p</pre>
+</li> <li> spatially resolved slip resistance (of phenopowerlaw) in separate files for increments 10, 11, and 12   <pre>--range 10 12 1 --increments --split --separation x,y,z --co resistance_slip</pre>
+</li> <li> get averaged results in slices perpendicular to x for all negative y coordinates split per increment    <pre>--filter 'y < 0.0'  --split --separation x --map 'avg'</pre>
+</li> <li> global sum of squared data falling into first quadrant arc between R1 and R2   <pre>--filter 'x >= 0.0 and y >= 0.0 and x*x + y*y >= R1*R1 and x*x + y*y <=R2*R2' --map 'lambda n,b,a: n*b+a*a'</pre>
+</li></ul>  </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/PostResults?t=1627659480' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Documentation/PostResults' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/PostResults?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Documentation/PostResults?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r10&nbsp;<a href="/bin/diff/Documentation/PostResults?rev1=9;rev2=10" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/PostResults?rev=9" rel="nofollow">r9</a>&nbsp;<a href="/bin/diff/Documentation/PostResults?rev1=8;rev2=9" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/PostResults?rev=8" rel="nofollow">r8</a>&nbsp;<a href="/bin/diff/Documentation/PostResults?rev1=7;rev2=8" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/PostResults?rev=7" rel="nofollow">r7</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/PostResults?template=backlinksweb' rel='nofollow' title='Search the Documentation Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/PostResults?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/PostResults?t=1627659480;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/PostResults?template=more&amp;maxrev=10&amp;currrev=10' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r10 - 15 Apr 2014, <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Documentation/PostResults?foswiki_origin=GET%2cview%2c/bin/view/Documentation/PostResults">Log In</a></li></ul>
+</div>
+<p></p>
+
+<hr /> <ul>
+<li> <strong>News</strong>
+</li>  </ul><dl>
+<dt> 14 Sep 2020 </dt><dd> <del> <strong>CMCn2020</strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung</del> (cancelled)
+</dd> <dt> 22 Aug 2020 </dt><dd> Release of first preview version of <strong><a href="https://damask.mpie.de/bin/view/Download/Preview">DAMASK 3</a></strong>
+</dd> <dt> 19 Feb 2020 </dt><dd> DAMASK made it to the <span class='externalLink'><a href="https://onlinelibrary.wiley.com/doi/toc/10.1002/(ISSN)1527-2648.HallofFame">Advanved Engineering Materials Hall of Fame</a></span>
+</dd> <dt> 26 Mar 2019 </dt><dd> <strong><span class='externalLink'><a href="http://dream3d.bluequartz.net/">DREAM.3D</a></span> 6.5.119</strong> <br />(released 2019/03/22) comes with a DAMASK export filter
+</dd> <dt> 25 Mar 2019 </dt><dd> Release of version <strong><a href="/bin/view/Download/Current">v2.0.3</a></strong>
+</dd> <dt> 21 Jan 2019 </dt><dd> <strong>DAMASK overview paper</strong> finally <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">published</a></span> with full citation information available
+</dd> <dt> 01 Dec 2018 </dt><dd> <strong>DAMASK overview paper</strong> now <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">online</a></span>
+</dd> <dt> 17 Sep 2018 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2018">CMCn2018</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 22 May 2018 </dt><dd> Release of version <strong>v2.0.2</strong>
+</dd> <dt> 01 Sep 2016 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2016">CMCn2016</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 25 Jul 2016 </dt><dd> Release of version <strong>v2.0.1</strong>
+</dd> <dt> 08 Mar 2016 </dt><dd> Release of version <strong>v2.0.0</strong>
+</dd> <dt> 22 Feb 2016 </dt><dd> <strong>New webserver</strong> up and running
+</dd> <dt> 09 Feb 2016 </dt><dd> <strong>Migrated <span class='externalLink'><a href="https://magit1.mpie.de">code repository</a></span></strong> from Subversion to <strong><span class='externalLink'><a href="https://about.gitlab.com/">GitLab</a></span></strong>
+</dd> <dt> 17 Dec 2014 </dt><dd> Release of <strong>revision 3813</strong>
+</dd> <dt> 14 May 2014 </dt><dd> Release of <strong>revision 3108</strong>
+</dd> <dt> 02 Apr 2014 </dt><dd> Release of <strong>revision 3062</strong>
+</dd> <dt> 16 Oct 2013 </dt><dd> Release of <strong>revision 2689</strong>
+</dd> <dt> 15 Jul 2013 </dt><dd> Release of <strong>revision 2555</strong>
+</dd> <dt> 15 Feb 2013 </dt><dd> Release of <strong>revision 2174</strong>
+</dd> <dt> 13 Feb 2013 </dt><dd> <a href='http://www.doxygen.org/' title='Doxygen.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='104' data-orig-height='31'><img src='/pub/Main/News/igp_57415553ffe254df6d853b56c3b46f7d_Doxygen.png' alt='Doxygen' width='52' height='16'   /></a>  documentation
+</dd> <dt> 16 Dec 2012 </dt><dd> <a href='http://www.mathjax.org/' title='mj logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='167' data-orig-height='57'><img src='/pub/Main/News/igp_f1d42d3712de2aa46a85b866685e127a_mj_logo.png' alt='Powered by MathJax' width='55' height='19'   /></a> rendering
+</dd> <dt> 23 Nov 2012 </dt><dd> Release of <strong>revision 1955</strong>
+</dd> <dt> 15 Nov 2012 </dt><dd> Release of <strong>revision 1924</strong>
+</dd> <dt> 01 Nov 2012 </dt><dd> Updated <strong>sidebar</strong>
+</dd> <dt> 30 Oct 2012 </dt><dd> Significant <strong>website updates</strong> and <strong>content extensions</strong>
+</dd></dl> 
+<p></p>
+
+<!-- Keep this to have global readability:
+<p></p>
+ <ul>
+<li> Set DENYTOPICVIEW = 
+</li></ul> 
+-->
+<hr />
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.PostResults'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

@@ -1,0 +1,30 @@
+%SECTION0% geom_fromTable
+#TableOfContents
+%TOC%
+
+---
+---++ Purpose
+Generate geometry description and material configuration from position, phase, and orientation (or microstructure) data.
+
+%UPTOC%
+---++ Usage
+<pre>
+&gt; geom_fromTable options <a href=https://damask.mpie.de/Documentation/AsciiTableFormat>ASCII table</a>(s) 
+</pre>
+
+%UPTOC%
+---++ Options
+   $=--coordinates=: 
+   coordinates label (pos)
+   $=--phase=: 
+   phase label
+   $=--microstructure=: 
+   microstructure label
+   $=-q= / =--quaternion=: 
+   quaternion label
+   $=--axes= [ *+x +y +z* ]: 
+   orientation coordinate frame in terms of position coordinate frame
+   $=--homogenization= [ *1* ]: 
+   homogenization index to be used
+   $=--crystallite= [ *1* ]: 
+   crystallite index to be used

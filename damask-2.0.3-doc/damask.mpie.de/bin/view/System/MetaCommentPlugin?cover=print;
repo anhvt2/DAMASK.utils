@@ -1,0 +1,607 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> MetaCommentPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/MetaCommentPlugin?t=1627670111" type="application/x-wiki" title="edit MetaCommentPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/MetaCommentPlugin" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/2c3c4feed4806d402e54841fafc7ad87.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableMetaCommentPlugin1 {width:100%}
+body .foswikiTable#tableMetaCommentPlugin1 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableMetaCommentPlugin1 th.foswikiTableCol0 {width:7em}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKINAME" : "WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WEB" : "System",
+   "COOKIEREALM" : "",
+   "SERVERTIME" : "30 Jul 2021 - 20:35",
+   "TOPIC" : "MetaCommentPlugin",
+   "USERSWEB" : "Main",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTSUFFIX" : "",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATH" : "/bin",
+   "USERNAME" : "guest"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/MetaCommentPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?c854f168e2ca14b6209c996018c9025a' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/MetaCommentPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?bd644a774ca48a0a4454837de0503870' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.MetaCommentPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.MetaCommentPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="MetaCommentPlugin">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/MetaCommentPlugin">MetaCommentPlugin</a> </h1>
+An easy to use comment system
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?cover=print#Screenshot"> Screenshot </a>
+</li> <li> <a href="?cover=print#Data_Model"> Data Model </a>
+</li> <li> <a href="?cover=print#Configuring_the_comment_system"> Configuring the comment system </a> <ul>
+<li> <a href="?cover=print#Using_MetaCommentPlugin_on_NatSkin"> Using MetaCommentPlugin on NatSkin </a>
+</li> <li> <a href="?cover=print#Using_MetaCommentPlugin_on_PatternSkin"> Using MetaCommentPlugin on PatternSkin </a>
+</li> <li> <a href="?cover=print#Display_settings"> Display settings </a>
+</li> <li> <a href="?cover=print#Permissions"> Permissions </a>
+</li> <li> <a href="?cover=print#Anonymous_commenting"> Anonymous commenting </a>
+</li> <li> <a href="?cover=print#Moderation"> Moderation </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#METACOMMENTS"> METACOMMENTS </a>
+</li> <li> <a href="?cover=print#RSS_feeds"> RSS feeds </a>
+</li> <li> <a href="?cover=print#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?cover=print#Dependencies"> Dependencies </a>
+</li> <li> <a href="?cover=print#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p class='p'>This is YACS (yet another comment system) which tries to</p>
+ <ul>
+<li> (a) be easy to use,
+</li> <li> (b) scale up to lots of comments
+</li> <li> (c) provide different layouts and commenting requirements and
+</li> <li> (d) implement a moderation workflow for comments before they go live.
+</li></ul> 
+<p class='p'>MetaCommentPlugin allows to easily add commenting to any topic. Discussiosn can
+either be displayed in linear or threaded mode. Different comment styles and
+layouts can easily be created and switched from one to the other.  Comments can
+be edited and deleted inline easily.  Commenting can be enabled independently
+from the normal change access rights to a topic while they are still stored as
+meta data to a topic. That way a keyword search matching on different comments
+of the same discussion will generate a hit on the discussion itself in a
+natural way.</p>
+
+<h2 id="Screenshot">  Screenshot </h2>
+<p></p>
+
+<a href='/pub/System/MetaCommentPlugin/MetaCommentSnap1.jpeg' title='MetaCommentSnap1.jpeg'  class='imageHref imageSimple imageSimple_none '  data-orig-width='458' data-orig-height='707'><img src='/pub/System/MetaCommentPlugin/MetaCommentSnap1.jpeg' alt='MetaCommentSnap1.jpeg' width='458' height='707'   /></a><p></p>
+
+<h2 id="Data_Model">  Data Model </h2>
+<p></p>
+
+Each comment is stored into a <code>META:COMMENT</code> field of a topic with properties
+<p></p>
+ <ul>
+<li> name: id of the comment, used in <code>ref</code> for threaded comments
+</li> <li> author: WikiName of the author of this comment
+</li> <li> date: timestamp when this comment was created
+</li> <li> modified: timestamp when this comment was last modified 
+</li> <li> ref: name of another comment within the same thread this comment is a subcomment of
+</li> <li> text: the comment text
+</li> <li> title: title text of this comment
+</li></ul> 
+<p></p>
+
+<h2 id="Configuring_the_comment_system">  Configuring the comment system </h2>
+<p></p>
+
+<h3 id="Using_MetaCommentPlugin_on_NatSkin">  Using MetaCommentPlugin on NatSkin </h3>
+The easiest way to switch on commenting on a page is when using it together with <a class="interwikiLink" href="https://foswiki.org/Extensions/NatSkin" title="'Extensions/NatSkin' on foswiki.org">NatSkin</a>.
+When opening the topic editor, there's a "Settings" tab that allows you to switch on and off commenting,
+switch between different commenting styles as well as configure moderation.
+<p></p>
+
+<h3 id="Using_MetaCommentPlugin_on_PatternSkin">  Using MetaCommentPlugin on PatternSkin </h3>
+On a standard PatternSkin install you will have to use preference variables to control the system.
+First, to enable commenting add the <code>metacomment</code> skin overlay to your <code>SKIN</code> variable in <a href="/bin/view/Main/SitePreferences">SitePreferences</a>.
+<p></p>
+
+<pre>   &#42; Set SKIN &#61; metacomment, pattern</pre>
+<p></p>
+
+<h3 id="Display_settings">  Display settings </h3>
+To display the comment interface like shown above you need to set the preference variable:
+<p></p>
+
+<pre>   &#42; Set DISPLAYCOMMENTS &#61; on</pre>
+<p class='p'>There are a couple of formats how comments are displayed on the topic:</p>
+
+<pre>   &#42; Set COMMENTFORMAT &#61; threaded</pre>
+<p></p>
+
+Other values:  <ul>
+<li> linear: list comments in linear order, i.e. there are no replies to comments directly
+</li> <li> threaded (default): nested commenting; allows to reply on a reply
+</li> <li> reverse: list comments in linear order in reverse twitter-like fashion
+</li> <li> insidetab: list comments inside a tab at the bottom of the page;      only available when used together with <a class="interwikiLink" href="https://foswiki.org/Extensions/TopicInteractionPlugin" title="'Extensions/TopicInteractionPlugin' on foswiki.org">TopicInteractionPlugin</a>)
+</li></ul> 
+<p class='p'>A discussion can be either open or closed:</p>
+
+<pre>   &#42; Set COMMENTSTATE &#61; open</pre>
+<p></p>
+
+By setting this to <code>closed</code> comments gathered so far are still listed while the form to add more comments is hidden
+<p></p>
+
+These preferences can of course be set per topic or added to the <a href="/bin/view/System/WebPreferences">WebPreferences</a> in case you want to enable commenting
+on all of the web.
+<p class='p'>Below each comment there is a set of infos that can be switched on and off as desired.</p>
+
+<p class='p'>This setting ...</p>
+
+<pre>   &#42; Set COMMENTVOTING &#61; on/off</pre>
+<p></p>
+
+enables voting per comment using the <a class="interwikiLink" href="https://foswiki.org/Extensions/LikePlugin" title="'Extensions/LikePlugin' on foswiki.org">Foswiki:Extensions/LikePlugin</a> (defaults to <code>on</code> when LikePlugin is installed). 
+Users will be able to vote up or down each comment to indicate their level of agreement during a discussion.
+<p class='p'>Finally, there is a so called "permlink" that lets you share a link to a specific comment in an email or so. However
+this feature is not desired. Use this to switch it of then:</p>
+
+<pre>   &#42; Set COMMENTPERMLINK &#61; on/off</pre>
+<p></p>
+
+<h3 id="Permissions">  Permissions </h3>
+<p></p>
+
+MetaCommentPlugin separaters permission to comment on a topic from plain change access rights of a topic.
+That way you may restrict write access to a topic while still open it up for commenting to a wider audience.
+This is done by using a separate <code>COMMENT</code> access control list. 
+<p class='p'>Given the current topic is write restricted only
+allowing the original author to make changes, the following setting will permit commenting:</p>
+
+<pre>   &#42; Set ALLOWTOPICCOMMENT &#61; &#60;comma separated list of users and/or groups&#62;</pre>
+<p class='p'>You may also want implement a minimal set of protection using</p>
+
+<pre>   &#42; Set ALLOWYWEBCOMMENT &#61; &#60;comma separated list of users and/or groups&#62;</pre>
+<p class='p'>and / or</p>
+
+<pre>   &#42; Set DENYWEBCOMMENT &#61; &#60;comma separated list of users and/or groups&#62;</pre>
+<p class='p'>in the WebPreferences.</p>
+
+<div class="foswikiWarningMessage">
+Note that by default no permissions for <code>COMMENT</code> access are set. So everybody is <em>allowed</em> to comment.
+</div>
+<p></p>
+
+See <a href="/bin/view/System/AccessControl">AccessControl</a> for more information on setting up access control lists for various
+use cases.
+<p></p>
+
+<h3 id="Anonymous_commenting">  Anonymous commenting </h3>
+<p></p>
+
+Anonymous commenting is disabled using the <code>{MetaCommentPlugin}{AnonymousCommenting}</code> configuration setting by default.
+This will protect your site from guests spamming your pages. When this flag is disabled, users will at least
+have to log in to be able to comment. Normal access control rules then still apply.
+<p></p>
+
+Contrary to the normal Foswiki access control mechanism it does not suffice to set the ALLOW rules for a guest accordingly. 
+It is required to at least enable the <code>{MetaCommentPlugin}{AnonymousCommenting}</code> flag in your site configuration.
+Once enabled, you are still able to block anonymous commenting using the normal access control rules per web and/or topic.
+<p></p>
+
+<h3 id="Moderation">  Moderation </h3>
+<p class='p'>Moderating comments allows you a bit more control of which comments are approved to be okay to be displayed to the public.
+This is mostly used on public environments to hide comments until they are approved by a list of moderators.
+Only the original author and moderators will see unapproved comments. For everybody else, unapproved comments are hidden
+until they are approved.</p>
+
+<p class='p'>To enable moderation set the COMMENTMODERATION preference setting (defaults to off):</p>
+
+<pre>   &#42; Set COMMENTMODERATION &#61; on</pre>
+<p class='p'>The list of people allowed to moderate a comment is configured by using Foswiki's permission system using the MODERATE
+role. So to configure moderators per topic use:</p>
+
+<pre>
+   &#42; Set ALLOWTOPICMODERATE &#61; &#60;comma separated list of users and/or groups&#62;
+   &#42; Set DENYTOPICMODERATE &#61; &#60;comma separated list of users and/or groups&#62;
+</pre>
+<p class='p'>Or use a per web configuration in the WebPreferences using</p>
+
+<pre>
+   &#42; Set ALLOWWEBMODERATE &#61; &#60;comma separated list of users and/or groups&#62;
+   &#42; Set DENYWEBMODERATE &#61; &#60;comma separated list of users and/or groups&#62;
+</pre>
+<p></p>
+
+See <a href="/bin/view/System/AccessControl">AccessControl</a> for more information on setting up access control lists.
+<p></p>
+
+<h2 id="METACOMMENTS">  METACOMMENTS </h2>
+<p class='p'>Renders a discussion on a given topic</p>
+
+<pre class="tml">
+&#37;METACOMMENTS{
+  topic&#61;&#34;...&#34;
+  ...
+}&#37;
+</pre>
+<p class='p'>Parameters:</p>
+ <ul>
+<li> topic: the topic to render the discussion for, defaults to the current topic
+</li> <li> web: the web where to search for meta comments
+</li> <li> search: a search expression to find matching topics whose meta comments are extracted
+</li> <li> header: string prepended to the output
+</li> <li> footer: string appended to the output
+</li> <li> format: format string used to render each comment, defaults to <code>&lt;h3&gt;$title&lt;/h3&gt;$text</code>
+</li> <li> template: template to be used instead of the inline <code>format</code> parameter
+</li> <li> separator: separats the list of comments
+</li> <li> subheader: string prepended to the list of subcommnets, defaults to <code>&lt;div class='cmtSubComments'&gt;</code>
+</li> <li> subfooter: string appended to the list of subcommnets, defaults to <code>&lt;/div</code>
+</li> <li> subformat: format string used for subcomments, defaults to the value of the <code>format</code> parameter
+</li> <li> ref: only list comments that are a subcomments of the given comment
+</li> <li> skip: number of comments to skip in the list, useful for pagination
+</li> <li> limit: maximum number of comments to list, useful for pagination
+</li> <li> singular: title used when only one comment is present, defaults to <code>One comment</code>
+</li> <li> rev, revision: specify the version of the topic to render its comments, defaults to most recent revision
+</li> <li> plural: title when there are more than one comment, defaults to <code>"$count comments</code>
+</li> <li> mindate: minimum date of a comment to be displayed
+</li> <li> maxdate: maximum date of a comment to be displayed
+</li> <li> threaded: switch on/off threaded rendering, comments will be rendered recursively
+</li> <li> sort: specify the way comments are sorted; possible values: name (default), date, modified, author, likes (if <a class="interwikiLink" href="https://foswiki.org/Extensions/LikePlugin" title="'Extensions/LikePlugin' on foswiki.org">LikePlugin</a> is installed)
+</li> <li> reverse: switch on/off reverse order of sorted comments
+</li></ul> 
+<p></p>
+
+When rendering a comment, the following variables can be used in the <code>format</code> strings:
+<p></p>
+ <ul>
+<li> $author: the name of the user that wrote this comment
+</li> <li> $state: the state of this comment
+</li> <li> $count: the total number of comments
+</li> <li> $ismoderator: true/false if the current user is allowed to moderate the comments or not
+</li> <li> $timestamp: the date when this comment was created; format in epoch seconds
+</li> <li> $date: the date when this comment was created in Foswiki's default time format
+</li> <li> $modified: the date this comment was last modified
+</li> <li> $isodate: the date when this comment was last modified in iso format
+</li> <li> $evenodd: expands to <code>even</code> or <code>odd</code> while formatting all comments in the list; useful to implement zebra striped     comments
+</li> <li> $id: the unique identifier of this comment (stored in the <code>name</code> attribute of the comment)
+</li> <li> $index: the running number of the current comment while rendering a list of comments
+</li> <li> $ref: the identifier of the comment this one is a reply to; used in threaded commenting mode
+</li> <li> $text: the actual comment
+</li> <li> $summary: a short summary of the text (the first 100 characters)
+</li> <li> $title: the title of the comment
+</li> <li> $subcomments: expands to the list of all comments that are a reply to the current one
+</li> <li> $web: the web this comment is in
+</li> <li> $topic: the topic this is a comment of
+</li> <li> $permlink: a link to this comment
+</li> <li> $isnew: boolean flag indicating whether the current user hasn't read a newly created comment yet
+</li> <li> $isupdated: boolean flag indicating whether the current user hasn't read an updated comment yet
+</li> <li> $likes: number of likes
+</li> <li> $dislikes: number of dislikes
+</li></ul> 
+<p class='p'>Example:</p>
+
+<p class='p'>Use this to render a list of all unapproved comments in a web:</p>
+
+<pre class="tml">
+&#37;METACOMMENTS{web&#61;&#34;Sandbox&#34; 
+  search&#61;&#34;1&#34; 
+  header&#61;&#34;&#124; &#42;Comment&#42; &#124; &#42;Topic&#42; &#124; &#42;Comment&#42; &#124; &#42;Author&#42; &#124; &#42;Date&#42; &#124; &#36;n&#34;
+  format&#61;&#34;&#124; &#91;&#91;&#36;permlink&#93;&#91;Comment&#36;id&#93;&#93; &#124; &#91;&#91;&#36;web.&#36;topic&#93;&#93; &#124;&#36;title &#36;summary &#124; &#60;nobr&#62;&#91;&#91;&#37;USERSWEB&#37;.&#36;author&#93;&#93;&#60;/nobr&#62; &#124; &#60;nobr&#62;&#36;date&#60;/nobr&#62; &#124;&#36;n&#34;
+  footer&#61;&#34;&#60;span class&#61;&#39;foswikiAlert&#39;&#62;&#36;count&#60;/span&#62;&#34;
+  sort&#61;&#34;date&#34;
+  reverse&#61;&#34;on&#34;
+  state&#61;&#34;unapproved&#34;
+}&#37;
+</pre>
+<p></p>
+
+<h2 id="RSS_feeds">  RSS feeds </h2>
+<p></p>
+
+By default every page has got a separate RSS feed with all comments in it. This allows to monitor individual discussions. To monitor <em>all</em>
+discussions in a web use the <code>metacommmentrss</code> template. Alternatively the <code>webcomments</code> section below renders a link to it with an RSS icon.
+Call it using:
+<p></p>
+
+<pre class="tml">
+&#37;INCLUDE{&#34;&#37;SYSTEMWEB&#37;.MetaCommentPlugin&#34; section&#61;&#34;webcomments&#34;
+  THEWEB&#61;&#34;&#60;webName&#62;&#34;
+  WHERE&#61;&#34;&#60;query&#62;&#34;
+  LIMIT&#61;&#34;&#60;limit&#62;&#34;
+}&#37;
+</pre>
+<p></p>
+
+The parameters <code>THEWEB</code>, <code>WHERE</code> and <code>LIMIT</code> are optional where
+<p></p>
+ <ul>
+<li> <code>THEWEB</code> specifies the web to search for comments, defaults to the current web
+</li> <li> <code>WHERE</code> specifies a filter on topics while searching <code>THEWEB</code>, defaults to <code>1</code> (means: all topics)
+</li> <li> <code>LIMIT</code> limits the number of recent comments to be listed, defaults to <code>10</code> 
+</li></ul> 
+<p></p>
+
+<pre class="tml">
+&#37;STARTSECTION{&#34;webcomments&#34;}&#37;&#60;a href&#61;&#39;&#37;SCRIPTURLPATH{&#34;view&#34;}&#37;/&#37;THEWEB{default&#61;&#34;&#37;BASEWEB&#37;&#34;}&#37;/&#37;BASETOPIC&#37;?template&#61;metacommentsrss;contenttype&#61;text/xml;search&#61;&#37;WHERE{default&#61;&#34;1&#34;}&#37;;limit&#61;&#37;LIMIT{default&#61;&#34;10&#34;}&#37;&#39; class&#61;&#39;cmtRssFeed foswikiGrayText foswikiSmallish foswikiHideOnPrint&#39; title&#61;&#39;&#37;MAKETEXT{&#34;RSS comments feed for the &#91;&#95;1&#93; web&#34; args&#61;&#34;&#37;THEWEB{default&#61;&#34;&#37;BASEWEB&#37;&#34;}&#37;&#34;}&#37;&#39;&#62;&#37;JQICON{&#34;feed&#34;}&#37; RSS&#60;/a&#62;&#37;ENDSECTION{&#34;webcomments&#34;}&#37;
+</pre>
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Contrib::JsonRpcContrib</td><td align="left">&gt;=1.1</td><td align="left">Required. </td></tr><tr><td align="left">Foswiki::Plugins::RenderPlugin</td><td align="left">&gt;=3.1</td><td align="left">Required. </td></tr><tr><td align="left">Foswiki::Plugins::ImagePlugin</td><td align="left">&gt;=3.0</td><td align="left">Required. </td></tr><tr><td align="left">Foswiki::Plugins::DBCachePlugin</td><td align="left">&gt;=9.0</td><td align="left">Optional. </td></tr><tr><td align="left">Foswiki::Plugins::SolrPlugin</td><td align="left">&gt;=4.0</td><td align="left">Optional. </td></tr><tr><td align="left">Foswiki::Plugins::LikePlugin</td><td align="left">&gt;=1.0</td><td align="left">Optional. </td></tr><tr><td align="left">Foswiki::Plugins::ZonePlugin</td><td align="left">&gt;=3.1</td><td align="left">Required. required for Foswiki &lt; 1.1</td></tr><tr><td align="left">Foswiki::Plugins::TopicTitlePlugin</td><td align="left">&gt;1.00</td><td align="left">Required for Foswiki &lt; 2.2</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<table class="foswikiTable" id="tableMetaCommentPlugin1" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Nov 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 5.10 - added rev parameter to display comments of previous revisions of a topic;                          added "delete all", "approve all", "mark all" features to moderate comments in bunches;                          improved <a class="interwikiLink" href="https://foswiki.org/Extensions/SolrPlugin" title="'Extensions/SolrPlugin' on foswiki.org">SolrPlugin</a> integration </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 May 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 5.03 - depend on new <a class="interwikiLink" href="https://foswiki.org/Extensions/TopicTitlePlugin" title="'Extensions/TopicTitlePlugin' on foswiki.org">TopicTitlePlugin</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Mar 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 5.01 - cleaned up templates </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 5.00 - implemented a registerCommentHandler() api to let other plugins interact with comment changes </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 4.10 - added display settings to switch on of voting and permlink </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 4.00 - added isnew/isupdated flags; optional integration with <a class="interwikiLink" href="https://foswiki.org/Extensions/LikePlugin" title="'Extensions/LikePlugin' on foswiki.org">Foswiki:Extensions/LikePlugin</a>; using new index handler architectur in <a class="interwikiLink" href="https://foswiki.org/Extensions/DBCachePlugin" title="'Extensions/DBCachePlugin' on foswiki.org">Foswiki:Extensions/DBCachePlugin</a> now </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Aug 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 3.00 - simplified comment approval; fixed ACL check (<a class="interwikiLink" href="https://foswiki.org/Main/StephanOsthold" title="'Main/StephanOsthold' on foswiki.org">Foswiki:Main/StephanOsthold</a>); fixed substr problem together with Foswiki-2.0 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Feb 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.90 - removing collection field form solr index handler </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.80 - fixed extracting substrings from unicode strings </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Aug 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.70 - improved finding user photo </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Mar 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.60 - fixed dependency on <a class="interwikiLink" href="https://foswiki.org/Extensions/ImagePlugin" title="'Extensions/ImagePlugin' on foswiki.org">ImagePlugin</a>;                          some css and js fixes </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Aug 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.50 - protect comments from being edited by others;                          fixed error reporting using pnotify now;                          reject commenting when discussion is already closed;                          added example how to display all unapproved comments in a web;                          added docu how to render an rss feed of all comments in a web </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Aug 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.40 - disable anonymous commenting by default </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Jun 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.32 - fixed reply-modal not closing after submit </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 May 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.31 - fixed commenting using latest jquery/jquery-ui combo </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Mar 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.30 - fixed access rights on unapproved comments being index by solr </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Nov 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.20 - force a new revision on every comment;                          fixed comments by modification date;                          improved templates used to rendering user photos </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Aug 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.11 - fixed german translation (<a class="interwikiLink" href="https://foswiki.org/Main/JanKrueger" title="'Main/JanKrueger' on foswiki.org">Foswiki:Main/JanKrueger</a>) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jul 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.10 - unapproved anonymous comments are only visible to the same remote address for one hour;                         fixed jquery-ui dialogs not popping up properly;                          comments by moderators don't need any further approval;                         fixed controls not showing up sometimes </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jul 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.02 - properly reset modal dialogs when reusing them </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jul 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.01 - use less progress messages </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> &nbsp; </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.00 - replaced all simplemodals with jquery-ui dialogs </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 May 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.12 - fixed integration with PatternSkin </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Mar 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.11 - added ability to search for all comments in a web;                          improved comment rendering features;                          added fixes for PatternSkin </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jan 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.10 - added german translation;                          added missing dependency on <a class="interwikiLink" href="https://foswiki.org/Extensions/RenderPlugin" title="'Extensions/RenderPlugin' on foswiki.org">RenderPlugin</a>;                          backwards compatibility to older foswiki engines;                          adjusted index handler to latest changes in SolrPlugin;                          improved print css;                          fixed js error together with newer jquery versions </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 May 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.00 - partial rewrite to use <a class="interwikiLink" href="https://foswiki.org/Extensions/JsonRpcContrib" title="'Extensions/JsonRpcContrib' on foswiki.org">JsonRpcContrib</a>;                   renamed preference COMMENTAPPROVAL to COMMENTMODERATION </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Apr 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed error in regular expression </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 15 Apr 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> using <a class="interwikiLink" href="https://metacpan.org/module/JSON" title="CPAN perl repository">CPAN:JSON</a> to properly encode json-rpc data;                   fixed recoding of received data to the site's own charset;                   improved the way photos are gathered </td>
+		</tr>
+	</tbody></table></div>
+<p></p>
+
+<div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/MetaCommentPlugin?t=1627670111;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main/MichaelDaum" title="'Main/MichaelDaum' on foswiki.org">Foswiki:Main/MichaelDaum</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 5.10 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 26 Nov 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> An easy to use comment system </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/MetaCommentPlugin">https://github.com/foswiki/MetaCommentPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> 2009-2019, Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> <span class='externalLink'><a href="http://www.gnu.org/licenses/gpl.html">GPL (Gnu General Public License)</a></span> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="https://foswiki.org/Extensions/MetaCommentPlugin">https://foswiki.org/Extensions/MetaCommentPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Support/MetaCommentPlugin" title="'Support/MetaCommentPlugin' on foswiki.org">Foswiki:Support/MetaCommentPlugin</a> </td></tr></table></div>
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>MetaCommentPlugin <br />
+Topic revision:  <span class='patternRevInfo'>26 Nov 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.MetaCommentPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

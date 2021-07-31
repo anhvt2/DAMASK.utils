@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> JQueryView &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/JQueryView?t=1627673488" type="application/x-wiki" title="edit JQueryView" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/JQueryView" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/950e2d1adc493045764761cf182e9aa6.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::RENDER' src='/pub/System/JQueryPlugin/plugins/render/jquery.render.js?version=0.9.90'></script>
+<script class='script JQUERYPLUGIN::RENDER' src='/pub/System/JQueryPlugin/plugins/render/jquery.template-loader.js?version=0.9.90'></script>
+<script class='script JQUERYPLUGIN::VIEW' src='/pub/System/JQueryPlugin/plugins/view/jquery.observable.uncompressed.js?version=0.9.90'></script>
+<script class='script JQUERYPLUGIN::VIEW' src='/pub/System/JQueryPlugin/plugins/view/jquery.views.uncompressed.js?version=0.9.90'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTSUFFIX" : "",
+   "SERVERTIME" : "30 Jul 2021 - 21:31",
+   "URLHOST" : "https://damask.mpie.de",
+   "WEB" : "System",
+   "USERNAME" : "guest",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "TOPIC" : "JQueryView",
+   "WIKINAME" : "WikiGuest",
+   "COOKIEREALM" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "USERSWEB" : "Main",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATH" : "/bin"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/JQueryView" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?e95170b506fe390c0a4006bb40924270' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/JQueryView?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?5730dc169906f5fbaf5afa8e94708483' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.JQueryView' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.JQueryView' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="JQueryView">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQueryView">JQueryView</a> </h1>
+<p class='p'></p>
+
+    Homepage: <a href="http://www.jsviews.com">http://www.jsviews.com</a> <br />
+    Author(s): Boris Moore <br />
+    Version: 0.9.90
+<p class='p'></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?cover=print#Usage"> Usage </a> <ul>
+<li> <a href="?cover=print#In_the_SCRIPT_head"> In the SCRIPT head </a>
+</li> <li> <a href="?cover=print#In_the_BODY"> In the BODY </a>
+</li> <li> <a href="?cover=print#See_the_demo"> See the demo </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Further_reading"> Further reading </a>
+</li> <li> <a href="?cover=print#Syntax"> Syntax </a>
+</li></ul> 
+</div>
+<p class='p'></p>
+
+<p class='p'>This plugin adds JsViews functionality to the JsRender plugin. JsViews builds off of standard JsRender templates, but adds
+two-way declarative data-binding, MVVM, and MVP.</p>
+
+See <a href="/bin/view/System/JQueryRender">JQueryRender</a> and <a href="https://www.jsviews.com/#jsviews">https://www.jsviews.com/#jsviews</a> for more details.
+<p class='p'></p>
+
+<h2 id="Usage">  Usage </h2>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h3 id="In_the_SCRIPT_head">  In the SCRIPT head </h3>
+<pre class="js">
+var data &#61; &#91;
+  {
+    &#34;name&#34;: &#34;Robert&#34;,
+    &#34;nickname&#34;: &#34;Bob&#34;,
+    &#34;showNickname&#34;: true
+  },
+  {
+    &#34;name&#34;: &#34;Susan&#34;,
+    &#34;nickname&#34;: &#34;Sue&#34;,
+    &#34;showNickname&#34;: false
+  }
+&#93;;
+
+var template &#61; &#36;.templates(&#34;#theTmpl&#34;);
+
+template.link(&#34;#result&#34;, data);
+</pre>
+<p></p>
+
+<h3 id="In_the_BODY">  In the BODY </h3>
+<pre class="html">
+&#60;div id&#61;&#34;result&#34;&#62;&#60;/div&#62;
+
+&#60;script id&#61;&#34;theTmpl&#34; type&#61;&#34;text/x-jsrender&#34;&#62;
+&#60;div&#62;
+  Edit: &#60;input type&#61;&#34;checkbox&#34; data-link&#61;&#34;editable&#34;/&#62;
+  &#60;em&#62;Name:&#60;/em&#62; {^{:name}}
+  {^{if showNickname &#38;&#38; nickname}}
+    (Goes by &#60;em data-link&#61;&#34;nickname&#34;&#62;&#60;/em&#62;)
+  {{/if}}
+  {^{if editable}}
+    &#60;div&#62;
+      &#60;input data-link&#61;&#34;name&#34;/&#62;
+      &#60;input data-link&#61;&#34;nickname&#34;/&#62;
+      Show nickname: &#60;input type&#61;&#34;checkbox&#34; data-link&#61;&#34;showNickname&#34;/&#62;
+    &#60;/div&#62;
+  {{/if}}
+&#60;/div&#62;
+&#60;/script&#62;
+</pre>
+<p></p>
+
+<h3 id="See_the_demo">  See the demo </h3>
+<div id="result"></div>
+<p></p>
+
+<script id="theTmpl" type="text/x-jsrender">
+<div>
+  Edit: <input type="checkbox" data-link="editable"/>
+  <em>Name:</em> {^{:name}}
+  {^{if showNickname && nickname}}
+    (Goes by <em data-link="nickname"></em>)
+  {{/if}}
+  {^{if editable}}
+    <div>
+      <input data-link="name"/>
+      <input data-link="nickname"/>
+      Show nickname: <input type="checkbox" data-link="showNickname"/>
+    </div>
+  {{/if}}
+</div>
+</script>
+<p></p>
+
+<script>
+(function($) {
+  var data = [
+    {
+      "name": "Robert",
+      "nickname": "Bob",
+      "showNickname": true
+    },
+    {
+      "name": "Susan",
+      "nickname": "Sue",
+      "showNickname": false
+    }
+  ];
+
+  $(function() {
+    var template = $.templates("#theTmpl");
+    template.link("#result", data);
+  });
+})(jQuery);
+</script>
+<p class='p'>Pretty cool!</p>
+
+<h2 id="Further_reading">  Further reading </h2> <ul>
+<li> <a href="http://www.jsviews.com">http://www.jsviews.com</a>
+</li> <li> <span class='externalLink'><a href="http://borismoore.github.io/jsviews/demos/">JsViews Demos</a></span>
+</li></ul> 
+<p></p>
+
+<h2 id="Syntax">  Syntax  </h2>
+<p></p>
+
+JsViews templates are very similar to JsRender templates, but with minor changes to the tag structure. <ul>
+<li> For data-dependent linking, <code>{{:name}}</code> becomes this <code>{^{:name}}</code>
+</li> <li> Tag attributes can also be data-linked: <code>&lt;button data-link="disabled{:disableButton} title{:theTitle} data-myvalue{:myVal} class{:disableButton ? 'class2' : 'class1'}"&gt;</code>
+</li> <li> If you are data-linking tags, you might be interested in two-way binding: <code>&lt;input data-link="{:name}" /&gt;</code> becomes this <code>&lt;input data-link="{:name:}" /&gt;</code> <ul>
+<li> (Actually, the default for &lt;input&gt; elements is two-way binding, so you can just use the shorthand <code>&lt;input data-link="name" /&gt;</code>. The more explicit form is only necessary if you want to force it to one-way binding.)
+</li></ul> 
+</li> <li> You can also use this for contenteditable elements: <code>&lt;span data-link="name" contenteditable="true"&gt;&lt;/span&gt;</code>
+</li> <li> As with JsRender, there is support for converters and helpers as well.
+</li></ul> 
+<p></p>
+
+ Other functionality includes the <code>$.observe()</code> method for assigning callback functions to respond to observable 
+ changes, and the <code>$.view()</code> method for retrieving the data slice associated with a particular View object.
+<p></p>
+
+ (see <a href="http://www.jsviews.com/#jsvapi">http://www.jsviews.com/#jsvapi</a> for lots of details and examples)
+<p></p>
+</div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>JQueryView <br />
+Topic revision:  <span class='patternRevInfo'>18 Nov 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.JQueryView'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

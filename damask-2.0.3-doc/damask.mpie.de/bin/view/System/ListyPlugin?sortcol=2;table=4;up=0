@@ -1,0 +1,966 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> ListyPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/ListyPlugin?t=1627669964" type="application/x-wiki" title="edit ListyPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/ListyPlugin" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/7cc8b6bd881bdac0b82fca1cc7a35191.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::FONTAWESOME JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableListyPlugin6 {width:100%}
+body .foswikiTable#tableListyPlugin6 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableListyPlugin6 th.foswikiTableCol0 {width:7em}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::JSONRPC' src='/pub/System/JsonRpcContrib/jquery.jsonrpc.js?version=1.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "PUBURLPATH" : "/pub",
+   "SCRIPTSUFFIX" : "",
+   "USERNAME" : "guest",
+   "WEB" : "System",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATH" : "/bin",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SERVERTIME" : "30 Jul 2021 - 20:32",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SYSTEMWEB" : "System",
+   "URLHOST" : "https://damask.mpie.de",
+   "USERSWEB" : "Main",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "TOPIC" : "ListyPlugin"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::I18N' src='/pub/System/JQueryPlugin/plugins/i18n/i18n.js?version=1.1'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script LISTY::FAVBUTTON' type="text/javascript" src="/pub/System/ListyPlugin/jquery.favbutton.js"></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/ListyPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?9da8e81cd8bbed0d6eaacf16352f775b' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/ListyPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?8d6fb6b6cb302797444238ec900bb4c3' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.ListyPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.ListyPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/ListyPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/ListyPlugin" title='Topic revision: 7 (02 Jul 2019 - 08:08:59)'>ListyPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/ListyPlugin?t=1627669964;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/ListyPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/ListyPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/ListyPlugin?raw=on&amp;rev=7' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=ListyPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/ListyPlugin?cover=print;sortcol=2;table=4;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/ListyPlugin?template=more&amp;maxrev=7&amp;currrev=7' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="ListyPlugin">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/ListyPlugin">ListyPlugin</a> </h1>
+Fancy list manager
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=2;table=4;up=0#Usage"> Usage </a> <ul>
+<li> <a href="?sortcol=2;table=4;up=0#Create_a_Listy"> Create a Listy </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#My_Links"> My Links </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Favorites_button"> Favorites button </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Scrum_Board"> Scrum Board </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Dynamic_Listies"> Dynamic Listies </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Custom_formatting"> Custom formatting </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=4;up=0#Syntax"> Syntax </a> <ul>
+<li> <a href="?sortcol=2;table=4;up=0#LISTY"> LISTY </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#FAVBUTTON"> FAVBUTTON </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=4;up=0#Importing_standard_61...LeftBar_61"> Importing standard ...LeftBar </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Dependencies"> Dependencies </a>
+</li> <li> <a href="?sortcol=2;table=4;up=0#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p class='p'>This plugin implements an interactive list manager. A "Listy" is a collection of text or links that can be
+maintained easily using modal dialogs, dragged and dropped to sort or move around between multiple listies.</p>
+
+<p class='p'>There are a couple of ways to use a Listy:</p>
+ <ul>
+<li> as a customizable sidebar navigation
+</li> <li> as a list of links on a frontpage
+</li> <li> as a kanban-like task manager
+</li></ul> 
+<p class='p'>All of these use cases have in common that you may freely interact with items on a listy.</p>
+
+Technically speaking, a listy is stored as <a href="/bin/view/System/MetaData">MetaData</a> attached to a topic. A listy is
+made up of multiple entries of the form <code>%META:LISTY</code> to the same topic. Multiple independent listies can
+be stored on a single topic by defining the "collection" identifier. Also, multiple independent listies of the
+same collection can be stored in separate topics.
+<p></p>
+
+<h2 id="Usage">  Usage </h2>
+<p></p>
+
+<h3 id="Create_a_Listy">  Create a Listy </h3>
+<p class='p'>Just type</p>
+
+<pre class="tml">
+&#37;LISTY&#37;
+</pre>
+<p class='p'>anywhere on a topic to get started. Data will be stored into the current topic.</p>
+
+<h3 id="My_Links">  My Links </h3>
+<p class='p'>To store "My Links" of the currently logged in user, use:</p>
+
+<pre class="tml">
+&#37;LISTY{
+   &#34;mylinks&#34;
+   topic&#61;&#34;&#37;WIKIUSERNAME&#37;&#34;
+}&#37;
+</pre>
+<p class='p'>This will store the set of links organized by this widget into the user's profile page and have them in a "mylinks" collection.</p>
+
+<h3 id="Favorites_button">  Favorites button </h3>
+<p></p>
+
+The <code>%FAVBUTTON</code> macro lets add a topic to a listy. By default it adds the current topic to your "mylinks" collections (see above):
+<p></p>
+
+<pre class="tml">
+&#37;FAVBUTTON&#37;
+</pre>
+<p class='p'>Note that any "mylinks" listy on the same page will automatically be updated as you click on the favbutton. Clicking on it again
+will remove it from the listy again.</p>
+
+<h3 id="Scrum_Board">  Scrum Board </h3>
+(with the help of <a class="interwikiLink" href="https://foswiki.org/Extensions/GridLayoutPlugin" title="'Extensions/GridLayoutPlugin' on foswiki.org">GridLayoutPlugin</a>)
+<p></p>
+
+<pre class="tml">
+&#37;BEGINGRID{border&#61;&#34;on&#34;}&#37;
+&#37;BEGINCOL{&#34;4&#34;}&#37;
+---++ Todo
+&#37;LISTY{
+   &#34;todo&#34; 
+   collections&#61;&#34;todo, inprogress, done&#34;
+}&#37;
+&#37;BEGINCOL{&#34;4&#34;}&#37;
+---++ In progress
+&#37;LISTY{
+   &#34;inprogress&#34; 
+   collections&#61;&#34;todo, inprogress, done&#34;
+}&#37;
+&#37;BEGINCOL{&#34;4&#34;}&#37;
+---++ Done
+&#37;LISTY{
+   &#34;done&#34;
+   collections&#61;&#34;todo, inprogress, done&#34;
+}&#37;
+&#37;ENDGRID&#37;
+</pre>
+<p class='p'>This will display three listies next to each
+other, a "todo", an "inprogress" and a "done" listy. You will be able to create entries for each listy, assign them to one of the
+collections and move them around using drag and drop.</p>
+
+<h3 id="Dynamic_Listies">  Dynamic Listies </h3>
+<p></p>
+
+Listy entries may be generated based on a query over topics, for instance topics that have some kind of <code>TaskForm</code> attached to it:
+<p></p>
+
+<pre class="tml">
+&#124; &#42;Name&#42;  &#124; &#42;Type&#42; &#124; &#42;Size&#42; &#124; &#42;Values&#42; &#124; &#42;Description&#42; &#124; &#42;Attributes&#42; &#124; &#42;Default&#42; &#124;
+&#124; Summary &#124; text &#124; 80 &#124; &#124; &#124;  &#124; &#124;
+&#124; Owner &#124; text &#124; 20 &#124; &#124; &#124; &#124; &#124;
+&#124; Status &#124; radio &#124; 5 &#124; created, todo, inprogress, done &#124; &#124; &#124; created &#124;
+</pre>
+<p class='p'>Tasks are created as part of a wiki application and them might be managed using a scrum board extending above example:</p>
+
+<pre class="tml">
+&#37;BEGINGRID{gutter&#61;&#34;1&#34; border&#61;&#34;off&#34;}&#37;
+&#37;BEGINCOL{&#34;3&#34;}&#37;
+---++ Backlog
+&#37;LISTY{&#34;created&#34; 
+   collections&#61;&#34;created, todo, inprogress, done&#34; 
+   type&#61;&#34;query&#34; 
+   query&#61;&#34;form&#61;&#39;TaskForm&#39; AND ! Status&#61;~&#39;\b(todo&#124;inprogress&#124;done)\b&#39;&#34;
+   collection&#95;formfield&#61;&#34;Status&#34;
+}&#37;
+&#37;BEGINCOL{&#34;3&#34;}&#37;
+---++ Todo
+&#37;LISTY{
+   &#34;todo&#34;
+   collections&#61;&#34;created, todo, inprogress, done&#34; 
+   type&#61;&#34;query&#34; 
+   query&#61;&#34;form&#61;&#39;TaskForm&#39; AND Status&#61;&#39;\btodo\b&#39;&#34;
+   collection&#95;formfield&#61;&#34;Status&#34;
+}&#37;
+&#37;BEGINCOL{&#34;3&#34;}&#37;
+---++ In progress
+&#37;LISTY{
+   &#34;inprogress&#34; 
+   collections&#61;&#34;created, todo, inprogress, done&#34; 
+   type&#61;&#34;query&#34; 
+   query&#61;&#34;form&#61;&#39;TaskForm&#39; AND Status&#61;&#39;\binprogress\b&#39;&#34;
+   collection&#95;formfield&#61;&#34;Status&#34;
+}&#37;
+&#37;BEGINCOL{&#34;3&#34;}&#37;
+---++ Done
+&#37;LISTY{
+   &#34;done&#34; 
+   collections&#61;&#34;created, todo, inprogress, done&#34; 
+   type&#61;&#34;query&#34; 
+   query&#61;&#34;form&#61;&#39;TaskForm&#39; AND Status&#61;&#39;\bdone\b&#39;&#34;
+   collection&#95;formfield&#61;&#34;Status&#34;
+}&#37;
+&#37;ENDGRID&#37;
+</pre>
+<p></p>
+
+Note that each listy is of <code>type="query"</code> and thus prefilled by entries that refer to the found topics. The parameter <code>collection_formfield="Status"</code> then informs the listy
+to alter the <code>Status</code> formfield of the related topic while an entry is dragged from one listy to the next.
+<p></p>
+
+<h3 id="Custom_formatting">  Custom formatting </h3>
+<p></p>
+
+A listy can be integrated in a wiki application specifying a customized formatting for each listy item. Below
+renders each topic in a listy by displaying an image and part of its <a href="/bin/view/System/DataForms">DataForm</a>.
+<p></p>
+
+(with the help of <a class="interwikiLink" href="https://foswiki.org/Extensions/ImagePlugin" title="'Extensions/ImagePlugin' on foswiki.org">ImagePlugin</a> and <a class="interwikiLink" href="https://foswiki.org/Extensions/FlexFormPlugin" title="'Extensions/FlexFormPlugin' on foswiki.org">FlexFormPlugin</a> and a custom DataForm for movies)
+<p></p>
+
+<pre class="tml">
+&#37;LISTY{
+  type&#61;&#34;topic&#34;
+  width&#61;&#34;500px&#34;
+  buttons&#61;&#34;both&#34;
+  format&#61;&#34;&#60;div class&#61;&#39;&#36;class clearfix&#39;&#62;&#36;tools
+      &#36;percntIMAGE{\&#34;&#36;percntFORMFIELD{\&#34;Image\&#34;}&#36;percnt\&#34; size&#61;\&#34;100\&#34; align&#61;\&#34;left\&#34; type&#61;\&#34;plain\&#34;}&#36;percnt
+      &#60;h3&#62;
+         &#60;span class&#61;&#39;foswikiGrayText foswikiRight foswikiSmall&#39;&#62;#&#36;index&#60;/span&#62;
+         &#60;a href&#61;&#39;&#36;url&#39;&#62;&#36;title&#60;/a&#62;
+      &#60;/h3&#62;  
+      &#60;div class&#61;&#39;foswikiGrayText&#39;&#62;
+      &#36;percntRENDERFORDISPLAY{
+         fields&#61;\&#34;Rating, Release, AgeRating&#95;i, Genre\&#34; 
+         format&#61;\&#34;&#36;title: &#36;value\&#34; 
+         separator&#61;\&#34;&#37;BR&#37;\&#34;
+         hidenull&#61;\&#34;on\&#34;
+      }&#36;percnt
+      &#60;/div&#62;
+   &#60;/div&#62;&#34;
+}&#37;
+</pre>
+<p></p>
+
+<h2 id="Syntax">  Syntax </h2>
+<p></p>
+
+<h3 id="LISTY">  LISTY </h3>
+<code>%LISTY{"&lt;collection&gt;" ...}%</code>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/ListyPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/ListyPlugin?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/ListyPlugin?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topic</code> </td>
+			<td class="foswikiTableCol1"> location where all entries of this listy are stored </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>%BASETOPIC%</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>collection</code> </td>
+			<td class="foswikiTableCol1"> the collection ID, can be just any string; leave it empty to refer to the "default" collection </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>&lt;empty&gt;</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>collections</code> </td>
+			<td class="foswikiTableCol1"> list of known collections stored at <code>topic</code>; this lets you move a listy item between collectiosn without having a drag'n drop </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>collection_formfield</code> </td>
+			<td class="foswikiTableCol1"> name of a formfield to be altered when dragging topic listies among collections </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>collection_value</code> </td>
+			<td class="foswikiTableCol1"> value to set a topic item's formfield to </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> collection </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hidenull</code> </td>
+			<td class="foswikiTableCol1"> boolean flag to hide the listy when there are no items in it </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>false</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>showcollections</code> </td>
+			<td class="foswikiTableCol1"> boolean flag to show/hide the collections select box in the item editor </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>true</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>sort</code> </td>
+			<td class="foswikiTableCol1"> sort listies using the specified property; possible values are <code>index</code>, <code>title</code>, <code>summary</code>, <code>date</code>, <code>topictitle</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>index</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>reverse</code> </td>
+			<td class="foswikiTableCol1"> boolean flag to reverse the sorting order as specified in <code>sort</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>types</code> </td>
+			<td class="foswikiTableCol1"> specify types of listy items, possible values are <code>topic</code>, <code>text</code>, <code>external</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>topic, text, external</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>autosave</code> </td>
+			<td class="foswikiTableCol1"> boolean flag to enable/disable saving changes automatically on every action; if switched off you will need to hit the "save" button to make any changes to the listy permanent; if switched on (default) any change will be stored immediately </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>true</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>format</code>, <code>topic_format</code>, <code>text_format</code>, <code>external_format</code> </td>
+			<td class="foswikiTableCol1"> format string of listy items; there are a number of variables to be used in the format (see below) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> defined in <code>listyplugin.tmpl</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>buttons</code> </td>
+			<td class="foswikiTableCol1"> specify where the UI buttons are located; possible values are <code>top</code>, <code>bottom</code>, <code>both</code> and <code>off</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>bottom</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>width</code> </td>
+			<td class="foswikiTableCol1"> width of listy widget, e.g. =width="500px" </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>class</code> </td>
+			<td class="foswikiTableCol1"> additional css class to be added to the listy widget </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>query</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> search query for topics to pre-fill a listy with items; this is either a normal <a href="/bin/view/System/QuerySearch">QuerySearch</a> or a query using <a class="interwikiLink" href="https://foswiki.org/Extensions/DBCachePlugin" title="'Extensions/DBCachePlugin' on foswiki.org">Foswiki:Extensions/DBCachePlugin</a> in case it is installed </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+The parameters <code>format</code>, <code>topic_format</code>, <code>text_format</code>, <code>external_format</code> may use the following variables:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/ListyPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/ListyPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$class</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> css class of a listy item </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$date</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> date when the listy item was last changed </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$index</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> index of listy item within collection </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$json</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> listy item as a json object; this is used by the widget to interact with the backend </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$name</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> name/id of this listy item </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$summary</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> summary </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$title</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> title text of listy item </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$tools</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> expands to the tools to interact with a listy item </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$topic</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> topic value of a "topic" listy item </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$type</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> type of this item ("topic", "text" or "external") </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$url</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> link url of listy item </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>$web</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> web value of a "topic" listy item </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+There are a couple of additional variables that are used in the <code>listyplugin.tmpl</code> default strings:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/ListyPlugin?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/ListyPlugin?sortcol=1;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$item</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> inserts the listy item into the result </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$buttons</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> button format </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$topbuttons</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> buttons located at the top </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$bottombuttons</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> buttons located at the bottom </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$sourceweb</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$sourcetopic</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$collection</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> collection id </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$collectionformfield</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> name of formfield managed by this listy </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$collectionvalue</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value set to a collection formfield if this listy receives a new item using drag&amp; drop </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$showcollections</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> true/false </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$types</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> selected types of this listy </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$autosave</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> true/false </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$count</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> number of listy items </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$style</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> extra css </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$class</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> extra class </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$allcollections</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> list of collections known by the current listy </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$listyID</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> id of the current listy </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>$tml</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> url-escaped TML used to render this listy; this is used to re-render the widget after an update </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="FAVBUTTON">  FAVBUTTON </h3>
+<code>%FAVBUTTON{...}</code>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/ListyPlugin?sortcol=0;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/ListyPlugin?sortcol=1;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol"> <a href="/bin/view/System/ListyPlugin?sortcol=2;table=4;up=1#sorted_table" rel="nofollow" title="Sort by this column">Default</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>class</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> css class to be added to the button element </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>style</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> css styles to be added to the button element </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>animate</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> animation to be added to the button, see <a href="/bin/view/System/VarJQICON">VarJQICON</a> </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>favtitle</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> button tooltip </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> Add to favorites </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>web</code>, <code>topic</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> topic to be added to the list </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> current topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>"..."</code> or <code>source</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> topic to be added to the listy </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> current user's profile page </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>unfavicon</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> button icon </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> fa-star </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>favicon</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> button icon </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> fa-star-o </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>favtext</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> button text to be displayed when the source topic has not been favorited yet </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> Favorite </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>collection</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> name of the listy collection to add the favorite to </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> mylisty </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>showlabel</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> boolean flag to show/hide the button label </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> on </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>showicon</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> boolean flag to show/hide the button icon </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> on </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>unfavtitle</code> </td>
+			<td class="foswikiTableCol1" rowspan="1"> button tooltip </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> Remove from favorites </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <code>unfavtext</code> </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> button text to be displayed when the source topic has been favorited </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol foswikiLast" rowspan="1"> Unavorite </td>
+		</tr>
+	</tbody></table>
+<p class='p'>Example:</p>
+
+<pre class="tml">
+&#37;FAVBUTTON{
+   showlabel&#61;&#34;off&#34;
+   favicon&#61;&#34;fa-heart-o&#34;
+   unfavicon&#61;&#34;fa-heart&#34;
+   class&#61;&#34;foswikiLarge foswikiAlert&#34;
+}&#37;
+</pre>
+<p></p>
+
+<div class="">
+<a href="#"  class="jqFavButton listyFavButton foswikiLarge foswikiAlert listyFavButtonNoLabel" title="Add to favorites" rel="nofollow" data-is-favorite="false" data-web="System" data-topic="ListyPlugin" data-name="" data-collection="mylinks" data-source="Main.WikiGuest" data-favtext="" data-unfavtext="" data-favicon="%3ci%20class%3d%27foswikiIcon%20jqIcon%20fa%20fa-thumbs-o-up%27%20%20%3e%3c/i%3e" data-unfavicon="%3ci%20class%3d%27foswikiIcon%20jqIcon%20fa%20fa-thumbs-up%27%20%20%3e%3c/i%3e" data-favtitle="Add%20to%20favorites" data-unfavtitle="Remove%20from%20favorites"><span class="listyFavButtonIcon"><i class='foswikiIcon jqIcon fa fa-thumbs-o-up'  ></i></span><span class="listyFavButtonLabel"></span></a>
+</div>
+<p></p>
+
+<h2 id="Importing_standard_61...LeftBar_61">  Importing standard <code>...LeftBar</code>  </h2>
+<p></p>
+
+A standard Foswiki installation using PatternSkin allows to store a custom sidebar for each user into a separate <code>...LeftBar</code> topic for each user.
+These can be converted to a setup based on ListyPlugin that stores those links into personal <code>mylinks</code> using a REST handler of the ListyPlugin.
+Use the following commandline:
+<p></p>
+
+<pre class="tml">
+cd &#60;foswiki-directory&#62;
+./rest /ListyPlugin/importSideBar param&#61;value ...
+</pre>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/ListyPlugin?sortcol=0;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/ListyPlugin?sortcol=1;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/ListyPlugin?sortcol=2;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>web</code> </td>
+			<td class="foswikiTableCol1"> user web to search for <code>...LeftBar</code> topics </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Main </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>suffix</code> </td>
+			<td class="foswikiTableCol1"> suffix of topics to search for </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> LeftBar </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>include</code> </td>
+			<td class="foswikiTableCol1"> regular expressions of topics to include in the conversion process </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>exclude</code> </td>
+			<td class="foswikiTableCol1"> regular expressions of topics to prevent from being processed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>debug</code> </td>
+			<td class="foswikiTableCol1"> boolean flag to enable debug outout </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>verbose</code> </td>
+			<td class="foswikiTableCol1"> boolean flag to enable verbose progress output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>target</code> </td>
+			<td class="foswikiTableCol1"> target web to store create listy entries </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Main </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>collection</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> collection name to store entries to </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> mylinks </td>
+		</tr>
+	</tbody></table>
+<p class='p'>Note that the conversion process tries to clean up as good as possible entries in the ...LeftBar topics. However, as this is a free-form
+topic any kind of content may be found, only some of it may be converted into a listy.</p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Plugins::RenderPlugin</td><td align="left">&gt;=3.10</td><td align="left">Required. </td></tr><tr><td align="left">Foswiki::Plugins::JQueryPlugin</td><td align="left">&gt;=7.00</td><td align="left">Required. </td></tr><tr><td align="left">Foswiki::Plugins::FilterPlugin</td><td align="left">&gt;=4.00</td><td align="left">Required. </td></tr><tr><td align="left">Foswiki::Contrib::JsonRpcContrib</td><td align="left">&gt;=2.21</td><td align="left">Required. </td></tr><tr><td align="left">Foswiki::Plugins::ZonePlugin</td><td align="left">&gt;=3.1</td><td align="left">Required. required for Foswiki &lt; 1.1</td></tr><tr><td align="left">Foswiki::Plugins::TopicTitlePlugin</td><td align="left">&gt;1.00</td><td align="left">Required for Foswiki &lt; 2.2</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<p></p>
+
+<table class="foswikiTable" id="tableListyPlugin6" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Jul 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixes along the new tabpane api; recording author, modification date, create author and create date now </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Jan 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>%FAVBUTTON</code> macro;                   added solr index handler to make individual listy entries searchable;                   depend on TopicTitlePlugin now </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 Feb 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added sidebar importer that allows to convert a WikiUserLeftBar to a listy </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> new features: populate listies using a search query;                   change formfields of a topic behind a listy item drag&amp;droping them between listies </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> first final relase </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Aug 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fourth beta release </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jul 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> third beta release </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 24 Jan 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> renamed from BookmarksPlugin to <a class="foswikiCurrentTopicLink" href="/bin/view/System/ListyPlugin">ListyPlugin</a> </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/ListyPlugin?t=1627669964;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> Michael Daum </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 3.10 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 02 Jul 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Fancy list manager </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/ListyPlugin">https://github.com/foswiki/ListyPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2015-2019 Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> <span class='externalLink'><a href="http://www.gnu.org/licenses/gpl.html">GPL (Gnu General Public License)</a></span> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="https://foswiki.org/Extensions/ListyPlugin">https://foswiki.org/Extensions/ListyPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Support/ListyPlugin" title="'Support/ListyPlugin' on foswiki.org">Foswiki:Support/ListyPlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/ListyPlugin?t=1627669964' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/ListyPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/ListyPlugin?cover=print;sortcol=2;table=4;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/ListyPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r7&nbsp;<a href="/bin/diff/System/ListyPlugin?rev1=6;rev2=7" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/ListyPlugin?rev=6" rel="nofollow">r6</a>&nbsp;<a href="/bin/diff/System/ListyPlugin?rev1=5;rev2=6" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/ListyPlugin?rev=5" rel="nofollow">r5</a>&nbsp;<a href="/bin/diff/System/ListyPlugin?rev1=4;rev2=5" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/ListyPlugin?rev=4" rel="nofollow">r4</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/ListyPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/ListyPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/ListyPlugin?t=1627669964;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/ListyPlugin?template=more&amp;maxrev=7&amp;currrev=7' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r7 - 02 Jul 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/ListyPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/ListyPlugin%3fsortcol%3d2%3btable%3d4%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.ListyPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

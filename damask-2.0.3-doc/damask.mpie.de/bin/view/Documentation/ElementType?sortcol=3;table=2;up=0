@@ -1,0 +1,749 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> ElementType &lt; Documentation &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Documentation/ElementType?t=1627660309" type="application/x-wiki" title="edit ElementType" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Documentation/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Documentation/ElementType" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/eac15045c217948905de52e2998efeaf.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableElementType1 td {vertical-align:middle}
+body .foswikiTable#tableElementType1 th {vertical-align:middle}
+body .foswikiTable#tableElementType2 td {vertical-align:middle; vertical-align:top}
+body .foswikiTable#tableElementType2 td.foswikiTableCol0 {text-align:left}
+body .foswikiTable#tableElementType2 td.foswikiTableCol1 {text-align:left}
+body .foswikiTable#tableElementType2 td.foswikiTableCol2 {text-align:left}
+body .foswikiTable#tableElementType2 td.foswikiTableCol3 {text-align:right}
+body .foswikiTable#tableElementType2 td.foswikiTableCol4 {text-align:left}
+body .foswikiTable#tableElementType2 td.foswikiTableCol5 {text-align:left}
+body .foswikiTable#tableElementType2 td.foswikiTableCol6 {text-align:left}
+body .foswikiTable#tableElementType2 td.foswikiTableCol7 {text-align:left}
+body .foswikiTable#tableElementType2 th {vertical-align:middle; background-color:#ffffff; color:#0066cc; text-align:left}
+body .foswikiTable#tableElementType2 th a:link {color:#0066cc}
+body .foswikiTable#tableElementType2 th a:visited {color:#0066cc}
+body .foswikiTable#tableElementType2 th a:hover {color:#0066cc; background-color:#ffffff}
+body .foswikiTable#tableElementType2 th.foswikiSortedCol {background-color:#eeeeee}
+body .foswikiTable#tableElementType2 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableElementType2 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f5f5f5}
+</style>
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SERVERTIME" : "30 Jul 2021 - 17:51",
+   "USERSWEB" : "Main",
+   "URLHOST" : "https://damask.mpie.de",
+   "SYSTEMWEB" : "System",
+   "SCRIPTSUFFIX" : "",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "USERNAME" : "guest",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WEB" : "Documentation",
+   "SCRIPTURLPATH" : "/bin",
+   "COOKIEREALM" : "",
+   "TOPIC" : "ElementType",
+   "SKIN" : "damask,famfamfam,pattern",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "PUBURLPATH" : "/pub",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   }
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/Documentation/ElementType"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/Documentation/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="Documentation" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="active">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/WebHome">Documentation</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/Documentation/Background">Background</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/Documentation/ElementType" title='Topic revision: 35 (04 Dec 2015 - 23:51:40)'>ElementType</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/Documentation/ElementType?t=1627660309;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/Documentation/ElementType' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/Documentation/ElementType?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/ElementType?raw=on&amp;rev=35' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/Documentation/WebCreateNewTopic?topicparent=ElementType' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/Documentation/ElementType?cover=print;sortcol=3;table=2;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/Documentation/ElementType?template=more&amp;maxrev=35&amp;currrev=35' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="A_1.2._Element_type"> <A name="Section_1.2."></A>1.2.  Element type <img src="/pub/System/DocumentGraphics/pencil.png" alt="REFACTOR" title="REFACTOR" width="16" height="16" /> </h1>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?sortcol=3;table=2;up=0#Names_and_IDs"> Names and IDs </a>
+</li> <li> <a href="?sortcol=3;table=2;up=0#Features"> Features </a>
+</li> <li> <a href="?sortcol=3;table=2;up=0#Application"> Application </a>
+</li> <li> <a href="?sortcol=3;table=2;up=0#References"> References </a>
+</li></ul> 
+</div>
+<p></p>
+
+<div style="clear:both">
+<hr />
+</div>
+<h2 id="Names_and_IDs">  Names and IDs  </h2>
+<p class='p'>At present, DAMASK  incorporates ten different types of element geometries.
+The table below lists the element types and their equivalent IDs in MSC.Marc and Abaqus.
+For a detailed information about the characteristics of each element refer to [1] or [2].</p>
+
+<table class="foswikiTable" id="tableElementType1" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiFirstCol" colspan="4" style="text-align:center"> Element geometry ID </th>
+			<th class="foswikiTableCol4" rowspan="3" style="text-align:center"> Dim </th>
+			<th class="foswikiTableCol5" rowspan="3" style="text-align:center"> Element type </th>
+			<th class="foswikiTableCol6" rowspan="3" style="text-align:center"> 3D view </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<th class="foswikiTableCol0 foswikiFirstCol" colspan="2" style="text-align:center"> DAMASK </th>
+			<th class="foswikiTableCol2" rowspan="2" style="text-align:center"> MSC.Marc </th>
+			<th class="foswikiTableCol3" rowspan="2" style="text-align:center"> Abaqus </th>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Element </td>
+			<td class="foswikiTableCol1"> Geometry </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 1 </td>
+			<td class="foswikiTableCol1"> 1 </td>
+			<td class="foswikiTableCol2" style="text-align:center"> 6 </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4" style="text-align:center"> 2 </td>
+			<td class="foswikiTableCol5"> triangle (plane strain) </td>
+			<td class="foswikiTableCol6 foswikiLastCol" style="text-align:center"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_001.pdf"><a href='/pub/Documentation/ElementType/still_001.gif' title='still 001.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='500'><img src='/pub/Documentation/ElementType/igp_edee4f07b4f90b6694597b6e9899bab1_still_001.gif' alt='still 001.gif' width='400' height='235' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_001.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_001.gif'" /></a></a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 2 </td>
+			<td class="foswikiTableCol1"> 2 </td>
+			<td class="foswikiTableCol2" style="text-align:center"> 125 </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4" style="text-align:center"> 2 </td>
+			<td class="foswikiTableCol5"> triangle, second order isoparametric (plane strain) </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_002.pdf"><a href='/pub/Documentation/ElementType/still_002.gif' title='still 002.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='500'><img src='/pub/Documentation/ElementType/igp_8a7cf81593a7f58af47c295412d3ee7a_still_002.gif' alt='still 002.gif' width='400' height='235' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_002.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_002.gif'" /></a></a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 3 </td>
+			<td class="foswikiTableCol1"> 2 </td>
+			<td class="foswikiTableCol2" style="text-align:center"> 11 </td>
+			<td class="foswikiTableCol3" style="text-align:center"> CPE4 </td>
+			<td class="foswikiTableCol4" style="text-align:center"> 2 </td>
+			<td class="foswikiTableCol5"> arbitrary quadrilateral (plane strain) </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_003.pdf"><a href='/pub/Documentation/ElementType/still_003.gif' title='still 003.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='500'><img src='/pub/Documentation/ElementType/igp_01efc0c06b44425a3e5c808cad5d0622_still_003.gif' alt='still 003.gif' width='400' height='235' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_003.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_003.gif'" /></a></a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 4 </td>
+			<td class="foswikiTableCol1"> 2 </td>
+			<td class="foswikiTableCol2" style="text-align:center"> 27 </td>
+			<td class="foswikiTableCol3" style="text-align:center"> CPE8 </td>
+			<td class="foswikiTableCol4" style="text-align:center"> 2 </td>
+			<td class="foswikiTableCol5"> eight-node distorted quadrilateral (plane strain) </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_004.pdf"><a href='/pub/Documentation/ElementType/still_004.gif' title='still 004.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='500'><img src='/pub/Documentation/ElementType/igp_29aaa7d92896368b115c9071ec3e490f_still_004.gif' alt='still 004.gif' width='400' height='235' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_004.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_004.gif'" /></a></a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 5 </td>
+			<td class="foswikiTableCol1"> 3 </td>
+			<td class="foswikiTableCol2" style="text-align:center"> 134 </td>
+			<td class="foswikiTableCol3" style="text-align:center"> C3D4 </td>
+			<td class="foswikiTableCol4" style="text-align:center"> 3 </td>
+			<td class="foswikiTableCol5"> tetrahedron, linear </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_005.pdf"><a href='/pub/Documentation/ElementType/still_005.gif' title='still 005.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='800'><img src='/pub/Documentation/ElementType/igp_e91fe86042c890ebd1c0f4fa2bbedf11_still_005.gif' alt='still 005.gif' width='400' height='376' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_005.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_005.gif'" /></a></a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 6 </td>
+			<td class="foswikiTableCol1"> 4 </td>
+			<td class="foswikiTableCol2" style="text-align:center"> 127 </td>
+			<td class="foswikiTableCol3"> &nbsp; </td>
+			<td class="foswikiTableCol4" style="text-align:center"> 3 </td>
+			<td class="foswikiTableCol5"> tetrahedron, quadratic </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_006.pdf"><a href='/pub/Documentation/ElementType/still_006.gif' title='still 006.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='800'><img src='/pub/Documentation/ElementType/igp_fd8b11ba608eb6d90155fef2a8d78477_still_006.gif' alt='still 006.gif' width='400' height='376' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_006.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_006.gif'" /></a></a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 7 </td>
+			<td class="foswikiTableCol1"> 4 </td>
+			<td class="foswikiTableCol2" style="text-align:center"> 136 </td>
+			<td class="foswikiTableCol3" style="text-align:center"> C3D6 </td>
+			<td class="foswikiTableCol4" style="text-align:center"> 3 </td>
+			<td class="foswikiTableCol5"> pentahedral, linear </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_007.pdf"><a href='/pub/Documentation/ElementType/still_007.gif' title='still 007.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='700'><img src='/pub/Documentation/ElementType/igp_3c5e4e90fa7d46983b174b609ba5bed7_still_007.gif' alt='still 007.gif' width='400' height='329' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_007.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_007.gif'" /></a></a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 8 </td>
+			<td class="foswikiTableCol1"> 4 </td>
+			<td class="foswikiTableCol2" style="text-align:center"> 117 </td>
+			<td class="foswikiTableCol3" style="text-align:center"> C3D8R </td>
+			<td class="foswikiTableCol4" style="text-align:center"> 3 </td>
+			<td class="foswikiTableCol5"> hexahedral, linear (reduced integration) </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_008.pdf"><a href='/pub/Documentation/ElementType/still_008.gif' title='still 008.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='700'><img src='/pub/Documentation/ElementType/igp_0eb761607dbdbbacde09e0c1e1fc18bf_still_008.gif' alt='still 008.gif' width='400' height='329' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_008.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_008.gif'" /></a></a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 9 </td>
+			<td class="foswikiTableCol1"> 4 </td>
+			<td class="foswikiTableCol2" style="text-align:center"> 7, 57 </td>
+			<td class="foswikiTableCol3" style="text-align:center"> C3D8, C3D20R </td>
+			<td class="foswikiTableCol4" style="text-align:center"> 3 </td>
+			<td class="foswikiTableCol5"> hexahedral, linear; hexahedral, quadratic (reduced integration) </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_009.pdf"><a href='/pub/Documentation/ElementType/still_009.gif' title='still 009.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='700'><img src='/pub/Documentation/ElementType/igp_e36b15af39418cf7a2deff6f7c34fded_still_009.gif' alt='still 009.gif' width='400' height='329' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_009.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_009.gif'" /></a></a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:center"> 10 </td>
+			<td class="foswikiTableCol1 foswikiLast"> 4 </td>
+			<td class="foswikiTableCol2 foswikiLast" style="text-align:center"> 21 </td>
+			<td class="foswikiTableCol3 foswikiLast" style="text-align:center"> C3D20 </td>
+			<td class="foswikiTableCol4 foswikiLast" style="text-align:center"> 3 </td>
+			<td class="foswikiTableCol5 foswikiLast"> hexahedral, quadratic </td>
+			<td class="foswikiTableCol6 foswikiLastCol foswikiLast"> <a href="https://damask.mpie.de/pub/Documentation/ElementType/damask_010.pdf"><a href='/pub/Documentation/ElementType/still_010.gif' title='still 010.gif'  class='imageHref imageSimple imageSimple_none '  data-orig-width='850' data-orig-height='700'><img src='/pub/Documentation/ElementType/igp_2460d46ebfd9ac84ef86461f84836a68_still_010.gif' alt='still 010.gif' width='400' height='329' onmouseover="this.src='https://damask.mpie.de/pub/Documentation/ElementType/animated_010_1.gif'" onmouseout="this.src='https://damask.mpie.de/pub/Documentation/ElementType/still_010.gif'" /></a></a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Features">  Features  </h2>
+<p></p>
+
+<div style="width:50%; float:right; background:#f4fcf4; margin: 8pt 0pt 8pt 16pt;">
+<a name="fig:element 9"></a><table width="100%" border="0">
+<tr><td><td align="center">
+<center><a href="https://damask.mpie.de/pub/Documentation/ElementType/mesh_element_9.pdf"><img src="https://damask.mpie.de/pub/Documentation/ElementType/mesh_element_9.png" width="100%"></a></center>
+</td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 1</strong>: element 9: three-dimensional arbitrarily distorted brick.</td><td></tr>
+</table>
+</div>
+<p></p>
+
+Any element being incorporated has the same geometrical main features.
+<a href="#fig:element 9">1</a> shows these features for the element ID 9.
+The eight corners represent the <strong><em>nodes</em></strong> having the numbers from 1 to 8.
+Each of these main nodes have an <strong><em>integration point</em></strong> (not shown in the figure) attached to its site.
+These are where all the kinematic calculations take place.
+It is worth to mention that for MSC.Marc the numbers of the integration points (IP) take the same value of their attached nodes with the exception that IP numbers of 3 and 4 are switched with each other as well as numbers 7 and 8.
+A numbering of the six faces (in this example) is necessary for the calculations.
+This is being illustrated with red in the figure.
+An introduction of the so-called <strong><em>subnodes</em></strong> was also essential to fully define all IP volumes.
+In our example the number of the subnodes are 19 taking the numbers from 9 to 27.
+In general all other used elements have the same main features of <strong><em>nodes</em></strong>, <strong><em>subnodes</em></strong>, <strong><em>integration points</em></strong>, and <strong><em>faces</em></strong>.
+They differ in the geometry and the number of components per each feature.
+<p></p>
+
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Application">  Application  </h2>
+A local coordinate system is defined with 3 linearly independent directions. It is sorted in  (+x), (+y) and (+z) directions related to (1-2), (1-4) and (1-5) directions, respectively. 
+<p></p>
+
+<div class="foswikiClear"></div>
+<hr /> <span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="References">  References  </h2>
+<p></p>
+ <dl>
+<dt> [1] </dt><dd> MSC.Marc users manual, Volume B: Element Library, 2010
+</dd> <dt> [2] </dt><dd> Dassault Systèmes.Abaqus analysis user's manual, Volume IV: Elements, Version 6.10., 2010
+</dd></dl> 
+<p></p>
+
+<!--<a name="fig:8"></a><table width="100%" border="0">
+<tr><td><td align="center"></td><td></tr>
+<tr><td><td width="90%" id="lmp-caption"> <strong>Figure 2</strong>:  </td><td></tr>
+</table> This dummy figure needs to be placed -- otherwise <a class="foswikiNewLink" href="/bin/edit/Documentation/LaTeXModePlugin?topicparent=Documentation.ElementType" rel="nofollow" title="Create this topic">LaTeXModePlugin</a> refuses to render the first one correctly! --> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiAttachments foswikiFormStep" style="overflow:auto">
+<div class="twistyPlugin foswikiMakeVisible"><span id="topicattachmentslist1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleopen.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>34</span></span></a></span><span id="topicattachmentslist1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleclose.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>34</span></span></a></span></div><div class="twistyPlugin"><div id="topicattachmentslist1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableElementType2" rules="none" summary="Topic attachments"><caption>Topic attachments</caption>
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/Documentation/ElementType?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">I</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/Documentation/ElementType?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Attachment</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/Documentation/ElementType?sortcol=2;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Action</a> </th>
+			<th class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/view/Documentation/ElementType?sortcol=3;table=2;up=1#sorted_table" rel="nofollow" title="Sort by this column">Size</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/Documentation/ElementType?sortcol=4;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol5"> <a href="/bin/view/Documentation/ElementType?sortcol=5;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Who</a> </th>
+			<th class="foswikiTableCol6 foswikiLastCol"> <a href="/bin/view/Documentation/ElementType?sortcol=6;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Comment</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_010_1.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_010_1.gif">animated_010_1.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_010_1.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 1 MB </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 15:49</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> animated gif of 3D hexadral, quadratic element (damask id: 10) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_001.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_001.gif">still_001.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_001.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:21</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still of 2D triangle (plane strain) element (damask id: 1) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_002.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_002.gif">still_002.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_002.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 2 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:04</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still of 2D triangle, second order isoparametric (plane strain) element (damask id: 2) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_003.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_003.gif">still_003.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_003.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 3 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:26</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still 2D arbitrary quadrilateral (plane strain) element (damask id: 3) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_004.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_004.gif">still_004.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_004.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 4 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:27</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still of 2D eight-node distorted quadrilateral (plane strain) element (damask id: 4) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_005.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_005.gif">still_005.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_005.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 4 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:29</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still of 3D tetrahedron, linear element (damask id: 5) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_008.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_008.gif">still_008.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_008.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 6 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:36</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still of 3D hexahedral, linear (reduced integration) element (damask id: 8) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_006.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_006.gif">still_006.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_006.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 7 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:33</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still of 3D tetrahedron, quadratic element (damask id: 6) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_007.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_007.gif">still_007.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_007.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 8 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:34</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still of 3D pentahedral, linear element (damask id: 7) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_001.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_001.pdf">damask_001.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_001.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 10 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 17:15</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> sketch of 2D triangle (plane strain) element (damask id: 1) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_002.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_002.pdf">damask_002.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_002.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 11 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 17:15</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> sketch of 2D triangle, second order isoparametric (plane strain) element (damask id: 2) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_003.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_003.pdf">damask_003.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_003.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 11 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 17:16</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> sketch of 2D arbitrary quadrilateral (plane strain) element (damask id: 3) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_004.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_004.pdf">damask_004.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_004.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 12 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 17:17</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> sketch of 2D eight-node distorted quadrilateral (plane strain) element (damask id: 4) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_009.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_009.gif">still_009.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_009.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 14 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:37</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still of 3D hexadral, linear (reduced integration) element (damask id: 9) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_005.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_005.pdf">damask_005.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_005.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 19 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 17:18</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> sketch of 3D tetrahedron, linear element (damask id: 5) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='still_010.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/still_010.gif">still_010.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=still_010.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 20 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 17:38</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> still of 3D hexadral, quadratic element (damask id: 10) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_008.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_008.pdf">damask_008.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_008.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 21 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 17:21</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> sketch of of 3D hexahedral, linear (reduced integration) element (damask id: 8) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_006.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_006.pdf">damask_006.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_006.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 22 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 17:18</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> sketch of 3D tetrahedron, quadratic element (damask id: 6) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_007.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_007.pdf">damask_007.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_007.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 23 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 17:20</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> of 3D pentahedral, linear element (damask id: 7) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_009.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_009.pdf">damask_009.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_009.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 24 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 17:52</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> sketch of 3D hexadral, linear element (damask id: 9) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='damask_010.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/damask_010.pdf">damask_010.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=damask_010.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 25 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">21 Mar 2013 - 16:43</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> sketch of of 3D hexadral, quadratic element (damask id: 10) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='mesh_element_1.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/mesh_element_1.png">mesh_element_1.png</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=mesh_element_1.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 130 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">31 Oct 2012 - 09:24</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_001.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_001.gif">animated_001.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_001.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 143 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 14:08</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> animated gif of 2D triangle (plane strain) element (damask id: 1) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='mesh_element_9.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/mesh_element_9.png">mesh_element_9.png</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=mesh_element_9.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 171 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">04 Dec 2015 - 23:41</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> Representation of element 9 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_002.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_002.gif">animated_002.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_002.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 174 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 14:10</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> animated gif of 2D triangle, second order isoparametric (plane strain) element (damask id: 2) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_003.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_003.gif">animated_003.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_003.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 190 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 14:34</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> animated gif 2D arbitrary quadrilateral (plane strain) element (damask id: 3) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_004.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_004.gif">animated_004.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_004.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 230 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 14:23</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> animated gif of 2D eight-node distorted quadrilateral (plane strain) element (damask id: 4) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_005.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_005.gif">animated_005.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_005.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 263 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 15:03</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> animated gif file of 3D tetrahedron, linear element (damask id: 5) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='mesh_element_1.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/mesh_element_1.pdf">mesh_element_1.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=mesh_element_1.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 324 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">31 Oct 2012 - 08:44</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/NaderZaafarani">NaderZaafarani</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> Representation of element 1 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/pdf.png' width='16' height='16' alt='mesh_element_9.pdf' /></span><span class="foswikiHidden">pdf</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/mesh_element_9.pdf">mesh_element_9.pdf</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=mesh_element_9.pdf;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 362 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">04 Dec 2015 - 23:40</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> Representation of element 9 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_008.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_008.gif">animated_008.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_008.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 386 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 15:32</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> animated gif file of 3D hexahedral, linear (reduced integration) element (damask id: 8) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_006.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_006.gif">animated_006.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_006.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 426 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 15:09</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> animated gif file of 3D tetrahedron, quadratic element (damask id: 6) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_007.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_007.gif">animated_007.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_007.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1" style="text-align:right"> 556 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 15:24</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> animated gif file of 3D pentahedral, linear element (damask id: 7) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='animated_009.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> <a href="/pub/Documentation/ElementType/animated_009.gif">animated_009.gif</a> </td>
+			<td class="foswikiTableCol2 foswikiLast" rowspan="1"> <a href="/bin/attach/Documentation/ElementType?filename=animated_009.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" rowspan="1" style="text-align:right"> 792 K </td>
+			<td class="foswikiTableCol4 foswikiLast" rowspan="1"> <span class="foswikiNoBreak">25 Mar 2013 - 15:37</span> </td>
+			<td class="foswikiTableCol5 foswikiLast" rowspan="1"> <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol foswikiLast" rowspan="1"> animated gif of 3D hexadral, linear (reduced integration) element (damask id: 9) </td>
+		</tr>
+	</tbody></table>
+</div></div></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/ElementType?t=1627660309' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/Documentation/ElementType' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/ElementType?cover=print;sortcol=3;table=2;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/Documentation/ElementType?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r35&nbsp;<a href="/bin/diff/Documentation/ElementType?rev1=34;rev2=35" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/ElementType?rev=34" rel="nofollow">r34</a>&nbsp;<a href="/bin/diff/Documentation/ElementType?rev1=33;rev2=34" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/ElementType?rev=33" rel="nofollow">r33</a>&nbsp;<a href="/bin/diff/Documentation/ElementType?rev1=32;rev2=33" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/Documentation/ElementType?rev=32" rel="nofollow">r32</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/ElementType?template=backlinksweb' rel='nofollow' title='Search the Documentation Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/ElementType?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/Documentation/ElementType?t=1627660309;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/Documentation/ElementType?template=more&amp;maxrev=35&amp;currrev=35' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r35 - 04 Dec 2015, <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/Documentation/ElementType?foswiki_origin=GET%2cview%2c/bin/view/Documentation/ElementType%3fsortcol%3d3%3btable%3d2%3bup%3d0">Log In</a></li></ul>
+</div>
+<p></p>
+
+<hr /> <ul>
+<li> <strong>News</strong>
+</li>  </ul><dl>
+<dt> 14 Sep 2020 </dt><dd> <del> <strong>CMCn2020</strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung</del> (cancelled)
+</dd> <dt> 22 Aug 2020 </dt><dd> Release of first preview version of <strong><a href="https://damask.mpie.de/bin/view/Download/Preview">DAMASK 3</a></strong>
+</dd> <dt> 19 Feb 2020 </dt><dd> DAMASK made it to the <span class='externalLink'><a href="https://onlinelibrary.wiley.com/doi/toc/10.1002/(ISSN)1527-2648.HallofFame">Advanved Engineering Materials Hall of Fame</a></span>
+</dd> <dt> 26 Mar 2019 </dt><dd> <strong><span class='externalLink'><a href="http://dream3d.bluequartz.net/">DREAM.3D</a></span> 6.5.119</strong> <br />(released 2019/03/22) comes with a DAMASK export filter
+</dd> <dt> 25 Mar 2019 </dt><dd> Release of version <strong><a href="/bin/view/Download/Current">v2.0.3</a></strong>
+</dd> <dt> 21 Jan 2019 </dt><dd> <strong>DAMASK overview paper</strong> finally <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">published</a></span> with full citation information available
+</dd> <dt> 01 Dec 2018 </dt><dd> <strong>DAMASK overview paper</strong> now <span class='externalLink'><a href="https://doi.org/10.1016/j.commatsci.2018.04.030">online</a></span>
+</dd> <dt> 17 Sep 2018 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2018">CMCn2018</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 22 May 2018 </dt><dd> Release of version <strong>v2.0.2</strong>
+</dd> <dt> 01 Sep 2016 </dt><dd> <strong><span class='externalLink'><a href="http://www.mpie.de/cmcn2016">CMCn2016</a></span></strong> &amp; <strong>DAMASK user meeting</strong> to be hosted at Max-Planck-Institut für Eisenforschung
+</dd> <dt> 25 Jul 2016 </dt><dd> Release of version <strong>v2.0.1</strong>
+</dd> <dt> 08 Mar 2016 </dt><dd> Release of version <strong>v2.0.0</strong>
+</dd> <dt> 22 Feb 2016 </dt><dd> <strong>New webserver</strong> up and running
+</dd> <dt> 09 Feb 2016 </dt><dd> <strong>Migrated <span class='externalLink'><a href="https://magit1.mpie.de">code repository</a></span></strong> from Subversion to <strong><span class='externalLink'><a href="https://about.gitlab.com/">GitLab</a></span></strong>
+</dd> <dt> 17 Dec 2014 </dt><dd> Release of <strong>revision 3813</strong>
+</dd> <dt> 14 May 2014 </dt><dd> Release of <strong>revision 3108</strong>
+</dd> <dt> 02 Apr 2014 </dt><dd> Release of <strong>revision 3062</strong>
+</dd> <dt> 16 Oct 2013 </dt><dd> Release of <strong>revision 2689</strong>
+</dd> <dt> 15 Jul 2013 </dt><dd> Release of <strong>revision 2555</strong>
+</dd> <dt> 15 Feb 2013 </dt><dd> Release of <strong>revision 2174</strong>
+</dd> <dt> 13 Feb 2013 </dt><dd> <a href='http://www.doxygen.org/' title='Doxygen.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='104' data-orig-height='31'><img src='/pub/Main/News/igp_57415553ffe254df6d853b56c3b46f7d_Doxygen.png' alt='Doxygen' width='52' height='16'   /></a>  documentation
+</dd> <dt> 16 Dec 2012 </dt><dd> <a href='http://www.mathjax.org/' title='mj logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='167' data-orig-height='57'><img src='/pub/Main/News/igp_f1d42d3712de2aa46a85b866685e127a_mj_logo.png' alt='Powered by MathJax' width='55' height='19'   /></a> rendering
+</dd> <dt> 23 Nov 2012 </dt><dd> Release of <strong>revision 1955</strong>
+</dd> <dt> 15 Nov 2012 </dt><dd> Release of <strong>revision 1924</strong>
+</dd> <dt> 01 Nov 2012 </dt><dd> Updated <strong>sidebar</strong>
+</dd> <dt> 30 Oct 2012 </dt><dd> Significant <strong>website updates</strong> and <strong>content extensions</strong>
+</dd></dl> 
+<p></p>
+
+<!-- Keep this to have global readability:
+<p></p>
+ <ul>
+<li> Set DENYTOPICVIEW = 
+</li></ul> 
+-->
+<hr />
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+<p class='p'></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Documentation.ElementType'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

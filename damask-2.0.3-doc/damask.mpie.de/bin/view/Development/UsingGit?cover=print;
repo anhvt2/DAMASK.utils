@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> UsingGit &lt; Development &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/Development/UsingGit?t=1627661612" type="application/x-wiki" title="edit UsingGit" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/Development/WebRss" />
+<base href="https://damask.mpie.de/bin/view/Development/UsingGit" /><!--[if IE]></base><![endif]-->
+<script class='head MATHJAX_PLUGIN' type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$']],
+    processEscapes: true
+    },
+  jax: ["input/TeX", "output/HTML-CSS"],
+  TeX: {
+    Macros: {
+      bm: ["{\\mathbf{#1}}",1],
+      vctr: ["{\\mathbf{#1}}",1],
+      tnsr: ["{\\mathbf{#1}}",1],
+      tnsrfour: ["{\\mathbb{#1}}",1]
+    },
+  equationNumbers: { autoNumber: "AMS" }
+    }
+});
+</script>
+  <script class='head MATHJAX_PLUGIN' id="MathJax-script" async src="https://damask.mpie.de/pub/System/MathJaxPlugin/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/06a8be6978ac52ff192ff59ed5fb223c.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#efefef;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "TOPIC" : "UsingGit",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "USERSWEB" : "Main",
+   "WEB" : "Development",
+   "COOKIEREALM" : "",
+   "SERVERTIME" : "30 Jul 2021 - 18:13",
+   "SCRIPTSUFFIX" : "",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "USERNAME" : "guest",
+   "WIKINAME" : "WikiGuest",
+   "PUBURLPATH" : "/pub",
+   "SYSTEMWEB" : "System"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="A_3._Git_and_GitLab"> <A name="Section_3."></A>3.  Git and GitLab </h1>
+<span id="TableOfContents"></span>
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?cover=print#Preamble"> Preamble </a>
+</li> <li> <a href="?cover=print#Contribute"> Contribute </a>
+</li> <li> <a href="?cover=print#Workflow_model"> Workflow model </a>
+</li> <li> <a href="?cover=print#Tags"> Tags </a>
+</li> <li> <a href="?cover=print#Correctness_Checks"> Correctness Checks </a>
+</li> <li> <a href="?cover=print#Testing"> Testing </a>
+</li></ul> 
+</div>
+<script type="math/tex"></script><p class='p'></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Preamble">  Preamble </h2>
+<p></p>
+
+The source code is hosted at the <em>Max–Planck–Institut für Eisenforschung</em> at the <span class='externalLink'><a href="https://gitlab.com">GitLab</a></span> server <span class='externalLink'><a href="https://magit1.mpie.de/">magit1.mpie.de</a></span>.
+You need an account to access the repository.
+<p></p>
+
+<h2 id="Contribute">  Contribute </h2>
+Set up Git on your computer such that GitLab can recognize you:
+<pre>
+&gt; git config user.name "FIRSTNAME LASTNAME"
+&gt; git config user.email "A@B.DE"
+</pre>
+in the DAMASK repository or
+<pre>
+&gt; git config --global user.name "FIRSTNAME LASTNAME"
+&gt; git config --global user.email "A@B.DE"
+</pre>
+for a system-wide setup.
+<p></p>
+
+<code>development</code> is the branch that is should always work (and <code>release</code> / <code>master</code> of course as well)
+For any changes, create a new branch named after the feature you're working on (or, contribute to an existing branch).
+For new features, create tests.
+<p class='p'>After finishing working on a brach, test the code.
+If it is working, request to merge it into development.
+Assign the merge request to one of the developers (that is not you!)</p>
+
+For a small bugfix to the latest commit, use <code>git commit --amend</code>
+<p></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Workflow_model">  Workflow model </h2>
+In contrast to centralized version control systems such as SVN, their distributed counterparts offer a lot of flexibility in selecting a workflow model.
+<span class='externalLink'><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow</a></span> presents some possible workflows.
+A detailed discussion, including many links, can be found on <span class='externalLink'><a href="http://stackoverflow.com/questions/2621610/what-git-branching-models-work-for-you">http://stackoverflow.com/questions/2621610/what-git-branching-models-work-for-you</a></span>
+<p></p>
+ <ul>
+<li>  DAMASK work flow <ul>
+<li>  <img src="/pub/System/DocumentGraphics/choice-yes.png" alt="DONE" title="DONE" width="16" height="16" /> Create a new branch for features and improvements
+</li> <li>  <img src="/pub/System/DocumentGraphics/choice-yes.png" alt="DONE" title="DONE" width="16" height="16" /> Once all changes are done, request to merge them into the <code>development</code> branch
+</li> <li>  <img src="/pub/System/DocumentGraphics/choice-yes.png" alt="DONE" title="DONE" width="16" height="16" /> After a successfull test, <code>development</code> is automatically merged into <code>master</code>
+</li> <li>  <img src="/pub/System/DocumentGraphics/choice-yes.png" alt="DONE" title="DONE" width="16" height="16" /> Releases are manually created from the <code>master</code> branch (<code>release</code> branch)
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Tags">  Tags </h2>
+Tags are used to mark certain revisions.
+Releases are marked by tags.
+<span class='externalLink'><a href="http://www.heise.de/developer/artikel/Schrittweise-Versionsnummern-richtig-vergeben-1859566.html">Read this German text</a></span> or check out <span class='externalLink'><a href="http://semver.org/">semver.org</a></span>
+<p></p>
+
+<pre>DAMASK G MM.mm.ff.pppp
+^^^^^^--------------------------- Name
+       ^------------------------- Generation (skip for the moment until we have DAMASK 2)
+         ^^---------------------- Major (not backward compatible, old input files will not work)
+            ^^------------------- Minor (new features)
+               ^^---------------- Bugfix
+                  ^^^^----------- Patch
+</pre>
+<p></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Correctness_Checks">  Correctness Checks </h2>
+For a fast feedback on any changes pushed to the <span class='externalLink'><a href="http://magit1.mpie.de">http://magit1.mpie.de</a></span>, modified files are checked before a push is accepted.
+This is done via a <span class='foswikiMaroonFG'><a href="https://damask.mpie.de/pub/Development/UsingGit/pre-receive">pre-receive</a></span> hook.
+<p></p>
+
+Python files are checked for invalid code, unused variables etc using <span class='externalLink'><a href="http://prospector.landscape.io/en/master/">prospector</a></span>.
+Prospector is a tool to analyze Python code and output information about errors, potential problems, convention violations, and complexity and combines the functionality of other Python analysis tools.
+The configuration file <span class='foswikiMaroonFG'><a href="https://damask.mpie.de/pub/Development/UsingGit/DAMASK.yaml">DAMASK.yaml</a></span> is designed to ensure compatibility with Python 2.x and Python 3.x.
+<p></p>
+
+Any change in the src subdirectory triggers a syntax check with Gfortran <code>-fsyntax-only</code> for the spectral solver;
+Any change in the src subdirectory triggers a syntax check with Ifort <code>-fsyntax-only</code> for MSC.Marc.
+<p></p>
+
+To skip this check, add '[skip sc]' to the latest commit message, e.g. via
+<pre>
+&gt; git commit -a --amend
+</pre>
+in the case that all your changes are locally committed already.
+<p></p>
+
+<hr /><span style="float: right;"><a class="foswikiCurrentTopicLink" href="#TableOfContents"><span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/parent_gray.png' width='16' height='16' alt='parent_gray' /></span></a></span>
+<h2 id="Testing">  Testing </h2>
+Extended testing is performed on each push using the <span class='externalLink'><a href="https://about.gitlab.com/gitlab-ci">GitLab Continuous Integration</a></span>.
+All tests specified in a configuration file in the main repository are run on the test server (nohup, using Damask_user).
+The pipelines give a feedback, which tests are working.
+<p></p>
+
+To skip the tests, add '[skip ci]' to the latest commit message, e.g. via
+<pre>
+&gt; git commit -a --amend
+</pre>
+in the case that all your changes are locally committed already.
+<p></p>
+
+If the test suite needs to be modified for a certain branch, the <span class='externalLink'><a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">submodules</a></span> feature of git allows to couple the status of the branch with a fitting commit in the PRIVATE repository.
+<p></p>
+
+Initialize (i.e. clone) the PRIVATE repository via
+<pre>
+&gt; git submodule update --init
+</pre>
+Any change in PRIVATE needs to be commited/pushed as usual.
+As submodules are linked as commit IDs (hashes) and not as branches, after initialization you are in 'detached head' mode and need to check out the branch of interest (typically 'master').
+Additionally, commit the current commit ID of the PRIVATE repository in the DAMASK repository:
+<pre>
+&gt; git commit PRIVATE
+</pre>
+By that, the status (i.e. the current commit ID) is stored in the current branch of the DAMASK repository and will be used by the test facility.
+<p></p>
+
+<a href="https://docs.gitlab.com/ce/ci/git_submodules.html">https://docs.gitlab.com/ce/ci/git_submodules.html</a></div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: Development<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a class="foswikiCurrentWebHomeLink" href="/bin/view/Development/WebHome">WebHome</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>UsingGit <br />
+Topic revision:  <span class='patternRevInfo'>05 Feb 2021, <a href="/bin/view/Main/FranzRoters">FranzRoters</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-logo.svg" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" width="130"/></a></span>Copyright by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20Development.UsingGit'>Send feedback</a><br />§ <a href="https://www.mpie.de/imprint" target="_blank">Imprint</a> § <a href="https://www.mpie.de/3392182/data-protection" target="_blank">Data Protection</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

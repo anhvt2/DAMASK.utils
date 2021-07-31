@@ -1,0 +1,1038 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> ImagePlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/ImagePlugin?t=1627669825" type="application/x-wiki" title="edit ImagePlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/ImagePlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/22f0bc3fe4a0322f0ef634a181e3652e.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableImagePlugin4 {width:100%}
+body .foswikiTable#tableImagePlugin4 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableImagePlugin4 th.foswikiTableCol0 {width:7em}
+</style>
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "USERNAME" : "guest",
+   "URLHOST" : "https://damask.mpie.de",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SERVERTIME" : "30 Jul 2021 - 20:30",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTSUFFIX" : "",
+   "TOPIC" : "ImagePlugin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WEB" : "System",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "COOKIEREALM" : "",
+   "USERSWEB" : "Main",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   }
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/ImagePlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?27c6327217cbf719a95c978f0b271847' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/ImagePlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?1fdb5adccf697b991941afc495a3134b' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.ImagePlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.ImagePlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="ImagePlugin"> ImagePlugin </h1>
+Image and thumbnail services to display and alignment images using an easy syntax
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?cover=print#Syntax"> Syntax </a> <ul>
+<li> <a href="?cover=print#Arguments"> Arguments </a>
+</li> <li> <a href="?cover=print#Image_geometry"> Image geometry </a>
+</li> <li> <a href="?cover=print#Image_Filters"> Image Filters </a> <ul>
+<li> <a href="?cover=print#Low_45level_fiters"> Low-level fiters </a> <ul>
+<li> <a href="?cover=print#High_45level_filters"> High-level filters </a>
+</li></ul> 
+</li></ul> 
+</li> <li> <a href="?cover=print#Example_filters"> Example filters </a>
+</li> <li> <a href="?cover=print#Format_specification"> Format specification </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#REST_image_service"> REST image service </a>
+</li> <li> <a href="?cover=print#Examples"> Examples </a>
+</li> <li> <a href="?cover=print#Configuration"> Configuration </a> <ul>
+<li> <a href="?cover=print#Links_to_external_images"> Links to external images </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?cover=print#Dependencies"> Dependencies </a>
+</li> <li> <a href="?cover=print#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p class='p'>Use this plugin to control the display and alignment of images using an easy
+syntax and support for server-side resizing and thumbnailing. There are a set
+of pre-defined layout formats for images as well as a free layout configurability.</p>
+
+<p class='p'>Short example:</p>
+
+<strong>You type:</strong>
+<p></p>
+
+<pre>
+&#37;IMAGE{
+  &#34;Westminstpalace.jpg&#34;
+  type&#61;&#34;frame&#34; 
+  align&#61;&#34;none&#34; 
+  caption&#61;&#34;caption text&#34;
+}&#37;
+</pre>
+<p></p>
+
+<strong>You get:</strong>
+<p></p>
+
+<div style="margin:7px;_width:418px;max-width:418px;">
+<a href='/pub/System/ImagePlugin/Westminstpalace.jpg' class='imageHref' title='caption text'>
+<img class='imagePlain imagePlain_none ' src='/pub/System/ImagePlugin/igp_09c2eb3be598bb485f35536a28e78b6f_WestminstpalaceSample.png' alt='WestminstpalaceSample.png' title='WestminstpalaceSample.png' width='416' height='339'    /></a>
+</div>
+<p></p>
+
+<strong>If installed:</strong>
+<p></p>
+
+<div  class='imageFrame imageFrame_none ' style='width:399px'><a href='/pub/System/ImagePlugin/Westminstpalace.jpg' class='imageHref' title='caption text' data-orig-width='400' data-orig-height='300'><img src='/pub/System/ImagePlugin/Westminstpalace.jpg' alt='Westminstpalace.jpg' width='400' height='300'   /></a><div class='imageCaption'><div class='imageCaptionBackground'></div><div class='imageCaptionContent'>caption text</div></div></div><p></p>
+
+Images to be displayed can be located <ul>
+<li> at the <code>topic</code> as specified,
+</li> <li> at the location specified in the IMAGEALBUM preference variable,
+</li> <li> at the current topic or
+</li> <li> at a remote URL.
+</li></ul> 
+<p></p>
+
+If you specify a remote url using <code>http://...</code> the image is downloaded (using <a class="interwikiLink" href="https://metacpan.org/module/LWP::Simple" title="CPAN perl repository">CPAN:LWP::Simple</a>)
+into a local cache and then processed as usual. WARNING: please be aware of any copyrights of
+the images you mirror this way.
+<p></p>
+
+The <code>topic</code> and IMAGEALBUM parameters can be of the for <code>[&lt;web&gt;.]&lt;topic&gt;</code> .
+For example putting
+<pre>
+   &#42; Set IMAGEALBUM &#61; &#37;SYSTEMWEB&#37;.ImagePlugin
+</pre>
+into the current topic will search all images at the given topic.
+<p></p>
+
+<h2 id="Syntax">  Syntax  </h2>
+<code>%IMAGE{"foo.gif" ...}%</code>
+<p></p>
+
+There are four predefined format types (plain, simple, link, thumbnail, frame, float)
+that can be used by setting the <code>type</code> paramenter (see below).  In addition
+there is a free-form <code>format</code> parameter to specify any other possible html
+layout.  The Wikipedia format is also supported. See
+<a class="interwikiLink" href="https://en.wikipedia.org/wiki/Wikipedia:Extended_image_syntax" title="'Wikipedia:Extended_image_syntax' on 'Wikipedia'">Wikipedia:Wikipedia:Extended_image_syntax</a>.
+<p></p>
+
+<code>%IMAGE{"clear"}%</code> will create a proper clear for floats elements.
+<p></p>
+
+<h3 id="Arguments">  Arguments </h3>
+The image name is mandatory.  Further arguments are optional.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Name </th>
+			<th class="foswikiTableCol1" style="text-align:center"> Values </th>
+			<th class="foswikiTableCol2 foswikiLastCol" style="text-align:center"> Default </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>align</code> </td>
+			<td class="foswikiTableCol1"> left&#124;center&#124;right&#124;none </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> none </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>alt</code> </td>
+			<td class="foswikiTableCol1"> alt text </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> image filename </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>caption</code> </td>
+			<td class="foswikiTableCol1"> caption text </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> empty </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>class</code> </td>
+			<td class="foswikiTableCol1"> (see html specs) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> imageFrame, imageFloat, imageResponsive, ... depending on the type </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>crop</code> </td>
+			<td class="foswikiTableCol1"> on/northwest/north/northeast/west/center/east/southwest/south/southeast/off: scrop the image to fit the image into the given aspect ratio; other values than on/off specify the area the croped image gravitates to relative to the original (on=center) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>data</code> </td>
+			<td class="foswikiTableCol1"> json added to the image class used by the jquery stub </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> empty </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>desc</code> </td>
+			<td class="foswikiTableCol1"> description text </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> title text </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>footer</code> </td>
+			<td class="foswikiTableCol1"> text to be appended to the html output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> empty </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>format</code> </td>
+			<td class="foswikiTableCol1"> image layout format string </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> set by type argument </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>frame</code> </td>
+			<td class="foswikiTableCol1"> extract a specific frame or layer from the source file; this comes in handy when rendering a thumbnail for a video clip </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>layer</code> </td>
+			<td class="foswikiTableCol1"> alias for <code>frame</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>header</code> </td>
+			<td class="foswikiTableCol1"> text to be prepended to the html output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> empty </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>height</code> </td>
+			<td class="foswikiTableCol1"> integer value </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> image width </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>output</code> </td>
+			<td class="foswikiTableCol1"> image format to convert the input source to </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> same as source image, except tiff and svg being converted to png </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>href</code> </td>
+			<td class="foswikiTableCol1"> hyperlink when clicking on the image </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> url of the source image </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>id</code> </td>
+			<td class="foswikiTableCol1"> (see html specs) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> empty </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>mousein</code> </td>
+			<td class="foswikiTableCol1"> javascript executed if moving the mouse over the image </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> empty </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>mouseout</code> </td>
+			<td class="foswikiTableCol1"> javascript executed if moving the mouse off the image </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> empty </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>refresh</code> </td>
+			<td class="foswikiTableCol1"> on/off/img to trigger recomputing images </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rotate</code> </td>
+			<td class="foswikiTableCol1"> rotate image by the given dregrees </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> keep original orientation </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>size</code> </td>
+			<td class="foswikiTableCol1"> geometry specification </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> image geometry </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>style</code> </td>
+			<td class="foswikiTableCol1"> (see html specs) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> empty </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>title</code> </td>
+			<td class="foswikiTableCol1"> title text </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <strong>alt</strong> value </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tooltipheight</code> </td>
+			<td class="foswikiTableCol1"> height of tooltip image </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 300 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tooltip</code> </td>
+			<td class="foswikiTableCol1"> on/off renders an image preview in a tooltip </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tooltipcrop</code> </td>
+			<td class="foswikiTableCol1"> on/northwest/north/northeast/west/center/east/southwest/south/southeast/off: same as <code>crop</code> but used for the tooltip </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>tooltipwidth</code> </td>
+			<td class="foswikiTableCol1"> width of tooltip image </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 300 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topic</code> </td>
+			<td class="foswikiTableCol1"> valid topic name </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> topic part of IMGALBUM value or current topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>transparent</code> </td>
+			<td class="foswikiTableCol1"> color to be converted to transparent </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>type</code> </td>
+			<td class="foswikiTableCol1"> simple, plain, link, thumb[nail], frame, float or src </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> plain </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>warn</code> </td>
+			<td class="foswikiTableCol1"> on/off, surpress error warnings </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> on </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>web</code> </td>
+			<td class="foswikiTableCol1"> valid web name </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> web part of IMGALBUM value or current topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>width</code> </td>
+			<td class="foswikiTableCol1"> integer value </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> image width </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>zoom</code> </td>
+			<td class="foswikiTableCol1"> on/off to scale images, if set to "on" scaling up images is allowed, otherwise it downscales only </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>filter</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> one or more image filters to be applied to the image; see below </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h3 id="Image_geometry">  Image geometry </h3>
+The image geometry in the <code>size</code> parameter can be specified in a format 
+<code>&lt;width&gt;[px][x&lt;height&gt;[px]]</code>,
+that is width and height can be given as integers with an optional <code>px</code>, where
+the height is optional, separated with a 'x' in between. Note, that the given
+width and height values are the <em>maximum width</em> and <em>maximum height</em> that the
+image will have keeping its aspect ratio. If you want to deform it to an exact
+measure use the <code>width</code> and <code>height</code> arguments.
+<p></p>
+
+Note, that you must set <code>zoom="on"</code> to scale images up. Otherwise images smaller
+than the given geometry will stay as they are. For instance, when generating thumbnails
+it is preferable to keep small icons as they are instead of bloating them up
+to a standard thumbnail size.
+<p></p>
+
+<h3 id="Image_Filters">  Image Filters </h3>
+<p></p>
+
+<a class="foswikiCurrentTopicLink" href="/bin/view/System/ImagePlugin">ImagePlugin</a> comes with a set of low-level and high-level filters that might be applied to an image. 
+High-level filters are a combination of a set of low-level filters to immitate instagram-like modifications
+to the image.
+<p></p>
+
+<h4 id="Low_45level_fiters">  Low-level fiters </h4>
+<p></p>
+ <ul>
+<li> autogamma()
+</li> <li> autolevel()
+</li> <li> background(color)
+</li> <li> blueshift(factor)
+</li> <li> blur(radius, sigma)
+</li> <li> brightness(value)
+</li> <li> charcoal(radius, sigma)
+</li> <li> colorize(fill, blend)
+</li> <li> contrast(geometry)
+</li> <li> emboss(radius, sigma)
+</li> <li> equalize(channel)
+</li> <li> gamma(value)
+</li> <li> grayscale(factor)
+</li> <li> hue(value)
+</li> <li> level(level, level, ...)
+</li> <li> levelcolors(color1, color2, invert)
+</li> <li> negate()
+</li> <li> noise(value, attentuate)
+</li> <li> normalize(channel)
+</li> <li> oilpaint(radius)
+</li> <li> posterize(levels)
+</li> <li> saturate(value)
+</li> <li> sharpen(radius, sigma)
+</li> <li> tint(fill)
+</li></ul> 
+<p></p>
+
+For a more thorough explanation of these filters, please read the <span class='externalLink'><a href="http://www.imagemagick.org/Usage/color_mods/">color modifications manual</a></span> of ImageMagick used underneath.
+<p></p>
+
+<h5 id="High_45level_filters">  High-level filters </h5>
+<p></p>
+ <ul>
+<li> sepia(factor)
+</li> <li> vignette(factor, color)
+</li> <li> 1977(factor)
+</li> <li> gotham(factor)
+</li> <li> inkwell(factor)
+</li> <li> kelvin(factor)
+</li> <li> moon(factor)
+</li> <li> lomo(factor)
+</li> <li> nashville(factor)
+</li> <li> toast(factor)
+</li> <li> hudson(factor)
+</li></ul> 
+<p></p>
+
+<h3 id="Example_filters">  Example filters </h3>
+<p></p>
+
+ <ul>
+<li> autogamma
+</li> <li> gamma(1)
+</li> <li> gamma(2)
+</li> <li> gamma(5)
+</li> <li> gamma(0.8,1.3,1.0)
+</li> <li> grayscale(33%)
+</li> <li> contrast(3)
+</li> <li> grayscale;contrast(3);tint(blue)
+</li> <li> sepia(33%)
+</li> <li> sepia,hue(33.3)
+</li> <li> contrast(3);saturate(160);sepia(60%)
+</li> <li> brightness(50)
+</li> <li> hue(33.3)
+</li> <li> level(25%)
+</li> <li> level(0,75%)
+</li> <li> level(25%,100%)
+</li> <li> level(-25%)
+</li> <li> level(0%,100%,0.5)
+</li> <li> level(0%,100%,2.0)
+</li> <li> levelcolors(green,gold)
+</li> <li> levelcolors(,DodgerBlue)
+</li> <li> levelcolors(Firebrick)
+</li> <li> levelcolors(DarkGreen);autogamma
+</li> <li> levelcolors(navy,lemonchiffon)
+</li> <li> levelcolors(#664B19,#FFFACD);autogamma
+</li> <li> normalize(Yellow)
+</li> <li> noise(Uniform)
+</li> <li> noise(Gaussian)
+</li> <li> noise(Multiplicative)
+</li> <li> noise(Impulse)
+</li> <li> noise(Laplacian)
+</li> <li> noise(Poisson)
+</li> <li> blueshift(0)
+</li> <li> blueshift(0.5)
+</li> <li> blueshift(1)
+</li> <li> blueshift(1.5)
+</li> <li> blur(1,1)
+</li> <li> sharpen(0.4)
+</li> <li> charcoal(,1)
+</li> <li> emboss(1,2)
+</li> <li> vignette(1.5)
+</li> <li> colorize(,50%)
+</li> <li> colorize(blue,10%)
+</li> <li> 1977(33%)
+</li> <li> moon(100%)
+</li> <li> moon(100%);levelcolors(navy,lightyellow)
+</li> <li> toaster(100%)
+</li></ul> 
+<p></p>
+
+<a href='/pub/System/ImagePlugin/InstagramExamples.jpeg' title='InstagramExamples.jpeg'  class='imageHref imageSimple imageSimple_none ' style='width:100%;height:auto' data-orig-width='1104' data-orig-height='2687'><img src='/pub/System/ImagePlugin/igp_c765d2fcb48071f24ea1d65abbf81593_InstagramExamples.jpeg' alt='InstagramExamples.jpeg' width='800' height='1947'   /></a><p></p>
+
+<h3 id="Format_specification">  Format specification </h3>
+Format strings given in <code>header</code>, <code>footer</code> and <code>format</code> may contain the following
+pseudo variables:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Name </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> Value </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$align</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>align</code> argumet </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$alt</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>alt</code> argumet </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$caption</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> caption text </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$class</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>class</code> argumet </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$data</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>data</code> argumet </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$desc</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>desc</code> argument </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$dollar</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> replaced with dollar sign ($) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$height</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> image height </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$href</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> hyperlink url when clicking on an image </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$id</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>id</code> argumet </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$magnifyIcon</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> enlage-icon </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$mousein</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>mousein</code> argument </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$mouseout</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>mouseout</code> argument </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$n</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> replaced with a linefeed (\n) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$nop</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> replaced with empty string </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$origheight</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> image height of the original image </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$origsrc</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> url of the original image (not the resized one) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$origwidth</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> image width of the original image </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$percnt</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> replaced with percent sign (%) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$src</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> image source url </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$thumbfile</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> thumbnail image file name </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$style</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>style</code> argumet </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$text</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> link text to be displayed in the "link" layout type </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>$title</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> value of <code>title</code> argument </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>$width</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> image width </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+After the layout has been formatted any further TopicMarkup that might be
+contained is expanded afterwards. Note, that using <code>$percnt</code> and <code>$dollar</code>
+evaluation order of TopicMarkup can be changed so that arguments are expanded
+<em>after</em> the IMAGE tag has been computed, whereas the default evaluation
+order is left-to-right-inside-out.
+<p></p>
+
+<h2 id="REST_image_service">  REST image service </h2>
+The ImagePlugin implements a REST handler <code>process</code> to generate thumbnails for image attachments
+on the fly.  This handler is then called in an <code>img</code> tag like this:
+<p></p>
+
+<pre>
+&#60;img src&#61;&#39;&#37;SCRIPTURLPATH{&#34;rest&#34;}&#37;/ImagePlugin/process?
+  topic&#61;web.topic;
+  file&#61;attachment;
+  width&#61;300;
+  height&#61;300&#39;
+  ...
+/&#62;
+</pre>
+<p></p>
+
+Arguments to the <code>process</code> handlers are:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Name </th>
+			<th class="foswikiTableCol1" style="text-align:center"> Values </th>
+			<th class="foswikiTableCol2 foswikiLastCol" style="text-align:center"> Default </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topic</code> </td>
+			<td class="foswikiTableCol1"> topic where the image is attached </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> BASEWEB.BASETOPIC </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>file</code> </td>
+			<td class="foswikiTableCol1"> image filename </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>crop</code> </td>
+			<td class="foswikiTableCol1"> cropping mode </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>filter</code> </td>
+			<td class="foswikiTableCol1"> filter to be applied to the image </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>height</code> </td>
+			<td class="foswikiTableCol1"> height of thumbnail </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>refresh</code> </td>
+			<td class="foswikiTableCol1"> on/off/img to trigger recomputing images </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> off </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rotate</code> </td>
+			<td class="foswikiTableCol1"> degree to rotate the image </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>size</code> </td>
+			<td class="foswikiTableCol1"> geometry of thumbnail </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>width</code> </td>
+			<td class="foswikiTableCol1"> width of thumbnail </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>zoom</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> switch on/off upscaling </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> off </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Examples">  Examples </h2> <ul>
+<li> See also <a class="foswikiNewLink" href="/bin/edit/Sandbox/ImagePluginFilterTest?topicparent=System.ImagePlugin" rel="nofollow" title="Create this topic">ImagePluginFilterTest</a> for an exhaustive sample and test page
+</li> <li> Resize to 100 pixels, text flows right, with caption      <pre>&#37;IMAGE{&#34;Westminstpalace.jpg&#34; size&#61;&#34;100&#34; align&#61;&#34;left&#34; caption&#61;&#34;This is my caption&#34;}&#37;</pre>
+</li> <li> Resize to %THUMBNAIL_SIZE% size, and center image     <pre>&#37;IMAGE{&#34;Westminstpalace.jpg&#34; type&#61;&#34;thumb&#34; align&#61;&#34;center&#34;}&#37;</pre>
+</li></ul> 
+<p></p>
+
+<h2 id="Configuration">  Configuration </h2>
+<p></p>
+
+<h3 id="Links_to_external_images">  Links to external images </h3>
+You can turn on downloading and mirroring of images that link to external sites, 
+Example: <img alt="logo.gif" src="http://www.google.com/intl/en_ALL/images/logo.gif" />
+<p></p>
+
+<pre>
+&#36;Foswiki::cfg{ImagePlugin}{RenderExternalImageLinks} &#61; 1;
+</pre>
+<p></p>
+
+This will download the image and mirror it on the local site. Use the <code>refresh</code> url parameter
+to check if the external images has updated.
+<p class='p'>If you also turn on attaching a mirrored image to the current topic,
+an additional attachment-record is generated for the downloaded external image.
+Attachments will be marked as hidden. Note, that any
+auto-attached image will update the topic and with it its timestamp.</p>
+
+<pre>
+&#36;Foswiki::cfg{ImagePlugin}{AutoAttachExternalImages} &#61; 1;
+</pre>
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Image::Magick</td><td align="left">&gt;=6.2.4.5</td><td align="left">Required</td></tr><tr><td align="left">LWP::UserAgent</td><td align="left">&gt;=0</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Plugins::JQueryPlugin</td><td align="left">&gt;=4.90</td><td align="left">Required</td></tr><tr><td align="left">Foswiki::Contrib::XSendFileContrib</td><td align="left">&gt;=1.00</td><td align="left">Optional</td></tr><tr><td align="left">Foswiki::Plugins::ZonePlugin</td><td align="left">&gt;=1.0</td><td align="left">Required for Foswiki &lt; 1.1</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<p></p>
+
+<table class="foswikiTable" id="tableImagePlugin4" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Nov 2019 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> performance fixes, i.e. caching ping results;                  don't render local images by default;                  fixed processing transparent background;                  fix file permissions of thumbnails;                  svgs are images too; pptx, docx, odt and xlsx files are "frameish" as well to ease thumbnailing them;                  use svgs in tooltips as is, don't resize them </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jun 2018 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> add <code>src</code> option to type parameter to access the thumbnail source being generated </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Mar 2018 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed cleaning up old thumbnails of images with brackets in them; added <code>transparent</code> feature; up'ing density converting svg images </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Sep 2017 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed filter api; really default crop to off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Jul 2017 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> removed support for Graphics::Magick ... not worth it and not a 100% drop-in replacement;                  performance: don't deliver image blobs by itself, use a redirect instead;                  removed support for xsendfile protocol as we are redirecting now;                  improved method to delete unused thumbnails;                  added support to generate a cover image of a video;                  better support for gallery renderers (photoswipe, prettyphoto, ...);                  don't process literal blocks;                  renamed <code>resize</code> rest handler to <code>process</code> (former still there for compatibility) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Oct 2016 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added image filters with instagram-like presets </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 May 2016 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added mime type detection for inline image data that don't specify it; improved support for html5 data </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2016 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed attaching inline data images </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Apr 2016 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed resize rest handler returning invalid image data;                  working around buggy implementations of imagemagick core-dumping on exit </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Sep 2015 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed rewrite of html img tags to bail out when width/height units aren't px values;                  don't auto-render svg to png anymore </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jul 2015 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> optionally extract and convert inline svg to real images;                  optionally process html img tags and downscale them on the server;                  add support for Foswiki-2.x </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Dec 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> work around call to unofficial internal api to get absolute pub urls;                 support extracting thumbnails from movies (mp4,mov,m4v,mpeg,mpg and wmv) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Sep 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added feature to convert inline image data to proper attachments </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Sep 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>rotate</code> parameter </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Sep 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented <code>frame</code> and <code>layer</code> parameter for thumbnail extraction from videos, animations and layered images </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Aug 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> only render the first frame of a gif animation generating thumbnails;                  fix orientation of thumbnail as specified in the EXIF metadata;                  fully specify REST security flags;                  new parameter <code>output</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 May 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed thumbnail handling in afterRenameHandler </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Apr 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> brought back <code>thumb</code> image type </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Apr 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> flag rest handlers that don't require authentication </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Mar 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> support blanks in image names </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 3 Aug 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> rework image tooltip code to use jquery-ui instead of deprecated jquery.tooltip </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 8 May 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> return a 1x1 pixel when calling the image rest handler for a non-existing image </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 May 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> update thumbnails whenever a new image of the same name was uploaded </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 6 May 2013: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> some more svg fixes; cleaning up thumbnails now when images are renamed or moved </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 9 Oct 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added svg support </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 6 Aug 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> respect noautolink tags when rendering external image links </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Jun 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed attaching external images to the right topic;                   removed unused option <code>AutoAttachThumbnails</code>;                   fixed processing of non-attached external images;                   fixed downloading of urls that look like image links but return a different content type </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Jan 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added new option 'thumbfile' to format string (<a class="interwikiLink" href="https://foswiki.org/Main/JoenioCosta" title="'Main/JoenioCosta' on foswiki.org">Foswiki:Main/JoenioCosta</a>);                  speed improvement by not "ping-ing" each image on display;                   rendering thumbnails using newer method available in image::magick 6.5.x, the old method faild resizing and cropping on some platforms;                  removing <code>longdesc</code> from default image templates;                   now also caching urls to external images that include url params </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Jun 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed detection of image links to the own wiki not to try an external download+mirror </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jan 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed parsing of mediawiki like params;                   fixed jquery interface to foswiki preferences;                   fixed dependency on ZonePlugin to only be required for old foswiki versions;                   make result of resize REST service cacheable, i.e. don't use a redirect;                   fixed expansion of standard escapes;                   improved crop parameter to specify the location of the remaining image relative to the original;                   added data parameter to interface with jquery code;                   using md5 now to properly cache thumbnails;                   mirroring external images now obeys the ATTACHFILESIZELIMIT preference; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Feb 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> made imagetooltip a proper jQuery plugin; using <a class="interwikiLink" href="https://foswiki.org/Extensions/ZonePlugin" title="'Extensions/ZonePlugin' on foswiki.org">Foswiki:Extensions/ZonePlugin</a> for faster page loads </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Nov 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>zoom</code> parameter; fixed manual refresh via url params </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Sep 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> updated <code>imageplugin.template</code> to help XHTML validation (stop rendering empty id attribute) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Sep 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> using Foswiki's proxy settings instead of ENV; disabled tooltip previews for Internet Explorers </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Aug 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> removed bonus <code>%</code> in template (<a class="interwikiLink" href="https://foswiki.org/Main.AndreLichtsteiner" title="'Main.AndreLichtsteiner' on foswiki.org">Foswiki:Main.AndreLichtsteiner</a>, <a class="interwikiLink" href="https://foswiki.org/Main.WillNorris" title="'Main.WillNorris' on foswiki.org">Foswiki:Main.WillNorris</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 24 Apr 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> converted to foswiki plugin;                   added thumbnail REST handler;                   added tooltip preview using jquery;                   added mirroring of external images;                   moved image type definitions into a template </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Feb 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> updated documentation examples (<a class="interwikiLink" href="https://foswiki.org/Main.WillNorris" title="'Main.WillNorris' on foswiki.org">Foswiki:Main.WillNorris</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jan 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> certified for foswiki/compat </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Jul 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed parsing the type parameter;                   fixing docu about the default THUMBNAIL_SIZE;                   added new default format <code>plain</code>;                   plainify text to be used in a html attribute position, e.g. titles;                   default to no img alignment;                   refresh images on a <code>?refresh=on</code> url param;                   using LWP::UserAgent instead of LWP::Simple to mirror images;                   using <code>Resize</code> instead of <code>Scale</code> for higher quality thumbnails;                   don't encrypt the href param </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Mar 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> make implementation of image mage configurable,                  defaulting to Graphics::Magick as Image::Magick has got issues                  using perl accellerators like mod_perl, speedy-cgi </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Jan 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added processing of remote images </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Dec 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed image lookup order; fixed html formats; added I18N workaround </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Aug 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed html errors;                   removed references to ImgPlugin thus not showing the magnify-clip;         some html and css fixes to resemble closer to the MediaWiki examples </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Aug 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> width and height arguments had no effect; floating images not clearing proberly on IE </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 June 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> released into the public </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 10 May 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Initial version by forking ImgPlugin </td>
+		</tr>
+	</tbody></table></div>
+<p></p>
+
+<div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/ImagePlugin?t=1627669825;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> Craig Meyer, Michael Daum </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 9.00 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 12 Nov 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Image and thumbnail services to display and alignment images using an easy syntax </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/ImagePlugin">https://github.com/foswiki/ImagePlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2006, Craig Meyer, &copy; 2006-2019 Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a class="interwikiLink" href="https://foswiki.org/Extensions/ImagePlugin" title="'Extensions/ImagePlugin' on foswiki.org">Foswiki:Extensions/ImagePlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Support/ImagePlugin" title="'Support/ImagePlugin' on foswiki.org">Foswiki:Support/ImagePlugin</a> </td></tr></table></div>
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>ImagePlugin <br />
+Topic revision:  <span class='patternRevInfo'>12 Nov 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.ImagePlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

@@ -1,0 +1,767 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> DpSyntaxHighlighterPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/DpSyntaxHighlighterPlugin?t=1627669595" type="application/x-wiki" title="edit DpSyntaxHighlighterPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/DpSyntaxHighlighterPlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/c96f5c685a43110d34b3b1067fc3050e.css' class='CLASSIFICATIONPLUGIN::CSS DPSYNTAXHIGHLIGHTERPLUGIN IMAGEPLUGIN JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 td {vertical-align:middle; vertical-align:top}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 td.foswikiTableCol0 {text-align:left}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 td.foswikiTableCol1 {text-align:left}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 td.foswikiTableCol2 {text-align:left}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 td.foswikiTableCol3 {text-align:right}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 td.foswikiTableCol4 {text-align:left}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 td.foswikiTableCol5 {text-align:left}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 td.foswikiTableCol6 {text-align:left}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 td.foswikiTableCol7 {text-align:left}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 th {vertical-align:middle; background-color:#ffffff; color:#0066cc; text-align:left}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 th a:link {color:#0066cc}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 th a:visited {color:#0066cc}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 th a:hover {color:#0066cc; background-color:#ffffff}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 th.foswikiSortedCol {background-color:#eeeeee}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableDpSyntaxHighlighterPlugin4 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f5f5f5}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script DPSYNTAXHIGHLIGHTERPLUGIN' type='text/javascript' src='/pub/System/DpSyntaxHighlighterPlugin/scripts/shCore.min.js'></script>
+<script class='script DPSYNTAXHIGHLIGHTERPLUGIN' type='text/javascript' src='/pub/System/DpSyntaxHighlighterPlugin/shInit.js'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SERVERTIME" : "30 Jul 2021 - 20:26",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "USERSWEB" : "Main",
+   "COOKIEREALM" : "",
+   "USERNAME" : "guest",
+   "SYSTEMWEB" : "System",
+   "WIKINAME" : "WikiGuest",
+   "TOPIC" : "DpSyntaxHighlighterPlugin",
+   "SCRIPTURLPATH" : "/bin",
+   "WEB" : "System",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTSUFFIX" : "",
+   "PUBURLPATH" : "/pub",
+   "SKIN" : "damask,famfamfam,pattern"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/DpSyntaxHighlighterPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?d78bb74e4a40ac28516d626a8c0a627d' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/DpSyntaxHighlighterPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?58dfa3d43d60a176651ceebd5b5f50fb' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.DpSyntaxHighlighterPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.DpSyntaxHighlighterPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/DpSyntaxHighlighterPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/DpSyntaxHighlighterPlugin" title='Topic revision: 7 (02 Jun 2016 - 09:27:46)'>DpSyntaxHighlighterPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/DpSyntaxHighlighterPlugin?t=1627669595;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/DpSyntaxHighlighterPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/DpSyntaxHighlighterPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/DpSyntaxHighlighterPlugin?raw=on&amp;rev=7' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=DpSyntaxHighlighterPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/DpSyntaxHighlighterPlugin?cover=print;sortcol=1;table=1;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/DpSyntaxHighlighterPlugin?template=more&amp;maxrev=7&amp;currrev=7' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="DpSyntaxHighlighterPlugin"> DpSyntaxHighlighterPlugin </h1>
+Client side syntax highlighting using the <span class='externalLink'><a href="https://github.com/syntaxhighlighter/syntaxhighlighter">SyntaxHighlighter</a></span>
+<p></p>
+
+This plugin provides client side syntax highlighting using the <span class='externalLink'><a href="https://github.com/syntaxhighlighter/syntaxhighlighter">SyntaxHighlighter</a></span> by Alex Gorbatchev.
+JavaScript needs to be enabled on the clients web browser for this to work.
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=1;table=1;up=0#Syntax_Rules"> Syntax Rules </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Using_DpSyntaxHighlighterPlugin_With_Other_Syntax_Highlighters"> Using DpSyntaxHighlighterPlugin With Other Syntax Highlighters </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Supported_Languages"> Supported Languages </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Theming"> Theming </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Examples"> Examples </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Info"> Info </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Syntax_Rules">  Syntax Rules </h2>
+<p></p>
+
+The code goes between the tags <code>%CODE{...}%</code> and <code>%ENDCODE%</code>.
+<p></p>
+
+<code>%CODE{...}%</code> can have the following parameters:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Parameter</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=1;table=1;up=1#sorted_table" rel="nofollow" title="Sort by this column">Description</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>htmlscript="on"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> allows you to highlight a mixture of HTML/XML code and a script </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>firstline="value"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> begin line count at value; default value is 1 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>quickcode="on"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> enable code copy and paste from double click </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>gutter="on"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> enable or disable gutter </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>smarttabs="on"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> enable or disable smart tabs; note this will only work if there are tabs in your code. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>toolbar="on"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> enable or disable the toolbar </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>collapse="on"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> force code view to be collapsed </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>highlight="1,2,3"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> highlight specific lines of code </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>light="on"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> light mode: equavalent to turning off gutter and toolbar </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>padlinenumbers="value"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> pads line numbers. possible values are <ul>  <li>false - don't pad line numbers.</li>   <li>true  - automaticaly pad numbers with minimum required number of leading zeroes.</li>   <li>[int] - length up to which pad line numbers.</li> </ul> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>autolink="on"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> prevent links in the highlighted code being clickable </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <code>"..."</code> or <code>lang="..."</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> the programming language to be highlighted. see <a href="#Supported_Languages">Supported Languages</a>. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <code>tabsize="value"</code> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol foswikiLast" rowspan="1"> wet the tab size for tab expansion; default value is 4; note this will only work if there are tabs in your code </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Using_DpSyntaxHighlighterPlugin_With_Other_Syntax_Highlighters">  Using <a class="foswikiCurrentTopicLink" href="/bin/view/System/DpSyntaxHighlighterPlugin">DpSyntaxHighlighterPlugin</a> With Other Syntax Highlighters </h2>
+<p></p>
+
+Currently all the Foswiki syntax highlighting plugins use the same <code>%CODE%</code> syntax. This allows you to switch the highlighter you use without having to update all your topics to the new syntax.
+However, it also means that if you have two or more highlighting plugins installed on your system, the plugin that is first in <code>$Foswiki::cfg{PluginsOrder}</code> (or by default, first alphabetically)
+will consume all the <code>%CODE%</code> blocks.
+<p></p>
+
+Version 1.2 of this plugin added support for using the <code>%CODE_DP%</code> syntax, which allows you to explicitly which plugin you want to highlight your code.
+<p></p>
+
+Clearly this is not the best solution to the problem of using more than one highlighting plugin. You can read the background on why this approach was taken in the <a class="interwikiLink" href="https://foswiki.org/Tasks/Item1353" title="'Item1353' on the 'Foswiki' issue tracking site">task report</a>.
+<p></p>
+
+<h2 id="Supported_Languages">  Supported Languages </h2>
+<p class='p'>The following languages are supported:</p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Brush</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Aliases</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> ActionScript3 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> as3, actionScript3 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> AppleScript </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> applescript, as </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Bash/shell </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> bash, shell, sh </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> C# </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> c#, c-sharp, csharp </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> C++ </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> cpp, cc, c++, c, h, hpp, h++ </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> ColdFusion </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> cf, coldfusion </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> CSS </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> css </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Delphi </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> delphi, pas, pascal </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Diff </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> diff, patch </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Erlang </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> erl, erlang </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Groovy </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> groovy </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Haxe </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> haxe, hx </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> JavaFX </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> javafx, jfx </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Java </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> java </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> JavaScript </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> jscript, js, javascript, json </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Perl </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> perl, pl </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> PHP </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> php </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Plain Text </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> plain, text, txt, ascii </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> PowerShell </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> powershell, ps, posh </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Python </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> python, py </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Ruby </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> ruby, rails, ror, rb </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Sass </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> sass, sccs </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Scala </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> scala </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> SQL </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> sql </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> TAP </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> tap </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> TypeScript </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> ts, typescript </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Visual Basic </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> vb, vbnet, visualbasic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> XML </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> xml, xhtml, xslt, html, plist </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Any of these can be used in the <code>lang</code> parameter.
+<p></p>
+
+<h2 id="Theming">  Theming </h2>
+<p class='p'>There are a couple of themes to colorize the highlighted code differently. Use</p>
+
+<pre>   &#42; Set DPSYNTAXHIGHLIGHTERPLUGIN&#95;THEME &#61; &#60;theme&#62; </pre>
+<p class='p'>to chose from one of the provided themes:</p>
+ <ul>
+<li> default
+</li> <li> django
+</li> <li> eclipse
+</li> <li> emacs
+</li> <li> fadetogray
+</li> <li> mdultra
+</li> <li> midnight
+</li> <li> rdark
+</li></ul> 
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<p class='p'>Below is a screen shot of how the rendered code will look.</p>
+
+<img class='imagePlain imagePlain_none ' src='/pub/System/DpSyntaxHighlighterPlugin/igp_18fc2bfb4ff0413d90dce39c49932a21_screenshot.png' alt='screenshot of plugin' title='screenshot.png' width='637' height='358'    /><p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+<p class='p'>You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.</p>
+
+<p class='p'>Open configure, and open the "Extensions" section. Use "Find More Extensions" to get a list of available extensions. Select "Install".</p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="http://foswiki.org/Support/ManuallyInstallingExtensions">http://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<p class='p'>If the plugin is installed correcty, the following should be rendered:</p>
+
+<pre class='syntaxHighlight' data-brush='php' data-auto_links='false' data-toolbar='false'  data-highlight='[2,5]'>/&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;
+ &#42;&#42; Multiline block comments
+ &#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;/
+
+&#36;stringWithUrl &#61; &#34;http://alexgorbatchev.com&#34;;
+&#36;stringWithUrl &#61; &#39;hello world&#39;;
+
+ob&#95;start(&#34;parseOutputBuffer&#34;);    // Start Code Buffering
+session&#95;start();
+
+function parseOutputBuffer(&#36;buf) {
+  global &#36;portal&#95;small&#95;code, &#36;portal&#95;gzcompress;
+  global &#36;PHP&#95;SELF, &#36;HTTP&#95;ACCEPT&#95;ENCODING;
+
+  // cleaning out the code.
+  if(&#36;portal&#95;small&#95;code &#38;amp;&#38;amp; !&#36;portal&#95;gzcompress) {
+    &#36;buf &#61; str&#95;replace(&#34;  &#34;, &#34;&#34;, &#36;buf);
+    &#36;buf &#61; str&#95;replace(&#34;\n&#34;, &#34;&#34;, &#36;buf);
+    &#36;buf &#61; str&#95;replace(chr(13), &#34;&#34;, &#36;buf);
+  }
+}
+</pre>
+<p class='p'></p>
+
+<h2 id="Info">  Info </h2>
+<!-- <ul>
+<li> Set SHORTDESCRIPTION = Client side syntax highlighting using the <span class='externalLink'><a href="https://github.com/syntaxhighlighter/syntaxhighlighter">SyntaxHighlighter</a></span>
+</li></ul> 
+-->
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Dp Syntax Highlighter Ver: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 3.0.9 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Dp Syntax Highlighter License: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <span class='externalLink'><a href="http://www.gnu.org/copyleft/lesser.html">LGPL 3 (Gnu Lesser General Public License)</a></span> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Aug 2015 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 3.02: Re-release from github source. Foswikitask:Item13605<br />                <a class="interwikiLink" href="https://foswiki.org/Tasks/Item13641" title="'Item13641' on the 'Foswiki' issue tracking site">Foswikitask:Item13641</a>: Minor doc updates. Allow optional {} on ENDCODE macro. Fix regexes for Perl 5.22 compatibility. Refresh copyright. -- <a class="interwikiLink" href="https://foswiki.org/Main.GeorgeClark" title="'Main.GeorgeClark' on foswiki.org">Foswiki:Main.GeorgeClark</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Aug 2015 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 3.01(re-released): Fix typo in shInit.js that prevented version 3.01 to work (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item13605" title="'Item13605' on the 'Foswiki' issue tracking site">Foswikitask:Item13605</a>) -- <a class="interwikiLink" href="https://foswiki.org/Main.RenMao" title="'Main.RenMao' on foswiki.org">Foswiki:Main.RenMao</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Jul 2015 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 3.01: Fix multiple uses of same brush (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item13373" title="'Item13373' on the 'Foswiki' issue tracking site">Foswikitask:Item13373</a>) -- <a class="interwikiLink" href="https://foswiki.org/Main.JanKrueger" title="'Main.JanKrueger' on foswiki.org">Foswiki:Main.JanKrueger</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Dec 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 3.0: Rewrite -- <a class="interwikiLink" href="https://foswiki.org/Main.MichaelDaum" title="'Main.MichaelDaum' on foswiki.org">Foswiki:Main.MichaelDaum</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Oct 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2.0: Fix for Foswiki 1.1 (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item9883" title="'Item9883' on the 'Foswiki' issue tracking site">Foswikitask:Item9883</a>); Fix when <code>{JQueryPlugin}{NoConflict}</code> enabled (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item8358" title="'Item8358' on the 'Foswiki' issue tracking site">Foswikitask:Item8358</a>); Fix <code>ascii</code> highlighting -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jul 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.9: Fix Perl warning in logs (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item9414" title="'Item9414' on the 'Foswiki' issue tracking site">Foswikitask:Item9414</a>) -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Apr 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.8: Improve <a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a>+ZonePlugin support, added CSS notes for <a href="/bin/view/System/NatSkin">NatSkin</a> users, ship .gz compressed CSS and JS files, address some perlcritic-isms (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item8654" title="'Item8654' on the 'Foswiki' issue tracking site">Foswikitask:Item8654</a>) -- <a class="interwikiLink" href="https://foswiki.org/Main.PaulHarvey" title="'Main.PaulHarvey' on foswiki.org">Foswiki:Main.PaulHarvey</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jan 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.7: Add <code>noautolinks</code> parameter; Doc updates. Thanks to <a class="interwikiLink" href="https://foswiki.org/Main.AleksandarJelenak" title="'Main.AleksandarJelenak' on foswiki.org">Foswiki:Main.AleksandarJelenak</a> (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item8363" title="'Item8363' on the 'Foswiki' issue tracking site">Foswikitask:Item8363</a>) -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Nov 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.6: Fix incompatibility with JSPopupPlugin (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item2345" title="'Item2345' on the 'Foswiki' issue tracking site">Foswikitask:Item2345</a>) -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Nov 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.5: Fix <code>ascii</code> highlighting (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item2344" title="'Item2344' on the 'Foswiki' issue tracking site">Foswikitask:Item2344</a>) -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Nov 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.4: Upgrade to version 2 of the highlighter and apply patch and docs from <a class="interwikiLink" href="https://foswiki.org/Main.JeffVStein" title="'Main.JeffVStein' on foswiki.org">Foswiki:Main.JeffVStein</a> (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item8185" title="'Item8185' on the 'Foswiki' issue tracking site">Foswikitask:Item8185</a>) -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Jun 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.3: Added support for pure ascii-output without highlighting (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item8175" title="'Item8175' on the 'Foswiki' issue tracking site">Foswikitask:Item8175</a>); Return an error if the language is not supported -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Mar 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.2: Added <code>%CODE_DP%</code> syntax so it can be used with other syntax highlighters (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item1353" title="'Item1353' on the 'Foswiki' issue tracking site">Foswikitask:Item1353</a>) -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Mar 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.1: Removed call to depreciated function. Will now work correctly with <a href="/bin/view/System/TWikiCompatibilityPlugin">TWikiCompatibilityPlugin</a> disabled -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Jan 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added missing screenshot -- <a class="interwikiLink" href="https://foswiki.org/Main.WillNorris" title="'Main.WillNorris' on foswiki.org">Foswiki:Main.WillNorris</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jan 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.0: Ported to Foswiki; Will now use jQuery if found; Added support for Perl. Thanks to <span class='externalLink'><a href="http://code.google.com/p/syntaxhighlighter/issues/detail?id=113&amp;sort=-modified&amp;colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Summary%20Modified">Marty Kube</a></span> -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Mar 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added support for ActionScript 3. Thanks to <span class='externalLink'><a href="http://www.digitalflipbook.com/archives/2007/09/as3_syntax_high.php">Mark Walters</a></span> (digitalflipbook.com) -- <a class="interwikiLink" href="https://foswiki.org/Main.ArthurClemens" title="'Main.ArthurClemens' on foswiki.org">Foswiki:Main.ArthurClemens</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14646 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Fixed adding JS into highlighted HTML (#3) -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14642 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Upgrade highlighter to 1.5.1 -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 14046 </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Initial version -- <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/DpSyntaxHighlighterPlugin?t=1627669595;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 3.02 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 3.02 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/DpSyntaxHighlighterPlugin">https://github.com/foswiki/DpSyntaxHighlighterPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2007 - 2010 <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a>; 2010 - 2015 &copy; Foswiki Contributors </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> <span class='externalLink'><a href="http://www.gnu.org/licenses/gpl.html">GPL (Gnu General Public License)</a></span> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a href="http://foswiki.org/Extensions/DpSyntaxHighlighterPlugin">http://foswiki.org/Extensions/DpSyntaxHighlighterPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a href="http://foswiki.org/Support/DpSyntaxHighlighterPlugin">http://foswiki.org/Support/DpSyntaxHighlighterPlugin</a> </td></tr></table></div><div class="foswikiAttachments foswikiFormStep" style="overflow:auto">
+<div class="twistyPlugin foswikiMakeVisible"><span id="topicattachmentslist1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleopen.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>6</span></span></a></span><span id="topicattachmentslist1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleclose.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>6</span></span></a></span></div><div class="twistyPlugin"><div id="topicattachmentslist1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableDpSyntaxHighlighterPlugin4" rules="none" summary="Topic attachments"><caption>Topic attachments</caption>
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=0;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">I</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=1;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Attachment</a> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=2;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Action</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=3;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Size</a> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=4;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol5"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=5;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Who</a> </th>
+			<th class="foswikiTableCol6 foswikiLastCol"> <a href="/bin/view/System/DpSyntaxHighlighterPlugin?sortcol=6;table=4;up=0#sorted_table" rel="nofollow" title="Sort by this column">Comment</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/else.png' width='16' height='16' alt='Makefile' /></span><span class="foswikiHidden">EXT</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/DpSyntaxHighlighterPlugin/Makefile">Makefile</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/DpSyntaxHighlighterPlugin?filename=Makefile;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 119 bytes </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">30 Aug 2015 - 02:00</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='screenshot.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/DpSyntaxHighlighterPlugin/screenshot.png">screenshot.png</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/DpSyntaxHighlighterPlugin?filename=screenshot.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 54 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">30 Aug 2015 - 02:00</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/else.png' width='16' height='16' alt='shCore.js.patch' /></span><span class="foswikiHidden">patch</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/DpSyntaxHighlighterPlugin/shCore.js.patch">shCore.js.patch</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/DpSyntaxHighlighterPlugin?filename=shCore.js.patch;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 1 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">30 Aug 2015 - 02:00</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/js.png' width='16' height='16' alt='shInit.js' /></span><span class="foswikiHidden">js</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/DpSyntaxHighlighterPlugin/shInit.js">shInit.js</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/DpSyntaxHighlighterPlugin?filename=shInit.js;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 3 K </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">30 Aug 2015 - 02:00</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/else.png' width='16' height='16' alt='shInit.js.gz' /></span><span class="foswikiHidden">gz</span> </td>
+			<td class="foswikiTableCol1"> <a href="/pub/System/DpSyntaxHighlighterPlugin/shInit.js.gz">shInit.js.gz</a> </td>
+			<td class="foswikiTableCol2"> <a href="/bin/attach/System/DpSyntaxHighlighterPlugin?filename=shInit.js.gz;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" style="text-align:right"> 996 bytes </td>
+			<td class="foswikiTableCol4"> <span class="foswikiNoBreak">30 Aug 2015 - 02:00</span> </td>
+			<td class="foswikiTableCol5"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/js.png' width='16' height='16' alt='shInit.uncompressed.js' /></span><span class="foswikiHidden">js</span> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <a href="/pub/System/DpSyntaxHighlighterPlugin/shInit.uncompressed.js">shInit.uncompressed.js</a> </td>
+			<td class="foswikiTableCol2 foswikiLast"> <a href="/bin/attach/System/DpSyntaxHighlighterPlugin?filename=shInit.uncompressed.js;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiLast" style="text-align:right"> 5 K </td>
+			<td class="foswikiTableCol4 foswikiLast"> <span class="foswikiNoBreak">30 Aug 2015 - 02:00</span> </td>
+			<td class="foswikiTableCol5 foswikiLast"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+</div></div></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/DpSyntaxHighlighterPlugin?t=1627669595' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/DpSyntaxHighlighterPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DpSyntaxHighlighterPlugin?cover=print;sortcol=1;table=1;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/DpSyntaxHighlighterPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r7&nbsp;<a href="/bin/diff/System/DpSyntaxHighlighterPlugin?rev1=6;rev2=7" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/DpSyntaxHighlighterPlugin?rev=6" rel="nofollow">r6</a>&nbsp;<a href="/bin/diff/System/DpSyntaxHighlighterPlugin?rev1=5;rev2=6" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/DpSyntaxHighlighterPlugin?rev=5" rel="nofollow">r5</a>&nbsp;<a href="/bin/diff/System/DpSyntaxHighlighterPlugin?rev1=4;rev2=5" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/DpSyntaxHighlighterPlugin?rev=4" rel="nofollow">r4</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DpSyntaxHighlighterPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DpSyntaxHighlighterPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/DpSyntaxHighlighterPlugin?t=1627669595;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DpSyntaxHighlighterPlugin?template=more&amp;maxrev=7&amp;currrev=7' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r7 - 02 Jun 2016, <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/DpSyntaxHighlighterPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/DpSyntaxHighlighterPlugin%3fsortcol%3d1%3btable%3d1%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.DpSyntaxHighlighterPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

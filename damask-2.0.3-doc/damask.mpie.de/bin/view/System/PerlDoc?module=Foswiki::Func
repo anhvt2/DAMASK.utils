@@ -1,0 +1,2835 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> PerlDoc &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627667708" type="application/x-wiki" title="edit PerlDoc" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/PerlDoc" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/6f357f8387794ac069ae0e1847028f9a.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "USERSWEB" : "Main",
+   "SCRIPTSUFFIX" : "",
+   "WEB" : "System",
+   "PUBURLPATH" : "/pub",
+   "WIKINAME" : "WikiGuest",
+   "TOPIC" : "PerlDoc",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATH" : "/bin",
+   "SKIN" : "damask,famfamfam,pattern",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "URLHOST" : "https://damask.mpie.de",
+   "USERNAME" : "guest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SERVERTIME" : "30 Jul 2021 - 19:55"
+}
+</script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/PerlDoc"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/PerlDoc" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>PerlDoc</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627667708;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/PerlDoc' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/PerlDoc?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/PerlDoc?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=PerlDoc' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/PerlDoc?cover=print;module=Foswiki::Func' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/PerlDoc?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h2 id="A_61public_package_61_Foswiki::Func">   <code>public package</code> <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki">Foswiki</a>::Func </h2>
+<form class='foswikiForm' action='/bin/view/System/PerlDoc'>
+<div class='foswikiFormSteps'>
+  <div class='foswikiFormStep'>
+      See <a href="/bin/view/System/PublishedAPI">PublishedAPI</a> for packages intended to be used by Plugin and Contrib authors, or <a class="foswikiCurrentTopicLink" href="/bin/view/System/PerlDoc?module=Foswiki">browse all packages</a>.<br>
+      See also <a href="/bin/view/System/DevelopingPlugins">Developing plugins</a>, <a class="interwikiLink" href="https://foswiki.org/Development.DevelopersBible" title="'Development.DevelopersBible' on foswiki.org">Developer's Bible</a>, <a class="interwikiLink" href="https://foswiki.org/Development.TechnicalOverview" title="'Development.TechnicalOverview' on foswiki.org">Technical Overview</a> 
+  </div>
+  <div class='foswikiFormStep'>
+    <label for='module'><b>Perl Module:</b></label>
+    <input type='text' name='module' id='module' size='60' value='Foswiki::Func' class='foswikiInputField' />
+<!--
+Commented this out right before 1.1.5 - we should distinguish between 'public' and 'published' classes.
+    <label for='publicOnly'><b>Public Only:</b></label>
+    <input type='checkbox' name='publicOnly' id='publicOnly' value='on'  class='foswikiInputField' />
+-->
+    <input type='submit' value='Submit' class='foswikiSubmit' />
+  </div>
+  <div class='foswikiFormStep'>
+    <div class="twistyPlugin foswikiMakeVisible"><span id="twistyIdSystemPerlDoc1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Child packages</span></a></span><span id="twistyIdSystemPerlDoc1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="foswikiButton" href="#"><span class="foswikiLinkLabel foswikiUnvisited">Child packages</span></a></span></div><div class="twistyPlugin"><div id="twistyIdSystemPerlDoc1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<p></p>
+
+<ul></ul>
+    </div></div>
+  </div>
+</div>
+</form>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?module=Foswiki::Func#A_61public_package_61_Foswiki::Func"> public package Foswiki::Func </a> <ul>
+<li> <a href="?module=Foswiki::Func#Environment"> Environment </a> <ul>
+<li> <a href="?module=Foswiki::Func#getSkin_40_41_45_62_36skin"> getSkin( ) -&gt; $skin </a>
+</li> <li> <a href="?module=Foswiki::Func#getUrlHost_40_41_45_62_36host"> getUrlHost( ) -&gt; $host </a>
+</li> <li> <a href="?module=Foswiki::Func#getScriptUrl_40_36web_44_36topic_44_36script_44_..._41_45_62_36url"> getScriptUrl( $web, $topic, $script, ... ) -&gt; $url </a>
+</li> <li> <a href="?module=Foswiki::Func#getScriptUrlPath_40_36web_44_36topic_44_36script_44_..._41_45_62_36path"> getScriptUrlPath( $web, $topic, $script, ... ) -&gt; $path </a>
+</li> <li> <a href="?module=Foswiki::Func#getViewUrl_40_36web_44_36topic_41_45_62_36url"> getViewUrl( $web, $topic ) -&gt; $url </a>
+</li> <li> <a href="?module=Foswiki::Func#getPubUrlPath_40_36web_44_36topic_44_36attachment_44_37options_41_45_62_36url"> getPubUrlPath( $web, $topic, $attachment, %options ) -&gt; $url </a>
+</li> <li> <a href="?module=Foswiki::Func#getExternalResource_40_36url_41_45_62_36response"> getExternalResource( $url ) -&gt; $response </a>
+</li> <li> <a href="?module=Foswiki::Func#getRequestObject_40_41_45_62_36query"> getRequestObject( ) -&gt; $query </a>
+</li> <li> <a href="?module=Foswiki::Func#getSessionKeys_40_41_45_62_64keys"> getSessionKeys() -&gt; @keys </a>
+</li> <li> <a href="?module=Foswiki::Func#getSessionValue_40_36key_41_45_62_36value"> getSessionValue( $key ) -&gt; $value </a>
+</li> <li> <a href="?module=Foswiki::Func#setSessionValue_40_36key_44_36value_41_45_62_36boolean"> setSessionValue( $key, $value ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#clearSessionValue_40_36key_41_45_62_36boolean"> clearSessionValue( $key ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#getContext_40_41_45_62_92_37hash"> getContext() -&gt; \%hash </a>
+</li> <li> <a href="?module=Foswiki::Func#pushTopicContext_40_36web_44_36topic_41"> pushTopicContext($web, $topic) </a>
+</li> <li> <a href="?module=Foswiki::Func#popTopicContext_40_41"> popTopicContext() </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Registering_extensions"> Registering extensions </a> <ul>
+<li> <a href="?module=Foswiki::Func#registerTagHandler_40_36var_44_92_38fn_44_36syntax_41"> registerTagHandler( $var, \&amp;fn, $syntax ) </a>
+</li> <li> <a href="?module=Foswiki::Func#registerRESTHandler_40_36alias_44_92_38fn_44_37options_41"> registerRESTHandler( $alias, \&amp;fn, %options ) </a> <ul>
+<li> <a href="?module=Foswiki::Func#Example"> Example </a>
+</li> <li> <a href="?module=Foswiki::Func#Calling_REST_handlers_from_the_command_45line"> Calling REST handlers from the command-line </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#registerMETA_40_36macro_44_36spec_41"> registerMETA($macro, $spec) </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Preferences"> Preferences </a> <ul>
+<li> <a href="?module=Foswiki::Func#getPreferencesValue_40_36key_44_36web_41_45_62_36value"> getPreferencesValue( $key, $web ) -&gt; $value </a>
+</li> <li> <a href="?module=Foswiki::Func#getPluginPreferencesValue_40_36key_41_45_62_36value"> getPluginPreferencesValue( $key ) -&gt; $value </a>
+</li> <li> <a href="?module=Foswiki::Func#getPreferencesFlag_40_36key_44_36web_41_45_62_36value"> getPreferencesFlag( $key, $web ) -&gt; $value </a>
+</li> <li> <a href="?module=Foswiki::Func#getPluginPreferencesFlag_40_36key_41_45_62_36boolean"> getPluginPreferencesFlag( $key ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#setPreferencesValue_40_36name_44_36val_41"> setPreferencesValue($name, $val) </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#User_Handling_and_Access_Control"> User Handling and Access Control </a> <ul>
+<li> <a href="?module=Foswiki::Func#getDefaultUserName_40_41_45_62_36loginName"> getDefaultUserName( ) -&gt; $loginName </a>
+</li> <li> <a href="?module=Foswiki::Func#getCanonicalUserID_40_36user_41_45_62_36cUID"> getCanonicalUserID( $user ) -&gt; $cUID </a>
+</li> <li> <a href="?module=Foswiki::Func#getWikiName_40_36user_41_45_62_36wikiName"> getWikiName( $user ) -&gt; $wikiName </a>
+</li> <li> <a href="?module=Foswiki::Func#getWikiUserName_40_36user_41_45_62_36wikiName"> getWikiUserName( $user ) -&gt; $wikiName </a>
+</li> <li> <a href="?module=Foswiki::Func#wikiToUserName_40_36id_41_45_62_36loginName"> wikiToUserName( $id ) -&gt; $loginName </a>
+</li> <li> <a href="?module=Foswiki::Func#userToWikiName_40_36loginName_44_36dontAddWeb_41_45_62_36wikiName"> userToWikiName( $loginName, $dontAddWeb ) -&gt; $wikiName </a>
+</li> <li> <a href="?module=Foswiki::Func#emailToWikiNames_40_36email_44_36dontAddWeb_41_45_62_64wikiNames"> emailToWikiNames( $email, $dontAddWeb ) -&gt; @wikiNames </a>
+</li> <li> <a href="?module=Foswiki::Func#wikinameToEmails_40_36user_41_45_62_64emails"> wikinameToEmails( $user ) -&gt; @emails </a>
+</li> <li> <a href="?module=Foswiki::Func#isGuest_40_41_45_62_36boolean"> isGuest( ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#isAnAdmin_40_36id_41_45_62_36boolean"> isAnAdmin( $id ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#isGroupMember_40_36group_44_36id_44_36options_41_45_62_36boolean"> isGroupMember( $group, $id, $options ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#eachUser_40_41_45_62_36iterator"> eachUser() -&gt; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Func#eachMembership_40_36id_41_45_62_36iterator"> eachMembership($id) -&gt; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Func#eachGroup_40_41_45_62_36iterator"> eachGroup() -&gt; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Func#isGroup_40_36group_41_45_62_36boolean"> isGroup( $group ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#eachGroupMember_40_36group_41_45_62_36iterator"> eachGroupMember($group) -&gt; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Func#addUserToGroup_40_36id_44_36group_44_36create_41_45_62_36boolean"> addUserToGroup( $id, $group, $create ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#removeUserFromGroup_40_36group_44_36id_41_45_62_36boolean"> removeUserFromGroup( $group, $id ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#checkAccessPermission_40_36type_44_36id_44_36text_44_36topic_44_36web_44_36meta_41_45_62_36boolean"> checkAccessPermission( $type, $id, $text, $topic, $web, $meta ) -&gt; $boolean </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Traversing"> Traversing </a> <ul>
+<li> <a href="?module=Foswiki::Func#getListOfWebs_40_36filter_91_44_36web_93_41_45_62_64webs"> getListOfWebs( $filter [, $web] ) -&gt; @webs </a>
+</li> <li> <a href="?module=Foswiki::Func#isValidWebName_40_36name_91_44_36system_93_41_45_62_36boolean"> isValidWebName( $name [, $system] ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#webExists_40_36web_41_45_62_36boolean"> webExists( $web ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#getTopicList_40_36web_41_45_62_64topics"> getTopicList( $web ) -&gt; @topics </a>
+</li> <li> <a href="?module=Foswiki::Func#isValidTopicName_40_36name_91_44_36allowNonWW_93_41_45_62_36boolean"> isValidTopicName( $name [, $allowNonWW] ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#topicExists_40_36web_44_36topic_41_45_62_36boolean"> topicExists( $web, $topic ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#readTopic_40_36web_44_36topic_44_36rev_41_45_62_40_36meta_44_36text_41"> readTopic( $web, $topic, $rev ) -&gt; ( $meta, $text ) </a>
+</li> <li> <a href="?module=Foswiki::Func#getRevisionInfo_40_36web_44_36topic_44_36rev_44_36attachment_41_45_62_40_36date_44_36user_44_36rev_44_36comment_41"> getRevisionInfo($web, $topic, $rev, $attachment ) -&gt; ( $date, $user, $rev, $comment ) </a>
+</li> <li> <a href="?module=Foswiki::Func#getRevisionAtTime_40_36web_44_36topic_44_36time_41_45_62_36rev"> getRevisionAtTime( $web, $topic, $time ) -&gt; $rev </a>
+</li> <li> <a href="?module=Foswiki::Func#getAttachmentList_40_36web_44_36topic_41_45_62_64list"> getAttachmentList( $web, $topic ) -&gt; @list </a>
+</li> <li> <a href="?module=Foswiki::Func#attachmentExists_40_36web_44_36topic_44_36attachment_41_45_62_36boolean"> attachmentExists( $web, $topic, $attachment ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#readAttachment_40_36web_44_36topic_44_36name_44_36rev_41_45_62_36data"> readAttachment( $web, $topic, $name, $rev ) -&gt; $data </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Manipulating"> Manipulating </a> <ul>
+<li> <a href="?module=Foswiki::Func#createWeb_40_36newWeb_44_36baseWeb_44_36opts_41"> createWeb( $newWeb, $baseWeb, $opts ) </a>
+</li> <li> <a href="?module=Foswiki::Func#moveWeb_40_36oldName_44_36newName_41"> moveWeb( $oldName, $newName ) </a>
+</li> <li> <a href="?module=Foswiki::Func#checkTopicEditLock_40_36web_44_36topic_44_36script_41_45_62_40_36oopsUrl_44_36loginName_44_36unlockTime_41"> checkTopicEditLock( $web, $topic, $script ) -&gt; ( $oopsUrl, $loginName, $unlockTime ) </a>
+</li> <li> <a href="?module=Foswiki::Func#setTopicEditLock_40_36web_44_36topic_44_36lock_41"> setTopicEditLock( $web, $topic, $lock ) </a>
+</li> <li> <a href="?module=Foswiki::Func#saveTopic_40_36web_44_36topic_44_36meta_44_36text_44_36options_41"> saveTopic( $web, $topic, $meta, $text, $options ) </a>
+</li> <li> <a href="?module=Foswiki::Func#moveTopic_40_36web_44_36topic_44_36newWeb_44_36newTopic_41"> moveTopic( $web, $topic, $newWeb, $newTopic ) </a>
+</li> <li> <a href="?module=Foswiki::Func#saveAttachment_40_36web_44_36topic_44_36attachment_44_92_37opts_41"> saveAttachment( $web, $topic, $attachment, \%opts ) </a>
+</li> <li> <a href="?module=Foswiki::Func#moveAttachment_40_36web_44_36topic_44_36attachment_44_36newWeb_44_36newTopic_44_36newAttachment_41"> moveAttachment( $web, $topic, $attachment, $newWeb, $newTopic, $newAttachment ) </a>
+</li> <li> <a href="?module=Foswiki::Func#copyAttachment_40_36web_44_36topic_44_36attachment_44_36newWeb_44_36newTopic_44_36newAttachment_41"> copyAttachment( $web, $topic, $attachment, $newWeb, $newTopic, $newAttachment ) </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Finding_changes"> Finding changes </a> <ul>
+<li> <a href="?module=Foswiki::Func#eachChangeSince_40_36web_44_36time_41_45_62_36iterator"> eachChangeSince($web, $time) -&gt; $iterator </a>
+</li> <li> <a href="?module=Foswiki::Func#summariseChanges_40_36web_44_36topic_44_36orev_44_36nrev_44_36tml_44_36nochecks_41_45_62_36text"> summariseChanges($web, $topic, $orev, $nrev, $tml, $nochecks) -&gt; $text </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Templates"> Templates </a> <ul>
+<li> <a href="?module=Foswiki::Func#readTemplate_40_36name_44_36skin_41_45_62_36text"> readTemplate( $name, $skin ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#loadTemplate_40_36name_44_36skin_44_36web_41_45_62_36text"> loadTemplate ( $name, $skin, $web ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#expandTemplate_40_36def_41_45_62_36string"> expandTemplate( $def ) -&gt; $string </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Rendering"> Rendering </a> <ul>
+<li> <a href="?module=Foswiki::Func#expandCommonVariables_40_36text_44_36topic_44_36web_44_36meta_41_45_62_36text"> expandCommonVariables( $text, $topic, $web, $meta ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#expandVariablesOnTopicCreation_40_36text_41_45_62_36text"> expandVariablesOnTopicCreation ( $text ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#renderText_40_36text_44_36web_44_36topic_41_45_62_36text"> renderText( $text, $web, $topic ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#internalLink_40_36pre_44_36web_44_36topic_44_36label_44_36anchor_44_36createLink_41_45_62_36text"> internalLink( $pre, $web, $topic, $label, $anchor, $createLink ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#addToZone_40_36zone_44_36id_44_36data_44_36requires_41"> addToZone( $zone, $id, $data, $requires ) </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Controlling_page_output"> Controlling page output </a> <ul>
+<li> <a href="?module=Foswiki::Func#writeHeader_40_41"> writeHeader() </a>
+</li> <li> <a href="?module=Foswiki::Func#redirectCgiQuery_40_36query_44_36url_44_36passthru_44_36status_41"> redirectCgiQuery( $query, $url, $passthru, $status ) </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Plugin_45specific_file_handling"> Plugin-specific file handling </a> <ul>
+<li> <a href="?module=Foswiki::Func#getWorkArea_40_36pluginName_41_45_62_36directorypath"> getWorkArea( $pluginName ) -&gt; $directorypath </a>
+</li> <li> <a href="?module=Foswiki::Func#readFile_40_36filename_44_36unicode_41_45_62_36text"> readFile( $filename, $unicode ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#saveFile_40_36filename_44_36text_44_36unicode_41"> saveFile( $filename, $text, $unicode ) </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#General_Utilities"> General Utilities </a> <ul>
+<li> <a href="?module=Foswiki::Func#normalizeWebTopicName_40_36web_44_36topic_41_45_62_40_36web_44_36topic_41"> normalizeWebTopicName($web, $topic) -&gt; ($web, $topic) </a>
+</li> <li> <a href="?module=Foswiki::Func#query_40_36searchString_44_36topics_44_92_37options_41_45_62_iterator_40resultset_41"> query($searchString, $topics, \%options ) -&gt; iterator (resultset) </a>
+</li> <li> <a href="?module=Foswiki::Func#decodeFormatTokens_40_36str_41_45_62_36unencodedString"> decodeFormatTokens($str) -&gt; $unencodedString </a>
+</li> <li> <a href="?module=Foswiki::Func#sanitizeAttachmentName_40_36fname_41_45_62_40_36fileName_44_36origName_41"> sanitizeAttachmentName($fname) -&gt; ($fileName, $origName) </a>
+</li> <li> <a href="?module=Foswiki::Func#spaceOutWikiWord_40_36word_44_36sep_41_45_62_36text"> spaceOutWikiWord( $word, $sep ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#isTrue_40_36value_44_36default_41_45_62_36boolean"> isTrue( $value, $default ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#isValidWikiWord_40_36text_41_45_62_36boolean"> isValidWikiWord ( $text ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#extractParameters_40_36attr_41_45_62_37params"> extractParameters($attr ) -&gt; %params </a>
+</li> <li> <a href="?module=Foswiki::Func#extractNameValuePair_40_36attr_44_36name_41_45_62_36value"> extractNameValuePair( $attr, $name ) -&gt; $value </a>
+</li> <li> <a href="?module=Foswiki::Func#sendEmail_40_36text_44_36retries_41_45_62_36error"> sendEmail ( $text, $retries ) -&gt; $error </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Logging"> Logging </a> <ul>
+<li> <a href="?module=Foswiki::Func#writeEvent_40_36action_44_36extra_41"> writeEvent( $action, $extra ) </a>
+</li> <li> <a href="?module=Foswiki::Func#writeWarning_40_36text_41"> writeWarning( $text ) </a>
+</li> <li> <a href="?module=Foswiki::Func#writeDebug_40_36text_41"> writeDebug( $text ) </a>
+</li> <li> <a href="?module=Foswiki::Func#eachEventSince_40_36time_44_36level_41_45_62_36iterator"> eachEventSince($time, $level) -&gt; $iterator </a>
+</li></ul> 
+</li> <li> <a href="?module=Foswiki::Func#Deprecated_functions"> Deprecated functions </a> <ul>
+<li> <a href="?module=Foswiki::Func#getRegularExpression_40_36name_41_45_62_36expr"> getRegularExpression( $name ) -&gt; $expr </a>
+</li> <li> <a href="?module=Foswiki::Func#getWikiToolName_40_41_45_62_36name"> getWikiToolName( ) -&gt; $name </a>
+</li> <li> <a href="?module=Foswiki::Func#getMainWebname_40_41_45_62_36name"> getMainWebname( ) -&gt; $name </a>
+</li> <li> <a href="?module=Foswiki::Func#getTwikiWebname_40_41_45_62_36name"> getTwikiWebname( ) -&gt; $name </a>
+</li> <li> <a href="?module=Foswiki::Func#getOopsUrl_40_36web_44_36topic_44_36template_44_36param1_44_36param2_44_36param3_44_36param4_41_45_62_36url"> getOopsUrl( $web, $topic, $template, $param1, $param2, $param3, $param4 ) -&gt; $url </a>
+</li> <li> <a href="?module=Foswiki::Func#wikiToEmail_40_36wikiName_41_45_62_36email"> wikiToEmail( $wikiName ) -&gt; $email </a>
+</li> <li> <a href="?module=Foswiki::Func#permissionsSet_40_36web_41_45_62_36boolean"> permissionsSet( $web ) -&gt; $boolean </a>
+</li> <li> <a href="?module=Foswiki::Func#getPublicWebList_40_41_45_62_64webs"> getPublicWebList( ) -&gt; @webs </a>
+</li> <li> <a href="?module=Foswiki::Func#formatTime_40_36time_44_36format_44_36timezone_41_45_62_36text"> formatTime( $time, $format, $timezone ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#formatGmTime_40_36time_44_36format_41_45_62_36text"> formatGmTime( $time, $format ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#getDataDir_40_41_45_62_36dir"> getDataDir( ) -&gt; $dir </a>
+</li> <li> <a href="?module=Foswiki::Func#getPubDir_40_41_45_62_36dir"> getPubDir( ) -&gt; $dir </a>
+</li> <li> <a href="?module=Foswiki::Func#getCgiQuery_40_41_45_62_36query"> getCgiQuery( ) -&gt; $query </a>
+</li> <li> <a href="?module=Foswiki::Func#readTopicText_40_36web_44_36topic_44_36rev_44_36ignorePermissions_41_45_62_36text"> readTopicText( $web, $topic, $rev, $ignorePermissions ) -&gt; $text </a>
+</li> <li> <a href="?module=Foswiki::Func#saveTopicText_40_36web_44_36topic_44_36text_44_36ignorePermissions_44_36dontNotify_41_45_62_36oopsUrl"> saveTopicText( $web, $topic, $text, $ignorePermissions, $dontNotify ) -&gt; $oopsUrl </a>
+</li> <li> <a href="?module=Foswiki::Func#addToHEAD_40_36id_44_36data_44_36requires_41"> addToHEAD( $id, $data, $requires ) </a>
+</li> <li> <a href="?module=Foswiki::Func#searchInWebContent_40_36searchString_44_36web_44_92_64topics_44_92_37options_41_45_62_reference_to_a_hash_45_keys_of_which_are_topic_names"> searchInWebContent($searchString, $web, \@topics, \%options ) -&gt; reference to a hash - keys of which are topic names </a>
+</li></ul> 
+</li></ul> 
+</li></ul> 
+</div>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h2 id="A_61public_package_61_Foswik_AN1">  <code>public package</code> Foswiki::Func </h2>
+<p></p>
+
+<em>Interface for Foswiki extensions developers</em>
+<p class='p'>This module defines the main interfaces that extensions
+can use to interact with the Foswiki engine and content.</p>
+
+Refer to <code>lib/Foswiki/Plugins/EmptyPlugin.pm</code> for a template Plugin
+and starter documentation on how to write a Plugin.
+<p></p>
+
+Plugins should <strong>only</strong> call methods in packages documented in
+<a href="/bin/view/System/DevelopingPlugins">DevelopingPlugins</a>. If you use
+functions in other Foswiki libraries you risk creating a security hole, and
+you will probably need to change your plugin when you upgrade Foswiki.
+<p></p>
+
+<strong>Since:</strong> <em>date</em> indicates where functions or parameters have been added since
+the baseline of the API (Foswiki 1.0.0). The <em>date</em> indicates the
+earliest date of a Foswiki release that will support that function or
+parameter. See <a class="interwikiLink" href="https://foswiki.org/Download.ReleaseDates" title="'Download.ReleaseDates' on foswiki.org">Foswiki:Download.ReleaseDates</a> for version release dates.
+<p></p>
+
+<strong>Deprecated</strong> <em>date</em> indicates where a function or parameters has been
+<span class='externalLink'><a href="http://en.wikipedia.org/wiki/Deprecation">deprecated</a></span>. Deprecated
+functions will still work, though they should
+<em>not</em> be called in new plugins and should be replaced in older plugins
+as soon as possible. Deprecated parameters are simply ignored in Foswiki
+releases after <em>date</em>.
+<p></p>
+
+<strong>Until</strong> <em>date</em> indicates where a function or parameter has been removed.
+The <em>date</em> indicates the latest date at which Foswiki releases still supported
+the function or parameter.
+<p></p>
+
+Note that the <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a></code> API should always be the first place extension
+authors look for methods. Certain other lower-level APIs are also exposed
+by the core, but those APIs should only be called if there is no alternative
+available through <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a></code>. The APIs in question are documented in
+<a href="/bin/view/System/DevelopingPlugins">DevelopingPlugins</a>.
+<p class='p'></p>
+
+<h3 id="Environment">  Environment </h3>
+<p class='p'></p>
+
+<h4 id="getSkin_40_41_45_62_36skin">  getSkin( ) -&gt; $skin </h4>
+<p></p>
+
+Get the skin path, set by the <code>SKIN</code> and <code>COVER</code> preferences variables or the <code>skin</code> and <code>cover</code> CGI parameters
+<p></p>
+
+Return: <code>$skin</code> Comma-separated list of skins, e.g. <code>'gnu,tartan'</code>. Empty string if none.
+<p class='p'></p>
+
+<h4 id="getUrlHost_40_41_45_62_36host">  getUrlHost( ) -&gt; $host </h4>
+<p class='p'>Get protocol, domain and optional port of script URL</p>
+
+Return: <code>$host</code> URL host, e.g. <code>"http://example.com:80"</code>
+<p class='p'></p>
+
+<h4 id="getScriptUrl_40_36web_44_36topic_44_36script_44_..._41_45_62_36url">  getScriptUrl( $web, $topic, $script, ... ) -&gt; $url </h4>
+<p></p>
+
+Compose fully qualified URL <ul>
+<li> <code>$web</code>    - Web name, e.g. <code>'Main'</code>
+</li> <li> <code>$topic</code>  - Topic name, e.g. <code>'WebNotify'</code>
+</li> <li> <code>$script</code> - Script name, e.g. <code>'view'</code>
+</li> <li> <code>...</code> - an arbitrary number of name=&gt;value parameter pairs that will be url-encoded and added to the url. The special parameter name '#' is reserved for specifying an anchor. e.g. <tt>getScriptUrl('x','y','view','#'=&gt;'XXX',a=&gt;1,b=&gt;2)</tt> will give <tt>.../view/x/y?a=1&amp;b=2#XXX</tt>
+</li></ul> 
+<p></p>
+
+Return: <code>$url</code>       URL, e.g. <code>"http://example.com:80/cgi-bin/view.pl/Main/WebNotify"</code>
+<p></p>
+
+<strong>Examples:</strong>
+<pre class="perl">
+my &#36;url;
+# &#36;url eq &#39;http://wiki.example.org/url/to/bin&#39;
+&#36;url &#61; Foswiki::Func::getScriptUrl();
+# &#36;url eq &#39;http://wiki.example.org/url/to/bin/edit&#39;
+&#36;url &#61; Foswiki::Func::getScriptUrl(undef, undef, &#39;edit&#39;);
+# &#36;url eq &#39;http://wiki.example.org/url/to/bin/edit/Web/Topic&#39;
+&#36;url &#61; Foswiki::Func::getScriptUrl(&#39;Web&#39;, &#39;Topic&#39;, &#39;edit&#39;);</pre>
+<p class='p'></p>
+
+<h4 id="getScriptUrlPath_40_36web_44_36topic_44_36script_44_..._41_45_62_36path">  getScriptUrlPath( $web, $topic, $script, ... ) -&gt; $path </h4>
+<p></p>
+
+Compose absolute URL path. See <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::getScriptUrl
+<p></p>
+
+<strong>Examples:</strong>
+<pre class="perl">
+my &#36;path;
+# &#36;path eq &#39;/path/to/bin&#39;
+&#36;path &#61; Foswiki::Func::getScriptUrlPath();
+# &#36;path eq &#39;/path/to/bin/edit&#39;
+&#36;path &#61; Foswiki::Func::getScriptUrlPath(undef, undef, &#39;edit&#39;);
+# &#36;path eq &#39;/path/to/bin/edit/Web/Topic&#39;
+&#36;path &#61; Foswiki::Func::getScriptUrlPath(&#39;Web&#39;, &#39;Topic&#39;, &#39;edit&#39;);</pre>
+<p></p>
+
+<strong>Since:</strong> 19 Jan 2012 (when called without parameters, this function is
+backwards-compatible with the old version which was deprecated 28 Nov 2008).
+<p class='p'></p>
+
+<h4 id="getViewUrl_40_36web_44_36topic_41_45_62_36url">  getViewUrl( $web, $topic ) -&gt; $url </h4>
+<p></p>
+
+Compose fully qualified view URL <ul>
+<li> <code>$web</code>   - Web name, e.g. <code>'Main'</code>. The current web is taken if empty
+</li> <li> <code>$topic</code> - Topic name, e.g. <code>'WebNotify'</code>
+</li></ul> 
+Return: <code>$url</code>      URL, e.g. <code>"http://example.com:80/cgi-bin/view.pl/Main/WebNotify"</code>
+<p class='p'></p>
+
+<h4 id="getPubUrlPath_40_36web_44_36topic_44_36attachment_44_37options_41_45_62_36url">  getPubUrlPath( $web, $topic, $attachment, %options ) -&gt; $url </h4>
+<p class='p'>Get pub URL path/attachment URL</p>
+
+<p class='p'>Return: with no parameters, returns the URL path of the root of
+all attachments.</p>
+
+Prior to Foswiki 2, URLs to attachments had to be constructed by the caller.
+For example, <code>%PUBURL%/Main/JohnSmith/picture.gif</code>
+This method of constructing URLs causes many problems, and is
+<strong>strongly</strong> discouraged.
+<p></p>
+
+Since Foswiki 2 this function accepts parameters as follows: <ul>
+<li> <code>$web</code> - name of web
+</li> <li> <code>$topic</code> - name of topic (ignored if <code>web</code> is not given)
+</li> <li> <code>$attachment</code> - name of attachment (ignored if <code>web</code> or <code>topic</code> not given)
+</li> <li> <code>%options</code> - additional options
+</li></ul> 
+%options may include: <ul>
+<li> <code>topic_version</code> - version of topic to retrieve attachment from
+</li> <li> <code>attachment_version</code> - version of attachment to retrieve
+</li> <li> <code>absolute</code> - requests an absolute URL (rather than a relative path)
+</li></ul> 
+<p></p>
+
+If <code>$web</code> is not given, <code>$topic</code> and <code>$attachment</code> are ignored.
+If <code>$topic</code> is not given, <code>$attachment</code> is ignored.
+<p></p>
+
+If <code>topic_version</code> is not given, the most recent revision of the topic
+will be linked. Similarly if attachment_version= is not given, the most recent
+revision of the attachment will be assumed. If <code>topic_version</code> is specified
+but <code>attachment_version</code> is not (or the specified <code>attachment_version</code> is not
+present), then the most recent version of the attachment in that topic version
+will be linked. Not all stores support retrieving old attachment versions
+this way.
+<p></p>
+
+If <code>absolute</code> is not specified (or is 0), this function will generate
+relative URLs. However if Foswiki is running in an absolute URL context
+(the skin requires absolute URLs, such as print or rss, or Foswiki is
+running from the command-line) then <code>absolute</code> will be ignored and
+absolute URLs will always be generated.
+<p class='p'></p>
+
+<h4 id="getExternalResource_40_36url_41_45_62_36response">  getExternalResource( $url ) -&gt; $response </h4>
+<p></p>
+
+Get whatever is at the other end of a URL (using an HTTP GET request). Will
+only work for encrypted protocols such as <code>https</code> if the <code>LWP</code> CPAN module is
+installed.
+<p></p>
+
+Note that the <code>$url</code> may have an optional user and password, as specified by
+the relevant RFC. Any proxy set in <code>configure</code> is honoured.
+<p></p>
+
+The <code>$response</code> is an object that is known to implement the following subset of
+the methods of <code>LWP::Response</code>. It may in fact be an <code>LWP::Response</code> object,
+but it may also not be if <code>LWP</code> is not available, so callers may only assume
+the following subset of methods is available:
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLastCol"> <code>code()</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLastCol"> <code>message()</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLastCol"> <code>header($field)</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLastCol"> <code>content()</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLastCol"> <code>is_error()</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLastCol foswikiLast"> <code>is_redirect()</code> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Note that if LWP is <strong>not</strong> available, this function: <ol>
+<li> can only really be trusted for HTTP/1.0 urls. If HTTP/1.1 or another     protocol is required, you are <strong>strongly</strong> recommended to <code>require LWP</code>.
+</li> <li> Will not parse multipart content
+</li></ol> 
+<p></p>
+
+In the event of the server returning an error, then <code>is_error()</code> will return
+true, <code>code()</code> will return a valid HTTP status code
+as specified in RFC 2616 and RFC 2518, and <code>message()</code> will return the
+message that was received from
+the server. In the event of a client-side error (e.g. an unparseable URL)
+then <code>is_error()</code> will return true and <code>message()</code> will return an explanatory
+message. <code>code()</code> will return 400 (BAD REQUEST).
+<p class='p'>Note: Callers can easily check the availability of other HTTP::Response methods
+as follows:</p>
+
+<pre>
+my &#36;response &#61; Foswiki::Func::getExternalResource(&#36;url);
+if (!&#36;response-&#62;is&#95;error() &#38;&#38; &#36;response-&#62;isa(&#39;HTTP::Response&#39;)) {
+    ... other methods of HTTP::Response may be called
+} else {
+    ... only the methods listed above may be called
+}
+</pre>
+<p class='p'></p>
+
+<h4 id="getRequestObject_40_41_45_62_36query">  getRequestObject( ) -&gt; $query </h4>
+<p></p>
+
+Get the request object. This is a subclass of <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Request">Foswiki::Request</a></code>. The request
+object can be used to get the parameters passed to the request, either
+via CGI or on the command line (depending on how the script was called).
+<p></p>
+
+A <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Request">Foswiki::Request</a></code> object is largely compatible with a <a class="interwikiLink" href="https://metacpan.org/module/CGI" title="CPAN perl repository">CPAN:CGI</a> object.
+Most of the time, documentation for that class applies directly to
+<code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Request">Foswiki::Request</a></code> objects as well.
+<p></p>
+
+Note that this method replaces <code>getCgiQuery</code> (which is a synonym for this
+method). Code that is expected to run with pre-1.1 versions of Foswiki
+can continue to call <code>getCgiQuery</code> for as long as necessary.
+<p></p>
+
+<strong>Caution:</strong> Direct use of the CGI parameters can introduce security vulnerabilities.
+Any parameters from the URL should be carefully validated, and encoded for safety
+before displaying the data back to the user.
+<p></p>
+
+Example:
+<pre>
+   my &#36;query    &#61; Foswiki::Func::getRequestObject();
+   my &#36;single   &#61; &#36;query-&#62;param(&#39;parm1&#39;);        # Get a scalar value (Returns 1st value if multiple valued)
+   my &#64;multi    &#61; &#36;query-&#62;multi&#95;param(&#39;parm2&#39;);  # Get multi-valued parameter
+</pre>
+<p></p>
+
+<strong>Since:</strong> 31 Mar 2009
+<p class='p'></p>
+
+<h4 id="getSessionKeys_40_41_45_62_64keys">  getSessionKeys() -&gt; @keys </h4>
+Get a list of all the names of session variables. The list is unsorted.
+<p></p>
+
+Session keys are stored and retrieved using <code>setSessionValue</code> and
+<code>getSessionValue</code>.
+<p class='p'></p>
+
+<h4 id="getSessionValue_40_36key_41_45_62_36value">  getSessionValue( $key ) -&gt; $value </h4>
+<p></p>
+
+Get a session value from the client session module <ul>
+<li> <code>$key</code> - Session key
+</li></ul> 
+Return: <code>$value</code>  Value associated with key; empty string if not set
+<p class='p'></p>
+
+<h4 id="setSessionValue_40_36key_44_36value_41_45_62_36boolean">  setSessionValue( $key, $value ) -&gt; $boolean </h4>
+<p></p>
+
+Set a session value. <ul>
+<li> <code>$key</code>   - Session key
+</li> <li> <code>$value</code> - Value associated with key
+</li></ul> 
+Return: true if function succeeded
+<p class='p'></p>
+
+<h4 id="clearSessionValue_40_36key_41_45_62_36boolean">  clearSessionValue( $key ) -&gt; $boolean </h4>
+<p></p>
+
+Clear a session value that was set using <code>setSessionValue</code>. <ul>
+<li> <code>$key</code> - name of value stored in session to be cleared. Note that   you <strong>cannot</strong> clear <code>AUTHUSER</code>.
+</li></ul> 
+Return: true if the session value was cleared
+<p class='p'></p>
+
+<h4 id="getContext_40_41_45_62_92_37hash">  getContext() -&gt; \%hash </h4>
+<p class='p'>Get a hash of context identifiers representing the currently active
+context.</p>
+
+<p class='p'>The context is a set of identifiers that are set
+during specific phases of processing. For example, each of
+the standard scripts in the 'bin' directory each has a context
+identifier - the view script has 'view', the edit script has 'edit'
+etc. So you can easily tell what 'type' of script your Plugin is
+being called within.</p>
+
+A comprehensive list of core context identifiers used by Foswiki is found in
+<a href="/bin/view/System/IfStatements#Context_identifiers.">IfStatements</a> Please be careful not to
+overwrite any of these identifiers!
+<p></p>
+
+Context identifiers can be used to communicate between Plugins, and between
+Plugins and templates. For example, in <a class="foswikiNewLink" href="/bin/edit/System/FirstPlugin?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">FirstPlugin</a>.pm, you might write:
+<pre>
+sub initPlugin {
+   Foswiki::Func::getContext()-&#62;{&#39;MyID&#39;} &#61; 1;
+   ...
+</pre>
+This can be used in SecondPlugin.pm like this:
+<pre>
+sub initPlugin {
+   if( Foswiki::Func::getContext()-&#62;{&#39;MyID&#39;} ) {
+      ...
+   }
+   ...
+</pre>
+or in a template, like this:
+<pre>
+&#37;TMPL:DEF{&#34;ON&#34;}&#37; Not off &#37;TMPL:END&#37;
+&#37;TMPL:DEF{&#34;OFF&#34;}&#37; Not on &#37;TMPL:END&#37;
+&#37;TMPL:P{context&#61;&#34;MyID&#34; then&#61;&#34;ON&#34; else&#61;&#34;OFF&#34;}&#37;
+</pre>
+or in a topic:
+<pre>
+&#37;IF{&#34;context MyID&#34; then&#61;&#34;MyID is ON&#34; else&#61;&#34;MyID is OFF&#34;}&#37;
+</pre>
+<strong><em>Note</em></strong>: <strong>all</strong> plugins have an <strong>automatically generated</strong> context identifier
+if they are installed and initialised. For example, if the <a class="foswikiNewLink" href="/bin/edit/System/FirstPlugin?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">FirstPlugin</a> is
+working, the context ID 'FirstPlugin' will be set.
+<p class='p'></p>
+
+<h4 id="pushTopicContext_40_36web_44_36topic_41">  pushTopicContext($web, $topic) </h4> <ul>
+<li> <code>$web</code> - new web
+</li> <li> <code>$topic</code> - new topic
+</li></ul> 
+Change the Foswiki context, adding the requested <code>$web.$topic</code> onto the
+preferences stack.  Any preferences found in <code>$web.$topic</code> will be used
+in place of preferences previously set in the stack, provided that they
+were not finalized in a lower level.  Preferences set in the prior
+<code>web.topic</code> are <strong>not</strong> cleared.  <code>$web.$topic</code> replaces and adds to
+preferences but does not remove preferences that it does not set.
+<p></p>
+
+Note that if the new topic is not readable by the logged in user due to
+access control considerations, there will <strong>not</strong> be an exception. It is the
+duty of the caller to check access permissions before changing the topic.
+All other errors will throw an exception.
+<p></p>
+
+It is the duty of the caller to restore the original context by calling
+<code>popTopicContext</code>.
+<p></p>
+
+Note that this call does <strong>not</strong> re-initialise plugins, so if you have used
+global variables to remember the web and topic in <code>initPlugin</code>, then those
+values will be unchanged.
+<p class='p'></p>
+
+<h4 id="popTopicContext_40_41">  popTopicContext() </h4>
+<p></p>
+
+Returns the Foswiki context to the state it was in before the
+<code>pushTopicContext</code> was called.
+<p class='p'></p>
+
+<h3 id="Registering_extensions">  Registering extensions </h3>
+<p class='p'>Plugins work either by using handlers to manipulate the text being processed,
+or by registering extensions, such as new macros, scripts, or meta-data types.</p>
+
+<p class='p'></p>
+
+<h4 id="registerTagHandler_40_36var_44_92_38fn_44_36syntax_41">  registerTagHandler( $var, \&amp;fn, $syntax ) </h4>
+<p class='p'>Should only be called from initPlugin.</p>
+
+Register a function to handle a simple variable. Handles both %VAR% and 
+%VAR{...}%. Registered variables are treated the same as internal macros, 
+and are expanded at the same time. This is a <em>lot</em> more efficient than using the <code>commonTagsHandler</code>. <ul>
+<li> <code>$var</code> - The name of the variable, i.e. the 'MYVAR' part of %MYVAR%.    The variable name <strong>must</strong> match /^[A-Z][A-Z0-9_]*$/ or it won't work.
+</li> <li> <code>\&amp;fn</code> - Reference to the handler function.
+</li> <li> <code>$syntax</code> can be 'classic' (the default) or 'context-free'. (context-free may be removed in future)   'classic' syntax is appropriate where you want the variable to support classic syntax 
+</li>  </ul><ol>
+<li style="list-style-type:lower-roman"> e. to accept the standard <code>%MYVAR{ "unnamed" param1="value1" param2="value2" }%</code> syntax,    as well as an unquoted default parameter, such as <code>%MYVAR{unquoted parameter}%</code>.    If your variable will only use named parameters, you can use 'context-free' syntax,    which supports a more relaxed syntax. For example,    %MYVAR{param1=value1, value 2, param3="value 3", param4='value 5"}%
+</li></ol> 
+<p></p>
+
+The variable handler function must be of the form:
+<pre>
+sub handler(\&#37;session, \&#37;params, &#36;topic, &#36;web, &#36;topicObject)
+</pre>
+where: <ul>
+<li> <code>\%session</code> - a reference to the session object (may be ignored)
+</li> <li> <code>\%params</code> - a reference to a <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Attrs">Foswiki::Attrs</a> object containing parameters. This can be used as a simple hash that maps parameter names to values, with _DEFAULT being the name for the default parameter.
+</li> <li> <code>$topic</code> - name of the topic in the query
+</li> <li> <code>$web</code> - name of the web in the query
+</li> <li> <code>$topicObject</code> - is the <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> object for the topic <strong>Since</strong> 2009-03-06
+</li></ul> 
+for example, to execute an arbitrary command on the server, you might do this:
+<pre>
+sub initPlugin{
+   Foswiki::Func::registerTagHandler(&#39;EXEC&#39;, \&#38;boo);
+}
+
+sub boo {
+    my( &#36;session, &#36;params, &#36;topic, &#36;web, &#36;topicObject ) &#61; &#64;&#95;;
+    my &#36;cmd &#61; &#36;params-&#62;{&#95;DEFAULT};
+
+    return &#34;NO COMMAND SPECIFIED&#34; unless &#36;cmd;
+
+    my &#36;result &#61; `&#36;cmd 2&#62;&#38;1`;
+    return &#36;params-&#62;{silent} ? &#39;&#39; : &#36;result;
+}
+</pre>
+would let you do this:
+<code>%EXEC{"ps -Af" silent="on"}%</code>
+<p></p>
+
+Registered tags differ from tags implemented using the old approach (text substitution in <code>commonTagsHandler</code>) in the following ways: <ul>
+<li> registered tags are evaluated at the same time as system tags, such as %SERVERTIME. <code>commonTagsHandler</code> is only called later, when all system tags have already been expanded (though they are expanded <em>again</em> after <code>commonTagsHandler</code> returns).
+</li> <li> registered tag names can only contain alphanumerics and _ (underscore)
+</li> <li> registering a tag <code>FRED</code> defines both <code>%FRED{...}%</code> <strong>and also</strong> <code>%FRED%</code>.
+</li> <li> registered tag handlers <strong>cannot</strong> return another tag as their only result (e.g. <code>return '%SERVERTIME%';</code>). It won't work.
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="registerRESTHandler_40_36alias_44_92_38fn_44_37options_41">  registerRESTHandler( $alias, \&amp;fn, %options ) </h4>
+<p class='p'>Should only be called from initPlugin.</p>
+
+Adds a function to the dispatch table of the REST interface  <ul>
+<li> <code>$alias</code> - The name .
+</li> <li> <code>\&amp;fn</code> - Reference to the function.
+</li> <li> <code>%options</code> - additional options affecting the handler
+</li></ul> 
+The handler function must be of the form:
+<pre>
+sub handler(\&#37;session)
+</pre>
+where: <ul>
+<li> <code>\%session</code> - a reference to the Foswiki session object (may be ignored)
+</li></ul> 
+<p class='p'>From the REST interface, the name of the plugin must be used
+as the subject of the invokation.</p>
+
+Additional options are set in the <code>%options</code> hash. These options are important
+to ensuring that requests to your handler can't be used in cross-scripting
+attacks, or used for phishing. <ul>
+<li> <code>authenticate</code> - use this boolean option to require authentication for the     handler. If this is set, then an authenticated session must be in place     or the REST call will be rejected with a 401 (Unauthorized) status code.     As of Foswiki 2, authenticate defaults to true.  If the handler being     registered is usable by guests, and does its own checking, pass     authenticate =&gt; 0 to remove the requirement for an authenticated session.
+</li> <li> <code>validate</code> - use this boolean option to require validation of any requests     made to this handler. Validation is the process by which a secret key     is passed to the server so it can identify the origin of the request.     As of Foswiki 2, validate will default to true.  If your handler is     typically invoked multipe times on a page, or doesn not need protection     from CSRF attacks, set validate =&gt; 0.
+</li> <li> <code>http_allow</code> use this option to specify that the HTTP methods that can     be used to invoke the handler. For example, <code>http_allow=&gt;'POST,GET'</code> will     constrain the handler to be invoked using POST and GET, but not other     HTTP methods, such as DELETE. Normally you will use http_allow=&gt;'POST'.     Together with authentication this is an important security tool.     Handlers that can be invoked using GET are vulnerable to being called     in the <code>src</code> parameter of <code>img</code> tags, a common method for cross-site     request forgery (CSRF) attacks. As of Foswiki 2, this option will     default to http_allow =&gt; 'POST'.   If your handler does not update,     then explicitly set this to http_allow =&gt; 'GET,POST'
+</li> <li> <code>description</code> =&gt; 'handler information'   This is a completely optional     short description of the handler function.  It is displayed  by the     %RESTHANDLERS% macro used for extension diagnostics.
+</li></ul> 
+<p></p>
+
+See <a href="http://foswiki.org/Support/GuidelinesForSecureExtensions">http://foswiki.org/Support/GuidelinesForSecureExtensions</a> for more information.
+<h5 id="Example">  Example </h5>
+<p></p>
+
+The <a href="/bin/view/System/EmptyPlugin">EmptyPlugin</a> has the following call in the initPlugin handler:
+<pre>
+   Foswiki::Func::registerRESTHandler(&#39;example&#39;, \&#38;restExample,
+     authenticate  &#61;&#62; 1,      # Set to 0 if handler should be useable by WikiGuest
+     validate      &#61;&#62; 1,      # Set to 0 to disable StrikeOne CSRF protection
+     http&#95;allow    &#61;&#62; &#39;POST&#39;, # Set to &#39;GET,POST&#39; to allow use HTTP GET and POST
+     description   &#61;&#62; &#39;Example handler for Empty Plugin&#39;
+     );
+</pre>
+<p></p>
+
+This adds the <code>restExample</code> function to the REST dispatch table
+for the <a href="/bin/view/System/EmptyPlugin">EmptyPlugin</a> under the 'example' alias, and allows it
+to be invoked using the URL
+<p></p>
+
+<code>http://server:port/bin/rest/EmptyPlugin/example</code>
+<p class='p'>note that the URL</p>
+
+<code>http://server:port/bin/rest/EmptyPlugin/restExample</code>
+<p class='p'>(ie, with the name of the function instead of the alias) will not work.</p>
+
+<h5 id="Calling_REST_handlers_from_the_command_45line">  Calling REST handlers from the command-line </h5>
+The <code>rest</code> script allows handlers to be invoked from the command line. The
+script is invoked passing the parameters as described in <a href="/bin/view/System/CommandAndCGIScripts">CommandAndCGIScripts</a>.
+If the handler requires authentication ( <code>authenticate=&gt;1</code> ) then this can
+be passed in the username and <code>password</code> parameters.
+<p class='p'>For example,</p>
+
+<code>perl -wT rest /EmptyPlugin/example -username <a class="foswikiNewLink" href="/bin/edit/System/HughPugh?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">HughPugh</a> -password trumpton</code>
+<p class='p'></p>
+
+<h4 id="registerMETA_40_36macro_44_36spec_41">  registerMETA($macro, $spec) </h4>
+Deprecated: please use <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a>::registerMETA instead.
+<p class='p'></p>
+
+<h3 id="Preferences">  Preferences </h3>
+<p class='p'></p>
+
+<h4 id="getPreferencesValue_40_36key_44_36web_41_45_62_36value">  getPreferencesValue( $key, $web ) -&gt; $value </h4>
+<p></p>
+
+Get a preferences value for the currently requested context, from the currently request topic, its web and the site. <ul>
+<li> <code>$key</code> - Preference name
+</li> <li> <code>$web</code> - Name of web, optional. If defined, we shortcircuit to <a href="/bin/view/System/WebPreferences">WebPreferences</a> (ignoring <a class="foswikiNewLink" href="/bin/edit/System/SitePreferences?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">SitePreferences</a>). This is really only useful for ACLs.
+</li></ul> 
+<p></p>
+
+Return: <code>$value</code>  Preferences value; undefined if not set
+<p></p>
+ <ul>
+<li> Example for preferences setting: <ul>
+<li> <a href="/bin/view/System/WebPreferences">WebPreferences</a> topic has: <code>* Set WEBBGCOLOR = #FFFFC0</code>
+</li> <li> <code>my $webColor = <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::getPreferencesValue( 'WEBBGCOLOR', 'Sandbox' );</code>
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Example for <a class="foswikiNewLink" href="/bin/edit/System/MyPlugin?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">MyPlugin</a> setting: <ul>
+<li> if the <a class="foswikiNewLink" href="/bin/edit/System/MyPlugin?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">MyPlugin</a> topic has: <code>* Set COLOR = red</code>
+</li> <li> Use <code>"MYPLUGIN_COLOR"</code> for <code>$key</code>
+</li> <li> <code>my $color = <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::getPreferencesValue( "MYPLUGIN_COLOR" );</code>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<strong>NOTE:</strong> If <code>$NO_PREFS_IN_TOPIC</code> is enabled in the plugin, then
+preferences set in the plugin topic will be ignored.
+<p class='p'></p>
+
+<h4 id="getPluginPreferencesValue_40_36key_41_45_62_36value">  getPluginPreferencesValue( $key ) -&gt; $value </h4>
+<p></p>
+
+Get a preferences value from your Plugin <ul>
+<li> <code>$key</code> - Plugin Preferences key w/o PLUGINNAME_ prefix.
+</li></ul> 
+Return: <code>$value</code>  Preferences value; empty string if not set
+<p></p>
+
+<strong><em>Note</em></strong>: This function will will <strong>only</strong> work when called from the Plugin.pm file itself. it <strong>will not work</strong> if called from a sub-package (e.g. <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::MyPlugin::MyModule">Foswiki::Plugins::MyPlugin::MyModule</a>)
+<p></p>
+
+<strong>NOTE:</strong> If <code>$NO_PREFS_IN_TOPIC</code> is enabled in the plugin, then
+preferences set in the plugin topic will be ignored.
+<p class='p'></p>
+
+<h4 id="getPreferencesFlag_40_36key_44_36web_41_45_62_36value">  getPreferencesFlag( $key, $web ) -&gt; $value </h4>
+<p></p>
+
+Get a preferences flag from Foswiki or from a Plugin <ul>
+<li> <code>$key</code> - Preferences key
+</li> <li> <code>$web</code> - Name of web, optional. Current web if not specified; does not apply to settings of Plugin topics
+</li></ul> 
+Return: <code>$value</code>  Preferences flag <code>'1'</code> (if set), or <code>"0"</code> (for preferences values <code>"off"</code>, <code>"no"</code> and <code>"0"</code>)
+<p></p>
+ <ul>
+<li> Example for Plugin setting: <ul>
+<li> <a class="foswikiNewLink" href="/bin/edit/System/MyPlugin?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">MyPlugin</a> topic has: <code>* Set SHOWHELP = off</code>
+</li> <li> Use <code>"MYPLUGIN_SHOWHELP"</code> for <code>$key</code>
+</li> <li> <code>my $showHelp = <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::getPreferencesFlag( "MYPLUGIN_SHOWHELP" );</code>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<strong>NOTE:</strong> If <code>$NO_PREFS_IN_TOPIC</code> is enabled in the plugin, then
+preferences set in the plugin topic will be ignored.
+<p class='p'></p>
+
+<h4 id="getPluginPreferencesFlag_40_36key_41_45_62_36boolean">  getPluginPreferencesFlag( $key ) -&gt; $boolean </h4>
+<p></p>
+
+Get a preferences flag from your Plugin <ul>
+<li> <code>$key</code> - Plugin Preferences key w/o PLUGINNAME_ prefix.
+</li></ul> 
+Return: false for preferences values <code>"off"</code>, <code>"no"</code> and <code>"0"</code>, or values not set at all. True otherwise.
+<p></p>
+
+<strong><em>Note</em></strong>: This function will will <strong>only</strong> work when called from the Plugin.pm file itself. it <strong>will not work</strong> if called from a sub-package (e.g. <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::MyPlugin::MyModule">Foswiki::Plugins::MyPlugin::MyModule</a>)
+<p></p>
+
+<strong>NOTE:</strong> If <code>$NO_PREFS_IN_TOPIC</code> is enabled in the plugin, then
+preferences set in the plugin topic will be ignored.
+<p class='p'></p>
+
+<h4 id="setPreferencesValue_40_36name_44_36val_41">  setPreferencesValue($name, $val) </h4>
+<p></p>
+
+Set the preferences value so that future calls to getPreferencesValue will
+return this value, and <code>%$name%</code> will expand to the preference when used in
+future variable expansions.
+<p class='p'>The preference only persists for the rest of this request. Finalised
+preferences cannot be redefined using this function.</p>
+
+<p class='p'></p>
+
+<h3 id="User_Handling_and_Access_Control">  User Handling and Access Control </h3>
+<h4 id="getDefaultUserName_40_41_45_62_36loginName">  getDefaultUserName( ) -&gt; $loginName </h4>
+Get default user name as defined in the configuration as <code>DefaultUserLogin</code>
+<p></p>
+
+Return: <code>$loginName</code> Default user name, e.g. <code>'guest'</code>
+<p class='p'></p>
+
+<h4 id="getCanonicalUserID_40_36user_41_45_62_36cUID">  getCanonicalUserID( $user ) -&gt; $cUID </h4> <ul>
+<li> <code>$user</code> can be a login, wikiname or web.wikiname
+</li></ul> 
+Return the cUID of the specified user. A cUID is a unique identifier which
+is assigned by Foswiki for each user.
+BEWARE: While the default <a class="foswikiNewLink" href="/bin/edit/System/TopicUserMapping?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">TopicUserMapping</a> uses a cUID that looks like a user's
+<a class="foswikiNewLink" href="/bin/edit/System/LoginName?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">LoginName</a>, some characters may be modified to make them compatible with rcs.
+Other usermappings may use other conventions - the JoomlaUserMapping
+for example, has cUIDs like 'JoomlaeUserMapping_1234'.
+<p class='p'>If $user is undefined, it assumes the currently logged-in user.</p>
+
+Return: <code>$cUID</code>, an internal unique and portable escaped identifier for
+registered users. This may be autogenerated for an authenticated but
+unregistered user.
+<p class='p'></p>
+
+<h4 id="getWikiName_40_36user_41_45_62_36wikiName">  getWikiName( $user ) -&gt; $wikiName </h4>
+<p></p>
+
+return the <a href="/bin/view/System/WikiName">WikiName</a> of the specified user
+if $user is undefined Get Wiki name of logged in user
+<p></p>
+ <ul>
+<li> $user can be a cUID, login, wikiname or web.wikiname
+</li></ul> 
+<p></p>
+
+Return: <code>$wikiName</code> Wiki Name, e.g. <code>'JohnDoe'</code>
+<p class='p'></p>
+
+<h4 id="getWikiUserName_40_36user_41_45_62_36wikiName">  getWikiUserName( $user ) -&gt; $wikiName </h4>
+<p class='p'>return the userWeb.WikiName of the specified user
+if $user is undefined Get Wiki name of logged in user</p>
+ <ul>
+<li> $user can be a cUID, login, wikiname or web.wikiname
+</li></ul> 
+<p></p>
+
+Return: <code>$wikiName</code> Wiki Name, e.g. <code>"Main.JohnDoe"</code>
+<p class='p'></p>
+
+<h4 id="wikiToUserName_40_36id_41_45_62_36loginName">  wikiToUserName( $id ) -&gt; $loginName </h4>
+Translate a Wiki name to a login name. <ul>
+<li> <code>$id</code> - Wiki name, e.g. <code>'Main.JohnDoe'</code> or <code>'JohnDoe'</code>.     $id may also be a login name. This will normally     be transparent, but should be borne in mind if you have login names     that are also legal wiki names.
+</li></ul> 
+<p></p>
+
+Return: <code>$loginName</code>   Login name of user, e.g. <code>'jdoe'</code>, or undef if not
+matched.
+<p></p>
+
+Note that it is possible for several login names to map to the same wikiname.
+This function will only return the <strong>first</strong> login name that maps to the
+wikiname.
+<p></p>
+
+returns undef if the <a href="/bin/view/System/WikiName">WikiName</a> is not found.
+<p class='p'></p>
+
+<h4 id="userToWikiName_40_36loginName_44_36dontAddWeb_41_45_62_36wikiName">  userToWikiName( $loginName, $dontAddWeb ) -&gt; $wikiName </h4>
+Translate a login name to a Wiki name <ul>
+<li> <code>$loginName</code>  - Login name, e.g. <code>'jdoe'</code>. This may     also be a wiki name. This will normally be transparent, but may be     relevant if you have login names that are also valid wiki names.
+</li> <li> <code>$dontAddWeb</code> - Do not add web prefix if <code>"1"</code>
+</li></ul> 
+Return: <code>$wikiName</code>      Wiki name of user, e.g. <code>'Main.JohnDoe'</code> or <code>'JohnDoe'</code>
+<p class='p'>userToWikiName will always return a name. If the user does not
+exist in the mapping, the $loginName parameter is returned. (backward compatibility)</p>
+
+<p class='p'></p>
+
+<h4 id="emailToWikiNames_40_36email_44_36dontAddWeb_41_45_62_64wikiNames">  emailToWikiNames( $email, $dontAddWeb ) -&gt; @wikiNames </h4> <ul>
+<li> <code>$email</code> - email address to look up
+</li> <li> <code>$dontAddWeb</code> - Do not add web prefix if <code>"1"</code>
+</li></ul> 
+Find the wikinames of all users who have the given email address as their
+registered address. Since several users could register with the same email
+address, this returns a list of wikinames rather than a single wikiname.
+<p class='p'></p>
+
+<h4 id="wikinameToEmails_40_36user_41_45_62_64emails">  wikinameToEmails( $user ) -&gt; @emails </h4> <ul>
+<li> <code>$user</code> - wikiname of user to look up
+</li></ul> 
+Returns the registered email addresses of the named user. If $user is
+undef, returns the registered email addresses for the logged-in user.
+<p class='p'>$user may also be a group.</p>
+
+<p class='p'></p>
+
+<h4 id="isGuest_40_41_45_62_36boolean">  isGuest( ) -&gt; $boolean </h4>
+<p></p>
+
+Test if logged in user is a guest (<a class="foswikiNewLink" href="/bin/edit/System/WikiGuest?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">WikiGuest</a>)
+<p class='p'></p>
+
+<h4 id="isAnAdmin_40_36id_41_45_62_36boolean">  isAnAdmin( $id ) -&gt; $boolean </h4>
+<p></p>
+
+Find out if the user is an admin or not. If the user is not given,
+the currently logged-in user is assumed. <ul>
+<li> $id can be either a login name or a <a href="/bin/view/System/WikiName">WikiName</a>
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="isGroupMember_40_36group_44_36id_44_36options_41_45_62_36boolean">  isGroupMember( $group, $id, $options ) -&gt; $boolean </h4>
+<p class='p'>Find out if $id is in the named group.  The expand option controls whether or not nested groups are searched.</p>
+
+e.g. Is jordi in the <a class="foswikiNewLink" href="/bin/edit/System/HesperionXXGroup?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">HesperionXXGroup</a>, and not in a nested group. e.g.
+<pre>
+if( Foswiki::Func::isGroupMember( &#34;HesperionXXGroup&#34;, &#34;jordi&#34;, { expand &#61;&#62; 0 } )) {
+    ...
+}
+</pre>
+If <code>$user</code> is <code>undef</code>, it defaults to the currently logged-in user.
+<p></p>
+ <ul>
+<li> $id can be a login name or a <a href="/bin/view/System/WikiName">WikiName</a>
+</li> <li> Nested groups are expanded unless $options{ expand =&gt; } is set to false.
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="eachUser_40_41_45_62_36iterator">  eachUser() -&gt; $iterator </h4>
+Get an iterator over the list of all the registered users <strong>not</strong> including
+groups. The iterator will return each wiki name in turn (e.g. 'FredBloggs').
+<p></p>
+
+Use it as follows:
+<pre>
+    my &#36;it &#61; Foswiki::Func::eachUser();
+    while (&#36;it-&#62;hasNext()) {
+        my &#36;user &#61; &#36;it-&#62;next();
+        # &#36;user is a wikiname
+    }
+</pre>
+<p></p>
+
+<strong>WARNING</strong> on large sites, this could be a long list!
+<p class='p'></p>
+
+<h4 id="eachMembership_40_36id_41_45_62_36iterator">  eachMembership($id) -&gt; $iterator </h4> <ul>
+<li> <code>$id</code> - <a href="/bin/view/System/WikiName">WikiName</a> or login name of the user.     If <code>$id</code> is <code>undef</code>, defaults to the currently logged-in user.
+</li></ul> 
+Get an iterator over the names of all groups that the user is a member of.
+<p class='p'></p>
+
+<h4 id="eachGroup_40_41_45_62_36iterator">  eachGroup() -&gt; $iterator </h4>
+Get an iterator over all groups.
+<p></p>
+
+Use it as follows:
+<pre>
+    my &#36;iterator &#61; Foswiki::Func::eachGroup();
+    while (&#36;it-&#62;hasNext()) {
+        my &#36;group &#61; &#36;it-&#62;next();
+        # &#36;group is a group name e.g. AdminGroup
+    }
+</pre>
+<p></p>
+
+<strong>WARNING</strong> on large sites, this could be a long list!
+<p class='p'></p>
+
+<h4 id="isGroup_40_36group_41_45_62_36boolean">  isGroup( $group ) -&gt; $boolean </h4>
+<p></p>
+
+Checks if <code>$group</code> is the name of a user group.
+<p class='p'></p>
+
+<h4 id="eachGroupMember_40_36group_41_45_62_36iterator">  eachGroupMember($group) -&gt; $iterator </h4>
+Get an iterator over all the members of the named group. Returns undef if
+$group is not a valid group.  Nested groups are expanded unless the
+expand option is set to false.
+<p></p>
+
+Use it as follows:  Process all users in <a class="foswikiNewLink" href="/bin/edit/System/RadioHeadGroup?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">RadioHeadGroup</a> without expanding nested groups
+<pre>
+    my &#36;iterator &#61; Foswiki::Func::eachGroupMember(&#39;RadioheadGroup&#39;, {expand &#61;&#62; &#39;false&#39;);
+    while (&#36;it-&#62;hasNext()) {
+        my &#36;user &#61; &#36;it-&#62;next();
+        # &#36;user is a wiki name e.g. &#39;TomYorke&#39;, &#39;PhilSelway&#39;
+        #   With expand set to false, group names can also be returned.
+        #   Users are not checked to exist.
+    }
+</pre>
+<p></p>
+
+<strong>WARNING</strong> on large sites, this could be a long list!
+<p class='p'></p>
+
+<h4 id="addUserToGroup_40_36id_44_36group_44_36create_41_45_62_36boolean">  addUserToGroup( $id, $group, $create ) -&gt; $boolean </h4>
+<p></p>
+ <ul>
+<li> $id can be a login name or a <a href="/bin/view/System/WikiName">WikiName</a>
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="removeUserFromGroup_40_36group_44_36id_41_45_62_36boolean">  removeUserFromGroup( $group, $id ) -&gt; $boolean </h4>
+<p></p>
+ <ul>
+<li> $id can be a login name or a <a href="/bin/view/System/WikiName">WikiName</a>
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="checkAccessPermission_40_36type_44_36id_44_36text_44_36topic_44_36web_44_36meta_41_45_62_36boolean">  checkAccessPermission( $type, $id, $text, $topic, $web, $meta ) -&gt; $boolean </h4>
+<p></p>
+
+Check access permission for a topic based on the
+<a href="/bin/view/System/AccessControl">AccessControl</a> rules <ul>
+<li> <code>$type</code>     - Access type, required, e.g. <code>'VIEW'</code>, <code>'CHANGE'</code>.
+</li> <li> <code>$id</code>  - <a href="/bin/view/System/WikiName">WikiName</a> of remote user, required, e.g. <code>"RickShaw"</code>.     $id may also be a login name.     If <code>$id</code> is '', 0 or <code>undef</code> then access is <strong>always permitted</strong>.  This is used     by other functions if the caller should be able to bypass access checks.
+</li> <li> <code>$text</code>     - Topic text, optional. If 'perl false' (undef, 0 or ''),     topic <code>$web.$topic</code> is consulted. <code>$text</code> may optionally contain embedded     <code>%META:PREFERENCE</code> tags. Provide this parameter if: <ol>
+<li> You are setting different access controls in the text to those defined      in the stored topic,
+</li> <li> You already have the topic text in hand, and want to help avoid        having to read it again,
+</li> <li> You are providing a <code>$meta</code> parameter.
+</li></ol> 
+</li> <li> <code>$topic</code>    - Topic name, optional, e.g. <code>'PrivateStuff'</code>, '' or <code>undef</code> <ul>
+<li> If undefined, the Web preferences are checked.
+</li> <li> If null, the default (<a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a>) topic is checked.
+</li> <li> If topic specified but does not exist, the web preferences are checked,       allowing the caller to determine       <em>"If the topic existed, would the operation be permitted".</em>
+</li></ul> 
+</li> <li> <code>$web</code>      - Web name, required, e.g. <code>'Sandbox'</code> <ul>
+<li> If missing, the default Users Web (Main) is used.
+</li></ul> 
+</li> <li> <code>$meta</code>     - Meta-data object, as returned by <code>readTopic</code>. Optional.     If <code>undef</code>, but <code>$text</code> is defined, then access controls will be parsed     from <code>$text</code>. If defined, then metadata embedded in <code>$text</code> will be     ignored. This parameter is always ignored if <code>$text</code> is undefined.     Settings in <code>$meta</code> override <code>Set</code> settings in $text.
+</li></ul> 
+A perl true result indicates that access is permitted.
+<p></p>
+
+<strong>Note</strong> the weird parameter order is due to compatibility constraints with
+earlier releases.
+<p></p>
+
+<blockquote class="foswikiHelp">
+<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> <strong>Tip:</strong> if you want, you can use this method to check your own access control types. For example, if you: <ul>
+<li> Set ALLOWTOPICSPIN = <a class="foswikiNewLink" href="/bin/edit/System/IncyWincy?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">IncyWincy</a>
+</li></ul> 
+in <code>ThatWeb.ThisTopic</code>, then a call to <code>checkAccessPermission('SPIN', 'IncyWincy', undef, 'ThisTopic', 'ThatWeb', undef)</code> will return <code>true</code>.
+</blockquote>
+<p></p>
+
+<strong>Example code:</strong>
+<p></p>
+
+<pre>
+    use Error qw(:try);
+    use Foswiki::AccessControlException;
+    ...
+    unless (
+        Foswiki::Func::checkAccessPermission(
+            &#34;VIEW&#34;, &#36;session-&#62;{user}, undef, &#36;topic, &#36;web
+        )
+      )
+    {
+        throw Foswiki::AccessControlException( &#34;VIEW&#34;, &#36;session-&#62;{user}, &#36;web,
+            &#36;topic,  &#36;Foswiki::Meta::reason );
+    }
+</pre>
+<p class='p'></p>
+
+<h3 id="Traversing">  Traversing </h3>
+<p class='p'></p>
+
+<h4 id="getListOfWebs_40_36filter_91_44_36web_93_41_45_62_64webs">  getListOfWebs( $filter [, $web] ) -&gt; @webs </h4>
+<p></p>
+ <ul>
+<li> <code>$filter</code> - spec of web types to recover
+</li></ul> 
+Gets a list of webs, filtered according to the spec in the $filter,
+which may include one of: <ol>
+<li> 'user' (for only user webs)
+</li> <li> 'template' (for only template webs i.e. those starting with "_")
+</li></ol> 
+<code>$filter</code> may also contain the word 'public' which will further filter
+out webs that have NOSEARCHALL set on them.
+'allowed' filters out webs the current user can't read. <ul>
+<li> <code>$web</code> - (<strong>Since</strong> 2009-01-01) name of web to get list of subwebs for. Defaults to the root.              note that if set, the list will not contain the web specified in $web
+</li></ul> 
+<p></p>
+
+For example, the deprecated getPublicWebList function can be duplicated
+as follows:
+<pre>
+   my &#64;webs &#61; Foswiki::Func::getListOfWebs( &#34;user,public&#34; );
+</pre>
+<p class='p'></p>
+
+<h4 id="isValidWebName_40_36name_91_44_36system_93_41_45_62_36boolean">  isValidWebName( $name [, $system] ) -&gt; $boolean </h4>
+<p class='p'>Check for a valid web name. If $system is true, then
+system web names are considered valid (names starting with _)
+otherwise only user web names are valid</p>
+
+<p class='p'>If $Foswiki::cfg{EnableHierarchicalWebs} is off, it will also return false
+when a nested web name is passed to it.</p>
+
+<p class='p'></p>
+
+<h4 id="webExists_40_36web_41_45_62_36boolean">  webExists( $web ) -&gt; $boolean </h4>
+<p></p>
+
+Test if web exists <ul>
+<li> <code>$web</code> - Web name, required, e.g. <code>'Sandbox'</code>
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="getTopicList_40_36web_41_45_62_64topics">  getTopicList( $web ) -&gt; @topics </h4>
+<p></p>
+
+Get list of all topics in a web <ul>
+<li> <code>$web</code> - Web name, required, e.g. <code>'Sandbox'</code>
+</li></ul> 
+Return: <code>@topics</code> Topic list, e.g. <code>( 'WebChanges',&nbsp; 'WebHome', 'WebIndex', 'WebNotify' )</code>
+<p class='p'></p>
+
+<h4 id="isValidTopicName_40_36name_91_44_36allowNonWW_93_41_45_62_36boolean">  isValidTopicName( $name [, $allowNonWW] ) -&gt; $boolean </h4>
+<p></p>
+
+Check for a valid topic name. <ul>
+<li> <code>$name</code> - topic name
+</li> <li> <code>$allowNonWW</code> - true to allow non-wikiwords
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="topicExists_40_36web_44_36topic_41_45_62_36boolean">  topicExists( $web, $topic ) -&gt; $boolean </h4>
+<p></p>
+
+Test if topic exists <ul>
+<li> <code>$web</code>   - Web name, optional, e.g. <code>'Main'</code>.
+</li> <li> <code>$topic</code> - Topic name, required, e.g. <code>'TokyoOffice'</code>, or <code>"Main.TokyoOffice"</code>
+</li></ul> 
+<p></p>
+
+$web and $topic are parsed as described in the documentation for <code>normalizeWebTopicName</code>.
+Specifically, the Main is used if $web is not specified and $topic has no web specifier.
+To get an expected behaviour it is recommened to specify the current web for $web; don't leave it empty.
+<p class='p'></p>
+
+<h4 id="readTopic_40_36web_44_36topic_44_36rev_41_45_62_40_36meta_44_36text_41">  readTopic( $web, $topic, $rev ) -&gt; ( $meta, $text ) </h4>
+<p></p>
+
+Read topic text and meta data, regardless of access permissions. <ul>
+<li> <code>$web</code> - Web name, required, e.g. <code>'Main'</code>
+</li> <li> <code>$topic</code> - Topic name, required, e.g. <code>'TokyoOffice'</code>
+</li> <li> <code>$rev</code> - revision to read (default latest)
+</li></ul> 
+Return: <code>( $meta, $text )</code> Meta data object and topic text
+<p></p>
+
+<code>$meta</code> is a perl 'object' of class <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a></code>. This class is
+fully documented in the source code documentation shipped with the
+release, or can be inspected in the <code>lib/Foswiki/Meta.pm</code> file.
+<p></p>
+
+This method <strong>ignores</strong> topic access permissions. You should be careful to use
+<code>checkAccessPermission</code> to ensure the current user has read access to the
+topic.
+<p class='p'></p>
+
+<h4 id="getRevisionInfo_40_36web_44_36topic_44_36rev_44_36attachment_41_45_62_40_36date_44_36user_44_36rev_44_36comment_41">  getRevisionInfo($web, $topic, $rev, $attachment ) -&gt; ( $date, $user, $rev, $comment )  </h4>
+<p></p>
+
+Get revision info of a topic or attachment <ul>
+<li> <code>$web</code> - Web name, optional, e.g. <code>'Main'</code>
+</li> <li> <code>$topic</code>   - Topic name, required, e.g. <code>'TokyoOffice'</code>
+</li> <li> <code>$rev</code>     - revsion number, or tag name (can be in the format 1.2, or just the minor number)
+</li> <li> <code>$attachment</code>                 -attachment filename
+</li></ul> 
+Return: <code>( $date, $user, $rev, $comment )</code> List with: ( last update date, login name of last user, minor part of top revision number, comment of attachment if attachment ), e.g. <code>( 1234561, 'phoeny', "5",&nbsp; )</code>
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $date </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> in epochSec </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $user </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Wiki name of the author (<strong>not</strong> login name) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> $rev </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> actual rev number </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> $comment </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> comment given for uploaded attachment </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+NOTE: if you are trying to get revision info for a topic, use
+<code>$meta-&gt;getRevisionInfo</code> instead if you can - it is significantly
+more efficient.
+<p class='p'></p>
+
+<h4 id="getRevisionAtTime_40_36web_44_36topic_44_36time_41_45_62_36rev">  getRevisionAtTime( $web, $topic, $time ) -&gt; $rev </h4>
+<p></p>
+
+Get the revision number of a topic at a specific time. <ul>
+<li> <code>$web</code> - web for topic
+</li> <li> <code>$topic</code> - topic
+</li> <li> <code>$time</code> - time (in epoch secs) for the rev
+</li></ul> 
+Return: Single-digit revision number, or undef if it couldn't be determined
+(either because the topic isn't that old, or there was a problem)
+<p class='p'></p>
+
+<h4 id="getAttachmentList_40_36web_44_36topic_41_45_62_64list">  getAttachmentList( $web, $topic ) -&gt; @list </h4>
+Get a list of the attachments on the given topic.
+<p></p>
+
+<strong>Since:</strong> 31 Mar 2009
+<p class='p'></p>
+
+<h4 id="attachmentExists_40_36web_44_36topic_44_36attachment_41_45_62_36boolean">  attachmentExists( $web, $topic, $attachment ) -&gt; $boolean </h4>
+<p></p>
+
+Test if attachment exists <ul>
+<li> <code>$web</code>   - Web name, optional, e.g. <code>Main</code>.
+</li> <li> <code>$topic</code> - Topic name, required, e.g. <code>TokyoOffice</code>, or <code>Main.TokyoOffice</code>
+</li> <li> <code>$attachment</code> - attachment name, e.g.=logo.gif=
+</li></ul> 
+$web and $topic are parsed as described in the documentation for <code>normalizeWebTopicName</code>.
+<p class='p'>The attachment must exist in the store (it is not sufficient for it to be referenced
+in the object only)</p>
+
+<p class='p'></p>
+
+<h4 id="readAttachment_40_36web_44_36topic_44_36name_44_36rev_41_45_62_36data">  readAttachment( $web, $topic, $name, $rev ) -&gt; $data </h4>
+<p></p>
+ <ul>
+<li> <code>$web</code> - web for topic - must not be tainted
+</li> <li> <code>$topic</code> - topic - must not be tainted
+</li> <li> <code>$name</code> - attachment name - must not be tainted
+</li> <li> <code>$rev</code> - revision to read (default latest)
+</li></ul> 
+Read an attachment from the store for a topic, and return it as a string. The
+names of attachments on a topic can be recovered from the meta-data returned
+by <code>readTopic</code>. If the attachment does not exist, or cannot be read, undef
+will be returned. If the revision is not specified, the latest version will
+be returned.
+<p></p>
+
+View permission on the topic is required for the
+read to be successful.  Access control violations are flagged by a
+<a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::AccessControlException">Foswiki::AccessControlException</a>. Permissions are checked for the current user.
+<p></p>
+
+<pre>
+use Error qw(:try);
+use Foswiki::AccessControlException ();
+
+my( &#36;meta, &#36;text ) &#61; Foswiki::Func::readTopic( &#36;web, &#36;topic );
+my &#64;attachments &#61; &#36;meta-&#62;find( &#39;FILEATTACHMENT&#39; );
+foreach my &#36;a ( &#64;attachments ) {
+   try {
+       my &#36;data &#61; Foswiki::Func::readAttachment( &#36;web, &#36;topic, &#36;a-&#62;{name} );
+       ...
+   } catch Foswiki::AccessControlException with {
+   };
+}
+</pre>
+<p></p>
+
+This is the way 99% of extensions will access attachments.
+See <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a>::openAttachment</code> for a lower level interface that does
+not check access controls.
+<p class='p'></p>
+
+<h3 id="Manipulating">  Manipulating </h3>
+<p class='p'></p>
+
+<h4 id="createWeb_40_36newWeb_44_36baseWeb_44_36opts_41">  createWeb( $newWeb, $baseWeb, $opts ) </h4>
+<p></p>
+ <ul>
+<li> <code>$newWeb</code> is the name of the new web.
+</li> <li> <code>$baseWeb</code> is the name of an existing web (a template web). If the base     web is a system web, all topics in it will be copied into the new web. If it is     a normal web, only topics starting with 'Web' will be copied. If no base web is     specified, an empty web (with no topics) will be created. If it is specified     but does not exist, an error will be thrown.
+</li> <li> <code>$opts</code> is a ref to a hash that contains settings to be modified in
+</li></ul> 
+the web preferences topic in the new web.
+<p></p>
+
+<pre>
+use Error qw( :try );
+use Foswiki::AccessControlException ();
+
+try {
+    Foswiki::Func::createWeb( &#34;Newweb&#34; );
+} catch Foswiki::AccessControlException with {
+    my &#36;e &#61; shift;
+    # see documentation on Foswiki::AccessControlException
+} catch Foswiki::OopsException with {
+        shift-&#62;throw();    # propagate
+} catch Error with {
+    my &#36;e &#61; shift;
+    # see documentation on Error
+} otherwise {
+    ...
+};
+</pre>
+<p class='p'></p>
+
+<h4 id="moveWeb_40_36oldName_44_36newName_41">  moveWeb( $oldName, $newName ) </h4>
+<p class='p'>Move (rename) a web.</p>
+
+<pre>
+use Error qw( :try );
+use Foswiki::AccessControlException ();
+
+try {
+    Foswiki::Func::moveWeb( &#34;Oldweb&#34;, &#34;Newweb&#34; );
+} catch Foswiki::AccessControlException with {
+    my &#36;e &#61; shift;
+    # see documentation on Foswiki::AccessControlException
+} catch Foswiki::OopsException with {
+        shift-&#62;throw();    # propagate
+} catch Error with {
+    my &#36;e &#61; shift;
+    # see documentation on Error::Simple
+} otherwise {
+    ...
+};
+</pre>
+<p></p>
+
+To delete a web, move it to a subweb of <code>Trash</code>
+<pre>
+Foswiki::Func::moveWeb( &#34;Deadweb&#34;, &#34;Trash.Deadweb&#34; );
+</pre>
+<p class='p'></p>
+
+<h4 id="checkTopicEditLock_40_36web_44_36topic_44_36script_41_45_62_40_36oopsUrl_44_36loginName_44_36unlockTime_41">  checkTopicEditLock( $web, $topic, $script ) -&gt; ( $oopsUrl, $loginName, $unlockTime ) </h4>
+<p></p>
+
+Check if a lease has been taken by some other user. <ul>
+<li> <code>$web</code> Web name, e.g. <code>"Main"</code>, or empty
+</li> <li> <code>$topic</code> Topic name, e.g. <code>"MyTopic"</code>, or <code>"Main.MyTopic"</code>
+</li></ul> 
+Return: <code>( $oopsUrl, $loginName, $unlockTime )</code> - The <code>$oopsUrl</code> for calling redirectCgiQuery(), user's <code>$loginName</code>, and estimated <code>$unlockTime</code> in minutes, or ( '', '', 0 ) if no lease exists. <ul>
+<li> <code>$script</code> The script to invoke when continuing with the edit
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="setTopicEditLock_40_36web_44_36topic_44_36lock_41">  setTopicEditLock( $web, $topic, $lock ) </h4>
+<p></p>
+ <ul>
+<li> <code>$web</code> Web name, e.g. <code>"Main"</code>, or empty
+</li> <li> <code>$topic</code> Topic name, e.g. <code>"MyTopic"</code>, or <code>"Main.MyTopic"</code>
+</li> <li> <code>$lock</code> 1 to lease the topic, 0 to clear an existing lease
+</li></ul> 
+<p></p>
+
+Takes out a "lease" on the topic. The lease doesn't prevent
+anyone from editing and changing the topic, but it does redirect them
+to a warning screen, so this provides some protection. The <code>edit</code> script
+always takes out a lease.
+<p></p>
+
+It is <strong>impossible</strong> to fully lock a topic. Concurrent changes will be
+merged.
+<p class='p'></p>
+
+<h4 id="saveTopic_40_36web_44_36topic_44_36meta_44_36text_44_36options_41">  saveTopic( $web, $topic, $meta, $text, $options ) </h4>
+<p></p>
+ <ul>
+<li> <code>$web</code> - web for the topic
+</li> <li> <code>$topic</code> - topic name
+</li> <li> <code>$meta</code> - reference to <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a> object      (optional, set to undef to create a new topic containing just text,     or to just change that topic's text)
+</li> <li> <code>$text</code> - text of the topic (without embedded meta-data!!!
+</li> <li> <code>\%options</code> - ref to hash of save options     <code>\%options</code> may include:         <table class="foswikiTable" rules="none">     	<tbody>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>dontlog</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> mark this change so it doesn't appear in the statistics </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>minor</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> True if this change is not to be notified </td>		</tr>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> <code>forcenewrevision</code> </td>			<td class="foswikiTableCol1 foswikiLastCol"> force the save to increment the revision counter </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>ignorepermissions</code> </td>			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> don't check acls </td>		</tr>	</tbody>     </table>
+</li></ul> 
+For example,
+<pre>
+use Error qw( :try );
+use Foswiki::AccessControlException ();
+
+my( &#36;meta, &#36;text );
+if (Foswiki::Func::topicExists(&#36;web, &#36;topic)) {
+    ( &#36;meta, &#36;text ) &#61; Foswiki::Func::readTopic( &#36;web, &#36;topic );
+} else {
+    #if the topic doesn&#39;t exist, we can either leave &#36;meta undefined
+    #or if we need to set more than just the topic text, we create a new Meta object and use it.
+    &#36;meta &#61; new Foswiki::Meta(&#36;Foswiki::Plugins::SESSION, &#36;web, &#36;topic );
+    &#36;text &#61; &#39;&#39;;
+}
+&#36;text &#61;~ s/APPLE/ORANGE/g;
+try {
+    Foswiki::Func::saveTopic( &#36;web, &#36;topic, &#36;meta, &#36;text );
+} catch Foswiki::AccessControlException with {
+    my &#36;e &#61; shift;
+    # see documentation on Foswiki::AccessControlException
+} catch Foswiki::OopsException with {
+        shift-&#62;throw();    # propagate
+} catch Error with {
+    my &#36;e &#61; shift;
+    # see documentation on Error::Simple
+} otherwise {
+    ...
+};
+</pre>
+<p></p>
+
+In the event of an error an exception will be thrown. Callers can elect
+to trap the exceptions thrown, or allow them to propagate to the calling
+environment. May throw <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::OopsException">Foswiki::OopsException</a> or Error::Simple.
+<p></p>
+
+<strong>Note:</strong> The <code>ignorepermissions</code> option is only available in Foswiki 1.1 and
+later.
+<p class='p'></p>
+
+<h4 id="moveTopic_40_36web_44_36topic_44_36newWeb_44_36newTopic_41">  moveTopic( $web, $topic, $newWeb, $newTopic ) </h4>
+<p></p>
+ <ul>
+<li> <code>$web</code> source web - required
+</li> <li> <code>$topic</code> source topic - required
+</li> <li> <code>$newWeb</code> dest web
+</li> <li> <code>$newTopic</code> dest topic
+</li></ul> 
+Renames the topic. Throws an exception if something went wrong.
+If $newWeb is undef, it defaults to $web. If $newTopic is undef, it defaults
+to $topic.
+<p class='p'>The destination topic must not already exist.</p>
+
+<p class='p'>Rename a topic to the $Foswiki::cfg{TrashWebName} to delete it.</p>
+
+<pre>
+use Error qw( :try );
+
+try {
+    moveTopic( &#34;Work&#34;, &#34;TokyoOffice&#34;, &#34;Trash&#34;, &#34;ClosedOffice&#34; );
+} catch Foswiki::AccessControlException with {
+    my &#36;e &#61; shift;
+    # see documentation on Foswiki::AccessControlException
+} catch Foswiki::OopsException with {
+        shift-&#62;throw();    # propagate
+} catch Error with {
+    my &#36;e &#61; shift;
+    # see documentation on Error::Simple
+} otherwise {
+    ...
+};
+</pre>
+<p class='p'></p>
+
+<h4 id="saveAttachment_40_36web_44_36topic_44_36attachment_44_92_37opts_41">  saveAttachment( $web, $topic, $attachment, \%opts ) </h4> <ul>
+<li> <code>$web</code> - web for topic
+</li> <li> <code>$topic</code> - topic to atach to
+</li> <li> <code>$attachment</code> - name of the attachment
+</li> <li> <code>\%opts</code> - Ref to hash of options
+</li></ul> 
+Create an attachment on the given topic.
+<code>\%opts</code> may include:
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>dontlog</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> mark this change so it is not picked up in statistics </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>comment</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> comment for save </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>hide</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> if the attachment is to be hidden in normal topic view </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>stream</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Stream of file to upload </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>file</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Name of a file to use for the attachment data. ignored if stream is set. Local file on the server. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>filepath</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Client path to file </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>filesize</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Size of uploaded data </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>filedate</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Date </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>createlink</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Set true to create a link at the end of the topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>notopicchange</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Set to true to <strong>prevent</strong> this upload being recorded in the meta-data of the topic. </td>
+		</tr>
+	</tbody></table>
+Save an attachment to the store for a topic. On success, returns undef.
+If there is an error, an exception will be thrown. The current user must
+have CHANGE access on the topic being attached to.
+<p></p>
+
+<pre>
+    try {
+        Foswiki::Func::saveAttachment( &#36;web, &#36;topic, &#39;image.gif&#39;,
+                                     { file &#61;&#62; &#39;image.gif&#39;,
+                                       comment &#61;&#62; &#39;Picture of Health&#39;,
+                                       hide &#61;&#62; 1 } );
+   } catch Foswiki::AccessControlException with {
+      # Topic CHANGE access denied
+   } catch Foswiki::OopsException with {
+        shift-&#62;throw();    # propagate
+   } catch Error with {
+      # see documentation on Error
+   } otherwise {
+      ...
+   };
+</pre>
+This is the way 99% of extensions will create new attachments. See
+<code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a>::openAttachment</code> for a much lower-level interface.
+<p class='p'></p>
+
+<h4 id="moveAttachment_40_36web_44_36topic_44_36attachment_44_36newWeb_44_36newTopic_44_36newAttachment_41">  moveAttachment( $web, $topic, $attachment, $newWeb, $newTopic, $newAttachment ) </h4>
+<p></p>
+ <ul>
+<li> <code>$web</code> source web - required
+</li> <li> <code>$topic</code> source topic - required
+</li> <li> <code>$attachment</code> source attachment - required
+</li> <li> <code>$newWeb</code> dest web
+</li> <li> <code>$newTopic</code> dest topic
+</li> <li> <code>$newAttachment</code> dest attachment
+</li></ul> 
+Renames the attachment. Throws an exception on error or access violation.
+If $newWeb is undef, it defaults to $web. If $newTopic is undef, it defaults
+to $topic. If $newAttachment is undef, it defaults to $attachment. If all of $newWeb, $newTopic and $newAttachment are undef, it is an error.
+<p></p>
+
+The destination topic must already exist, but the destination attachment must
+<strong>not</strong> exist.
+<p class='p'>Rename an attachment to $Foswiki::cfg{TrashWebName}.TrashAttament to delete it.</p>
+
+<pre>
+use Error qw( :try );
+
+try {
+   # move attachment between topics
+   moveAttachment( &#34;Countries&#34;, &#34;Germany&#34;, &#34;AlsaceLorraine.dat&#34;,
+                     &#34;Countries&#34;, &#34;France&#34; );
+   # Note destination attachment name is defaulted to the same as source
+} catch Foswiki::AccessControlException with {
+   my &#36;e &#61; shift;
+   # see documentation on Foswiki::AccessControlException
+} catch Foswiki::OopsException with {
+        shift-&#62;throw();    # propagate
+} catch Error with {
+   my &#36;e &#61; shift;
+   # see documentation on Error
+};
+</pre>
+<p class='p'></p>
+
+<h4 id="copyAttachment_40_36web_44_36topic_44_36attachment_44_36newWeb_44_36newTopic_44_36newAttachment_41">  copyAttachment( $web, $topic, $attachment, $newWeb, $newTopic, $newAttachment ) </h4>
+<p></p>
+ <ul>
+<li> <code>$web</code> source web - required
+</li> <li> <code>$topic</code> source topic - required
+</li> <li> <code>$attachment</code> source attachment - required
+</li> <li> <code>$newWeb</code> dest web
+</li> <li> <code>$newTopic</code> dest topic
+</li> <li> <code>$newAttachment</code> dest attachment
+</li></ul> 
+Copies the attachment. Throws an exception on error or access violation.
+If $newWeb is undef, it defaults to $web. If $newTopic is undef, it defaults
+to $topic. If $newAttachment is undef, it defaults to $attachment. If all of $newWeb, $newTopic and $newAttachment are undef, it is an error.
+<p></p>
+
+The destination topic must already exist, but the destination attachment must
+<strong>not</strong> exist.
+<p></p>
+
+<pre>
+use Error qw( :try );
+
+try {
+   # copy attachment between topics
+   copyAttachment( &#34;Countries&#34;, &#34;Germany&#34;, &#34;AlsaceLorraine.dat&#34;,
+                     &#34;Countries&#34;, &#34;France&#34; );
+   # Note destination attachment name is defaulted to the same as source
+} catch Foswiki::AccessControlException with {
+   my &#36;e &#61; shift;
+   # see documentation on Foswiki::AccessControlException
+} catch Foswiki::OopsException with {
+        shift-&#62;throw();    # propagate
+} catch Error with {
+   my &#36;e &#61; shift;
+   # see documentation on Error
+};
+</pre>
+<p></p>
+
+<strong>Since:</strong> 19 Jul 2010
+<p class='p'></p>
+
+<h3 id="Finding_changes">  Finding changes </h3>
+<p class='p'></p>
+
+<h4 id="eachChangeSince_40_36web_44_36time_41_45_62_36iterator">  eachChangeSince($web, $time) -&gt; $iterator </h4>
+<p></p>
+
+Get an iterator over the list of all the changes in the given web between
+<code>$time</code> and now. $time is a time in seconds since 1st Jan 1970, and is not
+guaranteed to return any changes that occurred before (now - 
+{Store}{RememberChangesFor}). {Store}{RememberChangesFor}) is a
+setting in <code>configure</code>. Changes are returned in <strong>most-recent-first</strong>
+order.
+<p></p>
+
+Use it as follows:
+<pre>
+    my &#36;iterator &#61; Foswiki::Func::eachChangeSince(
+        &#36;web, time() - 7 &#42; 24 &#42; 60 &#42; 60); # the last 7 days
+    while (&#36;iterator-&#62;hasNext()) {
+        my &#36;change &#61; &#36;iterator-&#62;next();
+        ...
+    }
+</pre>
+<code>$change</code> is a reference to a hash containing the following fields: <ul>
+<li> <code>verb</code> - the action - one of <ul>
+<li> <code>update</code> - a web, topic or attachment has been modified
+</li> <li> <code>insert</code> - a web, topic or attachment is being inserted
+</li> <li> <code>remove</code> - a topic or attachment is being removed
+</li></ul> 
+</li> <li> <code>time</code> - time of the change, in epoch-secs
+</li> <li> <code>cuid</code> - canonical UID of the user who is making the change
+</li> <li> <code>revision</code> - the revision of the topic that the change appears in
+</li> <li> <code>path</code> - web.topic path for the affected
+</li> <li> <code>attachment</code> - attachment name (optional)
+</li> <li> <code>oldpath</code> - web.topic path for the origin of a move
+</li> <li> <code>oldattachment</code> - origin of move
+</li> <li> <code>minor</code> - boolean true if this change is flagged as minor
+</li> <li> <code>comment</code> - descriptive text
+</li></ul> 
+<p></p>
+
+The following additional fields are <strong>deprecated</strong> and will be removed
+in Foswiki 2.0: <ul>
+<li> <code>more</code> - formatted string indicating if the change was minor or not
+</li> <li> <code>topic</code> - name of the topic the change occurred to
+</li> <li> <code>user</code> - wikiname of the user who made the change
+</li></ul> 
+These additional fields
+<p></p>
+
+If you are writing an extension that requires compatibility with
+Foswiki &lt; 2 only the <code>more</code>, <code>revision</code>, <code>time</code>, <code>topic</code> and <code>user</code>
+can be assumed.
+<p class='p'></p>
+
+<h4 id="summariseChanges_40_36web_44_36topic_44_36orev_44_36nrev_44_36tml_44_36nochecks_41_45_62_36text">  summariseChanges($web, $topic, $orev, $nrev, $tml, $nochecks) -&gt; $text </h4>
+Generate a summary of the changes between rev $orev and rev $nrev of the
+given topic. <ul>
+<li> <code>$web</code>, <code>$topic</code> - topic (required)
+</li> <li> <code>$orev</code> - older rev (required)
+</li> <li> <code>$nrev</code> - later rev (may be undef for the latest)
+</li> <li> <code>$tml</code> - if true will generate renderable TML (i.e. HTML with NOPs. if false will generate a summary suitable for use in plain text (mail, for example)
+</li></ul> 
+Generate a (max 3 line) summary of the differences between the revs. <ul>
+<li> <code>$nochecks</code> if true, will suppress access control checks. (<strong>Since</strong> 2.0)
+</li></ul> 
+<p class='p'>If there is only one rev, a topic summary will be returned.</p>
+
+If <code>$tml</code> is not set, all HTML will be removed.
+<p class='p'>In non-tml, lines are truncated to 70 characters. Differences are shown using + and - to indicate added and removed text.</p>
+
+<p class='p'>If access is denied to either revision, then it will be treated as blank
+text.</p>
+
+<strong>Since</strong> 2009-03-06
+<p class='p'></p>
+
+<h3 id="Templates">  Templates </h3>
+<p class='p'></p>
+
+<h4 id="readTemplate_40_36name_44_36skin_41_45_62_36text">  readTemplate( $name, $skin ) -&gt; $text </h4>
+<p></p>
+
+Read a template or skin. Embedded <a href="/bin/view/System/SkinTemplates">template directives</a> get expanded <ul>
+<li> <code>$name</code> - Template name, e.g. <code>'view'</code>
+</li> <li> <code>$skin</code> - Comma-separated list of skin names, optional, e.g. <code>'print'</code>
+</li></ul> 
+Return: <code>$text</code>    Template text
+<p class='p'></p>
+
+<h4 id="loadTemplate_40_36name_44_36skin_44_36web_41_45_62_36text">  loadTemplate ( $name, $skin, $web ) -&gt; $text </h4>
+<p></p>
+ <ul>
+<li> <code>$name</code> - template file name
+</li> <li> <code>$skin</code> - comma-separated list of skins to use (default: current skin)
+</li> <li> <code>$web</code> - the web to look in for topics that contain templates (default: current web)
+</li></ul> 
+Return: expanded template text (what's left after removal of all %TMPL:DEF% statements)
+<p class='p'>Reads a template and extracts template definitions, adding them to the
+list of loaded templates, overwriting any previous definition.</p>
+
+How Foswiki searches for templates is described in <a href="/bin/view/System/SkinTemplates">SkinTemplates</a>.
+<p class='p'>If template text is found, extracts include statements and fully expands them.</p>
+
+<p class='p'></p>
+
+<h4 id="expandTemplate_40_36def_41_45_62_36string">  expandTemplate( $def ) -&gt; $string </h4>
+<p></p>
+
+Do a <code>%TMPL:P{$def}%</code>, only expanding the template (not expanding any variables other than <code>%TMPL%</code>.) <ul>
+<li> <code>$def</code> - template name or parameters (as a string)
+</li></ul> 
+Return: the text of the expanded template
+<p></p>
+
+A template is defined using a <code>%TMPL:DEF%</code> statement in a template
+file. See the <a href="/bin/view/System/SkinTemplates">documentation on Foswiki templates</a> for more information.
+<p></p>
+
+eg:
+    #load the templates (relying on the system-wide skin path.)
+    <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::loadTemplate('linkedin');
+    #get the 'profile' DEF section
+    my $tml = <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::expandTemplate('profile');
+    #get the 'profile' DEF section expanding the inline Template macros (such as %USER% and %TYPE%)
+    #NOTE: when using it this way, it is important to use the double quotes "" to delineate the values of the parameters.
+    my $tml = <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::expandTemplate(
+        '"profile" USER="' . $user . '" TYPE="' . $type . '"' );
+<p class='p'></p>
+
+<h3 id="Rendering">  Rendering </h3>
+<p class='p'></p>
+
+<h4 id="expandCommonVariables_40_36text_44_36topic_44_36web_44_36meta_41_45_62_36text">  expandCommonVariables( $text, $topic, $web, $meta ) -&gt; $text </h4>
+<p></p>
+
+Expand all common <code>%VARIABLES%</code> <ul>
+<li> <code>$text</code>  - Text with variables to expand, e.g. <code>'Current user is %WIKIUSER%'</code>
+</li> <li> <code>$topic</code> - Current topic name, optional, e.g. <code>'WebNotify'</code>
+</li> <li> <code>$web</code>   - Web name, optional, e.g. <code>'Main'</code>. The current web is taken if missing
+</li> <li> <code>$meta</code>  - topic meta-data to use while expanding
+</li></ul> 
+Return: <code>$text</code>     Expanded text, e.g. <code>'Current user is WikiGuest'</code>
+<p class='p'>See also: expandVariablesOnTopicCreation</p>
+
+<strong>Caution:</strong> This function needs all the installed plugins to have gone through initialization.
+Never call this function from within an initPlugin handler,  bad things happen.
+<p></p>
+
+<strong>Caution:</strong> This function ultimately calls the following handlers: <ul>
+<li> <code>beforeCommonTagsHandler</code>
+</li> <li> <code>commonTagsHandler</code>
+</li> <li> <code>registered macro handlers</code>
+</li> <li> <code>afterCommonTagsHandler</code>
+</li></ul> 
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>It is possible to create an infinite loop if expandCommonVariables is called in any of these handlers.</strong> 
+It can be used, but care should be taken to ensure that the text being expanded does
+not cause this function to be called recursively.
+<p class='p'></p>
+
+<h4 id="expandVariablesOnTopicCreation_40_36text_41_45_62_36text">  expandVariablesOnTopicCreation ( $text ) -&gt; $text </h4>
+<p></p>
+
+Expand the limited set of variables that are always expanded during topic creation <ul>
+<li> <code>$text</code> - the text to process
+</li></ul> 
+Return: text with variables expanded
+<p class='p'>Expands only the variables expected in templates that must be statically
+expanded in new content.</p>
+
+The expanded variables are: <ul>
+<li> <code>%DATE%</code> Signature-format date
+</li> <li> <code>%SERVERTIME%</code> See <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <code>%GMTIME%</code> See <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <code>%USERNAME%</code> Base login name
+</li> <li> <code>%WIKINAME%</code> Wiki name
+</li> <li> <code>%WIKIUSERNAME%</code> Wiki name with prepended web
+</li> <li> <code>%URLPARAM{...}%</code> - Parameters to the current CGI query
+</li> <li> <code>%NOP%</code> No-op
+</li></ul> 
+<p class='p'>See also: expandVariables</p>
+
+<p class='p'></p>
+
+<h4 id="renderText_40_36text_44_36web_44_36topic_41_45_62_36text">  renderText( $text, $web, $topic ) -&gt; $text </h4>
+<p></p>
+
+Render text from TML into XHTML as defined in <a class="foswikiNewLink" href="/bin/edit/System/TextFormattingRules?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">TextFormattingRules</a> <ul>
+<li> <code>$text</code> - Text to render, e.g. <code>'*bold* text and =fixed font='</code>
+</li> <li> <code>$web</code>  - Web name, optional, e.g. <code>'Main'</code>. The current web is taken if missing
+</li> <li> <code>$topic</code> - topic name, optional, defaults to web home
+</li></ul> 
+Return: <code>$text</code>    XHTML text, e.g. <code>'&lt;b&gt;bold&lt;/b&gt; and &lt;code&gt;fixed font&lt;/code&gt;'</code>
+<p class='p'>NOTE: renderText expects that all %MACROS% have already been expanded - it does not expand them for you (call expandCommonVariables above).</p>
+
+<p class='p'></p>
+
+<h4 id="internalLink_40_36pre_44_36web_44_36topic_44_36label_44_36anchor_44_36createLink_41_45_62_36text">  internalLink( $pre, $web, $topic, $label, $anchor, $createLink ) -&gt; $text </h4>
+<p></p>
+
+Render topic name and link label into an XHTML link. Normally you do not need to call this funtion, it is called internally by <code>renderText()</code> <ul>
+<li> <code>$pre</code>        - Text occuring before the link syntax, optional
+</li> <li> <code>$web</code>        - Web name, required, e.g. <code>'Main'</code>
+</li> <li> <code>$topic</code>      - Topic name to link to, required, e.g. <code>'WebNotify'</code>
+</li> <li> <code>$label</code>      - Link label, required. Usually the same as <code>$topic</code>, e.g. <code>'notify'</code>
+</li> <li> <code>$anchor</code>     - Anchor, optional, e.g. <code>'#Jump'</code>
+</li> <li> <code>$createLink</code> - Set to <code>'1'</code> to add question linked mark after topic name if topic does not exist;<br /> set to <code>'0'</code> to suppress link for non-existing topics
+</li></ul> 
+Return: <code>$text</code>          XHTML anchor, e.g. <code>'&lt;a href='/cgi-bin/view/Main/WebNotify#Jump'&gt;notify&lt;/a&gt;'</code>
+<p class='p'></p>
+
+<h4 id="addToZone_40_36zone_44_36id_44_36data_44_36requires_41">  addToZone( $zone, $id, $data, $requires ) </h4>
+<p></p>
+
+Direct interface to %ADDTOZONE (see <a href="/bin/view/System/VarADDTOZONE">VarADDTOZONE</a>)
+<p></p>
+ <ul>
+<li> <code>$zone</code> - name of the zone
+</li> <li> <code>$id</code> - unique ID
+</li> <li> <code>$data</code> - the content.
+</li> <li> <code>requires</code> optional, comma-separated list of <code>$id</code> identifiers that should     precede the content
+</li></ul> 
+<p></p>
+
+All macros present in <code>$data</code> will be expanded before being inserted into the <code>&lt;head&gt;</code> section.
+<p></p>
+
+<blockquote class="foswikiHelp"><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" />
+<strong>Note:</strong> Read the developer supplement at <a class="interwikiLink" href="https://foswiki.org/Development.AddToZoneFromPluginHandlers" title="'Development.AddToZoneFromPluginHandlers' on foswiki.org">Foswiki:Development.AddToZoneFromPluginHandlers</a> if you are
+calling <code>addToZone()</code> from a rendering or macro/tag-related plugin handler
+</blockquote>
+<p></p>
+
+Examples:
+<pre>
+Foswiki::Func::addToZone( &#39;head&#39;, &#39;PATTERN&#95;STYLE&#39;,
+   &#39;&#60;link rel&#61;&#34;stylesheet&#34; type&#61;&#34;text/css&#34; href&#61;&#34;&#37;PUBURL&#37;/Foswiki/PatternSkin/layout.css&#34; media&#61;&#34;all&#34; /&#62;&#39;);
+
+Foswiki::Func::addToZone( &#39;script&#39;, &#39;MY&#95;JQUERY&#39;,
+   &#39;&#60;script type&#61;&#34;text/javascript&#34; src&#61;&#34;&#37;PUBURL&#37;/Myweb/MyJQuery/myjquery.js&#34;&#62;&#60;/scipt&#62;&#39;,
+   &#39;JQUERYPLUGIN::FOSWIKI&#39;);
+</pre>
+<p class='p'></p>
+
+<h3 id="Controlling_page_output">  Controlling page output </h3>
+<p class='p'></p>
+
+<h4 id="writeHeader_40_41">  writeHeader() </h4>
+<p class='p'>Prints a basic content-type HTML header for text/html to standard out.</p>
+
+<p class='p'></p>
+
+<h4 id="redirectCgiQuery_40_36query_44_36url_44_36passthru_44_36status_41">  redirectCgiQuery( $query, $url, $passthru, $status ) </h4>
+<p></p>
+
+Redirect to URL <ul>
+<li> <code>$query</code> - CGI query object. Ignored, only there for compatibility. The session CGI query object is used instead.
+</li> <li> <code>$url</code>   - URL to redirect to
+</li> <li> <code>$passthru</code> - enable passthrough.
+</li> <li> <code>$status</code> - HTTP status code (30x) to redirect with. Optional, defaults to 302. <strong>Since</strong> 2012-03-28
+</li></ul> 
+<p class='p'>Return:             none</p>
+
+Issue a <code>Location</code> HTTP header that will cause a redirect to a new URL.
+Nothing more should be printed to STDOUT after this method has been called.
+<p></p>
+
+The <code>$passthru</code> parameter allows you to pass the parameters that were passed
+to the current query on to the target URL, as long as it is another URL on the
+same installation. If <code>$passthru</code> is set to a true value, then Foswiki
+will save the current URL parameters, and then try to restore them on the
+other side of the redirect. Parameters are stored on the server in a cache
+file.
+<p></p>
+
+Note that if <code>$passthru</code> is set, then any parameters in <code>$url</code> will be lost
+when the old parameters are restored. if you want to change any parameter
+values, you will need to do that in the current CGI query before redirecting
+e.g.
+<pre>
+my &#36;query &#61; Foswiki::Func::getRequestObject();
+&#36;query-&#62;param(-name &#61;&#62; &#39;text&#39;, -value &#61;&#62; &#39;Different text&#39;);
+Foswiki::Func::redirectCgiQuery(
+  undef, Foswiki::Func::getScriptUrl(&#36;web, &#36;topic, &#39;edit&#39;), 1);
+</pre>
+<code>$passthru</code> does nothing if <code>$url</code> does not point to a script in the current
+Foswiki installation.
+<p class='p'></p>
+
+<h3 id="Plugin_45specific_file_handling">  Plugin-specific file handling </h3>
+<p class='p'></p>
+
+<h4 id="getWorkArea_40_36pluginName_41_45_62_36directorypath">  getWorkArea( $pluginName ) -&gt; $directorypath </h4>
+<p class='p'>Gets a private directory for Plugin use. The Plugin is entirely responsible
+for managing this directory; Foswiki will not read from it, or write to it.</p>
+
+The directory is guaranteed to exist, and to be writable by the webserver
+user. By default it will <strong>not</strong> be web accessible.
+<p class='p'>The directory and its contents are permanent, so Plugins must be careful
+to keep their areas tidy.</p>
+
+For temporary file storage that only exists for the life of the transaction,
+use the Perl <code>File::Temp</code>  or related <code>File::Spec</code> functions.
+<p class='p'></p>
+
+<h4 id="readFile_40_36filename_44_36unicode_41_45_62_36text">  readFile( $filename, $unicode ) -&gt; $text </h4>
+<p></p>
+
+Read file, low level. Used for Plugin workarea. <ul>
+<li> <code>$filename</code> - Full path name of file
+</li> <li> <code>$unicode</code> - Specify that file contains unicode text  <strong>New with Foswiki 2.0</strong>
+</li></ul> 
+Return: <code>$text</code> Content of file, empty if not found
+<p></p>
+
+<strong><em>NOTE:</em></strong> Use this function only for the Plugin workarea, <strong>not</strong> for topics and attachments. Use the appropriate functions to manipulate topics and attachments.
+<p></p>
+
+Foswiki 2.0 APIs generally all use UNICODE strings, and all data is properly decoded from/to utf-8 at the edge.  <strong>This API is an exception!</strong>
+Because this API can be used to retrieve data of any type including binary data, it is <strong>not</strong> decoded to unicode by default.
+By default, data is read as raw bytes, without any encoding layer.
+<p></p>
+
+If you are using this API to read topic originated data, topic names, etc. then you should set the <code>$unicode</code> flag so that the data returned is a valid perl character string.
+<p class='p'></p>
+
+<h4 id="saveFile_40_36filename_44_36text_44_36unicode_41">  saveFile( $filename, $text, $unicode ) </h4>
+<p></p>
+
+Save file, low level. Used for Plugin workarea. <ul>
+<li> <code>$filename</code> - Full path name of file
+</li> <li> <code>$text</code>     - Text to save
+</li> <li> <code>$unicode</code>  - Flag indicates that $text string should be saved as utf-8. <strong>New with Foswiki 2.0</strong>
+</li></ul> 
+<p class='p'>Return:                none</p>
+
+<strong><em>NOTE:</em></strong> Use this function only for the Plugin workarea, <strong>not</strong> for topics and attachments. Use the appropriate functions to manipulate topics and attachments.
+<p></p>
+
+Foswiki 2.0 APIs generally all use UNICODE strings, and all data is properly decoded from/to utf-8 at the edge.  <strong>This API is an exception!</strong>
+Because this API can be used to save data of any type including binary data, it is <strong>not</strong> decoded to unicode by default.
+By default, data is written as raw bytes, without any encoding layer.
+<p></p>
+
+If you are using this API to write topic data, topic names, etc. then you should set the <code>$unicode</code> flag so that the data returned as a valid perl character string.
+<p></p>
+
+Failure to set the <code>$unicode</code> flag when required will result in perl "Wide character in print" errors.
+<p class='p'></p>
+
+<h3 id="General_Utilities">  General Utilities </h3>
+<p class='p'></p>
+
+<h4 id="normalizeWebTopicName_40_36web_44_36topic_41_45_62_40_36web_44_36topic_41">  normalizeWebTopicName($web, $topic) -&gt; ($web, $topic) </h4>
+<p></p>
+
+Parse a web and topic name, supplying defaults as appropriate. <ul>
+<li> <code>$web</code> - Web name, identifying variable, or empty string
+</li> <li> <code>$topic</code> - Topic name, may be a web.topic string, required.
+</li></ul> 
+Return: the parsed Web/Topic pair
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/PerlDoc?module=Foswiki::Func;sortcol=0;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Input</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/PerlDoc?module=Foswiki::Func;sortcol=1;table=5;up=0#sorted_table" rel="nofollow" title="Sort by this column">Return</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( 'Web', 'Topic' ) </tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'Web', 'Topic' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( '', 'Topic' ) </tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'Main', 'Topic' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( '', '' ) </tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'Main', 'WebHome' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( '', 'Web/Topic' ) </tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'Web', 'Topic' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( '', 'Web/Subweb/Topic' ) </tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'Web/Subweb', 'Topic' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( '', 'Web.Topic' ) </tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'Web', 'Topic' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( '', 'Web.Subweb.Topic' ) </tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'Web/Subweb', 'Topic' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( 'Web1', 'Web2.Topic' )</tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'Web2', 'Topic' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <tt>( 'Web1', 'Web2.' )</tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <tt>( 'Web2', 'WebHome' ) </tt> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+Note that sub web names (<a class="foswikiNewLink" href="/bin/edit/Web/SubWeb?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">SubWeb</a>) are only available if hierarchical webs are enabled in <code>configure</code>.
+<p></p>
+
+The symbols %USERSWEB%, %SYSTEMWEB% and %DOCWEB% can be used in the input to represent the web names set in $cfg{UsersWebName} and $cfg{SystemWebName}. For example:
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/PerlDoc?module=Foswiki::Func;sortcol=0;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Input</a> </th>
+			<th class="foswikiTableCol1 foswikiLastCol"> <a href="/bin/view/System/PerlDoc?module=Foswiki::Func;sortcol=1;table=6;up=0#sorted_table" rel="nofollow" title="Sort by this column">Return</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( '%USERSWEB%', 'Topic' )</tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'Main', 'Topic' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <tt>( '%SYSTEMWEB%', 'Topic' )</tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <tt>( 'System', 'Topic' ) </tt> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <tt>( '', '%DOCWEB%.Topic' )</tt> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <tt>( 'System', 'Topic' ) </tt> </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<h4 id="query_40_36searchString_44_36topics_44_92_37options_41_45_62_iterator_40resultset_41">  query($searchString, $topics, \%options ) -&gt; iterator (resultset) </h4>
+<p class='p'>Query the topic data in the specified webs. A programatic interface to SEARCH results.</p>
+ <ul>
+<li> <code>$searchString</code> - the search string, as appropriate for the selected type
+</li> <li> <code>$topics</code> - undef OR reference to a <a class="foswikiNewLink" href="/bin/edit/System/ResultSet?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">ResultSet</a>, Iterator, or array containing the web.topics to be evaluated.                  if undef, then all the topics in the webs specified will be evaluated.
+</li> <li> <code>\%option</code> - reference to an options hash
+</li></ul> 
+The <code>\%options</code> hash may contain the following options: <ul>
+<li> <code>type</code> - <code>regex</code>, <code>keyword</code>, <code>query</code>, ... defaults to <code>query</code>
+</li> <li> <code>web</code> - The web/s to search in - string can have the same form as the <code>web</code> param of SEARCH (if not specified, defaults to BASEWEB)
+</li> <li> <code>casesensitive</code> - false to ignore case (default true)
+</li> <li> <code>files_without_match</code> - true to return files only (default false). If <code>files_without_match</code> is specified, it will return on the first match in each topic (i.e. it will return only one match per 
+</li> <li> topic, excludetopic and other params as per SEARCH)
+</li> <li> <code>includeTopics</code> - Seach only in this topic, a topic with asterisk wildcards, or a list of topics separated by comma
+</li> <li> <code>excludeTopics</code> - Exclude search in this topic, a topic with asterisk wildcards, or a list of topics separated by comma
+</li></ul> 
+<p></p>
+
+To iterate over the returned topics use:
+<pre>
+    my &#36;matches &#61; Foswiki::Func::query( &#34;Slimy Toad&#34;, undef,
+            { web &#61;&#62; &#39;Main,San&#42;&#39;, casesensitive &#61;&#62; 0, files&#95;without&#95;match &#61;&#62; 0 } );
+    while (&#36;matches-&#62;hasNext) {
+        my &#36;webtopic &#61; &#36;matches-&#62;next;
+        my (&#36;web, &#36;topic) &#61; Foswiki::Func::normalizeWebTopicName(&#39;&#39;, &#36;webtopic);
+      ...etc
+</pre>
+<p class='p'></p>
+
+<h4 id="decodeFormatTokens_40_36str_41_45_62_36unencodedString">  decodeFormatTokens($str) -&gt; $unencodedString </h4>
+<p></p>
+
+Foswiki has an informal standard set of tokens used in <code>format</code>
+parameters that are used to block evaluation of paramater strings.
+For example, if you were to write
+<p></p>
+
+<code>%MYTAG{format="%WURBLE%"}%</code>
+<p></p>
+
+then %WURBLE would be expanded <strong>before</strong> %MYTAG is evaluated. To avoid
+this Foswiki uses escapes in the format string. For example:
+<p></p>
+
+<code>%MYTAG{format="$percentWURBLE$percent"}%</code>
+<p class='p'>This lets you enter arbitrary strings into parameters without worrying that
+Foswiki will expand them before your plugin gets a chance to deal with them
+properly. Once you have processed your tag, you will want to expand these
+tokens to their proper value. That's what this function does.</p>
+
+The set of tokens that is expanded is described in <a href="/bin/view/System/FormatTokens">FormatTokens</a>.
+<p class='p'></p>
+
+<h4 id="sanitizeAttachmentName_40_36fname_41_45_62_40_36fileName_44_36origName_41">  sanitizeAttachmentName($fname) -&gt; ($fileName, $origName) </h4>
+<p class='p'>Given a file path, sanitise it according to the rules for transforming
+attachment names. Returns
+the sanitised name together with the basename before sanitisation.</p>
+
+<p class='p'>Sanitation includes filtering illegal characters and mapping client
+file names to legal server names.</p>
+
+<p class='p'>Avoid using this if you can; rewriting attachment names uses some very
+nasty heuristics that cannot be changed because of compatibility issues.
+It is much better use point-of-source validation to ensure only valid
+attachment names are uploaded.</p>
+
+<p class='p'></p>
+
+<h4 id="spaceOutWikiWord_40_36word_44_36sep_41_45_62_36text">  spaceOutWikiWord( $word, $sep ) -&gt; $text </h4>
+<p class='p'>Spaces out a wiki word by inserting a string (default: one space) between each word component.
+With parameter $sep any string may be used as separator between the word components; if $sep is undefined it defaults to a space.</p>
+
+<p class='p'></p>
+
+<h4 id="isTrue_40_36value_44_36default_41_45_62_36boolean">  isTrue( $value, $default ) -&gt; $boolean </h4>
+<p></p>
+
+Returns 1 if <code>$value</code> is true, and 0 otherwise. "true" means set to
+something with a Perl true value, with the special cases that "off",
+"false" and "no" (case insensitive) are forced to false. Leading and
+trailing spaces in <code>$value</code> are ignored.
+<p></p>
+
+If the value is undef, then <code>$default</code> is returned. If <code>$default</code> is
+not specified it is taken as 0.
+<p class='p'></p>
+
+<h4 id="isValidWikiWord_40_36text_41_45_62_36boolean">  isValidWikiWord ( $text ) -&gt; $boolean </h4>
+<p></p>
+
+Check for a valid <a href="/bin/view/System/WikiWord">WikiWord</a> or <a href="/bin/view/System/WikiName">WikiName</a> <ul>
+<li> <code>$text</code> - Word to test
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="extractParameters_40_36attr_41_45_62_37params">  extractParameters($attr ) -&gt; %params </h4>
+<p></p>
+
+Extract all parameters from a variable string and returns a hash of parameters <ul>
+<li> <code>$attr</code> - Attribute string
+</li></ul> 
+Return: <code>%params</code>  Hash containing all parameters. The nameless parameter is stored in key <code>_DEFAULT</code>
+<p></p>
+ <ul>
+<li> Example: <ul>
+<li> Variable: <code>%TEST{ 'nameless' name1="val1" name2="val2" }%</code>
+</li> <li> First extract text between <code>{...}</code> to get: <code>'nameless' name1="val1" name2="val2"</code>
+</li> <li> Then call this on the text: <br />
+</li></ul> 
+</li> <li> params = <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::extractParameters( $text );= <ul>
+<li> The <code>%params</code> hash contains now: <br />        <code>_DEFAULT =&gt; 'nameless'</code> <br />        <code>name1 =&gt; "val1"</code> <br />        <code>name2 =&gt; "val2"</code>
+</li></ul> 
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="extractNameValuePair_40_36attr_44_36name_41_45_62_36value">  extractNameValuePair( $attr, $name ) -&gt; $value </h4>
+<p></p>
+
+Extract a named or unnamed value from a variable parameter string
+- Note:              | Function <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::extractParameters is more efficient for extracting several parameters <ul>
+<li> <code>$attr</code> - Attribute string
+</li> <li> <code>$name</code> - Name, optional
+</li></ul> 
+Return: <code>$value</code>   Extracted value
+<p></p>
+ <ul>
+<li> Example: <ul>
+<li> Variable: <code>%TEST{ 'nameless' name1="val1" name2="val2" }%</code>
+</li> <li> First extract text between <code>{...}</code> to get: <code>'nameless' name1="val1" name2="val2"</code>
+</li> <li> Then call this on the text: <br />        <code>my $noname = <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::extractNameValuePair( $text );</code> <br />        <code>my $val1&nbsp; = <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::extractNameValuePair( $text, "name1" );</code> <br />        <code>my $val2&nbsp; = <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>::extractNameValuePair( $text, "name2" );</code>
+</li></ul> 
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="sendEmail_40_36text_44_36retries_41_45_62_36error">  sendEmail ( $text, $retries ) -&gt; $error </h4>
+<p></p>
+ <ul>
+<li> <code>$text</code> - text of the mail, including MIME headers
+</li> <li> <code>$retries</code> - number of times to retry the send (default 1)
+</li></ul> 
+Send an e-mail specified as MIME format content. To specify MIME
+format mails, you create a string that contains a set of header
+lines that contain field definitions and a message body such as:
+<pre>
+To: liz&#64;windsor.gov.uk
+From: serf&#64;hovel.net
+CC: george&#64;whitehouse.gov
+Subject: Revolution
+
+Dear Liz,
+
+Please abolish the monarchy (with King George&#39;s permission, of course)
+
+Thanks,
+
+A. Peasant
+</pre>
+Leave a blank line between the last header field and the message body.
+<p class='p'></p>
+
+<h3 id="Logging">  Logging </h3>
+<p class='p'></p>
+
+<h4 id="writeEvent_40_36action_44_36extra_41">  writeEvent( $action, $extra ) </h4>
+<p></p>
+
+Log an event. <ul>
+<li> <code>$action</code> - name of the event (keep them unique!)
+</li> <li> <code>$extra</code> - arbitrary extra information to add to the log.
+</li></ul> 
+You can enumerate the contents of the log using the <code>eachEventSince</code> function.
+<p></p>
+
+<strong>NOTE:</strong> Older plugins may use <code>$Foswiki::cfg{LogFileName}</code>. These
+plugins must be modified to use <code>writeEvent</code> and <code>eachEventSince</code> instead.
+<p></p>
+
+To maintain compatibility with older Foswiki releases, you can write
+conditional code as follows:
+<pre>
+if (defined &#38;Foswiki::Func::writeEvent) {
+   # use writeEvent and eachEventSince
+} else {
+   # old code using {LogFileName}
+}
+</pre>
+<p></p>
+
+Note that the ability to read/write <code>$Foswiki::cfg{LogFileName}</code> is
+maintained for compatibility but is <strong>deprecated</strong> (should not be used
+in new code intended to work only with Foswiki 1.1 and later) and will
+not work with any installation that stores logs in a database.
+<p class='p'></p>
+
+<h4 id="writeWarning_40_36text_41">  writeWarning( $text ) </h4>
+<p></p>
+
+Log a warning that may require admin intervention to the warnings log (<code>data/warn*.txt</code>) <ul>
+<li> <code>$text</code> - Text to write; timestamp gets added
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="writeDebug_40_36text_41">  writeDebug( $text ) </h4>
+<p></p>
+
+Log debug message to the debug log  <ul>
+<li> <code>$text</code> - Text to write; timestamp gets added
+</li></ul> 
+<p class='p'></p>
+
+<h4 id="eachEventSince_40_36time_44_36level_41_45_62_36iterator">  eachEventSince($time, $level) -&gt; $iterator </h4> <ul>
+<li> <code>$time</code> - a time in the past (seconds since the epoch)
+</li> <li> <code>$level</code> - log level to return events for.
+</li></ul> 
+<p></p>
+
+Get an iterator over the list of all the events at the given level
+between <code>$time</code> and now. Events are written to the event log using
+<code>writeEvent</code>. The Foswiki core will write other events that will
+also be returned.
+<p></p>
+
+If the chosen Logger does not support querying the logs, an empty
+iterator will be returned.  The supplied <a class="foswikiNewLink" href="/bin/edit/System/PlainFile?topicparent=System.PerlDoc" rel="nofollow" title="Create this topic">PlainFile</a> and Compatibility loggers
+will return events only if the log files have not been archived.
+<p></p>
+
+Events are returned in <strong>oldest-first</strong> order.
+<p></p>
+
+Each event is returned as a reference to an array. The elements are: <ol>
+<li> date of the event (seconds since the epoch)
+</li> <li> login name of the user who triggered the event
+</li> <li> the event name (the $action passed to <code>writeEvent</code>)
+</li> <li> the Web.Topic that the event applied to
+</li> <li> Extras (the $extra passed to <code>writeEvent</code>)
+</li> <li> The IP address that was the source of the event (if known)
+</li></ol> 
+<p></p>
+
+Use the iterator like this:
+<pre>
+my &#36;it &#61; Foswiki::Func::eachEventSince(Foswiki::Time::parseTime(&#34;1 Apr 2010&#34;));
+while (&#36;it-&#62;hasNext()) {
+   my &#36;entry &#61; &#36;it-&#62;next();
+   my &#36;date &#61; &#36;entry-&#62;&#91;0&#93;;
+   my &#36;loginName &#61; &#36;entry-&#62;&#91;1&#93;;
+   ...
+}
+</pre>
+<p class='p'></p>
+
+<h3 id="Deprecated_functions">  Deprecated functions </h3>
+<p></p>
+
+From time-to-time, the Foswiki developers will add new functions to the interface (either to <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a></code>, or new handlers). Sometimes these improvements mean that old functions have to be deprecated to keep the code manageable. When this happens, the deprecated functions will be supported in the interface for at least one more release, and probably longer, though this cannot be guaranteed.
+<p class='p'>Updated plugins may still need to define deprecated handlers for compatibility with old Foswiki versions. In this case, the plugin package that defines old handlers can suppress the warnings in %FAILEDPLUGINS%.</p>
+
+This is done by defining a map from the handler name to the <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins">Foswiki::Plugins</a></code> version <em>in which the handler was first deprecated</em>. For example, if we need to define the <code>endRenderingHandler</code> for compatibility with <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins">Foswiki::Plugins</a></code> versions before 1.1, we would add this to the plugin:
+<pre>
+package Foswiki::Plugins::SinkPlugin;
+use vars qw( &#37;FoswikiCompatibility );
+&#36;FoswikiCompatibility{endRenderingHandler} &#61; 1.1;
+</pre>
+If the currently-running code version is 1.1 <em>or later</em>, then the <em>handler will not be called</em> and <em>the warning will not be issued</em>. Wersions of <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins">Foswiki::Plugins</a></code> before 1.1 will still call the handler as required.
+<p class='p'>The following functions are retained for compatibility only. You should
+stop using them as soon as possible.</p>
+
+<p class='p'></p>
+
+<h4 id="getRegularExpression_40_36name_41_45_62_36expr">  getRegularExpression( $name ) -&gt; $expr </h4>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 - use <code>$Foswiki::regex{...}</code> instead, it is directly
+equivalent.
+<p></p>
+
+See <a href="/bin/view/System/DevelopingPlugins">DevelopingPlugins</a> for more information
+<p class='p'></p>
+
+<h4 id="getWikiToolName_40_41_45_62_36name">  getWikiToolName( ) -&gt; $name </h4>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 in Foswiki; use $Foswiki::cfg{WikiToolName} instead
+<p class='p'></p>
+
+<h4 id="getMainWebname_40_41_45_62_36name">  getMainWebname( ) -&gt; $name </h4>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 in Foswiki; use $Foswiki::cfg{UsersWebName} instead
+<p class='p'></p>
+
+<h4 id="getTwikiWebname_40_41_45_62_36name">  getTwikiWebname( ) -&gt; $name </h4>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 in Foswiki; use $Foswiki::cfg{SystemWebName} instead
+<p class='p'></p>
+
+<h4 id="getOopsUrl_40_36web_44_36topic_44_36template_44_36param1_44_36param2_44_36param3_44_36param4_41_45_62_36url">  getOopsUrl( $web, $topic, $template, $param1, $param2, $param3, $param4 ) -&gt; $url </h4>
+<p></p>
+
+Compose fully qualified 'oops' dialog URL <ul>
+<li> <code>$web</code>                  - Web name, e.g. <code>'Main'</code>. The current web is taken if empty
+</li> <li> <code>$topic</code>                - Topic name, e.g. <code>'WebNotify'</code>
+</li> <li> <code>$template</code>             - Oops template name, e.g. <code>'oopsmistake'</code>. The 'oops' is optional; 'mistake' will translate to 'oopsmistake'.
+</li> <li> <code>$param1</code> ... <code>$param4</code> - Parameter values for %PARAM1% ... %PARAMn% variables in template, optional
+</li></ul> 
+Return: <code>$url</code>                     URL, e.g. <code>"http://example.com:80/cgi-bin/oops.pl/ Main/WebNotify?template=oopslocked&amp;param1=joe"</code>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008, the recommended approach is to throw an oops exception.
+<pre>
+   use Error qw( :try );
+
+   throw Foswiki::OopsException(
+      &#39;toestuckerror&#39;,
+      web &#61;&#62; &#36;web,
+      topic &#61;&#62; &#36;topic,
+      params &#61;&#62; &#91; &#39;I got my toe stuck&#39; &#93;);
+</pre>
+(this example will use the <code>oopstoestuckerror</code> template.)
+<p></p>
+
+If this is not possible (e.g. in a REST handler that does not trap the exception)
+then you can use <code>getScriptUrl</code> instead:
+<pre>
+   my &#36;url &#61; Foswiki::Func::getScriptUrl(&#36;web, &#36;topic, &#39;oops&#39;,
+            template &#61;&#62; &#39;oopstoestuckerror&#39;,
+            param1 &#61;&#62; &#39;I got my toe stuck&#39;);
+   Foswiki::Func::redirectCgiQuery( undef, &#36;url );
+   return 0;
+</pre>
+<p class='p'></p>
+
+<h4 id="wikiToEmail_40_36wikiName_41_45_62_36email">  wikiToEmail( $wikiName ) -&gt; $email </h4>
+<p></p>
+ <ul>
+<li> <code>$wikiname</code> - wiki name of the user
+</li></ul> 
+Get the e-mail address(es) of the named user. If the user has multiple
+e-mail addresses (for example, the user is a group), then the list will
+be comma-separated.
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 in favour of wikinameToEmails, because this function only
+returns a single email address, where a user may in fact have several.
+<p class='p'>$wikiName may also be a login name.</p>
+
+<p class='p'></p>
+
+<h4 id="permissionsSet_40_36web_41_45_62_36boolean">  permissionsSet( $web ) -&gt; $boolean </h4>
+<p></p>
+
+Test if any access restrictions are set for this web, ignoring settings on
+individual pages <ul>
+<li> <code>$web</code> - Web name, required, e.g. <code>'Sandbox'</code>
+</li></ul> 
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 - use <code>getPreferencesValue</code> instead to determine
+what permissions are set on the web, for example:
+<pre>
+foreach my &#36;type (qw( ALLOW DENY )) {
+    foreach my &#36;action (qw( CHANGE VIEW )) {
+        my &#36;pref &#61; &#36;type . &#39;WEB&#39; . &#36;action;
+        my &#36;val &#61; Foswiki::Func::getPreferencesValue( &#36;pref, &#36;web ) &#124;&#124; &#39;&#39;;
+        if( &#36;val &#61;~ m/\S/ ) {
+            print &#34;&#36;pref is set to &#36;val on &#36;web\n&#34;;
+        }
+    }
+}
+</pre>
+<p class='p'></p>
+
+<h4 id="getPublicWebList_40_41_45_62_64webs">  getPublicWebList( ) -&gt; @webs </h4>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 - use <code>getListOfWebs</code> instead.
+<p></p>
+
+Get list of all public webs, e.g. all webs <strong>and subwebs</strong> that do not have the <code>NOSEARCHALL</code> flag set in the <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+<p></p>
+
+Return: <code>@webs</code> List of all public webs <strong>and subwebs</strong>
+<p class='p'></p>
+
+<h4 id="formatTime_40_36time_44_36format_44_36timezone_41_45_62_36text">  formatTime( $time, $format, $timezone ) -&gt; $text </h4>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 - use <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Time">Foswiki::Time</a>::formatTime</code> instead (it has an identical interface).
+<p></p>
+
+Format the time in seconds into the desired time string <ul>
+<li> <code>$time</code>     - Time in epoch seconds
+</li> <li> <code>$format</code>   - Format type, optional. Default e.g. <code>'31 Dec 2002 - 19:30'</code>. Can be <code>'$iso'</code> (e.g. <code>'2002-12-31T19:30Z'</code>), <code>'$rcs'</code> (e.g. <code>'2001/12/31 23:59:59'</code>, <code>'$http'</code> for HTTP header format (e.g. <code>'Thu, 23 Jul 1998 07:21:56 GMT'</code>), or any string with tokens <code>'$seconds, $minutes, $hours, $day, $wday, $month, $mo, $year, $ye, $tz'</code> for seconds, minutes, hours, day of month, day of week, 3 letter month, 2 digit month, 4 digit year, 2 digit year, timezone string, respectively
+</li> <li> <code>$timezone</code> - either not defined (uses the displaytime setting), 'gmtime', or 'servertime'
+</li></ul> 
+Return: <code>$text</code>        Formatted time string
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Note: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> if you used the removed formatGmTime, add a third parameter 'gmtime' </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<h4 id="formatGmTime_40_36time_44_36format_41_45_62_36text">  formatGmTime( $time, $format ) -&gt; $text </h4>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 - use <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Time">Foswiki::Time</a>::formatTime</code> instead.
+<p></p>
+
+Format the time to GM time <ul>
+<li> <code>$time</code>   - Time in epoc seconds
+</li> <li> <code>$format</code> - Format type, optional. Default e.g. <code>'31 Dec 2002 - 19:30'</code>, can be <code>'iso'</code> (e.g. <code>'2002-12-31T19:30Z'</code>), <code>'rcs'</code> (e.g. <code>'2001/12/31 23:59:59'</code>, <code>'http'</code> for HTTP header format (e.g. <code>'Thu, 23 Jul 1998 07:21:56 GMT'</code>)
+</li></ul> 
+Return: <code>$text</code>      Formatted time string
+<p class='p'></p>
+
+<h4 id="getDataDir_40_41_45_62_36dir">  getDataDir( ) -&gt; $dir </h4>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 - use the "Webs, Topics and Attachments" functions
+to manipulate topics instead
+<p class='p'></p>
+
+<h4 id="getPubDir_40_41_45_62_36dir">  getPubDir( ) -&gt; $dir </h4>
+<p></p>
+
+<strong>Deprecated</strong> 28 Nov 2008 - use the "Webs, Topics and Attachments" functions
+to manipulate attachments instead
+<p class='p'></p>
+
+<h4 id="getCgiQuery_40_41_45_62_36query">  getCgiQuery( ) -&gt; $query </h4>
+<p></p>
+
+<strong>Deprecated</strong> 31 Mar 2009 - use <code>getRequestObject</code> instead if you can. Code
+that is expected to run with pre-1.1 versions of Foswiki will still need to
+use this method, as <code>getRequestObject</code> will not be available.
+<p class='p'></p>
+
+<h4 id="readTopicText_40_36web_44_36topic_44_36rev_44_36ignorePermissions_41_45_62_36text">  readTopicText( $web, $topic, $rev, $ignorePermissions ) -&gt; $text </h4>
+<p></p>
+
+Read topic text, including meta data <ul>
+<li> <code>$web</code>                - Web name, e.g. <code>'Main'</code>, or empty
+</li> <li> <code>$topic</code>              - Topic name, e.g. <code>'MyTopic'</code>, or <code>"Main.MyTopic"</code>
+</li> <li> <code>$rev</code>                - Topic revision to read, optional. Specify the minor part of the revision, e.g. <code>"5"</code>, not <code>"1.5"</code>; the top revision is returned if omitted or empty.
+</li> <li> <code>$ignorePermissions</code>  - Set to <code>"1"</code> if checkAccessPermission() is already performed and OK; an oops URL is returned if user has no permission
+</li></ul> 
+<p></p>
+
+Return: <code>$text</code>                  Topic text with embedded meta data; an oops URL for calling redirectCgiQuery() is returned in case of an error
+<p></p>
+
+*Deprecated: 6 Aug 2009. Use <code>readTopic</code> instead.
+This method returns meta-data embedded in the text. Plugins authors must be very careful to avoid damaging meta-data. Use readTopic instead, which is a lot safer and supports the full set of read options.
+<p class='p'></p>
+
+<h4 id="saveTopicText_40_36web_44_36topic_44_36text_44_36ignorePermissions_44_36dontNotify_41_45_62_36oopsUrl">  saveTopicText( $web, $topic, $text, $ignorePermissions, $dontNotify ) -&gt; $oopsUrl </h4>
+<p></p>
+
+Save topic text, typically obtained by readTopicText(). Topic data usually includes meta data; the file attachment meta data is replaced by the meta data from the topic file if it exists. <ul>
+<li> <code>$web</code>                - Web name, e.g. <code>'Main'</code>, or empty
+</li> <li> <code>$topic</code>              - Topic name, e.g. <code>'MyTopic'</code>, or <code>"Main.MyTopic"</code>
+</li> <li> <code>$text</code>               - Topic text to save, assumed to include meta data
+</li> <li> <code>$ignorePermissions</code>  - Set to <code>"1"</code> if checkAccessPermission() is already performed and OK
+</li> <li> <code>$dontNotify</code>         - Set to <code>"1"</code> if not to notify users of the change
+</li></ul> 
+<p></p>
+
+<strong>Deprecated</strong> 6 Aug 2009 - use saveTopic instead.
+<code>saveTopic</code> supports embedded meta-data in the saved text, and also
+supports the full set of save options.
+<p></p>
+
+Return: <code>$oopsUrl</code>               Empty string if OK; the <code>$oopsUrl</code> for calling redirectCgiQuery() in case of error
+<p></p>
+
+<pre>
+my &#36;text &#61; Foswiki::Func::readTopicText( &#36;web, &#36;topic );
+
+# check for oops URL in case of error:
+if( &#36;text &#61;~ m/^http.&#42;?\/oops/ ) {
+    Foswiki::Func::redirectCgiQuery( &#36;query, &#36;text );
+    return;
+}
+# do topic text manipulation like:
+&#36;text &#61;~ s/old/new/g;
+# do meta data manipulation like:
+&#36;text &#61;~ s/(META\:FIELD.&#42;?name\&#61;\&#34;TopicClassification\&#34;.&#42;?value\&#61;\&#34;)&#91;^\&#34;&#93;&#42;/&#36;1BugResolved/;
+&#36;oopsUrl &#61; Foswiki::Func::saveTopicText( &#36;web, &#36;topic, &#36;text ); # save topic text
+</pre>
+<p class='p'></p>
+
+<h4 id="addToHEAD_40_36id_44_36data_44_36requires_41">  addToHEAD( $id, $data, $requires ) </h4>
+<p></p>
+
+Adds <code>$data</code> to the HTML header (the &lt;head&gt; tag).
+<p></p>
+
+<strong>Deprecated</strong> 26 Mar 2010 - use <code>addZoZone('head', ...)</code>.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Note:</strong> Any calls using addToHEAD for javascript should be rewritten to use the
+new <code>script</code> zone in addToZone as soon as possible.
+<p></p>
+
+Rewrite:
+<pre>
+Foswiki::Func::addToHEAD(&#34;id&#34;, &#34;&#60;script&#62;...&#60;/script&#62;&#34;, &#34;JQUERYPLUGIN&#34;);
+</pre>
+To:
+<pre>
+Foswiki::Func::addToZone(&#34;script&#34;, &#34;id&#34;, &#34;&#60;script&#62;...&#60;/script&#62;&#34;, &#34;JQUERYPLUGIN&#34;);
+</pre>
+<p class='p'>The reason is that all &lt;script&gt; markup should be added to a dedicated zone, script,
+and so any usage of ADDTOHEAD - which adds to the head zone - will be unable to
+satisfy ordering requirements when the requirements exist in another zone ( script ).</p>
+
+See <a class="interwikiLink" href="https://foswiki.org/Development/UpdatingExtensionsScriptZone" title="'Development/UpdatingExtensionsScriptZone' on foswiki.org">Foswiki:Development/UpdatingExtensionsScriptZone</a> for more details.
+<p class='p'></p>
+
+<h4 id="searchInWebContent_40_36searchString_44_36web_44_92_64topics_44_92_37options_41_45_62_reference_to_a_hash_45_keys_of_which_are_topic_names">  searchInWebContent($searchString, $web, \@topics, \%options ) -&gt; reference to a hash - keys of which are topic names </h4>
+<p></p>
+
+<strong>Deprecated</strong> 17 Oct 2010 - use <code>query( ...)</code>.
+<strong><em>WARNING: This function has been deprecated in foswiki 1.1.0 for scalability reasons</em></strong>
+<p class='p'></p>
+
+Search for a string in the content of a web. The search is over all content, including meta-data. 
+Meta-data matches will be returned as formatted lines within the topic content (meta-data matches are returned as lines of the format %META:\w+{.*}%) <ul>
+<li> <code>$searchString</code> - the search string, in egrep format
+</li> <li> <code>$web</code> - The web/s to search in - string can have the same form as the <code>web</code> param of SEARCH
+</li> <li> <code>\@topics</code> - reference to a list of topics to search (if undef, then the store will search all topics in the specified web/webs.)
+</li> <li> <code>\%option</code> - reference to an options hash
+</li></ul> 
+The <code>\%options</code> hash may contain the following options: <ul>
+<li> <code>type</code> - <code>regex</code>, <code>keyword</code>, <code>query</code> - defaults to <code>regex</code>
+</li> <li> <code>casesensitive</code> - false to ignore case (default true)
+</li> <li> <code>files_without_match</code> - true to return files only (default false). If <code>files_without_match</code> is specified, it will return on the first match in each topic (i.e. it will return only one match per topic, and will not return matching lines).
+</li> <li> TODO: topic, excludetopic and other params as per SEARCH
+</li></ul> 
+<p class='p'>The return value is a reference to a hash which maps each matching topic
+name to a list of the lines in that topic that matched the search,
+as would be returned by 'grep'.</p>
+
+To iterate over the returned topics use:
+<pre>
+    my &#36;matches &#61; Foswiki::Func::searchInWebContent( &#34;Slimy Toad&#34;, &#36;searchWeb, \&#64;topics,
+            { casesensitive &#61;&#62; 0, files&#95;without&#95;match &#61;&#62; 0 } );
+    foreach my &#36;topic (keys(&#37;&#36;matches)) {
+         ...etc
+</pre>
+<p class='p'></p>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627667708' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/PerlDoc' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?cover=print;module=Foswiki::Func' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/PerlDoc?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/PerlDoc?t=1627667708;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/PerlDoc?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/PerlDoc?foswiki_origin=GET%2cview%2c/bin/view/System/PerlDoc%3fmodule%3dFoswiki::Func">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.PerlDoc'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

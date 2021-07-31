@@ -1,0 +1,867 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> DefaultPreferences &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/DefaultPreferences?t=1627664544" type="application/x-wiki" title="edit DefaultPreferences" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/DefaultPreferences" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/e81eadc410a774424502f90b644bf750.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+	/* Styles that are set using variables */
+	.patternBookView .foswikiTopRow,
+	.patternWebIndicator,
+	.patternWebIndicator a {
+		background-color:#FFD8AA;
+	}
+	#patternTopBarContents { background-image:url(/pub/System/PatternSkin/header5.gif); background-repeat:repeat-x;}
+#patternTopBarContents { background-color:#ffffff;}
+.patternBookView {
+	border-color:#FFD8AA;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SYSTEMWEB" : "System",
+   "USERSWEB" : "Main",
+   "USERNAME" : "guest",
+   "SERVERTIME" : "30 Jul 2021 - 19:02",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SKIN" : "natedit,pattern",
+   "WEB" : "System",
+   "COOKIEREALM" : "",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "TOPIC" : "DefaultPreferences",
+   "SCRIPTSUFFIX" : "",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKINAME" : "WikiGuest",
+   "URLHOST" : "https://damask.mpie.de"
+}
+</script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="DAMASK_Site_45Level_Preferences"> DAMASK Site-Level Preferences </h1>
+<p></p>
+
+This topic defines <strong>site-level</strong> settings that apply to all users and webs on this site.
+<p></p>
+
+<div class="foswikiNotification">
+<strong><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note:</strong> This topic should be regarded as read-only, so that upgrades can safely overwrite it without risk to your customizations.
+<p></p>
+
+Preference settings local to your site should be set in <a href="/bin/view/Main/SitePreferences">SitePreferences</a> (this topic is pointed to by <code>{LocalSitePreferences}</code>, which is set by the admin in the <a href="/bin/configure">configure</a> interface). Settings in <a href="/bin/view/Main/SitePreferences">SitePreferences</a> will override settings in this topic, and should be used for defining custom settings.
+<p></p>
+
+<a href="/bin/view/System/Macros#SettingPrefs">Read more</a> on how to set preferences.
+</div>
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"> <ul>
+<li> <a href="?cover=print#Default_Web_Preferences"> Default Web Preferences </a>
+</li> <li> <a href="?cover=print#Default_User_Settings"> Default User Settings </a> <ul>
+<li> <a href="?cover=print#Deprecated_editor_settings"> Deprecated editor settings </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Platform_Settings"> Platform Settings </a> <ul>
+<li> <a href="?cover=print#Search_Settings"> Search Settings </a>
+</li> <li> <a href="?cover=print#E_45mail_Settings"> E-mail Settings </a>
+</li> <li> <a href="?cover=print#Registration_configuration_options"> Registration configuration options </a> <ul>
+<li> <a href="?cover=print#Add_user_to_group_during_registration"> Add user to group during registration </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Change_of_Password_Message"> Change of Password Message </a>
+</li> <li> <a href="?cover=print#HTTP_45EQUIV_Settings"> HTTP-EQUIV Settings </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Extension_Settings"> Extension Settings </a> <ul>
+<li> <a href="?cover=print#JQuery"> JQuery </a>
+</li> <li> <a href="?cover=print#PatternSkin"> PatternSkin </a>
+</li> <li> <a href="?cover=print#Skin_icons"> Skin icons </a>
+</li> <li> <a href="?cover=print#TinyMCEPlugin"> TinyMCEPlugin </a>
+</li> <li> <a href="?cover=print#TwistyPlugin"> TwistyPlugin </a>
+</li> <li> <a href="?cover=print#Legacy_support"> Legacy support </a>
+</li></ul> 
+</li> <li> <a href="?cover=print#Plugins_Settings"> Plugins Settings </a>
+</li> <li> <a href="?cover=print#Rendering_Shortcuts_Settings"> Rendering Shortcuts Settings </a>
+</li> <li> <a href="?cover=print#Miscellaneous_Settings"> Miscellaneous Settings </a>
+</li> <li> <a href="?cover=print#Access_Control_Settings"> Access Control Settings </a>
+</li> <li> <a href="?cover=print#Accessible_configuration_items"> Accessible configuration items </a>
+</li> <li> <a href="?cover=print#Creating_New_Preference_Settings"> Creating New Preference Settings </a>
+</li> <li> <a href="?cover=print#Protected_System_Settings"> Protected System Settings </a>
+</li> <li> <a href="?cover=print#Related_Topics"> Related Topics </a>
+</li></ul> 
+</div>
+<p></p>
+
+<span id="DefaultWebPreferences"></span>
+<h2 id="Default_Web_Preferences">  Default Web Preferences </h2>
+<p></p>
+
+<div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>NOTE:</strong> These are just defaults; don't change them here. Instead, add them to the WebPreferences topic in each web</div>
+<p class='p'></p>
+ <ul>
+<li> Web-specific background color: (is overwritten by web preferences) <ul>
+<li> Set WEBBGCOLOR = #FFD8AA
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> <span class='externalLink'><a href="http://en.wikipedia.org/wiki/Favicon">favicon</a></span>: Attach a <code>favicon.ico</code> to a web's <a href="/bin/view/System/WebPreferences">WebPreferences</a> or add a <code>FAVICON</code> setting to <a href="/bin/view/System/WebPreferences">WebPreferences</a> <ul>
+<li> Set FAVICON = /pub/System/ProjectLogos/favicon.ico
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Image, URL and alternate tooltip text of web's logo. <ul>
+<li> Set WEBLOGOIMG = <a href='/pub/System/ProjectLogos/foswiki-logo.png' title='https://damask.mpie.de/pub/System/ProjectLogos/foswiki-logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='152' data-orig-height='50'><img src='/pub/System/ProjectLogos/foswiki-logo.png' alt='foswiki-logo.png' width='152' height='50'   /></a></li> <li> Set WEBLOGOURL = <a href="https://damask.mpie.de/bin/view/Main/WebHome">https://damask.mpie.de/bin/view/Main/WebHome</a>
+</li> <li> Set WEBLOGOALT = Powered by Foswiki, The Free and Open Source Wiki
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> List this web in the <a href="/bin/view/System/SiteMap">SiteMap</a>: <ul>
+<li> If yes, set SITEMAPLIST to <code>on</code>, do not set NOSEARCHALL, and add the "what" and "use to..." description for the site map. Make sure to list only links that include the name of the web, e.g. System.Topic links.
+</li> <li> Set SITEMAPLIST = on
+</li> <li> Set WEBSUMMARY =  
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Copyright notice: <ul>
+<li> Set WEBCOPYRIGHT = <span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.DefaultPreferences'>Send feedback</a>
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Simplified Copyright notice for the <a href="/bin/view/System/WebRss">WebRss</a> feed (don't use any special characters, html tags, entities, wiki markup or <a href="/bin/view/System/WikiWord">WikiWords</a>) <ul>
+<li> Set WEBRSSCOPYRIGHT = Copyright 2021 by contributing authors
+</li></ul> 
+</li></ul> 
+<p class='p'></p>
+ <ul>
+<li> Exclude web from a <code>web="all"</code> search: (Set to <code>on</code> for hidden webs; is overwritten by web preferences) <strong>Note</strong> it is much better to use <a href="/bin/view/System/AccessControl">AccessControls</a> in individual webs to control who can and can't view the contents of a web. NOSEARCHALL is retained for compatibility, but you should avoid using it. <ul>
+<li> Set NOSEARCHALL =
+</li></ul> 
+</li> <li> Prevent automatic linking of <a href="/bin/view/System/WikiWord">WikiWords</a> and <a href="/bin/view/System/ACRONYM">acronyms</a> (if set to <code>on</code>); link WikiWords (if empty); can be overwritten by web preferences: <ul>
+<li> Set NOAUTOLINK =
+</li> <li> <strong>Note:</strong> Use the <code>[[...][...]]</code> syntax to link topics in case you disabled WikiWord linking. The <code>&lt;noautolink&gt; ... &lt;/noautolink&gt;</code> syntax can be used to prevents links within a block of text.
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Warn if <code>%INCLUDE{}%</code> of topic fails: Fail silently if empty or <code>off</code>. Output warning message (defined in templates/oopsalerts.tmpl) if set to <code>on</code>. Otherwise output specific text (use <code>$topic</code> for topic). You can override this in web preferences, or by using a <code>warn="..."</code> parameter with <code>%INCLUDE{}%</code> : <ul>
+<li> Set INCLUDEWARNING = on
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Generated Table of Contents (TOC) settings <ul>
+<li> The first header level to appear in the TOC: <ul>
+<li> Set TOC_MIN_DEPTH = <ul>
+<li> If not set: <code>1</code>
+</li> <li> Possible values: <code>1</code> to <code>6</code>
+</li></ul> 
+</li></ul> 
+</li> <li> The last header level to appear in the TOC: <ul>
+<li> Set TOC_MAX_DEPTH = <ul>
+<li> If not set: <code>6</code>
+</li> <li> Possible values: <code>1</code> to <code>6</code>
+</li> <li> Can be overridden by <code>depth</code> parameter of <a href="/bin/view/System/VarTOC">TOC</a>
+</li></ul> 
+</li></ul> 
+</li> <li> The default TOC title: <ul>
+<li> Set TOC_TITLE = <ul>
+<li> If not set: nothing
+</li> <li> Possible values: any string, for example <code>On this page:</code>
+</li> <li> Can be overridden by <code>title</code> parameter of <a href="/bin/view/System/VarTOC">TOC</a>
+</li></ul> 
+</li></ul> 
+</li> <li> Do not show a TOC if the topic it contains is included in another topic: <ul>
+<li> Set TOC_HIDE_IF_INCLUDED = <ul>
+<li> If not set: included TOC is shown
+</li> <li> Possible values: <code>on</code> or nothing
+</li></ul> 
+</li></ul> 
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h2 id="Default_User_Settings">  Default User Settings </h2>
+<p></p>
+
+<div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>NOTE:</strong> They are typically redefined in the individual users topic. eg. <a href="/bin/view/Main/WikiGuest">WikiGuest</a>.</div>
+<p></p>
+ <ul>
+<li> Show tool-tip topic info on mouse-over of <a href="/bin/view/System/WikiWord">WikiWord</a> links. Setting can be on, off, or customized. An empty setting or off setting disables the tool-tips (for better performance). The setting can contain $summary to show the topic summary, $date for the last change date, $rev for the revision, $username for the login name of the last editor, $wikiname for the WikiName, $wikiusername for Main.WikiName, $topic for the topic name, and $web for the web name <ul>
+<li> Set LINKTOOLTIPINFO = off
+</li> <li> #Set LINKTOOLTIPINFO = $username - $date - r$rev: $summary <ul>
+<li> This is exactly equivalent to:
+</li></ul> 
+</li> <li> #Set LINKTOOLTIPINFO = on
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<div class="foswikiHelp">
+<h3 id="Deprecated_editor_settings">  Deprecated editor settings </h3>
+These settings are overridden by an editor cookie that is set when using the
+Sizing and font buttons on the lower right corner of the edit window.  These
+settings will be ignored once a <code>FOSWIKIPREF</code> cooke has been set.  They have
+been removed from Foswiki 2.0.
+<p></p>
+ <ul>
+<li> Horizontal size of text edit box: (can be overwritten by user preferences) <ul>
+<li> Set EDITBOXWIDTH = 70
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Vertical size of text edit box: (can be overwritten by user preferences) <ul>
+<li> Set EDITBOXHEIGHT = 22
+</li></ul> 
+</li></ul> 
+<p></p>
+
+</div>
+<p></p>
+ <ul>
+<li> Style of text edit box. Set to <code>width: 99%</code> for full window width (default; this will override the EDITBOXWIDTH setting), or <code>width: auto</code> to disable. This setting works for IE and some other recent browsers. (can be overwritten by user preferences) <ul>
+<li> Set EDITBOXSTYLE = width:99%
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Style of the user signature <ul>
+<li> Set SIGNATUREFORMAT = -- <a href="/bin/view/Main/WikiGuest">WikiGuest</a> - 30 Jul 2021
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Default state of the <strong>Force New Revision</strong> check box in preview. Check box is initially checked if <code>Set FORCENEWREVISIONCHECKBOX = checked="checked"</code>, or unchecked if empty: (can be overwritten by user preferences) <ul>
+<li> Set FORCENEWREVISIONCHECKBOX =
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Default state of the <strong>Minor Changes, Don't Notify</strong> check box in preview. Check box is initially checked if <code>Set DONTNOTIFYCHECKBOX = checked="checked"</code>, or unchecked if empty: (can be overwritten by user preferences) <ul>
+<li> Set DONTNOTIFYCHECKBOX =
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Default state of the <strong>link</strong> check box in the attach file page. Checkbox is initially checked if <code>Set ATTACHLINKBOX = checked="checked"</code>, or unchecked if empty (<code>Set ATTACHLINKBOX =</code>). If checked, a link is created to the attached file at the end of the topic: (can be overwritten by user preferences) <ul>
+<li> Set ATTACHLINKBOX =
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Format of file link when the <strong>link</strong> check box is checked: (can be overwritten by user preferences)   <div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> <strong>NOTE:</strong> Keyword <code><b>$filename</b></code> gets expanded to filename; <code><b>$fileurl</b></code> gets expanded to the urlencoded filename; <code><b>$comment</b></code> to comment; <code><b>\t</b></code> to tab (3 spaces for bullets).</div>      <pre class="tml">
+      &#42; Set ATTACHEDFILELINKFORMAT &#61; \n   &#42; &#91;&#91;&#37;ATTACHURL&#37;/&#36;fileurl&#93;&#91;&#36;filename&#93;&#93;: &#36;comment
+</pre>
+</li></ul> 
+<p></p>
+ <ul>
+<li> Format of images when the <strong>link</strong> check box is checked: (can be overwritten by user preferences)      <div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> <strong>NOTE:</strong> Keyword <code><b>$filename</b></code> gets expanded to filename; <code><b>$fileurl</b></code> gets expanded to the urlencoded filename; <code><b>$comment</b></code> to comment; <code><b>$size</b></code> to <code><b>width="..." height="..."</b></code> attribute of <code><b>img</b></code> tag; <code><b>\t</b></code> to tab and <code><b>\n</b></code> to linefeed (3 spaces for bullets).</div>      <pre class="tml">
+      &#42; Set ATTACHEDIMAGEFORMAT &#61; \n   &#42; &#36;comment: &#60;br /&#62;\n     &#60;img src&#61;&#34;&#37;ATTACHURLPATH&#37;/&#36;fileurl&#34; alt&#61;&#34;&#36;filename&#34; &#36;size /&#62;
+</pre>
+</li></ul> 
+<p></p>
+
+<h2 id="Platform_Settings">  Platform Settings </h2>
+<p></p>
+ <ul>
+<li> Site name: <ul>
+<li> Set WIKITOOLNAME = Foswiki
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Image, URL and alternate tooltip text of the logo <strong>for this installation</strong>: you should change these settings for your site, or they can be overwridden in WebPreferences for individual webs by defining these settings there. <ul>
+<li> Set WIKILOGOIMG = <a href='/pub/System/ProjectLogos/foswiki-logo.png' title='https://damask.mpie.de/pub/System/ProjectLogos/foswiki-logo.png'  class='imageHref imageSimple imageSimple_none '  data-orig-width='152' data-orig-height='50'><img src='/pub/System/ProjectLogos/foswiki-logo.png' alt='foswiki-logo.png' width='152' height='50'   /></a></li> <li> Set WIKILOGOURL = <a href="https://damask.mpie.de/bin/view/Main/WebHome">https://damask.mpie.de/bin/view/Main/WebHome</a>
+</li> <li> Set WIKILOGOALT = Powered by Foswiki, The Free and Open Source Wiki
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Home page of this site <ul>
+<li> Set WIKIHOMEURL = /bin/view/
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> List of DAMASK webs - on the first line of the upper toolbar (to add a new web, see <a href="/bin/view/System/ManagingWebs">ManagingWebs</a> and <a href="/bin/view/System/SiteMap">SiteMap</a>): <ul>
+<li> Set WIKIWEBLIST = <a href="/bin/view/Main/WebHome">Main</a> <span class='foswikiSeparator'>&nbsp;|&nbsp;</span> <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a> <span class='foswikiSeparator'>&nbsp;|&nbsp;</span> <a href="/bin/view/Sandbox/WebHome">Sandbox</a>
+</li> <li> <img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> <strong>NOTE:</strong> To automatically list all non-hidden webs in alphabetical order, use the <code>%WEBLIST{}%</code> macro instead: <br />        <a href="/bin/view/About/WebHome">About</a> | <a href="/bin/view/Applications/WebHome">Applications</a> | <a href="/bin/view/Applications/ClassificationApp/WebHome">Applications.ClassificationApp</a> | <a href="/bin/view/Development/WebHome">Development</a> | <a href="/bin/view/Documentation/WebHome">Documentation</a> | <a href="/bin/view/Download/WebHome">Download</a> | <a href="/bin/view/Examples/WebHome">Examples</a> | <a href="/bin/view/Home/WebHome">Home</a> | <a href="/bin/view/Installation/WebHome">Installation</a> | <a href="/bin/view/Main/WebHome">Main</a> | <a href="/bin/view/References/WebHome">References</a> | <a href="/bin/view/Sandbox/WebHome">Sandbox</a> | <a class="foswikiCurrentWebHomeLink" href="/bin/view/System/WebHome">System</a> | <a href="/bin/view/Usage/WebHome">Usage</a>
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Maximum size of <a href="/bin/view/System/FileAttachment">FileAttachments</a> in KB, 0 for no limit: <ul>
+<li> Set ATTACHFILESIZELIMIT = 10000
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Broadcast message for skins supporting a %BROADCASTMESSAGE% at the top of the page: (IMPORTANT: Set to empty message if not used; #Comment out unused messages) <ul>
+<li> Set BROADCASTMESSAGE =
+</li> <li> #Set BROADCASTMESSAGE = <strong>NOTE:</strong> Edit and Attach will be disabled today between 05:00 PM and 06:00 PM PDT (00:00 to 01:00 GMT) for a scheduled DAMASK maintenance.
+</li> <li> <img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> <strong><em>Note:</em></strong> if you need to block all user access (view included) the easiest way it to change the <code>configure</code> <code>AccessControl</code> option to <code>AdminOnlyAccess</code> (see the <code>Security and Authentication</code> section)
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Users or groups allowed to <a href="/bin/view/System/ManagingWebs">create new top-level webs</a>: (ex: <a class="foswikiNewLink" href="/bin/edit/Main/WebCreatorsGroup?topicparent=System.DefaultPreferences" rel="nofollow" title="Create this topic">WebCreatorsGroup</a>). If set to nothing, only administrators will be able to do this. <ul>
+<li> Set ALLOWROOTCHANGE = <a href="/bin/view/Main/AdminGroup">AdminGroup</a>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h3 id="Search_Settings">  Search Settings </h3>
+<p></p>
+ <ul>
+<li> Default type for search bin script, one of: keyword (for search engine like syntax), regex (for <a href="/bin/view/System/RegularExpression">RegularExpression</a> search), or literal (for verbatim search). It does not influence the default for the <a href="/bin/view/System/WebSearch">WebSearch</a> <ul>
+<li> Set SEARCHDEFAULTTTYPE = keyword
+</li></ul> 
+</li> <li> Default for <code>%SEARCH{}%</code> macro, one of: keyword, regex, or literal <ul>
+<li> Set SEARCHVARDEFAULTTYPE = literal
+</li></ul> 
+</li> <li> Stop words, e.g., common words and characters to exclude from a keyword search: <ul>
+<li> Set SEARCHSTOPWORDS = a, all, am, an, and, any, as, at, b, be, by, c, d, e, for, from, g, h, how, i, i'm, i.e., in, is, isn't, it, it's, its, j, k, l, m, n, o, of, on, or, p, q, r, s, t, that, that's, the, this, to, u, v, w, was, wasn't, what, what's, when, where, who, who's, will, with, x, y, z
+</li></ul> 
+</li> <li> Default page size for Index topics - such as <a href="/bin/view/System/WebIndex">WebIndex</a>, <a href="/bin/view/System/WebSearch">WebSearch</a> <ul>
+<li> Set DEFAULTPAGESIZE = 50
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> Customize the Search and Jump boxes at the top of the page by customizing the WebTopBar.  See <a href="/bin/view/System/PatternSkinCustomization#Top_bar">PatternSkinCustomization</a> and <a href="/bin/view/System/WebTopBarExample">WebTopBarExample</a>.</div>
+<p></p>
+
+<h3 id="E_45mail_Settings">  E-mail Settings </h3>
+<p></p>
+ <ul>
+<li> 'Mail this topic' mailto: link - can be included in topics, templates or skins <ul>
+<li> Set MAILTHISTOPIC = <a href="mailto:?subject=DefaultPreferences&amp;body=https://damask.mpie.de/bin/view/System/DefaultPreferences">Send a link to this page</a>
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> 'Mail this topic' link text <ul>
+<li> Set MAILTHISTOPICTEXT = Send a link to this page
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> URL for current topic <ul>
+<li> Shortcut TOPICURL -- absolute URL for the current topic
+</li> <li> Set TOPICURL = <a href="https://damask.mpie.de/bin/view/System/DefaultPreferences">https://damask.mpie.de/bin/view/System/DefaultPreferences</a>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<span id="RegistrationOptions"></span>
+<h3 id="Registration_configuration_options">  Registration configuration options </h3>
+<h4 id="Add_user_to_group_during_registration">  Add user to group during registration </h4>
+Note, this feature also must be enabled on the <a href="/bin/view/System/UserRegistration">UserRegistration</a> page by adding
+<code>extraField_groups</code> to the <code>optionalFields</code> section.  See <a href="/bin/view/System/UserAuthentication#Custom_registration_page">UserAuthentication</a> for more information. <ul>
+<li> Group type settings during registration: <ul>
+<li> <code>automatic</code>: users will be automatically added to eligible groups
+</li> <li> <code>one</code>: users can select one of the groups
+</li> <li> <code>multiple</code>: users can select from multiple groups to join
+</li> <li> <code>none</code>: user cannot be added to groups while registering
+</li></ul> 
+</li> <li> Set REGISTRATIONGROUPTYPE = none
+</li></ul> 
+<p></p>
+ <ul>
+<li> If REGISTRATIONGROUPS is set to a comma separated list of groups, only those listed groups will be shown in the <a href="/bin/view/System/UserRegistration">UserRegistration</a> form.   If it is unset, then group change permissions will be used to create the list of groups eligible for selection during registration. (When using "self-registration" by guest users, the RegistrationAgent's permissions are used. If the registration is entered by another logged in user, that user's permissions are used). <ul>
+<li> #Set REGISTRATIONGROUPS =
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Implementation Notes: <ul>
+<li> If the <a class="foswikiNewLink" href="/bin/edit/System/RegistrationAgent?topicparent=System.DefaultPreferences" rel="nofollow" title="Create this topic">RegistrationAgent</a> or logged in user does not have permission to change one of the listed groups,  then that group will be silently skipped.  The user will not be added to the group.
+</li> <li> Group permissions are stored in Topic Settings, <strong>not</strong> inline in the group topic.  Edit the Group Topic Settings to change permissions.
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h3 id="Change_of_Password_Message">  Change of Password Message </h3>
+<p></p>
+ <ul>
+<li> If password management is not handled by Foswiki, this message will be displayed on <a href="/bin/view/System/ChangePassword">ChangePassword</a> and <a href="/bin/view/System/ResetPassword">ResetPassword</a>. If email is disabled, it will also be displayed on <a href="/bin/view/System/ResetPassword">ResetPassword</a>. Replace this generic text with a reference to how to change or reset password within your organisation. <ul>
+<li> Set CHANGEPASSWORDDISABLEDMESSAGE = Resetting and setting password is not available.
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h3 id="HTTP_45EQUIV_Settings">  HTTP-EQUIV Settings </h3>
+<p></p>
+
+<div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> <strong>NOTE:</strong> Changing cache behaviour with these settings should not be necessary and may cause cache-related problems. These settings do not affect proxy caches.</div> <ul>
+<li> <strong>NOTE:</strong> The current values of these preferences are not displayed in view mode (values are <code>&lt;link&gt;</code>-tags).
+</li></ul> 
+<p></p>
+ <ul>
+<li> <code><b>http-equiv</b></code> meta tags for <code><b>view</b></code>, <code><b>rdiff</b></code>, <code><b>attach</b></code>, <code><b>search*</b></code> scripts: <ul>
+<li> #Set HTTP_EQUIV_ON_VIEW =
+</li> <li> Set HTTP_EQUIV_ON_VIEW = <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> <code><b>http-equiv</b></code> meta tags for <code><b>edit</b></code> script: <ul>
+<li> Set HTTP_EQUIV_ON_EDIT =
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> <code><b>http-equiv</b></code> meta tags for <code><b>preview</b></code> script: <ul>
+<li> Set HTTP_EQUIV_ON_PREVIEW =
+</li></ul> 
+</li></ul> 
+<p class='p'></p>
+
+<h2 id="Extension_Settings">  Extension Settings </h2>
+<p></p>
+ <ul>
+<li> Skin overriding the default templates: (can be overwritten by <a href="/bin/view/System/WebPreferences">WebPreferences</a> and user preferences) <ul>
+<li> Set SKIN = natedit,pattern
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> <strong>Note:</strong> See <a href="/bin/view/System/SkinBrowser">SkinBrowser</a> for currently installed skins
+</li></ul> 
+<p></p>
+
+<h3 id="JQuery">  JQuery </h3> <ul>
+<li> List of Foswiki preferences, the values of which are made available     through the foswiki.getPreference() javascript function.     Note: Plugin authors can extend this list in their <code>initPlugin</code>     using the following simple code fragment. Say you want to add     'MYPREF' to the list:     <pre class="perl">
+    my &#36;pref &#61; Foswiki::Func::getPreferencesValue(&#39;EXPORTEDPREFERENCES&#39;)&#124;&#124;&#39;&#39;;
+    my &#64;list &#61; split(/&#91;,\s&#93;+/, &#36;pref);
+    unless (grep { /^MYPREF&#36;/ } &#64;list) {
+        push(&#64;list, &#39;MYPREF&#39;);
+    }
+    Foswiki::Func::setPreferencesValue(
+        &#39;EXPORTEDPREFERENCES&#39;, join(&#39;,&#39;, &#64;list));
+    </pre>
+</li> <li> Set EXPORTEDPREFERENCES = PUBURL, PUBURLPATH, SCRIPTSUFFIX, SCRIPTURL, SCRIPTURLPATH, SERVERTIME, SKIN, SYSTEMWEB, TOPIC, USERNAME, USERSWEB, WEB, WIKINAME, WIKIUSERNAME, NAMEFILTER
+</li></ul> 
+<p></p>
+
+<h3 id="PatternSkin">  <a href="/bin/view/System/PatternSkin">PatternSkin</a> </h3>
+<p></p>
+ <ul>
+<li> Global skin styles. To change the look of the site, point these variables to custom CSS attachments. <ul>
+<li> Set FOSWIKI_LAYOUT_URL = /pub/System/PatternSkinTheme/layout.css
+</li> <li> Set FOSWIKI_STYLE_URL = /pub/System/PatternSkinTheme/style.css
+</li> <li> Set FOSWIKI_COLORS_URL = /pub/System/PatternSkinTheme/colors.css
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Themes that add upon the global skin styles. See the Theme Browser in <a href="/bin/view/System/PatternSkin">PatternSkin</a>. <ul>
+<li> Set PATTERNSKIN_JQUERY_THEME = <a href="/bin/view/System/PatternSkinTheme">PatternSkinTheme</a>
+</li> <li> Set PATTERNSKIN_THEME_VARIANT = /pub/System/PatternSkinTheme/variant_foswiki_noframe.css
+</li> <li> Set PATTERNSKIN_COLUMNS = /pub/System/PatternSkinTheme/column_left.css
+</li> <li> #Set PATTERNSKIN_NAVIGATION_TOPIC = <a href="/bin/view/System/PatternSkinHorizontalNavigationExample">PatternSkinHorizontalNavigationExample</a>
+</li></ul> 
+</li> <li> Deprecated (use <code>PATTERNSKIN_THEME_VARIANT</code>): <ul>
+<li> Set PATTERNSKIN_THEME = /pub/System/PatternSkinTheme/variant_foswiki_noframe.css
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Overriding styles that add upon the global and theme styles. Enabled by default but empty to prevent browsers from fetching %USERLAYOUTURL%-style URLs. <ul>
+<li> Set USERLAYOUTURL =
+</li> <li> Set USERSTYLEURL =
+</li> <li> Set USERCOLORSURL =
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Top bar background image and color <ul>
+<li> Set WEBHEADERART = /pub/System/PatternSkin/header5.gif
+</li> <li> Set WEBHEADERBGCOLOR = #ffffff
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h3 id="Skin_icons">  Skin icons </h3>
+<p></p>
+ <ul>
+<li> Topic containing the icon graphics library. Icons can easily be rendered with <code>%ICON{name}%</code>. <ul>
+<li> Set ICONTOPIC = <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> to use the Foswiki 1.0 iconset, set the ICONTOPIC to <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h3 id="TinyMCEPlugin">  <a href="/bin/view/System/TinyMCEPlugin">TinyMCEPlugin</a> </h3> <ul>
+<li> Topic containing a <a class="foswikiNewLink" href="/bin/edit/System/VarSECTION?topicparent=System.DefaultPreferences" rel="nofollow" title="Create this topic">section</a> named <code>INIT</code> which will hold the default initialisation parameters for the TinyMCE editor. <ul>
+<li> #Set TINYMCEPLUGIN_INIT_TOPIC = <a href="/bin/view/System/TinyMCEPlugin">TinyMCEPlugin</a>         <div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> <em>Not set in this topic, the plugin assumes this value if missing</em> </div>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h3 id="TwistyPlugin">  <a href="/bin/view/System/TwistyPlugin">TwistyPlugin</a> </h3> <ul>
+<li> Show/hide animation speed: 'fast', 'slow', or integer milliseconds | <code>0</code> (no animation) <ul>
+<li> Set TWISTYPLUGIN_TWISTYANIMATIONSPEED = fast
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h3 id="Legacy_support">  Legacy support </h3> <ul>
+<li> Support for legacy "EDITTOPIC", used to be hard-coded, now replaced by TMPL:P conditional instantiation <ul>
+<li> Set EDITURL = /bin/edit/System/DefaultPreferences?t=1627664544
+</li> <li> Set EDITTOPIC = <a href="/bin/edit/System/DefaultPreferences?t=1627664544" title="Edit Topic - deprecated usage - please see release notes">Edit</a>
+</li></ul> 
+</li> <li> Support for MAINWEB which is often used in older legacy webs that have been upgraded to Foswiki <ul>
+<li> Set MAINWEB = Main
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h2 id="Plugins_Settings">  Plugins Settings </h2>
+<p></p>
+ <ul>
+<li> You can enable/disable Plugins using the <a href="/bin/configure">configure</a> interface.
+</li> <li> You can also disable installed plugins in individual webs/topics by defining the DISABLEDPLUGINS <a href="/bin/view/System/PreferenceSettings">preference setting</a> to be a list of plugins to disable e.g. <ul>
+<li> Set DISABLEDPLUGINS = <a href="/bin/view/System/SpreadSheetPlugin">SpreadSheetPlugin</a>,EditTablePlugin
+</li> <li> Currently, %DISABLEDPLUGINS% is set to ""
+</li></ul> 
+</li> <li> Currently activated Plugins: <a href="/bin/view/System/TWikiCompatibilityPlugin">TWikiCompatibilityPlugin</a>, <a href="/bin/view/System/SpreadSheetPlugin">SpreadSheetPlugin</a>, <a href="/bin/view/System/SlideShowPlugin">SlideShowPlugin</a>, <a href="/bin/view/System/AttachContentPlugin">AttachContentPlugin</a>, <a href="/bin/view/System/AutoTemplatePlugin">AutoTemplatePlugin</a>, <a href="/bin/view/System/AutoViewTemplatePlugin">AutoViewTemplatePlugin</a>, <a href="/bin/view/System/BibliographyPlugin">BibliographyPlugin</a>, <a href="/bin/view/System/BookmakerPlugin">BookmakerPlugin</a>, <a href="/bin/view/System/BreadCrumbsPlugin">BreadCrumbsPlugin</a>, <a href="/bin/view/System/CaptchaPlugin">CaptchaPlugin</a>, <a href="/bin/view/System/ClassificationPlugin">ClassificationPlugin</a>, <a href="/bin/view/System/CommentPlugin">CommentPlugin</a>, <a href="/bin/view/System/CompareRevisionsAddonPlugin">CompareRevisionsAddonPlugin</a>, <a href="/bin/view/System/ConfigurePlugin">ConfigurePlugin</a>, <a href="/bin/view/System/DBCachePlugin">DBCachePlugin</a>, <a href="/bin/view/System/DiffPlugin">DiffPlugin</a>, <a href="/bin/view/System/DigestPlugin">DigestPlugin</a>, <a href="/bin/view/System/DocumentViewerPlugin">DocumentViewerPlugin</a>, <a href="/bin/view/System/DpSyntaxHighlighterPlugin">DpSyntaxHighlighterPlugin</a>, <a href="/bin/view/System/EditRowPlugin">EditRowPlugin</a>, <a href="/bin/view/System/ExternalLinkPlugin">ExternalLinkPlugin</a>, <a href="/bin/view/System/FilterPlugin">FilterPlugin</a>, <a href="/bin/view/System/FlexFormPlugin">FlexFormPlugin</a>, <a href="/bin/view/System/FlexWebListPlugin">FlexWebListPlugin</a>, <a href="/bin/view/System/GraphvizPlugin">GraphvizPlugin</a>, <a href="/bin/view/System/GridLayoutPlugin">GridLayoutPlugin</a>, <a href="/bin/view/System/HistoryPlugin">HistoryPlugin</a>, <a href="/bin/view/System/HomePagePlugin">HomePagePlugin</a>, <a href="/bin/view/System/ImageGalleryPlugin">ImageGalleryPlugin</a>, <a href="/bin/view/System/ImagePlugin">ImagePlugin</a>, <a href="/bin/view/System/InterwikiPlugin">InterwikiPlugin</a>, <a class="foswikiNewLink" href="/bin/edit/System/JEditableContribPlugin?topicparent=System.DefaultPreferences" rel="nofollow" title="Create this topic">JEditableContribPlugin</a>, <a href="/bin/view/System/JQDataTablesPlugin">JQDataTablesPlugin</a>, <a href="/bin/view/System/JQTablePlugin">JQTablePlugin</a>, <a href="/bin/view/System/JQueryPlugin">JQueryPlugin</a>, <a href="/bin/view/System/LatexModePlugin">LatexModePlugin</a>, <a href="/bin/view/System/LikePlugin">LikePlugin</a>, <a href="/bin/view/System/ListyPlugin">ListyPlugin</a>, <a href="/bin/view/System/LocalTimePlugin">LocalTimePlugin</a>, <a href="/bin/view/System/MailerContribPlugin">MailerContribPlugin</a>, <a href="/bin/view/System/MathJaxPlugin">MathJaxPlugin</a>, <a href="/bin/view/System/MediaElementPlugin">MediaElementPlugin</a>, <a href="/bin/view/System/MediaPlugin">MediaPlugin</a>, <a href="/bin/view/System/MetaCommentPlugin">MetaCommentPlugin</a>, <a href="/bin/view/System/MetaDataPlugin">MetaDataPlugin</a>, <a href="/bin/view/System/MimeIconPlugin">MimeIconPlugin</a>, <a href="/bin/view/System/MoreFormfieldsPlugin">MoreFormfieldsPlugin</a>, <a href="/bin/view/System/MultiLingualPlugin">MultiLingualPlugin</a>, <a href="/bin/view/System/NatEditPlugin">NatEditPlugin</a>, <a href="/bin/view/System/NatSkinPlugin">NatSkinPlugin</a>, <a href="/bin/view/System/PageOptimizerPlugin">PageOptimizerPlugin</a>, <a href="/bin/view/System/PreferencesPlugin">PreferencesPlugin</a>, <a href="/bin/view/System/PubLinkFixupPlugin">PubLinkFixupPlugin</a>, <a href="/bin/view/System/RedDotPlugin">RedDotPlugin</a>, <a href="/bin/view/System/RenderListPlugin">RenderListPlugin</a>, <a href="/bin/view/System/RenderPlugin">RenderPlugin</a>, <a href="/bin/view/System/SecurityHeadersPlugin">SecurityHeadersPlugin</a>, <a href="/bin/view/System/SmiliesPlugin">SmiliesPlugin</a>, <a href="/bin/view/System/SolrPlugin">SolrPlugin</a>, <a href="/bin/view/System/SubscribePlugin">SubscribePlugin</a>, <a href="/bin/view/System/TablePlugin">TablePlugin</a>, <a href="/bin/view/System/TagCloudPlugin">TagCloudPlugin</a>, <a href="/bin/view/System/TinyMCEPlugin">TinyMCEPlugin</a>, <a href="/bin/view/System/TocPlugin">TocPlugin</a>, <a href="/bin/view/System/TopicInteractionPlugin">TopicInteractionPlugin</a>, <a href="/bin/view/System/TopicTitlePlugin">TopicTitlePlugin</a>, <a href="/bin/view/System/TwistyPlugin">TwistyPlugin</a>, <a href="/bin/view/System/UpdatesPlugin">UpdatesPlugin</a>, <a href="/bin/view/System/WebLinkPlugin">WebLinkPlugin</a>, <a href="/bin/view/System/WorkflowPlugin">WorkflowPlugin</a>, <a href="/bin/view/System/WysiwygPlugin">WysiwygPlugin</a>, <a class="foswikiNewLink" href="/bin/edit/System/X3domPlugin?topicparent=System.DefaultPreferences" rel="nofollow" title="Create this topic">X3domPlugin</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> Detailed diagnostics can be found in <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li> <li> Legacy settings: <ul>
+<li> Set INSTALLEDPLUGINS = The INSTALLEDPLUGINS macro is no longer supported. You can set the Plugins execution order using the <a href="/bin/configure">configure</a> interface.
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<span id="RenderingShortcuts"></span>
+<h2 id="Rendering_Shortcuts_Settings">  Rendering Shortcuts Settings </h2>
+<p></p>
+ <ul>
+<li> Line break: Note that the setting has an intentional trailing space <ul>
+<li> Shortcut BR -- line break
+</li> <li> Set BR = <br />
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Clear floats: <ul>
+<li> Shortcut CLEAR -- clear floats
+</li> <li> Set CLEAR = <span class='foswikiClear'></span>
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Bullet sign: <ul>
+<li> Shortcut BULLET -- &#8226;
+</li> <li> Set BULLET = &#8226;
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Vertical bar / pipe symbol: <ul>
+<li> Shortcut VBAR -- &#124;
+</li> <li> Set VBAR = &#124;
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Vertical caret symbol: <ul>
+<li> Shortcut CARET -- &#94;
+</li> <li> Set CARET = &#94;
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Line break and bullet with different levels of indentation: <ul>
+<li> Shortcut BB -- line break and bullet
+</li> <li> Set BB = <br />&#8226;
+</li> <li> Shortcut BB2 -- line break and bullet
+</li> <li> Set BB2 = <br />&nbsp;&nbsp;&#8226;
+</li> <li> Shortcut BB3 -- line break and bullet
+</li> <li> Set BB3 = <br />&nbsp;&nbsp;&nbsp;&nbsp;&#8226;
+</li> <li> Shortcut BB4 -- line break and bullet
+</li> <li> Set BB4 = <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8226;
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> <strong>Hint:</strong> Above shortcuts are useful in tables where you cannot use newlines
+</li></ul> 
+<p></p>
+
+<span id="DocGraphics"></span> <ul>
+<li> Macros for graphics used in documentation - view all images in <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>: <ul>
+<li> Set H = <img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" />
+</li> <li> Set I = <img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" />
+</li> <li> Set M = <img src="/pub/System/DocumentGraphics/arrowright.png" alt="MOVED TO..." title="MOVED TO..." width="16" height="16" />
+</li> <li> Set N = <img src="/pub/System/DocumentGraphics/new.png" alt="NEW" title="NEW" width="30" height="16" />
+</li> <li> Set P = <img src="/pub/System/DocumentGraphics/pencil.png" alt="REFACTOR" title="REFACTOR" width="16" height="16" />
+</li> <li> Set Q = <img src="/pub/System/DocumentGraphics/question.png" alt="QUESTION?" title="QUESTION?" width="16" height="16" />
+</li> <li> Set S = <img src="/pub/System/DocumentGraphics/starred.png" alt="PICK" title="PICK" width="16" height="16" />
+</li> <li> Set T = <img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" />
+</li> <li> Set U = <img src="/pub/System/DocumentGraphics/updated.png" alt="UPDATED" title="UPDATED" width="55" height="16" />
+</li> <li> Set X = <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" />
+</li> <li> Set Y = <img src="/pub/System/DocumentGraphics/choice-yes.png" alt="DONE" title="DONE" width="16" height="16" />
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Colored text: (see more <a href="/bin/view/System/StandardColors">StandardColors</a>)       <table class="foswikiTable" rules="none">     	<tbody>		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">			<td class="foswikiTableCol0 foswikiFirstCol"> You type: </td>			<td class="foswikiTableCol1 foswikiLastCol"> <code>%RED% red text %ENDCOLOR% and %GREEN% green text %ENDCOLOR%</code> </td>		</tr>		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> You get: </td>			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <span class='foswikiRedFG'> red text </span> and <span class='foswikiGreenFG'> green text </span> </td>		</tr>	</tbody>     </table> <ul>
+<li> <strong>Note:</strong> <code>%&lt;color&gt;%</code> text must end with <code>%ENDCOLOR%</code>. If you want to switch from one color to another one you first need to end the active color with <code>%ENDCOLOR%</code>, e.g. write <code>%RED% some text %ENDCOLOR% %GREEN% more text %ENDCOLOR%</code>.        
+</li> <li> <span class='foswikiYellowFG'> <strong>Set YELLOW = looks like this</strong> </span>
+</li> <li> <span class='foswikiOrangeFG'> <strong>Set ORANGE = looks like this</strong> </span>
+</li> <li> <span class='foswikiRedFG'> <strong>Set RED = looks like this</strong> </span>
+</li> <li> <span class='foswikiPinkFG'> <strong>Set PINK = looks like this</strong> </span>
+</li> <li> <span class='foswikiPurpleFG'> <strong>Set PURPLE = looks like this</strong> </span>
+</li> <li> <span class='foswikiTealFG'> <strong>Set TEAL = looks like this</strong> </span>
+</li> <li> <span class='foswikiNavyFG'> <strong>Set NAVY = looks like this</strong> </span>
+</li> <li> <span class='foswikiBlueFG'> <strong>Set BLUE = looks like this</strong> </span>
+</li> <li> <span class='foswikiAquaFG'> <strong>Set AQUA = looks like this</strong> </span>
+</li> <li> <span class='foswikiLimeFG'> <strong>Set LIME = looks like this</strong> </span>
+</li> <li> <span class='foswikiGreenFG'> <strong>Set GREEN = looks like this</strong> </span>
+</li> <li> <span class='foswikiOliveFG'> <strong>Set OLIVE = looks like this</strong> </span>
+</li> <li> <span class='foswikiMaroonFG'> <strong>Set MAROON = looks like this</strong> </span>
+</li> <li> <span class='foswikiBrownFG'> <strong>Set BROWN = looks like this</strong> </span>
+</li> <li> <span class='foswikiBlackFG'> <strong>Set BLACK = looks like this</strong> </span>
+</li> <li> <span class='foswikiGrayFG'> <strong>Set GRAY = looks like this</strong> </span>
+</li> <li> <span class='foswikiSilverFG'> <strong>Set SILVER = looks like this</strong> </span>
+</li> <li> <span style='background : #808080;'><span class='foswikiWhiteFG'> <strong>Set WHITE = looks like this (with gray background)</strong> </span></span>
+</li> <li> The following color settings are enclosed in verbatim tags to avoid incorrect nesting of XHTML tags, and in sticky to prevent wrapping of the closing verbatim.
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<pre class="tml">
+      &#42; Set YELLOW &#61; &#60;span class&#61;&#39;foswikiYellowFG&#39;&#62;
+      &#42; Set ORANGE &#61; &#60;span class&#61;&#39;foswikiOrangeFG&#39;&#62;
+      &#42; Set RED &#61; &#60;span class&#61;&#39;foswikiRedFG&#39;&#62;
+      &#42; Set PINK &#61; &#60;span class&#61;&#39;foswikiPinkFG&#39;&#62;
+      &#42; Set PURPLE &#61; &#60;span class&#61;&#39;foswikiPurpleFG&#39;&#62;
+      &#42; Set TEAL &#61; &#60;span class&#61;&#39;foswikiTealFG&#39;&#62;
+      &#42; Set NAVY &#61; &#60;span class&#61;&#39;foswikiNavyFG&#39;&#62;
+      &#42; Set BLUE &#61; &#60;span class&#61;&#39;foswikiBlueFG&#39;&#62;
+      &#42; Set AQUA &#61; &#60;span class&#61;&#39;foswikiAquaFG&#39;&#62;
+      &#42; Set LIME &#61; &#60;span class&#61;&#39;foswikiLimeFG&#39;&#62;
+      &#42; Set GREEN &#61; &#60;span class&#61;&#39;foswikiGreenFG&#39;&#62;
+      &#42; Set OLIVE &#61; &#60;span class&#61;&#39;foswikiOliveFG&#39;&#62;
+      &#42; Set MAROON &#61; &#60;span class&#61;&#39;foswikiMaroonFG&#39;&#62;
+      &#42; Set BROWN &#61; &#60;span class&#61;&#39;foswikiBrownFG&#39;&#62;
+      &#42; Set BLACK &#61; &#60;span class&#61;&#39;foswikiBlackFG&#39;&#62;
+      &#42; Set GRAY &#61; &#60;span class&#61;&#39;foswikiGrayFG&#39;&#62;
+      &#42; Set SILVER &#61; &#60;span class&#61;&#39;foswikiSilverFG&#39;&#62;
+      &#42; Set WHITE &#61; &#60;span class&#61;&#39;foswikiWhiteFG&#39;&#62;
+      &#42; Set ENDCOLOR &#61; &#60;/span&#62;
+</pre>
+<p class='p'></p>
+
+<h2 id="Miscellaneous_Settings">  Miscellaneous Settings </h2>
+<p></p>
+ <ul>
+<li> Format of a <a class="foswikiNewLink" href="/bin/edit/System/NewWikiWord?topicparent=System.DefaultPreferences" rel="nofollow" title="Create this topic">NewWikiWord</a> link:
+</li> <li> Note that <code>$text</code> is the topic link text, <code>$topic</code> is the name of the new topic, and <code>$web</code> is the name of the web for the new topic. Values for the 3 are taken from the link syntax <code>[[$web.$topic][$text]]</code>. For normal plain WikiWord links <code>$text</code> and <code>$topic</code> are the same. The value of <code>$web</code> is the current web unless the link is in the format <code>$web.$topic</code>. <ul>
+<li> Default setting: <ul>
+<li> Set NEWLINKFORMAT = <a class="foswikiNewLink" href="/bin/edit/$web/$topic?topicparent=System.DefaultPreferences" rel="nofollow" title="Create this topic">$text</a>
+</li></ul> 
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> <a href="/bin/view/System/PreviewBackground">PreviewBackground</a> image: <ul>
+<li> Set PREVIEWBGIMAGE = /pub/System/PreviewBackground/preview2bg.gif
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> User-friendly synonyms for system webs <ul>
+<li> Set DOCWEB = System
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Show extra help for ApacheLogin users for <a href="/bin/view/Main/AdminUser">AdminUser</a> login <ul>
+<li> Set ADMINLOGIN = <a href="https://damask.mpie.de/bin/login/System/DefaultPreferences?sudo=sudo">internal admin login</a> (use the password set in <a href="/bin/configure">configure</a>).
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Formatting of revision comparison: <code>sequential</code>, <code>sidebyside</code> or <code>debug</code> <ul>
+<li> Set DIFFRENDERSTYLE = sequential
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Debug settings for use by Javascript and CSS authors <ul>
+<li> Set FWSRC = 
+</li> <li> Set FWCOMPRESSED = .compressed
+</li> <li> Set FWUNCOMPRESSED = 
+</li></ul> 
+</li></ul> 
+<p></p>
+ <ul>
+<li> Redefine these as follows for debugging: <ul>
+<li> #Set FWSRC = _src
+</li> <li> #Set FWCOMPRESSED = .uncompressed
+</li> <li> #Set FWUNCOMPRESSED = .uncompressed
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h2 id="Access_Control_Settings">  Access Control Settings </h2>
+<p></p>
+ <ul>
+<li> No-one (except admins) should change this topic <ul>
+<li> Set ALLOWTOPICCHANGE = <a href="/bin/view/Main/AdminGroup">AdminGroup</a>
+</li> <li> Set ALLOWTOPICRENAME = <a href="/bin/view/Main/AdminGroup">AdminGroup</a>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h2 id="Accessible_configuration_items">  Accessible configuration items </h2>
+Note that any configuration variable accessed via QUERY must be included in the
+definition of {AccessibleCFG} in <code>configure</code> (expert setting) <ul>
+<li> Set NAMEFILTER = [\\\s*?~^$@%`"'&amp;|&lt;:;&gt;\[\]#\x00-\x1f]
+</li></ul> 
+<p></p>
+
+<h2 id="Creating_New_Preference_Settings">  Creating New Preference Settings </h2>
+<p></p>
+
+You can introduce new <a href="/bin/view/System/PreferenceSettings">preference settings</a> and use them in your topics and templates. There is no need to change the Foswiki engine (Perl scripts). <ul>
+<li> A preference is defined in a bullet item: <code><b>[3 spaces] * [space] Set NAME = value</b></code> <br /> Example (as a nested bullet item, indented 6 spaces): <ul>
+<li> Set WEBBGCOLOR = #FFFFC0
+</li></ul> 
+</li> <li> Preferences are used as <a href="/bin/view/System/Macros">Macros</a> by enclosing the name in percent signs: <code><b>%</b></code>. Example: <ul>
+<li> When you write <code><b>%WEBBGCOLOR%</b></code>, it gets expanded to <code>#FFD8AA</code> .
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<div class="foswikiHelp"> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> The sequential order of the <a href="/bin/view/System/PreferenceSettings">preference settings</a> is significant. Define preferences that use other preferences FIRST. For example, set <code><b>WEBCOPYRIGHT</b></code> before <code><b>WIKIWEBMASTER</b></code> since the copyright notice uses the Wiki administrator e-mail address.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> In order to protect your custom preferences from being overwritten when upgrading the <a class="foswikiCurrentTopicLink" href="/bin/view/System/DefaultPreferences">DefaultPreferences</a> topic, it is recommended that all custom settings are defined in <a href="/bin/view/Main/SitePreferences">SitePreferences</a>.</div>
+<p></p>
+
+<h2 id="Protected_System_Settings">  Protected System Settings </h2>
+<p class='p'>The following macros are declared final to protect them as read only. These are system macros that should
+never be attempted set or altered in any preference topic or topic settings.</p>
+ <ul>
+<li> Set FINALPREFERENCES = WEB, TOPIC, BASEWEB, BASETOPIC, ENCODE, ENV, IF, QUERYPARAMS, QUERYSTRING, URLENCODE, URLPARAM, SCRIPTURL, SCRIPTURLPATH, SCRIPTSUFFIX, ATTACHURL, ATTACHURLPATH, PUBURL, PUBURLPATH, USERSWEB, SYSTEMWEB, SANDBOXWEB, MAKETEXT, GMTIME
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+
+<h2 id="Related_Topics">  Related Topics </h2>
+<p></p>
+ <ul>
+<li> <a href="/bin/view/System/WebPreferences">WebPreferences</a> has preferences of the System web.
+</li> <li> User topics in Main can have optional user preferences.
+</li> <li> <a href="/bin/view/System/Macros">Macros</a> has a list of common <code>%MACROS%</code>.
+</li> <li> <a href="/bin/view/System/AccessControl">AccessControl</a> explains how to restrict access by users or groups.
+</li> <li> <a class="interwikiLink" href="https://foswiki.org/Extensions.PreferencesPlugin" title="'Extensions.PreferencesPlugin' on foswiki.org">Foswiki:Extensions.PreferencesPlugin</a> makes editing preferences a snap.
+</li></ul> 
+<p></p>
+
+<strong>Note</strong>: Can't edit?
+<a href="/bin/view/System/DefaultPreferences?raw=on">View raw topic</a>
+</div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/Category">Category</a> &gt; <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>DefaultPreferences <br />
+Topic revision:  <span class='patternRevInfo'>03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this collaboration platform is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.DefaultPreferences'>Send feedback</a></div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

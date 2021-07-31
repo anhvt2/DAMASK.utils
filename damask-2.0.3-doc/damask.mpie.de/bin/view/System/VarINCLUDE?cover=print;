@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> VarINCLUDE &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/VarINCLUDE?t=1627667707" type="application/x-wiki" title="edit VarINCLUDE" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/VarINCLUDE" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/800b49ca1dac04c9bfee2d7af74691c4.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WEB" : "System",
+   "USERSWEB" : "Main",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATH" : "/bin",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "PUBURLPATH" : "/pub",
+   "SKIN" : "damask,famfamfam,pattern",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SERVERTIME" : "30 Jul 2021 - 19:55",
+   "USERNAME" : "guest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "TOPIC" : "VarINCLUDE",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTSUFFIX" : "",
+   "SYSTEMWEB" : "System",
+   "COOKIEREALM" : ""
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> <h1 id="INCLUDE_45_45_include_another_topic_44_or_subsection_of_a_topic_44_or_a_URL_44_or_Foswiki_embedded_documentation">  INCLUDE -- include another topic, or subsection of a topic, or a URL, or Foswiki embedded documentation </h1>
+<p></p>
+
+<h2 id="A_40Including_a_topic_41_Parameters">  (Including a topic) Parameters </h2>
+                <table class="foswikiTable" id="tableVarINCLUDE1" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter: </th>
+			<th class="foswikiTableCol1"> Description: </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default: </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"SomeTopic"</code> </td>
+			<td class="foswikiTableCol1"> The name of a topic located in the current web, i.e. <code>%INCLUDE{"WebNotify"}%</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"Web.Topic"</code> </td>
+			<td class="foswikiTableCol1"> A topic in another web, i.e. <code>%INCLUDE{"System.SiteMap"}%</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"Web.Topic, SomeOtherTopic, System.OrOtherTopic"</code> </td>
+			<td class="foswikiTableCol1"> A list of topics - <code>INCLUDE</code> will include the first topic that exists and the user has permission to VIEW. If a <code>section</code> is also specified, it will use the first topic that has that section defined in it. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>pattern</code> </td>
+			<td class="foswikiTableCol1"> Include a subset of a topic or a web page. Specify a <a href="/bin/view/System/RegularExpression">RegularExpression</a> that contains the text you want to keep in parenthesis, e.g. <code>pattern="(from here.*?to here)"</code>. <a href="/bin/view/System/IncludeTopicsAndWebPages">IncludeTopicsAndWebPages</a> has more. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> none </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>rev</code> </td>
+			<td class="foswikiTableCol1"> Include a previous topic revision; N/A for URLs </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> top revision </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>warn</code> </td>
+			<td class="foswikiTableCol1"> Warn if topic include fails: Fail silently (if <code>off</code>); output default warning (if set to <code>on</code>); else, output specific text (use <code>$topic</code> for topic name) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>%INCLUDEWARNING%</code> <a href="/bin/view/System/DefaultPreferences">preferences</a> setting </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>headingoffset</code> </td>
+			<td class="foswikiTableCol1"> Adds the given offset to any HTML headings generated in the included text. Works on headings defined by HTML tags as well as headings defined using foswiki markup. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 0 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>section</code> </td>
+			<td class="foswikiTableCol1"> Includes only the specified named section, as defined in the included topic by the [VarSTARTSECTION][STARTSECTION{"name" type="section"} ]] and [VarENDSECTION][ENDSECTION{"name" type="section"}]] macros. Nothing is shown if the named section does not exists. <code>section=""</code> is equivalent to not specifying a section </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> &nbsp; </td>
+			<td class="foswikiTableCol1 foswikiLast"> Any other parameter will be defined as a macro within the scope of the included topic. The example parameters on the left will result in <code>%PARONE%</code> and <code>%PARTWO%</code> being defined within the included topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody>     </table> <ul>
+<li> Examples: See <a href="/bin/view/System/IncludeTopicsAndWebPages">IncludeTopicsAndWebPages</a>
+</li></ul> 
+<p></p>
+
+<h2 id="A_40Including_a_web_page_41_Parameters">  (Including a web page) Parameters </h2>
+                 <table class="foswikiTable" id="tableVarINCLUDE2" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"http://..."</code> </td>
+			<td class="foswikiTableCol1"> A full qualified URL, i.e. <code>%INCLUDE{"http://foswiki.org:80/index.html"}%</code>. Supported content types are <code>text/html</code> and <code>text/plain</code>. <div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> If the URL resolves to an attachment file on the server this will <em>automatically</em> translate to a server-side include.</div> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>pattern</code> </td>
+			<td class="foswikiTableCol1"> Include a subset of a topic or a web page. Specify a <a href="/bin/view/System/RegularExpression">RegularExpression</a> that contains the text you want to keep in parenthesis, e.g. <code>pattern="(from here.*?to here)"</code>. <a href="/bin/view/System/IncludeTopicsAndWebPages">IncludeTopicsAndWebPages</a> has more. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> none </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>raw</code> </td>
+			<td class="foswikiTableCol1"> When a page is included, normally DAMASK will process it, doing the following: 1) Alter relative links to point back to originating host, 2) Remove some basic HTML tags (html, head, body, script) and finally 3) Remove newlines from HTML tags spanning multiple lines. If you prefer to include <em>exactly</em> what is in the source of the originating page set this to <code>on</code>. <br /> <code>raw="on"</code> is short for <code>disableremoveheaders="on"</code>, <code>disableremovescript="on"</code>, <code>disableremovebody="on"</code>, <code>disablecompresstags="on"</code> and <code>disablerewriteurls="on"</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> disabled </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>literal</code> </td>
+			<td class="foswikiTableCol1"> While using the <code>raw</code> option will indeed include the raw content, the included content will still be processed and rendered like regular topic content. To disable parsing of the included content, set the <code>literal</code> option to <code>"on"</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>disableremoveheaders</code> </td>
+			<td class="foswikiTableCol1"> Bypass stripping headers from included HTML (everything until first <code>&lt;/head&gt;</code> tag) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>disableremovescript</code> </td>
+			<td class="foswikiTableCol1"> Bypass stripping all <code>&lt;script&gt;</code> tags from included HTML </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>disableremovebody</code> </td>
+			<td class="foswikiTableCol1"> Bypass stripping the <code>&lt;/body&gt;</code> tag and everything around over and below it </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>disablecompresstags</code> </td>
+			<td class="foswikiTableCol1"> Bypass replacing newlines in HTML tags with spaces. This compression step rewrites unmatched &lt;'s into <code>&amp;lt;</code> entities unless bypassed </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>disablerewriteurls</code> </td>
+			<td class="foswikiTableCol1"> Bypass rewriting relative URLs into absolute ones </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>warn</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Warn if URL include fails: Fail silently (if <code>off</code>); output default warning (if set to <code>on</code>); else, output specific text (use <code>$topic</code> for topic name) appended with the http error information. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>%INCLUDEWARNING%</code> <a href="/bin/view/System/DefaultPreferences">preferences</a> setting </td>
+		</tr>
+	</tbody>     </table>
+   <p></p>
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> JavaScript in included webpages is filtered out as a security precaution per default (disable filter with <code>disableremovescript</code> parameter)<p></p>
+
+   <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Foswiki by default is configured to deny URL format includes.</div> <ul>
+<li> Examples: See <a href="/bin/view/System/IncludeTopicsAndWebPages">IncludeTopicsAndWebPages</a>
+</li></ul> 
+<p></p>
+
+<h2 id="A_40Including_Foswiki_embedded_module_documentation_41_Parameters">  (Including Foswiki embedded module documentation) Parameters </h2>
+       <table class="foswikiTable" id="tableVarINCLUDE3" rules="none">  
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default </th>
+		</tr>
+	</thead>  
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"doc:..."</code> </td>
+			<td class="foswikiTableCol1"> A full qualified Foswiki module, i.e. <code>%INCLUDE{"doc:Foswiki::Func"}%</code>.  The module must be found on the Foswiki lib path </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>level</code> </td>
+			<td class="foswikiTableCol1"> Override the root heading level to the specified number </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>pattern</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> Include a subset of the module. Specify a <a href="/bin/view/System/RegularExpression">RegularExpression</a> that contains the text you want to keep in parenthesis, e.g. <code>pattern="(from here.*?to here)"</code>. <a href="/bin/view/System/IncludeTopicsAndWebPages">IncludeTopicsAndWebPages</a> has more. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> none </td>
+		</tr>
+	</tbody>  </table> <ul>
+<li> Examples: See <a href="/bin/view/System/PerlDoc?module=Foswiki::Func">System/PerlDoc?module=Foswiki::Func</a>
+</li></ul> 
+<p class='p'></p>
+
+<h2 id="Related">  Related </h2>
+ <a href="/bin/view/System/VarBASETOPIC">BASETOPIC</a>, <a href="/bin/view/System/VarBASEWEB">BASEWEB</a>, <a href="/bin/view/System/VarINCLUDINGTOPIC">INCLUDINGTOPIC</a>, <a href="/bin/view/System/VarINCLUDINGWEB">INCLUDINGWEB</a>, <a href="/bin/view/System/VarSTARTINCLUDE">STARTINCLUDE</a>, <a href="/bin/view/System/VarENDINCLUDE">ENDINCLUDE</a>, <a href="/bin/view/System/VarSTOPINCLUDE">STOPINCLUDE</a>, <a href="/bin/view/System/VarSTARTSECTION">STARTSECTION</a>, <a href="/bin/view/System/VarENDSECTION">ENDSECTION</a></div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/Category">Category</a> &gt; <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a> &gt; <a href="/bin/view/System/Macros">Macros</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>VarINCLUDE <br />
+Topic revision:  <span class='patternRevInfo'>03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.VarINCLUDE'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

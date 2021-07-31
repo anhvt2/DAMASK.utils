@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> CompareRevisionsAddonPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/CompareRevisionsAddonPlugin?t=1627669513" type="application/x-wiki" title="edit CompareRevisionsAddonPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/CompareRevisionsAddonPlugin" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/24be09983bea20d0dd84f8a530b41448.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SYSTEMWEB" : "System",
+   "WEB" : "System",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "USERNAME" : "guest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SKIN" : "damask,famfamfam,pattern",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SCRIPTURLPATH" : "/bin",
+   "USERSWEB" : "Main",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "PUBURLPATH" : "/pub",
+   "URLHOST" : "https://damask.mpie.de",
+   "TOPIC" : "CompareRevisionsAddonPlugin",
+   "SCRIPTSUFFIX" : "",
+   "WIKINAME" : "WikiGuest",
+   "COOKIEREALM" : "",
+   "SERVERTIME" : "30 Jul 2021 - 20:25"
+}
+</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage patternPrintPage"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/CompareRevisionsAddonPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?96636bf52f629d4756902552b1f3ae45' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/CompareRevisionsAddonPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?eb42b768010ecec27d435024aa19e52b' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.CompareRevisionsAddonPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.CompareRevisionsAddonPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow">
+<div id="patternPage">
+<div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain">
+<div id="patternMainContents">
+<div class="patternContent"><div class="foswikiTopic"> 
+<h1 id="CompareRevisionsAddOn_Plugin"> CompareRevisionsAddOn Plugin </h1>
+<p></p>
+
+This is an helper plugin for the <a href="/bin/view/System/CompareRevisionsAddOn">CompareRevisionsAddOn</a> on Foswiki
+<p></p>
+
+It has two purposes: <ol>
+<li> It sets the <code>CompareRevisionAddonPluginEnabled</code> flag, which can be used by templates (e.g. used by the <a href="/bin/view/System/HistoryPlugin">HistoryPlugin</a>)
+</li> <li> It provides an easy way to replace links to the original <code>rdiff</code> script by links to the new <code>compare</code> script.
+</li></ol> 
+<p></p>
+
+<h2 id="Syntax_Rules">  Syntax Rules </h2>
+<p></p>
+
+<code>%RDIFF2COMPARE{"text"}%</code> - Replaces links to the <code>rdiff</code> script with links to the <code>compare</code> script
+<p></p>
+
+<h2 id="Plugin_Settings">  Plugin Settings </h2>
+<p class='p'>(none)</p>
+
+<h2 id="Plugin_Installation_Instructions">  Plugin Installation Instructions  </h2>
+<p></p>
+
+This plugin is installed together with the <a href="/bin/view/System/CompareRevisionsAddOn">CompareRevisionsAddOn</a>, see the instructions there.
+It should be enabled (if necessary) with the configure script.
+<p></p>
+
+Test: CompareRevisionsAddOnPlugin is <strong>not</strong> installed and enabled.
+<p></p>
+
+<h2 id="Plugin_Info">  Plugin Info </h2>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Plugin Author: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Main.KennethLavrsen" title="'Main.KennethLavrsen' on foswiki.org">Foswiki:Main.KennethLavrsen</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Copyright &copy;: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 2006, JChristophFuchs; 2008-2014 Kenneth Lavrsen and Foswiki Contributors </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> License: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Version: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.115 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Release: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 08 Apr 2017 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 08 Apr 2017 (1.115) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item14366" title="'Item14366' on the 'Foswiki' issue tracking site">Foswikitask:Item14366</a>: Reorder initialization to allow local CGI::Carp. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 01 May 2014 (1.112) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12407" title="'Item12407' on the 'Foswiki' issue tracking site">Foswikitask:Item12407</a>: Don't decode entities during comparson. Convert to simple decimal version. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:center"> 10 Feb 2014 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12741" title="'Item12741' on the 'Foswiki' issue tracking site">Foswikitask:Item12741</a>: Formatting parameters not passed on the referenced scripts </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Oct 2013 (1.1.11) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12423" title="'Item12423' on the 'Foswiki' issue tracking site">Foswikitask:Item12423</a>: fix double encoding in header on UTF-8 sites </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Feb 2013 (1.1.10) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12408" title="'Item12408' on the 'Foswiki' issue tracking site">Foswikitask:Item12408</a>: use correct template names in docs </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jan 2013 (1.1.9) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12337" title="'Item12337' on the 'Foswiki' issue tracking site">Foswikitask:Item12337</a>: Remove undocumented dependency on <a class="interwikiLink" href="https://metacpan.org/module/HTML::TreeBuilder" title="CPAN perl repository">CPAN:HTML::TreeBuilder</a> &gt;= 4.0 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 Nov 2012 (1.1.8) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11267" title="'Item11267' on the 'Foswiki' issue tracking site">Foswikitask:Item11267</a>: Convert to perl version strings, <br />                         <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11755" title="'Item11755' on the 'Foswiki' issue tracking site">Foswikitask:Item11755</a>: Compare breaks characterset encoding. <br />                         <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11930" title="'Item11930' on the 'Foswiki' issue tracking site">Foswikitask:Item11930</a>: Read settings from <a href="/bin/view/Main/SitePreferences">SitePreferences</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2012 (1.1.7) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item11445" title="'Item11445' on the 'Foswiki' issue tracking site">Foswikitask:Item11445</a>: References to Sandbos should use %SANDBOXWEB% macro. Release with Foswiki 1.1.5. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Dec 2011 (1.1.6) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Release with Foswiki 1.1.4 - minor code and documentation cleanup. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 28 May 2011 (1.1.6) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10803" title="'Item10803' on the 'Foswiki' issue tracking site">Foswikitask:Item10803</a> - Fix invalid Foswiki configuration affecting ApacheLogin users introduced in <code>1.1.4</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 May 2011 (1.1.5) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10677" title="'Item10677' on the 'Foswiki' issue tracking site">Foswikitask:Item10677</a> - Speed optimization by avoiding doing pointless lookup for settings in plugin topic </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Apr 2011 (1.1.4) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10566" title="'Item10566' on the 'Foswiki' issue tracking site">Foswikitask:Item10566</a> - Add <code>compareauth</code> script for ApacheLogin users <br />                         - Switch to x.y.z version numbering <br />                         - Moved dependency list from documentation into DEPENDENCIES manifest                          - Modernize system topic for BuildContrib </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Apr 2011 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10401" title="'Item10401' on the 'Foswiki' issue tracking site">Foswikitask:Item10401</a> - Call logEvent in compare <br /> <a class="interwikiLink" href="https://foswiki.org/Tasks/Item10402" title="'Item10402' on the 'Foswiki' issue tracking site">Foswikitask:Item10402</a> - Don't use obsolete template for missing web/topic. <br /> Version shipping with 1.1.3 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 21 Oct 2010 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Version shipping with 1.1.1 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Sep 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Kenneth Lavrsen: Fixed problem with tables always showing up as changed even when they were not </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Aug 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Plugin is now a default plugin shipped with Foswiki. It will later have its function integrated in core in a future Foswiki version so its life as default plugin is temporary. Changed its switchboard setting to EXPERT so it is hidden in configure. You should never need to change this anyway. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Mar 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Gilmar Santos Jr: ported to <a class="interwikiLink" href="https://foswiki.org/Development/FoswikiStandAlone" title="'Development/FoswikiStandAlone' on foswiki.org">FSA architecture</a> (<a class="interwikiLink" href="https://foswiki.org/Tasks/Item1352" title="'Tasks/Item1352' on foswiki.org">Foswiki:Tasks/Item1352</a>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Jan 2009 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Gilmar Santos Jr: fixed ambigous print (<a class="interwikiLink" href="https://foswiki.org/Tasks.Item716" title="'Tasks.Item716' on foswiki.org">Foswiki:Tasks.Item716</a>) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Dec 2008 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Kenneth Lavrsen: Changed the author to myself. JChristophFuchs is the original author but announced in 2006 that he no longer maintains this plugin. So now I officially take the task as maintainer. Plugin is changed to Foswiki namespace and tested and works under Foswiki 1.0.0. Policy is now feel free to modify but please do not break compatibility. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Nov 2007 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Updated for TWiki 4.2.0. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 26 Feb 2006 </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Initial version </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> CPAN Dependencies: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> none </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Other Dependencies: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> none </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Perl Version: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 5.008 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Plugin Home: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a href="http://foswiki.org/Extensions/CompareRevisionsAddOn">http://foswiki.org/Extensions/CompareRevisionsAddOn</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> Support: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <a href="http://foswiki.org/Support/CompareRevisionsAddOn">http://foswiki.org/Support/CompareRevisionsAddOn</a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<strong><em>Related Topics:</em></strong> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>, <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>, <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>, <a href="/bin/view/Main/SitePreferences">SitePreferences</a>, <a href="/bin/view/System/Plugins">Plugins</a></div>
+<p class='p'></p>
+
+</div>
+<div class="patternInfo">This topic: System<span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span><a href="/bin/view/System/CompareRevisionsAddOn">CompareRevisionsAddOn</a><span class='foswikiSeparator'>&nbsp;&gt;&nbsp;</span>CompareRevisionsAddonPlugin <br />
+Topic revision:  <span class='patternRevInfo'>01 Jun 2017, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div>
+</div>
+</div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.CompareRevisionsAddonPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

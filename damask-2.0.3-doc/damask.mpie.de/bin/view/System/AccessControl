@@ -1,0 +1,778 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> AccessControl &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/AccessControl?t=1627661806" type="application/x-wiki" title="edit AccessControl" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/AccessControl" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/9d7aeb20a286fc6ee659eaad62a98a46.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "USERNAME" : "guest",
+   "SYSTEMWEB" : "System",
+   "URLHOST" : "https://damask.mpie.de",
+   "SCRIPTURLPATH" : "/bin",
+   "PUBURLPATH" : "/pub",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WEB" : "System",
+   "SERVERTIME" : "30 Jul 2021 - 18:16",
+   "SKIN" : "damask,famfamfam,pattern",
+   "COOKIEREALM" : "",
+   "SCRIPTSUFFIX" : "",
+   "TOPIC" : "AccessControl",
+   "USERSWEB" : "Main"
+}
+</script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/AccessControl"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/AccessControl" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>AccessControl</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/AccessControl?t=1627661806;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/AccessControl' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/AccessControl?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/AccessControl?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=AccessControl' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/AccessControl?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/AccessControl?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic">
+<h1 id="Access_Control">  Access Control </h1>
+<p class='p'>Restricting read and write access to topics and webs, by users and groups</p>
+
+Access Control allows you restrict access to single topics and entire webs, by individual user and by user Groups. Access control, combined with <a href="/bin/view/System/UserAuthentication">UserAuthentication</a>, lets you easily create and manage an extremely flexible, fine-grained privilege system.
+<p></p>
+
+Please note <a href="/bin/view/System/FileAttachment">FileAttachments</a> are not protected by Foswiki Access Control in a default configuration (though this can be enabled).
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#An_important_consideration"> An important consideration </a>
+</li> <li> <a href="#Permissions_settings_of_the_webs_on_this_Foswiki_site"> Permissions settings of the webs on this Foswiki site </a>
+</li> <li> <a href="#Authentication_vs._Access_Control"> Authentication vs. Access Control </a>
+</li> <li> <a href="#Users_and_groups"> Users and groups </a> <ul>
+<li> <a href="#Managing_Users"> Managing Users </a>
+</li> <li> <a href="#Managing_Groups"> Managing Groups </a>
+</li> <li> <a href="#The_Super_Admin_Group"> The Super Admin Group </a>
+</li></ul> 
+</li> <li> <a href="#Restricting_Access"> Restricting Access </a> <ul>
+<li> <a href="#Controlling_access_to_a_Web"> Controlling access to a Web </a>
+</li> <li> <a href="#Controlling_access_to_a_topic"> Controlling access to a topic </a> <ul>
+<li> <a href="#Wildcard_matching"> Wildcard matching </a>
+</li></ul> 
+</li> <li> <a href="#Controlling_access_to_attachments"> Controlling access to attachments </a>
+</li> <li> <a href="#Controlling_who_can_manage_top_45level_webs"> Controlling who can manage top-level webs </a>
+</li> <li> <a href="#How_Foswiki_evaluates_ALLOW_47DENY_settings"> How Foswiki evaluates ALLOW/DENY settings </a>
+</li></ul> 
+</li> <li> <a href="#Access_control_and_INCLUDE"> Access control and INCLUDE </a>
+</li> <li> <a href="#Access_control_quick_recipes"> Access control quick recipes </a> <ul>
+<li> <a href="#Obfuscating_webs"> Obfuscating webs </a>
+</li> <li> <a href="#Restrict_Access_to_a_whole_Foswiki_site"> Restrict Access to a whole Foswiki site </a> <ul>
+<li> <a href="#When_using_Apache_Login"> When using Apache Login </a>
+</li> <li> <a href="#When_using_Template_Login"> When using Template Login </a>
+</li></ul> 
+</li> <li> <a href="#Authenticate_all_webs_and_restrict_selected_webs"> Authenticate all webs and restrict selected webs </a>
+</li> <li> <a href="#Authenticate_and_restrict_selected_webs_only"> Authenticate and restrict selected webs only </a>
+</li> <li> <a href="#Authenticate_and_restrict_most_webs_44_Allow_access_to_selected_topics"> Authenticate and restrict most webs, Allow access to selected topics </a>
+</li> <li> <a href="#Show_control_settings"> Show control settings </a>
+</li> <li> <a href="#Hide_control_settings"> Hide control settings </a>
+</li></ul> 
+</li></ul> 
+</div>
+<p></p>
+
+<span id="ImportantConsideration"></span>
+<h2 id="An_important_consideration">  An important consideration </h2>
+<p></p>
+
+Open, freeform editing is the essence of <a href="/bin/view/System/WikiCulture">WikiCulture</a> - what makes Foswiki different and often more effective than other collaboration tools. For that reason, it is strongly recommended that the decision to restrict read or write access to a web or a topic is made with great care - the more restrictions, the less Wiki in the mix. Experience shows that <em>unrestricted write access</em> works very well because: <ul>
+<li> <strong>Peer influence</strong> is enough to ensure that only relevant content is posted.
+</li> <li> <strong>Peer editing</strong> - the ability for anyone to rearrange all content on a page - keeps topics focused.
+</li> <li> In Foswiki, content is transparently preserved under <strong>revision control</strong>: <ul>
+<li> Edits can be undone by the administrator (per default a member of <a href="/bin/view/Main/AdminGroup">AdminGroup</a>; see <a class="foswikiCurrentTopicLink" href="#ManagingGroups">AccessControl</a>).
+</li> <li> Users are encouraged to edit and refactor (condense a long topic), since there's a safety net.
+</li></ul> 
+</li></ul> 
+As a <strong>collaboration guideline</strong>, create broad-based Groups (for more and varied input), and avoid creating view-only Users (if you can read it, you should be able to contribute to it).
+<p></p>
+
+<h2 id="Permissions_settings_of_the_webs_on_this_Foswiki_site">  Permissions settings of the webs on this Foswiki site </h2>
+<p></p>
+
+The topic <a href="/bin/view/System/SitePermissions">SitePermissions</a> gives you an overview of the access control settings for all your webs.
+<p></p>
+
+<h2 id="Authentication_vs._Access_Control">  Authentication vs. Access Control </h2>
+<p></p>
+
+<strong>Authentication:</strong> Identifies who a user is based on a login procedure. See <a href="/bin/view/System/UserAuthentication">UserAuthentication</a>.
+<p></p>
+
+<strong>Access control:</strong> Restrict access to content based on users and groups once a user is identified. (Also referred to as Authorization)
+<p></p>
+
+<h2 id="Users_and_groups">  Users and groups </h2>
+<p></p>
+
+Access control is based on the familiar concept of users and groups. Users
+are defined by their <a href="/bin/view/System/WikiName">WikiNames</a>. They can then be organized in unlimited
+combinations by inclusion in one or more user Groups. Groups can also be
+included in other Groups.
+<p></p>
+
+<h3 id="Managing_Users">  Managing Users </h3>
+<p></p>
+
+In standard Foswiki a user can create an account in <a href="/bin/view/System/UserRegistration">UserRegistration</a>. The following actions are performed: (See <a href="/bin/view/System/ManagingUsers">ManagingUsers</a> for more details). <ul>
+<li> <a href="/bin/view/System/WikiName">WikiName</a>, encrypted password and email address are recorded using the password manager if authentication is enabled.
+</li> <li> A confirmation e-mail is sent to the user.
+</li> <li> A user home page with the <a href="/bin/view/System/WikiName">WikiName</a> of the user is created in the Main web.
+</li> <li> The user is added to the <a href="/bin/view/Main/WikiUsers">WikiUsers</a> topic.
+</li> <li> Optionally the user is added to one or more groups.
+</li></ul> 
+<p></p>
+
+The default visitor name is <a href="/bin/view/Main/WikiGuest">WikiGuest</a>. This is the non-authenticated user.  By default the non-authenticated user is not permitted to edit topics.  If you require anonymous editing, see "Controlling access to individual scripts" in <a href="/bin/view/System/UserAuthentication">UserAuthentication</a>.
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Your local Foswiki may have an alternate user mapping manager installed which doesn't support user registration. Check with your Wiki administrator if you are in doubt.</div>
+<p></p>
+
+<span id="ManagingGroups"></span>
+<h3 id="Managing_Groups">  Managing Groups </h3>
+<p class='p'>The following describes the standard Foswiki support for groups. Your local Foswiki may have an alternate group mapping manager installed. Check with your Wiki administrator if you are in doubt.</p>
+
+Groups are defined by group topics located in the <code><b>Main</b></code> web. To create a new group, visit  <a href="/bin/view/Main/WikiGroups">WikiGroups</a>. You will find a "Create a new group" link at the top which reveals a form to create a new group. Enter the name of the new group ending in <code><b>Group</b></code> into the "Group Name" form field and the initial members in the "Members" field. This creates a new group topic. (The default User Mapper shipped with Foswiki requires that groups end with the word <strong>Group</strong>. If your site uses an alternate mapper, it might not have that requirement.)
+<p class='p'>By default any member of a group has access rights to both adding and removing users from the group through the nice user interface. If you need to limit this access further, change the ALLOWTOPICCHANGE setting through "More Topic Action" -&gt; "Edit topic preference settings".</p>
+
+The <code>ALLOWTOPICCHANGE</code> setting defines who is allowed to change the group topic; it is a comma delimited list of users and groups. You typically want to restrict that to the members of the group itself, so it should contain the name of the topic. This prevents users not in the group from editing the topic to give themselves or others access. For example, for the KasabianGroup topic write: <ul>
+<li> <code><b>Set ALLOWTOPICCHANGE = Main.KasabianGroup</b></code> <ul>
+<li> <strong>Caution</strong> This is set in the "Topic Settings" and not inline in the topic text!
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> If you want to hide a group and its list of members, you can set <code>ALLOWTOPICVIEW</code> on the group. For example: <ul>
+<li> <code><b>Set ALLOWTOPICVIEW = Main.SecretGroup</b></code> <ul>
+<li> This group will be usable in the ACL of any topic, but is only visible to members of the group.
+</li> <li> <strong>Caution</strong> As with the the prior example, this is set in the "Topic Settings" and not inline in the topic text!
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<div class='foswikiHelp'>
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Foswiki has strict formatting rules. Settings <strong>must</strong> be entered as a bullet point. <ul>
+<li> With the TML editor, or in the Settings editor, make sure you have three spaces, an asterisk, and an extra space in front of any access control rule.
+</li> <li> When using the <a href="/bin/view/System/WYSIWYG">WYSIWYG</a> editor, create a bullet using the bullet button on the toolbar.
+</li></ul> 
+<p></p>
+
+Background: A group topic is an empty topic with 3 hidden preference settings. <ul>
+<li> GROUP: Comma separated list of users and/or groups
+</li> <li> ALLOWTOPICCHANGE: Comma separated list of users and groups that are allowed to add and remove users from the group
+</li> <li> VIEW_TEMPLATE: Always set to the value <code>GroupView</code>. This alters the way the topic is presented to include a nice user interface for adding and removing users.
+</li></ul> 
+<p></p>
+
+Foswiki 1.1 introduced the smart user interface for adding and removing members of a group. Group topics from prior versions of Foswiki will still work. These have the GROUP setting visible in the topic text itself and you edit it by editing the topic. Foswiki 1.1 <a href="/bin/view/Main/WikiGroups">WikiGroups</a> will show these old group topics with an "Upgrade Group Topic button". The administrator can upgrade an old group topic to the nice new user interface with one easy click.
+</div>
+<p></p>
+
+<span id="SuperAdminGroup"></span>
+<h3 id="The_Super_Admin_Group">  The Super Admin Group </h3>
+<p></p>
+
+A number of Foswiki functions (for example, renaming webs) are only available to administrators. Administrators are simply users who belong to the <strong>SuperAdminGroup</strong>. This is a standard user group, the name of which is defined by <code>{SuperAdminGroup}</code> setting in <a href="/bin/configure">configure</a>. The default name of this group is the <code>AdminGroup</code>. The system administrator may have chosen a different name for this group if your local Foswiki uses an alternate group mapping manager, but for simplicity we will use the default name AdminGroup in the rest of this topic.
+<p></p>
+
+You can create new administrators simply by adding them to the <a href="/bin/view/Main/AdminGroup">AdminGroup</a> topic. using the <a href="/bin/view/Main/WikiGroups">WikiGroups</a> API For example,
+<p></p>
+
+A member of the Super Admin Group has <strong>unrestricted access</strong> throughout the wiki, so only trusted staff should be added to this group.
+<p></p>
+
+<div class='foswikiHelp'>
+<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> Hint: Instead of adding users to the AdminGroup, consider adding them to the <code>ALLOWTOPICCHANGE</code> setting for the AdminGroup.  Those users will then be able to add and remove themselves from the AdminGroup when they need admin rights, rather than running as admin all the time.
+</div>
+<p></p>
+
+<h2 id="Restricting_Access">  Restricting Access </h2>
+<p class='p'>Access to webs and topics is controlled by:</p>
+ <ul>
+<li> the <code>{AuthScripts}</code> setting in <a href="/bin/configure">configure</a> -&gt; Security and Authentication -&gt; Login; and
+</li> <li> setting the values of certain <a href="/bin/view/System/PreferenceSettings">preferences</a>.
+</li></ul> 
+<p class='p'>These preferences have the general form:</p>
+
+<em>permission</em> <em>context</em> <em>mode</em>
+<p></p>
+
+Where <em>permission</em> is <code>ALLOW</code> or <code>DENY</code>, <em>context</em> is <code>TOPIC</code>, <code>WEB</code>, or <code>ROOT</code>, and <em>mode</em> is <code>VIEW</code>, <code>CHANGE</code>, or <code>RENAME</code>. For example, the preference <code>ALLOWWEBCHANGE</code> lists who is allowed to change
+topics in the current web.  (Some extensions add additional modes.  Ex. ALLOWTOPICCOMMENT.)
+<p></p>
+ <ul>
+<li> Restricting VIEW blocks viewing and searching of content. When you restrict VIEW to a topic or web, this also restricts <a href="/bin/view/System/VarINCLUDE">INCLUDE</a> and <a href="/bin/view/System/FormattedSearch">Formatted SEARCH</a> from showing the content of the topics.
+</li> <li> Restricting CHANGE blocks creating new topics, changing topics or attaching files.
+</li> <li> Restricting RENAME prevents renaming of topics within a web.
+</li></ul> 
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>There is an important distinction between CHANGE access and RENAME access.</strong> A user can CHANGE a topic, but thanks to version control their changes cannot be lost (the history of the topic before the change is recorded). However if a topic or web is renamed, that history may be lost. Typically a site will only give RENAME access to administrators and content owners.
+<p></p>
+ <ul>
+<li> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note that ALLOWWEBxxx and DENYWEBxxx preferences can only be set in <a href="/bin/view/System/WebPreferences">WebPreferences</a> topics. You cannot define a site level access. Each web must be protected on their own. Subwebs inherit access settings from the parent web. See next section.
+</li> <li> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note that ALLOWTOPICxxx and DENYTOPICxxx preferences apply only to the topic itself.
+</li> <li> <img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Be warned that some plugins may not respect access permissions.
+</li></ul> 
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> <a href="/bin/view/System/Macros#FinalMacros">FINALPREFERENCES</a> affects access controls, allowing you to prevent changes to access control settings while still allowing edit access to topics.
+</div>
+<p></p>
+
+<h3 id="Controlling_access_to_a_Web">  Controlling access to a Web </h3>
+<p class='p'>You can define restrictions on who is allowed to view a DAMASK web. You can restrict access to certain webs to selected users and groups, by:</p>
+ <ul>
+<li> <strong>authenticating all webs and restricting selected webs:</strong> Topic access in all webs is authenticated, and selected webs have restricted access.
+</li> <li> <strong>authenticating and restricting selected webs only:</strong> Provide unrestricted viewing access to open webs, with authentication and restriction only on selected webs.
+</li></ul> 
+<p></p>
+ <ul>
+<li> You can define these settings in the <a href="/bin/view/System/WebPreferences">WebPreferences</a> topic, preferable towards the end of the topic: <ul>
+<li> <code><b>Set DENYWEBVIEW = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set ALLOWWEBVIEW = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set DENYWEBCHANGE = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set ALLOWWEBCHANGE = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set DENYWEBRENAME = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set ALLOWWEBRENAME = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li></ul> 
+</li></ul> 
+<p class='p'>You can also use the asterisk (*) in any of the above settings if you want it to match all possible users.</p>
+
+If your site allows sub-webs, then access to sub-webs is determined from the access controls of the parent web, plus the access controls in the sub-web. So, if the parent web has <code><b>ALLOWWEBVIEW</b></code> set, this will also apply to the subweb. Also note that you will need to ensure that the parent web's <code><b>FINALPREFERENCES</b></code> does not include the access control settings listed above. Otherwise you will not be able override the parent web's access control settings in sub-webs.
+<p></p>
+
+Creation and renaming of sub-webs is controlled by the WEBCHANGE setting on the parent web (or ROOTCHANGE for <a class="foswikiCurrentTopicLink" href="#RootWebs">root webs</a>). Renaming is additionally restricted by the setting of WEBRENAME in the web itself.
+<p></p>
+
+<h3 id="Controlling_access_to_a_topic">  Controlling access to a topic </h3> <ul>
+<li> You can define these settings in any topic, preferable towards the end of the topic: <ul>
+<li> <code><b>Set DENYTOPICVIEW = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set ALLOWTOPICVIEW = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set DENYTOPICCHANGE = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set ALLOWTOPICCHANGE = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set DENYTOPICRENAME = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set ALLOWTOPICRENAME = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li></ul> 
+</li></ul> 
+<p></p>
+
+You can also use an asterisk (*) in any of these settings to match all possible users.
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <strong>Caution!</strong> Settings are always taken from the latest (current) revision of a topic. If older revisions of a topic had more restrictive access controls, they will not be used when accessing the older revision. If the topic was restricted because it contained sensitive information, and that information was removed, it still exists in the topic history. Once you remove the access restrictions, the topic history will be viewable.</div>
+<p class='p'>Remember when opening up access to specific topics within a restricted web that other topics in the web - for example, the WebLeftBar - may also need to be accessed when viewing the topics. The message you get when you are denied access should tell you what topic you were not permitted to access.</p>
+
+<div class='foswikiHelp'>
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> If your site started out life using an earlier version of Foswiki, you might have seen that from Foswiki 2.0 onwards, <strong>the empty DENY has been removed</strong>. This rule has been replaced by <code>*</code> wildcards in the ALLOW and DENY rules.
+<p></p>
+
+The previous documentation said: <ul>
+<li> <code><b>Set ALLOWTOPICVIEW = </b></code> <br />This means the same as not setting it at all.
+</li> <li> <code><b>Set DENYTOPICVIEW = </b></code> <br />This means the same as not setting it at all.
+</li></ul> 
+As of Foswiki 2.0, the empty DENY setting is now meaningless, <em>unless explicitly overridden by your installation</em>.
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> &nbsp; </td>
+			<th class="foswikiTableCol1"> Before Foswiki 2.0 </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Foswiki 2.0 and newer </th>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Allow ALL users </td>
+			<td class="foswikiTableCol1"> Set DENY to an empty string </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Set ALLOW to * </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Allow All logged-in users </td>
+			<td class="foswikiTableCol1"> <p>Set DENY to <a href="/bin/view/Main/WikiGuest">WikiGuest</a></p>
+ <p>Leave ALLOW un-set</p>
+ </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &lt;no change from before&gt; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Deny all access </td>
+			<td class="foswikiTableCol1"> Set ALLOW to <a href="/bin/view/Main/NobodyGroup">NobodyGroup</a> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <p>Set ALLOW to <a href="/bin/view/Main/NobodyGroup">NobodyGroup</a></p>
+ <p>-or- Set DENY to *</p>
+ </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Allow selected users </td>
+			<td class="foswikiTableCol1"> Set ALLOW to desired users/groups </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Set ALLOW to desired users/groups </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Deny selected users </td>
+			<td class="foswikiTableCol1 foswikiLast"> Set DENY to desired users/groups </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> Set DENY to desired users/groups </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+If your administrator has enabled <code>{AccessControlACL}{EnableDeprecatedEmptyDeny}</code> in the Foswiki configuration then the old behaviour will still work and  an empty DENY setting means <em>do not deny anyone the right to access</em>. If DENYTOPICVIEW is set to an empty value anyone has access even if ALLOWTOPICVIEW or ALLOWWEBVIEW is defined. This allows you to have very restrictive default access rights to an entire web and still allow individual topics to have more open access.
+</div>
+<h4 id="Wildcard_matching">  Wildcard matching </h4>
+<p></p>
+
+When <code>*</code> is set in a rule, it says that any user identity will match that rule.  Setting <code>ALLOW</code> to <code>*</code> says "Allow ALL", setting * to DENY says "Deny ALL".
+<p></p>
+
+For example if you want completely open access to a topic <strong><em>for logged in users</em></strong> then use the following rules: <ul>
+<li> <code><b>Set ALLOWTOPICVIEW = *</b></code> <br />This allows everyone.
+</li> <li> <code><b>Set DENYTOPICVIEW = <a href="/bin/view/Main/WikiGuest">WikiGuest</a></b></code> <br /></b>This overrides the ALLOW, and denies the guest user.
+</li></ul> 
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Note that it is not possible to override a DENY with an ALLOW at the same level ALLOW on a topic can override DENY at the web level, but not at the TOPIC level
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> If the same setting is defined multiple times the last one overrides the previous. They are not OR'ed together.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> <em>Setting to an empty value has caused confusion and has been removed. Please read the release notes carefully when you upgrade.</em>
+</div>
+<p class='p'>See "How Foswiki evaluates ALLOW/DENY settings" below for more on how ALLOW and DENY interacts.</p>
+
+<h3 id="Controlling_access_to_attachments">  Controlling access to attachments </h3>
+<p></p>
+
+Attachments are referred to directly, and are not normally indirected via Foswiki scripts. This means that the above instructions for access control will <em>not</em> apply to attachments. It is possible that someone may inadvertently publicise a URL that they expected to be access-controlled.
+<p></p>
+
+The easiest way to apply the same access control rules for attachments as apply to topics is to use the Apache <code>mod_rewrite</code> module, and configure your webserver to redirect accesses to attachments to the Foswiki <code>viewfile</code> script. For example,
+<p></p>
+
+<pre>
+    ScriptAlias /foswiki/bin/ /filesystem/path/to/bin/
+    Alias /foswiki/pub/       /filesystem/path/to/pub/
+
+    RewriteEngine on
+    RewriteCond &#37;{REQUEST&#95;URI} !^/+foswiki/+pub/+System/+.+
+    RewriteRule ^/+foswiki/+pub/+(&#91;^/&#93;+)((/+(&#91;^/&#93;+))+)/+(.+) /foswiki/bin/viewfile/&#36;1/&#36;2?filename&#61;&#36;5 &#91;L,PT&#93;</pre>
+<p class='p'>That way all the controls that apply to the topic also apply to attachments to the topic. Other types of web servers have similar support.</p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Images embedded in topics will load much slower since each image will be delivered by the <code>viewfile</code> script. The <a class="interwikiLink" href="https://foswiki.org/Support.ApacheConfigGenerator" title="'Support.ApacheConfigGenerator' on foswiki.org">Foswiki:Support.ApacheConfigGenerator</a> has some more extensive examples of protecting user attachments, but allowing direct access to trivial graphics attached to System topics.</div>
+<p></p>
+
+<span id="RootWebs"></span>
+<h3 id="Controlling_who_can_manage_top_45level_webs">  Controlling who can manage top-level webs </h3>
+<p></p>
+
+Top level webs are a special case, because they don't have a parent web with a <a href="/bin/view/System/WebPreferences">WebPreferences</a>. So there has to be a special control just for the root level. <ul>
+<li> You can define these settings in the <a href="/bin/view/Main/SitePreferences">SitePreferences</a> topic, preferably towards the end of the topic: <ul>
+<li> <code><b>Set DENYROOTCHANGE = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set ALLOWROOTCHANGE = &lt; comma-delimited list of users and groups &gt;</b></code>
+</li></ul> 
+</li></ul> 
+Note that you do <strong>not</strong> require <code>ROOTCHANGE</code> access to rename an existing top-level web. You just need <code>WEBCHANGE</code> in the web itself.
+<p></p>
+
+<h3 id="How_Foswiki_evaluates_ALLOW_47DENY_settings">  How Foswiki evaluates ALLOW/DENY settings </h3>
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Settings are only read from the most current (latest) revision of a topic. Settings from older revisions are never used, even when viewing an older revision with the <code>rdiff</code> script</div>
+<p></p>
+
+When deciding whether to grant access, Foswiki evaluates the following rules <strong>in order</strong> (read from the top of the list; if the logic arrives at <strong>PERMITTED</strong> or <strong>DENIED</strong> that applies immediately and no more rules are applied). You need to read the rules bearing in mind that VIEW, CHANGE and RENAME access may be granted/denied separately.
+<p></p>
+ <ol>
+<li> If the user is an <a class="foswikiCurrentTopicLink" href="#SuperAdminGroup">administrator</a> <ul>
+<li> access is <strong>PERMITTED</strong>.
+</li></ul> 
+</li> <li> If DENYTOPIC is set to a list of WikiNames, or set to the * wildcard <ul>
+<li> people in the list will be <strong>DENIED</strong>.
+</li></ul> 
+</li> <li> If ALLOWTOPIC is set to a list of WikiNames, or set to the * wildcard <ol>
+<li> people in the list are <strong>PERMITTED</strong>
+</li> <li> everyone else is <strong>DENIED</strong> (nobody is denied if ALLOW is set to *)
+</li></ol> 
+</li> <li> If DENYWEB is set to a list of WikiNames, or set to the * wildcard<br /> <ul>
+<li> people in the list are <strong>DENIED</strong> access (everyone if DENY is set to *)
+</li></ul> 
+</li> <li> If ALLOWWEB is set to a list of WikiNames, or set to the * wildcard <ul>
+<li> people in the list will be <strong>PERMITTED</strong>
+</li> <li> everyone else will be <strong>DENIED</strong> (nobody is denied if ALLOW is set to *)
+</li></ul> 
+</li> <li> If you got this far, access is <strong>PERMITTED</strong>
+</li></ol> 
+<p></p>
+
+<h2 id="Access_control_and_INCLUDE">  Access control and INCLUDE </h2>
+<p class='p'>ALLOWTOPICVIEW and ALLOWTOPICCHANGE only applies to the topic in which the settings are defined. If a topic A includes another topic B, topic A does not inherit the access rights of the included topic B.</p>
+
+<p class='p'>Examples: Topic A includes topic B</p>
+ <ul>
+<li> If the included topic B has ALLOWTOPICCHANGE set to block editing for a user, it does not prevent editing the including topic A.
+</li> <li> If the included topic B has ALLOWTOPICVIEW set to block view for a user, the user can still view topic A but he cannot see the included topic B. He will see a message <em>No permission to view B</em>
+</li></ul> 
+<p></p>
+
+<h2 id="Access_control_quick_recipes">  Access control quick recipes </h2>
+<p></p>
+
+<h3 id="Obfuscating_webs">  Obfuscating webs </h3>
+<p></p>
+
+Another way of hiding webs is by setting the <code><b>NOSEARCHALL</b></code> setting in <a href="/bin/view/System/WebPreferences">WebPreferences</a>.  It does the following: <ul>
+<li> Prevents the <code><b>all webs</b></code> search option from accessing the web
+</li> <li> Hides the web from the %WEBLIST% macro.
+</li></ul> 
+<pre>
+   &#42; Set NOSEARCHALL &#61; on</pre>
+<p class='p'>This setup can be useful to hide a new web until content its ready for deployment, or reduce clutter in the WebLeftBar and default search results when restricted access is not desired.</p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> Setting <code><b>NOSEARCHALL</b></code> to <strong><em>any</em></strong> value other than the empty string will hide a web. Setting <code><b>NOSEARCHALL = off</b></code> will have the same effect as setting it to <code><b>on</b></code> </div>
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Obfuscating a web without setting view access control is <strong>very</strong> insecure, as anyone who knows the URL can access the web, and explicit searches naming that web will also work. For security purposes it is better to use the ALLOW or DENY VIEW settings in the <a href="/bin/view/System/WebPreferences">WebPreferences</a> topic. <code>%SEARCH%</code> and <code>%WEBLIST%</code> will not show any results for webs that the current user does not have permission to view.</div>
+<p></p>
+
+<h3 id="Restrict_Access_to_a_whole_Foswiki_site">  Restrict Access to a whole Foswiki site </h3>
+<p></p>
+
+For a firewalled Foswiki, e.g. an intranet wiki or extranet wiki, you want to allow only invited people to access your Foswiki.
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/help.png" alt="HELP" title="HELP" width="16" height="16" /> With this configuration, someone with access to the site needs to register new users. <a href="/bin/view/System/ResetPassword">ResetPassword</a> will also have to be done by administrators.</div>
+<p></p>
+
+<h4 id="When_using_Apache_Login">  When using Apache Login </h4>
+<p></p>
+
+<a href="/bin/view/System/UserAuthentication#ApacheLogin">User authentication with ApacheLogin</a> is enabled on your site.  To reqire login for <strong>all</strong> scripts: <ul>
+<li> lock down access to the whole <code>bin</code> and <code>pub</code> directories to all but valid users. In the Apache <code>.htaccess</code> file or the appropriate <code>.conf</code> file, replace the <code>&lt;FilesMatch "(attach|edit|...</code> section with this:
+</li></ul> 
+<pre>
+&#60;FilesMatch &#34;.&#42;&#34;&#62;
+       require valid-user
+&#60;/FilesMatch&#62;</pre>
+<p class='p'>If needed, you can further restrict access to selected webs with ALLOWWEBVIEW and other access control settings.</p>
+
+<h4 id="When_using_Template_Login">  When using Template Login </h4>
+<p></p>
+
+<a href="/bin/view/System/UserAuthentication#TemplateLogin">User authentication with TemplateLogin</a> is enabled on your site.   To require login for <strong>all</strong> scripts: <ul>
+<li> Add all scripts in the <code>foswiki/bin</code> directory (except for <code>login</code>, <code>logon</code> and <code>configure</code>) to the list of <code>{AuthScripts}</code> in <a href="https://damask.mpie.de/bin/configure">configure</a>, <code>Security And Authentication</code> tab, <code>Login</code> sub-tab, For a default Foswiki installation:
+</li></ul> 
+<p></p>
+ <ul>
+<li> Default (open) site:
+</li></ul> 
+<pre>
+{AuthScripts} &#61; &#39;attach,compareauth,edit,manage,previewauth,rdiffauth,rename,restauth,save,statistics,upload,viewauth,viewfileauth&#39;;</pre> <ul>
+<li> Restricted (closed) site:
+</li></ul> 
+<pre>
+{AuthScripts} &#61; &#39;attach,changes,compare,compareauth,edit,manage,oops,preview,previewauth,rdiff,rdiffauth,register,rename,resetpasswd,rest,restauth,save,search,statistics,upload,view,viewauth,viewfile,viewfileauth</pre>
+<p></p>
+
+<div class='foswikiHelp'><img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> If you install extensions that add scripts, you must also remember to add the new scripts to this list or the new scripts will not be protected.</div>
+<p></p>
+
+<h3 id="Authenticate_all_webs_and_restrict_selected_webs">  Authenticate all webs and restrict selected webs </h3>
+<p></p>
+
+Use the following setup to authenticate users for topic viewing in all webs and to restrict access to selected webs. Requires <a href="/bin/view/System/UserAuthentication">UserAuthentication</a> to be enabled.
+<p></p>
+ <ol>
+<li> The simple way is to add this to <code>WebPreferences</code> in all webs. <ul>
+<li> <code><b>Set DENYWEBVIEW = WikiGuest</b></code>
+</li></ul> 
+</li> <li> <strong>Restrict</strong> view access to selected users and groups. Set one or both of these settings in its <a href="/bin/view/System/WebPreferences">WebPreferences</a> topic: <ul>
+<li> <code><b>Set ALLOWWEBVIEW = &lt; list of users and groups &gt;</b></code>
+</li> <li> <strong>Note:</strong> <code>DENYWEBVIEW</code> is evaluated before <code>ALLOWWEBVIEW</code>. Access is denied if the authenticated person is in the <code>DENYWEBVIEW</code> list, or not in the <code>ALLOWWEBVIEW</code> list. Access is granted if <code>DENYWEBVIEW</code> and <code>ALLOWWEBVIEW</code> are not defined.
+</li></ul> 
+</li></ol> 
+<p class='p'>In rare cases it may be required to authenticate the view script. This can in some cases have a dramatic performance hit because the webserver must re-authenticate for every page view.</p>
+ <ol>
+<li> Set <code>require valid-user</code> on your <code>view</code> script in .htaccess or the appropriate Apache .conf file. This looks like: <code>FilesMatch "(attach|edit|manage|rename|save|view|upload|mail|logon|.*auth).*"</code> (normally <code>view</code> is not in that list).
+</li></ol> 
+<p></p>
+
+<h3 id="Authenticate_and_restrict_selected_webs_only">  Authenticate and restrict selected webs only </h3>
+<p></p>
+
+Use the following setup to provide unrestricted viewing access to open webs, with authentication only on selected webs. Requires <a href="/bin/view/System/UserAuthentication">UserAuthentication</a> to be enabled.
+<p></p>
+ <ol>
+<li> <strong>Restrict</strong> view access to selected users and groups. Set one or both of these settings in its <a href="/bin/view/System/WebPreferences">WebPreferences</a> topic: <ul>
+<li> <code><b>Set DENYWEBVIEW = &lt; list of users and groups &gt;</b></code>
+</li> <li> <code><b>Set ALLOWWEBVIEW = &lt; list of users and groups &gt;</b></code>
+</li> <li> <strong>Note:</strong> <code>DENYWEBVIEW</code> is evaluated before <code>ALLOWWEBVIEW</code>. Access is denied if the authenticated person is in the <code>DENYWEBVIEW</code> list, or not in the <code>ALLOWWEBVIEW</code> list. Access is granted if <code>DENYWEBVIEW</code> and <code>ALLOWWEBVIEW</code> are not defined.
+</li></ul> 
+</li></ol> 
+<h3 id="Authenticate_and_restrict_most_webs_44_Allow_access_to_selected_topics">  Authenticate and restrict most webs, Allow access to selected topics </h3>
+<p></p>
+
+Use the following setup is used to "lock down" the Wiki to logged in users, while still allowing <a href="/bin/view/System/UserRegistration">UserRegistration</a>, <a href="/bin/view/System/ResetPassword">ResetPassword</a>, etc. to remain operational. Requires <a href="/bin/view/System/UserAuthentication">UserAuthentication</a> to be enabled.
+<p></p>
+ <ol>
+<li> <strong>Restrict</strong> view access by the guest user, and then selectively unlock topics required for normal operation<br /> <ul>
+<li> <b>Set &lt;nop&gt;DENYWEBVIEW = WikiGuest </b>Set this in each <a href="/bin/view/System/WebPreferences">WebPreferences</a> topic:
+</li> <li> <strong>Set &lt;nop&gt;ALLOWTOPICVIEW = *</strong> Set this in each topic that needs to be unlocked for unauthenticated users.
+</li> <li> <strong>Note:</strong> ALLOWTOPICVIEW is evaluated before DENYWEBVIEW. Access is permitted if the authenticated person (or wildcard) is in the ALLOWTOPICVIEW list. The list of topics that need to be unlocked in the System web for login, password reset, registration, and guest access when the System has been locked down is rather extensive.
+</li></ul> 
+</li></ol> 
+<h3 id="Show_control_settings">  Show control settings </h3>
+<p></p>
+
+You can list the access controls affecting a topic using the <a href="/bin/view/System/VarSHOWPREFERENCE">%SHOWPREFERENCE{}%</a> macro in the topic, thus:
+<pre class='tml'>
+&#37;SHOWPREFERENCE{&#34;DENYWEBVIEW,ALLOWWEBVIEW,DENYWEBCHANGE,ALLOWWEBCHANGE,DENYWEBRENAME,ALLOWWEBRENAME&#34;}&#37;</pre>
+<p></p>
+
+For this topic, this displays: <ul>
+<li> Set DENYWEBVIEW = ""
+</li> <li> Set ALLOWWEBVIEW = ""
+</li> <li> Set DENYWEBCHANGE = ""
+</li> <li> Set ALLOWWEBCHANGE = "&#37;USERSWEB&#37;.AdminGroup" <ul>
+<li> ALLOWWEBCHANGE was defined in System.WebPreferences
+</li></ul> 
+</li> <li> Set DENYWEBRENAME = ""
+</li> <li> Set ALLOWWEBRENAME = "&#37;USERSWEB&#37;.AdminGroup" <ul>
+<li> ALLOWWEBRENAME was defined in System.WebPreferences
+</li></ul> 
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="Hide_control_settings">  Hide control settings </h3>
+<p></p>
+
+To hide access control settings from normal browser viewing, you can put them into the <em>topic <a href="/bin/view/System/PreferenceSettings">preference settings</a></em> by clicking the link <code>Edit topic preference settings</code> under <code>More topic actions</code> menu. Preferences set in this manner are not visible in the topic text, but take effect nevertheless. Access control settings added as topic preference settings are stored in the topic meta data and they override settings defined in the topic text.
+<p class='p'>Alternatively, place them in HTML comment markers, but this exposes the access setting during ordinary editing.</p>
+
+<pre class='tml'>&lt;!-- <br />
+ * Set DENYTOPICCHANGE = Main.SomeGroup <br />
+--&gt;
+</pre>
+<p class='p'></p>
+
+<p class='p'></p>
+
+<hr />
+<p></p>
+
+<strong>Related Topics:</strong> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>, <a href="/bin/view/System/UserAuthentication">UserAuthentication</a>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/AccessControl?t=1627661806' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/AccessControl' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/AccessControl?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/AccessControl?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/AccessControl?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/AccessControl?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/AccessControl?t=1627661806;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/AccessControl?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/AccessControl?foswiki_origin=GET%2cview%2c/bin/view/System/AccessControl">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.AccessControl'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

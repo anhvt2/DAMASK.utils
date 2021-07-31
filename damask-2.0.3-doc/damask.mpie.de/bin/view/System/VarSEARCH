@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> VarSEARCH &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/VarSEARCH?t=1627664358" type="application/x-wiki" title="edit VarSEARCH" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/VarSEARCH" /><!--[if IE]></base><![endif]-->
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/740ed96970d6798bfbb90de69cd4bd3d.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "URLHOST" : "https://damask.mpie.de",
+   "COOKIEREALM" : "",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SERVERTIME" : "30 Jul 2021 - 18:59",
+   "SCRIPTSUFFIX" : "",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WEB" : "System",
+   "SKIN" : "damask,famfamfam,pattern",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTURLPATH" : "/bin",
+   "USERNAME" : "guest",
+   "USERSWEB" : "Main",
+   "TOPIC" : "VarSEARCH",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "SYSTEMWEB" : "System"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/VarSEARCH"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Macros">Macros</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/VarSEARCH" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>VarSEARCH</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/VarSEARCH?t=1627664358;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/VarSEARCH' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/VarSEARCH?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/VarSEARCH?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=VarSEARCH' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/VarSEARCH?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/VarSEARCH?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="SEARCH_45_45_search_content">  SEARCH -- search content </h1>
+Inline search, shows a search result embedded in a topic
+<h2 id="Parameters">  Parameters </h2>
+                                          <table class="foswikiTable" id="tableVarSEARCH1" rules="none">     
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Parameter </th>
+			<th class="foswikiTableCol1"> Description </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Default: </th>
+		</tr>
+	</thead>     
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>"text"</code> <br> <code>search="text"</code> </td>
+			<td class="foswikiTableCol1"> Search term. Is a keyword search, literal search, regular expression search, or query, depending on the <code>type</code> parameter. <a href="/bin/view/System/SearchHelp">SearchHelp</a> has more </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> required </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>web</code> </td>
+			<td class="foswikiTableCol1"> Comma-separated list of webs to search. e.g.  <br/> <code>web="Main, Know"</code> <br /> <code>web="all"</code> <br>      The special word <code>all</code> means all webs that do <strong>not</strong> have the <code>NOSEARCHALL</code> preference set to <code>on</code> in their <a href="/bin/view/System/WebPreferences">WebPreferences</a>.<br />     You can specifically <strong>exclude</strong> webs from an <code>all</code> search using a minus sign - for example, <code>web="all,-Secretweb"</code>.     Caution: The <code>"all,-Secretweb"</code> syntax does <em>not</em> exclude subwebs of the excluded web.   It applies to only a single web.  See <a class="interwikiLink" href="https://foswiki.org/Tasks/Item8893" title="'Item8893' on the 'Foswiki' issue tracking site">Foswikitask:Item8893</a>     <a href="/bin/view/System/AccessControl">AccessControls</a> are respected when searching webs; it is <strong>much</strong> better to use them than <code>NOSEARCHALL</code>. Wildcards are not currently supported for web names.<br /> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Current web </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>topic</code> </td>
+			<td class="foswikiTableCol1"> Limit search to topics e.g. <br> <code>topic="WebPreferences"</code> <br /> <code>topic="*Bug"</code> <br> <code>topic="MyTopic,YourTopic"</code> <br> A topic, a topic with asterisk wildcards, or a list of topics separated by comma. <br> <strong>Note</strong> this is a list of <strong>topic names</strong> and must <strong>not</strong> include web names. Adding a topic restriction to a search can greatly improve the search performance. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> All topics in a web </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>excludetopic</code> </td>
+			<td class="foswikiTableCol1"> Exclude topics from search e.g. <br> <code>excludetopic="Web*"</code> <br /> <code>excludetopic="WebHome, WebChanges"</code> <br> A topic, a topic with asterisk wildcards, or a list of topics separated by comma.<br> <strong>Note</strong> this is a list of <strong>topic names</strong> and must <strong>not</strong> include web names. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>scope</code> </td>
+			<td class="foswikiTableCol1"> Search topic name (<code>"title"</code>); the body (<code>"text"</code>) of the topic; or title and body (<code>"all"</code>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>text</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>type</code> </td>
+			<td class="foswikiTableCol1"> Control how the search is performed when <code>scope="text"</code> or <code>scope="all"</code> <br /> <code>"keyword"</code> - use Google-like controls as in <code>soap "web service" -shampoo</code>; searches word parts: using the example, topics with "soapsuds" will be found as well, but topics with "shampoos" will be excluded <br /> <code>"word"</code> - identical to <code>keyword</code> but searches whole words: topics with "soapsuds" will not be found, and topics with "shampoos" will not be excluded <br /> <code>"literal"</code> - search for the exact string, like <code>web service</code> <br /> <code>"regex"</code> - use a <a href="/bin/view/System/RegularExpression">RegularExpression</a> search like <code>soap;web service;!shampoo</code>; to search on whole words use <code>\bsoap\b</code> <br /> <code>"query"</code> - <a href="/bin/view/System/QuerySearch">QuerySearch</a> of form fields and other meta-data, like <code>(Firstname='Emma' OR Firstname='John') AND Lastname='Peel'</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>%SEARCHVARDEFAULTTYPE%</code> <a href="/bin/view/System/DefaultPreferences">preferences</a> setting (currently <code>literal</code>) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>order</code> </td>
+			<td class="foswikiTableCol1"> Sort the results of search by the topic names (<code>"topic"</code>), topic creation time (<code>"created"</code>), last modified time (<code>"modified"</code>), last editor's <a href="/bin/view/System/WikiName">WikiName</a> (<code>"editby"</code>), or named field of <a href="/bin/view/System/DataForms">DataForms</a> (<code>"formfield(name)"</code>). The sorting is done web by web; if you want to sort across webs, create a <a href="/bin/view/System/FormattedSearch">formatted</a> table and sort it with <a href="/bin/view/System/TablePlugin">TablePlugin</a>'s initsort. Note that dates are sorted most recent date <strong>last</strong> (i.e at the bottom of the table). <br /> The web order is always alphabetical. When ordered by <code>topic</code> the result is first ordered by web and then by topic. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>topic</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>limit</code> </td>
+			<td class="foswikiTableCol1"> A number will limit the number of topics from which results will be returned. This is done after sorting if <code>order</code> is specified. Note that this does not limit the number of hits from the same topic when you have multiple="on". </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>all</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>date</code> </td>
+			<td class="foswikiTableCol1"> limits the results to those pages with latest edit time in the given <a href="/bin/view/System/TimeSpecifications#TimeIntervals">time interval</a>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>reverse</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code> will reverse the direction of the search. Does only apply to key specified by <code>order</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>casesensitive</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code> perform a case sensitive search. (For <code>type=query</code> searches, <code>casesensitive</code> is always <code>on</code>.  See <a href="/bin/view/System/QuerySearch">QuerySearch</a> for more flexible case comparison options) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>decode</code> </td>
+			<td class="foswikiTableCol1"> Reverse any encoding done to protect search terms by <code>%URLPARAM{}%</code> macro. Comma separated list of encodings, entered in reverse order of the <code>URLPARAM</code> macro arguments. Supported decoding types are <code>entity&#124;entities, safe and url</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>bookview</code> </td>
+			<td class="foswikiTableCol1"> If ="on", perform a <a href="/bin/view/System/BookView">BookView</a> search, e.g. show complete topic text. Very resource demanding. Use only with small result sets </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>nonoise</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code>, shorthand for <code>nosummary="on" nosearch="on" nototal="on" zeroresults="off" noheader="on" noempty="on"</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>nosummary</code> </td>
+			<td class="foswikiTableCol1"> Show topic title only, no content summary </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>nosearch</code> </td>
+			<td class="foswikiTableCol1"> Suppress search string </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>noheader</code> </td>
+			<td class="foswikiTableCol1"> Suppress default search header <br /> <span style='background: #FFB0B0;'> <strong>Topics: Changed: By:</strong> </span>, unless a <code>header</code> is explicitly specified </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Show default search header, unless search is inline and a format is specified </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>nototal</code> </td>
+			<td class="foswikiTableCol1"> Do not show number of topics found </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>zeroresults</code> </td>
+			<td class="foswikiTableCol1"> If <code>off</code>, <code>false</code> or <code>0</code>, suppress/replace <em>all</em> output if there are no hits. Can also be set to a <strong><a href="/bin/view/System/FormattedSearch">FormattedSearch</a></strong> string to customise the output </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>on</code> - displays the summary, and number of topics found. "Number of topics: 0" </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>noempty</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code>, suppress results for webs that have no hits. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>header</code> </td>
+			<td class="foswikiTableCol1"> Custom format results: see <strong><a href="/bin/view/System/FormattedSearch">FormattedSearch</a></strong> for usage &amp; examples </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>format</code> </td>
+			<td class="foswikiTableCol1"> Custom format results: see <strong><a href="/bin/view/System/FormattedSearch">FormattedSearch</a></strong> for usage &amp; examples </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>footer</code> </td>
+			<td class="foswikiTableCol1"> Custom format results: see <strong><a href="/bin/view/System/FormattedSearch">FormattedSearch</a></strong> for usage &amp; examples </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>expandvariables</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code>, expand embedded macros before applying a <a href="/bin/view/System/FormattedSearch">FormattedSearch</a> on a search hit. Useful to show the expanded text, e.g. to show the result of a <a href="/bin/view/System/SpreadSheetPlugin">SpreadSheetPlugin</a> <code>%CALC{}%</code> instead of the formula </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>multiple</code> </td>
+			<td class="foswikiTableCol1"> If ="on", find multiple hits per topic. Each hit can be <a href="/bin/view/System/FormattedSearch">formatted</a>. The last token is used in case of a regular expression ";" <em>and</em> search </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> (only one hit found per topic </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>nofinalnewline</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code>, the search variable does not end in a line by itself. Any text continuing immediately after the SEARCH macro on the same line will be rendered as part of the table generated by the search, if appropriate. This feature is only active when format is defined. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>on</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>recurse</code> </td>
+			<td class="foswikiTableCol1"> If "on", recurse into subwebs, if subwebs are enabled. Note: recurse will currently search subwebs of explicitly excluded webs. <code>(web="all, -Sandbox" recurse="on")</code> will still search subwebs of <code>Sandbox</code>. This behavior is likely to change in a future release. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>separator</code> </td>
+			<td class="foswikiTableCol1"> Separator <em>between</em> search hits (only used when <code>format</code> is set) uses <a href="/bin/view/System/FormatTokens">FormatTokens</a>. <br />If <code>separator</code> is not defined, the default is "$n" (newline). Not defining the separator will additionally cause a newline to be added after a header and before a footer. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>$n</code> (Newline) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>headingoffset</code> </td>
+			<td class="foswikiTableCol1"> Adds the given offset to any HTML headings generated in the search result. Works on headings defined by HTML tags as well as headings defined using foswiki markup. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> 0 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>newline</code> </td>
+			<td class="foswikiTableCol1"> Line separator <em>within</em> a search hit. Useful if you want to put multi-line content into a table cell, for example if the <code>format</code> parameter contains a <code>$pattern()</code> or a <code>$formfield()</code> the result of which may contain newlines, in which case you could use <code>newline="%BR%"</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>$n</code> (Newline) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>pagesize</code> </td>
+			<td class="foswikiTableCol1"> number of items to show per page </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>25</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>showpage</code> </td>
+			<td class="foswikiTableCol1"> Page of items to show (starts at 1) (overridden by the value specified by the URL parameter hash from <code>$previousurl</code> and <code>$nexturl</code>) </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>"1"</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>pager</code> </td>
+			<td class="foswikiTableCol1"> If <code>"on"</code> adds paging to your SEARCHes <br>                       <em>Note:</em> the default pager (when <code>pagerformat</code> is not defined) requires the parameters to the SEARCH to not change while paging, as it uses <code>$previousurl</code> and <code>$nexturl</code>. If you use time variable parameters, you will have to define your own <code>pagerformat</code>. </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <code>off</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>pagerformat</code> </td>
+			<td class="foswikiTableCol1"> Custom format results: see <strong><a href="/bin/view/System/FormattedSearch">FormattedSearch</a></strong> for usage &amp; examples </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> filled from skin template </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>groupby</code> </td>
+			<td class="foswikiTableCol1 foswikiLast"> <em>Warning: this option is liable to change dramatically (and potentially incompatibly) in the next major release of foswiki.</em> Setting to <code>"none"</code> applies only to multi-web SEARCHs, and means the <code>header</code> and <code>footer</code> are only output <em>once</em> - at the beginning and end of the list of results, and the <code>order</code> parameter is applied over the entire set of results (this setting removes the legacy that results are always partitioned by web) see <a href="/bin/view/System/SiteChanges">SiteChanges</a> for an example. </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <code>web</code> </td>
+		</tr>
+	</tbody>     </table>
+<h2 id="Examples">  Examples </h2> <ul>
+<li> <pre class="tml">&#37;SEARCH{&#34;wiki&#34; web&#61;&#34;&#37;USERSWEB&#37;&#34; scope&#61;&#34;topic&#34;}&#37;</pre>
+</li> <li> <pre class="tml">
+&#37;SEARCH{
+    &#34;FAQ&#34;
+    nonoise&#61;&#34;on&#34;
+    header&#61;&#34;&#124; &#42;Topic: &#42; &#124; &#42;Summary: &#42; &#124;&#34;
+    format&#61;&#34;&#124; &#36;topic    &#124; &#36;summary    &#124;&#34;
+}&#37;</pre> <em>(displays results in a table with header - <a href="/bin/view/System/FormattedSearch#SearchTable">details</a>)</em>
+</li></ul> 
+<p></p>
+
+Results are sorted alphanumerically on the web name (major key) and topic name (minor key). Only the minor key is affected by the <code>order</code> parameter.
+<p></p>
+
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> The appearance of the table emitted by the <a class="foswikiCurrentTopicLink" href="/bin/view/System/VarSEARCH">SEARCH</a> may be controlled with <a href="/bin/view/System/TablePlugin">TablePlugin</a>'s <code>%TABLE{}%</code> macro placed just before the <code>%SEARCH{}%</code>.  Example: <code>%TABLE{ tablewidth="90%" }%</code> </div>
+<p class='p'></p>
+
+<h2 id="Related">  Related </h2>
+<a href="/bin/view/System/FormattedSearch">FormattedSearch</a>, <a href="/bin/view/System/QuerySearch">QuerySearch</a>, <a href="/bin/view/System/SearchHelp">SearchHelp</a>, <a href="/bin/view/System/SearchPatternCookbook">SearchPatternCookbook</a>, <a href="/bin/view/System/RegularExpression">RegularExpression</a>, <a href="/bin/view/System/VarTOPICLIST">TOPICLIST</a>, <a href="/bin/view/System/VarWEBLIST">WEBLIST</a>
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/VarSEARCH?t=1627664358' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/VarSEARCH' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/VarSEARCH?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/VarSEARCH?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/VarSEARCH?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/VarSEARCH?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/VarSEARCH?t=1627664358;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/VarSEARCH?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/VarSEARCH?foswiki_origin=GET%2cview%2c/bin/view/System/VarSEARCH">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.VarSEARCH'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

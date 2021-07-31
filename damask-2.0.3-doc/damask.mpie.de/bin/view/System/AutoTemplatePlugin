@@ -1,0 +1,623 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> AutoTemplatePlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/AutoTemplatePlugin?t=1627664456" type="application/x-wiki" title="edit AutoTemplatePlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/AutoTemplatePlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/3bfb598a00c930bf54818eb496f6664b.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableAutoTemplatePlugin2 {width:100%}
+body .foswikiTable#tableAutoTemplatePlugin2 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableAutoTemplatePlugin2 th.foswikiTableCol0 {width:7em}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "TOPIC" : "AutoTemplatePlugin",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "USERNAME" : "guest",
+   "URLHOST" : "https://damask.mpie.de",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKINAME" : "WikiGuest",
+   "COOKIEREALM" : "",
+   "SCRIPTURLPATH" : "/bin",
+   "SERVERTIME" : "30 Jul 2021 - 19:00",
+   "SYSTEMWEB" : "System",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTSUFFIX" : "",
+   "USERSWEB" : "Main",
+   "WEB" : "System"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/AutoTemplatePlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/AutoTemplatePlugin" title='Topic revision: 5 (12 Nov 2019 - 08:10:43)'>AutoTemplatePlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/AutoTemplatePlugin?t=1627664456;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/AutoTemplatePlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/AutoTemplatePlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/AutoTemplatePlugin?raw=on&amp;rev=5' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=AutoTemplatePlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/AutoTemplatePlugin?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/AutoTemplatePlugin?template=more&amp;maxrev=5&amp;currrev=5' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="AutoTemplatePlugin"> AutoTemplatePlugin </h1>
+Automatically sets VIEW_TEMPLATE, EDIT_TEMPLATE and PRINT_TEMPLATE
+<p></p>
+
+<div class='foswikiAlert'>
+    <strong>WARNING: <br />
+    You have enabled both <a class="foswikiCurrentTopicLink" href="/bin/view/System/AutoTemplatePlugin">AutoTemplatePlugin</a> <em>and</em> <a href="/bin/view/System/AutoViewTemplatePlugin">AutoViewTemplatePlugin</a>. <br />
+    Please uninstall one or the other.
+    </strong></div>
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#Description"> Description </a> <ul>
+<li> <a href="#Mode_34exist_34"> Mode "exist" </a>
+</li> <li> <a href="#Mode_34type_34"> Mode "type" </a>
+</li> <li> <a href="#Mode_34section_34"> Mode "section" </a>
+</li> <li> <a href="#Mode_34rules_34"> Mode "rules" </a>
+</li></ul> 
+</li> <li> <a href="#Configuration_Settings"> Configuration Settings </a>
+</li> <li> <a href="#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="#Dependencies"> Dependencies </a>
+</li> <li> <a href="#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Description">  Description </h2>
+<p class='p'>This plugin sets the VIEW_TEMPLATE, EDIT_TEMPLATE and PRINT_TEMPLATE variables according to a
+corresponding form or rule. For example, when you attach a new form to a topic, this
+plugin will enable the corresponding view/edit template automatically.  This
+comes in very handy for applications where users create new topics
+without the help of a topic creator wizard, e.g. creating a new topic for a yet
+non-existing WikiWord. Together with the appropriate application
+settings, this plugin will then assure that the data the user enters is handled
+appropriately during view and edit.</p>
+
+<p class='p'>Another use case is to apply a VIEW_TEMPLATE to a set of topics whose name matches
+a given pattern rule.</p>
+
+There are three base strategies on how the name of the template is derived: <ol>
+<li> <code>exist</code> 
+</li> <li> <code>section</code>
+</li> <li> <code>rules</code>
+</li> <li> <code>type</code>
+</li></ol> 
+<p></p>
+
+These can be combined in a priorized list defaulting to <code>rules, exist, type</code>.
+This will try each strategy in the given order until a matching view template
+is found.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> Note: this is a fork of the <a class="interwikiLink" href="https://foswiki.org/Extensions.AutoViewTemplatePlugin" title="'Extensions.AutoViewTemplatePlugin' on foswiki.org">Foswiki:Extensions.AutoViewTemplatePlugin</a> by Oliver Kr&uuml;ger.
+The difference between both is that AutoTemplatePlugin adds a rule-based strategy to 
+derive VIEW_ and EDIT_TEMPLATEs as well as replacing the fixed selection which
+strategy to use with a priority of modes (see below).
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> If you decide to install AutoTemplatePlugin then please disable the 
+AutoViewTemplatePlugin. Do not use both in parallel.
+<p></p>
+
+<h3 id="Mode_34exist_34">  Mode "exist" </h3>
+<p></p>
+
+A topic that has a <code>MyForm</code> DataForm attached to it, will be displayed
+using the view template <code>MyView</code> and editted using the <code>MyEdit</code>
+if they exist. The template name is derived by stripping off the suffix
+<code>...Form</code> from the form name and appending <code>...View</code>. The Wiki engine will
+then use the template name <code>MyView</code> to search for the correct template along
+the template search path, for example using a topic <code>MyView</code>.
+<p class='p'>Examples:</p>
+
+You have a form called <code>PurchaseRequestForm</code>. The plugin will now search for 
+<code>PurchaseRequestViewTemplate</code>, and <code>PurchaseRequestEditTemplate</code>.
+<p></p>
+
+<h3 id="Mode_34type_34">  Mode "type" </h3>
+<p></p>
+
+This is in effect an extended version of the "exist" rule with the difference that it uses
+the <code>TopicType</code> formfield of a DataForm as standardized by the <a class="interwikiLink" href="https://foswiki.org/Extensions/WikiWorkbenchContrib" title="'Extensions/WikiWorkbenchContrib' on foswiki.org">WikiWorkbench framework</a>.
+The core rule of this framework is: "All content shall be typed." This means that not only may a
+wiki topic have a DataForm attached to it. In addition, a certain minimal structure is imposed 
+by at least tree formfields:
+<p></p>
+ <ul>
+<li> <code>TopicType</code>: the list of types a topic implements
+</li> <li> <code>TopicTitle</code>: the free-form title of a topic (i.e. not constraint by rules for WikiWords)
+</li> <li> <code>Summary</code>: a tagline or sub-title of a topic describing in more detail what the topic is about
+</li></ul> 
+<p></p>
+
+For this plugin only the <code>TopicType</code> is of interest to find an appropriate view-, edit or print template
+for a topic of a certain kind. The content of the <code>TopicType</code> formfield is a list of types ordered
+from most specific to least specific. 
+<p></p>
+
+For example the type <code>OrganizationTopic, PartyTopic, CategorizedTopic, WikiTopic</code> 
+is expressing that any topic of that type is finally an <code>OrganizationTopic</code>, which are a more specific kind of <code>PartyTopic</code>,
+which in turn is able to be categorized (using the <a class="interwikiLink" href="https://foswiki.org/Extensions/ClassificationPlugin" title="'Extensions/ClassificationPlugin' on foswiki.org">ClassificationPlugin</a>),
+while all topics are at least a <code>WikiTopic</code>. Note that there is only a single DataForm attached to an
+<code>OrganizationTopic</code>. However it combines all properties of all sub types into one DataForm.
+<p></p>
+
+When AutoTemplatePlugin evalutes the <code>type</code> rule by processing the list of TopicTypes left to right
+looking for an appropriate template. In above example this would check the existence of <code>OrganizationTopicViewTemplate</code>,
+<code>PartyTopicViewTemplate</code>, <code>CategorizedTopicViewTemplate</code> and <code>WikiTopicViewTemplate</code>. The first on found will
+be used.
+<p></p>
+
+This lets us define a single <code>PartyTopicViewTemplate</code> that is used by <code>OrganizationTopics</code> as well as any other
+type derived from it, such as a <code>PersonTopic</code> which comes with a TopicType definition
+<code>PersonTopic, PartyTopic, CategorizedTopic, WikiTopic</code>. The two DataForms share a substantial
+part of formfields among each other as expressed by the overlapping items in the list of types. Therefore it makes
+sense to render both topics using a single view template.
+<p class='p'>Actually in a real-world master data application you would render organizations and persons quite
+differently listing all contacts of an organization, which does not apply for a person contact. However both
+may be legal entities and have contact informations.</p>
+
+<h3 id="Mode_34section_34">  Mode "section" </h3>
+<p></p>
+
+A topic with a <code>MyForm</code> will be displayed/editted using the template name
+stored in the named section <code>viewtemplate</code>, <code>edittemplate</code>, <code>printtemplate</code>. For example given the
+<code>MyForm</code> form definition topic contains a section <code>viewtemplate</code> whose only
+content is <code>MyOtherView</code>, then this will be used to view the topic. Likewise,
+the content of the <code>edittemplate</code> section in <code>MyForm</code> will read to find the
+edit template.
+<p></p>
+
+By default existing values for VIEW_TEMPLATE, EDIT_TEMPLATE and PRINT_TEMPLATE have priority.
+You can change this behaviour in <code>configure</code> so that the form defined templates
+have priority.
+<p class='p'>Examples:</p>
+
+We have a form called <code>PurchaseRequestForm</code> which contains the usual table that defined the form fields.
+<p></p>
+
+We want this form to define that the topics are viewed with <code>ViewFormAtTopTemplate</code> and edited with <code>EditPurchaseRequestTemplate</code>.
+<p class='p'>Below this we place the two sections that defines the templates to be used. Note that you must ommit the ...Template from the template names.</p>
+
+<pre>
+&#37;STARTSECTION{&#34;viewtemplate&#34;}&#37;ViewFormAtTopTemplate&#37;ENDSECTION{&#34;viewtemplate&#34;}&#37;
+
+&#37;STARTSECTION{&#34;edittemplate&#34;}&#37;EditPurchaseRequest&#37;ENDSECTION{&#34;edittemplate&#34;}&#37; 
+
+&#37;STARTSECTION{&#34;printtemplate&#34;}&#37;PrintPurchaseRequest&#37;ENDSECTION{&#34;printtemplate&#34;}&#37; 
+</pre>
+<p></p>
+
+<h3 id="Mode_34rules_34">  Mode "rules" </h3>
+<p></p>
+
+For both view and edit, a set of rules can be specified in <code>configure</code> or via preference variables where each rule has got the format
+<pre>
+   &#39;&#60;pattern&#62;&#39; &#61;&#62; &#39;&#60;template name&#62;&#39;
+</pre>
+<p></p>
+
+A topic's name will be matched against the regular expression in <code>&lt;pattern&gt;</code> to decide on the template name
+to be used for the current template. A pattern can either cover the full qualified topic name (web.topic) or just
+the topic name. Rules are checked against the FQTN first.
+<p class='p'>Examples:</p>
+
+<pre>
+&#36;Foswiki::cfg{Plugins}{AutoTemplatePlugin}{ViewTemplateRules} &#61; {
+  &#39;WebTopicList&#39; &#61;&#62; &#39;WebTopicListView&#39;,
+  &#39;Tasks\.Item.&#42;&#39; &#61;&#62; &#39;Tasks.ItemView&#39;,
+  &#39;Item.&#42;&#39; &#61;&#62; &#39;Applications.TaskApp.ItemView&#39;,
+  &#39;WebSearch.&#42;&#39; &#61;&#62; &#39;SolrSearchView&#39;,
+};
+</pre>
+<p class='p'>The same set of rules can be defined by setting VIEW_TEMPLATE_RULES and
+EDIT_TEMPLATE_RULES preference variables in your SitePreferences or
+WebPreferences:</p>
+
+<pre>
+   &#42; Set VIEW&#95;TEMPLATE&#95;RULES &#61; 
+      WebTopicList &#61;&#62; WebTopicListView, 
+      Tasks\.Item.&#42; &#61;&#62; Tasks.ItemView, 
+      Item.&#42; &#61;&#62; Applications.TaskApp.ItemView, 
+      WebSearch.&#42; &#61;&#62; &#39;SolrSearchView&#39;
+</pre>
+<p></p>
+
+This will apply the <code>WebTopicListViewTemplate</code> to the <a href="/bin/view/System/WebTopicList">WebTopicList</a> topic in all webs, the
+<code>SolrSearchViewTemplate</code> to all <a href="/bin/view/System/WebSearch">WebSearch</a> and <a href="/bin/view/System/WebSearchAdvanced">WebSearchAdvanced</a> topics in all webs and
+the <code>Tasks.ItemViewTemplate</code> to all Item topics in the Tasks web. Other Item topics 
+will be displayed using the <code>Applications.TaskApp.ItemViewTemplate</code> 
+<p></p>
+
+<h2 id="Configuration_Settings">  Configuration Settings </h2>
+<p class='p'>The following settings can be defined in configure</p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/AutoTemplatePlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Setting</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/AutoTemplatePlugin?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Description</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/AutoTemplatePlugin?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Default</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> {Plugins}{AutoTemplatePlugin}{Override} </td>
+			<td class="foswikiTableCol1"> Form defined templates override VIEW_TEMPLATE and EDIT_TEMPLATE settings </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Default: Off </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> {Plugins}{AutoTemplatePlugin}{Mode} </td>
+			<td class="foswikiTableCol1"> A priority list of strategies the plugin uses for defining templates. <br />                                            <code>exist</code> for deriving the template name from the form name <br />                                            <code>section</code> for defining the template in a section of the form definition topic <br />                                            <code>rules</code> for defining the template using the two rule sets below </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> Default: <code>rules, exist</code> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> {Plugins}{AutoTemplatePlugin}{ViewTemplateRules} </td>
+			<td class="foswikiTableCol1"> hash of <code>&lt;pattern&gt;</code> <code>&gt; '&lt;template name&gt;' rules to be used for =view</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> {Plugins}{AutoTemplatePlugin}{EditTemplateRules} </td>
+			<td class="foswikiTableCol1"> hash of <code>&lt;pattern&gt;</code> <code>&gt; '&lt;template name&gt;' rules to be used for =edit</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> {Plugins}{AutoTemplatePlugin}{PrintTemplateRules} </td>
+			<td class="foswikiTableCol1 foswikiLast"> hash of <code>&lt;pattern&gt;</code> =&gt; '&lt;template name&gt;' rules to be used when printing or exporting to pdf </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+None
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<p></p>
+
+<table class="foswikiTable" id="tableAutoTemplatePlugin2" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Nov 2019: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> OO-rewrite and performance tweaks </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jun 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> add <code>type</code> rule to default config </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 May 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> wrong template derived under certain conditions </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 May 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added "type" rule </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> always at least assign a view template </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Sep 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> do not override the template url param </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Oct 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> bail out early when not in view, edit or print mode </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added support for PRINT_TEMPLATE </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Aug 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> ignore invalid template warning when section not found </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jul 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed auto-templating of topics being created; fixed auto-templating when the DataForm is changed during edit </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Nov 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> implemented public API to get the auto-assigned template </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Aug 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added more default views for tools in the System web </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Apr 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added VIEW_TEMPLATE_RULES, EDIT_TEMPLATE_RULES preference variables </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Nov 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added defaults to ease templating ChangePassword, SiteChanges, WebIndex </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Feb 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed order rules are matched against the web.topic name </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Dec 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> forked <a class="interwikiLink" href="https://foswiki.org/Extensions.AutoViewTemplatePlugin" title="'Extensions.AutoViewTemplatePlugin' on foswiki.org">Foswiki:Extensions.AutoViewTemplatePlugin</a> as rule-based feature was rejected. See <a class="interwikiLink" href="https://foswiki.org/Development.RulebasedViewTemplates" title="'Development.RulebasedViewTemplates' on foswiki.org">Foswiki:Development.RulebasedViewTemplates</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Nov 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added rule-based strategy; made <code>mode</code> a priority list (MD) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Oct 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item2213: Plugin got better documentation. No change in behaviour. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Aug 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item8248: added forward-compatibility for newer Foswikis (MD) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 27 Dec 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item196: moved to Foswiki namespace </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Nov 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item196: minor doc changes </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 11 Jul 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item5770: try to derive the EDIT_TEMPLATE of a new topic using the WebTopicEditTemplate (MD) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Jul 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item5747: fixed normalizing web part of form names (MD) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Nov 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added EDIT_TEMPLATE, speed improvements, docu (MD) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Oct 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Item4904: made specification of view template skin agnostic,                   fixed view templates in subwebs (MD) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 04 Sep 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Added build script and installer, minor doc changes </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 05 Jun 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Initial version </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/AutoTemplatePlugin?t=1627664456;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main.MichaelDaum" title="'Main.MichaelDaum' on foswiki.org">Foswiki:Main.MichaelDaum</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 7.00 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 12 Nov 2019 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Automatically sets VIEW_TEMPLATE, EDIT_TEMPLATE and PRINT_TEMPLATE </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/AutoTemplatePlugin">https://github.com/foswiki/AutoTemplatePlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2008-2019, Oliver Kr&uuml;ger, Michael Daum </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a class="interwikiLink" href="https://foswiki.org/Extensions/AutoTemplatePlugin" title="'Extensions/AutoTemplatePlugin' on foswiki.org">Foswiki:Extensions/AutoTemplatePlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Extensions/AutoTemplatePlugin" title="'Extensions/AutoTemplatePlugin' on foswiki.org">Foswiki:Extensions/AutoTemplatePlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/AutoTemplatePlugin?t=1627664456' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/AutoTemplatePlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/AutoTemplatePlugin?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/AutoTemplatePlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r5&nbsp;<a href="/bin/diff/System/AutoTemplatePlugin?rev1=4;rev2=5" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/AutoTemplatePlugin?rev=4" rel="nofollow">r4</a>&nbsp;<a href="/bin/diff/System/AutoTemplatePlugin?rev1=3;rev2=4" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/AutoTemplatePlugin?rev=3" rel="nofollow">r3</a>&nbsp;<a href="/bin/diff/System/AutoTemplatePlugin?rev1=2;rev2=3" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/AutoTemplatePlugin?rev=2" rel="nofollow">r2</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/AutoTemplatePlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/AutoTemplatePlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/AutoTemplatePlugin?t=1627664456;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/AutoTemplatePlugin?template=more&amp;maxrev=5&amp;currrev=5' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r5 - 12 Nov 2019, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/AutoTemplatePlugin?foswiki_origin=GET%2cview%2c/bin/view/System/AutoTemplatePlugin">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.AutoTemplatePlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

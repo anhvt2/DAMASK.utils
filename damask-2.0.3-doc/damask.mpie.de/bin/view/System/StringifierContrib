@@ -1,0 +1,527 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> StringifierContrib &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/StringifierContrib?t=1627665196" type="application/x-wiki" title="edit StringifierContrib" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/StringifierContrib" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/2c121dc0eb8e204aea2d99388a431ce3.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableStringifierContrib1 {width:100%}
+body .foswikiTable#tableStringifierContrib1 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableStringifierContrib1 th.foswikiTableCol0 {width:7em}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "PUBURLPATH" : "/pub",
+   "SYSTEMWEB" : "System",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTSUFFIX" : "",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURLPATH" : "/bin",
+   "URLHOST" : "https://damask.mpie.de",
+   "COOKIEREALM" : "",
+   "SERVERTIME" : "30 Jul 2021 - 19:13",
+   "USERSWEB" : "Main",
+   "USERNAME" : "guest",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "TOPIC" : "StringifierContrib",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "WEB" : "System"
+}
+</script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest">
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/StringifierContrib"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/StringifierContrib" title='Topic revision: 1 (16 Aug 2018 - 10:00:26)'>StringifierContrib</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/StringifierContrib?t=1627665196;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/StringifierContrib' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/StringifierContrib?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/StringifierContrib?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=StringifierContrib' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/StringifierContrib?cover=print;' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/StringifierContrib?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="StringifierContrib">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/StringifierContrib">StringifierContrib</a> </h1>
+Helper library to stringify binary document formats
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="#Description"> Description </a>
+</li> <li> <a href="#Backends_for_Word_Documents"> Backends for Word Documents </a>
+</li> <li> <a href="#Backend_for_PDF"> Backend for PDF </a>
+</li> <li> <a href="#Backend_for_PPT"> Backend for PPT </a>
+</li> <li> <a href="#Backends_for_DOCX_44_PPTX_44_XLSX"> Backends for DOCX, PPTX, XLSX </a>
+</li> <li> <a href="#Backend_for_OpenDocument_and_Staroffice_documents"> Backend for OpenDocument and Staroffice documents </a>
+</li> <li> <a href="#Installing_the_Contrib"> Installing the Contrib </a>
+</li> <li> <a href="#Configuration"> Configuration </a>
+</li> <li> <a href="#Test_of_the_Installation"> Test of the Installation </a>
+</li> <li> <a href="#Test_of_Stringification_with_61stringify_61"> Test of Stringification with stringify </a>
+</li> <li> <a href="#Further_Development"> Further Development </a>
+</li> <li> <a href="#Dependencies"> Dependencies </a>
+</li> <li> <a href="#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Description">  Description </h2>
+This extension serves as a helper to stringify documents in a way that they can be indexed
+by full-text search engines such as <a class="interwikiLink" href="https://foswiki.org/Extensions/KinoSearchContrib" title="'Extensions/KinoSearchContrib' on foswiki.org">Foswiki:Extensions/KinoSearchContrib</a> or <a class="interwikiLink" href="https://foswiki.org/Extensions/SolrPlugin" title="'Extensions/SolrPlugin' on foswiki.org">Foswiki:Extensions/SolrPlugin</a>.
+<p class='p'>It supports all major office document formats such as:</p>
+ <ul>
+<li> <code>.doc</code>
+</li> <li> <code>.docx</code>
+</li> <li> <code>.html</code>
+</li> <li> <code>.odp</code>
+</li> <li> <code>.ods</code>
+</li> <li> <code>.odt</code>
+</li> <li> <code>.otp</code>
+</li> <li> <code>.ots</code>
+</li> <li> <code>.ott</code>
+</li> <li> <code>.pdf</code>
+</li> <li> <code>.ppt</code>
+</li> <li> <code>.pptx</code>
+</li> <li> <code>.stc</code>
+</li> <li> <code>.sti</code>
+</li> <li> <code>.stw</code>
+</li> <li> <code>.sxc</code>
+</li> <li> <code>.sxi</code>
+</li> <li> <code>.sxw</code>
+</li> <li> <code>.tif</code>
+</li> <li> <code>.txt</code>
+</li> <li> <code>.xls</code>
+</li> <li> <code>.xlsx</code>
+</li> <li> <code>.xml</code>
+</li></ul> 
+<p></p>
+
+<a class="foswikiCurrentTopicLink" href="/bin/view/System/StringifierContrib">StringifierContrib</a> is organized in plugins to serialization a document format by delegating it to according backends.
+For some formats there are alternative backends to chose from. For example a DOC file can be serialized 
+by any of <code>abiword</code>, <code>antiword</code>, <code>catdoc</code>, <code>soffice</code> or <code>wvWare</code>. Use the one that serves best your needs and
+is available on your platform. For instance <code>soffice</code> is a very good choice to serve as a document converter.
+However using it is rather performance demanding. The more simpler ones suffice most of the time but may
+have an inferior quality of text being extracted.
+<p></p>
+
+<h2 id="Backends_for_Word_Documents">  Backends for Word Documents </h2>
+<p></p>
+
+To index Word Documents (<code>.doc</code>) you will need to install one of the following:
+<p></p>
+ <ul>
+<li> <code>antiword</code>
+</li> <li> <code>abiword</code>
+</li> <li> <code>catdoc</code>
+</li> <li> <code>soffice</code>
+</li> <li> <code>wvWare</code>
+</li></ul> 
+<p></p>
+
+<h2 id="Backend_for_PDF">  Backend for PDF </h2>
+<p></p>
+
+To index <code>.pdf</code> files you need to install <code>poppler-utils</code>.
+<p></p>
+
+<h2 id="Backend_for_PPT">  Backend for PPT </h2>
+<p></p>
+
+To index <code>.ppt</code> files you may select one of the following:
+<p></p>
+ <ul>
+<li> <code>catdoc</code> 
+</li> <li> <code>pphtml</code>
+</li> <li> <code>soffice</code>
+</li></ul> 
+<p></p>
+
+<h2 id="Backends_for_DOCX_44_PPTX_44_XLSX">  Backends for DOCX, PPTX, XLSX </h2>
+<p class='p'>To index these file types, you will need to install the following tools from Sourceforge:</p>
+ <ul>
+<li> <code>docx2txt</code> for <code>.docx</code>
+</li> <li> <code>pptx2txt</code> for <code>.pptx</code>
+</li> <li> <code>xls2txt</code> for <code>.xls</code>
+</li> <li> <a class="interwikiLink" href="https://metacpan.org/module/Spreadsheet::XLSX" title="CPAN perl repository">CPAN:Spreadsheet::XLSX</a> for <code>.xlsx</code>
+</li></ul> 
+<p></p>
+
+Then set the command path to these tools in <code>configure</code>.
+<p></p>
+
+<h2 id="Backend_for_OpenDocument_and_Staroffice_documents">  Backend for OpenDocument and Staroffice documents </h2>
+<p></p>
+
+To index these file types you need to install <span class='externalLink'><a href="http://stosberg.net/odt2txt/">odt2txt</a></span>.
+<p></p>
+
+<h2 id="Installing_the_Contrib">  Installing the Contrib </h2>
+<p class='p'>You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.</p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Configuration">  Configuration </h2>
+<p></p>
+
+There are a number of settings that need to be set in <code>configure</code> before you can use the Contrib.
+<p></p>
+
+<h2 id="Test_of_the_Installation">  Test of the Installation </h2>
+<p></p>
+ <ul>
+<li> Test if the installation was successful: <ul>
+<li> Check that <code>antiword</code>, <code>abiword</code> or <code>wvHtml</code> is in place: Type <code>antiword</code>, <code>abiword</code> or <code>wvHtml</code> on the prompt and check that the command exists.
+</li> <li> Check that <code>pdftotext</code> is in place: Type <code>pdftotext</code> on the prompt and check that the command exists.
+</li> <li> Check that <code>ppthtml</code> is in place: Type <code>ppthtml</code> on the prompt and check that the command exists.
+</li> <li> <code>stringify</code> some files (see below)
+</li></ul> 
+</li></ul> 
+<p></p>
+
+<h2 id="Test_of_Stringification_with_61stringify_61">  Test of Stringification with <code>stringify</code> </h2>
+<p class='p'>Some users report problems with the stringification: The stringifier scipts
+fails, takes too long on attachments. Some times this may result from
+installation errors, especially of the installation of the backends for the
+stringification.</p>
+
+<code>stringify</code> give you the opportunity to test the stringification in advance.
+<p></p>
+
+Usage: <code>stringify file_name</code>
+<p class='p'>In the result you see, which stringifier is used and the result of the
+stringification.</p>
+
+<p class='p'>Example:</p>
+
+<pre>
+stringify /path/to/foswiki/StringifierContrib/test/unit/StringifierContrib/attachement&#95;examples/Simple&#95;example.doc
+
+Simple example  
+
+Keyword: dummy  
+
+Umlaute: Grober, Uberschall, Anderung
+</pre>
+<p></p>
+
+<h2 id="Further_Development">  Further Development </h2>
+<p></p>
+
+In this extension, a plug-in mechanism is implemented, so that additional
+stringifiers can be added without changing the existing code. All stringifier
+plugins are stored in the directory <code>lib/Foswiki/Contrib/Stringifier/Plugins</code>. 
+<p class='p'>You can add new stringifier plugins by just adding new files here. The minimum
+things to be implemented are:</p>
+ <ul>
+<li> The plugin must inherit from <code>Foswiki::Contrib::StringififierContrib::Base</code>
+</li> <li> The plugin must register itself by <code>__PACKAGE__-&gt;register_handler($application, $file_extension)</code>;
+</li> <li> The plugin must implement the method <code>$text = stringForFile ($filename)</code>
+</li></ul> 
+<p></p>
+
+All the stringifiers have unit tests associated with them, and we would
+encourage you to provide unit tests for any you wish to contribute. See
+<a class="interwikiLink" href="https://foswiki.org/Development/UnitTests" title="'Development/UnitTests' on foswiki.org">Foswiki:Development/UnitTests</a> for more information on unit testing.
+<p></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">File::Which</td><td align="left">&gt;0</td><td align="left">Required</td></tr><tr><td align="left">Module::Pluggable</td><td align="left">&gt;0</td><td align="left">Required</td></tr><tr><td align="left">Spreadsheet::ParseExcel</td><td align="left">&gt;0</td><td align="left">Required for <code>.xls</code> files</td></tr><tr><td align="left">Spreadsheet::XLSX</td><td align="left">&gt;0</td><td align="left">One of Spreadsheet::ParseXLSX or xlsx2csv is required for <code>.xlsx files</td></tr><tr><td align="left">Encode</td><td align="left">&gt;0</td><td align="left">Required</td></tr><tr><td align="left">Error</td><td align="left">&gt;0</td><td align="left">Required</td></tr><tr><td align="left">catdoc</td><td align="left">&gt;0</td><td align="left">Optional</td></tr><tr><td align="left">ppthtml</td><td align="left">&gt;0</td><td align="left">Required</td></tr><tr><td align="left">pdftotext</td><td align="left">&gt;0</td><td align="left">Required for indexing =.pdf</code>. Part of poppler-utils</td></tr><tr><td align="left">soffice</td><td align="left">&gt;0</td><td align="left">One of antiword, abiword, soffice or wvWare is required for <code>.doc</code> and <code>.docx0 files</td></tr><tr><td align="left">antiword</td><td align="left">&gt;0</td><td align="left">One of antiword, abiword, soffice or wvWare is required for =.doc</code> files</td></tr><tr><td align="left">abiword</td><td align="left">&gt;0</td><td align="left">One of antiword, abiword, soffice or wvWare is required for <code>.doc</code> files</td></tr><tr><td align="left">wvWare</td><td align="left">&gt;0</td><td align="left">One of antiword, abiword, soffice or wvWare is required for <code>.doc</code> files</td></tr><tr><td align="left">html2text</td><td align="left">&gt;0</td><td align="left">One of html2text or lynx for indexing html files</td></tr><tr><td align="left">lynx</td><td align="left">&gt;0</td><td align="left">One of html2text or lynx for indexing html files</td></tr><tr><td align="left">odt2txt</td><td align="left">&gt;0</td><td align="left">Required for indexing <a class="foswikiNewLink" href="/bin/edit/System/OpenDocument?topicparent=System.StringifierContrib" rel="nofollow" title="Create this topic">OpenDocument</a> and <a class="foswikiNewLink" href="/bin/edit/System/StarOffice?topicparent=System.StringifierContrib" rel="nofollow" title="Create this topic">StarOffice</a> documents</td></tr><tr><td align="left">xlsx2csv</td><td align="left">&gt;0</td><td align="left">One of Spreadsheet::ParseXLSX or xlsx2csv is required for =.xlsx files</td></tr><tr><td align="left">tesseract</td><td align="left">&gt;0</td><td align="left">OCR for tiff files,Optional</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<table class="foswikiTable" id="tableStringifierContrib1" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 16 Aug 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (5.20) register more mime types to the text stringifier </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Jan 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (5.10) added support for tiff documents using tesseract </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Sep 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (5.00) make html-to-text converter pluggable </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.40) improved XLSX stringifier </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jan 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.30) added stringifier to index XLS using soffice </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Oct 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.20) removed dependency on File::MMagic; now using extension-based mime detection </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Oct 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.10) don't default to pass-through for non-supported document types; fixed unit tests </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Sep 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (4.00) added unicode support with Foswiki &gt; 2.0 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Jul 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.10) added support for stringification of ppt using catdoc as ppthtml isn't available on some distros </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Aug 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (3.00) added support for stringification using open/libreoffice </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 May 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (2.20) added configuration parameter to specify the encoding of the output of each external helper in use </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Oct 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (2.10) using wvText instead of wvHtml now; encoding stringified files to the site's charset now; fixed unit tests to use utf8 exclusively </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Sep 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (2.00) added OpenDocument serializer; removed dependency left-over on Text::Iconv; added dependency on odt2txt; fixed defaults for wv serializer </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Dec 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (1.20) moved core from StringifierContrib to Stringifier not to disturb <code>configure</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Nov 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (1.14) <a class="interwikiLink" href="https://foswiki.org/Main.PadraigLennon" title="'Main.PadraigLennon' on foswiki.org">Foswiki:Main.PadraigLennon</a>  - <a class="interwikiLink" href="https://foswiki.org/Tasks/Item9311" title="'Item9311' on the 'Foswiki' issue tracking site">Foswikitask:Item9311</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Oct 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> (1.12) made system fault-tolerant in case of missing dependencies for a given file type; doc cleanup -- <a class="interwikiLink" href="https://foswiki.org/Main.WillNorris" title="'Main.WillNorris' on foswiki.org">Foswiki:Main.WillNorris</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Feb 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> robust parsing of password protected XLS files </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 02 Oct 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> extracted from <a class="interwikiLink" href="https://foswiki.org/Extensions/KinoSearchContrib" title="'Extensions/KinoSearchContrib' on foswiki.org">Foswiki:Extensions/KinoSearchContrib</a> (MD) </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/StringifierContrib?t=1627665196;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> <a class="interwikiLink" href="https://foswiki.org/Main.MarkusHesse" title="'Main.MarkusHesse' on foswiki.org">Foswiki:Main.MarkusHesse</a>, <a class="interwikiLink" href="https://foswiki.org/Main.SvenDowideit" title="'Main.SvenDowideit' on foswiki.org">Foswiki:Main.SvenDowideit</a>, <a class="interwikiLink" href="https://foswiki.org/Main.MichaelDaum" title="'Main.MichaelDaum' on foswiki.org">Foswiki:Main.MichaelDaum</a> &amp; <a class="interwikiLink" href="https://foswiki.org/Main.AndrewJones" title="'Main.AndrewJones' on foswiki.org">Foswiki:Main.AndrewJones</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 5.20 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 16 Aug 2018 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Helper library to stringify binary document formats </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/StringifierContrib">https://github.com/foswiki/StringifierContrib</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> &copy; 2007, <a class="interwikiLink" href="https://foswiki.org/Main.MarkusHesse" title="'Main.MarkusHesse' on foswiki.org">Foswiki:Main.MarkusHesse</a>; &copy; 2009-2018, Foswiki Contributors </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a class="interwikiLink" href="https://foswiki.org/Extensions/StringifierContrib" title="'Extensions/StringifierContrib' on foswiki.org">Foswiki:Extensions/StringifierContrib</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Support/StringifierContrib" title="'Support/StringifierContrib' on foswiki.org">Foswiki:Support/StringifierContrib</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/StringifierContrib?t=1627665196' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/StringifierContrib' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/StringifierContrib?cover=print;' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/StringifierContrib?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/StringifierContrib?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/StringifierContrib?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/StringifierContrib?t=1627665196;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/StringifierContrib?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 16 Aug 2018, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/StringifierContrib?foswiki_origin=GET%2cview%2c/bin/view/System/StringifierContrib">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.StringifierContrib'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

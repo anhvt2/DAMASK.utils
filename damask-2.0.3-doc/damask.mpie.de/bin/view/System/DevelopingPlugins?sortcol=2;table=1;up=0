@@ -1,0 +1,974 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> DevelopingPlugins &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/DevelopingPlugins?t=1627671435" type="application/x-wiki" title="edit DevelopingPlugins" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/DevelopingPlugins" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/344a9610e8280e4d0ef0fe55897c34eb.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SCRIPTSUFFIX" : "",
+   "WIKINAME" : "WikiGuest",
+   "URLHOST" : "https://damask.mpie.de",
+   "SYSTEMWEB" : "System",
+   "COOKIEREALM" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "TOPIC" : "DevelopingPlugins",
+   "USERNAME" : "guest",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SERVERTIME" : "30 Jul 2021 - 20:57",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WEB" : "System",
+   "SCRIPTURLPATH" : "/bin",
+   "PUBURLPATH" : "/pub",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "USERSWEB" : "Main"
+}
+</script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::CHILI' src='/pub/System/JQueryPlugin/plugins/chili/jquery.chili.init.js?version=2.2_1'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/DevelopingPlugins" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?f560332d76aed0bb066e3b8c5043e0f2' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/DevelopingPlugins?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?0937f428d7cd08d0380830df1e074455' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.DevelopingPlugins' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.DevelopingPlugins' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/DevelopingPlugins"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/Category">Category</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/DevelopingPlugins" title='Topic revision: 1 (03 Feb 2016 - 17:22:31)'>DevelopingPlugins</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/DevelopingPlugins?t=1627671435;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/DevelopingPlugins' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/DevelopingPlugins?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/DevelopingPlugins?raw=on&amp;rev=1' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=DevelopingPlugins' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/DevelopingPlugins?cover=print;sortcol=2;table=1;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/DevelopingPlugins?template=more&amp;maxrev=1&amp;currrev=1' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="Developing_Plugins">  Developing Plugins </h1>
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=2;table=1;up=0#The_3048m_view_of_how_Foswiki_works"> The 3048m view of how Foswiki works </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#APIs_available_to_Extensions"> APIs available to Extensions </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=0#Standard_Regular_Expressions"> Standard Regular Expressions </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=1;up=0#Creating_New_Plugins"> Creating New Plugins </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=0#Anatomy_of_a_Plugin"> Anatomy of a Plugin </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#Creating_the_Perl_Module"> Creating the Perl Module </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#Writing_the_Documentation_Topic"> Writing the Documentation Topic </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#Packaging_for_Distribution"> Packaging for Distribution </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#Publishing_for_Public_Use"> Publishing for Public Use </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=1;up=0#Hints_on_Writing_Fast_Plugins"> Hints on Writing Fast Plugins </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#Security"> Security </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#Recommended_Storage_of_Plugin_Specific_Data"> Recommended Storage of Plugin Specific Data </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=0#Plugin_Internal_Data"> Plugin Internal Data </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#Web_Accessible_Data"> Web Accessible Data </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=1;up=0#Integrating_with_configure"> Integrating with <code>configure</code> </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=0#Naming_of_61Config.spec_61_elements"> Naming of Config.spec elements </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=0#Config_namespace_Rules_going_forward:"> Config namespace Rules going forward: </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=1;up=0#Structure_of_a_Config.spec_file"> Structure of a <code>Config.spec</code> file </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=0#DISPLAY_IF_and_ENABLE_IF"> DISPLAY_IF and ENABLE_IF </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=1;up=0#Linking_to_61configure_61"> Linking to configure </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=2;table=1;up=0#Maintaining_Plugins"> Maintaining Plugins </a> <ul>
+<li> <a href="?sortcol=2;table=1;up=0#Discussions_and_Feedback_on_Plugins"> Discussions and Feedback on Plugins </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#Maintaining_Compatibility_with_Earlier_Foswiki_Versions"> Maintaining Compatibility with Earlier Foswiki Versions </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#Handling_deprecated_functions"> Handling deprecated functions </a>
+</li> <li> <a href="?sortcol=2;table=1;up=0#TWiki_Plugins"> TWiki<sup>&reg;</sup> Plugins </a>
+</li></ul> 
+</li></ul> 
+</div>
+The usual way Foswiki is extended is by writing a <em>Plugin</em>. Plugins extend Foswiki by providing functions that 'listen' to events in the Foswiki core, and handling these events. These functions are called "Plugin Handlers" and they are described in depth in <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Plugins::EmptyPlugin">EmptyPlugin</a> ( <code>lib/Foswiki/Plugins/EmptyPlugin.pm</code> ).
+<p></p>
+
+<h2 id="The_3048m_view_of_how_Foswiki_works">  The 3048m view of how Foswiki works </h2>
+<p></p>
+
+Foswiki is a web application that runs inside a web server. When the web server receives a request that it recognises as being for Foswiki, it calls one of the perl scripts in the Foswiki <code>bin</code> directory. Each of the scripts has a specific function, as described in <a href="/bin/view/System/CommandAndCGIScripts">CommandAndCGIScripts</a>.
+<p class='p'>The scripts are responsible for interpreting the parameters passed in the request, and generating a response that is sent back to the browser, usually in the form of an HTML page.</p>
+
+Foswiki contains three <em>engines</em> that are used by the scripts; the <em>template engine</em>, the <em>macro engine</em>, and the <em>TML engine</em>.
+<p></p>
+ <ol>
+<li> The <strong>template engine</strong> reads predefined templates from files on the server. These templates contain directives that are expanded by the engine to create the output HTML skeleton. One of these directives expands to the topic text.
+</li> <li> The <strong>macro engine</strong> then expands the <a href="/bin/view/System/Macros">Macros</a> in the skeleton. This is also where macros registered by plugins are expanded. <ul>
+<li> Macros, including those registered by plugins, are processed in a strict left-right-inside-out processing order. See <a href="/bin/view/System/Macros">Macros</a> for more details.
+</li> <li> Macros include things like searches, so this is usually the slowest part of generating a page. 
+</li></ul> 
+</li> <li> The <strong>TML (Topic Markup Language) engine</strong> now processes the expanded text, looking for TML constructs such as bulleted lists and tables. It generates HTML for these constructs.
+</li></ol> 
+<p class='p'>Once all the engines have run, the output is sent to the browser.</p>
+
+There are several ways plugins can interact with this process. <ol>
+<li> They can <strong>register macros</strong> that are expanded by the macro engine. This is the simplest kind of plugin.
+</li> <li> The can interact with various points in the rendering pipeline by implementing <strong>handlers</strong> (callbacks).
+</li> <li> They can <strong>register REST handlers</strong> that are invoked via the <code>rest</code> script to support some form of transaction outside those supported by the standard scripts.
+</li></ol> 
+<p></p>
+
+<h2 id="APIs_available_to_Extensions">  APIs available to Extensions </h2>
+To be robust, extensions must avoid using any unpublished functionality from the Foswiki core. The following perl packages give access to features for extension authors. These APIs are not just for Plugins, they can be used in any type of extension. Click on the name of the package to see the full documentation. <ul>
+<li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a></code> - this is the package you will use most. This package exposes a lot of core functionality in a way that is friendly to extension writers. If you find that there are two ways of doing something - a <code>Foswiki::Func</code> way, and another call to one of the packages below, then the <code>Foswiki::Func</code> way is almost always the right way.
+</li> <li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Meta">Foswiki::Meta</a></code> - topic and web meta-data. Certain <code>Foswiki::Func</code> methods, and some plugin handlers, are passed (or return) objects of this type. Almost all of the methods of <code>Foswiki::Meta</code> have analagous methods in <code>Foswiki::Func</code> - in general you should call the <code>Foswiki::Func</code> methods in preference to calling <code>Foswiki::Meta</code> methods directly.
+</li> <li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::OopsException">Foswiki::OopsException</a></code> - special exception for invoking the 'oops' script
+</li> <li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::AccessControlException">Foswiki::AccessControlException</a></code> - access control exception
+</li> <li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Attrs">Foswiki::Attrs</a></code> - parser and storage object for macro parameters
+</li> <li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Time">Foswiki::Time</a></code> - time parsing and formatting
+</li> <li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Sandbox">Foswiki::Sandbox</a></code> - safe server-side program execution, used for calling external programs.
+</li> <li> Iterators - these are classes that implement the <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Iterator">Foswiki::Iterator</a></code> specification <ul>
+<li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::ListIterator">Foswiki::ListIterator</a></code> - utility class for iterator objects that iterate over list contents
+</li> <li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::LineIterator">Foswiki::LineIterator</a></code> - utility class for iterator objects that iterate over lines in a block of text
+</li> <li> <code><a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::AggregateIterator">Foswiki::AggregateIterator</a></code> - utility class for iterator objects that aggregate other iterators into a single iteration
+</li></ul> 
+</li></ul> 
+In addition the following global variables may be referred to: <ul>
+<li> <code>$Foswiki::Plugins::VERSION</code> - plugin handler API version number
+</li> <li> <code>$Foswiki::Plugins::SESSION</code> - reference to <code>Foswiki</code> singleton object
+</li> <li> <code>$Foswiki::cfg</code> - reference to configuration hash
+</li> <li> <code>$Foswiki::regex</code> - see <a class="foswikiCurrentTopicLink" href="#StReEx">Standard Regular Expressions</a>, below
+</li></ul> 
+<div class="foswikiHelp"><img src="/pub/System/DocumentGraphics/tip.png" alt="IDEA!" title="IDEA!" width="16" height="16" /> <a class="interwikiLink" href="https://foswiki.org/Development.GettingStarted" title="'Development.GettingStarted' on foswiki.org">Foswiki:Development.GettingStarted</a>  is the starting point for more comprehensive documentation on developing for Foswiki.</div>
+<p></p>
+
+<strong>Note:</strong> the APIs are available to all extensions, but rely on a
+<code>Foswiki</code> singleton object having been created before the APIs can be used.
+This will only be a problem if you are writing an extension that doesn't
+use the standard initialisation sequence.
+<p></p>
+
+<span id="StReEx"></span>
+<h3 id="Standard_Regular_Expressions">  Standard Regular Expressions </h3>
+A number of standard regular expressions are available for use in extensions, in the <code>$Foswiki::regex</code> hash. these regular expressions are precompiled in an
+I18N-compatible manner. The
+following are guaranteed to be present. Others may exist, but their use
+is unsupported and they may be removed in future Foswiki versions.
+<p></p>
+
+In the table below, the expression marked type 'String' are intended for
+use within character classes (i.e. for use within square brackets inside
+a regular expression), for example:
+<pre class="perl">
+   my &#36;isCapitalizedWord &#61;
+     ( &#36;s &#61;~ /&#91;&#36;Foswiki::regex{upperAlpha}&#93;&#91;&#36;Foswiki::regex{mixedAlpha}&#93;+/ );
+</pre>
+Those expressions marked type 'RE' are precompiled regular expressions that can be used outside square brackets. For example:
+<pre class="perl">
+   my &#36;isWebName &#61; ( &#36;s &#61;~ m/&#36;Foswiki::regex{webNameRegex}/ );
+</pre>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/DevelopingPlugins?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Name</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/DevelopingPlugins?sortcol=1;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Matches</a> </th>
+			<th class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol"> <a href="/bin/view/System/DevelopingPlugins?sortcol=2;table=1;up=1#sorted_table" rel="nofollow" title="Sort by this column">Type</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> wikiWordRegex </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="/bin/view/System/WikiWord">WikiWords</a> </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> RE </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> webNameRegex </td>
+			<td class="foswikiTableCol1" rowspan="1"> User web names </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> RE </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> topicNameRegex </td>
+			<td class="foswikiTableCol1" rowspan="1"> Topic names </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> RE </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> anchorRegex </td>
+			<td class="foswikiTableCol1" rowspan="1"> #AnchorNames </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> RE </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> abbrevRegex </td>
+			<td class="foswikiTableCol1" rowspan="1"> Abbreviations/Acronyms e.g. GOV, IRS </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> RE </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> emailAddrRegex </td>
+			<td class="foswikiTableCol1" rowspan="1"> <a href="mailto&#58;email&#64;address&#46;com">email&#64;address.com</a> </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> RE </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> tagNameRegex </td>
+			<td class="foswikiTableCol1" rowspan="1"> Standard macro names e.g. %THIS_BIT% (THIS_BIT only) </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> RE </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> upperAlpha </td>
+			<td class="foswikiTableCol1" rowspan="1"> Upper case characters </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> String </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> upperAlphaNum </td>
+			<td class="foswikiTableCol1" rowspan="1"> Upper case characters and digits </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> String </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> lowerAlpha </td>
+			<td class="foswikiTableCol1" rowspan="1"> Lower case characters </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> String </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> lowerAlphaNum </td>
+			<td class="foswikiTableCol1" rowspan="1"> Lower case characters and digits </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> String </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> numeric </td>
+			<td class="foswikiTableCol1" rowspan="1"> Digits </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> String </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> mixedAlpha </td>
+			<td class="foswikiTableCol1" rowspan="1"> Alphabetic characters </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol" rowspan="1"> String </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> mixedAlphaNum </td>
+			<td class="foswikiTableCol1 foswikiLast" rowspan="1"> Alphanumeric characters </td>
+			<td class="foswikiTableCol2 foswikiSortedAscendingCol foswikiSortedCol foswikiLastCol foswikiLast" rowspan="1"> String </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<span id="CreatePlugins"></span>
+<h2 id="Creating_New_Plugins">  Creating New Plugins </h2>
+<p class='p'>With a reasonable knowledge of the Perl scripting language, you can create new plugins or modify and extend existing ones.</p>
+
+<h3 id="Anatomy_of_a_Plugin">  Anatomy of a Plugin </h3>
+<p class='p'>A (very) basic Foswiki plugin consists of two files:</p>
+ <ul>
+<li> a Perl module, e.g. <code>lib/Foswiki/Plugins/MyFirstPlugin.pm</code>
+</li> <li> a documentation topic, e.g. <code>MyFirstPlugin.txt</code>
+</li></ul> 
+<p class='p'>The Perl module can invoke other, non-Foswiki, elements, like other Perl modules (including other plugins), graphics, external applications, or just about anything else that Perl can call.</p>
+
+<p class='p'>The plugin API handles the details of connecting your Perl module with the Foswiki core.</p>
+
+<em>The <a class="interwikiLink" href="https://foswiki.org/Extensions.BuildContrib" title="'Extensions.BuildContrib' on foswiki.org">Foswiki:Extensions.BuildContrib</a> module provides a lot of support for plugins development, including a plugin creator, automatic publishing support, and automatic installation script writer. If you plan on writing more than one plugin, you probably need it</em>.
+<p></p>
+
+<h3 id="Creating_the_Perl_Module">  Creating the Perl Module  </h3>
+<p></p>
+
+Copy file <code>lib/Foswiki/Plugins/EmptyPlugin.pm</code> to <code>&lt;name&gt;Plugin.pm</code>. The <a href="/bin/view/System/EmptyPlugin">EmptyPlugin</a> does nothing, but it contains all the information you need to create you own custom plugin.
+<p></p>
+
+<span id="CreatePluginTopic"></span>
+<h3 id="Writing_the_Documentation_Topic">  Writing the Documentation Topic </h3>
+<p></p>
+
+The plugin documentation topic contains usage instructions and version details. (The doc topic is also included <em>in</em> the <a class="foswikiCurrentTopicLink" href="#CreatePluginPackage">distribution package</a>.) To create a documentation topic:
+<p></p>
+ <ol>
+<li> <strong>Copy</strong> the plugin topic template from <a href="/bin/view/System/EmptyPlugin?raw=on">EmptyPlugin</a>
+</li> <li> <strong>Customize</strong> your plugin topic. <ul>
+<li> Important: In case you plan to publish your plugin on Foswiki.org, use Interwiki names for author names and links to Foswiki.org topics, such as <a class="interwikiLink" href="https://foswiki.org/Main/WikiGuest" title="'Main/WikiGuest' on foswiki.org">Foswiki:Main/WikiGuest</a>. This is important because links should work properly in a plugin topic installed on any Foswiki, not just on Foswiki.org.
+</li></ul> 
+</li> <li> <strong>Save</strong> your topic, for use in <a class="foswikiCurrentTopicLink" href="#CreatePluginPackage">packaging</a> and <a class="foswikiCurrentTopicLink" href="#PublishPlugin">publishing</a> your plugin.
+</li></ol> 
+<p></p>
+
+<div class="foswikiHelp">
+<strong>OUTLINE: Doc Topic Contents</strong> <br />
+Check the plugins web on Foswiki.org for the latest plugin doc topic template. Here's a quick overview of what's covered:
+<p></p>
+
+<strong>Syntax Rules:</strong> &lt;<i>Describe any special text formatting that will be rendered.</i>&gt;" 
+<p></p>
+
+<strong>Example:</strong> &lt;<i>Include an example of the plugin in action. Possibly include a static HTML version of the example to compare if the installation was a success!</i>&gt;"
+<p></p>
+
+<strong>Plugin Settings:</strong> &lt;<i>Description and settings for custom plugin settings, and those required by Foswiki.</i>&gt;"
+<p></p>
+ <ul>
+<li> <strong>Plugins Preferences</strong> &lt;<i>If user settings are needed, link to <a href="/bin/view/System/PreferenceSettings">preference settings</a> and explain the role of the plugin name prefix</i>
+</li></ul> 
+<p></p>
+
+<strong>Plugin Installation Instructions:</strong> &lt;<i>Step-by-step set-up guide, user help, whatever it takes to install and run, goes here.</i>&gt;"
+<p></p>
+
+<strong>Plugin Info:</strong> &lt;<i>Version, credits, history, requirements - entered in a form, displayed as a table. Both are automatically generated when you create or edit a page in the <a class="interwikiLink" href="https://foswiki.org/Extensions" title="'Extensions' on foswiki.org">Foswiki:Extensions</a> web.</i>&gt;
+</div>
+<p></p>
+
+<span id="CreatePluginPackage"></span>
+<h3 id="Packaging_for_Distribution">  Packaging for Distribution </h3>
+<p></p>
+
+The <a class="interwikiLink" href="https://foswiki.org/Extensions.BuildContrib" title="'Extensions.BuildContrib' on foswiki.org">Foswiki:Extensions.BuildContrib</a> is a powerful build environment that is used by the Foswiki project to build Foswiki itself, as well as many of the plugins. You don't <strong>have</strong> to use it, but it is highly recommended!
+<p></p>
+
+If you don't want to (or can't) use the BuildContrib, then a minimum plugin release consists of a Perl module with a <a href="/bin/view/System/WikiName">WikiName</a> that ends in <code>Plugin</code>, ex: <code>MyFirstPlugin.pm</code>, and a documentation page with the same name(<code>MyFirstPlugin.txt</code>).
+<p></p>
+ <ol>
+<li> Distribute the plugin files in a directory structure that mirrors Foswiki. If your plugin uses additional files, include them all: <ul>
+<li> <code>lib/Foswiki/Plugins/MyFirstPlugin.pm</code>
+</li> <li> <code>data/Foswiki/MyFirstPlugin.txt</code>
+</li> <li> <code>pub/Foswiki/MyFirstPlugin/uparrow.gif</code> [a required graphic]
+</li></ul> 
+</li> <li> Create a zip archive with the plugin name (<code>MyFirstPlugin.zip</code>) and add the entire directory structure from Step 1. The archive should look like this: <ul>
+<li> <code>lib/Foswiki/Plugins/MyFirstPlugin.pm</code>
+</li> <li> <code>data/Foswiki/MyFirstPlugin.txt</code>
+</li> <li> <code>pub/Foswiki/MyFirstPlugin/uparrow.gif</code>
+</li></ul> 
+</li></ol> 
+<p></p>
+
+<span id="PublishPlugin"></span>
+<h3 id="Publishing_for_Public_Use">  Publishing for Public Use </h3>
+<p></p>
+
+You can release your tested, packaged plugin to the Foswiki community through the <a class="interwikiLink" href="https://foswiki.org/Extensions" title="'Extensions' on foswiki.org">Foswiki:Extensions</a> web. All plugins submitted to Foswiki.org are available for public download and further development.
+<p></p>
+
+Publish your plugin by following these steps: <ol>
+<li> <strong>Post</strong> the plugin documentation topic to the <a class="interwikiLink" href="https://foswiki.org/Extensions" title="'Extensions' on foswiki.org">Foswiki:Extensions</a> web
+</li> <li> <strong>Attach</strong> the distribution zip file(s) to the topic, eg:      <code>MyFirstPlugin.zip</code>
+</li> <li> Add a user support hub by visiting <a class="interwikiLink" href="https://foswiki.org/Support.CreateNewSupportHub" title="'Support.CreateNewSupportHub' on foswiki.org">Foswiki:Support.CreateNewSupportHub</a>
+</li> <li> Optionally, check in the sources to the Foswiki subversion repository      (see <a class="interwikiLink" href="https://foswiki.org/Development.HowToStartExtensionDevelopmentInSubversion" title="'Development.HowToStartExtensionDevelopmentInSubversion' on foswiki.org">Foswiki:Development.HowToStartExtensionDevelopmentInSubversion</a>)
+</li></ol> 
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/new.png" alt="NEW" title="NEW" width="30" height="16" /> Once you have done the above steps once, you can use the BuildContrib to upload updates to your plugin.
+<p></p>
+
+Thank you very much for sharing your plugin with the Foswiki community <img class='smily' src='/pub/System/SmiliesPlugin/emoticon-0100-smile.gif' alt='smile' title='smile' />
+<p></p>
+
+<span id="FastPluginHints"></span>
+<h2 id="Hints_on_Writing_Fast_Plugins">  Hints on Writing Fast Plugins </h2>
+<p></p>
+ <ul>
+<li> Delay initialization as late as possible. For example, if your plugin is a simple syntax processor, you might delay loading extra Perl modules until you actually see the syntax in the text. <ul>
+<li> For example, use an <code>eval</code> block like this:<br />        <code>eval { require IPC::Run }</code> <br />        <code>return "&lt;font color=\"red\"&gt;SamplePlugin: Can't load required modules ($@)&lt;/font&gt;" if $@;</code>
+</li></ul> 
+</li> <li> Keep the main plugin package as small as possible; create other packages that are loaded if and only if they are used. For example, create sub-packages of BathPlugin in <code>lib/Foswiki/Plugins/BathPlugin/</code>.
+</li> <li> Avoid using preferences in the plugin topic; set <code>$NO_PREFS_IN_TOPIC</code> if you possibly can, as that will stop Foswiki from reading the plugin topic for every page. Use <a class="foswikiCurrentTopicLink" href="#ConfigSpec">Config.spec</a> instead. 
+</li> <li> Use registered tag handlers
+</li></ul> 
+<p></p>
+
+<h2 id="Security">  Security </h2>
+<p></p>
+ <ul>
+<li> Badly written plugins can open security holes in Foswiki. This is especially true if care isn't taken to prevent execution of arbitrary commands on the server.
+</li> <li> Don't allow sensitive configuration data to be edited by users. Use the <code>%Foswiki::cfg</code> hash for configuration options. Don't ask installers to edit topics in the System web. <ul>
+<li> <a class="foswikiCurrentTopicLink" href="#ConfigSpec">Integrating with <code>configure</code></a> describes the steps
+</li> <li> <a class="interwikiLink" href="https://foswiki.org/Extensions.MailInContrib" title="'Extensions.MailInContrib' on foswiki.org">Foswiki:Extensions.MailInContrib</a> has an example
+</li> <li> <a class="interwikiLink" href="https://foswiki.org/Extensions.BuildContrib" title="'Extensions.BuildContrib' on foswiki.org">Foswiki:Extensions.BuildContrib</a> can help you with this
+</li></ul> 
+</li> <li> Make sure that all user input is checked and validated. Be especially careful to filter characters that might be used in perl string interpolation.
+</li> <li> Avoid <code>eval</code>, and if you must use it make sure you sanitise parameters
+</li> <li> Always use the Foswiki::sandbox to execute commands. Never use backtick or qx//.
+</li> <li> Use <code>Foswiki::Func::checkAccessPermission</code> to check the access rights of the current user.
+</li> <li> Always audit the plugins you install, and make sure you are happy with the level of security provided. While every effort is made to monitor plugin authors activities, at the end of the day they are uncontrolled user contributions.
+</li></ul> 
+<p></p>
+
+<span id="RecommendedStorageOfPluginData"></span>
+<h2 id="Recommended_Storage_of_Plugin_Specific_Data">  Recommended Storage of Plugin Specific Data </h2>
+<p></p>
+
+Plugins sometimes need to store data. This can be plugin internal data such as cache data, or data generated for browser consumption such as images. Plugins should store data using <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a> functions that support saving and loading of topics and attachments.
+<p></p>
+
+<h3 id="Plugin_Internal_Data">  Plugin Internal Data </h3>
+<p></p>
+
+You can create a plugin "work area" using the <code>Foswiki::Func::getWorkArea()</code> function, which gives you a persistent directory where you can store data files. By default they will not be web accessible. The directory is guaranteed to exist, and to be writable by the webserver user. For convenience, <code>Foswiki::Func::storeFile()</code> and <code>Foswiki::Func::readFile()</code> are provided to persistently store and retrieve simple data in this area.
+<p></p>
+
+<h3 id="Web_Accessible_Data">  Web Accessible Data </h3>
+<p class='p'>The internal data area is not normally made web-accessible for security reasons. If yoou want to store web accessible data, for example generated images, then you should use Foswiki's attachment mechanisms.</p>
+
+<strong>Topic-specific data</strong> such as generated images can be stored in the topic's attachment area, which is web accessible. Use the <code>Foswiki::Func::saveAttachment()</code> function to store the data.
+<p></p>
+
+Recommendation for file name: <ul>
+<li> Prefix the filename with an underscore (the leading underscore avoids a name clash with files attached to the same topic)
+</li> <li> Identify where the attachment originated from, typically by including the plugin name in the file name
+</li> <li> Use only alphanumeric characters, underscores, dashes and periods to avoid platform dependency issues and URL issues
+</li> <li> Example: <code>_GaugePlugin_img123.gif</code>
+</li></ul> 
+Such auto-generated attachments han be hidden from users by setting the 'h' attribute in the attachment attributes.
+<p></p>
+
+<strong>Web specific data</strong> should be stored in the attachment area of a topic in the web that you specify for the purpose, e.g. Web.BathPlugPictures. Use the <code>Foswiki::Func::saveAttachment()</code> function to store the data in this topic.
+<p></p>
+
+<span id="ConfigSpec"></span>
+<h2 id="Integrating_with_configure">  Integrating with <code>configure</code> </h2>
+Some extensions have setup requirements that are best integrated into <code>configure</code> rather than trying to use <a href="/bin/view/System/PreferenceSettings">preference settings</a>. These extensions use <code>Config.spec</code> files to publish their configuration requirements.
+<p></p>
+
+<code>Config.spec</code> files are read during configuration. Once a <code>Config.spec</code> has defined a configuration item, it is available for edit through the standard <code>configure</code> interface. <code>Config.spec</code> files are stored in the 'plugin directory' e.g. <code>lib/Foswiki/Plugins/BathPlugin/Config.spec</code>.
+<p class='p'></p>
+
+<h3 id="Naming_of_61Config.spec_61_elements">  Naming of <code>Config.spec</code> elements </h3>
+when building your extension, there are several choices on where to place the elements in the <code>$Foswiki::cfg</code> hash:
+<p></p>
+
+<table class="foswikiTable" id="tableDevelopingPlugins2" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> Location </th>
+			<th class="foswikiTableCol1"> Example </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> Notes </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Under the <code>{Extensions}</code> namespace </td>
+			<td class="foswikiTableCol1"> <code>$Foswiki::cfg{Extensions}{BathPlugin}{PlugType}</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> <strong>This is the recommended location,</strong> It is recommended for all new extensions, and strongly recommended for non-Plugin type extensions  (Contribs, Skins, etc). </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> Under the <code>{Plugins}</code> namespace </td>
+			<td class="foswikiTableCol1"> <code>$Foswiki::cfg{Plugins}{BathPlugin}{PlugType}</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> This is traditionally where foswiki organizes all plugin settings. <br /> Foswiki automatically populates two settings for Plugins (and only plugins): <ul><li> <code>{Plugins}...{Module}</code> <li> <code>{Plugins}...{Enable}</code> </ul> which must <strong>not</strong> be defined in the <code>Config.spec</code> file.<br /> We no longer recommend using this namespace for custom settings. </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> Under the root namespace </td>
+			<td class="foswikiTableCol1 foswikiLast"> <code>$Foswiki::cfg{BathPlugin}</code> </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> <strong>Not Recommended</strong> Historical extensions place settings under the root, it results in a very cluttered configuration. </td>
+		</tr>
+	</tbody></table>
+<h4 id="Config_namespace_Rules_going_forward:"> Config namespace Rules going forward: </h4> <ul>
+<li> Existing extensions should probably not be restructured, to avoid configuration migration issues.
+</li> <li> If developing a "Contrib" or "Skin", configuration should live under <code>{Extensions}</code>, even if it has a Plugin component.
+</li> <li> If developing a "Plugin", it can use <code>{Plugins}</code> space but this is no longer recommended.
+</li> <li> Never store settings at the root level.
+</li></ul> 
+<p class='p'></p>
+
+<div class="foswikiHelp">
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> Never assign a value to a level that will have sub-values:   <strong>THIS WILL FAIL!  Don't do this.</strong>
+<pre>
+   &#36;Foswiki::cfg{Plugins}{BathPlugin} &#61; &#34;Take a bath here&#34;;
+   &#36;Foswiki::cfg{Plugins}{BathPlugin}{PlugType} &#61; &#34;rubber stopper&#34;;
+</pre></div>
+<p></p>
+
+<h3 id="Structure_of_a_Config.spec_file">  Structure of a <code>Config.spec</code> file </h3>
+This is a high level outline of the content of a <code>Config.spec</code> file. For full technical details, see <span class='externalLink'><a href="http://foswiki.org/Development/HowToWriteASpecFile">How To Write A .spec File</a></span>. However the information given here should be sufficient for most extension developers.
+<p></p>
+
+The <code>Config.spec</code> file for a plugin starts with a line that declares what section the configuration should appear in. The standard for all extensions is:
+<pre class="tml">
+# ---+ Extensions
+</pre>
+Next we have a sub-heading for the configuration specific to this extension,
+and the actual configuration options:
+<pre class="tml">
+# ----++ BathPlugin
+# This plugin senses the level of water in your bath, and ensures the plug
+# is not removed while the water is still warm.
+</pre> 
+This is followed by one or more configuration items. Each configuration item has a <em>type</em>, a <em>description</em> and a <em>default</em>. For example:
+<pre class="perl">
+# &#42;&#42;SELECT Plastic,Rubber,Metal&#42;&#42;
+# Select the plug type
+&#36;Foswiki::cfg{Plugins}{BathPlugin}{PlugType} &#61; &#39;Plastic&#39;;
+
+# &#42;&#42;NUMBER&#42;&#42;
+# Enter the chain length in cm
+&#36;Foswiki::cfg{Plugins}{BathPlugin}{ChainLength} &#61; &#39;30&#39;;
+
+# &#42;&#42;BOOLEAN EXPERT&#42;&#42;
+# Turn this option off to disable the water temperature alarm
+&#36;Foswiki::cfg{BathPlugin}{TempSensorEnabled} &#61; &#39;1&#39;;
+</pre>
+The type (e.g. <code>**SELECT**</code> ) tells <code>configure</code> to how to prompt for the value. It also tells configure how to do some basic checking on the value you actually enter. All the comments between the type and the configuration item are taken as part of the description. The configuration item itself defines the default value for the configuration item. The above spec defines the configuration items <code>$Foswiki::cfg{BathPlugin}{PlugType}</code>, <code>$Foswiki::cfg{BathPlugin}{ChainLength}</code>, and <code>$Foswiki::cfg{BathPlugin}{TempSensorEnabled}</code> for use in your plugin. For example,
+<pre class="perl">
+if( &#36;Foswiki::cfg{Plugins}{BathPlugin}{TempSensorEnabled} &#38;&#38; &#36;curTemperature &#62; 50 ) {
+    die &#34;The bathwater is too hot for comfort&#34;;
+}
+</pre>
+You can use other <code>$Foswiki::cfg</code> values in other settings,
+but you must be sure they are only evaluated under program control, and
+not when this file is parsed by perl. For example:
+<pre class="perl">
+&#36;Foswiki::cfg{Plugins}{BathPlugin}{MyBath} &#61; &#34;&#36;Foswiki::cfg{PubDir}/enamel.gif&#34;; # BAD
+# Perl will interpolate variables in double-quotes, so &#36;Foswiki::cfg{PubDir}
+# will be evaluated at configuration time, which will make reconfiguration
+# difficult.
+
+&#36;Foswiki::cfg{Plugins}{BathPlugin}{MyBath} &#61; &#39;&#36;Foswiki::cfg{PubDir}/enamel.gif&#39;; # GOOD
+# The single quotes make sure &#36;Foswiki::cfg{PubDir} will only be evaluated
+# at run-time.
+</pre>
+<p></p>
+
+The <code>Config.spec</code> file is read by configure, and <code>configure</code> then writes <code>LocalSite.cfg</code> with the values chosen by the local site admin.
+<p></p>
+
+A range of types are available for use in <code>Config.spec</code> files:
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>BOOLEAN</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A true/false value, represented as a checkbox </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>BOOLGROUP</code> <em>choices</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A group of related checkboxes to toggle on/off from a list of choices. Stored as a simple list, <code>BOOLGROUP fee,fie,foe,fum</code> selected items stored as <code>'fee,fie,foe'</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>COMMAND</code> <em>length</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A shell command </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>LANGUAGE</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A language (selected from <code>{LocalesDir}</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>NUMBER</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A number </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>OCTAL</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> An octal number </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>PASSWORD</code> <em>length</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A password (input is hidden) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>PATH</code> <em>length</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A file path </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>PERL</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A simplified perl data structure, consisting of arrays, hashes and scalar values </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>REGEX</code> <em>length</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A perl regular expression </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>SELECT</code> <em>choices</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Pick one of a range of choices </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>SELECTCLASS</code>&nbsp;<em>package-specifier</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Select a perl package (class) e.g. <code>SELECTCLASS Foswiki::Plugins::BathPlugin::*Plug</code> lets the user select between all packages with names ending in <code>Plug</code>, <code>Foswiki::Plugins::BathPlugin::RubberPlug</code>, <code>Foswiki::Plugins::BathPlugin::BrassPlug</code> etc. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>STRING</code> <em>length</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A string </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>URL</code> <em>length</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> A url </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>URLPATH</code> <em>length</em> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> A relative URL path </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+All types can be followed by a comma-separated list of <em>attributes</em>.
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>DISPLAY_IF</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> means this option is conditionally displayed based on some Javascript expression (see below for more) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>ENABLE_IF</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> means this option is conditionally enabled based on some Javascript expression (see below for more) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>EXPERT</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> means this an expert option </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>HIDDEN</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> means the option is not visible in <code>configure</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>MANDATORY</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> means the setting is mandatory (may not be empty) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>MULTIPLE</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Allow multiple select (SELECT type) </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>SPELLCHECK</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Enable to request spellchecking in the UI (if available) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol"> <code>80</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> means "use an 80 column one-line text field" - if the UI wants to support it. </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> <code>5x80</code> </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> means "use a 5 row, 80 column textarea". Can be used with any text entry field type, such as STRING, COMMAND, PERL etc. However the UI may not support it. </td>
+		</tr>
+	</tbody></table>
+Any of the boolean attributes can be preceded with <code>NO</code> to invert the meaning e.g. <code>NOHIDDEN</code> (however since this is the default state for these options, it's of limited use!)
+<p></p>
+
+As of Foswiki 2.0 you can also use the <code>ENHANCE</code> type to enhance the documentation for an already-existing <code>$Foswiki::cfg</code> value. For example:
+<pre>
+# &#42;&#42;ENHANCE {Store}{Implementation}&#42;&#42;
+# Documentation for a new store implementation here
+</pre>
+<code>ENHANCE</code> does not have a corresponding <code>$Foswiki::cfg</code> value, just a documentation block.
+<p></p>
+
+See <code>lib/Foswiki.spec</code> for many more examples, and <span class='externalLink'><a href="http://foswiki.org/Development/HowToWriteASpecFile">How To Write A .spec File</a></span> for more information about the syntax and attributes.
+<p></p>
+
+<code>Config.spec</code> files are also used for other (non-plugin) extensions. in this case they are stored under the <code>Contrib</code> directory instead of the <code>Plugins</code> directory.
+<p></p>
+
+<h4 id="DISPLAY_IF_and_ENABLE_IF">  DISPLAY_IF and ENABLE_IF </h4>
+These sopisticated options support the definition of a Javascript expression that will be evaluated in the browser to determine if an option should be visible or not. The general format is:
+<pre>
+# &#42;&#42;BOOLEAN DISPLAY&#95;IF {Other}{Option}&#61;&#61;&#39;RequiredValue&#39;&#42;&#42;
+</pre>
+You can use almost any Javascript condition; any string of the form <code>{Other}{Option}</code> will be expanded to the value of that option in the browser. <code>ENABLE_IF</code> works the same way, except it simply disables the option unless the condition is satisified. The Javascript condition can be terminated by <code>/DISPLAY_IF</code> / <code>/ENABLE_IF</code> if it is not the last option. For example,
+<p></p>
+
+<pre>
+# &#42;&#42;BOOLEAN DISPLAY&#95;IF {An}{Option}&#61;&#61;&#39;RequiredValue&#39; /DISPLAY&#95;IF ENABLE&#95;IF {Another}{Option}&#61;&#61;&#39;AnotherValue&#39; &#42;&#42;
+</pre>
+When testing BOOLEAN options, simply stating the name of the option is enough. For example,
+<pre>
+&#42;&#42;STRING DISPLAY&#95;IF {This}{BOOLEAN}{Option} &#42;&#42;
+</pre>
+<p></p>
+
+<div class="foswikiHelp">
+<p></p>
+
+Also, don't confuse the layout within Configure tabs with the hierarchy within the configuration hash.   Settings are organized in the Configuration Tabs based upon the heading hierarchy of the Spec file, not the configuration hash structure.
+It is <strong><em>strongly recommended</em></strong> to stick to one location for settings for any extension. Try not to split settings
+into multiple areas of the configuration hash, except when the settings are "Extending" a core feature like the Store. All of these below settings will appear under the Extensions -&gt; BathPlugin tab. (but this is certainly <strong>not</strong> recommended).
+<pre>
+---+ Extensions
+---++ BathPlugin
+&#36;Foswiki::cfg{Plugins}{BathPlugin}{PlugType} &#61; &#39;rubber&#39;;
+&#36;Foswiki::cfg{Extensions}{BathPlugin}{ToyType} &#61; &#39;duckie&#39;;
+&#36;Foswiki::cfg{foobar} &#61; &#39;some archaic root-level setting&#39;;
+</pre>
+<p></p>
+
+</div>
+<p></p>
+
+<span id="LinkingToConfigure"></span>
+<h3 id="Linking_to_61configure_61">  Linking to <code>configure</code> </h3>
+<p class='p'>(As of Foswiki 2.0, it is no longer possible to directly link into Configure tabs.</p>
+
+<p class='p'></p>
+
+<span id="MaintainPlugins"></span>
+<h2 id="Maintaining_Plugins">  Maintaining Plugins </h2>
+<p></p>
+
+<h3 id="Discussions_and_Feedback_on_Plugins">  Discussions and Feedback on Plugins </h3>
+<p class='p'>Usually published plugins have a support hub in the Support web on Foswiki.org.Support hubs have links to where to discuss feature enhancements and give feedback to the developer and user communities.</p>
+
+<h3 id="Maintaining_Compatibility_with_Earlier_Foswiki_Versions">  Maintaining Compatibility with Earlier Foswiki Versions </h3>
+<p></p>
+
+The plugin interface (<a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a> functions and plugin handlers) evolve over time. Foswiki introduces new API functions to address the needs of plugin authors. Plugins using unofficial Foswiki internal functions may no longer work on a Foswiki upgrade.
+<p class='p'>Organizations typically do not upgrade to the latest Foswiki for many months. However, many administrators still would like to install the latest versions of a plugin on their older Foswiki installation. This need is fulfilled if plugins are maintained in a compatible manner.</p>
+
+<div class="foswikiHelp"> <strong><img src="/pub/System/DocumentGraphics/tip.png" alt="TIP" title="TIP" width="16" height="16" /> Tip:</strong> Plugins can be written to be compatible with older and newer Foswiki releases. This can be done also for plugins using unofficial Foswiki internal functions of an earlier release that no longer work on the latest Foswiki codebase. 
+Here is an example; the <a class="interwikiLink" href="https://foswiki.org/Support.PluginsSupplement" title="'Support.PluginsSupplement' on foswiki.org">Foswiki:Support.PluginsSupplement</a> has more details.</div>
+<p></p>
+
+<pre class="perl">
+    if( &#36;Foswiki::Plugins::VERSION &#62;&#61; 1.1 ) {
+        &#64;webs &#61; Foswiki::Func::getListOfWebs( &#39;user,public&#39; );
+    } else {
+        &#64;webs &#61; Foswiki::Func::getPublicWebList( );
+    }
+</pre>
+<p></p>
+
+<h3 id="Handling_deprecated_functions">  Handling deprecated functions </h3>
+<p></p>
+
+From time-to-time, the Foswiki developers will add new functions to the interface (either to <a href="https://damask.mpie.de/bin/view/System/PerlDoc?module=Foswiki::Func">Foswiki::Func</a>, or new handlers). Sometimes these improvements mean that old functions have to be deprecated to keep the code manageable. When this happens, the deprecated functions will be supported in the interface for at least one more Foswiki release, and probably longer, though this cannot be guaranteed.
+<p class='p'>When a plugin defines deprecated handlers, a warning will be shown in the list generated by %FAILEDPLUGINS%. Admins who see these warnings should check Foswiki.org and if necessary, contact the plugin author, for an updated version of the plugin.</p>
+
+<p class='p'>Updated plugins may still need to define deprecated handlers for compatibility with old Foswiki versions. In this case, the plugin package that defines old handlers can suppress the warnings in %FAILEDPLUGINS%.</p>
+
+This is done by defining a map from the handler name to the <code>Foswiki::Plugins</code> version <em>in which the handler was first deprecated</em>. For example, if we need to define the <code>endRenderingHandler</code> for compatibility with <code>Foswiki::Plugins</code> versions before 1.1, we would add this to the plugin:
+<p></p>
+
+<pre class="perl">
+package Foswiki::Plugins::SinkPlugin;
+use vars qw( &#37;FoswikiCompatibility );
+&#36;FoswikiCompatibility{endRenderingHandler} &#61; 1.1;
+</pre>
+If the currently-running Foswiki version is 1.1 <em>or later</em>, then the <em>handler will not be called</em> and <em>the warning will not be issued</em>. Foswiki with versions of <code>Foswiki::Plugins</code> before 1.1 will still call the handler as required.
+<p></p>
+
+<h3 id="TWiki_Plugins">  TWiki<sup>&reg;</sup> Plugins </h3>
+Most plugins written for TWiki can also be run in Foswiki, by installing the TWikiCompatibilityPlugin. See <a class="interwikiLink" href="https://foswiki.org/Extensions.TWikiCompatibilityPlugin" title="'Extensions.TWikiCompatibilityPlugin' on foswiki.org">Foswiki:Extensions.TWikiCompatibilityPlugin</a> for more information.
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/DevelopingPlugins?t=1627671435' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/DevelopingPlugins' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DevelopingPlugins?cover=print;sortcol=2;table=1;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/DevelopingPlugins?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r1</span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DevelopingPlugins?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DevelopingPlugins?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/DevelopingPlugins?t=1627671435;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/DevelopingPlugins?template=more&amp;maxrev=1&amp;currrev=1' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r1 - 03 Feb 2016, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/DevelopingPlugins?foswiki_origin=GET%2cview%2c/bin/view/System/DevelopingPlugins%3fsortcol%3d2%3btable%3d1%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.DevelopingPlugins'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

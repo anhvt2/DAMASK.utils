@@ -1,0 +1,575 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> JQTablePlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/JQTablePlugin?t=1627669891" type="application/x-wiki" title="edit JQTablePlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/JQTablePlugin" /><!--[if IE]></base><![endif]-->
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/6983638cb6826179c8398d4d587bd322.css' class='CLASSIFICATIONPLUGIN::CSS IMAGEPLUGIN JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER JQUERYPLUGIN::TWISTY SMILIESPLUGIN head' media='all' />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableJQTablePlugin2 td {vertical-align:middle; vertical-align:top}
+body .foswikiTable#tableJQTablePlugin2 td.foswikiTableCol0 {text-align:left}
+body .foswikiTable#tableJQTablePlugin2 td.foswikiTableCol1 {text-align:left}
+body .foswikiTable#tableJQTablePlugin2 td.foswikiTableCol2 {text-align:left}
+body .foswikiTable#tableJQTablePlugin2 td.foswikiTableCol3 {text-align:right}
+body .foswikiTable#tableJQTablePlugin2 td.foswikiTableCol4 {text-align:left}
+body .foswikiTable#tableJQTablePlugin2 td.foswikiTableCol5 {text-align:left}
+body .foswikiTable#tableJQTablePlugin2 td.foswikiTableCol6 {text-align:left}
+body .foswikiTable#tableJQTablePlugin2 td.foswikiTableCol7 {text-align:left}
+body .foswikiTable#tableJQTablePlugin2 th {vertical-align:middle; background-color:#ffffff; color:#0066cc; text-align:left}
+body .foswikiTable#tableJQTablePlugin2 th a:link {color:#0066cc}
+body .foswikiTable#tableJQTablePlugin2 th a:visited {color:#0066cc}
+body .foswikiTable#tableJQTablePlugin2 th a:hover {color:#0066cc; background-color:#ffffff}
+body .foswikiTable#tableJQTablePlugin2 th.foswikiSortedCol {background-color:#eeeeee}
+body .foswikiTable#tableJQTablePlugin2 tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable#tableJQTablePlugin2 tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f5f5f5}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "WIKINAME" : "WikiGuest",
+   "COOKIEREALM" : "",
+   "SYSTEMWEB" : "System",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "WEB" : "System",
+   "URLHOST" : "https://damask.mpie.de",
+   "USERSWEB" : "Main",
+   "TOPIC" : "JQTablePlugin",
+   "SCRIPTURLPATH" : "/bin",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "SCRIPTSUFFIX" : "",
+   "USERNAME" : "guest",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SERVERTIME" : "30 Jul 2021 - 20:31",
+   "PUBURLPATH" : "/pub",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "WIKIUSERNAME" : "Main.WikiGuest"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"officeSuite":"","attachFileSizeLimit":"262144"}}</script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TWISTY' src='/pub/System/TwistyPlugin/jquery.twisty.js?version=1.6.0'></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/JQTablePlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?c3b1a1647c90f76cf5a294da4edf1214' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/JQTablePlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?0d7bda5676b630f8733c36fdb21e8a41' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.JQTablePlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.JQTablePlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/JQTablePlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/JQTablePlugin" title='Topic revision: 10 (26 Apr 2017 - 21:29:36)'>JQTablePlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/JQTablePlugin?t=1627669892;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/JQTablePlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/JQTablePlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/JQTablePlugin?raw=on&amp;rev=10' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=JQTablePlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/JQTablePlugin?cover=print;sortcol=1;table=2;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/JQTablePlugin?template=more&amp;maxrev=10&amp;currrev=10' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="JQTablePlugin"> JQTablePlugin </h1>
+<!-- <ul>
+<li> Set SHORTDESCRIPTION = Javascript implementation of the classic <a href="/bin/view/System/TablePlugin">TablePlugin</a>, using JQuery
+</li></ul> 
+-->
+Javascript implementation of the classic <a href="/bin/view/System/TablePlugin">TablePlugin</a>, using JQuery
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=1;table=2;up=0#Usage"> Usage </a>
+</li> <li> <a href="?sortcol=1;table=2;up=0#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?sortcol=1;table=2;up=0#Info"> Info </a>
+</li></ul> 
+</div>
+<p></p>
+
+This plugin does two things: <ol>
+<li> If TablePlugin is enabled, it enhances TablePlugin with client-side column sorting (if Javascript is enabled)
+</li> <li> If TablePlugin is <em>not</em> enabled, it performs the same processing as TablePlugin except it does it in the browser.
+</li></ol> 
+<p></p>
+
+Some notable omissions: <ul>
+<li> Sorting doesn't work correctly if you have multiple header rows
+</li></ul> 
+<p></p>
+
+<strong>when used without TablePlugin</strong> <ul>
+<li> No sort icon in table headers (just click the header to sort).
+</li> <li> Sorting can be a bit strange when rowspans and colspans are used.
+</li> <li> The sorted data background doesn't alternate if more than one colour is given.
+</li> <li> The way column and row spans are calculated is slightly different to TablePlugin, which may give slightly different visual effect sin some extreme cases.
+</li></ul> 
+<p></p>
+
+<strong>when used with TablePlugin:</strong> <ul>
+<li> Sorted column background doesn't work
+</li></ul> 
+<p class='p'>You can help improve it, please feel free to do so.</p>
+
+<p class='p'>Sorting is done using the jQuery tablesorter plugin written by Christian Bach,
+which is included.</p>
+
+<h2 id="Usage">  Usage </h2>
+<p class='p'>If used with TablePlugin: Click on column headers to sort.</p>
+
+If used without TablePlugin: Behaviour should be identical to TablePlugin.
+See <a href="/bin/view/System/TablePlugin">TablePlugin</a> for more information.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> You cannot use the %CARET% and/or &amp;#94; characters to 'escape' a rowspan in a table with <a class="foswikiCurrentTopicLink" href="/bin/view/System/JQTablePlugin">JQTablePlugin</a> (the TablePlugin support is a dirty hack). To insert these characters, simply enclose them in a span e.g. <code>&lt;span&gt;^&lt;/span&gt;</code>.
+<p></p>
+
+<img src="/pub/System/DocumentGraphics/warning.png" alt="ALERT!" title="ALERT!" width="16" height="16" /> If TablePlugin is used with JQTablePlugin, then tables will be shown with
+active links in column headers, as well as the icons that support in-browser
+sorting. Clicking on these links will cause the table plugin to sort the table
+by re-rendering the page - defeating the object of the JQTablePlugin. To
+avoid this sort of confusion you are recommended to disable the TablePlugin.
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+<p class='p'>You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.</p>
+
+<p class='p'>Open configure, and open the "Extensions" section. Use "Find More Extensions" to get a list of available extensions. Select "Install".</p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="http://foswiki.org/Support/ManuallyInstallingExtensions">http://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Info">  Info </h2>
+Another great Foswiki extension from the <a style="text-decoration:none" href="http://wikiring.com"><img class='imagePlain imagePlain_none ' src='/pub/System/JQTablePlugin/wikiringlogo20x20.png' alt='wikiringlogo20x20.png' title='wikiringlogo20x20.png' width='20' height='20'    /> <strong>WikiRing</strong> </a> - working together to improve your wiki experience!
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Author(s): </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Crawford Currie <a href="http://c-dot.co.uk">http://c-dot.co.uk</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Copyright: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Copyright &copy; 2010-2014 Crawford Currie </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> License: </td>
+			<td class="foswikiTableCol1 foswikiLastCol" style="text-align:right"> <span class='externalLink'><a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html">Gnu General Public License v2</a></span> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Release: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 25 July 2014 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Version: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> 1.13 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Change History: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 1.13 (25 Jul 2014) </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> Fix <a class="interwikiLink" href="https://foswiki.org/Tasks/Item8816" title="'Item8816' on the 'Foswiki' issue tracking site">Foswikitask:Item8816</a>, <a class="interwikiLink" href="https://foswiki.org/Tasks/Item12974" title="'Item12974' on the 'Foswiki' issue tracking site">Foswikitask:Item12974</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Dependencies: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <table class="foswikiTable" border="1"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Foswiki::Plugins::JQueryPlugin</td><td align="left">&gt;=0</td><td align="left">Required</td></tr></table> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> Home page: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> <a href="http://foswiki.org/bin/view/Extensions/JQTablePlugin">http://foswiki.org/bin/view/Extensions/JQTablePlugin</a> </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> Support: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> <a href="http://foswiki.org/bin/view/Support/JQTablePlugin">http://foswiki.org/bin/view/Support/JQTablePlugin</a> </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+ </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiAttachments foswikiFormStep" style="overflow:auto">
+<div class="twistyPlugin foswikiMakeVisible"><span id="topicattachmentslist1show" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleopen.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>15</span></span></a></span><span id="topicattachmentslist1hide" style="display:none" class="twistyRememberSetting twistyTrigger foswikiUnvisited twistyInited"><a class="patternTwistyButton" href="#"><img src="/pub/System/DocumentGraphics/toggleclose.png" border="0" alt="" /><span class="foswikiLinkLabel foswikiUnvisited">Attachments <span class='foswikiSmall foswikiGrayText'>15</span></span></a></span></div><div class="twistyPlugin"><div id="topicattachmentslist1toggle" style="" class="twistyRememberSetting twistyContent twistyInited">
+<table class="foswikiTable" id="tableJQTablePlugin2" rules="none" summary="Topic attachments"><caption>Topic attachments</caption>
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/JQTablePlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">I</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/view/System/JQTablePlugin?sortcol=1;table=2;up=1#sorted_table" rel="nofollow" title="Sort by this column">Attachment</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol2"> <a href="/bin/view/System/JQTablePlugin?sortcol=2;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Action</a> </th>
+			<th class="foswikiTableCol3"> <a href="/bin/view/System/JQTablePlugin?sortcol=3;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Size</a> </th>
+			<th class="foswikiTableCol4"> <a href="/bin/view/System/JQTablePlugin?sortcol=4;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol5"> <a href="/bin/view/System/JQTablePlugin?sortcol=5;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Who</a> </th>
+			<th class="foswikiTableCol6 foswikiLastCol"> <a href="/bin/view/System/JQTablePlugin?sortcol=6;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Comment</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='asc.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/asc.gif">asc.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=asc.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 48 bytes </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='bg.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/bg.gif">bg.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=bg.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 56 bytes </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/gif.png' width='16' height='16' alt='desc.gif' /></span><span class="foswikiHidden">gif</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/desc.gif">desc.gif</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=desc.gif;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 49 bytes </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/css.png' width='16' height='16' alt='jquery.tablesorter.css' /></span><span class="foswikiHidden">css</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/jquery.tablesorter.css">jquery.tablesorter.css</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=jquery.tablesorter.css;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 331 bytes </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/else.png' width='16' height='16' alt='jquery.tablesorter.css.gz' /></span><span class="foswikiHidden">gz</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/jquery.tablesorter.css.gz">jquery.tablesorter.css.gz</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=jquery.tablesorter.css.gz;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 171 bytes </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/js.png' width='16' height='16' alt='jquery.tablesorter.js' /></span><span class="foswikiHidden">js</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/jquery.tablesorter.js">jquery.tablesorter.js</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=jquery.tablesorter.js;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 16 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/else.png' width='16' height='16' alt='jquery.tablesorter.js.gz' /></span><span class="foswikiHidden">gz</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/jquery.tablesorter.js.gz">jquery.tablesorter.js.gz</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=jquery.tablesorter.js.gz;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 4 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/css.png' width='16' height='16' alt='jquery.tablesorter.uncompressed.css' /></span><span class="foswikiHidden">css</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/jquery.tablesorter.uncompressed.css">jquery.tablesorter.uncompressed.css</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=jquery.tablesorter.uncompressed.css;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 378 bytes </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/js.png' width='16' height='16' alt='jquery.tablesorter.uncompressed.js' /></span><span class="foswikiHidden">js</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/jquery.tablesorter.uncompressed.js">jquery.tablesorter.uncompressed.js</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=jquery.tablesorter.uncompressed.js;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 39 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/else.png' width='16' height='16' alt='Makefile' /></span><span class="foswikiHidden">EXT</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/Makefile">Makefile</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=Makefile;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 177 bytes </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='opacity.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/opacity.png">opacity.png</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=opacity.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 294 bytes </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/js.png' width='16' height='16' alt='tables.js' /></span><span class="foswikiHidden">js</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/tables.js">tables.js</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=tables.js;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 7 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/else.png' width='16' height='16' alt='tables.js.gz' /></span><span class="foswikiHidden">gz</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/tables.js.gz">tables.js.gz</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=tables.js.gz;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 2 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/js.png' width='16' height='16' alt='tables.uncompressed.js' /></span><span class="foswikiHidden">js</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> <a href="/pub/System/JQTablePlugin/tables.uncompressed.js">tables.uncompressed.js</a> </td>
+			<td class="foswikiTableCol2" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=tables.uncompressed.js;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3" rowspan="1" style="text-align:right"> 16 K </td>
+			<td class="foswikiTableCol4" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol" rowspan="1"> &nbsp; </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/png.png' width='16' height='16' alt='wikiringlogo20x20.png' /></span><span class="foswikiHidden">png</span> </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" rowspan="1"> <a href="/pub/System/JQTablePlugin/wikiringlogo20x20.png">wikiringlogo20x20.png</a> </td>
+			<td class="foswikiTableCol2 foswikiLast" rowspan="1"> <a href="/bin/attach/System/JQTablePlugin?filename=wikiringlogo20x20.png;revInfo=1" title="change, update, previous revisions, move, delete..." rel="nofollow">manage</a> </td>
+			<td class="foswikiTableCol3 foswikiLast" rowspan="1" style="text-align:right"> 1 K </td>
+			<td class="foswikiTableCol4 foswikiLast" rowspan="1"> <span class="foswikiNoBreak">25 Apr 2017 - 16:25</span> </td>
+			<td class="foswikiTableCol5 foswikiLast" rowspan="1"> <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a> </td>
+			<td class="foswikiTableCol6 foswikiLastCol foswikiLast" rowspan="1"> &nbsp; </td>
+		</tr>
+	</tbody></table>
+</div></div></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/JQTablePlugin?t=1627669892' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/JQTablePlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQTablePlugin?cover=print;sortcol=1;table=2;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/JQTablePlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r10&nbsp;<a href="/bin/diff/System/JQTablePlugin?rev1=9;rev2=10" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/JQTablePlugin?rev=9" rel="nofollow">r9</a>&nbsp;<a href="/bin/diff/System/JQTablePlugin?rev1=8;rev2=9" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/JQTablePlugin?rev=8" rel="nofollow">r8</a>&nbsp;<a href="/bin/diff/System/JQTablePlugin?rev1=7;rev2=8" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/JQTablePlugin?rev=7" rel="nofollow">r7</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQTablePlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQTablePlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/JQTablePlugin?t=1627669892;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/JQTablePlugin?template=more&amp;maxrev=10&amp;currrev=10' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r10 - 26 Apr 2017, <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/JQTablePlugin?foswiki_origin=GET%2cview%2c/bin/view/System/JQTablePlugin%3fsortcol%3d1%3btable%3d2%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.JQTablePlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

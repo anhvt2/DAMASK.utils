@@ -1,0 +1,1054 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<title> FilterPlugin &lt; System &lt; DAMASK</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pub/System/ProjectLogos/favicon-damask.ico" type="image/x-icon" />
+<link rel="alternate" href="https://damask.mpie.de/bin/edit/System/FilterPlugin?t=1627669662" type="application/x-wiki" title="edit FilterPlugin" />
+<meta name="TEXT_NUM_TOPICS" content="Number of topics:" />
+<meta name="TEXT_MODIFY_SEARCH" content="Modify search" />
+<meta name="robots" content="noindex" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/bin/view/System/WebRss" />
+<base href="https://damask.mpie.de/bin/view/System/FilterPlugin" /><!--[if IE]></base><![endif]-->
+<link rel='stylesheet' href='/pub/System/PageOptimizerPlugin/cache/ef5ab8051e40e6ac9fbfcd8b185e87bc.css' class='CLASSIFICATIONPLUGIN::CSS JQUERYPLUGIN::BOOKMAKER JQUERYPLUGIN::BUTTON JQUERYPLUGIN::COMMENT JQUERYPLUGIN::TABLESORTER SMILIESPLUGIN head' media='all' />
+
+<style class='head TABLEPLUGIN_default' type="text/css" media="all">
+body .foswikiTable {border-width:1px}
+body .foswikiTable .tableSortIcon img {padding-left:.3em; vertical-align:text-bottom}
+body .foswikiTable td {border-style:solid none; vertical-align:top}
+body .foswikiTable th {border-style:none solid; vertical-align:top; background-color:#d6d3cf; color:#000000}
+body .foswikiTable th a:link {color:#000000}
+body .foswikiTable th a:visited {color:#000000}
+body .foswikiTable th a:hover {color:#000000; background-color:#d6d3cf}
+body .foswikiTable th.foswikiSortedCol {background-color:#c4c1ba}
+body .foswikiTable tr.foswikiTableRowdataBg0 td {background-color:#ffffff}
+body .foswikiTable tr.foswikiTableRowdataBg0 td.foswikiSortedCol {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td {background-color:#f7f7f6}
+body .foswikiTable tr.foswikiTableRowdataBg1 td.foswikiSortedCol {background-color:#f0f0ee}
+</style>
+<style class='head TABLEPLUGIN_specific' type="text/css" media="all">
+body .foswikiTable#tableFilterPlugin4 {width:100%}
+body .foswikiTable#tableFilterPlugin4 td.foswikiTableCol0 {width:7em}
+body .foswikiTable#tableFilterPlugin4 th.foswikiTableCol0 {width:7em}
+</style>
+
+<link class='head FILTERPLUGIN' rel="stylesheet" type="text/css" href="https://damask.mpie.de/pub/System/FilterPlugin/filter.css" media="all" />
+
+<style class='head EXTERNALLINKPLUGIN_CSS' type="text/css" media="all">
+.externalLink a:link,
+.externalLink a:visited,
+.externalLink a:hover {
+	background-image:url(/pub/System/ExternalLinkPlugin/diagonal.gif);
+	background-repeat:no-repeat;
+	background-position:right;
+	padding-right:18px;
+}
+</style>
+
+<style type="text/css" media="all">
+		  /* Styles that are set using variables */
+		  .patternWebIndicator,
+		  .patternWebIndicator a {
+					 background-color:none;
+		  }
+		  #patternTopBarContents { background-image:url(https://damask.mpie.de/pub/System/ProjectLogos/DAMASK.png); background-repeat:repeat-x;}
+
+.patternBookView {
+	border-color:#B9DAFF;
+}
+.patternPreviewPage #patternMain {
+	/* uncomment to set the preview image */
+	/*background-image:url("/pub/System/PreviewBackground/preview2bg.gif");*/
+}
+</style>
+<link rel='stylesheet' href='/pub/System/PatternSkin/print.css' media='print' type='text/css' />
+
+<script class='script JQUERYPLUGIN' src='/pub/System/JQueryPlugin/jquery-2.2.4.js'></script>
+<script class='script JQUERYPLUGIN::BROWSER' src='/pub/System/JQueryPlugin/plugins/browser/jquery.browser.js?version=0.1.0'></script>
+<script class='script JQUERYPLUGIN::MIGRATE' src='/pub/System/JQueryPlugin/plugins/migrate/jquery.migrate.js?version=3.2.1'></script>
+<script class='script JQUERYPLUGIN::LIVEQUERY' src='/pub/System/JQueryPlugin/plugins/livequery/jquery.livequery.js?version=1.3.6'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI' src='/pub/System/JQueryPlugin/plugins/foswiki/jquery.foswiki.js?version=2.14'></script>
+<script class='script JQUERYPLUGIN::FOSWIKI::PREFERENCES foswikiPreferences' type='text/json'>{
+   "PUBURLPATH" : "/pub",
+   "USERSWEB" : "Main",
+   "NAMEFILTER" : "[\\\\\\s*?~^$@%`\"'&|<:;>\\[\\]#\\x00-\\x1f]",
+   "SERVERTIME" : "30 Jul 2021 - 20:27",
+   "WEB" : "System",
+   "WIKINAME" : "WikiGuest",
+   "SCRIPTSUFFIX" : "",
+   "USERNAME" : "guest",
+   "PUBURL" : "https://damask.mpie.de/pub",
+   "SCRIPTURLPATHS" : {
+      "view" : "/bin/view"
+   },
+   "URLHOST" : "https://damask.mpie.de",
+   "COOKIEREALM" : "",
+   "SKIN" : "damask,famfamfam,pattern",
+   "SYSTEMWEB" : "System",
+   "SCRIPTURL" : "https://damask.mpie.de/bin",
+   "SCRIPTURLPATH" : "/bin",
+   "WIKIUSERNAME" : "Main.WikiGuest",
+   "TOPIC" : "FilterPlugin"
+}
+</script>
+<script class='script JQTABLEPLUGIN::SORT' type='text/javascript'>
+jQuery.extend(foswiki.preferences, {
+  'JQTablePlugin.sort' : 'all'
+});
+</script>
+<script class='script JavascriptFiles/foswikiString' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiString.js"></script>
+<script class='script JavascriptFiles/foswikiForm' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiForm.js"></script>
+<script class='script JQUERYPLUGIN::METADATA' src='/pub/System/JQueryPlugin/plugins/metadata/jquery.metadata.js?version=2.1ef2bb44c86f5d0e98d55'></script>
+<script class='script JQUERYPLUGIN::BOOKMAKER' src='/pub/System/BookmakerPlugin/bookmaker.js?version=1.1.0'></script>
+<script class='script JavascriptFiles/foswikiPref' type="text/javascript" src="/pub/System/JavascriptFiles/foswikiPref.js"></script>
+<script class='script JQUERYPLUGIN::UPLOADER::META foswikiPreferences' type='text/json'>{"TopicInteractionPlugin":{"attachFileSizeLimit":"262144","officeSuite":""}}</script>
+<script class='script JQUERYPLUGIN::JEDITABLE' src='/pub/System/JEditableContrib/jquery.jeditable.js?version=06 Feb 2017'></script>
+<script class='script JQUERYPLUGIN::COMMENT' src='/pub/System/CommentPlugin/comment.js?version=3.0'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/jquery.tablesorter.js?version=2.0.3'></script>
+<script class='script JQUERYPLUGIN::TABLESORTER' src='/pub/System/JQTablePlugin/tables.js?version=2.0.3'></script>
+<script class='script JavascriptFiles/strikeone' type="text/javascript" src="/pub/System/JavascriptFiles/strikeone.js"></script>
+<script class='script JQUERYPLUGIN::BUTTON' src='/pub/System/JQueryPlugin/plugins/button/jquery.button.init.js?version=2.0'></script>
+<script class='script PatternSkin/pattern' type="text/javascript" src="/pub/System/PatternSkin/pattern.js"></script>
+
+<link rel="stylesheet" href="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.css">
+<script src="https://damask.mpie.de/pub/x3dom-1.7.1/x3dom.js"></script>
+</head> 
+<body class="foswikiNoJs patternViewPage foswikiHasNoChangePermission foswikiGuest"><div id="bookmaker">
+  <img src='/pub/System/FamFamFamSilkIcons/book_open.png' class='foswikiIcon jqIcon book_open'  alt='book_open' /> Bookmaker for <a href="/bin/view/Sandbox/ExampleBook">ExampleBook</a>
+  <table width="100%" cellpadding="0" cellspacing="0" style="min-height: 25px">
+	 <tr>
+		<td align="left" width="5%">
+	<a id='bookmaker_change' class='jqButton ' href='#' title='Open a different book' ><span class='jqButtonText'>Change book</span></a>
+	<div id="new_book" style="display:none">
+	  <form method="POST" action="/bin/view/System/FilterPlugin" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?3506244bf25ac94a7fe2d6f58dcb2d94' />
+	    <input type="text" id="book_title" name="open_bookmaker" title="Enter the web.topic name of the book topic, and hit Enter" value="Sandbox.ExampleBook" />
+	  </form>
+	</div>
+		 </td>
+		<td align="left">
+	<a id='bookmaker_close' class='jqButton ' href='/bin/view/System/FilterPlugin?close_bookmaker=1' title='Close the bookmaker interface' ><span class='jqButtonText'>Close bookmaker</span></a>
+		</td>
+		<td align="right">
+	<form method="POST" onsubmit="StrikeOne.submit(this)"><input type='hidden' name='validation_key' value='?9573afa3b556a1d1cf3e386cacd47aea' />
+	  <a id='bookmaker_add_button' class='jqButton bookmaker_button bookmaker_action bookmaker_active' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/add?topic=System.FilterPlugin' title='Add the current topic to the book' ><span class='jqButtonText'>Add to book</span></a>
+	  <a id='bookmaker_remove_button' class='jqButton bookmaker_button bookmaker_action ' href='https://damask.mpie.de/bin/rest/BookmakerPlugin/remove?topic=System.FilterPlugin' title='Remove the current topic from the book' ><span class='jqButtonText'>Remove from book</span></a>
+	</form>
+		</td>
+		<td>
+	<form method="GET">
+	  <a class="bookmaker_button" id="bookmaker_expand" href="https://damask.mpie.de/bin/rest/BookmakerPlugin/list" title="Click to expand the book">
+	  <img src='/pub/System/FamFamFamSilkIcons/application_side_expand.png' class='foswikiIcon jqIcon application_side_expand'  alt='application_side_expand' /></a>
+	</form>
+		</td>
+	 </tr>
+  </table>
+  <div id="bookmaker_more">
+	 <em>You can change the order/nesting of topics using drag and drop</em> <br />
+	 <a id="bookmaker_contract"><img src='/pub/System/FamFamFamSilkIcons/application_side_contract.png' class='foswikiIcon jqIcon application_side_contract'  alt='application_side_contract' /></a>
+	 <div id="book_tree">
+	 </div>
+  </div>
+</div>
+<span id="PageTop"></span><div class="foswikiPage"><div id="patternScreen">
+<div id="patternPageShadow"><div id="patternTopBar">
+  <div id="patternTopBarContentsWrapper">
+	 <div id="patternTopBarContents"><table border="0" cellpadding="0" cellspacing="0" style="width:100%" summary="">
+<tr><td valign="middle"><span id="foswikiLogo" class="foswikiImage"><a href="https://damask.mpie.de/bin/view/Home/WebHome"><img src="" border="0" alt="Powered by Foswiki, The Free and Open Source Wiki" style="border:none;" /></a></span></td>
+<td align="right" valign="top" class="patternMetaMenu">
+ <ul>
+<li> <form name="jumpForm" action="/bin/view/System/FilterPlugin"><input id="jumpFormField" title="Jump" type="text" class="foswikiInputField foswikiDefaultText" name="topic" value="" size="18" /><noscript>&nbsp;<input type="submit" class="foswikiButton" size="5" name="submit" value="Jump" />&nbsp;</noscript>   </form>
+</li> <li> <form name="quickSearchForm" action="/bin/view/System/WebSearch"><input type="text" class="foswikiInputField foswikiDefaultText" title="Search" id="quickSearchBox" name="search" value="" size="18" /><input type="hidden" name="scope" value="all" /><input type="hidden" name="web" value="System" /><noscript>&nbsp;<input type="submit" size="5" class="foswikiButton" name="submit" value="Search" />&nbsp;</noscript>   </form>
+</li></ul> 
+<p></p>
+
+</td></tr></table></div>
+  </div>
+</div><div id="patternTopBarButtons"><ul>
+<li><a href="https://damask.mpie.de/bin/view/Home/WebHome" class="inactive">Home</a></li>
+<li><a href="https://damask.mpie.de/bin/view/About/WebHome" class="inactive">About</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Download/WebHome" class="inactive">Download</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Installation/WebHome" class="inactive">Installation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Usage/WebHome" class="inactive">Usage</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Documentation/WebHome" class="inactive">Documentation</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Development/WebHome" class="inactive">Development</a></li>
+<li><a href="https://damask.mpie.de/bin/view/References/WebHome" class="inactive">References</a></li>
+<li><a href="https://damask.mpie.de/bin/view/Examples/WebHome" class="inactive">Examples</a></li>
+</ul><div class="foswikiClear"></div></div>
+<div id="patternPage">
+<div id="patternWrapper"><div id="patternOuter" class="clear">
+<div id="patternFloatWrap">
+<div id="patternMain"><div id="patternClearHeaderCenter"></div>
+<div id="patternMainContents"><div class="patternTop clear"><span class="patternHomePath foswikiLeft"><span class="patternHomePathTitle">You are here: </span><a href="/bin/view/">DAMASK</a><span class='foswikiSeparator'>&gt;</span><a href="/bin/view/System/WebHome">System</a><span class='foswikiSeparator'>&gt;</span><a href="https://damask.mpie.de/bin/view/System/FilterPlugin" title='Topic revision: 10 (25 Oct 2018 - 06:43:40)'>FilterPlugin</a></span><span class="patternToolBar foswikiRight"><span class='foswikiToolBar foswikiRight foswikiUnauthenticated'>
+<p></p>
+
+<span>
+<a href="https://damask.mpie.de/bin/edit/System/FilterPlugin?t=1627669662;nowysiwyg=1" title="Edit Wiki text (w)">
+<img alt="Edit Wiki text (w)" src="https://damask.mpie.de/pub/System/FamFamFamSilkIcons/pencil.png" width="16" height="16" />
+</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/attach/System/FilterPlugin' title='Attach an image or document to this topic; manage existing attachments (a)'>
+		<img alt='Attach an image or document to this topic; manage existing attachments (a)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/attach.png' width='16' height='16' />
+	</a></span><span>
+    </span><span>
+	<a href='https://damask.mpie.de/bin/diff/System/FilterPlugin?type=history' title='View sequential topic history'>
+		<img alt='View sequential topic history' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_stack.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/FilterPlugin?raw=on&amp;rev=10' title='View without formatting (v)'>
+		<img alt='View without formatting (v)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/text_align_left.png' width='16' height='16' />
+	</a></span><span>
+	<a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/view/System/WebCreateNewTopic?topicparent=FilterPlugin' title='Create new topic'>
+		<img alt='Create new topic' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/page_white_add.png' width='16' height='16' />
+	</a></span><span>
+	<a href='https://damask.mpie.de/bin/view/System/FilterPlugin?cover=print;sortcol=1;table=1;up=0' title='Printable version of this topic (p)'>
+		<img alt='Printable version of this topic (p)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/printer.png' width='16' height='16' />
+	</a></span><span>
+        <a href='https://damask.mpie.de/bin/oops/System/FilterPlugin?template=more&amp;maxrev=10&amp;currrev=10' title='More: delete or rename this topic; set parent topic; view and compare revisions (m)'>
+                <img alt='More: delete or rename this topic; set parent topic; view and compare revisions (m)' src='https://damask.mpie.de/pub/System/FamFamFamSilkIcons/wrench.png' width='16' height='16' />
+	</a></span> 
+		</span></span></div><div class="foswikiContentHeader"></div><div class="patternContent"><div class="foswikiTopic"><h1 id="FilterPlugin">  <a class="foswikiCurrentTopicLink" href="/bin/view/System/FilterPlugin">FilterPlugin</a> </h1>
+Substitute and extract information from content by using regular expressions
+<p></p>
+
+<div class="foswikiToc" id="foswikiTOC"><span class="foswikiTocTitle">On this page:</span> <ul>
+<li> <a href="?sortcol=1;table=1;up=0#Description"> Description </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Syntax_Rules"> Syntax Rules </a> <ul>
+<li> <a href="?sortcol=1;table=1;up=0#SUBST"> SUBST </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#STARTSUBST_44_STOPSUBST"> STARTSUBST, STOPSUBST </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#EXTRACT"> EXTRACT </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#STARTEXTRACT_44_STOPEXTRACT"> STARTEXTRACT, STOPEXTRACT </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#FORMATLIST"> FORMATLIST </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#MAKEINDEX"> MAKEINDEX </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=1;up=0#Examples"> Examples </a> <ul>
+<li> <a href="?sortcol=1;table=1;up=0#EXTRACT_Example_1:_convert_table_into_text"> EXTRACT Example 1: convert table into text </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#EXTRACT_Example_2:_convert_text_into_table"> EXTRACT Example 2: convert text into table </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#MAKEINDEX_example_1:_creating_an_index_from_a_chunk_of_text"> MAKEINDEX example 1: creating an index from a chunk of text </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#MAKEINDEX_example_2:_creating_an_index_for_a_search_result"> MAKEINDEX example 2: creating an index for a search result </a>
+</li></ul> 
+</li> <li> <a href="?sortcol=1;table=1;up=0#Installation_Instructions"> Installation Instructions </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Dependencies"> Dependencies </a>
+</li> <li> <a href="?sortcol=1;table=1;up=0#Change_History"> Change History </a>
+</li></ul> 
+</div>
+<p></p>
+
+<h2 id="Description">  Description </h2>
+This plugin allows to substitute and extract information from content by
+using regular expressions. There are three different types of new functions: <ol>
+<li> FORMATLIST: maniplulate a list of items; it is highly configurable to      define what constitutes a list and how to extract items from it
+</li> <li> SUBST, STARTSUBST/STOPSUBST: substiture a pattern in a chunk of text
+</li> <li> EXTRACT, STARTEXTRACT/STOPEXTRACT: extract a pattern from a text
+</li></ol> 
+While the START-STOP versions of SUBST and EXTRACT work on inline text,
+the normal versions process a source topic before including it into the current one.
+<p></p>
+
+<h2 id="Syntax_Rules">  Syntax Rules </h2>
+<h3 id="SUBST">  SUBST </h3>
+<strong>Syntax</strong>: <code>%SUBST{topic="..." ...}%</code> 
+<p class='p'>insert a topic by processing its content.</p>
+ <ul>
+<li> <code>topic="..."</code>: name of the topic text to be processed 
+</li> <li> <code>rev="..."</code>: revision of the topic to be processed (defaults to latest version)
+</li> <li> <code>text="..."</code>: text to be processed (has got higher precedence than 'topic')
+</li> <li> <code>pattern="..."</code>: pattern to be extracted or substituted 
+</li> <li> <code>format="..."</code>: format expression or pattern substitute 
+</li> <li> <code>header="..."</code>: header string prepended to output
+</li> <li> <code>footer="..."</code>: footer string appended to output
+</li> <li> <code>limit="&lt;n&gt;"</code> maximum number of occurences to extract or substitute counted from the      start of the text (defaults to <code>100000</code> aka all hits) 
+</li> <li> <code>skip="&lt;n&gt;"</code> skip the first n occurences
+</li> <li> <code>exclude="..."</code>: skip occurences that match this regular expression
+</li> <li> <code>include="..."</code>: skip occurences that don't match this regular expression
+</li> <li> sort="on,off,alpha,num" order of the formatted items (default "off")
+</li> <li> <code>expand="on,off"</code>: toggle expansion of markup before filtering     (defaults to <code>on</code>) 
+</li></ul> 
+<p></p>
+
+<h3 id="STARTSUBST_44_STOPSUBST">  STARTSUBST, STOPSUBST </h3>
+<strong>Syntax</strong>:
+<pre>
+&#37;STARTSUBST{...}&#37; 
+... 
+&#37;STOPSUBST&#37;
+</pre>
+<p></p>
+
+substitute text given inline. see <a class="foswikiCurrentTopicLink" href="#SUBST">SUBST</a>.
+<p></p>
+
+<h3 id="EXTRACT">  EXTRACT </h3>
+<strong>Syntax</strong>: <code>%EXTRACT{topic="..."&nbsp; ...}%</code> 
+<p></p>
+
+extract text from a topic. see <a class="foswikiCurrentTopicLink" href="#SUBST">SUBST</a>.
+<p></p>
+
+<h3 id="STARTEXTRACT_44_STOPEXTRACT">  STARTEXTRACT, STOPEXTRACT </h3>
+<strong>Syntax</strong>:
+<pre>
+&#37;STARTEXTRACT{...}&#37; 
+... 
+&#37;STOPEXTRACT&#37;
+</pre>
+<p></p>
+
+extract content given inline. see <a class="foswikiCurrentTopicLink" href="#SUBST">SUBST</a>.
+<p></p>
+
+<h3 id="FORMATLIST">  FORMATLIST </h3>
+<strong>Syntax</strong>: <code>%FORMATLIST{"&lt;list&gt;" ...}%</code>
+<p></p>
+
+formats a list of items. The &lt;list&gt; argument is separated into items by using
+a split expression; each item is matched agains a pattern and then formatted
+using a format string while being separated by a separator string; the result is
+prepended with a header and appended with a footer in case the list is not empty. <ul>
+<li> &lt;list&gt;: the list 
+</li> <li> tokenize="...": regex to tokenize the list before spliting it up, tokens are inserted back again after the split stage has been passed
+</li> <li> split="...": the split expression (default ",")
+</li> <li> replace="key1=value1,key2=value2, ...": this allows to preprocess each list item by replacing the given keys with their value
+</li> <li> pattern="...": pattern applied to each item (default "\s(.*)\s")
+</li> <li> format="...": the format string for each item (default "$1")
+</li> <li> header="...": header string
+</li> <li> footer="...": footer string
+</li> <li> separator="...": string to be inserted between list items
+</li> <li> lastseparator="...": string separating the last item from the rest of the list
+</li> <li> null="...": the format string to render the empty list
+</li> <li> hideempty="on,off": when set to "on" then empty list items will not be added to the result (empty in the sense of ''); set this to "off" to still add them (default "on")
+</li> <li> limit="...": max number of items to be taken out of the list (default "-1")
+</li> <li> skip="...": number of list items to skip, not adding them to the result
+</li> <li> sort="on,off,alpha,num,nocase" order of the formatted items (default "off")
+</li> <li> reverse="on,off": reverse the sortion of the list
+</li> <li> unique="on,off": remove dupplicates from the list
+</li> <li> exclude="...": remove list items that match this regular expression
+</li> <li> include="...": remove list items that don't match this regular expression
+</li> <li> selection="...": regular expression that a list item must match to be "selected"; if this matches the <code>$marker</code> is inserted
+</li> <li> marker="...": string to be inserted when the <code>selection</code> regex matches; this will be inserted at the position <code>$marker</code> as     indicated in <code>format</code> .
+</li> <li> map="key1=value1,key2=value2, ...": this establishes a key-value hash available via the <code>$map()</code> variable. (see also the <code>replace</code> parameter for means     to preprocess list items automatically.)
+</li></ul> 
+<p></p>
+
+The pattern string shall group matching substrings in the list item to which
+you can refer to by using $1, $2, ... in the format string. Any format string
+(<code>format</code>, <code>header</code>, <code>footer</code>) may contain variables <code>$percnt$</code>, <code>$nop</code>,
+<code>$dollar</code> and <code>$n</code>. The variable <code>$index</code> referse to the position number within
+the list being formatted; <code>$hits</code> refers to the total number of matched list
+elements; <code>$count</code> expands to the total number of elements in the list; 
+<code>$marker</code> is set if the <code>selection</code> regular expression matches the
+current item. The <code>$map(key)</code> macro returns the value for "key" as specified in
+the <code>map</code> argument.
+<p></p>
+
+<h3 id="MAKEINDEX">  MAKEINDEX </h3>
+<strong>Syntax</strong>: <code>%MAKEINDEX{"&lt;list&gt;" ...}%</code>
+<p class='p'>formats a list into a multi-column index like in MediaWiki's category topcis.
+MAKEINDEX insert capitals as headlines to groups of sorted items. It will try to balance all
+columns equally, and keep track of breaks to prevent "schusterkinder", that is avoid 
+isolated headlines at the bottom of a column.</p>
+
+parameters: <ul>
+<li> &lt;list&gt;: the list of items
+</li> <li> split="...": the split expression to separate the &lt;list&gt; into items (default ",")
+</li> <li> pattern="...": pattern applied to each item (default "(.*)")
+</li> <li> cols="...": maximum number of cols to split the list into, defaults to <code>automatic</code>, that is the number of columns is specified by <code>colwidth</code> and <code>colgap</code>;      in general it is better to specify <code>colwidth</code> and <code>colgaph</code> rather than hard-coding the number of columns; this will let the viewport of the browser/device decide on     the number of columns dynamically based on the available space
+</li> <li> colwidth="...": maximum width of a column, defaults to 18em
+</li> <li> colgap="...": size of gap betweel columns, defaults to 2em
+</li> <li> format="...": format of each list item (default "$item")
+</li> <li> sort="on,off,alpha,num,nocase": sort the list (default "on")
+</li> <li> unique="on/off": removed duplicates (default "off")
+</li> <li> exclude="...": pattern to check against items in the list to be excluded
+</li> <li> include="...": pattern to check against items in the list to be included
+</li> <li> reverse="on/off": reverse the list (default "off")
+</li> <li> header="...": format string to prepend to the result
+</li> <li> footer="..." format string to be appended to the result
+</li> <li> transliterate="on/off/&lt;mapping&gt;" influences the way sorting and grouping is handled:     either a boolean switch to enable/disable decoding unicodes into their neares latin character (using <a class="interwikiLink" href="https://metacpan.org/module/Text::Unidecode" title="CPAN perl repository">CPAN:Text::Unidecode</a>),    or a custom mapping list <code>"&lt;source1&gt;=&lt;target1&gt;, &lt;source2&gt;=&lt;target2&gt;, ..."</code> to map a source string to a given target string (default "on")
+</li></ul> 
+<p></p>
+
+Like in FORMATLIST the <code>format</code> parameter can make use of <code>$1</code>, <code>$2</code>, ... variables
+to match the groupings defined in the <code>pattern</code> argument (like in <code>pattern="(.*);(.*);(.*)"</code>) .
+The first matched grouping $1 will be used as the $item to sort the list and is optionally being transliterated.
+<p></p>
+
+In addition <code>header</code> and <code>footer</code> might contain the <code>$anchors</code> variable which will expand
+to a navigation to jump to the groups within the index.
+<p></p>
+
+<h2 id="Examples">  Examples </h2>
+<p></p>
+
+<h3 id="EXTRACT_Example_1:_convert_table_into_text">  EXTRACT Example 1: convert table into text </h3>
+One of the uses of this plugin is to extract data from tables, which is useful for creating "database-like" wiki applications where data is stored in foswiki tables. While it is certainly possible to do that without this plugin the plugin makes these requests easier to create and maintain. Note, however, that best practice is to store database-like
+information using <a href="/bin/view/System/DataForms">DataForms</a>, so that you don't need to parse the format of the data to extract its records repeatedly.
+<p></p>
+
+<strong>The table:</strong>
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> <a href="/bin/view/System/FilterPlugin?sortcol=0;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Pos</a> </th>
+			<th class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol"> <a href="/bin/view/System/FilterPlugin?sortcol=1;table=1;up=1#sorted_table" rel="nofollow" title="Sort by this column">Description</a><a name="sorted_table"></a><span class="tableSortIcon tableSortUp"><img alt="Sorted ascending" border="0" height="13" src="/pub/System/DocumentGraphics/tablesortup.gif" title="Sorted ascending" width="11" /></span> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/FilterPlugin?sortcol=2;table=1;up=0#sorted_table" rel="nofollow" title="Sort by this column">Hours</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:right"> 2 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> normalizing data to new format </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1" style="text-align:right"> 10 </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" rowspan="1" style="text-align:right"> 1 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol" rowspan="1"> onsite troubleshooting </td>
+			<td class="foswikiTableCol2 foswikiLastCol" rowspan="1" style="text-align:right"> 3 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" rowspan="1" style="text-align:right"> 3 </td>
+			<td class="foswikiTableCol1 foswikiSortedAscendingCol foswikiSortedCol foswikiLast" rowspan="1"> testing server performance </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast" rowspan="1" style="text-align:right"> 5 </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<strong>You type:</strong>
+<p></p>
+
+<pre class="tml">
+&#37;EXTRACT{topic&#61;&#34;&#37;TOPIC&#37;&#34; expand&#61;&#34;off&#34; 
+  pattern&#61;&#34;^\&#124;\s\s(.&#42;?)\s&#42;\&#124;\s&#42;(.&#42;?)\s&#42;\&#124;\s&#42;(.&#42;?)\s&#42;\&#124;&#34; 
+  format&#61;&#34;   &#42; it took &#36;3 hours &#36;2&#36;n&#34;
+  skip&#61;&#34;1&#34;
+}&#37;
+</pre>
+<p></p>
+
+<strong>Expected result (simulated):</strong>
+<p></p>
+ <ul>
+<li> it took 3 hours onsite troubleshooting 
+</li> <li> it took 10 hours normalizing data to new format 
+</li> <li> it took 5 hours testing server performance 
+</li></ul> 
+<p></p>
+
+<strong>Actual result (this site):</strong>
+<p></p>
+ <ul>
+<li> it took 3 hours onsite troubleshooting
+</li> <li> it took 10 hours normalizing data to new format
+</li> <li> it took 5 hours testing server performance
+</li> <li> it took  hours added <code>rev</code> param to %SUBST and %EXTRACT
+</li> <li> it took  hours improved sorting of lists, i.e. with numeric values
+</li> <li> it took  hours rewrite MAKEINDEX from using tables to css3 multicolumn
+</li> <li> it took  hours don't fallback to unidecode if an explicit mapping is given; don't use Foswiki's internal anchor creator as it does not support unicode
+</li> <li> it took  hours fixing deprecated unescaped left brace in regexes
+</li> <li> it took  hours transliterate/normalize unicode strings before sorting them in MAKETEXT
+</li> <li> it took  hours fixed paging through lists in FORMATLIST
+</li> <li> it took  hours modernized plugin by using a proper OO-core;                   fixed processing of <code>tokenize</code> properly;                  added <code>replace</code> parameter for FORMATLIST;                   fixed the plugin calling <code>Foswiki::Func::expandCommonVariables()</code> itself unnecessarily
+</li> <li> it took  hours fixed SUBST macro <code>topic</code> param processing embedded META
+</li> <li> it took  hours fixed parsing zero values in lists (by Grzegorz Marszalek)
+</li> <li> it took  hours fixed wrapper for non-official api call to getAnchorName on foswiki-1.1
+</li> <li> it took  hours ease <code>tokenize</code>; forward compatibility for newer foswikis
+</li> <li> it took  hours added <code>include</code> counterpart to already existing <code>exclude</code> params;                   fixed SUBST not to forget about the non-matching tail of a char sequence
+</li> <li> it took  hours added <code>$anchors</code> to MAKEINDEX (by Dirk Zimoch);                   added <code>nocase</code> option to FORMATLIST (by Dirk Zimoch);                   fixed null/empty string match in FORMATLIST
+</li> <li> it took  hours sorting a list <em>before</em>, not <em>after</em>, formatting it in FORMATLIST
+</li> <li> it took  hours added MAKEINDEX, added lazy compilation
+</li> <li> it took  hours using registerTagHandler() as far as possible;                   enhanced parameters to EXCTRACT and SUBST
+</li> <li> it took  hours fixed SUBST, added skip parameter to FORMATLIST
+</li> <li> it took  hours fixed <code>limit</code> parameter in FORMATLIST
+</li> <li> it took  hours added <code>use strict;</code> and fixed revealed errors
+</li> <li> it took  hours fixed SUBST not to cut off the rest of the text
+</li></ul> 
+<p class='p'></p>
+
+<h3 id="EXTRACT_Example_2:_convert_text_into_table">  EXTRACT Example 2: convert text into table </h3>
+Use CSS tags to format text comments as a tabular data (e.g., to allow sorting).
+<p></p>
+
+<strong>The comments:</strong>
+<div class="text"><div class="comment">
+This is the first comment.
+</div><div class="posted">
+-- Michael Daum on 22 Aug 2005
+</div></div>
+<p></p>
+
+<div class="text"><div class="comment">
+This is the second comment.
+</div><div class="posted">
+-- Michael Daum on 22 Aug 2005
+</div></div>
+<p></p>
+
+<strong>You type:</strong>
+<p></p>
+
+<pre class="tml">
+&#37;EXTRACT{
+   topic&#61;&#34;&#37;TOPIC&#37;&#34; expand&#61;&#34;off&#34;
+   pattern&#61;&#34;.div class&#61;\&#34;text\&#34;&#62;.&#42;?&#91;\r\n&#93;+(.&#42;?)&#91;\r\n&#93;+(?:.&#42;?&#91;\r\n&#93;+)+?-- (.&#42;?) on (.&#42;?)&#91;\r\n&#93;+&#34;
+   format&#61;&#34;&#124; &#36;3 &#124; &#36;2 &#124; &#36;1 ... &#124;&#36;n&#34; header&#61;&#34;&#124;&#42;Date&#42;&#124;&#42;Author&#42;&#124;&#42;Headline&#42;&#124;&#36;n&#34;
+}&#37;</pre>
+<p></p>
+
+<strong>Expected result (simulated):</strong>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/FilterPlugin?sortcol=0;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/FilterPlugin?sortcol=1;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Author</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/FilterPlugin?sortcol=2;table=2;up=0#sorted_table" rel="nofollow" title="Sort by this column">Headline</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 22 Aug 2005 </td>
+			<td class="foswikiTableCol1"> Michael Daum </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> This is the first comment. ... </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> 22 Aug 2005 </td>
+			<td class="foswikiTableCol1 foswikiLast"> Michael Daum </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> This is the second comment. ... </td>
+		</tr>
+	</tbody></table>
+<p></p>
+
+<strong>Actual result (this site):</strong>
+<p></p>
+
+<table class="foswikiTable" rules="none">
+	<thead>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<th class="foswikiTableCol0 foswikiFirstCol"> <a href="/bin/view/System/FilterPlugin?sortcol=0;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Date</a> </th>
+			<th class="foswikiTableCol1"> <a href="/bin/view/System/FilterPlugin?sortcol=1;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Author</a> </th>
+			<th class="foswikiTableCol2 foswikiLastCol"> <a href="/bin/view/System/FilterPlugin?sortcol=2;table=3;up=0#sorted_table" rel="nofollow" title="Sort by this column">Headline</a> </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol"> 22 Aug 2005 </td>
+			<td class="foswikiTableCol1"> Michael Daum </td>
+			<td class="foswikiTableCol2 foswikiLastCol"> This is the first comment. ... </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast"> 22 Aug 2005 </td>
+			<td class="foswikiTableCol1 foswikiLast"> Michael Daum </td>
+			<td class="foswikiTableCol2 foswikiLastCol foswikiLast"> This is the second comment. ... </td>
+		</tr>
+	</tbody></table>
+<p class='p'></p>
+
+<h3 id="MAKEINDEX_example_1:_creating_an_index_from_a_chunk_of_text">  MAKEINDEX example 1: creating an index from a chunk of text </h3>
+compare with <span class='externalLink'><a href="http://en.wikipedia.org/wiki/Category:Philosophy_articles_needing_attention">Philosophy articles needing attention</a></span>
+<p></p>
+
+<div class='fltMakeIndexWrapper'><div class='fltAnchors'><a href='#A_0'>A</a> <a href='#B_0'>B</a> <a href='#C_0'>C</a> <a href='#D_0'>D</a> <a href='#E_0'>E</a> <a href='#F_0'>F</a> <a href='#H_0'>H</a> <a href='#I_0'>I</a> <a href='#K_0'>K</a> <a href='#L_0'>L</a> <a href='#M_0'>M</a> <a href='#N_0'>N</a> <a href='#O_0'>O</a> <a href='#P_0'>P</a> <a href='#R_0'>R</a> <a href='#S_0'>S</a> <a href='#T_0'>T</a> <a href='#U_0'>U</a> <a href='#V_0'>V</a> <a href='#W_0'>W</a> <a href='#m_0'>m</a> <a href='#p_0'>p</a> <a href='#t_0'>t</a></div><div class='fltMakeIndexContainer' style='column-width:13em'><div class='fltMakeIndexItem'><h3 id='A_0''>A</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Actualism">Actualism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Alphabet%20of%20human%20thought">Alphabet of human thought</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Alterity">Alterity</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Analytic%20philosophy">Analytic philosophy</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Analytic-synthetic%20distinction">Analytic-synthetic distinction</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Apologism">Apologism</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='B_0''>B</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Bundle%20theory">Bundle theory</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='C_0''>C</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Causal%20chain">Causal chain</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Causality">Causality</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Coherentism">Coherentism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Conscience">Conscience</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Context%20principle">Context principle</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Contextualism">Contextualism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Cosmology">Cosmology</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='D_0''>D</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/De%20dicto%20and%20de%20re">De dicto and de re</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Dialectical%20monism">Dialectical monism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Direct%20reference%20theory">Direct reference theory</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Discourse%20ethics">Discourse ethics</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Dualism">Dualism</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='E_0''>E</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Emergentism">Emergentism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Essence">Essence</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Ethical%20naturalism">Ethical naturalism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Exemplification">Exemplification</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Existentialism">Existentialism</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='F_0''>F</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Fatalism">Fatalism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/French%20materialism">French materialism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Futilitarianism">Futilitarianism</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='H_0''>H</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Hermeneutics">Hermeneutics</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Hypokeimenon">Hypokeimenon</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='I_0''>I</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Identity%20and%20change">Identity and change</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Idolon%20tribus">Idolon tribus</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Immanent%20evaluation">Immanent evaluation</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Individual">Individual</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Inherence">Inherence</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='K_0''>K</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Kennisbank%20Filosofie%20Nederland">Kennisbank Filosofie Nederland</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='L_0''>L</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Lazy%20Reason">Lazy Reason</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Logicism">Logicism</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='M_0''>M</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Mad%20pain%20and%20Martian%20pain">Mad pain and Martian pain</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Materialism">Materialism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Meaning%20of%20life">Meaning of life</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Metakosmia">Metakosmia</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Metaphysical%20naturalism">Metaphysical naturalism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Mike%20Lesser">Mike Lesser</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Milesian%20school">Milesian school</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Mind">Mind</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Monism">Monism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Moral%20imperative">Moral imperative</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Mystical%20philosophy%20of%20antiquity">Mystical philosophy of antiquity</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='N_0''>N</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Neomodernism">Neomodernism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/New%20England%20Transcendentalists">New England Transcendentalists</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Nominalism">Nominalism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Non-archimedean%20time">Non-archimedean time</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Non-rigid%20designator">Non-rigid designator</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='O_0''>O</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Ontic">Ontic</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Ontological%20reductionism">Ontological reductionism</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='P_0''>P</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Phenomenology">Phenomenology</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Philosophical%20realism">Philosophical realism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Philosophical%20skepticism">Philosophical skepticism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Indeterminacy%20(Philosophy)">Indeterminacy (Philosophy)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Philosophy">Philosophy</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Post-structuralism">Post-structuralism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Postmodern%20philosophy">Postmodern philosophy</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Problem%20of%20universals">Problem of universals</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Process%20philosophy">Process philosophy</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='R_0''>R</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Rational%20Animal">Rational Animal</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Rationalist%20movement">Rationalist movement</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Relativism">Relativism</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='S_0''>S</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Solipsism">Solipsism</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Specters%20of%20Marx">Specters of Marx</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Categories%20(Stoic)">Categories (Stoic)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Substance%20theory">Substance theory</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='T_0''>T</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Talk:Adam%20Weishaupt">Talk:Adam Weishaupt</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Talk:The%20Art%20of%20Being%20Right">Talk:The Art of Being Right</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Truth-value%20link">Truth-value link</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='U_0''>U</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Utilitarianism">Utilitarianism</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='V_0''>V</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Value%20judgment">Value judgment</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='W_0''>W</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/World%20riddle">World riddle</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='m_0''>m</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Libertarianism%20(metaphysics)">Libertarianism (metaphysics)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Species%20(metaphysics)">Species (metaphysics)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Universal%20(metaphysics)">Universal (metaphysics)</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='p_0''>p</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Absolute%20(philosophy)">Absolute (philosophy)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Accident%20(philosophy)">Accident (philosophy)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Difference%20(philosophy)">Difference (philosophy)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Multiplicity%20(philosophy)">Multiplicity (philosophy)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Nature%20(philosophy)">Nature (philosophy)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Object%20(philosophy)">Object (philosophy)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Pluralism%20(philosophy)">Pluralism (philosophy)</a></span></div>
+<div class='fltMakeIndexItem'><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Self%20(philosophy)">Self (philosophy)</a></span></div>
+<div class='fltMakeIndexItem'><h3 id='t_0''>t</h3><span class='externalLink'><a href="http://en.wikipedia.org/wiki/Preferentialism%20Present%20(time)">Preferentialism Present (time)</a></span></div></div></div>
+<p></p>
+
+<h3 id="MAKEINDEX_example_2:_creating_an_index_for_a_search_result">  MAKEINDEX example 2: creating an index for a search result </h3>
+<div class='fltMakeIndexWrapper'><div class='fltMakeIndexContainer' ><div class='fltMakeIndexItem'><h3 id='A_1''>A</h3><div class='indexItem'>
+       <a href="/bin/view/Main/AdminGroup">AdminGroup</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:50 - <a href="/bin/view/Main/AdminUser">AdminUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/AdminUser">AdminUser</a> 
+       <div class='foswikiGrayText'>03 Feb 2016 - 17:22 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/AdminUserLeftBar">AdminUserLeftBar</a> 
+       <div class='foswikiGrayText'>03 Feb 2016 - 17:22 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/ArkaLahiri">ArkaLahiri</a> 
+       <div class='foswikiGrayText'>25 Apr 2018 - 14:21 - <a href="/bin/view/Main/RegistrationAgent">RegistrationAgent</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='B_1''>B</h3><div class='indexItem'>
+       <a href="/bin/view/Main/BertholdBeckschaefer">BertholdBeckschaefer</a> 
+       <div class='foswikiGrayText'>04 Dec 2019 - 07:24 - <a href="/bin/view/Main/BertholdBeckschaefer">BertholdBeckschaefer</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/BrendanVandeKieft">BrendanVandeKieft</a> 
+       <div class='foswikiGrayText'>18 Jan 2018 - 16:26 - <a href="/bin/view/Main/BrendanVandeKieft">BrendanVandeKieft</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='C_1''>C</h3><div class='indexItem'>
+       <a href="/bin/view/Main/ChenZhang">ChenZhang</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/ChristophKords">ChristophKords</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/ClaudioZambaldi">ClaudioZambaldi</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='D_1''>D</h3><div class='indexItem'>
+       <a href="/bin/view/Main/DavidCarr">DavidCarr</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/DavidMercier">DavidMercier</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/DavidSmiadak">DavidSmiadak</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/DeveloperGroup">DeveloperGroup</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:53 - <a href="/bin/view/Main/PhilipEisenlohr">PhilipEisenlohr</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/DuanchengMa">DuanchengMa</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='F_1''>F</h3><div class='indexItem'>
+       <a href="/bin/view/Main/FaisalQayyum">FaisalQayyum</a> 
+       <div class='foswikiGrayText'>12 Jun 2017 - 13:51 - <a href="/bin/view/Main/RegistrationAgent">RegistrationAgent</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/FranzRoters">FranzRoters</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='G_1''>G</h3><div class='indexItem'>
+       <a href="/bin/view/Main/GPL3">GPL3</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/GroupTemplate">GroupTemplate</a> 
+       <div class='foswikiGrayText'>02 Mar 2018 - 15:32 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/GroupViewTemplate">GroupViewTemplate</a> 
+       <div class='foswikiGrayText'>03 Feb 2016 - 17:22 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='H_1''>H</h3><div class='indexItem'>
+       <a href="/bin/view/Main/HarshaPhukan">HarshaPhukan</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/HeBinbin">HeBinbin</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/HenryHutasoit">HenryHutasoit</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/HowTo">HowTo</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='J_1''>J</h3><div class='indexItem'>
+       <a href="/bin/view/Main/JaeyongJung">JaeyongJung</a> 
+       <div class='foswikiGrayText'>26 Apr 2018 - 12:39 - <a href="/bin/view/Main/JaeyongJung">JaeyongJung</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='K_1''>K</h3><div class='indexItem'>
+       <a href="/bin/view/Main/KoenJanssens">KoenJanssens</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='L_1''>L</h3><div class='indexItem'>
+       <a href="/bin/view/Main/License">License</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/LuvSharma">LuvSharma</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><h3 id='M_1''>M</h3><div class='indexItem'>
+       <a href="/bin/view/Main/MaheshBalasubramaniam">MaheshBalasubramaniam</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/MaheshBalasubramaniamLeftBar">MaheshBalasubramaniamLeftBar</a> 
+       <div class='foswikiGrayText'>09 Feb 2016 - 22:42 - <a href="/bin/view/Main/UnknownUser">UnknownUser</a></div>
+     </div></div>
+<div class='fltMakeIndexItem'><div class='indexItem'>
+       <a href="/bin/view/Main/MaintainerGroup">MaintainerGroup</a> 
+       <div class='foswikiGrayText'>26 Apr 2018 - 14:44 - <a href="/bin/view/Main/MartinDiehl">MartinDiehl</a></div>
+     </div></div></div></div> 
+<style type="text/css">
+.indexItem {
+  margin:0px 10px 10px 0px;
+}
+</style>
+<p></p>
+
+<h2 id="Installation_Instructions">  Installation Instructions </h2>
+You do not need to install anything in the browser to use this extension. The following instructions are for the administrator who installs the extension on the server.
+<p></p>
+
+Open configure, and open the "Extensions" section. "Extensions Operation and Maintenance" Tab -&gt; "Install, Update or Remove extensions" Tab.  Click the "Search for Extensions" button.  
+Enter part of the extension name or description and press search.   Select the desired extension(s) and click install. If an extension is already installed, it will <strong>not</strong> show up in the
+search results.
+<p></p>
+
+You can also install from the shell by running the extension installer as the web server user: (Be sure to run as the webserver user, not as root!)
+<pre>
+cd /path/to/foswiki
+perl tools/extension&#95;installer &#60;NameOfExtension&#62; install
+</pre>
+<p></p>
+
+If you have any problems, or if the extension isn't available in <code>configure</code>, then you can still install manually from the command-line. See <a href="https://foswiki.org/Support/ManuallyInstallingExtensions">https://foswiki.org/Support/ManuallyInstallingExtensions</a> for more help.
+<p class='p'></p>
+
+<h2 id="Dependencies">  Dependencies </h2>
+<table border="1" class="foswikiTable"><tr><th>Name</th><th>Version</th><th>Description</th></tr><tr><td align="left">Text::Unidecode</td><td align="left">&gt;=1.27</td><td align="left">Optional</td></tr></table>
+<p></p>
+
+<h2 id="Change_History">  Change History </h2>
+<p></p>
+
+<table class="foswikiTable" id="tableFilterPlugin4" rules="none" width="100%">
+	<tbody>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Oct 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>rev</code> param to %SUBST and %EXTRACT </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Oct 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>colwidth</code> and <code>colgap</code> to %MAKEINDEX; fixed numerical sorting of lists </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 01 Jun 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> improved sorting of lists, i.e. with numeric values </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Mar 2018: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> css fixes for MAKEINDEX </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 30 Aug 2017: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> rewrite MAKEINDEX from using tables to css3 multicolumn </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Sep 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>$hits</code> to FORMATLIST to distinguish it from <code>$count</code> and <code>$index</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Apr 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> don't fallback to unidecode if an explicit mapping is given; don't use Foswiki's internal anchor creator as it does not support unicode </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Apr 2016: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>transliterate</code> parameter, including custom mappings; upgraded Text::Unidecode fallback shipped with this plugin </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Aug 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixing deprecated unescaped left brace in regexes </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Jul 2015: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed compatibility with Foswiki-2.x </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Apr 2014: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> transliterate/normalize unicode strings before sorting them in MAKETEXT </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Jun 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>lastseparator</code> (by <a class="interwikiLink" href="https://foswiki.org/Main/OliverKrueger" title="'Main/OliverKrueger' on foswiki.org">Foswiki:Main/OliverKrueger</a>);                  fixed paging when using together with <code>include</code> and <code>exclude</code> parameters </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 May 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed paging through lists in FORMATLIST </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 May 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed lists not being processed properly before iterating over them in FORMATLIST and MAKEINDEX </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 19 Apr 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> modernized plugin by using a proper OO-core;                   fixed processing of <code>tokenize</code> properly;                  added <code>replace</code> parameter for FORMATLIST;                   fixed the plugin calling <code>Foswiki::Func::expandCommonVariables()</code> itself unnecessarily </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 10 Jan 2012: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed filtering zero; fixed counting list items without formating them; added <code>hideempty</code> parameter to enable/disable rendering empty list items </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 29 Sep 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed SUBST macro <code>topic</code> param processing embedded META </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 25 Aug 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed perl rookie error initializing defaults </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Jul 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed parsing zero values in lists (by Grzegorz Marszalek) </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Apr 2011: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed SUBST to removing everything after the last match </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 23 Jul 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed wrapper for non-official api call to getAnchorName on foswiki-1.1 </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Jun 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed expanding standard escapes ($n, $percent, ...); improved examples in docu </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 12 Feb 2010: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> ease <code>tokenize</code>; forward compatibility for newer foswikis </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Nov 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>tokenize</code> pattern for FORMATLIST;                   fixed potential deep recursion in SUBST/EXTRACT </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Sep 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>include</code> counterpart to already existing <code>exclude</code> params;                   fixed SUBST not to forget about the non-matching tail of a char sequence </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 17 Apr 2009: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> converted to foswiki, added numerical sorting to MAKETEXT </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 Oct 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>$anchors</code> to MAKEINDEX (by Dirk Zimoch);                   added <code>nocase</code> option to FORMATLIST (by Dirk Zimoch);                   fixed null/empty string match in FORMATLIST </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 20 Aug 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>selection</code> and <code>marker</code> to FORMATLIST, similar in use as <a href="/bin/view/System/VarWEBLIST">VarWEBLIST</a> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 03 Jul 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> sorting a list <em>before</em>, not <em>after</em>, formatting it in FORMATLIST </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 08 May 2008: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added 'text' parameter to SUBST and EXTRACT;                   fixed SUBST as it was pretty useless before </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 07 Dec 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added MAKEINDEX, added lazy compilation </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Sep 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added sorting for EXTRACT and SUBST </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 02 May 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> using registerTagHandler() as far as possible;                   enhanced parameters to EXCTRACT and SUBST </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 05 Feb 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed escapes in format strings;                   added better default value for max number of hits to prevent deep recursions                   on bad regexpressions </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 22 Jan 2007: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed SUBST, added skip parameter to FORMATLIST </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 18 Dec 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> using registerTagHandler for FORMATLIST </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 13 Oct 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed <code>limit</code> parameter in FORMATLIST </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 31 Aug 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added NO_PREFS_IN_TOPIC </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 15 Aug 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> added <code>use strict;</code> and fixed revealed errors </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 14 Feb 2006: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> moved in FORMATLIST from the <a class="interwikiLink" href="https://foswiki.org/Extensions/NatSkinPlugin" title="'Extensions/NatSkinPlugin' on foswiki.org">Foswiki:Extensions/NatSkinPlugin</a>;                  added escape variables to format strings </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 06 Dec 2005: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed SUBST not to cut off the rest of the text </td>
+		</tr>
+		<tr class="foswikiTableEven foswikiTableRowdataBgSorted1 foswikiTableRowdataBg1">
+			<td class="foswikiTableCol0 foswikiFirstCol" style="text-align:right"> 09 Nov 2005: </td>
+			<td class="foswikiTableCol1 foswikiLastCol"> fixed deep recursion using <code>expand="on"</code> </td>
+		</tr>
+		<tr class="foswikiTableOdd foswikiTableRowdataBgSorted0 foswikiTableRowdataBg0">
+			<td class="foswikiTableCol0 foswikiFirstCol foswikiLast" style="text-align:right"> 22 Aug 2005: </td>
+			<td class="foswikiTableCol1 foswikiLastCol foswikiLast"> Initial version; added <code>expand</code> toggle </td>
+		</tr>
+	</tbody></table> </div>
+<div class="foswikiContentFooter"></div><div class="foswikiFormSteps"><div class="foswikiForm foswikiFormStep"><h3> <a href="/bin/view/System/PackageForm">PackageForm</a> <span class='foswikiSmall'><a href='https://damask.mpie.de/bin/edit/System/FilterPlugin?t=1627669662;action=form'>edit</a></span></h3><table class='foswikiFormTable' border='1' summary='Form data'><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Author </td><td> Michael Daum </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Version </td><td> 5.30 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Release </td><td> 25 Oct 2018 </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Description </td><td> Substitute and extract information from content by using regular expressions </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Repository </td><td> <a href="https://github.com/foswiki/FilterPlugin">https://github.com/foswiki/FilterPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Copyright </td><td> 2005-2018, Michael Daum <a href="http://michaeldaumconsulting.com">http://michaeldaumconsulting.com</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> License </td><td> GPL (<span class='externalLink'><a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></span>) </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Home </td><td> <a class="interwikiLink" href="https://foswiki.org/Extensions/FilterPlugin" title="'Extensions/FilterPlugin' on foswiki.org">Foswiki:Extensions/FilterPlugin</a> </td></tr><tr style='vertical-align:top'><td class='foswikiFormTableRow foswikiFirstCol' style='text-align:right'> Support </td><td> <a class="interwikiLink" href="https://foswiki.org/Support/FilterPlugin" title="'Support/FilterPlugin' on foswiki.org">Foswiki:Support/FilterPlugin</a> </td></tr></table></div><div class="patternTopicActions foswikiFormStep"><span class="patternActionButtons"><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/FilterPlugin?t=1627669662' rel='nofollow' title='Edit this topic text' accesskey='e'><span class='foswikiAccessKey'>E</span>dit </a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='/bin/attach/System/FilterPlugin' rel='nofollow' title='Attach an image or document to this topic' accesskey='a'><span class='foswikiAccessKey'>A</span>ttach</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/FilterPlugin?cover=print;sortcol=1;table=1;up=0' rel='nofollow' title='Printable version of this topic' accesskey='p'><span class='foswikiAccessKey'>P</span>rint version</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a class='foswikiRequiresChangePermission' href='/bin/oops/System/FilterPlugin?template=oopshistory' rel='nofollow' title='View complete topic history' accesskey='h'><span class='foswikiAccessKey'>H</span>istory</a>: r10&nbsp;<a href="/bin/diff/System/FilterPlugin?rev1=9;rev2=10" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/FilterPlugin?rev=9" rel="nofollow">r9</a>&nbsp;<a href="/bin/diff/System/FilterPlugin?rev1=8;rev2=9" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/FilterPlugin?rev=8" rel="nofollow">r8</a>&nbsp;<a href="/bin/diff/System/FilterPlugin?rev1=7;rev2=8" rel="nofollow">&lt;</a>&nbsp;<a href="/bin/view/System/FilterPlugin?rev=7" rel="nofollow">r7</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/FilterPlugin?template=backlinksweb' rel='nofollow' title='Search the System Web for topics that link to here' accesskey='b'><span class='foswikiAccessKey'>B</span>acklinks</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/FilterPlugin?raw=on' rel='nofollow' title='View without formatting' accesskey='v'><span class='foswikiAccessKey'>V</span>iew wiki text</a></span><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><a class='foswikiRequiresChangePermission' href='https://damask.mpie.de/bin/edit/System/FilterPlugin?t=1627669662;nowysiwyg=1' rel='nofollow' title='Edit Wiki text' accesskey='w'>Edit <span class='foswikiAccessKey'>w</span>iki text</a><span class='foswikiSeparator'>&nbsp;|&nbsp;</span><span><a href='/bin/view/System/FilterPlugin?template=more&amp;maxrev=10&amp;currrev=10' rel='nofollow' title='Delete or rename this topic; set parent topic; view and compare revisions' accesskey='m'><span class='foswikiAccessKey'>M</span>ore topic actions</a></span></span></div></div></div><div class="patternInfo"><span class="patternRevInfo">Topic revision: r10 - 25 Oct 2018, <a href="/bin/view/Main/UnknownUser">UnknownUser</a></span></div>
+</div>
+</div><div id="patternSideBar"><div id="patternClearHeaderLeft"></div>
+<div id="patternSideBarContents">
+<div class="patternLeftBarPersonal">
+<ul id="patternLeftBarUserActions">
+<li class='patternLogIn'><img src='/pub/System/FamFamFamSilkIcons/key.png' class='foswikiIcon jqIcon key'  alt='key' /><a href="/bin/login/System/FilterPlugin?foswiki_origin=GET%2cview%2c/bin/view/System/FilterPlugin%3fsortcol%3d1%3btable%3d1%3bup%3d0">Log In</a></li></ul>
+</div>
+<p class='p'></p>
+ <ul>
+<li> <strong>Toolbox</strong>
+</li> <li> <a href="/bin/view/Main/WikiUsers"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/person.png' width='16' height='16' alt='person' /></span> Users</a>
+</li> <li> <a href="/bin/view/Main/WikiGroups"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/group.png' width='16' height='16' alt='group' /></span> Groups</a>
+</li> <li> <a href="/bin/view/System/WebTopicList"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/index.png' width='16' height='16' alt='index' /></span> Index</a>
+</li> <li> <a href="/bin/view/System/WebSearch"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/searchtopic.png' width='16' height='16' alt='searchtopic' /></span> Search</a>
+</li> <li> <a href="/bin/view/System/WebChanges"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/changes.png' width='16' height='16' alt='changes' /></span> Changes</a>
+</li> <li> <a href="/bin/view/System/WebNotify"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/notify.png' width='16' height='16' alt='notify' /></span> Notifications</a>
+</li> <li> <a href="/bin/view/System/WebRss"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/feed.png' width='16' height='16' alt='feed' /></span> RSS Feed</a> 
+</li> <li> <a href="/bin/view/System/WebPreferences"> <span class='foswikiIcon'><img src='/pub/System/DocumentGraphics/wrench.png' width='16' height='16' alt='wrench' /></span> Preferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>User Reference</b>
+</li> <li> <a href="/bin/view/System/BeginnersStartHere">BeginnersStartHere</a>
+</li> <li> <a href="/bin/view/System/EditingShorthand">EditingShorthand</a>
+</li> <li> <a href="/bin/view/System/Macros">Macros</a>
+</li> <li> <a href="/bin/view/System/MacrosQuickReference">MacrosQuickReference</a>
+</li> <li> <a href="/bin/view/System/FormattedSearch">FormattedSearch</a>
+</li> <li> <a href="/bin/view/System/QuerySearch">QuerySearch</a>
+</li> <li> <a href="/bin/view/System/DocumentGraphics">DocumentGraphics</a>
+</li> <li> <a href="/bin/view/System/SkinBrowser">SkinBrowser</a>
+</li> <li> <a href="/bin/view/System/InstalledPlugins">InstalledPlugins</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Admin Maintenance</b>
+</li> <li> <a href="/bin/view/System/ReferenceManual">Reference Manual</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/InterWikis">InterWikis</a>
+</li> <li> <a href="/bin/view/System/ManagingWebs">ManagingWebs</a>
+</li> <li> <a href="/bin/view/System/SiteTools">SiteTools</a>
+</li> <li> <a href="/bin/view/System/DefaultPreferences">DefaultPreferences</a>
+</li> <li> <a href="/bin/view/System/WebPreferences">WebPreferences</a>
+</li></ul> 
+<p></p>
+ <ul>
+<li> <b>Categories</b>
+</li> <li> <a href="/bin/view/System/AdminDocumentationCategory">AdminDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/AdminToolsCategory">AdminToolsCategory</a>
+</li> <li> <a href="/bin/view/System/DeveloperDocumentationCategory">DeveloperDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserDocumentationCategory">UserDocumentationCategory</a>
+</li> <li> <a href="/bin/view/System/UserToolsCategory">UserToolsCategory</a>
+</li></ul> 
+<p class='p'></p>
+
+<p class='p'></p>
+ <ul>
+<li> <strong>Webs</strong>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/About/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;About</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;Applications</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Applications/ClassificationApp/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#EDBC18" />&nbsp;<span class='foswikiWebIndent'></span>ClassificationApp</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Development/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Development</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Documentation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Documentation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Download/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#dedede" />&nbsp;Download</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Examples/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Examples</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Home/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Home</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Installation/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#cdcdcd" />&nbsp;Installation</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Main/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFEFA6" />&nbsp;Main</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/References/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;References</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Sandbox/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#FFD8AA" />&nbsp;Sandbox</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/System/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#B9DAFF" />&nbsp;System</a></span>
+</li> <li> <span style="white-space:nowrap"><a href="/bin/view/Usage/WebHome"><img src="https://damask.mpie.de/pub/System/DocumentGraphics/web-bg.png" border="0" alt="" width="16" height="16" style="background-color:#efefef" />&nbsp;Usage</a></span>
+</li></ul> 
+<p></p>
+
+</div></div>
+</div>
+</div></div><div id="patternBottomBar"><div id="patternBottomBarContents"><div id="patternWebBottomBar"><span class="foswikiRight"> <a href="http://foswiki.org/"><img src="/pub/System/ProjectLogos/foswiki-badge.png" height="42" alt="This site is powered by Foswiki" title="This site is powered by Foswiki" /></a></span>Copyright &copy; by the contributing authors. All material on this site is the property of the contributing authors. <br /> Ideas, requests, problems regarding DAMASK? <a href='mailto:damask@mpie.de?subject=DAMASK%20Feedback%20on%20System.FilterPlugin'>Send feedback</a> </div></div></div>
+</div>
+</div>
+</div>
+</div></body></html>

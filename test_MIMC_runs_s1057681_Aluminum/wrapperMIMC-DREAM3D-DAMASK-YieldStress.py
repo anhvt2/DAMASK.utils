@@ -196,13 +196,13 @@ def submitDAMASK(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 				currentTime = datetime.datetime.now()
 				yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/postProc/output.dat')
 				yieldStrain = float(yieldData[0])
-				yieldStress = float(yieldData[1]) / 1e9 # in GPa
+				yieldStress = float(yieldData[1]) / 1e6 # in MPa
 				print("Results available in %s" % (parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)))
 				print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-				print("Estimated Yield Stress at %d is %.16f GPa" % (index, yieldStress))
+				print("Estimated Yield Stress at %d is %.16f MPa" % (index, yieldStress))
 
 				f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-				f.write("Estimated Yield Stress at (%d, %d) is %.16f GPa\n" % (meshSizeIndex, constitutiveModelIndex, yieldStress))
+				f.write("Estimated Yield Stress at (%d, %d) is %.16f MPa\n" % (meshSizeIndex, constitutiveModelIndex, yieldStress))
 				f.close()
 				break
 
@@ -268,13 +268,13 @@ def run_DAMASK_offline(parentDirectory, meshSizeIndex, constitutiveModelLabel):
 			currentTime = datetime.datetime.now()
 			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel) + '/postProc/output.dat')
 			yieldStrain = float(yieldData[0])
-			yieldStress = float(yieldData[1]) / 1e9 # in GPa
+			yieldStress = float(yieldData[1]) / 1e6 # in MPa
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d_%s' % (meshSize, meshSize, meshSize, constitutiveModelLabel)))
 			print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-			print("\n Estimated Yield Stress at (%d, %d) is %.16f GPa\n" % (meshSizeIndex, constitutiveModelIndex, yieldStress))
+			print("\n Estimated Yield Stress at (%d, %d) is %.16f MPa\n" % (meshSizeIndex, constitutiveModelIndex, yieldStress))
 
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-			f.write("Estimated Yield Stress at (%d, %d) is %.16f GPa\n" % (meshSizeIndex, constitutiveModelIndex, yieldStress))
+			f.write("Estimated Yield Stress at (%d, %d) is %.16f MPa\n" % (meshSizeIndex, constitutiveModelIndex, yieldStress))
 			f.close()
 
 	return feasible

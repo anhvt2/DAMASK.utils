@@ -179,17 +179,17 @@ try:
 
 	### plot check
 
-	# strain_intersect_line = np.linspace(yieldStrain, maxStrain)
-	# stress_intersect_line = np.linspace(0, youngModulus * (maxStrain - yieldStrain))
-	# plt.figure()
-	# plt.plot(strain.ravel(), stress.ravel(), 'bo-', markersize=5, linewidth=2)
-	# plt.plot(strain_intersect_line, stress_intersect_line, color='r', marker='s', linestyle=':', markersize=5)
-	# plt.xlabel(r'$\varepsilon$ ', fontsize=24)
-	# plt.ylabel(r'$\sigma$ [MPa]', fontsize=24)
-	# plt.title(r'Plot Check: $\sigma_Y$ computation', fontsize=24)
-	# plt.xlim([0, np.max(strain)])
-	# plt.ylim([np.min(stress), 1.2 * np.max(stress)])
-	# plt.show()
+	strain_intersect_line = np.linspace(yieldStrain, maxStrain)
+	stress_intersect_line = np.linspace(0, youngModulus * (maxStrain - yieldStrain))
+	plt.figure()
+	plt.plot(strain.ravel(), stress.ravel() / 1e6, 'bo-', markersize=5, linewidth=2)
+	plt.plot(strain_intersect_line, stress_intersect_line / 1e6, color='r', marker='s', linestyle=':', markersize=5)
+	plt.xlabel(r'$\varepsilon$ ', fontsize=24)
+	plt.ylabel(r'$\sigma$ [MPa]', fontsize=24)
+	plt.title(r'Plot Check: $\sigma_Y$ computation', fontsize=24)
+	plt.xlim([0, np.max(strain)])
+	plt.ylim([np.min(stress), 1.2 * np.max(stress) / 1e6])
+	plt.show()
 
 except:
 	outFile = open('../log.feasible', 'w')

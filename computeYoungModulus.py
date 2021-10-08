@@ -21,9 +21,11 @@ parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
 parser.add_argument("-LoadFile", "--LoadFile", default='tension.load', type=str)
 parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
+parser.add_argument("-nElasticPoints", "--nElasticPoints", type=int, default=3)
 args = parser.parse_args()
 StressStrainFile = args.StressStrainFile
 LoadFile = args.LoadFile
+nElasticPoints = args.nElasticPoints
 
 def readLoadFile(LoadFile):
 	load_data = np.loadtxt(LoadFile, dtype=str)
@@ -50,6 +52,9 @@ stress_strain_data = np.loadtxt('stress_strain.log', skiprows=7)
 increment = np.atleast_2d(stress_strain_data[:, 1])
 Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
 Fdot = Fdot11
+n = len(stress_strain_data)
+n = int(n) + 1
+
 
 # increment = np.atleast_2d(stress_strain_data[:, 0])
 # stress = np.atleast_2d(stress_strain_data[:, 2])
@@ -88,8 +93,8 @@ print("#############################")
 
 
 ## extract elastic part
-elasticStress = np.atleast_2d(stress[0,1:5]).T
-elasticStrain = np.atleast_2d(strain[0,1:5]).T
+elasticStress = np.atleast_2d(stress[0,1:nElasticPoints]).T
+elasticStrain = np.atleast_2d(strain[0,1:nElasticPoints]).T
 
 # print(elasticStrain.shape)
 # print(elasticStress.shape)

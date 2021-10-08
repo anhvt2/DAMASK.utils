@@ -24,9 +24,15 @@ sigma  = d[:,2] # stress
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-ax.plot((vareps - 1) * 1e2, sigma / 1e6, 'bo-', markersize=4)
+ax.plot((vareps - 1) * 1e2, sigma / 1e6, c='b', marker='o', linestyle='-', markersize=6)
 plt.xlabel(r'$\varepsilon$ [%]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
+
+if np.all(sigma > 0):
+	plt.ylim(bottom=0)
+
+if np.all((vareps - 1) > -1e-5):
+	plt.xlim(left=0)
 
 ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
 

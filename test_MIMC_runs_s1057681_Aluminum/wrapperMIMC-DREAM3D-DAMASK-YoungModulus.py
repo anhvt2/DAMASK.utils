@@ -113,7 +113,7 @@ def getConstitutiveModelLabel(constitutiveModelIndex):
 	# 	constitutiveModelLabel = 'Phenopowerlaw'
 	# elif constitutiveModelIndex == 2:
 	# 	constitutiveModelLabel = 'Nonlocal'
-	elif constitutiveModelIndex == 0:
+	if constitutiveModelIndex == 0:
 		constitutiveModelLabel = 'Phenopowerlaw'
 	elif constitutiveModelIndex == 1:
 		constitutiveModelLabel = 'Nonlocal'

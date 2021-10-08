@@ -16,15 +16,61 @@ import matplotlib as mpl
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
+parser = argparse.ArgumentParser(description='')
+parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
+parser.add_argument("-LoadFile", "--LoadFile", default='tension.load', type=str)
+parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
+args = parser.parse_args()
+StressStrainFile = args.StressStrainFile
+LoadFile = args.LoadFile
 
-data = np.loadtxt('stress_strain.log', skiprows=7)
-increment = np.atleast_2d(data[:, 0])
-stress = np.atleast_2d(data[:, 2])
+def readLoadFile(LoadFile):
+	load_data = np.loadtxt(LoadFile, dtype=str)
+	n_fields = len(load_data)
+	# assume uniaxial:
+	for i in range(n_fields):
+		if load_data[i] == 'Fdot' or load_data[i] == 'fdot':
+			print('Found *Fdot*!')
+			Fdot11 = float(load_data[i+1])
+		if load_data[i] == 'time':
+			print('Found *totalTime*!')
+			totalTime = float(load_data[i+1])
+		if load_data[i] == 'incs':
+			print('Found *totalIncrement*!')
+			totalIncrement = float(load_data[i+1])
+		if load_data[i] == 'freq':
+			print('Found *freq*!')
+			freq = float(load_data[i+1])
+	return Fdot11, totalTime, totalIncrement
 
-tensionLoadFile = np.loadtxt('../tension.load', dtype=str)
-Fdot = float(tensionLoadFile[1])
-totalTime = float(tensionLoadFile[11])
-totalIncrement = float(tensionLoadFile[13])
+
+
+stress_strain_data = np.loadtxt('stress_strain.log', skiprows=7)
+increment = np.atleast_2d(stress_strain_data[:, 1])
+Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
+Fdot = Fdot11
+
+# increment = np.atleast_2d(stress_strain_data[:, 0])
+# stress = np.atleast_2d(stress_strain_data[:, 2])
+
+# tensionLoadFile = np.loadtxt('../tension.load', dtype=str)
+
+## get Stress and Strain
+stress = np.atleast_2d(stress_strain_data[:n, 2])
+strain = np.atleast_2d(stress_strain_data[:n, 1])
+strain -= 1.0 # offset for DAMASK, as strain = 1 when started
+print('Stress:')
+print(stress.ravel())
+print('\n\n')
+
+print('Strain:')
+print(strain.ravel())
+print('\n\n')
+
+
+# Fdot = float(tensionLoadFile[1])
+# totalTime = float(tensionLoadFile[11])
+# totalIncrement = float(tensionLoadFile[13])
 strain = Fdot * increment * totalTime / totalIncrement
 # varepsilon (strain) = varepsilonDot (or strainDot) * time = varepsilonDot * increment / totalIncrement * totalTime
 

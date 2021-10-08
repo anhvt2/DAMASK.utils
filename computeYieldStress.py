@@ -56,8 +56,7 @@ increment = np.atleast_2d(stress_strain_data[:, 1])
 # totalTime = float(load_data[0,11])
 # totalIncrement = float(load_data[0,13])
 Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
-
-# strain = increment * Fdot * totalTime / totalIncrement
+Fdot = Fdot11
 
 # n = len(stress_strain_data) * np.array(load_data[:,11], dtype=float)[0] / np.sum(np.array(load_data[:,13], dtype=float)) # only consider the first loading segment # deprecated -- but should
 n = len(stress_strain_data)

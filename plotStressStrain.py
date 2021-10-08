@@ -49,7 +49,7 @@ ax.plot((vareps - 1) * 1e2, sigma / 1e6, c='b', marker='o', linestyle='-', marke
 plt.xlabel(r'$\varepsilon$ [%]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
-if np.all(sigma > 0):
+if np.all(sigma > -1e-5):
 	plt.ylim(bottom=0)
 
 if np.all((vareps - 1) > -1e-5):

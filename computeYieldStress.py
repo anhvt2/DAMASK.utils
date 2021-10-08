@@ -154,7 +154,7 @@ Step 3: Check if any segment in the stress strain curve intersects with this lin
 try:
 	# stressInGPa = stress / 1e9
 
-	for i in range(n-1):
+	for i in range(n-2):
 		Ltest = line([strain[0,i], stress[0,i]], [strain[0,i+1], stress[0,i+1]])
 		# print('RefL = ', RefL)
 		# print('Ltest = ', Ltest)
@@ -181,13 +181,14 @@ try:
 
 	# strain_intersect_line = np.linspace(yieldStrain, maxStrain)
 	# stress_intersect_line = np.linspace(0, youngModulus * (maxStrain - yieldStrain))
-
-
-	# plt.plot(strain, stress, 'bo-', markersize=5)
-	# plt.plot(strain_intersect_line, stress_intersect_line, color='r', marker='s', linestyle='-.', markersize=5)
+	# plt.figure()
+	# plt.plot(strain.ravel(), stress.ravel(), 'bo-', markersize=5, linewidth=2)
+	# plt.plot(strain_intersect_line, stress_intersect_line, color='r', marker='s', linestyle=':', markersize=5)
 	# plt.xlabel(r'$\varepsilon$ ', fontsize=24)
 	# plt.ylabel(r'$\sigma$ [MPa]', fontsize=24)
-	# plt.title('Sanity check: Yield stress computation', fontsize=24)
+	# plt.title(r'Plot Check: $\sigma_Y$ computation', fontsize=24)
+	# plt.xlim([0, np.max(strain)])
+	# plt.ylim([np.min(stress), 1.2 * np.max(stress)])
 	# plt.show()
 
 except:

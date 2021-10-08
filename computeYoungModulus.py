@@ -77,14 +77,14 @@ print('\n\n')
 # Fdot = float(tensionLoadFile[1])
 # totalTime = float(tensionLoadFile[11])
 # totalIncrement = float(tensionLoadFile[13])
-strain = Fdot * increment * totalTime / totalIncrement
+# strain = Fdot * increment * totalTime / totalIncrement
 # varepsilon (strain) = varepsilonDot (or strainDot) * time = varepsilonDot * increment / totalIncrement * totalTime
 
 print("#############################")
-print("Reading ../tension.load file:")
-print("Fdot = %.4f" % Fdot)
-print("totalTime = %.4f" % totalTime)
-print("totalIncrement = %.4f" % totalIncrement)
+print("Reading *tension.load* file:")
+print("Fdot = %.4e" % Fdot)
+print("totalTime = %.1f" % totalTime)
+print("totalIncrement = %.1f" % totalIncrement)
 print("#############################")
 
 

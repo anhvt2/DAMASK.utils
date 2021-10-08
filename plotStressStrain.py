@@ -57,5 +57,8 @@ if np.all((vareps - 1) > -1e-5):
 
 ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
 
+parentFolderName = os.getcwd().split('/')[-4:-1]
+plt.title('%s' % parentFolderName, fontsize=24)
+
 plt.show()
 

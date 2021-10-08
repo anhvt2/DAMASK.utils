@@ -16,8 +16,7 @@ include("check_variances.jl") # load check_variances
 # index_set = TD(3) # OPTION 2: multi-index, total degree
 index_set = TD(1, (2-1)/(5-1)) # weighted index set
 # index_set = TD(1, 2/4) # weighted index set
-index_set = AD(2)
-
+# index_set = AD(2) # based on discussion with Pieterjan Robbe
 # index_set = FT(3) # OPTION 3: multi-index, full tensor
 
 # ========================
@@ -58,7 +57,7 @@ max_level = 4 # See note below
 # =============================
 # >>> Specify total run time (in seconds):
 
-budget = 2*24*3600 # this means 20 seconds, should be much larger in your example
+budget = 24*3600 # this means 20 seconds, should be much larger in your example
 
 # @@@ NOTE @@@
 # !!! You can use for example the following specifications:

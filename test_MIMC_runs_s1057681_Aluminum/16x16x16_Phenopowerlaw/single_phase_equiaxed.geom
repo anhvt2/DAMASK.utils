@@ -1,1 +1,0 @@
-single_phase_equiaxed_16x16x16.geom

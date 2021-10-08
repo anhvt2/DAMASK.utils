@@ -106,12 +106,16 @@ meshSize = int(dimCellList[meshSizeIndex]) # get the meshSize from dimCellList[m
 constitutiveModelIndex = index[1] # 0 = "Isotropic", 1 = "Phenopowerlaw", 2 = "Nonlocal"
 
 def getConstitutiveModelLabel(constitutiveModelIndex):
-	if constitutiveModelIndex == 0:
-		constitutiveModelLabel = 'Isotropic'
-	elif constitutiveModelIndex == 1:
+	# if constitutiveModelIndex == 0:
+	# 	constitutiveModelLabel = 'Isotropic'
+	# elif constitutiveModelIndex == 1:
+	# 	constitutiveModelLabel = 'Phenopowerlaw'
+	# elif constitutiveModelIndex == 2:
+	# 	constitutiveModelLabel = 'Nonlocal'
+	elif constitutiveModelIndex == 0:
 		constitutiveModelLabel = 'Phenopowerlaw'
-	elif constitutiveModelIndex == 2:
-	    constitutiveModelLabel = 'Nonlocal'
+	elif constitutiveModelIndex == 1:
+		constitutiveModelLabel = 'Nonlocal'
 	else:
 		print('constitutiveModelLabel = %d is invalid.' % constitutiveModelLabel)
 	return constitutiveModelLabel

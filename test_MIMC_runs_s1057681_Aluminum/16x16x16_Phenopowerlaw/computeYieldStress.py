@@ -26,16 +26,38 @@ args = parser.parse_args()
 StressStrainFile = args.StressStrainFile
 LoadFile = args.LoadFile
 
+def readLoadFile(LoadFile):
+	load_data = np.loadtxt(LoadFile, dtype=str)
+	n_fields = len(load_data)
+	# assume uniaxial:
+	for i in range(n_fields):
+		if load_data[i] == 'Fdot' or load_data[i] = 'fdot':
+			print('Found *Fdot*!')
+			Fdot11 = float(load_data[i+1])
+		if load_data[i] == 'time':
+			print('Found *totalTime*!')
+			totalTime = float(load_data[i+1])
+		if load_data[i] == 'incs':
+			print('Found *totalIncrement*!')
+			totalIncrement = float(load_data[i+1])
+		if load_data[i] == 'freq':
+			print('Found *freq*!')
+			freq = flaot(load_data[i])
+	return Fdot11, totalTime, totalIncrement
+
 
 try:
 	stress_strain_data = np.loadtxt(StressStrainFile, skiprows=4)
 	increment = np.atleast_2d(stress_strain_data[:, 1])
 
-	load_data = np.loadtxt(LoadFile, dtype=str)
+	## deprecated
+	# load_data = np.loadtxt(LoadFile, dtype=str)
 	# only consider the first segment
-	Fdot = float(load_data[0,1])
-	totalTime = float(load_data[0,11])
-	totalIncrement = float(load_data[0,13])
+	# Fdot = float(load_data[0,1])
+	# totalTime = float(load_data[0,11])
+	# totalIncrement = float(load_data[0,13])
+	Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
+	
 	# strain = increment * Fdot * totalTime / totalIncrement
 
 	n = len(stress_strain_data) * np.array(load_data[:,13], dtype=float)[0] / np.sum(np.array(load_data[:,13], dtype=float)) # only consider the first loading segment

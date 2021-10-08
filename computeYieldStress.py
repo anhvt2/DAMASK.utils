@@ -26,103 +26,133 @@ args = parser.parse_args()
 StressStrainFile = args.StressStrainFile
 LoadFile = args.LoadFile
 
+def readLoadFile(LoadFile):
+	load_data = np.loadtxt(LoadFile, dtype=str)
+	n_fields = len(load_data)
+	# assume uniaxial:
+	for i in range(n_fields):
+		if load_data[i] == 'Fdot' or load_data[i] == 'fdot':
+			print('Found *Fdot*!')
+			Fdot11 = float(load_data[i+1])
+		if load_data[i] == 'time':
+			print('Found *totalTime*!')
+			totalTime = float(load_data[i+1])
+		if load_data[i] == 'incs':
+			print('Found *totalIncrement*!')
+			totalIncrement = float(load_data[i+1])
+		if load_data[i] == 'freq':
+			print('Found *freq*!')
+			freq = float(load_data[i+1])
+	return Fdot11, totalTime, totalIncrement
+
+
+stress_strain_data = np.loadtxt(StressStrainFile, skiprows=4)
+increment = np.atleast_2d(stress_strain_data[:, 1])
+
+## deprecated
+# load_data = np.loadtxt(LoadFile, dtype=str)
+# only consider the first segment
+# Fdot = float(load_data[0,1])
+# totalTime = float(load_data[0,11])
+# totalIncrement = float(load_data[0,13])
+Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
+
+# strain = increment * Fdot * totalTime / totalIncrement
+
+# n = len(stress_strain_data) * np.array(load_data[:,11], dtype=float)[0] / np.sum(np.array(load_data[:,13], dtype=float)) # only consider the first loading segment # deprecated -- but should
+n = len(stress_strain_data)
+n = int(n) + 1
+
+## get Stress and Strain
+stress = np.atleast_2d(stress_strain_data[:n, 2])
+strain = np.atleast_2d(stress_strain_data[:n, 1])
+strain -= 1.0 # offset for DAMASK, as strain = 1 when started
+print('Stress:')
+print(stress.ravel())
+print('\n\n')
+
+print('Strain:')
+print(strain.ravel())
+print('\n\n')
+
+
+# https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+
+
+## extract elastic part
+elasticStress = np.atleast_2d(stress[0,1:3]).T
+elasticStrain = np.atleast_2d(strain[0,1:3]).T
+
+# print(elasticStrain.shape)
+# print(elasticStress.shape)
+
+## perform linear regression
+from sklearn.linear_model import LinearRegression
+reg = LinearRegression().fit(elasticStrain, elasticStress)
+reg.score(elasticStrain, elasticStress)
+youngModulusInGPa = reg.coef_[0,0] / 1e9
+youngModulus = youngModulusInGPa * 1e9
+
+print('Elastic Young modulus = %.4f GPa' % youngModulusInGPa)
+print('Intercept = %.4f' % (reg.intercept_ / 1e9))
+
+
+
+# outFile = open('youngModulus.out', 'w')
+# outFile.write('%.6e\n' % youngModulusInGPa)
+# outFile.close()
+
+# adopt the intersection from 
+# https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines
+# see: https://stackoverflow.com/a/20679579/2486448
+def line(p1, p2):
+	A = (p1[1] - p2[1])
+	B = (p2[0] - p1[0])
+	C = (p1[0]*p2[1] - p2[0]*p1[1])
+	return A, B, -C, p1, p2
+
+def intersection(L1, L2):
+	D  = L1[0] * L2[1] - L1[1] * L2[0]
+	Dx = L1[2] * L2[1] - L1[1] * L2[2]
+	Dy = L1[0] * L2[2] - L1[2] * L2[0]
+	if D != 0:
+		x = Dx / D
+		y = Dy / D
+		# check if x,y is between p1, p2
+		X = np.array([x,y])
+		p1 = np.array(L2[3])
+		p2 = np.array(L2[4])
+		# print('X = ', X, '; p1 = ', p1, '; p2 = ', p2)
+		if p2[0] < X[0] < p1[0] or p1[0] < X[0] < p2[0]:
+			return x,y
+	else:
+		return False
+
+# L1 = line([0,1], [2,3])
+# L2 = line([2,3], [0,4])
+
+# R = intersection(L1, L2)
+# if R:
+# 	print "Intersection detected:", R
+# else:
+# 	print "No single intersection point detected"
+
+maxStrain = np.max(strain)
+yieldStrain = 0.002
+RefL = line([yieldStrain, 0], [maxStrain, youngModulus * (maxStrain - yieldStrain)])
+
+""" 
+EXPLANATION:
+Step 1: Compute / Estimate Young modulus using linear regression with a certain number of points
+
+Step 2: From the point of (Strain = yieldStrain [defined at 0.2%], Stress = 0), draw a line with the slope of Young modulus that ends at (maxStrain)
+		If visualizing, the end point is at (maxStrain, youngModulus * (maxStrain - yieldStrain)).
+
+Step 3: Check if any segment in the stress strain curve intersects with this line. If yes, return the intersection and we shall call it yieldStress.	
+"""
+
 
 try:
-	stress_strain_data = np.loadtxt(StressStrainFile, skiprows=4)
-	increment = np.atleast_2d(stress_strain_data[:, 1])
-
-	load_data = np.loadtxt(LoadFile, dtype=str)
-	# only consider the first segment
-	Fdot = float(load_data[0,1])
-	totalTime = float(load_data[0,11])
-	totalIncrement = float(load_data[0,13])
-	# strain = increment * Fdot * totalTime / totalIncrement
-
-	n = len(stress_strain_data) * np.array(load_data[:,13], dtype=float)[0] / np.sum(np.array(load_data[:,13], dtype=float)) # only consider the first loading segment
-	n = int(n) + 1
-
-	## get Stress and Strain
-	stress = np.atleast_2d(stress_strain_data[:n, 2])
-	strain = np.atleast_2d(stress_strain_data[:n, 1])
-	strain -= 1.0 # offset for DAMASK, as strain = 1 when started
-
-	# https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
-
-
-	## extract elastic part
-	elasticStress = np.atleast_2d(stress[0,1:5]).T
-	elasticStrain = np.atleast_2d(strain[0,1:5]).T
-
-	# print(elasticStrain.shape)
-	# print(elasticStress.shape)
-
-	## perform linear regression
-	from sklearn.linear_model import LinearRegression
-	reg = LinearRegression().fit(elasticStrain, elasticStress)
-	reg.score(elasticStrain, elasticStress)
-	youngModulusInGPa = reg.coef_[0,0] / 1e9
-	youngModulus = youngModulusInGPa * 1e9
-
-	print('Elastic Young modulus = %.4f GPa' % youngModulusInGPa)
-	print('Intercept = %.4f' % (reg.intercept_ / 1e9))
-
-
-
-	# outFile = open('youngModulus.out', 'w')
-	# outFile.write('%.6e\n' % youngModulusInGPa)
-	# outFile.close()
-
-	# adopt the intersection from 
-	# https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines
-	# see: https://stackoverflow.com/a/20679579/2486448
-	def line(p1, p2):
-		A = (p1[1] - p2[1])
-		B = (p2[0] - p1[0])
-		C = (p1[0]*p2[1] - p2[0]*p1[1])
-		return A, B, -C, p1, p2
-
-	def intersection(L1, L2):
-		D  = L1[0] * L2[1] - L1[1] * L2[0]
-		Dx = L1[2] * L2[1] - L1[1] * L2[2]
-		Dy = L1[0] * L2[2] - L1[2] * L2[0]
-		if D != 0:
-			x = Dx / D
-			y = Dy / D
-			# check if x,y is between p1, p2
-			X = np.array([x,y])
-			p1 = np.array(L2[3])
-			p2 = np.array(L2[4])
-			# print('X = ', X, '; p1 = ', p1, '; p2 = ', p2)
-			if p2[0] < X[0] < p1[0] or p1[0] < X[0] < p2[0]:
-				return x,y
-		else:
-			return False
-
-	# L1 = line([0,1], [2,3])
-	# L2 = line([2,3], [0,4])
-
-	# R = intersection(L1, L2)
-	# if R:
-	# 	print "Intersection detected:", R
-	# else:
-	# 	print "No single intersection point detected"
-
-	maxStrain = np.max(strain)
-	yieldStrain = 0.002
-	RefL = line([yieldStrain, 0], [maxStrain, youngModulus * (maxStrain - yieldStrain)])
-
-	""" 
-	EXPLANATION:
-	Step 1: Compute / Estimate Young modulus using linear regression with a certain number of points
-
-	Step 2: From the point of (Strain = yieldStrain [defined at 0.2%], Stress = 0), draw a line with the slope of Young modulus that ends at (maxStrain)
-			If visualizing, the end point is at (maxStrain, youngModulus * (maxStrain - yieldStrain)).
-
-	Step 3: Check if any segment in the stress strain curve intersects with this line. If yes, return the intersection and we shall call it yieldStress.	
-	"""
-
-
-
 	# stressInGPa = stress / 1e9
 
 	for i in range(n-1):

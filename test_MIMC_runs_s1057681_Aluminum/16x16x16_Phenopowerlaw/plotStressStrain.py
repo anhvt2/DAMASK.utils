@@ -22,7 +22,7 @@ def readLoadFile(LoadFile):
 	n_fields = len(load_data)
 	# assume uniaxial:
 	for i in range(n_fields):
-		if load_data[i] == 'Fdot' or load_data[i] == 'fdot':
+		if load_data[i] == 'Fdot' or load_data[i] = 'fdot':
 			print('Found *Fdot*!')
 			Fdot11 = float(load_data[i+1])
 		if load_data[i] == 'time':
@@ -33,7 +33,7 @@ def readLoadFile(LoadFile):
 			totalIncrement = float(load_data[i+1])
 		if load_data[i] == 'freq':
 			print('Found *freq*!')
-			freq = float(load_data[i+1])
+			freq = flaot(load_data[i])
 	return Fdot11, totalTime, totalIncrement
 
 mpl.rcParams['xtick.labelsize'] = 24

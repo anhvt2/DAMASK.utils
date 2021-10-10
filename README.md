@@ -188,6 +188,10 @@ $ julia my_julia_script.jl
 
 5) Wait for the result (will be printed to the screen)
 
+## How to plot results
+
+See the `Reporter` package from Pieterjan Robbe: [https://github.com/PieterjanRobbe/Reporter.jl](https://github.com/PieterjanRobbe/Reporter.jl)
+
 ## Discussion
 
 See more at [https://groups.google.com/g/dream3d-users/c/SPCdr-BWROs?pli=1](https://groups.google.com/g/dream3d-users/c/SPCdr-BWROs?pli=1)

@@ -84,7 +84,31 @@ git checkout develop
 git pull
 ```
 
+## How to setup
 
+The following list of files needed to be checked.
+
+1. `wrapperMIMC-DREAM3D-DAMASK.py`:
+* this is a driver file for calling DREAM.3D (which generates microstructure at different resolutions)
+* run DAMASK (adaptively with number of processors)
+* call post-processing python script
+* print the **correct output** (whether it is Young modulus or yield stress) to screen
+
+2. `check_variance.jl`: pick up from the output
+```julia
+function get_qoi(out, index)
+    for line in split(out, "\n")
+        if occursin("Estimated Young modulus at $(index)", line)
+            return parse(Float64, split(line)[end - 1])
+        end
+    end
+    return NaN # return NaN if no value could be found
+end
+```
+3. `run_check_variances.jl`:
+* set up the overall computational budget
+* weighted index set
+* number of fidelities in each direction
 
 ## How to run
 

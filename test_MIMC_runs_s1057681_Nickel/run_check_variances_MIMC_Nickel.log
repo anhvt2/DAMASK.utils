@@ -1,0 +1,94 @@
+Progress: 100%[=========================================] Time: 6:52:46
+ERROR: LoadError: MethodError: no method matching zero(::Type{Any})
+Closest candidates are:
+  zero(::Type{Union{Missing, T}}) where T at missing.jl:105
+  zero(!Matched::Union{Type{P}, P}) where P<:Dates.Period at /home/anhtran/Documents/julia/julia-1.6.2/usr/share/julia/stdlib/v1.6/Dates/src/periods.jl:53
+  zero(!Matched::CartesianIndex{N}) where N at multidimensional.jl:106
+  ...
+Stacktrace:
+  [1] zero(#unused#::Type{Any})
+    @ Base ./missing.jl:106
+  [2] reduce_empty(#unused#::typeof(+), #unused#::Type{Any})
+    @ Base ./reduce.jl:311
+  [3] reduce_empty(#unused#::typeof(Base.add_sum), #unused#::Type{Any})
+    @ Base ./reduce.jl:320
+  [4] mapreduce_empty(#unused#::typeof(identity), op::Function, T::Type)
+    @ Base ./reduce.jl:343
+  [5] reduce_empty(op::Base.MappingRF{typeof(identity), typeof(Base.add_sum)}, #unused#::Type{Any})
+    @ Base ./reduce.jl:329
+  [6] reduce_empty_iter
+    @ ./reduce.jl:355 [inlined]
+  [7] mapreduce_empty_iter(f::Function, op::Function, itr::Vector{Any}, ItrEltype::Base.HasEltype)
+    @ Base ./reduce.jl:351
+  [8] _mapreduce(f::typeof(identity), op::typeof(Base.add_sum), #unused#::IndexLinear, A::Vector{Any})
+    @ Base ./reduce.jl:400
+  [9] _mapreduce_dim
+    @ ./reducedim.jl:318 [inlined]
+ [10] #mapreduce#672
+    @ ./reducedim.jl:310 [inlined]
+ [11] mapreduce
+    @ ./reducedim.jl:310 [inlined]
+ [12] #_sum#682
+    @ ./reducedim.jl:878 [inlined]
+ [13] _sum
+    @ ./reducedim.jl:878 [inlined]
+ [14] #sum#680
+    @ ./reducedim.jl:874 [inlined]
+ [15] _mean(f::typeof(identity), A::Vector{Any}, dims::Colon)
+    @ Statistics ~/Documents/julia/julia-1.6.2/usr/share/julia/stdlib/v1.6/Statistics/src/Statistics.jl:170
+ [16] #mean#2
+    @ ~/Documents/julia/julia-1.6.2/usr/share/julia/stdlib/v1.6/Statistics/src/Statistics.jl:164 [inlined]
+ [17] mean(A::Vector{Any})
+    @ Statistics ~/Documents/julia/julia-1.6.2/usr/share/julia/stdlib/v1.6/Statistics/src/Statistics.jl:164
+ [18] (::var"#3#9")(::Pair{Index, Any})
+    @ Main ./none:0
+ [19] iterate
+    @ ./generator.jl:47 [inlined]
+ [20] collect_to!(dest::Vector{Float64}, itr::Base.Generator{Dict{Index, Any}, var"#3#9"}, offs::Int64, st::Int64)
+    @ Base ./array.jl:724
+ [21] collect_to_with_first!(dest::Vector{Float64}, v1::Float64, itr::Base.Generator{Dict{Index, Any}, var"#3#9"}, st::Int64)
+    @ Base ./array.jl:702
+ [22] collect(itr::Base.Generator{Dict{Index, Any}, var"#3#9"})
+    @ Base ./array.jl:683
+ [23] print_table(data::Dict{Index, Any})
+    @ Main ~/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/check_variances.jl:50
+ [24] check_variances(; index_set::TD{2, Tuple{Float64, Float64}}, max_level::Int64, budget::Int64)
+    @ Main ~/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/check_variances.jl:97
+ [25] top-level scope
+    @ ~/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/run_check_variances.jl:72
+in expression starting at /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/run_check_variances.jl:72
+┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐
+│   Index   │   |Eℓ|    │   |ΔEℓ|   │    Vℓ     │    ΔVℓ    │    Nℓ     │    Wℓ     │
+├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
+│    (0, 0) │ 2.739e+02 │ 2.739e+02 │ 2.685e+00 │ 2.685e+00 │        57 │ 2.293e-03 │
+└───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┘
+┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐
+│   Index   │   |Eℓ|    │   |ΔEℓ|   │    Vℓ     │    ΔVℓ    │    Nℓ     │    Wℓ     │
+├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
+│    (0, 0) │ 2.739e+02 │ 2.739e+02 │ 2.685e+00 │ 2.685e+00 │        57 │ 2.293e-03 │
+│    (1, 0) │ 2.741e+02 │ 5.006e-02 │ 1.089e+00 │ 3.826e-01 │        35 │ 1.388e-03 │
+└───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┘
+┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐
+│   Index   │   |Eℓ|    │   |ΔEℓ|   │    Vℓ     │    ΔVℓ    │    Nℓ     │    Wℓ     │
+├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
+│    (0, 0) │ 2.739e+02 │ 2.739e+02 │ 2.685e+00 │ 2.685e+00 │        57 │ 2.293e-03 │
+│    (1, 0) │ 2.738e+02 │ 1.638e-01 │ 3.340e+00 │ 1.799e-01 │        29 │ 1.172e-03 │
+│    (2, 0) │ 2.741e+02 │ 5.006e-02 │ 1.089e+00 │ 3.826e-01 │        35 │ 1.388e-03 │
+└───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┘
+┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐
+│   Index   │   |Eℓ|    │   |ΔEℓ|   │    Vℓ     │    ΔVℓ    │    Nℓ     │    Wℓ     │
+├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
+│    (0, 0) │ 2.739e+02 │ 2.739e+02 │ 2.685e+00 │ 2.685e+00 │        57 │ 2.293e-03 │
+│    (1, 0) │ 2.738e+02 │ 1.638e-01 │ 3.340e+00 │ 1.799e-01 │        29 │ 1.172e-03 │
+│    (2, 0) │ 2.741e+02 │ 5.006e-02 │ 1.089e+00 │ 3.826e-01 │        35 │ 1.388e-03 │
+│    (3, 0) │ 2.742e+02 │ 2.755e-02 │ 1.399e+00 │ 9.606e-03 │        23 │ 8.914e-04 │
+└───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┘
+┌───────────┬───────────┬───────────┬───────────┬───────────┬───────────┬───────────┐
+│   Index   │   |Eℓ|    │   |ΔEℓ|   │    Vℓ     │    ΔVℓ    │    Nℓ     │    Wℓ     │
+├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
+│    (0, 0) │ 2.739e+02 │ 2.739e+02 │ 2.685e+00 │ 2.685e+00 │        57 │ 2.293e-03 │
+│    (1, 0) │ 2.738e+02 │ 1.638e-01 │ 3.340e+00 │ 1.799e-01 │        29 │ 1.172e-03 │
+│    (2, 0) │ 2.741e+02 │ 5.006e-02 │ 1.089e+00 │ 3.826e-01 │        35 │ 1.388e-03 │
+│    (3, 0) │ 2.742e+02 │ 2.755e-02 │ 1.399e+00 │ 9.606e-03 │        23 │ 8.914e-04 │
+│    (4, 0) │ 2.736e+02 │ 7.333e-04 │ 7.374e-01 │ 5.955e-03 │         6 │ 2.372e-04 │
+└───────────┴───────────┴───────────┴───────────┴───────────┴───────────┴───────────┘

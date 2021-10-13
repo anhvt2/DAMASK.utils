@@ -226,7 +226,9 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 	f.close()
 
 	startTime = datetime.datetime.now()
-	os.system('bash run_damask.sh')
+	# os.system('bash run_damask.sh') # deprecated
+	os.system('bash run_damask.sh "YieldStress"')
+	# os.system('bash run_damask.sh "YoungModulus"')
 	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
 
 	currentTime = datetime.datetime.now()

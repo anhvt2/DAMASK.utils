@@ -21,7 +21,7 @@ elif [[ ${hostName} == *"ideapad"* ]]; then
 elif [[ ${hostName} == *"s1057681"* ]]; then
 	execPath="/home/anhtran/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # s1057681
 elif [[ ${hostName} == *"strix"* ]]; then
-	execPath="/home/anhtran/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # Asus ROG strix
+	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # Asus ROG strix
 else
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # else
 fi

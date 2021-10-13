@@ -22,8 +22,11 @@ source $DAMASK_ROOT/env/DAMASK.sh
 # source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
-echo "Start running simulation at"
+echo "Start running simulation at:"
 echo $(date +%y-%m-%d-%H-%M-%S)
+echo "from:"
+echo $(pwd)
+echo
 
 ### ---------------------------------- pre-set on Solo
 
@@ -68,8 +71,15 @@ if [ -d "postProc" ]; then
 	cd postProc/
 	filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
 	cp ../tension.load . 
-	# python3 ../computeYieldStress.py
-	python3 ../computeYoungModulus.py
+	# check $1 argument in running this script, i.e. bash run_damask.sh $1
+	if [[ $1 == "YieldStress" ]]; then 
+		python3 ../computeYieldStress.py
+	elif [[ $1 == "YoungModulus" ]]; then
+		python3 ../computeYoungModulus.py
+	else
+		echo "run_damask_2.0.3.sh: \$1 argument is not detected in run_damask_2.0.3.sh"
+	fi
+
 	if [ -f "output.dat" ]; then
 		echo 1 > ../log.feasible
 		# needed in wrapper_DREAM3D-DAMASK.py
@@ -83,3 +93,6 @@ fi
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 echo "Stop running simulation at"
 echo $(date +%y-%m-%d-%H-%M-%S)
+echo "from :"
+echo $(pwd)
+echo

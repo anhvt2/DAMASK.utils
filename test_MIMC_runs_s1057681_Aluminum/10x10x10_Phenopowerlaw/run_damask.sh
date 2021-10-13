@@ -22,10 +22,11 @@ source $DAMASK_ROOT/env/DAMASK.sh
 # source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
 
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
-echo "Start running simulation at"
+echo "Start running simulation at:"
 echo $(date +%y-%m-%d-%H-%M-%S)
-echo "from directory"
-echo $(pwd)"
+echo "from:"
+echo $(pwd)
+echo
 
 ### ---------------------------------- pre-set on Solo
 
@@ -75,10 +76,10 @@ if [ -d "postProc" ]; then
 		python3 ../computeYieldStress.py
 	elif [[ $1 == "YoungModulus" ]]; then
 		python3 ../computeYoungModulus.py
-	else 
+	else
 		echo "run_damask_2.0.3.sh: \$1 argument is not detected in run_damask_2.0.3.sh"
 	fi
-	
+
 	if [ -f "output.dat" ]; then
 		echo 1 > ../log.feasible
 		# needed in wrapper_DREAM3D-DAMASK.py
@@ -92,3 +93,6 @@ fi
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 echo "Stop running simulation at"
 echo $(date +%y-%m-%d-%H-%M-%S)
+echo "from :"
+echo $(pwd)
+echo

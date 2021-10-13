@@ -91,7 +91,8 @@ echo
 source ~/.bashrc # get geom_check environment variable
 
 for dimCell in $(cat dimCellList.dat); do
-	for constitutiveModel in Isotropic Phenopowerlaw Nonlocal; do
+	# for constitutiveModel in Isotropic Phenopowerlaw Nonlocal; do
+    for constitutiveModel in Phenopowerlaw Nonlocal; do
 		mkdir -p ${dimCell}x${dimCell}x${dimCell}_${constitutiveModel}
 
 		cd ${dimCell}x${dimCell}x${dimCell}_${constitutiveModel}

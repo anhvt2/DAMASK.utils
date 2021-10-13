@@ -168,13 +168,13 @@ def submitDAMASK(meshSize, parentDirectory, level):
 				currentTime = datetime.datetime.now()
 				yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
 				yieldStrain = float(yieldData[0])
-				yieldStress = float(yieldData[1]) / 1e9 # in GPa
+				yieldStress = float(yieldData[1]) / 1e6 # in MPa
 				print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 				print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-				print("Estimated Yield Stress at %d is %.16f GPa" % (level, yieldStress))
+				print("Estimated Yield Stress at %d is %.16f MPa" % (level, yieldStress))
 
 				f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-				f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
+				f.write("Estimated Yield Stress at %d is %.16f MPa\n" % (level, yieldStress))
 				f.close()
 				break
 
@@ -241,13 +241,13 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 			currentTime = datetime.datetime.now()
 			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
 			yieldStrain = float(yieldData[0])
-			yieldStress = float(yieldData[1]) / 1e9 # in GPa
+			yieldStress = float(yieldData[1]) / 1e6 # in MPa
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 			print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-			print("Estimated Yield Stress at %d is %.16f GPa" % (level, yieldStress))
+			print("Estimated Yield Stress at %d is %.16f MPa" % (level, yieldStress))
 
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-			f.write("Estimated Yield Stress at %d is %.16f GPa\n" % (level, yieldStress))
+			f.write("Estimated Yield Stress at %d is %.16f MPa\n" % (level, yieldStress))
 			f.close()
 
 	return feasible

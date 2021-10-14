@@ -2,6 +2,67 @@
 
 source ~/.bashrc
 
+
+hostName="$(echo $(hostname))"
+if [[ ${hostName} == *"solo"* ]]; then
+	# export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
+	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2
+	export PETSC_DIR=/usr/local/petsc-3.10.3 # DAMASK-2.0.3
+	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.10.5 # no longer at /data/ -- damask-2.0.3
+	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.13.6 # DAMASK-3.0.0-alpha
+	export PETSC_ARCH=arch-linux2-c-opt # could be arch-linux2-c-debug
+	export DAMASK_ROOT=/home/anhtran/scratch/DAMASK/damask-2.0.3/ # s1057681
+	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
+	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
+	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
+	# export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
+	export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral # s1057681
+	export DAMASK_NUM_THREADS=4
+
+	source $DAMASK_ROOT/env/DAMASK.sh
+	# source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
+	# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
+elif [[ ${hostName} == *"s1057681"* ]]; then
+	# export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
+	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2
+	export PETSC_DIR=/usr/local/petsc-3.10.3 # DAMASK-2.0.3
+	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.10.5 # no longer at /data/ -- damask-2.0.3
+	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.13.6 # DAMASK-3.0.0-alpha
+	export PETSC_ARCH=arch-linux2-c-opt # could be arch-linux2-c-debug
+	export DAMASK_ROOT=/home/anhtran/Documents/DAMASK/damask-2.0.3/ # s1057681
+	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
+	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
+	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
+	# export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
+	export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral # s1057681
+	export DAMASK_NUM_THREADS=4
+
+	source $DAMASK_ROOT/env/DAMASK.sh
+	# source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
+	# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
+elif [[ ${hostName} == *"strix"* ]]; then
+	# export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
+	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2
+	export PETSC_DIR=/usr/local/petsc-3.10.3 # DAMASK-2.0.3
+	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.10.5 # no longer at /data/ -- damask-2.0.3
+	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.13.6 # DAMASK-3.0.0-alpha
+	export PETSC_ARCH=arch-linux2-c-opt # could be arch-linux2-c-debug
+	export DAMASK_ROOT=/home/anhvt89/Documents/DAMASK/damask-2.0.3/ # s1057681
+	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
+	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
+	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
+	# export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
+	export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral # s1057681
+	export DAMASK_NUM_THREADS=4
+
+	source $DAMASK_ROOT/env/DAMASK.sh
+	# source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
+	# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
+else
+	echo "run_damask.sh: Error: Please specify DAMASK executables!"
+fi
+
+
 # ---------------------------------- set DAMASK variables
 # export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
 # export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2

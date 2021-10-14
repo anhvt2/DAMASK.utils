@@ -1,68 +1,75 @@
 
+# postResults single_phase_equiaxed_tension.spectralOut --cr f,p
+# filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
+# python3 plotStressStrain.py --StressStrainFile "stress_strain.log"
+
 import numpy as np
-import glob, os, sys
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import os, sys, datetime
+import argparse
+
+parser = argparse.ArgumentParser(description='')
+# parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
+parser.add_argument("-StressStrainFile", "--StressStrainFile", default=None, type=str)
+parser.add_argument("-LoadFile", "--LoadFile", default='tension.load', type=str)
+parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
+args = parser.parse_args()
+
+print('Looking for .txt file output from DAMASK postResult.py!')
+if len(glob.glob('*.txt')) > 0:
+	StressStrainFile = np.loadtxt(glob.glob('*.txt')[0])
+	print('Reading %s!' % glob.glob('*.txt')[0])
+elif os.path.exists(args.StressStrainFile):
+	StressStrainFile = args.StressStrainFile
+	print('Reading %s!' % args.StressStrainFile)
+else:
+	print('No StressStrainFile is found! Error!')
+
+LoadFile = args.LoadFile
+
+def readLoadFile(LoadFile):
+	load_data = np.loadtxt(LoadFile, dtype=str)
+	n_fields = len(load_data)
+	# assume uniaxial:
+	for i in range(n_fields):
+		if load_data[i] == 'Fdot' or load_data[i] == 'fdot':
+			print('Found *Fdot*!')
+			Fdot11 = float(load_data[i+1])
+		if load_data[i] == 'time':
+			print('Found *totalTime*!')
+			totalTime = float(load_data[i+1])
+		if load_data[i] == 'incs':
+			print('Found *totalIncrement*!')
+			totalIncrement = float(load_data[i+1])
+		if load_data[i] == 'freq':
+			print('Found *freq*!')
+			freq = float(load_data[i+1])
+	return Fdot11, totalTime, totalIncrement
+
 mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24 
+mpl.rcParams['ytick.labelsize'] = 24
 
-from scipy.stats import norm # The standard Normal distribution
-from scipy.stats import gaussian_kde as GKDE # A standard kernel density estimator
+d = np.loadtxt(StressStrainFile, skiprows=4)
+vareps = d[:,1] # strain
+sigma  = d[:,2] # stress
 
-def readYoungModulus(folderPrefix):
-	folders = glob.glob(folderPrefix + '*')
-	results = []
-	for folder in folders:
-		tmpResult = np.loadtxt(folder + '/postProc/youngModulus.out')
-		# print(tmpResult)
-		results += [tmpResult]
-	# print(results)
-	youngModulusArray = np.array(results)
-	# print stats
-	print('\nStats for %s' % folderPrefix)
-	print('%s: min = %.6e' % (folderPrefix, np.min(youngModulusArray)))
-	print('%s: max = %.6e' % (folderPrefix, np.max(youngModulusArray)))
-	print('%s: avg = %.6e' % (folderPrefix, np.average(youngModulusArray)))
-	print('%s: std = %.6e' % (folderPrefix, np.std(youngModulusArray)))
-	print('\n')
-	return youngModulusArray
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot((vareps - 1) * 1e2, sigma / 1e6, c='b', marker='o', linestyle='-', markersize=6)
+plt.xlabel(r'$\varepsilon$ [%]', fontsize=30)
+plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
-dimCell = 64
+if np.all(sigma > -1e-5):
+	plt.ylim(bottom=0)
 
-a = readYoungModulus('%dx%dx%d-mu-1.50-sigma-0.15' % (dimCell, dimCell, dimCell))
-b = readYoungModulus('%dx%dx%d-mu-1.75-sigma-0.15' % (dimCell, dimCell, dimCell))
-c = readYoungModulus('%dx%dx%d-mu-2.00-sigma-0.15' % (dimCell, dimCell, dimCell))
-d = readYoungModulus('%dx%dx%d-mu-2.20-sigma-0.15' % (dimCell, dimCell, dimCell))
-e = readYoungModulus('%dx%dx%d-mu-2.30-sigma-0.15' % (dimCell, dimCell, dimCell))
-f = readYoungModulus('%dx%dx%d-mu-2.30-sigma-0.40' % (dimCell, dimCell, dimCell))
-g = readYoungModulus('%dx%dx%d-mu-2.50-sigma-0.50' % (dimCell, dimCell, dimCell))
+if np.all((vareps - 1) > -1e-5):
+	plt.xlim(left=0)
 
-minLim = np.min(np.vstack((a,b,c,d,e,f,g)))
-maxLim = np.max(np.vstack((a,b,c,d,e,f,g)))
+ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
 
-qplot = np.linspace(minLim, maxLim, num=100)
-q1, q2, q3, q4 = GKDE(a), GKDE(b), GKDE(c), GKDE(d)
-q5, q6, q7 = GKDE(e), GKDE(f), GKDE(g)
+parentFolderName = os.getcwd().split('/')[-4:-1]
+plt.title('%s' % parentFolderName, fontsize=24)
 
-
-cs =  ['b','g', 'r', 'c', 'm', 'y', 'k']
-qs =  [q1, q2, q3, q4, q5, q6, q7]
-labels = [  r'$\mu = 1.50; \sigma = 0.15$',
-			r'$\mu = 1.75; \sigma = 0.15$',
-			r'$\mu = 2.00; \sigma = 0.15$',
-			r'$\mu = 2.20; \sigma = 0.15$',
-			r'$\mu = 2.30; \sigma = 0.15$',
-			r'$\mu = 2.30; \sigma = 0.40$',
-			r'$\mu = 2.50; \sigma = 0.50$',
-			]
-
-plt.figure()
-for q,c,labelstr in zip(qs, cs, labels):
-	plt.plot(qplot, q(qplot), c, linewidth=4, label=labelstr)
-
-
-plt.legend(fontsize=24, markerscale=2, loc=7) # bbox_to_anchor=(0.35, 0.20))
-plt.xlabel('Young Modulus (GPa)',fontsize=26)
-plt.ylabel('pdf',fontsize=26)
 plt.show()
 

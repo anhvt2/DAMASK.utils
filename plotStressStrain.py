@@ -13,9 +13,11 @@ parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
 parser.add_argument("-LoadFile", "--LoadFile", default='tension.load', type=str)
 parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
+parser.add_argument("-skiprows", "--skiprows", type=int, default=4)
 args = parser.parse_args()
 StressStrainFile = args.StressStrainFile
 LoadFile = args.LoadFile
+skiprows = args.skiprows
 
 def readLoadFile(LoadFile):
 	load_data = np.loadtxt(LoadFile, dtype=str)
@@ -39,13 +41,25 @@ def readLoadFile(LoadFile):
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
-d = np.loadtxt(StressStrainFile, skiprows=4)
+# d = np.loadtxt(StressStrainFile, skiprows=4)
+d = np.loadtxt(StressStrainFile, skiprows=skiprows)
 vareps = d[:,1] # strain
 sigma  = d[:,2] # stress
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-ax.plot((vareps - 1) * 1e2, sigma / 1e6, c='b', marker='o', linestyle='-', markersize=6)
+
+
+x = (vareps - 1) * 1e2
+y = sigma / 1e6
+ax.plot(x, y, c='b', marker='o', linestyle=':', markersize=6)
+
+from scipy.interpolate import interp1d
+splineInterp = interp1d(x, y, kind='cubic')
+ax.plot(x, splineInterp(x), c='r', marker='^', linestyle='-', markersize=6)
+plt.legend(['true', 'cubic'])
+
+
 plt.xlabel(r'$\varepsilon$ [%]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 

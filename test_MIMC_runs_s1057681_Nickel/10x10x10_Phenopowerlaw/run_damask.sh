@@ -66,10 +66,18 @@ fi
 
 ### ---------------------------------- post-processing DAMASK
 sleep 10
+
 postResults single_phase_equiaxed_tension.spectralOut --cr f,p
+
 if [ -d "postProc" ]; then
 	cd postProc/
+
 	filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
+	# addStrainTensors one_phase_equiaxed_tension.txt --left --logarithmic
+	# addCauchy one_phase_equiaxed_tension.txt
+	# addMises one_phase_equiaxed_tension.txt --strain 'ln(V)' --stress Cauchy
+	# filterTable < one_phase_equiaxed_tension.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > log.stress_strain.txt
+
 	cp ../tension.load . 
 	# check $1 argument in running this script, i.e. bash run_damask.sh $1
 	if [[ $1 == "YieldStress" ]]; then 

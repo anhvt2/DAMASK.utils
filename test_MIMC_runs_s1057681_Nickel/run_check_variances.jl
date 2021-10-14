@@ -57,7 +57,7 @@ max_level = 4 # See note below
 # =============================
 # >>> Specify total run time (in seconds):
 
-budget = 2*24*3600 # this means 20 seconds, should be much larger in your example
+budget = 4*24*3600 # this means 20 seconds, should be much larger in your example
 
 # @@@ NOTE @@@
 # !!! You can use for example the following specifications:

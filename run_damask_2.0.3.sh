@@ -14,11 +14,11 @@ if [[ ${hostName} == *"solo"* ]]; then
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
-	# export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
-	export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral # s1057681
+	# export DAMASK_spectral=${DAMASK_ROOT}/bin/DAMASK_spectral
+	export DAMASK_spectral=${DAMASK_ROOT}/bin/DAMASK_spectral # s1057681
 	export DAMASK_NUM_THREADS=4
 
-	source $DAMASK_ROOT/env/DAMASK.sh
+	source ${DAMASK_ROOT}/env/DAMASK.sh
 	# source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
 	# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
 elif [[ ${hostName} == *"s1057681"* ]]; then
@@ -32,29 +32,30 @@ elif [[ ${hostName} == *"s1057681"* ]]; then
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
-	# export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
-	export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral # s1057681
+	# export DAMASK_spectral=${DAMASK_ROOT}/bin/DAMASK_spectral
+	export DAMASK_spectral=${DAMASK_ROOT}/bin/DAMASK_spectral # s1057681
 	export DAMASK_NUM_THREADS=4
 
-	source $DAMASK_ROOT/env/DAMASK.sh
+	source ${DAMASK_ROOT}/env/DAMASK.sh
 	# source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
 	# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
 elif [[ ${hostName} == *"strix"* ]]; then
+	echo "Strix detected!"
 	# export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
 	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2
 	export PETSC_DIR=/usr/local/petsc-3.10.3 # DAMASK-2.0.3
 	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.10.5 # no longer at /data/ -- damask-2.0.3
 	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.13.6 # DAMASK-3.0.0-alpha
 	export PETSC_ARCH=arch-linux2-c-opt # could be arch-linux2-c-debug
-	export DAMASK_ROOT=/home/anhvt89/Documents/DAMASK/damask-2.0.3/ # s1057681
+	export DAMASK_ROOT=/home/anhvt89/Documents/DAMASK/damask-2.0.2/ # asus strix
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
-	# export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
-	export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral # s1057681
+	# export DAMASK_spectral=${DAMASK_ROOT}/bin/DAMASK_spectral
+	export DAMASK_spectral=${DAMASK_ROOT}/bin/DAMASK_spectral
 	export DAMASK_NUM_THREADS=4
 
-	source $DAMASK_ROOT/env/DAMASK.sh
+	source ${DAMASK_ROOT}/env/DAMASK.sh
 	# source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
 	# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
 else
@@ -73,11 +74,11 @@ fi
 # export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
 # export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
 # export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
-# export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
-# export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral # s1057681
-export DAMASK_NUM_THREADS=4
+# export DAMASK_spectral=${DAMASK_ROOT}/bin/DAMASK_spectral
+# export DAMASK_spectral=${DAMASK_ROOT}/bin/DAMASK_spectral # s1057681
+# export DAMASK_NUM_THREADS=4
 
-source $DAMASK_ROOT/env/DAMASK.sh
+# source ${DAMASK_ROOT}/env/DAMASK.sh
 # source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
 # source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
 
@@ -118,7 +119,7 @@ geom_check single_phase_equiaxed.geom
 
 if [ -f "numProcessors.dat" ]; then
 	numProcessors=$(cat numProcessors.dat)
-	mpirun -np ${numProcessors} $DAMASK_spectral -geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
+	mpirun -np ${numProcessors} $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
 	# mpirun -np ${numProcessors} $DAMASK_spectral -g single_phase_equiaxed.geom -l tension.load 2>&1 > log.damask
 else
 	mpirun -np 32 $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask

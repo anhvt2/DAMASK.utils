@@ -1,0 +1,7 @@
+#!/bin/sh
+mkdir -p include
+aclocal \
+&& autoheader -l config \
+&& automake --foreign --add-missing \
+&& autoconf -l config
+#&& automake --gnu --add-missing \

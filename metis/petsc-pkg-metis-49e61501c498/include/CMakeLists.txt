@@ -1,0 +1,7 @@
+if(METIS_INSTALL)
+  option (METIS_USE_LONGINDEX "Compile METIS with long ints (64bit integers)" OFF)
+  option (METIS_USE_DOUBLEPRECISION "Compile METIS with double precision (double)" OFF)
+  configure_file (metis.h.in metis.h)
+  install(FILES "${PROJECT_BINARY_DIR}/include/metis.h" DESTINATION include)
+  install(FILES "${PROJECT_BINARY_DIR}/include/gklib_tls.h" DESTINATION include)
+endif()

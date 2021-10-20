@@ -4,6 +4,7 @@ source ~/.bashrc
 
 hostName="$(echo $(hostname))"
 if [[ ${hostName} == *"solo"* ]]; then
+	echo "solo detected!"
 	# export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
 	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2
 	export PETSC_DIR=/usr/local/petsc-3.10.3 # DAMASK-2.0.3
@@ -22,13 +23,15 @@ if [[ ${hostName} == *"solo"* ]]; then
 	# source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
 	# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
 elif [[ ${hostName} == *"s1057681"* ]]; then
+	echo "s1057681 detected!"
 	# export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
 	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2
 	export PETSC_DIR=/usr/local/petsc-3.10.3 # DAMASK-2.0.3
 	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.10.5 # no longer at /data/ -- damask-2.0.3
 	# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.13.6 # DAMASK-3.0.0-alpha
 	export PETSC_ARCH=arch-linux2-c-opt # could be arch-linux2-c-debug
-	export DAMASK_ROOT=/home/anhtran/Documents/DAMASK/damask-2.0.3/ # s1057681
+	export DAMASK_ROOT=/home/anhtran/Documents/DAMASK/damask-2.0.2/ # s1057681
+	# export DAMASK_ROOT=/home/anhtran/Documents/DAMASK/damask-2.0.3/ # s1057681
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
 	# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha

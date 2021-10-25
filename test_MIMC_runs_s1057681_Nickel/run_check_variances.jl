@@ -14,7 +14,8 @@ include("check_variances.jl") # load check_variances
 # index_set = ML() # OPTION 1: multilevel
 
 # index_set = TD(3) # OPTION 2: multi-index, total degree
-index_set = TD(1, (2-1)/(5-1)) # weighted index set
+# index_set = TD(1, (2-1)/(5-1)) # weighted index set
+index_set = FT(1, (2-1)/(5-1)) # weighted index set
 # index_set = TD(1, 2/4) # weighted index set
 # index_set = AD(2) # based on discussion with Pieterjan Robbe
 # index_set = FT(3) # OPTION 3: multi-index, full tensor

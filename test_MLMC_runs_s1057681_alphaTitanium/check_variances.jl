@@ -10,7 +10,7 @@ using PrettyTables
 using ProgressMeter
 
 # Command to run multi-index version of DREAM3D-DAMASK
-get_cmd(index::Index) = Cmd(["python3", "wrapperMLMC-DREAM3D-DAMASK.py", "-level", string(index)])
+get_cmd(index::Index) = Cmd(["python3", "wrapper_DREAM3D-DAMASK.py", "--index", string(index)])
 
 # Read DREAM3D-DAMASK wrapper output and return value of estimated yield
 # stress for the given level or index
@@ -94,4 +94,51 @@ function check_variances(; index_set=ML(), max_level=3, budget=20)
         data[index] = (samples_dQ, samples_Qf, timer) # add new key to the dictionary
         print_table(data) # print the results
     end
+end
+
+"""
+    run_multilevel([max_level=4], [cost_model=MultilevelEstimators.EmptyFunction()], [ε=1e-2], [nb_of_warm_up_samples=nb_of_warm_up_samples])
+
+Runs an MLMC simulation.
+"""
+function run_multilevel(; max_level=4, cost_model=MultilevelEstimators.EmptyFunction(), ε=1e-2, nb_of_warm_up_samples=nb_of_warm_up_samples)
+
+    # create estimator
+    estimator = Estimator(ML(),
+                          MC(),
+                          (level, x) -> sample(level),
+                          [Uniform()], # placeholder, not important
+                          nb_of_warm_up_samples=nb_of_warm_up_samples,
+                          max_index_set_param=max_level,
+                          name="DREAM3D",
+                          save_samples=true,
+                          cost_model=cost_model,
+                         )
+
+    # run estimator
+    run(estimator, ε)
+end
+
+"""
+    run_multiindex([index_set=AD(2)], [max_search_space=FT(3)], [max_level=max_level], [cost_model=MultilevelEstimators.EmptyFunction()], [ε=1e-2], [nb_of_warm_up_samples=nb_of_warm_up_samples])
+
+Runs an MLMC simulation.
+"""
+function run_multiindex(; index_set=AD(2), max_search_space=FT(3), max_level=4, cost_model=MultilevelEstimators.EmptyFunction(), ε=1e-2, nb_of_warm_up_samples=nb_of_warm_up_samples)
+
+    # create estimator
+    estimator = Estimator(index_set,
+                          MC(),
+                          (level, x) -> sample(level),
+                          [Uniform()], # placeholder, not important
+                          nb_of_warm_up_samples=nb_of_warm_up_samples,
+                          max_index_set_param=max_level,
+                          name="DREAM3D",
+                          save_samples=true,
+                          cost_model=cost_model,
+                          max_search_space=max_search_space
+                         )
+
+    # run estimator
+    run(estimator, ε)
 end

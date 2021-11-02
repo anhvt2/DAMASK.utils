@@ -916,3 +916,51 @@ Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MLMC_runs_
 
  Elapsed time = 1.44 minutes on Solo
 Estimated Yield Stress at 1 is 0.6474271000000000 GPa
+python3: can't open file 'wrapper_DREAM3D-DAMASK.py': [Errno 2] No such file or directory
+python3: can't open file 'wrapper_DREAM3D-DAMASK.py': [Errno 2] No such file or directory
+python3: can't open file 'wrapper_DREAM3D-DAMASK.py': [Errno 2] No such file or directory
+python3: can't open file 'wrapper_DREAM3D-DAMASK.py': [Errno 2] No such file or directory
+ERROR: LoadError: failed process: Process(`python3 wrapper_DREAM3D-DAMASK.py --index 0`, ProcessExited(2)) [2]
+
+Stacktrace:
+  [1] (::Base.var"#837#839")(x::Task)
+    @ Base ./asyncmap.jl:177
+  [2] foreach(f::Base.var"#837#839", itr::Vector{Any})
+    @ Base ./abstractarray.jl:2141
+  [3] maptwice(wrapped_f::Function, chnl::Channel{Any}, worker_tasks::Vector{Any}, c::UnitRange{Int64})
+    @ Base ./asyncmap.jl:177
+  [4] wrap_n_exec_twice
+    @ ./asyncmap.jl:153 [inlined]
+  [5] #async_usemap#822
+    @ ./asyncmap.jl:103 [inlined]
+  [6] #asyncmap#821
+    @ ./asyncmap.jl:81 [inlined]
+  [7] pmap(f::Function, p::Distributed.CachingPool, c::UnitRange{Int64}; distributed::Bool, batch_size::Int64, on_error::Nothing, retry_delays::ExponentialBackOff, retry_check::Nothing)
+    @ Distributed ~/Documents/julia/julia-1.6.2/usr/share/julia/stdlib/v1.6/Distributed/src/pmap.jl:126
+  [8] parallel_sample!(estimator::Estimator{ML{1}, MC, Vector{Uniform{Int64}}, Dict{Symbol, Any}, MultilevelEstimators.EstimatorInternals{MultilevelEstimators.DefaultInternals{Matrix{Vector{Vector{Float64}}}, Vector{Int64}, Vector{Float64}, Set{Level}, MultilevelEstimators.IndexSetSize{Int64}}, MultilevelEstimators.GenericIndexSetInternals, MultilevelEstimators.MCInternals}}, index::Level, Istart::Int64, Iend::Int64)
+    @ MultilevelEstimators ~/.julia/dev/MultilevelEstimators/src/sample.jl:49
+  [9] macro expansion
+    @ ./timing.jl:287 [inlined]
+ [10] sample!(estimator::Estimator{ML{1}, MC, Vector{Uniform{Int64}}, Dict{Symbol, Any}, MultilevelEstimators.EstimatorInternals{MultilevelEstimators.DefaultInternals{Matrix{Vector{Vector{Float64}}}, Vector{Int64}, Vector{Float64}, Set{Level}, MultilevelEstimators.IndexSetSize{Int64}}, MultilevelEstimators.GenericIndexSetInternals, MultilevelEstimators.MCInternals}}, index::Level, n::Int64)
+    @ MultilevelEstimators ~/.julia/dev/MultilevelEstimators/src/sample.jl:27
+ [11] _run(estimator::Estimator{ML{1}, MC, Vector{Uniform{Int64}}, Dict{Symbol, Any}, MultilevelEstimators.EstimatorInternals{MultilevelEstimators.DefaultInternals{Matrix{Vector{Vector{Float64}}}, Vector{Int64}, Vector{Float64}, Set{Level}, MultilevelEstimators.IndexSetSize{Int64}}, MultilevelEstimators.GenericIndexSetInternals, MultilevelEstimators.MCInternals}}, ϵ::Float64)
+    @ MultilevelEstimators ~/.julia/dev/MultilevelEstimators/src/run.jl:67
+ [12] macro expansion
+    @ ./timing.jl:287 [inlined]
+ [13] run(estimator::Estimator{ML{1}, MC, Vector{Uniform{Int64}}, Dict{Symbol, Any}, MultilevelEstimators.EstimatorInternals{MultilevelEstimators.DefaultInternals{Matrix{Vector{Vector{Float64}}}, Vector{Int64}, Vector{Float64}, Set{Level}, MultilevelEstimators.IndexSetSize{Int64}}, MultilevelEstimators.GenericIndexSetInternals, MultilevelEstimators.MCInternals}}, tols::Vector{Float64})
+    @ MultilevelEstimators ~/.julia/dev/MultilevelEstimators/src/run.jl:31
+ [14] run(estimator::Estimator{ML{1}, MC, Vector{Uniform{Int64}}, Dict{Symbol, Any}, MultilevelEstimators.EstimatorInternals{MultilevelEstimators.DefaultInternals{Matrix{Vector{Vector{Float64}}}, Vector{Int64}, Vector{Float64}, Set{Level}, MultilevelEstimators.IndexSetSize{Int64}}, MultilevelEstimators.GenericIndexSetInternals, MultilevelEstimators.MCInternals}}, tol::Float64)
+    @ MultilevelEstimators ~/.julia/dev/MultilevelEstimators/src/run.jl:38
+ [15] run_multilevel(; max_level::Int64, cost_model::Function, ε::Float64, nb_of_warm_up_samples::Int64)
+    @ Main ~/Documents/DAMASK/DAMASK.utils/test_MLMC_runs_s1057681_alphaTitanium/check_variances.jl:119
+ [16] top-level scope
+    @ ~/Documents/DAMASK/DAMASK.utils/test_MLMC_runs_s1057681_alphaTitanium/run_multilevel.jl:57
+in expression starting at /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MLMC_runs_s1057681_alphaTitanium/run_multilevel.jl:57
++-------------------------------------------------------------------------------+
+| *** MultilevelEstimators.jl @2021-11-02T13:16:34.667                          |
+| *** This is a Estimator{ML, MC}                                               |
+| *** Simulating DREAM3D                                                        |
+| *** Tolerance on RMSE ϵ = 1.060e-01                                           |
++-------------------------------------------------------------------------------+
+Currently running on level 0.
+Taking 10 warm-up samples at level 0...

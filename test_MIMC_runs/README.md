@@ -891,3 +891,43 @@ Results available in /qscratch/anhtran/DAMASK/DAMASK-2.0.2/examples/SpectralMeth
 Elapsed time = 2.34 minutes on Solo
 Estimated Yield Stress = 1.9068240000000001 GPa
 ```
+
+
+# Time benchmark
+
+
+```
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/16x16x16_Nonlocal
+
+ Elapsed time = 2.75 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/10x10x10_Nonlocal
+
+ Elapsed time = 1.97 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/16x16x16_Phenopowerlaw
+
+ Elapsed time = 4.10 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/10x10x10_Phenopowerlaw
+
+ Elapsed time = 3.89 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/32x32x32_Nonlocal
+
+ Elapsed time = 17.26 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/20x20x20_Nonlocal
+
+ Elapsed time = 5.22 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/32x32x32_Phenopowerlaw
+
+ Elapsed time = 41.52 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/20x20x20_Phenopowerlaw
+
+ Elapsed time = 7.56 minutes on Solo
+```
+

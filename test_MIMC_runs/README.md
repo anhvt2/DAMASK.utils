@@ -897,162 +897,120 @@ Estimated Yield Stress = 1.9068240000000001 GPa
 
 
 ```
-
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/16x16x16_Nonlocal
-
+ at (2, 1)
  Elapsed time = 2.75 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/10x10x10_Nonlocal
-
+ at (1, 1)
  Elapsed time = 1.97 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/16x16x16_Phenopowerlaw
-
+ at (2, 0)
  Elapsed time = 4.10 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/10x10x10_Phenopowerlaw
-
+ at (1, 0)
  Elapsed time = 3.89 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/32x32x32_Nonlocal
-
+ at (3, 1)
  Elapsed time = 17.26 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/20x20x20_Nonlocal
-
+ at (2, 1)
  Elapsed time = 5.22 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/32x32x32_Phenopowerlaw
-
+ at (3, 0)
  Elapsed time = 41.52 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/20x20x20_Phenopowerlaw
-
+ at (2, 0)
  Elapsed time = 7.56 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/64x64x64_Nonlocal
-
+ at (5, 1)
  Elapsed time = 146.47 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/32x32x32_Nonlocal
-
+ at (4, 1)
  Elapsed time = 17.65 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/64x64x64_Phenopowerlaw
-
+ at (5, 0)
  Elapsed time = 230.74 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/32x32x32_Phenopowerlaw
-
+ at (4, 0)
  Elapsed time = 43.50 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/10x10x10_Nonlocal
-
+ at (1, 1)
  Elapsed time = 2.06 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/8x8x8_Nonlocal
-
+ at (0, 1)
  Elapsed time = 1.13 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/10x10x10_Phenopowerlaw
-
+ at (1, 0)
  Elapsed time = 4.44 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/8x8x8_Phenopowerlaw
-
+ at (0, 0)
  Elapsed time = 2.33 minutes on Solo
 ```
 
-# Time benchmark for test_MIMC_runs_s1057681_Aluminum
+# Time benchmark for test_MIMC_runs_s1057681_Aluminum/
 
 ```
-Querying DAMASK at these indices:
-[[1, 1], [0, 1], [1, 0], [0, 0]]
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/10x10x10_Nonlocal
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/10x10x10_Nonlocal
-
+ at (1, 1)
  Elapsed time = 3.01 minutes on Solo
 
- Estimated Young modulus at (1, 1) is 75.3269099999999980 GPa
-
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/8x8x8_Nonlocal
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/8x8x8_Nonlocal
-
+ at (0, 1)
  Elapsed time = 1.55 minutes on Solo
 
- Estimated Young modulus at (0, 1) is 75.3591200000000043 GPa
-
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/10x10x10_Phenopowerlaw
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/10x10x10_Phenopowerlaw
-
+ at (1, 0)
  Elapsed time = 0.67 minutes on Solo
 
- Estimated Young modulus at (1, 0) is 75.3358099999999951 GPa
-
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/8x8x8_Phenopowerlaw
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/8x8x8_Phenopowerlaw
-
+ at (0, 0)
  Elapsed time = 0.49 minutes on Solo
 
- Estimated Young modulus at (0, 0) is 75.3666900000000055 GPa
-
-[[3, 1], [2, 1], [3, 0], [2, 0]]
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/20x20x20_Nonlocal
-Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/20x20x20_Nonlocal
-
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/20x20x20_Nonlocal 
+ at (3, 1)
  Elapsed time = 7.00 minutes on Solo
 
- Estimated Young modulus at (3, 1) is 75.4167499999999933 GPa
-
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/16x16x16_Nonlocal
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/16x16x16_Nonlocal
-
+ at (2, 1)
  Elapsed time = 3.62 minutes on Solo
 
- Estimated Young modulus at (2, 1) is 75.4245399999999933 GPa
-
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/20x20x20_Phenopowerlaw
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/20x20x20_Phenopowerlaw
-
+ at (3, 0)
  Elapsed time = 2.20 minutes on Solo
 
- Estimated Young modulus at (3, 0) is 75.4272500000000008 GPa
-
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/16x16x16_Phenopowerlaw
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/16x16x16_Phenopowerlaw
-
+ at (2, 0)
  Elapsed time = 1.20 minutes on Solo
 
- Estimated Young modulus at (2, 0) is 75.4348600000000005 GPa
-
-Querying DAMASK at these indices:
-[[5, 1], [4, 1], [5, 0], [4, 0]]
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/64x64x64_Nonlocal
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/64x64x64_Nonlocal
-
+ at (5, 1)
  Elapsed time = 273.89 minutes on Solo
 
- Estimated Young modulus at (5, 1) is 75.4240400000000051 GPa
-
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/32x32x32_Nonlocal
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/32x32x32_Nonlocal
-
+ at (4, 1)
  Elapsed time = 26.43 minutes on Solo
 
- Estimated Young modulus at (4, 1) is 75.4252400000000023 GPa
-
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/64x64x64_Phenopowerlaw
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/64x64x64_Phenopowerlaw
-
+ at (5, 0)
  Elapsed time = 55.04 minutes on Solo
 
- Estimated Young modulus at (5, 0) is 75.4307500000000033 GPa
-
-Running DAMASK at: /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/32x32x32_Phenopowerlaw
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Aluminum/32x32x32_Phenopowerlaw
-
+ at (4, 0)
  Elapsed time = 8.46 minutes on Solo
-
- Estimated Young modulus at (4, 0) is 75.4319399999999973 GPa
 
 ```

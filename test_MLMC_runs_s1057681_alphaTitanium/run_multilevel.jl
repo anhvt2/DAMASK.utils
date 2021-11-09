@@ -43,7 +43,7 @@ cost_per_level = [1 7.51 8 19 51]
 # =============================
 # >> Specify target RMSE (this is just a guess)
 # >> Lower values of the RMSE means a more accurate result, but also more samples
-ε = 1e-2
+ε = 1e+1 # 1e-2: ~5e5 samples
 
 # ========================================
 # @@@ SELECT NUMBER OF WARM-UP SAMPLES @@@

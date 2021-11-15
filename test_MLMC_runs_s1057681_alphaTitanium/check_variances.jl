@@ -111,7 +111,7 @@ function run_multilevel(; max_level=4, cost_model=MultilevelEstimators.EmptyFunc
                           [Uniform()], # placeholder, not important
                           nb_of_warm_up_samples=nb_of_warm_up_samples,
                           max_index_set_param=max_level,
-                          name="DREAM3D",
+                          name="DAMASK",
                           save_samples=true,
                           cost_model=cost_model,
                          )
@@ -134,7 +134,7 @@ function run_multiindex(; index_set=AD(2), max_search_space=FT(3), max_level=4, 
                           [Uniform()], # placeholder, not important
                           nb_of_warm_up_samples=nb_of_warm_up_samples,
                           max_index_set_param=max_level,
-                          name="DREAM3D",
+                          name="DAMASK",
                           save_samples=true,
                           cost_model=cost_model,
                           max_search_space=max_search_space

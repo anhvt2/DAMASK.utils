@@ -73,7 +73,6 @@ on each index for approximately `buget` seconds.
 """
 function check_variances(; index_set=ML(), max_level=3, budget=20)
     indices = collect(get_index_set(index_set, max_level))
-    # indices = sort(collect(get_index_set(index_set, max_level)))
     nb_of_indices = length(indices)
     budget_per_level = round(Int, budget/(nb_of_indices + 1)) # split budget evenly over all levels/indices
     data = Dict{Index, Any}() # empty dictionary to hold samples
@@ -84,7 +83,6 @@ function check_variances(; index_set=ML(), max_level=3, budget=20)
         samples_dQ = [] # vector to store samples of dQ
         timer = 0
         p = Progress(budget_per_level, dt=1, barglyphs=BarGlyphs("[=> ]"), color=:none)
-        # p = Progress(budget_per_level, "Running at index $(index)", dt=1, barglyphs=BarGlyphs("[=> ]"), color=:none)
         while timer < budget_per_level # run timer until we run out of buget
             timer += @elapsed dQ, Qf = sample(index) # take a new sample
             if isfinite(dQ) && isfinite(Qf) # check if the sample is valid
@@ -96,4 +94,51 @@ function check_variances(; index_set=ML(), max_level=3, budget=20)
         data[index] = (samples_dQ, samples_Qf, timer) # add new key to the dictionary
         print_table(data) # print the results
     end
+end
+
+"""
+    run_multilevel([max_level=4], [cost_model=MultilevelEstimators.EmptyFunction()], [ε=1e-2], [nb_of_warm_up_samples=nb_of_warm_up_samples])
+
+Runs an MLMC simulation.
+"""
+function run_multilevel(; max_level=4, cost_model=MultilevelEstimators.EmptyFunction(), ε=1e-2, nb_of_warm_up_samples=nb_of_warm_up_samples)
+
+    # create estimator
+    estimator = Estimator(ML(),
+                          MC(),
+                          (level, x) -> sample(level),
+                          [Uniform()], # placeholder, not important
+                          nb_of_warm_up_samples=nb_of_warm_up_samples,
+                          max_index_set_param=max_level,
+                          name="DREAM3D",
+                          save_samples=true,
+                          cost_model=cost_model,
+                         )
+
+    # run estimator
+    run(estimator, ε)
+end
+
+"""
+    run_multiindex([index_set=AD(2)], [max_search_space=FT(3)], [max_level=max_level], [cost_model=MultilevelEstimators.EmptyFunction()], [ε=1e-2], [nb_of_warm_up_samples=nb_of_warm_up_samples])
+
+Runs an MLMC simulation.
+"""
+function run_multiindex(; index_set=AD(2), max_search_space=FT(3), max_level=4, cost_model=MultilevelEstimators.EmptyFunction(), ε=1e-2, nb_of_warm_up_samples=nb_of_warm_up_samples)
+
+    # create estimator
+    estimator = Estimator(index_set,
+                          MC(),
+                          (level, x) -> sample(level),
+                          [Uniform()], # placeholder, not important
+                          nb_of_warm_up_samples=nb_of_warm_up_samples,
+                          max_index_set_param=max_level,
+                          name="DREAM3D",
+                          save_samples=true,
+                          cost_model=cost_model,
+                          max_search_space=max_search_space
+                         )
+
+    # run estimator
+    run(estimator, ε)
 end

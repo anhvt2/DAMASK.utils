@@ -892,8 +892,29 @@ Elapsed time = 2.34 minutes on Solo
 Estimated Yield Stress = 1.9068240000000001 GPa
 ```
 
+# Time benchmark for test_MIMC_run_s1057681_Nickel/
 
-# Time benchmark for test_MIMC_runs_s1057681_Nickel/
+```
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/10x10x10_Nonlocal
+
+ Elapsed time = 2.04 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/8x8x8_Nonlocal
+
+ Elapsed time = 1.17 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/10x10x10_Phenopowerlaw
+
+ Elapsed time = 3.81 minutes on Solo
+
+Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/8x8x8_Phenopowerlaw
+
+ Elapsed time = 2.06 minutes on Solo
+
+```
+
+
+# Time benchmark for test_MIMC_runs_s1057681_Nickel/ (deprecated)
 
 
 ```

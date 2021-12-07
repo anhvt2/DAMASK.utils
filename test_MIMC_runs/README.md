@@ -914,19 +914,19 @@ Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_
  Elapsed time = 3.89 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/32x32x32_Nonlocal
- at (3, 1)
+ at (4, 1)
  Elapsed time = 17.26 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/20x20x20_Nonlocal
- at (2, 1)
+ at (3, 1)
  Elapsed time = 5.22 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/32x32x32_Phenopowerlaw
- at (3, 0)
+ at (4, 0)
  Elapsed time = 41.52 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/20x20x20_Phenopowerlaw
- at (2, 0)
+ at (3, 0)
  Elapsed time = 7.56 minutes on Solo
 
 Results available in /home/anhtran/Documents/DAMASK/DAMASK.utils/test_MIMC_runs_s1057681_Nickel/64x64x64_Nonlocal

@@ -55,7 +55,7 @@ y = sigma / 1e6
 ax.plot(x, y, c='b', marker='o', linestyle=':', markersize=6)
 
 from scipy.interpolate import interp1d
-splineInterp = interp1d(x, y, kind='cubic')
+splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
 ax.plot(x, splineInterp(x), c='r', marker='^', linestyle='-', markersize=6)
 plt.legend(['true', 'cubic'])
 

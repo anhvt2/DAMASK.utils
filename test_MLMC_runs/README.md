@@ -2,6 +2,10 @@
 # Instruction on how to run
 
 ```shell
+rm -f nohup.out; nohup julia run_multilevel.jl  &
+```
+
+```shell
 $ julia
 ```
 

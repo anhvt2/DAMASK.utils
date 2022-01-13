@@ -19,6 +19,12 @@ Fdot    1.0e-3 0 0    0 0 0    0 0 0    time 10.0    incs 100    freq 1
 
 # Instruction
 
+## How to run
+
+```shell
+rm -f nohup.out; nohup julia run_multiindex.jl  &
+```
+
 ## How to set up files
 
 * change `wrapperMIMC-DREAM3D-DAMASK.py`

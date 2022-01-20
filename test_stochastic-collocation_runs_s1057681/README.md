@@ -35,5 +35,43 @@
 }
 ```
 
+## Roadmap for using Dakota (dakota.sandia.gov)
 
 
+1. Create a dummy Dakota input file with the appropriate parameters, domains and distributions for the actual model.
+1. Run the dummy input file and save the input samples.
+1. Run the CPFEM code using these sample points.
+1. Create the actual Dakota input file that just reads in the sample data and does not call anything else.
+
+Example: `dakota-6.15/build/test/examples-users/rosen_uq_sc.in`
+
+```
+# Dakota Input File: rosen_uq_sc.in
+
+environment
+
+method
+  stoch_collocation
+    sparse_grid_level = 3 # subject to change
+    # dimension_preference = 2 1 # switch from anisotropic to isotropic SG
+    samples_on_emulator = 10000 seed = 12347
+    response_levels = .1 1. 50. 100. 500. 1000.
+    variance_based_decomp #interaction_order = 1
+  # output silent
+  output verbose # print input parameters
+
+variables
+  uniform_uncertain = 2 # Legendre polynomial
+    lower_bounds      =  0.0  1.0
+    upper_bounds      =  0.0  1.0
+    descriptors       = 'x1'  'x2'
+
+interface
+  analysis_drivers = 'textbook'
+    direct
+
+responses
+  response_functions = 1
+  no_gradients
+  no_hessians
+```

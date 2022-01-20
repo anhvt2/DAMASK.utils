@@ -75,3 +75,8 @@ responses
   no_gradients
   no_hessians
 ```
+
+```shell
+cd /home/anhvt89/Documents/dakota/6.15/build/test/examples-users
+../../test/dakota -i rosen_uq_sc.in  > dakota.log
+```

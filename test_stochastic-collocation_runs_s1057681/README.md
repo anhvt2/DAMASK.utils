@@ -37,11 +37,12 @@
 
 ## Roadmap for using Dakota (dakota.sandia.gov)
 
+Steps:
 
 1. Create a dummy Dakota input file with the appropriate parameters, domains and distributions for the actual model.
-1. Run the dummy input file and save the input samples.
-1. Run the CPFEM code using these sample points.
-1. Create the actual Dakota input file that just reads in the sample data and does not call anything else.
+2. Run the dummy input file and save the input samples.
+3. Run the CPFEM code using these sample points.
+4. Create the actual Dakota input file that just reads in the sample data and does not call anything else.
 
 Example: `dakota-6.15/build/test/examples-users/rosen_uq_sc.in`
 
@@ -62,8 +63,8 @@ method
 
 variables
   uniform_uncertain = 2 # Legendre polynomial
-    lower_bounds      =  0.0  1.0
-    upper_bounds      =  0.0  1.0
+    lower_bounds      = -1.0  +1.0
+    upper_bounds      = -1.0  +1.0
     descriptors       = 'x1'  'x2'
 
 interface
@@ -80,3 +81,5 @@ responses
 cd /home/anhvt89/Documents/dakota/6.15/build/test/examples-users
 ../../test/dakota -i rosen_uq_sc.in  > dakota.log
 ```
+
+For input parameters, see `dakota_sparse_tabular.dat` file generated from revoking the above command.

@@ -90,3 +90,4 @@ echo
 echo
 
 echo "${defaultPath}"
+geom_check *.geom

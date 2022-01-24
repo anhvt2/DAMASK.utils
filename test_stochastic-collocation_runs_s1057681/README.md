@@ -18,6 +18,8 @@
 }
 ```
 
+* DREAM.3D file is generated using `Copper`-type of texture
+
 ## Dislocation-density-based model
 
 * See `dislocation-density-based/`
@@ -34,6 +36,18 @@
   publisher={Elsevier}
 }
 ```
+
+* DREAM.3D file is adopted from PRISMS-Plasticity `PRISMS/plasticity/Training_Materials/Pre-Processing/HCP`, mainly from `PRISMS_pipeline_hcp.json` (after updating paths and adding a DAMASK export filter)
+  * `PRISMS_pipeline_hcp.json`
+  * `Magnesium.xdmf`
+  * `grainID.txt`
+  * `polefigure_initial_Mg.m`
+  * `plotpolefromebsd_mg.m`
+  * `micro_snap.png`
+  * `mgdata.txt`
+  * `polefigures_exp`
+  * `polefigures_rve`
+
 
 ## Roadmap for using Dakota (dakota.sandia.gov)
 

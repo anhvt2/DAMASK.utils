@@ -55,6 +55,11 @@ for i in range(n):
   os.system('mkdir -p %s' % (folderName))
   localPath = parentPath + '/' + folderName
   os.chdir(localPath)
+  ## link file from parent directory
+  os.system('ln -sf ../.geom .')
+  os.system('ln -sf ../.load .')
+  os.system('ln -sf ../run_damask.sh .')
+  os.system('ln -sf ../sbatch.damask.solo .')
   ## write new 'material.config' locally
   sg_input = sg_input_list[i] # get input from dakota
   real_sg_input = getDamaskParams(sg_input)

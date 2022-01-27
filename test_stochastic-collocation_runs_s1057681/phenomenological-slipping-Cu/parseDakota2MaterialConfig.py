@@ -30,7 +30,7 @@ def parseInput(real_sg_input, txtcfg):
   tausat_slip = real_sg_input[1]
   h0_slipslip = real_sg_input[2] 
   n           = real_sg_input[3]
-  a           = real_sg_input[4]
+  a_slip      = real_sg_input[4]
   parsed_txtcfg = txtcfg # work on a copied version
   # change lines: always add '\n' at the end of the line
   # parsed_txtcfg[65 - 1] = 'tau0_slip               16.0e6                # per family\n'
@@ -42,7 +42,7 @@ def parseInput(real_sg_input, txtcfg):
   parsed_txtcfg[66 - 1] = 'tausat_slip             %.12e               # per family\n' % tausat_slip
   parsed_txtcfg[70 - 1] = 'h0_slipslip             %.12e # old value: 180e6\n' % h0_slipslip
   parsed_txtcfg[64 - 1] = 'n_slip                  %.12e\n' % n
-  parsed_txtcfg[67 - 1] = 'a_slip                  %.12e\n' % a
+  parsed_txtcfg[67 - 1] = 'a_slip                  %.12e\n' % a_slip
   return parsed_txtcfg
 
 

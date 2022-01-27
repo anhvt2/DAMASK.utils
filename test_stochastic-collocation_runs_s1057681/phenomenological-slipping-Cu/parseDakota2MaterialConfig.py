@@ -38,11 +38,11 @@ def parseInput(real_sg_input, txtcfg):
   # parsed_txtcfg[70 - 1] = 'h0_slipslip             2.4e8 # old value: 180e6\n'
   # parsed_txtcfg[64 - 1] = 'n_slip                  83.3\n'
   # parsed_txtcfg[67 - 1] = 'a_slip                  2.25\n'
-  parsed_txtcfg[65 - 1] = 'tau0_slip               %.6e                # per family\n' % tau0_slip
-  parsed_txtcfg[66 - 1] = 'tausat_slip             %.6e               # per family\n' % tausat_slip
-  parsed_txtcfg[70 - 1] = 'h0_slipslip             %.6e # old value: 180e6\n' % h0_slipslip
-  parsed_txtcfg[64 - 1] = 'n_slip                  %.6e\n' % n
-  parsed_txtcfg[67 - 1] = 'a_slip                  %.6e\n' % a
+  parsed_txtcfg[65 - 1] = 'tau0_slip               %.12e                # per family\n' % tau0_slip
+  parsed_txtcfg[66 - 1] = 'tausat_slip             %.12e               # per family\n' % tausat_slip
+  parsed_txtcfg[70 - 1] = 'h0_slipslip             %.12e # old value: 180e6\n' % h0_slipslip
+  parsed_txtcfg[64 - 1] = 'n_slip                  %.12e\n' % n
+  parsed_txtcfg[67 - 1] = 'a_slip                  %.12e\n' % a
   return parsed_txtcfg
 
 

@@ -71,6 +71,7 @@ for i in range(n):
     f.write(parsed_txtcfg[j])
   f.close()
   os.chdir(parentPath)
+  print('Created folder %s' % folderName)
 
 
 

@@ -101,3 +101,32 @@ cd /home/anhvt89/Documents/dakota/6.15/build/test/examples-users
 ```
 
 For input parameters, see `dakota_sparse_tabular.dat` file generated from revoking the above command.
+
+## `material.config`
+
+A clean way to modify `material.config`
+
+```
+### numerical parameters ###
+
+# The material.config file needs to specify five parts:
+# homogenization, microstructure, crystallite, phase, and texture.
+# You can either put the full text in here or include suited separate files
+
+<homogenization>
+{./Homogenization_Isostrain_SX.config}
+
+<microstructure>
+{./Microstructure_ElementHomogeneous.config}
+
+<crystallite>
+{./Crystallite_aLittleSomething.config}
+
+<phase>
+{./Phase_Phenopowerlaw_Aluminum.config}
+
+<texture>
+{./Texture_Rolling.config}
+```
+
+

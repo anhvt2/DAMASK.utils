@@ -15,7 +15,7 @@ parentPath = os.getcwd()
 ### NOTE: for new case study, modify getDamaskParams() and parseInput()
 def getDamaskParams(sg_input):
   # translate dakota input from [-1,1] to real bounds imposed by user
-  # [tau0_slip, tausat_slip, h0, n, a]
+  # [tau0_slip, tausat_slip, h0, n, a_slip]
   lower_bounds = [10e6, 110e6, 200e6,  50, 1]
   upper_bounds = [30e6, 160e6, 280e6, 120, 4]
   sg_input     = np.array(sg_input)[2:] # ignore 'id' and 'weights' two columns

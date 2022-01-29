@@ -28,11 +28,11 @@ fi
 
 outputPath=$(pwd)
 
-inputFile="test-Copper.json"
+inputFile="test-Copper"
 currentPath="${inputPath}"
 
 
-echo "Running $inputFile"
+echo "Running ${inputFile}.json"
 echo "Output path: $outputPath"
 echo
 # echo "Parameters settings:"
@@ -65,16 +65,21 @@ echo
 
 # replace OutputPath as in the current directory
 # defaultPath="/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_MLMC_template/"
-defaultPath=$(grep -inr 'OutputPath' *json  | head -n 1  | cut -d: -f3 | cut -c 3- | rev | cut -c 10- | rev)
+defaultPath=$(grep -inr 'OutputPath' *json  | head -n 1  | cut -d: -f3 | cut -c 3- | rev | cut -c 2- | rev)
 # convert from 
 # 641:        "OutputPath": "/qscratch/anhtran/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_14Apr21/DAMASK.utils/test_MLMC_runs/64x64x64"
 # to 
 # /qscratch/anhtran/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_14Apr21/DAMASK.utils/test_MLMC_runs/
 
-sed -i "s|${defaultPath}|${outputPath}/|g" ${inputFile} # add "/" behind ${outputPath}
+echo "defaultPath: ${defaultPath}"
+echo "outputPath: ${outputPath}"
+echo "Replacing defaultPath with outputPath."
+sleep 1
+
+sed -i "s|${defaultPath}|${outputPath}/|g" ${inputFile}.json # add "/" behind ${outputPath}
 
 
-${execPath}/PipelineRunner -p $(pwd)/${inputFile}
+${execPath}/PipelineRunner -p $(pwd)/${inputFile}.json
 
 
 echo "Microstructure files are generated at:"
@@ -82,17 +87,5 @@ echo "$outputPath"
 echo
 echo
 
-# export geom_check=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/processing/pre/geom_check.sh
-source ~/.bashrc # get geom_check environment variable
-# for dimCell in 72 60 48 36 24 18 12; do
-for dimCell in $(cat dimCellList.dat); do
-	cd ${dimCell}x${dimCell}x${dimCell}
-	echo ${dimCell} > dimCell.dat # update dimCell.dat
-
-	cat ../material.config.preamble  | cat - material.config | sponge material.config
-	geom_check single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom
-	sh ../getDream3dInfo.sh
-
-	cd ..
-done
-
+echo "${defaultPath}"
+geom_check *.geom

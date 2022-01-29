@@ -54,8 +54,12 @@
 Steps:
 
 1. Create a dummy Dakota input file with the appropriate parameters, domains and distributions for the actual model.
-2. Run the dummy input file and save the input samples.
-3. Run the CPFEM code using these sample points.
+2. Run the dummy input file and save the input samples: 
+  * create a `textbook` example with the **same** dimensionality with the problem considered
+  * `../../test/dakota -i rosen_uq_sc.in  > dakota.log`
+  * see `dakota_sparse_tabular.dat` for list of inputs used
+3. Run the CPFEM code using these sample points: 
+  * run `parseDakota2MaterialConfig.py`: this will create a list of folders that has `material.config` changing accordingly to Dakota inputs in `dakota_sparse_tabular.dat`
 4. Create the actual Dakota input file that just reads in the sample data and does not call anything else.
 
 Example: `dakota-6.15/build/test/examples-users/rosen_uq_sc.in`
@@ -97,3 +101,32 @@ cd /home/anhvt89/Documents/dakota/6.15/build/test/examples-users
 ```
 
 For input parameters, see `dakota_sparse_tabular.dat` file generated from revoking the above command.
+
+## `material.config`
+
+A clean way to modify `material.config`
+
+```
+### numerical parameters ###
+
+# The material.config file needs to specify five parts:
+# homogenization, microstructure, crystallite, phase, and texture.
+# You can either put the full text in here or include suited separate files
+
+<homogenization>
+{./Homogenization_Isostrain_SX.config}
+
+<microstructure>
+{./Microstructure_ElementHomogeneous.config}
+
+<crystallite>
+{./Crystallite_aLittleSomething.config}
+
+<phase>
+{./Phase_Phenopowerlaw_Aluminum.config}
+
+<texture>
+{./Texture_Rolling.config}
+```
+
+

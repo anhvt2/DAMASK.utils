@@ -1,0 +1,3953 @@
+Dakota version 6.15 released Nov. 15 2021.
+Repository revision fbfa1db (2021-11-04) built Nov 16 2021 16:43:30.
+Running MPI Dakota executable in serial mode.
+Start time: Sun Jan 30 16:31:45 2022
+
+-----------------------
+Begin DAKOTA input file
+textbook2d_uq_sc.in
+-----------------------
+# Dakota Input File: rosen_uq_sc.in
+
+environment
+
+method
+  stoch_collocation
+    sparse_grid_level = 5 # subject to change
+    # dimension_preference = 2 1 # switch from anisotropic to isotropic SG
+    samples_on_emulator = 100 seed = 12347
+    response_levels = .1 1. 50. 100. 500. 1000.
+    variance_based_decomp #interaction_order = 1
+  # output silent
+  output verbose # print input parameters
+
+variables
+  uniform_uncertain = 2 # Legendre polynomial
+    lower_bounds      = -1.0    -1.0
+    upper_bounds      = +1.0    +1.0
+    descriptors       = 'x1'    'x2'
+
+interface
+  analysis_drivers = 'text_book'
+    direct
+
+responses
+  response_functions = 1
+  no_gradients
+  no_hessians
+---------------------
+End DAKOTA input file
+---------------------
+
+Using Dakota input file 'textbook2d_uq_sc.in'
+Writing new restart file 'dakota.rst'.
+methodName = stoch_collocation
+DFS gradientType = analytic DFS hessianType = none
+
+>>>>> Executing environment.
+
+>>>>> Running stoch_collocation iterator.
+
+>>>>> stoch_collocation: pre-run phase.
+
+>>>>> stoch_collocation: core run phase.
+
+>>>>> Building global_nodal_interpolation_polynomial approximations.
+
+>>>>> Running sparse_grid iterator.
+
+>>>>> sparse_grid: pre-run phase.
+
+>>>>> sparse_grid: core run phase.
+
+Sparse grid level = 5
+Total number of integration points: 161
+
+---------------------
+Begin Evaluation    1
+---------------------
+Parameters for evaluation 1:
+                     -9.9383196321e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 1:
+Active set vector = { 1 }
+                      3.0576226245e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation    2
+---------------------
+Parameters for evaluation 2:
+                     -9.9383196321e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 2:
+Active set vector = { 1 }
+                      2.5720952702e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation    3
+---------------------
+Parameters for evaluation 3:
+                     -9.9383196321e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 3:
+Active set vector = { 1 }
+                      2.0035009838e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation    4
+---------------------
+Parameters for evaluation 4:
+                     -9.9383196321e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 4:
+Active set vector = { 1 }
+                      1.6803534019e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation    5
+---------------------
+Parameters for evaluation 5:
+                     -9.9383196321e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 5:
+Active set vector = { 1 }
+                      1.5905985312e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation    6
+---------------------
+Parameters for evaluation 6:
+                     -9.9383196321e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 6:
+Active set vector = { 1 }
+                      1.5806115336e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation    7
+---------------------
+Parameters for evaluation 7:
+                     -9.9383196321e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 7:
+Active set vector = { 1 }
+                      1.5803536456e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation    8
+---------------------
+Parameters for evaluation 8:
+                     -9.6049126871e-01 x1
+                     -9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 8:
+Active set vector = { 1 }
+                      3.0576226245e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation    9
+---------------------
+Parameters for evaluation 9:
+                     -9.6049126871e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 9:
+Active set vector = { 1 }
+                      2.9545384451e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   10
+---------------------
+Parameters for evaluation 10:
+                     -9.6049126871e-01 x1
+                     -8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 10:
+Active set vector = { 1 }
+                      2.7491032955e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   11
+---------------------
+Parameters for evaluation 11:
+                     -9.6049126871e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 11:
+Active set vector = { 1 }
+                      2.4690110909e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   12
+---------------------
+Parameters for evaluation 12:
+                     -9.6049126871e-01 x1
+                     -6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 12:
+Active set vector = { 1 }
+                      2.1678943585e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   13
+---------------------
+Parameters for evaluation 13:
+                     -9.6049126871e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 13:
+Active set vector = { 1 }
+                      1.9004168044e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   14
+---------------------
+Parameters for evaluation 14:
+                     -9.6049126871e-01 x1
+                     -2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 14:
+Active set vector = { 1 }
+                      1.7012728235e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   15
+---------------------
+Parameters for evaluation 15:
+                     -9.6049126871e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 15:
+Active set vector = { 1 }
+                      1.5772692226e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   16
+---------------------
+Parameters for evaluation 16:
+                     -9.6049126871e-01 x1
+                      2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 16:
+Active set vector = { 1 }
+                      1.5136455898e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   17
+---------------------
+Parameters for evaluation 17:
+                     -9.6049126871e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 17:
+Active set vector = { 1 }
+                      1.4875143518e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   18
+---------------------
+Parameters for evaluation 18:
+                     -9.6049126871e-01 x1
+                      6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 18:
+Active set vector = { 1 }
+                      1.4793302554e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   19
+---------------------
+Parameters for evaluation 19:
+                     -9.6049126871e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 19:
+Active set vector = { 1 }
+                      1.4775273542e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   20
+---------------------
+Parameters for evaluation 20:
+                     -9.6049126871e-01 x1
+                      8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 20:
+Active set vector = { 1 }
+                      1.4772847013e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   21
+---------------------
+Parameters for evaluation 21:
+                     -9.6049126871e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 21:
+Active set vector = { 1 }
+                      1.4772694662e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   22
+---------------------
+Parameters for evaluation 22:
+                     -9.6049126871e-01 x1
+                      9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 22:
+Active set vector = { 1 }
+                      1.4772692227e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   23
+---------------------
+Parameters for evaluation 23:
+                     -8.8845923287e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 23:
+Active set vector = { 1 }
+                      2.7491032955e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   24
+---------------------
+Parameters for evaluation 24:
+                     -8.8845923287e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 24:
+Active set vector = { 1 }
+                      2.2635759412e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   25
+---------------------
+Parameters for evaluation 25:
+                     -8.8845923287e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 25:
+Active set vector = { 1 }
+                      1.6949816547e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   26
+---------------------
+Parameters for evaluation 26:
+                     -8.8845923287e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 26:
+Active set vector = { 1 }
+                      1.3718340729e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   27
+---------------------
+Parameters for evaluation 27:
+                     -8.8845923287e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 27:
+Active set vector = { 1 }
+                      1.2820792022e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   28
+---------------------
+Parameters for evaluation 28:
+                     -8.8845923287e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 28:
+Active set vector = { 1 }
+                      1.2720922046e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   29
+---------------------
+Parameters for evaluation 29:
+                     -8.8845923287e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 29:
+Active set vector = { 1 }
+                      1.2718343166e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   30
+---------------------
+Parameters for evaluation 30:
+                     -7.7459666924e-01 x1
+                     -9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 30:
+Active set vector = { 1 }
+                      2.5720952702e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   31
+---------------------
+Parameters for evaluation 31:
+                     -7.7459666924e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 31:
+Active set vector = { 1 }
+                      2.4690110909e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   32
+---------------------
+Parameters for evaluation 32:
+                     -7.7459666924e-01 x1
+                     -8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 32:
+Active set vector = { 1 }
+                      2.2635759412e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   33
+---------------------
+Parameters for evaluation 33:
+                     -7.7459666924e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 33:
+Active set vector = { 1 }
+                      1.9834837366e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   34
+---------------------
+Parameters for evaluation 34:
+                     -7.7459666924e-01 x1
+                     -6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 34:
+Active set vector = { 1 }
+                      1.6823670043e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   35
+---------------------
+Parameters for evaluation 35:
+                     -7.7459666924e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 35:
+Active set vector = { 1 }
+                      1.4148894501e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   36
+---------------------
+Parameters for evaluation 36:
+                     -7.7459666924e-01 x1
+                     -2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 36:
+Active set vector = { 1 }
+                      1.2157454692e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   37
+---------------------
+Parameters for evaluation 37:
+                     -7.7459666924e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 37:
+Active set vector = { 1 }
+                      1.0917418683e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   38
+---------------------
+Parameters for evaluation 38:
+                     -7.7459666924e-01 x1
+                      2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 38:
+Active set vector = { 1 }
+                      1.0281182356e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   39
+---------------------
+Parameters for evaluation 39:
+                     -7.7459666924e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 39:
+Active set vector = { 1 }
+                      1.0019869976e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   40
+---------------------
+Parameters for evaluation 40:
+                     -7.7459666924e-01 x1
+                      6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 40:
+Active set vector = { 1 }
+                      9.9380290115e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   41
+---------------------
+Parameters for evaluation 41:
+                     -7.7459666924e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 41:
+Active set vector = { 1 }
+                      9.9200000000e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   42
+---------------------
+Parameters for evaluation 42:
+                     -7.7459666924e-01 x1
+                      8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 42:
+Active set vector = { 1 }
+                      9.9175734702e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   43
+---------------------
+Parameters for evaluation 43:
+                     -7.7459666924e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 43:
+Active set vector = { 1 }
+                      9.9174211197e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   44
+---------------------
+Parameters for evaluation 44:
+                     -7.7459666924e-01 x1
+                      9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 44:
+Active set vector = { 1 }
+                      9.9174186846e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   45
+---------------------
+Parameters for evaluation 45:
+                     -6.2110294674e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 45:
+Active set vector = { 1 }
+                      2.1678943585e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   46
+---------------------
+Parameters for evaluation 46:
+                     -6.2110294674e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 46:
+Active set vector = { 1 }
+                      1.6823670043e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   47
+---------------------
+Parameters for evaluation 47:
+                     -6.2110294674e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 47:
+Active set vector = { 1 }
+                      1.1137727178e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   48
+---------------------
+Parameters for evaluation 48:
+                     -6.2110294674e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 48:
+Active set vector = { 1 }
+                      7.9062513598e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   49
+---------------------
+Parameters for evaluation 49:
+                     -6.2110294674e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 49:
+Active set vector = { 1 }
+                      7.0087026527e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   50
+---------------------
+Parameters for evaluation 50:
+                     -6.2110294674e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 50:
+Active set vector = { 1 }
+                      6.9088326767e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   51
+---------------------
+Parameters for evaluation 51:
+                     -6.2110294674e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 51:
+Active set vector = { 1 }
+                      6.9062537963e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   52
+---------------------
+Parameters for evaluation 52:
+                     -4.3424374935e-01 x1
+                     -9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 52:
+Active set vector = { 1 }
+                      2.0035009838e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   53
+---------------------
+Parameters for evaluation 53:
+                     -4.3424374935e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 53:
+Active set vector = { 1 }
+                      1.9004168044e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   54
+---------------------
+Parameters for evaluation 54:
+                     -4.3424374935e-01 x1
+                     -8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 54:
+Active set vector = { 1 }
+                      1.6949816547e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   55
+---------------------
+Parameters for evaluation 55:
+                     -4.3424374935e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 55:
+Active set vector = { 1 }
+                      1.4148894501e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   56
+---------------------
+Parameters for evaluation 56:
+                     -4.3424374935e-01 x1
+                     -6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 56:
+Active set vector = { 1 }
+                      1.1137727178e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   57
+---------------------
+Parameters for evaluation 57:
+                     -4.3424374935e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 57:
+Active set vector = { 1 }
+                      8.4629516366e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   58
+---------------------
+Parameters for evaluation 58:
+                     -4.3424374935e-01 x1
+                     -2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 58:
+Active set vector = { 1 }
+                      6.4715118276e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   59
+---------------------
+Parameters for evaluation 59:
+                     -4.3424374935e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 59:
+Active set vector = { 1 }
+                      5.2314758183e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   60
+---------------------
+Parameters for evaluation 60:
+                     -4.3424374935e-01 x1
+                      2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 60:
+Active set vector = { 1 }
+                      4.5952394908e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   61
+---------------------
+Parameters for evaluation 61:
+                     -4.3424374935e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 61:
+Active set vector = { 1 }
+                      4.3339271112e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   62
+---------------------
+Parameters for evaluation 62:
+                     -4.3424374935e-01 x1
+                      6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 62:
+Active set vector = { 1 }
+                      4.2520861467e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   63
+---------------------
+Parameters for evaluation 63:
+                     -4.3424374935e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 63:
+Active set vector = { 1 }
+                      4.2340571352e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   64
+---------------------
+Parameters for evaluation 64:
+                     -4.3424374935e-01 x1
+                      8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 64:
+Active set vector = { 1 }
+                      4.2316306053e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   65
+---------------------
+Parameters for evaluation 65:
+                     -4.3424374935e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 65:
+Active set vector = { 1 }
+                      4.2314782548e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   66
+---------------------
+Parameters for evaluation 66:
+                     -4.3424374935e-01 x1
+                      9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 66:
+Active set vector = { 1 }
+                      4.2314758198e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   67
+---------------------
+Parameters for evaluation 67:
+                     -2.2338668643e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 67:
+Active set vector = { 1 }
+                      1.7012728235e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   68
+---------------------
+Parameters for evaluation 68:
+                     -2.2338668643e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 68:
+Active set vector = { 1 }
+                      1.2157454692e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   69
+---------------------
+Parameters for evaluation 69:
+                     -2.2338668643e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 69:
+Active set vector = { 1 }
+                      6.4715118276e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   70
+---------------------
+Parameters for evaluation 70:
+                     -2.2338668643e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 70:
+Active set vector = { 1 }
+                      3.2400360093e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   71
+---------------------
+Parameters for evaluation 71:
+                     -2.2338668643e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 71:
+Active set vector = { 1 }
+                      2.3424873022e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   72
+---------------------
+Parameters for evaluation 72:
+                     -2.2338668643e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 72:
+Active set vector = { 1 }
+                      2.2426173262e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   73
+---------------------
+Parameters for evaluation 73:
+                     -2.2338668643e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 73:
+Active set vector = { 1 }
+                      2.2400384459e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   74
+---------------------
+Parameters for evaluation 74:
+                      0.0000000000e+00 x1
+                     -9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 74:
+Active set vector = { 1 }
+                      1.6803534019e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   75
+---------------------
+Parameters for evaluation 75:
+                      0.0000000000e+00 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 75:
+Active set vector = { 1 }
+                      1.5772692226e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   76
+---------------------
+Parameters for evaluation 76:
+                      0.0000000000e+00 x1
+                     -8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 76:
+Active set vector = { 1 }
+                      1.3718340729e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   77
+---------------------
+Parameters for evaluation 77:
+                      0.0000000000e+00 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 77:
+Active set vector = { 1 }
+                      1.0917418683e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   78
+---------------------
+Parameters for evaluation 78:
+                      0.0000000000e+00 x1
+                     -6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 78:
+Active set vector = { 1 }
+                      7.9062513598e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   79
+---------------------
+Parameters for evaluation 79:
+                      0.0000000000e+00 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 79:
+Active set vector = { 1 }
+                      5.2314758183e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   80
+---------------------
+Parameters for evaluation 80:
+                      0.0000000000e+00 x1
+                     -2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 80:
+Active set vector = { 1 }
+                      3.2400360093e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   81
+---------------------
+Parameters for evaluation 81:
+                      0.0000000000e+00 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 81:
+Active set vector = { 1 }
+                      2.0000000000e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   82
+---------------------
+Parameters for evaluation 82:
+                      0.0000000000e+00 x1
+                      2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 82:
+Active set vector = { 1 }
+                      1.3637636725e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   83
+---------------------
+Parameters for evaluation 83:
+                      0.0000000000e+00 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 83:
+Active set vector = { 1 }
+                      1.1024512929e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   84
+---------------------
+Parameters for evaluation 84:
+                      0.0000000000e+00 x1
+                      6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 84:
+Active set vector = { 1 }
+                      1.0206103284e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   85
+---------------------
+Parameters for evaluation 85:
+                      0.0000000000e+00 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 85:
+Active set vector = { 1 }
+                      1.0025813169e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   86
+---------------------
+Parameters for evaluation 86:
+                      0.0000000000e+00 x1
+                      8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 86:
+Active set vector = { 1 }
+                      1.0001547870e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   87
+---------------------
+Parameters for evaluation 87:
+                      0.0000000000e+00 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 87:
+Active set vector = { 1 }
+                      1.0000024365e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   88
+---------------------
+Parameters for evaluation 88:
+                      0.0000000000e+00 x1
+                      9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 88:
+Active set vector = { 1 }
+                      1.0000000014e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   89
+---------------------
+Parameters for evaluation 89:
+                      2.2338668643e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 89:
+Active set vector = { 1 }
+                      1.5136455898e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   90
+---------------------
+Parameters for evaluation 90:
+                      2.2338668643e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 90:
+Active set vector = { 1 }
+                      1.0281182356e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   91
+---------------------
+Parameters for evaluation 91:
+                      2.2338668643e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 91:
+Active set vector = { 1 }
+                      4.5952394908e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   92
+---------------------
+Parameters for evaluation 92:
+                      2.2338668643e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 92:
+Active set vector = { 1 }
+                      1.3637636725e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   93
+---------------------
+Parameters for evaluation 93:
+                      2.2338668643e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 93:
+Active set vector = { 1 }
+                      4.6621496538e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   94
+---------------------
+Parameters for evaluation 94:
+                      2.2338668643e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 94:
+Active set vector = { 1 }
+                      3.6634498931e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   95
+---------------------
+Parameters for evaluation 95:
+                      2.2338668643e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 95:
+Active set vector = { 1 }
+                      3.6376610899e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   96
+---------------------
+Parameters for evaluation 96:
+                      4.3424374935e-01 x1
+                     -9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 96:
+Active set vector = { 1 }
+                      1.5905985312e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   97
+---------------------
+Parameters for evaluation 97:
+                      4.3424374935e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 97:
+Active set vector = { 1 }
+                      1.4875143518e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   98
+---------------------
+Parameters for evaluation 98:
+                      4.3424374935e-01 x1
+                     -8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 98:
+Active set vector = { 1 }
+                      1.2820792022e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation   99
+---------------------
+Parameters for evaluation 99:
+                      4.3424374935e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 99:
+Active set vector = { 1 }
+                      1.0019869976e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  100
+---------------------
+Parameters for evaluation 100:
+                      4.3424374935e-01 x1
+                     -6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 100:
+Active set vector = { 1 }
+                      7.0087026527e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  101
+---------------------
+Parameters for evaluation 101:
+                      4.3424374935e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 101:
+Active set vector = { 1 }
+                      4.3339271112e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  102
+---------------------
+Parameters for evaluation 102:
+                      4.3424374935e-01 x1
+                     -2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 102:
+Active set vector = { 1 }
+                      2.3424873022e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  103
+---------------------
+Parameters for evaluation 103:
+                      4.3424374935e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 103:
+Active set vector = { 1 }
+                      1.1024512929e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  104
+---------------------
+Parameters for evaluation 104:
+                      4.3424374935e-01 x1
+                      2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 104:
+Active set vector = { 1 }
+                      4.6621496538e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  105
+---------------------
+Parameters for evaluation 105:
+                      4.3424374935e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 105:
+Active set vector = { 1 }
+                      2.0490258584e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  106
+---------------------
+Parameters for evaluation 106:
+                      4.3424374935e-01 x1
+                      6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 106:
+Active set vector = { 1 }
+                      1.2306162128e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  107
+---------------------
+Parameters for evaluation 107:
+                      4.3424374935e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 107:
+Active set vector = { 1 }
+                      1.0503260977e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  108
+---------------------
+Parameters for evaluation 108:
+                      4.3424374935e-01 x1
+                      8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 108:
+Active set vector = { 1 }
+                      1.0260607993e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  109
+---------------------
+Parameters for evaluation 109:
+                      4.3424374935e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 109:
+Active set vector = { 1 }
+                      1.0245372945e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  110
+---------------------
+Parameters for evaluation 110:
+                      4.3424374935e-01 x1
+                      9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 110:
+Active set vector = { 1 }
+                      1.0245129437e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  111
+---------------------
+Parameters for evaluation 111:
+                      6.2110294674e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 111:
+Active set vector = { 1 }
+                      1.4793302554e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  112
+---------------------
+Parameters for evaluation 112:
+                      6.2110294674e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 112:
+Active set vector = { 1 }
+                      9.9380290115e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  113
+---------------------
+Parameters for evaluation 113:
+                      6.2110294674e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 113:
+Active set vector = { 1 }
+                      4.2520861467e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  114
+---------------------
+Parameters for evaluation 114:
+                      6.2110294674e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 114:
+Active set vector = { 1 }
+                      1.0206103284e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  115
+---------------------
+Parameters for evaluation 115:
+                      6.2110294674e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 115:
+Active set vector = { 1 }
+                      1.2306162128e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  116
+---------------------
+Parameters for evaluation 116:
+                      6.2110294674e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 116:
+Active set vector = { 1 }
+                      2.3191645211e-02 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  117
+---------------------
+Parameters for evaluation 117:
+                      6.2110294674e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 117:
+Active set vector = { 1 }
+                      2.0612764890e-02 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  118
+---------------------
+Parameters for evaluation 118:
+                      7.7459666924e-01 x1
+                     -9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 118:
+Active set vector = { 1 }
+                      1.5806115336e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  119
+---------------------
+Parameters for evaluation 119:
+                      7.7459666924e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 119:
+Active set vector = { 1 }
+                      1.4775273542e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  120
+---------------------
+Parameters for evaluation 120:
+                      7.7459666924e-01 x1
+                     -8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 120:
+Active set vector = { 1 }
+                      1.2720922046e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  121
+---------------------
+Parameters for evaluation 121:
+                      7.7459666924e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 121:
+Active set vector = { 1 }
+                      9.9200000000e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  122
+---------------------
+Parameters for evaluation 122:
+                      7.7459666924e-01 x1
+                     -6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 122:
+Active set vector = { 1 }
+                      6.9088326767e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  123
+---------------------
+Parameters for evaluation 123:
+                      7.7459666924e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 123:
+Active set vector = { 1 }
+                      4.2340571352e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  124
+---------------------
+Parameters for evaluation 124:
+                      7.7459666924e-01 x1
+                     -2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 124:
+Active set vector = { 1 }
+                      2.2426173262e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  125
+---------------------
+Parameters for evaluation 125:
+                      7.7459666924e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 125:
+Active set vector = { 1 }
+                      1.0025813169e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  126
+---------------------
+Parameters for evaluation 126:
+                      7.7459666924e-01 x1
+                      2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 126:
+Active set vector = { 1 }
+                      3.6634498931e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  127
+---------------------
+Parameters for evaluation 127:
+                      7.7459666924e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 127:
+Active set vector = { 1 }
+                      1.0503260977e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  128
+---------------------
+Parameters for evaluation 128:
+                      7.7459666924e-01 x1
+                      6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 128:
+Active set vector = { 1 }
+                      2.3191645211e-02 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  129
+---------------------
+Parameters for evaluation 129:
+                      7.7459666924e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 129:
+Active set vector = { 1 }
+                      5.1626337090e-03 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  130
+---------------------
+Parameters for evaluation 130:
+                      7.7459666924e-01 x1
+                      8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 130:
+Active set vector = { 1 }
+                      2.7361038635e-03 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  131
+---------------------
+Parameters for evaluation 131:
+                      7.7459666924e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 131:
+Active set vector = { 1 }
+                      2.5837533877e-03 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  132
+---------------------
+Parameters for evaluation 132:
+                      7.7459666924e-01 x1
+                      9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 132:
+Active set vector = { 1 }
+                      2.5813183019e-03 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  133
+---------------------
+Parameters for evaluation 133:
+                      8.8845923287e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 133:
+Active set vector = { 1 }
+                      1.4772847013e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  134
+---------------------
+Parameters for evaluation 134:
+                      8.8845923287e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 134:
+Active set vector = { 1 }
+                      9.9175734702e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  135
+---------------------
+Parameters for evaluation 135:
+                      8.8845923287e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 135:
+Active set vector = { 1 }
+                      4.2316306053e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  136
+---------------------
+Parameters for evaluation 136:
+                      8.8845923287e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 136:
+Active set vector = { 1 }
+                      1.0001547870e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  137
+---------------------
+Parameters for evaluation 137:
+                      8.8845923287e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 137:
+Active set vector = { 1 }
+                      1.0260607993e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  138
+---------------------
+Parameters for evaluation 138:
+                      8.8845923287e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 138:
+Active set vector = { 1 }
+                      2.7361038635e-03 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  139
+---------------------
+Parameters for evaluation 139:
+                      8.8845923287e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 139:
+Active set vector = { 1 }
+                      1.5722354217e-04 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  140
+---------------------
+Parameters for evaluation 140:
+                      9.6049126871e-01 x1
+                     -9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 140:
+Active set vector = { 1 }
+                      1.5803536456e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  141
+---------------------
+Parameters for evaluation 141:
+                      9.6049126871e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 141:
+Active set vector = { 1 }
+                      1.4772694662e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  142
+---------------------
+Parameters for evaluation 142:
+                      9.6049126871e-01 x1
+                     -8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 142:
+Active set vector = { 1 }
+                      1.2718343166e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  143
+---------------------
+Parameters for evaluation 143:
+                      9.6049126871e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 143:
+Active set vector = { 1 }
+                      9.9174211197e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  144
+---------------------
+Parameters for evaluation 144:
+                      9.6049126871e-01 x1
+                     -6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 144:
+Active set vector = { 1 }
+                      6.9062537963e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  145
+---------------------
+Parameters for evaluation 145:
+                      9.6049126871e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 145:
+Active set vector = { 1 }
+                      4.2314782548e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  146
+---------------------
+Parameters for evaluation 146:
+                      9.6049126871e-01 x1
+                     -2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 146:
+Active set vector = { 1 }
+                      2.2400384459e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  147
+---------------------
+Parameters for evaluation 147:
+                      9.6049126871e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 147:
+Active set vector = { 1 }
+                      1.0000024365e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  148
+---------------------
+Parameters for evaluation 148:
+                      9.6049126871e-01 x1
+                      2.2338668643e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 148:
+Active set vector = { 1 }
+                      3.6376610899e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  149
+---------------------
+Parameters for evaluation 149:
+                      9.6049126871e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 149:
+Active set vector = { 1 }
+                      1.0245372945e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  150
+---------------------
+Parameters for evaluation 150:
+                      9.6049126871e-01 x1
+                      6.2110294674e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 150:
+Active set vector = { 1 }
+                      2.0612764890e-02 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  151
+---------------------
+Parameters for evaluation 151:
+                      9.6049126871e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 151:
+Active set vector = { 1 }
+                      2.5837533877e-03 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  152
+---------------------
+Parameters for evaluation 152:
+                      9.6049126871e-01 x1
+                      8.8845923287e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 152:
+Active set vector = { 1 }
+                      1.5722354217e-04 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  153
+---------------------
+Parameters for evaluation 153:
+                      9.6049126871e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 153:
+Active set vector = { 1 }
+                      4.8730664200e-06 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  154
+---------------------
+Parameters for evaluation 154:
+                      9.6049126871e-01 x1
+                      9.9383196321e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 154:
+Active set vector = { 1 }
+                      2.4379806075e-06 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  155
+---------------------
+Parameters for evaluation 155:
+                      9.9383196321e-01 x1
+                     -9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 155:
+Active set vector = { 1 }
+                      1.4772692227e+01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  156
+---------------------
+Parameters for evaluation 156:
+                      9.9383196321e-01 x1
+                     -7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 156:
+Active set vector = { 1 }
+                      9.9174186846e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  157
+---------------------
+Parameters for evaluation 157:
+                      9.9383196321e-01 x1
+                     -4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 157:
+Active set vector = { 1 }
+                      4.2314758198e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  158
+---------------------
+Parameters for evaluation 158:
+                      9.9383196321e-01 x1
+                      0.0000000000e+00 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 158:
+Active set vector = { 1 }
+                      1.0000000014e+00 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  159
+---------------------
+Parameters for evaluation 159:
+                      9.9383196321e-01 x1
+                      4.3424374935e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 159:
+Active set vector = { 1 }
+                      1.0245129437e-01 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  160
+---------------------
+Parameters for evaluation 160:
+                      9.9383196321e-01 x1
+                      7.7459666924e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 160:
+Active set vector = { 1 }
+                      2.5813183019e-03 response_fn_1
+
+
+
+---------------------
+Begin Evaluation  161
+---------------------
+Parameters for evaluation 161:
+                      9.9383196321e-01 x1
+                      9.6049126871e-01 x2
+
+Direct interface: invoking text_book 
+
+Active response data for evaluation 161:
+Active set vector = { 1 }
+                      2.4379806075e-06 response_fn_1
+
+
+
+>>>>> sparse_grid: post-run phase.
+<<<<< Function evaluation summary: 161 total (161 new, 0 duplicate)
+  response_fn_1: 161 val (161 n, 0 d), 0 grad (0 n, 0 d), 0 Hess (0 n, 0 d)
+<<<<< Best data metrics not defined for generic response functions
+
+<<<<< Iterator sparse_grid completed.
+
+>>>>> Appending 161 points to global_nodal_interpolation_polynomial approximations.
+
+<<<<< global_nodal_interpolation_polynomial approximation updates completed.
+Constructing global approximations with no anchor, 161 DACE samples, and 0 reused points.
+
+<<<<< global_nodal_interpolation_polynomial approximation builds completed.
+
+NonD lhs Samples = 100 Seed (user-specified) = 12347
+
+------------------------------------
+Begin Approximate Fn Evaluation    1
+------------------------------------
+Parameters for approximate fn evaluation 1:
+                      3.2021816666e-01 x1
+                     -5.8483041598e-01 x2
+
+
+Active response data for approximate fn evaluation 1:
+Active set vector = { 1 }
+                      6.5221133311e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation    2
+------------------------------------
+Parameters for approximate fn evaluation 2:
+                     -9.8593702827e-01 x1
+                      3.1970622476e-01 x2
+
+
+Active response data for approximate fn evaluation 2:
+Active set vector = { 1 }
+                      1.5768892595e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation    3
+------------------------------------
+Parameters for approximate fn evaluation 3:
+                      6.7835452668e-01 x1
+                      4.5022020117e-01 x2
+
+
+Active response data for approximate fn evaluation 3:
+Active set vector = { 1 }
+                      1.0206289883e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation    4
+------------------------------------
+Parameters for approximate fn evaluation 4:
+                      5.7738619973e-01 x1
+                      2.6126511678e-01 x2
+
+
+Active response data for approximate fn evaluation 4:
+Active set vector = { 1 }
+                      3.2971921588e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation    5
+------------------------------------
+Parameters for approximate fn evaluation 5:
+                      3.1443237922e-01 x1
+                      7.1888994947e-01 x2
+
+
+Active response data for approximate fn evaluation 5:
+Active set vector = { 1 }
+                      2.2714739740e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation    6
+------------------------------------
+Parameters for approximate fn evaluation 6:
+                      8.5623910285e-01 x1
+                     -1.1787595316e-02 x2
+
+
+Active response data for approximate fn evaluation 6:
+Active set vector = { 1 }
+                      1.0484177694e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation    7
+------------------------------------
+Parameters for approximate fn evaluation 7:
+                      3.9435597131e-01 x1
+                     -1.4129029888e-01 x2
+
+
+Active response data for approximate fn evaluation 7:
+Active set vector = { 1 }
+                      1.8311653703e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation    8
+------------------------------------
+Parameters for approximate fn evaluation 8:
+                     -5.3315538797e-01 x1
+                     -2.7093783041e-01 x2
+
+
+Active response data for approximate fn evaluation 8:
+Active set vector = { 1 }
+                      8.1342969742e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation    9
+------------------------------------
+Parameters for approximate fn evaluation 9:
+                     -9.6623593778e-02 x1
+                      1.2996622996e-01 x2
+
+
+Active response data for approximate fn evaluation 9:
+Active set vector = { 1 }
+                      2.0191931748e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   10
+------------------------------------
+Parameters for approximate fn evaluation 10:
+                     -6.9299744411e-01 x1
+                      2.3151908792e-01 x2
+
+
+Active response data for approximate fn evaluation 10:
+Active set vector = { 1 }
+                      8.5640982731e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   11
+------------------------------------
+Parameters for approximate fn evaluation 11:
+                     -4.2762047520e-01 x1
+                     -7.8480651124e-01 x2
+
+
+Active response data for approximate fn evaluation 11:
+Active set vector = { 1 }
+                      1.4301481177e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   12
+------------------------------------
+Parameters for approximate fn evaluation 12:
+                      2.3589371889e-01 x1
+                      2.5280386226e-01 x2
+
+
+Active response data for approximate fn evaluation 12:
+Active set vector = { 1 }
+                      6.5259184098e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   13
+------------------------------------
+Parameters for approximate fn evaluation 13:
+                      3.7900058808e-01 x1
+                      8.0525290682e-01 x2
+
+
+Active response data for approximate fn evaluation 13:
+Active set vector = { 1 }
+                      1.5015683166e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   14
+------------------------------------
+Parameters for approximate fn evaluation 14:
+                      5.4609257954e-01 x1
+                     -8.3927905488e-01 x2
+
+
+Active response data for approximate fn evaluation 14:
+Active set vector = { 1 }
+                      1.1486782556e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   15
+------------------------------------
+Parameters for approximate fn evaluation 15:
+                     -2.3589179537e-01 x1
+                     -8.0315807540e-01 x2
+
+
+Active response data for approximate fn evaluation 15:
+Active set vector = { 1 }
+                      1.2904503607e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   16
+------------------------------------
+Parameters for approximate fn evaluation 16:
+                      7.5011410319e-01 x1
+                     -1.3997054077e-01 x2
+
+
+Active response data for approximate fn evaluation 16:
+Active set vector = { 1 }
+                      1.6926847096e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   17
+------------------------------------
+Parameters for approximate fn evaluation 17:
+                      5.2897785605e-01 x1
+                      9.9857845920e-01 x2
+
+
+Active response data for approximate fn evaluation 17:
+Active set vector = { 1 }
+                      4.9222684966e-02 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   18
+------------------------------------
+Parameters for approximate fn evaluation 18:
+                     -9.4924454146e-01 x1
+                     -9.7043725018e-01 x2
+
+
+Active response data for approximate fn evaluation 18:
+Active set vector = { 1 }
+                      2.9511373771e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   19
+------------------------------------
+Parameters for approximate fn evaluation 19:
+                      7.9518015154e-01 x1
+                     -7.7250894368e-01 x2
+
+
+Active response data for approximate fn evaluation 19:
+Active set vector = { 1 }
+                      9.8725914576e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   20
+------------------------------------
+Parameters for approximate fn evaluation 20:
+                      6.8600044030e-01 x1
+                      9.7478552875e-02 x2
+
+
+Active response data for approximate fn evaluation 20:
+Active set vector = { 1 }
+                      6.7320461266e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   21
+------------------------------------
+Parameters for approximate fn evaluation 21:
+                      7.9993678816e-03 x1
+                     -2.2410150976e-01 x2
+
+
+Active response data for approximate fn evaluation 21:
+Active set vector = { 1 }
+                      3.2136604252e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   22
+------------------------------------
+Parameters for approximate fn evaluation 22:
+                      4.8273607175e-01 x1
+                      4.2974997723e-01 x2
+
+
+Active response data for approximate fn evaluation 22:
+Active set vector = { 1 }
+                      1.7733475034e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   23
+------------------------------------
+Parameters for approximate fn evaluation 23:
+                      4.5758641161e-01 x1
+                     -3.2712129215e-02 x2
+
+
+Active response data for approximate fn evaluation 23:
+Active set vector = { 1 }
+                      1.2239711768e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   24
+------------------------------------
+Parameters for approximate fn evaluation 24:
+                      8.6364766731e-01 x1
+                     -4.7581382392e-01 x2
+
+
+Active response data for approximate fn evaluation 24:
+Active set vector = { 1 }
+                      4.7441448468e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   25
+------------------------------------
+Parameters for approximate fn evaluation 25:
+                      4.3978600882e-01 x1
+                     -5.3722386816e-01 x2
+
+
+Active response data for approximate fn evaluation 25:
+Active set vector = { 1 }
+                      5.6825347962e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   26
+------------------------------------
+Parameters for approximate fn evaluation 26:
+                     -5.5177240036e-02 x1
+                     -9.8376011984e-01 x2
+
+
+Active response data for approximate fn evaluation 26:
+Active set vector = { 1 }
+                      1.6726276600e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   27
+------------------------------------
+Parameters for approximate fn evaluation 27:
+                     -8.6931056457e-01 x1
+                     -6.1400016921e-01 x2
+
+
+Active response data for approximate fn evaluation 27:
+Active set vector = { 1 }
+                      1.8996293153e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   28
+------------------------------------
+Parameters for approximate fn evaluation 28:
+                      9.8978883639e-01 x1
+                     -7.0486985235e-01 x2
+
+
+Active response data for approximate fn evaluation 28:
+Active set vector = { 1 }
+                      8.4482143614e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   29
+------------------------------------
+Parameters for approximate fn evaluation 29:
+                     -7.6909608040e-02 x1
+                      9.7226671531e-01 x2
+
+
+Active response data for approximate fn evaluation 29:
+Active set vector = { 1 }
+                      1.3449842472e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   30
+------------------------------------
+Parameters for approximate fn evaluation 30:
+                     -6.4152679711e-01 x1
+                      1.0657095472e-01 x2
+
+
+Active response data for approximate fn evaluation 30:
+Active set vector = { 1 }
+                      7.8980721870e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   31
+------------------------------------
+Parameters for approximate fn evaluation 31:
+                      4.1715618795e-01 x1
+                      6.8540362697e-01 x2
+
+
+Active response data for approximate fn evaluation 31:
+Active set vector = { 1 }
+                      1.2519601886e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   32
+------------------------------------
+Parameters for approximate fn evaluation 32:
+                     -2.8193939500e-02 x1
+                     -9.6708349809e-02 x2
+
+
+Active response data for approximate fn evaluation 32:
+Active set vector = { 1 }
+                      2.5642891839e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   33
+------------------------------------
+Parameters for approximate fn evaluation 33:
+                      1.0997482476e-01 x1
+                     -6.4022047207e-01 x2
+
+
+Active response data for approximate fn evaluation 33:
+Active set vector = { 1 }
+                      7.8653323083e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   34
+------------------------------------
+Parameters for approximate fn evaluation 34:
+                      8.3860414676e-01 x1
+                      8.7944110269e-01 x2
+
+
+Active response data for approximate fn evaluation 34:
+Active set vector = { 1 }
+                      8.8978084963e-04 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   35
+------------------------------------
+Parameters for approximate fn evaluation 35:
+                     -3.4461825796e-01 x1
+                     -4.1887419285e-01 x2
+
+
+Active response data for approximate fn evaluation 35:
+Active set vector = { 1 }
+                      7.3218479524e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   36
+------------------------------------
+Parameters for approximate fn evaluation 36:
+                      2.7244204890e-01 x1
+                      2.8332105223e-02 x2
+
+
+Active response data for approximate fn evaluation 36:
+Active set vector = { 1 }
+                      1.1715989443e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   37
+------------------------------------
+Parameters for approximate fn evaluation 37:
+                      6.4265387988e-01 x1
+                     -7.2952911592e-01 x2
+
+
+Active response data for approximate fn evaluation 37:
+Active set vector = { 1 }
+                      8.9640083052e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   38
+------------------------------------
+Parameters for approximate fn evaluation 38:
+                      5.1212817274e-01 x1
+                      7.4869496436e-01 x2
+
+
+Active response data for approximate fn evaluation 38:
+Active set vector = { 1 }
+                      6.0641461821e-02 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   39
+------------------------------------
+Parameters for approximate fn evaluation 39:
+                     -1.9777604748e-01 x1
+                      4.1513010203e-01 x2
+
+
+Active response data for approximate fn evaluation 39:
+Active set vector = { 1 }
+                      2.1752845194e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   40
+------------------------------------
+Parameters for approximate fn evaluation 40:
+                     -2.6853202013e-01 x1
+                     -2.0763716227e-01 x2
+
+
+Active response data for approximate fn evaluation 40:
+Active set vector = { 1 }
+                      4.7163334543e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   41
+------------------------------------
+Parameters for approximate fn evaluation 41:
+                      1.7469077432e-01 x1
+                      7.6125539129e-01 x2
+
+
+Active response data for approximate fn evaluation 41:
+Active set vector = { 1 }
+                      4.6719420607e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   42
+------------------------------------
+Parameters for approximate fn evaluation 42:
+                     -5.0326055110e-01 x1
+                      2.0714928553e-01 x2
+
+
+Active response data for approximate fn evaluation 42:
+Active set vector = { 1 }
+                      5.5018145367e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   43
+------------------------------------
+Parameters for approximate fn evaluation 43:
+                      1.5980039593e-01 x1
+                     -2.4677022482e-01 x2
+
+
+Active response data for approximate fn evaluation 43:
+Active set vector = { 1 }
+                      2.9146160111e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   44
+------------------------------------
+Parameters for approximate fn evaluation 44:
+                      7.6631014720e-01 x1
+                      5.1206515478e-02 x2
+
+
+Active response data for approximate fn evaluation 44:
+Active set vector = { 1 }
+                      8.1335873657e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   45
+------------------------------------
+Parameters for approximate fn evaluation 45:
+                     -3.8695948306e-01 x1
+                      5.5477663540e-01 x2
+
+
+Active response data for approximate fn evaluation 45:
+Active set vector = { 1 }
+                      3.7397474367e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   46
+------------------------------------
+Parameters for approximate fn evaluation 46:
+                      9.7285380905e-01 x1
+                      3.9192797964e-01 x2
+
+
+Active response data for approximate fn evaluation 46:
+Active set vector = { 1 }
+                      1.3671677539e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   47
+------------------------------------
+Parameters for approximate fn evaluation 47:
+                     -7.2528259945e-01 x1
+                     -2.9081602043e-01 x2
+
+
+Active response data for approximate fn evaluation 47:
+Active set vector = { 1 }
+                      1.1636390275e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   48
+------------------------------------
+Parameters for approximate fn evaluation 48:
+                     -6.3747985644e-01 x1
+                      8.9885651251e-01 x2
+
+
+Active response data for approximate fn evaluation 48:
+Active set vector = { 1 }
+                      7.1896903514e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   49
+------------------------------------
+Parameters for approximate fn evaluation 49:
+                      4.6297677101e-01 x1
+                     -3.4794471612e-01 x2
+
+
+Active response data for approximate fn evaluation 49:
+Active set vector = { 1 }
+                      3.3844963879e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   50
+------------------------------------
+Parameters for approximate fn evaluation 50:
+                      7.0251817863e-01 x1
+                     -7.0830148715e-02 x2
+
+
+Active response data for approximate fn evaluation 50:
+Active set vector = { 1 }
+                      1.3227000598e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   51
+------------------------------------
+Parameters for approximate fn evaluation 51:
+                     -7.5540613061e-01 x1
+                     -5.6079526290e-01 x2
+
+
+Active response data for approximate fn evaluation 51:
+Active set vector = { 1 }
+                      1.5429833107e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   52
+------------------------------------
+Parameters for approximate fn evaluation 52:
+                     -4.8424422786e-01 x1
+                     -4.5927207021e-01 x2
+
+
+Active response data for approximate fn evaluation 52:
+Active set vector = { 1 }
+                      9.3877886376e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   53
+------------------------------------
+Parameters for approximate fn evaluation 53:
+                      9.1463054690e-01 x1
+                     -3.9297676408e-01 x2
+
+
+Active response data for approximate fn evaluation 53:
+Active set vector = { 1 }
+                      3.7651442110e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   54
+------------------------------------
+Parameters for approximate fn evaluation 54:
+                      9.2894086864e-01 x1
+                     -8.6118555275e-01 x2
+
+
+Active response data for approximate fn evaluation 54:
+Active set vector = { 1 }
+                      1.1999402289e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   55
+------------------------------------
+Parameters for approximate fn evaluation 55:
+                     -4.6922245084e-01 x1
+                      4.6406284910e-01 x2
+
+
+Active response data for approximate fn evaluation 55:
+Active set vector = { 1 }
+                      4.7421173205e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   56
+------------------------------------
+Parameters for approximate fn evaluation 56:
+                      2.8474913928e-01 x1
+                      1.5866221413e-01 x2
+
+
+Active response data for approximate fn evaluation 56:
+Active set vector = { 1 }
+                      7.6276856698e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   57
+------------------------------------
+Parameters for approximate fn evaluation 57:
+                      8.9256154969e-01 x1
+                     -1.7437821162e-01 x2
+
+
+Active response data for approximate fn evaluation 57:
+Active set vector = { 1 }
+                      1.9022270876e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   58
+------------------------------------
+Parameters for approximate fn evaluation 58:
+                      6.0129628657e-01 x1
+                     -6.3183664026e-01 x2
+
+
+Active response data for approximate fn evaluation 58:
+Active set vector = { 1 }
+                      7.1162572822e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   59
+------------------------------------
+Parameters for approximate fn evaluation 59:
+                      3.9876900245e-02 x1
+                      3.2717887024e-01 x2
+
+
+Active response data for approximate fn evaluation 59:
+Active set vector = { 1 }
+                      1.0547089591e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   60
+------------------------------------
+Parameters for approximate fn evaluation 60:
+                     -3.1147207557e-01 x1
+                     -4.9609519840e-01 x2
+
+
+Active response data for approximate fn evaluation 60:
+Active set vector = { 1 }
+                      7.9682496412e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   61
+------------------------------------
+Parameters for approximate fn evaluation 61:
+                     -7.8808349883e-01 x1
+                     -7.5645238627e-01 x2
+
+
+Active response data for approximate fn evaluation 61:
+Active set vector = { 1 }
+                      1.9740356410e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   62
+------------------------------------
+Parameters for approximate fn evaluation 62:
+                     -8.2736450689e-01 x1
+                      6.2385756024e-02 x2
+
+
+Active response data for approximate fn evaluation 62:
+Active set vector = { 1 }
+                      1.1923517102e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   63
+------------------------------------
+Parameters for approximate fn evaluation 63:
+                     -1.4573486344e-01 x1
+                      9.4081591204e-01 x2
+
+
+Active response data for approximate fn evaluation 63:
+Active set vector = { 1 }
+                      1.7232155531e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   64
+------------------------------------
+Parameters for approximate fn evaluation 64:
+                      4.9511860115e-02 x1
+                      7.3290313405e-01 x2
+
+
+Active response data for approximate fn evaluation 64:
+Active set vector = { 1 }
+                      8.2127111705e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   65
+------------------------------------
+Parameters for approximate fn evaluation 65:
+                     -5.6363587552e-01 x1
+                      3.6063440389e-01 x2
+
+
+Active response data for approximate fn evaluation 65:
+Active set vector = { 1 }
+                      6.1449233991e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   66
+------------------------------------
+Parameters for approximate fn evaluation 66:
+                     -9.7997357395e-01 x1
+                      6.4756494188e-01 x2
+
+
+Active response data for approximate fn evaluation 66:
+Active set vector = { 1 }
+                      1.5384143900e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   67
+------------------------------------
+Parameters for approximate fn evaluation 67:
+                     -9.2715024934e-01 x1
+                     -9.4626890773e-01 x2
+
+
+Active response data for approximate fn evaluation 67:
+Active set vector = { 1 }
+                      2.8141774376e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   68
+------------------------------------
+Parameters for approximate fn evaluation 68:
+                      9.5137307466e-01 x1
+                     -3.3487721660e-01 x2
+
+
+Active response data for approximate fn evaluation 68:
+Active set vector = { 1 }
+                      3.1751631634e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   69
+------------------------------------
+Parameters for approximate fn evaluation 69:
+                     -2.4121235122e-01 x1
+                     -5.7374011250e-02 x2
+
+
+Active response data for approximate fn evaluation 69:
+Active set vector = { 1 }
+                      3.6234863139e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   70
+------------------------------------
+Parameters for approximate fn evaluation 70:
+                     -4.4643855642e-01 x1
+                     -9.0986296284e-01 x2
+
+
+Active response data for approximate fn evaluation 70:
+Active set vector = { 1 }
+                      1.7682050563e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   71
+------------------------------------
+Parameters for approximate fn evaluation 71:
+                      3.5549261989e-01 x1
+                      5.8836083152e-01 x2
+
+
+Active response data for approximate fn evaluation 71:
+Active set vector = { 1 }
+                      2.0126087496e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   72
+------------------------------------
+Parameters for approximate fn evaluation 72:
+                      7.3016983241e-01 x1
+                      2.8273274786e-01 x2
+
+
+Active response data for approximate fn evaluation 72:
+Active set vector = { 1 }
+                      2.6998281014e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   73
+------------------------------------
+Parameters for approximate fn evaluation 73:
+                     -1.1930324384e-01 x1
+                      1.6083479738e-01 x2
+
+
+Active response data for approximate fn evaluation 73:
+Active set vector = { 1 }
+                      2.0655026007e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   74
+------------------------------------
+Parameters for approximate fn evaluation 74:
+                     -8.9447561606e-01 x1
+                      7.9089960258e-01 x2
+
+
+Active response data for approximate fn evaluation 74:
+Active set vector = { 1 }
+                      1.2883104458e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   75
+------------------------------------
+Parameters for approximate fn evaluation 75:
+                     -7.1313509992e-01 x1
+                      5.0019706028e-01 x2
+
+
+Active response data for approximate fn evaluation 75:
+Active set vector = { 1 }
+                      8.6756396367e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   76
+------------------------------------
+Parameters for approximate fn evaluation 76:
+                     -9.1502008507e-01 x1
+                     -8.5486394915e-01 x2
+
+
+Active response data for approximate fn evaluation 76:
+Active set vector = { 1 }
+                      2.5286283145e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   77
+------------------------------------
+Parameters for approximate fn evaluation 77:
+                      1.9873284313e-01 x1
+                      9.2154954550e-01 x2
+
+
+Active response data for approximate fn evaluation 77:
+Active set vector = { 1 }
+                      4.1223918716e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   78
+------------------------------------
+Parameters for approximate fn evaluation 78:
+                     -1.6649398990e-01 x1
+                      6.6876377951e-01 x2
+
+
+Active response data for approximate fn evaluation 78:
+Active set vector = { 1 }
+                      1.8635647983e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   79
+------------------------------------
+Parameters for approximate fn evaluation 79:
+                      2.4250222735e-01 x1
+                     -9.3490678201e-01 x2
+
+
+Active response data for approximate fn evaluation 79:
+Active set vector = { 1 }
+                      1.4345769301e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   80
+------------------------------------
+Parameters for approximate fn evaluation 80:
+                     -7.7014881434e-01 x1
+                      6.1750349464e-01 x2
+
+
+Active response data for approximate fn evaluation 80:
+Active set vector = { 1 }
+                      9.8397684037e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   81
+------------------------------------
+Parameters for approximate fn evaluation 81:
+                     -3.6632361310e-01 x1
+                      5.7963339059e-01 x2
+
+
+Active response data for approximate fn evaluation 81:
+Active set vector = { 1 }
+                      3.5163181388e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   82
+------------------------------------
+Parameters for approximate fn evaluation 82:
+                     -6.1167091329e-01 x1
+                      1.0330873155e-02 x2
+
+
+Active response data for approximate fn evaluation 82:
+Active set vector = { 1 }
+                      7.7062310950e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   83
+------------------------------------
+Parameters for approximate fn evaluation 83:
+                     -5.8861244887e-01 x1
+                     -8.9068770930e-01 x2
+
+
+Active response data for approximate fn evaluation 83:
+Active set vector = { 1 }
+                      1.9147488947e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   84
+------------------------------------
+Parameters for approximate fn evaluation 84:
+                      2.1597608180e-01 x1
+                      8.4515403036e-01 x2
+
+
+Active response data for approximate fn evaluation 84:
+Active set vector = { 1 }
+                      3.7842301393e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   85
+------------------------------------
+Parameters for approximate fn evaluation 85:
+                      1.2645607305e-01 x1
+                     -5.4853466370e-01 x2
+
+
+Active response data for approximate fn evaluation 85:
+Active set vector = { 1 }
+                      6.3324998142e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   86
+------------------------------------
+Parameters for approximate fn evaluation 86:
+                     -5.5145346286e-01 x1
+                     -5.0506255596e-01 x2
+
+
+Active response data for approximate fn evaluation 86:
+Active set vector = { 1 }
+                      1.0924878060e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   87
+------------------------------------
+Parameters for approximate fn evaluation 87:
+                     -3.2399477820e-01 x1
+                      5.3636415603e-01 x2
+
+
+Active response data for approximate fn evaluation 87:
+Active set vector = { 1 }
+                      3.1190834049e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   88
+------------------------------------
+Parameters for approximate fn evaluation 88:
+                     -1.5716131371e-02 x1
+                     -1.8592961871e-01 x2
+
+
+Active response data for approximate fn evaluation 88:
+Active set vector = { 1 }
+                      3.0424047969e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   89
+------------------------------------
+Parameters for approximate fn evaluation 89:
+                     -8.1197653778e-01 x1
+                     -3.0549837783e-01 x2
+
+
+Active response data for approximate fn evaluation 89:
+Active set vector = { 1 }
+                      1.3684516651e+01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   90
+------------------------------------
+Parameters for approximate fn evaluation 90:
+                      5.8991325275e-01 x1
+                     -1.0993015564e-01 x2
+
+
+Active response data for approximate fn evaluation 90:
+Active set vector = { 1 }
+                      1.5459698932e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   91
+------------------------------------
+Parameters for approximate fn evaluation 91:
+                     -2.8029429023e-01 x1
+                      4.8468136240e-01 x2
+
+
+Active response data for approximate fn evaluation 91:
+Active set vector = { 1 }
+                      2.7573426511e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   92
+------------------------------------
+Parameters for approximate fn evaluation 92:
+                     -2.0567018251e-01 x1
+                      9.1618703381e-01 x2
+
+
+Active response data for approximate fn evaluation 92:
+Active set vector = { 1 }
+                      2.1131203072e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   93
+------------------------------------
+Parameters for approximate fn evaluation 93:
+                      6.2360646379e-01 x1
+                     -6.6175522773e-01 x2
+
+
+Active response data for approximate fn evaluation 93:
+Active set vector = { 1 }
+                      7.6455690399e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   94
+------------------------------------
+Parameters for approximate fn evaluation 94:
+                     -4.0622907204e-01 x1
+                     -3.7274089931e-01 x2
+
+
+Active response data for approximate fn evaluation 94:
+Active set vector = { 1 }
+                      7.4614575565e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   95
+------------------------------------
+Parameters for approximate fn evaluation 95:
+                      7.0980765112e-02 x1
+                     -6.8094964548e-01 x2
+
+
+Active response data for approximate fn evaluation 95:
+Active set vector = { 1 }
+                      8.7288699723e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   96
+------------------------------------
+Parameters for approximate fn evaluation 96:
+                     -1.3585146757e-01 x1
+                      8.3445952269e-01 x2
+
+
+Active response data for approximate fn evaluation 96:
+Active set vector = { 1 }
+                      1.6652600606e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   97
+------------------------------------
+Parameters for approximate fn evaluation 97:
+                      8.1699572349e-01 x1
+                     -4.2027308372e-01 x2
+
+
+Active response data for approximate fn evaluation 97:
+Active set vector = { 1 }
+                      4.0701191497e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   98
+------------------------------------
+Parameters for approximate fn evaluation 98:
+                     -6.7567416150e-01 x1
+                      1.9680609683e-01 x2
+
+
+Active response data for approximate fn evaluation 98:
+Active set vector = { 1 }
+                      8.3003923607e+00 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation   99
+------------------------------------
+Parameters for approximate fn evaluation 99:
+                      9.6077649924e-02 x1
+                      6.3223661977e-01 x2
+
+
+Active response data for approximate fn evaluation 99:
+Active set vector = { 1 }
+                      6.8590509706e-01 f1
+
+
+
+------------------------------------
+Begin Approximate Fn Evaluation  100
+------------------------------------
+Parameters for approximate fn evaluation 100:
+                     -8.4694241605e-01 x1
+                      3.4482527270e-01 x2
+
+
+Active response data for approximate fn evaluation 100:
+Active set vector = { 1 }
+                      1.1820519047e+01 f1
+
+
+
+>>>>> stoch_collocation: post-run phase.
+<<<<< Function evaluation summary: 161 total (161 new, 0 duplicate)
+  response_fn_1: 161 val (161 n, 0 d), 0 grad (0 n, 0 d), 0 Hess (0 n, 0 d)
+-----------------------------------------------------------------------------
+Statistics derived analytically from polynomial expansion:
+
+Moment statistics for each response function:
+                            Mean           Std Dev          Skewness          Kurtosis
+response_fn_1
+  expansion:    6.4000000000e+00  6.0339778661e+00  9.7907092780e-01  3.9366515837e-01
+  integration:  6.4000000000e+00  6.0339778661e+00  9.7907092780e-01  3.9366515837e-01
+
+Covariance matrix for response functions:
+[[  3.6408888889e+01 ]] 
+
+Local sensitivities for each response function evaluated at uncertain variable means:
+response_fn_1:
+ [ -4.0000000000e+00 -4.0000000000e+00 ] 
+
+Global sensitivity indices for each response function:
+response_fn_1 Sobol' indices:
+                                  Main             Total
+                      5.0000000000e-01  5.0000000000e-01 x1
+                      5.0000000000e-01  5.0000000000e-01 x2
+                           Interaction
+                     -2.3418766926e-15 x1 x2 
+-----------------------------------------------------------------------------
+Statistics based on 100 samples performed on polynomial expansion:
+
+Probability Density Function (PDF) histograms for each response function:
+PDF for response_fn_1:
+          Bin Lower          Bin Upper      Density Value
+          ---------          ---------      -------------
+   8.8978084963e-04   1.0000000000e-01   3.0269330708e-01
+   1.0000000000e-01   1.0000000000e+00   2.0000000000e-01
+   1.0000000000e+00   5.0000000000e+01   1.6122448980e-02
+   5.0000000000e+01   1.0000000000e+02   0.0000000000e+00
+   1.0000000000e+02   5.0000000000e+02   0.0000000000e+00
+   5.0000000000e+02   1.0000000000e+03   0.0000000000e+00
+
+Level mappings for each response function:
+Cumulative Distribution Function (CDF) for response_fn_1:
+     Response Level  Probability Level  Reliability Index  General Rel Index
+     --------------  -----------------  -----------------  -----------------
+   1.0000000000e-01   3.0000000000e-02
+   1.0000000000e+00   2.1000000000e-01
+   5.0000000000e+01   1.0000000000e+00
+   1.0000000000e+02   1.0000000000e+00
+   5.0000000000e+02   1.0000000000e+00
+   1.0000000000e+03   1.0000000000e+00
+-----------------------------------------------------------------------------
+
+<<<<< Iterator stoch_collocation completed.
+<<<<< Environment execution completed.
+DAKOTA execution time in seconds:
+  Total CPU        =   0.347003 [parent =   0.346984, child =    1.9e-05]
+  Total wall clock =   0.026484

@@ -30,11 +30,11 @@ def parseInput(real_sg_input, txtcfg):
   # unpack values and scale to units
   rhoedge0      = real_sg_input[0]
   # v0            = real_sg_input[1]
-  tau_peierls   = real_sg_input[2] 
-  p_slip        = real_sg_input[3]
-  q_slip        = real_sg_input[4]
-  Qsd           = real_sg_input[5]
-  CLambdaSlip   = real_sg_input[6]
+  tau_peierls   = real_sg_input[1] 
+  p_slip        = real_sg_input[2]
+  q_slip        = real_sg_input[3]
+  Qsd           = real_sg_input[4]
+  CLambdaSlip   = real_sg_input[5]
   parsed_txtcfg = txtcfg # work on a copied version
   # change lines: always add '\n' at the end of the line
   # parsed_txtcfg[55 - 1] = 'rhoedge0            1.0e12          # Initial edge dislocation density [m/m**3]\n'

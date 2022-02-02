@@ -16,10 +16,10 @@ parentPath = os.getcwd()
 def getDamaskParams(sg_input):
   # translate dakota input from [-1,1] to real bounds imposed by user
   # [tau0_slip, tausat_slip, h0, n, a]
-  # lower_bounds = [1e10, 1e2, 1.64, 0.25, 1.2, 1.5e-19,  5] # 7d
-  # upper_bounds = [5e12, 1e4, 2.42, 0.70, 1.8, 3.5e-19, 20] # 7d
-  lower_bounds = [1e10, 1.64, 0.25, 1.2, 1.5e-19,  5] # 6d
-  upper_bounds = [5e12, 2.92, 0.70, 1.8, 3.5e-19, 20] # 6d
+  lower_bounds = [1e10, 1e-3, 1.64, 0.25, 1.2, 1.5e-19,  5] # 7d
+  upper_bounds = [5e12, 1e-5, 2.42, 0.70, 1.8, 3.5e-19, 20] # 7d
+  # lower_bounds = [1e10, 1.64, 0.25, 1.2, 1.5e-19,  5] # 6d
+  # upper_bounds = [5e12, 2.92, 0.70, 1.8, 3.5e-19, 20] # 6d
   sg_input     = np.array(sg_input)[2:] # ignore 'id' and 'weights' two columns
   lower_bounds = np.array(lower_bounds)
   upper_bounds = np.array(upper_bounds)
@@ -29,12 +29,12 @@ def getDamaskParams(sg_input):
 def parseInput(real_sg_input, txtcfg):
   # unpack values and scale to units
   rhoedge0      = real_sg_input[0]
-  # v0            = real_sg_input[1]
-  tau_peierls   = real_sg_input[1] 
-  p_slip        = real_sg_input[2]
-  q_slip        = real_sg_input[3]
-  Qsd           = real_sg_input[4]
-  CLambdaSlip   = real_sg_input[5]
+  v0            = real_sg_input[1]
+  tau_peierls   = real_sg_input[2] 
+  p_slip        = real_sg_input[3]
+  q_slip        = real_sg_input[4]
+  Qsd           = real_sg_input[5]
+  CLambdaSlip   = real_sg_input[6]
   parsed_txtcfg = txtcfg # work on a copied version
   # change lines: always add '\n' at the end of the line
   # parsed_txtcfg[55 - 1] = 'rhoedge0            1.0e12          # Initial edge dislocation density [m/m**3]\n'
@@ -46,7 +46,7 @@ def parseInput(real_sg_input, txtcfg):
   # parsed_txtcfg[65 - 1] = 'CLambdaSlip         10.0            # Adj. parameter controlling dislocation mean free path\n'
 
   parsed_txtcfg[55 - 1] = 'rhoedge0            %.12e           # Initial edge dislocation density [m/m**3]\n' % rhoedge0
-  # parsed_txtcfg[57 - 1] = 'v0                  %.12e           # Initial glide velocity [m/s]: old value "1.0e-4: corrected to be "1.0e4", cf. Sedighiani et al. 2022 Mech. of Matls.\n' % v0
+  parsed_txtcfg[57 - 1] = 'v0                  %.12e           # Initial glide velocity [m/s]\n' % v0
   parsed_txtcfg[61 - 1] = 'tau_peierls         %.12e           # peierls stress (for bcc)\n' % tau_peierls
   parsed_txtcfg[59 - 1] = 'p_slip              %.12e           # p-exponent in glide velocity\n' % p_slip
   parsed_txtcfg[60 - 1] = 'q_slip              %.12e           # q-exponent in glide velocity\n' % q_slip

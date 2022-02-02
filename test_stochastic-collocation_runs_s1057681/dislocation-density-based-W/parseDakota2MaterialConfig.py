@@ -66,6 +66,7 @@ for i in range(n):
   os.chdir(localPath)
   ## link file from parent directory
   os.system('ln -sf ../single_phase_equiaxed.geom .')
+  os.system('ln -sf ../numerics.config .')
   os.system('ln -sf ../tension.load .')
   os.system('ln -sf ../run_damask.sh .')
   os.system('ln -sf ../sbatch.damask.solo .')

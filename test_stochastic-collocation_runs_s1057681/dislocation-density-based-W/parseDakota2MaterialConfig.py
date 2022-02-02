@@ -19,7 +19,7 @@ def getDamaskParams(sg_input):
   # lower_bounds = [1e10, 1e2, 1.64, 0.25, 1.2, 1.5e-19,  5] # 7d
   # upper_bounds = [5e12, 1e4, 2.42, 0.70, 1.8, 3.5e-19, 20] # 7d
   lower_bounds = [1e10, 1.64, 0.25, 1.2, 1.5e-19,  5] # 6d
-  upper_bounds = [5e12, 2.42, 0.70, 1.8, 3.5e-19, 20] # 6d
+  upper_bounds = [5e12, 2.92, 0.70, 1.8, 3.5e-19, 20] # 6d
   sg_input     = np.array(sg_input)[2:] # ignore 'id' and 'weights' two columns
   lower_bounds = np.array(lower_bounds)
   upper_bounds = np.array(upper_bounds)

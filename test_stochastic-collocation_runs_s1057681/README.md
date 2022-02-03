@@ -137,3 +137,39 @@ Note: `tension.load` are set at `time 200 inc 200`, `test-default/` with default
 * `phenomenological-slipping+twinning`: 0:40:00 computation, 3:03:28 post-processing
 * `dislocation-density-W:` 0:12:00 computation, 00:23:10 post-processing
 
+
+## Accuracy with default parameters
+
+* `phenomenological-slipping-Cu`:
+```
+Elastic Young modulus = 188.5552 GPa
+Intercept = -0.0000
+Intersection detected:  (0.0023092829648229344, 58316919.44272391)
+##########
+Intersection with Young modulus (obtained from linear regression) with $\sigma-\varepsilon$ occured at:
+Yield Strain = 0.0023
+Yield Stress = 0.0583 GPa
+```
+
+* `phenomenological-slipping+twinning-Mg`:
+```
+Elastic Young modulus = 45.1172 GPa
+Intercept = -0.0000
+Intersection detected:  (0.004375425049107471, 107172420.78661838)
+##########
+Intersection with Young modulus (obtained from linear regression) with $\sigma-\varepsilon$ occured at:
+Yield Strain = 0.0044
+Yield Stress = 0.1072 GPa
+```
+
+* `dislocation-density-based-W`:
+```
+Elastic Young modulus = 411.3528 GPa
+Intercept = -0.0000
+Intersection detected:  (0.010984068654145371, 3695621665.287616)
+##########
+Intersection with Young modulus (obtained from linear regression) with $\sigma-\varepsilon$ occured at:
+Yield Strain = 0.0110
+Yield Stress = 3.6956 GPa
+```
+

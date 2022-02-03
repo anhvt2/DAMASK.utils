@@ -189,7 +189,7 @@ try:
 
 	bPlt, = plt.plot(strain_intersect_line, stress_intersect_line / 1e6, color='tab:red', marker='s', linestyle=':', markersize=5, label=r'0.2% offset')
 	cPlt, = plt.plot(computed_yieldStrain, computed_yieldStress / 1e6, c='black', marker='*', linestyle='None', markersize=20, label=r'yield point')
-	plt.xlabel(r'$\varepsilon_{vM}$ [%]', fontsize=30)
+	plt.xlabel(r'$\varepsilon_{vM}$ [-]', fontsize=30)
 	plt.ylabel(r'$\sigma_{vM}$ [MPa]', fontsize=30)
 	plt.title(r'$\sigma_{vM}-\varepsilon_{vM}$ phenomenological constitutive model Cu', fontsize=24)
 	plt.legend(handles=[aPlt, bPlt, cPlt], fontsize=24)

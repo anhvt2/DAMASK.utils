@@ -129,4 +129,11 @@ A clean way to modify `material.config`
 {./Texture_Rolling.config}
 ```
 
+## Computational costs
+
+Note: `tension.load` are set at `time 200 inc 200`, `test-default/` with default `material.config` is used to benchmark
+
+* `phenomenological-slipping-Cu`: 1:02:00 computation, ~4:00:00 post-processing
+* `phenomenological-slipping+twinning`: 0:40:00 computation, 3:03:28 post-processing
+* `dislocation-density-W:` 0:12:00 computation, 00:23:10 post-processing
 

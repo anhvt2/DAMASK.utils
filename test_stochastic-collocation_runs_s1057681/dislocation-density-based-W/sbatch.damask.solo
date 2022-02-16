@@ -1,7 +1,7 @@
 #!/bin/bash
 ## Do not put any commands or blank lines before the #SBATCH lines
 #SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
-#SBATCH --time=4:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
+#SBATCH --time=4:00:00                # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY210060            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
 #SBATCH --partition=short,batch       # partition/queue name: short or batch
@@ -45,15 +45,15 @@ cores=36                             # Number MPI processes to run on each node 
 
 
 ### ---------------------------------- copy main file from the parent directory
-cp ../tension.load  .
-cp ../sigma.dat  .
-cp ../mu.dat  .
-cp ../msId.dat  .
-cp ../material.config.preamble  .
-cp ../dimCell.dat  .
-cp ../computeYieldStress.py  .
+# cp ../tension.load  .
+# cp ../sigma.dat  .
+# cp ../mu.dat  .
+# cp ../msId.dat  .
+# cp ../material.config.preamble  .
+# cp ../dimCell.dat  .
+# cp ../computeYieldStress.py  .
 # cp ../single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom  .
-ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
+# ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
 
 ### ---------------------------------- pre-process DAMASK
 rm -fv single_phase_equiaxed_tension* postProc/
@@ -92,3 +92,11 @@ fi
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 echo "Stop running simulation at"
 echo $(date +%y-%m-%d-%H-%M-%S)
+
+rm -f *.outputConstitutive
+rm -f *.outputCrystallite
+rm -f *.outputHomogenization
+rm -f *.C_ref
+rm -f *.spectralOut
+rm -f *.hdf5
+rm -f *.sta

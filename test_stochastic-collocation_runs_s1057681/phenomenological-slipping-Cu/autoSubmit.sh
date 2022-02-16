@@ -5,6 +5,7 @@ for folderName in $(ls -1dv sg_input_*/); do
 
 	ssubmit
 
+	echo "done $folderName"
 	cd ..
 done
 

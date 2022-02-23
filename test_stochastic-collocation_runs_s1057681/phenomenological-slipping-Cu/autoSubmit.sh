@@ -5,7 +5,7 @@ for folderName in $(ls -1dv sg_input_*/); do
 
 	if [ -d "postProc" ]; then
 		echo "postProc/ is available in $(basename $(pwd))"
-	else;
+	else
 		sdel
 		ssubmit
 		echo "Re-submit job in $(basename $(pwd))"

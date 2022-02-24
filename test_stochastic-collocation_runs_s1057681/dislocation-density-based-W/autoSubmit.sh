@@ -3,7 +3,14 @@
 for folderName in $(ls -1dv sg_input_*/); do
 	cd $folderName
 
-	ssubmit
+	if [ -d "postProc" ]; then
+		echo "postProc/ is available in $(basename $(pwd))"
+	else
+		sdel
+		ssubmit
+		echo "Re-submit job in $(basename $(pwd))"
+		echo 1 >> test.log
+	fi
 
 	echo "done $folderName"
 	cd ..

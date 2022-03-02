@@ -1,1 +1,0 @@
-../run_damask.sh

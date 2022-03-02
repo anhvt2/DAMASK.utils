@@ -8,6 +8,7 @@ for folderName in $(ls -1dv sg_input_*/); do
 	else
 		sdel
 		ssubmit
+		echo "$(basename $(pwd))" >> ../submit.log
 		echo "Re-submit job in $(basename $(pwd))"
 	fi
 

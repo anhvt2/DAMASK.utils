@@ -9,7 +9,7 @@ for folderName in $(ls -1dv sg_input_*/); do
 		sdel
 		ssubmit
 		echo "Re-submit job in $(basename $(pwd))"
-		echo 1 >> test.log
+		echo "$(basename $(pwd))" >> ../submit.log
 	fi
 
 	echo "done $folderName"

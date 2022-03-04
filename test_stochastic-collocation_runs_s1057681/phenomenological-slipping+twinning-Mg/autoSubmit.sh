@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ii=0
-maxSubmit=50
+maxSubmit=99999
 
 for folderName in $(ls -1dv sg_input_*/); do
 	cd $folderName
@@ -14,6 +14,7 @@ for folderName in $(ls -1dv sg_input_*/); do
 			ssubmit
 			((ii++))
 			echo "Re-submit job in $(basename $(pwd))"
+			echo "$(basename $(pwd))" >> ../submit.log
 		fi
 	fi
 

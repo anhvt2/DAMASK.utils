@@ -49,12 +49,13 @@ def readLoadFile(LoadFile):
 stress_strain_data = np.loadtxt(StressStrainFile, skiprows=4)
 increment = np.atleast_2d(stress_strain_data[:, 1])
 
-# ## deprecated
-# # load_data = np.loadtxt(LoadFile, dtype=str)
-# # only consider the first segment
-# # Fdot = float(load_data[0,1])
-# # totalTime = float(load_data[0,11])
-# # totalIncrement = float(load_data[0,13])
+## deprecated
+# load_data = np.loadtxt(LoadFile, dtype=str)
+# only consider the first segment
+# Fdot = float(load_data[0,1])
+# totalTime = float(load_data[0,11])
+# totalIncrement = float(load_data[0,13])
+
 # Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
 # Fdot = Fdot11
 
@@ -65,6 +66,10 @@ n = int(n) + 1
 ## get Stress and Strain
 stress = np.atleast_2d(stress_strain_data[:n, 2])
 strain = np.atleast_2d(stress_strain_data[:n, 1])
+## remove non-unique strain
+_, uniq_idx = np.unique(strain, return_index=True)
+strain = strain[:, uniq_idx]
+stress = stress[:, uniq_idx]
 strain -= 1.0 # offset for DAMASK, as strain = 1 when started
 print('Stress:')
 print(stress.ravel())
@@ -74,21 +79,13 @@ print('Strain:')
 print(strain.ravel())
 print('\n\n')
 
-def removeNaNStrainStress(strain,stress):
-	m, n = stress.shape
-	removeIndices = np.argwhere(np.isnan(stress.ravel()))
-	cleanIndices = np.setdiff1d(range(n), removeIndices)
-	return strain[:, cleanIndices], stress[:, cleanIndices]
-
-strain, stress = removeNaNStrainStress(strain, stress)
-n = stress.shape[1] + 1 # update
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
 
 
 ## extract elastic part
-elasticStress = np.atleast_2d(stress[0,1:3]).T
-elasticStrain = np.atleast_2d(strain[0,1:3]).T
+elasticStress = np.atleast_2d(stress[0,1:5]).T
+elasticStrain = np.atleast_2d(strain[0,1:5]).T
 
 # print(elasticStrain.shape)
 # print(elasticStress.shape)
@@ -187,19 +184,29 @@ try:
 
 	### plot check
 
-	# strain_intersect_line = np.linspace(yieldStrain, maxStrain)
-	# stress_intersect_line = np.linspace(0, youngModulus * (maxStrain - yieldStrain))
-	# plt.figure()
-	# plt.plot(strain.ravel(), stress.ravel() / 1e6, 'bo-', markersize=5, linewidth=2)
-	# plt.plot(strain_intersect_line, stress_intersect_line / 1e6, color='r', marker='s', linestyle=':', markersize=5)
-	# plt.xlabel(r'$\varepsilon$ ', fontsize=24)
-	# plt.ylabel(r'$\sigma$ [MPa]', fontsize=24)
-	# plt.title(r'Plot Check: $\sigma_Y$ computation', fontsize=24)
-	# plt.xlim([0, np.max(strain)])
-	# plt.ylim([np.min(stress), 1.2 * np.max(stress) / 1e6])
-	# plt.show()
+	strain_intersect_line = np.linspace(yieldStrain, maxStrain)
+	stress_intersect_line = np.linspace(0, youngModulus * (maxStrain - yieldStrain))
+	plt.figure()
+	from scipy.interpolate import interp1d
+	splineInterp = interp1d(strain.ravel(), stress.ravel() / 1e6, kind='cubic', fill_value='extrapolate')
+	# aPlt, = plt.plot(strain.ravel(), stress.ravel() / 1e6, 'bo-', markersize=5, linewidth=2)
+	aPlt, = plt.plot(strain.ravel(), splineInterp(strain.ravel()), c='tab:blue', marker='o', linestyle='-', markersize=6, label=r'$\sigma_{vM}-\varepsilon_{vM}$ curve')
+	# x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
+	# aPlt, = plt.plot(x, splineInterp(x), c='tab:blue', marker='o', linestyle='-', markersize=6, label=r'$\sigma_{vM}-\varepsilon_{vM}$ curve')
+
+	bPlt, = plt.plot(strain_intersect_line, stress_intersect_line / 1e6, color='tab:red', marker='s', linestyle=':', markersize=5, label=r'0.2% offset')
+	cPlt, = plt.plot(computed_yieldStrain, computed_yieldStress / 1e6, c='black', marker='*', linestyle='None', markersize=20, label=r'yield point')
+	plt.xlabel(r'$\varepsilon_{vM}$ [-]', fontsize=30)
+	plt.ylabel(r'$\sigma_{vM}$ [MPa]', fontsize=30)
+	plt.title(r'$\sigma_{vM}-\varepsilon_{vM}$ phenomenological constitutive model Cu', fontsize=24)
+	plt.legend(handles=[aPlt, bPlt, cPlt], fontsize=24)
+	plt.xlim([0, np.max(strain)])
+	plt.ylim([np.min(stress), 1.2 * np.max(stress) / 1e6])
+	plt.show()
 
 except:
 	outFile = open('../log.feasible', 'w')
 	outFile.write('%d\n' % 0)
 	outFile.close()	
+
+

@@ -74,6 +74,14 @@ print('Strain:')
 print(strain.ravel())
 print('\n\n')
 
+def removeNaNStrainStress(strain,stress):
+	m, n = stress.shape
+	removeIndices = np.argwhere(np.isnan(stress.ravel()))
+	cleanIndices = np.setdiff1d(range(n), removeIndices)
+	return strain[:, cleanIndices], stress[:, cleanIndices]
+
+strain, stress = removeNaNStrainStress(strain, stress)
+n = stress.shape[1] + 1 # update
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
 

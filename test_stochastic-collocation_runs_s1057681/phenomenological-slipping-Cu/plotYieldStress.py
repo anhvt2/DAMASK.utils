@@ -164,11 +164,12 @@ try:
 		# print('RefL = ', RefL)
 		# print('Ltest = ', Ltest)
 		R = intersection(RefL, Ltest)
+		# print('%d/%d' % (i,n)) # debug
 		if R:
 			print("Intersection detected: ", R)
 			computed_yieldStrain = R[0]
 			computed_yieldStress = R[1]
-
+			break
 		# print('\n')
 
 	outFile = open('output.dat', 'w')

@@ -55,8 +55,9 @@ increment = np.atleast_2d(stress_strain_data[:, 1])
 # Fdot = float(load_data[0,1])
 # totalTime = float(load_data[0,11])
 # totalIncrement = float(load_data[0,13])
-Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
-Fdot = Fdot11
+
+# Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
+# Fdot = Fdot11
 
 # n = len(stress_strain_data) * np.array(load_data[:,11], dtype=float)[0] / np.sum(np.array(load_data[:,13], dtype=float)) # only consider the first loading segment # deprecated -- but should
 n = len(stress_strain_data)
@@ -65,7 +66,13 @@ n = int(n) + 1
 ## get Stress and Strain
 stress = np.atleast_2d(stress_strain_data[:n, 2])
 strain = np.atleast_2d(stress_strain_data[:n, 1])
+## remove non-unique strain
 strain -= 1.0 # offset for DAMASK, as strain = 1 when started
+_, uniq_idx = np.unique(strain, return_index=True)
+strain = np.hstack(( np.array([[0]]) , strain )) # pad zeros
+stress = np.hstack(( np.array([[0]]) , stress )) # pad zeros
+strain = strain[:, uniq_idx]
+stress = stress[:, uniq_idx]
 print('Stress:')
 print(stress.ravel())
 print('\n\n')
@@ -80,7 +87,19 @@ def removeNaNStrainStress(strain,stress):
 	cleanIndices = np.setdiff1d(range(n), removeIndices)
 	return strain[:, cleanIndices], stress[:, cleanIndices]
 
+def removeNonsenseStrain(strain, stress):
+	m, n = stress.shape
+	removeIndices = []
+	for i in range(strain.shape[1]):
+		# print(strain[0,i])
+		# print(strain.shape)
+		if strain[0,i] > 10 or strain[0,i] < 0:
+			removeIndices += [i]
+	cleanIndices = np.setdiff1d(range(n), removeIndices)
+	return strain[:, cleanIndices], stress[:, cleanIndices]
+
 strain, stress = removeNaNStrainStress(strain, stress)
+strain, stress = removeNonsenseStrain(strain, stress)
 n = stress.shape[1] + 1 # update
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
@@ -167,11 +186,12 @@ try:
 		# print('RefL = ', RefL)
 		# print('Ltest = ', Ltest)
 		R = intersection(RefL, Ltest)
+		# print('%d/%d' % (i,n)) # debug
 		if R:
 			print("Intersection detected: ", R)
 			computed_yieldStrain = R[0]
 			computed_yieldStress = R[1]
-
+			break
 		# print('\n')
 
 	outFile = open('output.dat', 'w')
@@ -190,12 +210,20 @@ try:
 	# strain_intersect_line = np.linspace(yieldStrain, maxStrain)
 	# stress_intersect_line = np.linspace(0, youngModulus * (maxStrain - yieldStrain))
 	# plt.figure()
-	# plt.plot(strain.ravel(), stress.ravel() / 1e6, 'bo-', markersize=5, linewidth=2)
-	# plt.plot(strain_intersect_line, stress_intersect_line / 1e6, color='r', marker='s', linestyle=':', markersize=5)
-	# plt.xlabel(r'$\varepsilon$ ', fontsize=24)
-	# plt.ylabel(r'$\sigma$ [MPa]', fontsize=24)
-	# plt.title(r'Plot Check: $\sigma_Y$ computation', fontsize=24)
-	# plt.xlim([0, np.max(strain)])
+	# from scipy.interpolate import interp1d
+	# splineInterp = interp1d(strain.ravel(), stress.ravel() / 1e6, kind='cubic', fill_value='extrapolate')
+	# # aPlt, = plt.plot(strain.ravel(), stress.ravel() / 1e6, 'bo-', markersize=5, linewidth=2)
+	# aPlt, = plt.plot(strain.ravel(), splineInterp(strain.ravel()), c='tab:blue', marker='o', linestyle='-', markersize=6, label=r'$\sigma_{vM}-\varepsilon_{vM}$ # curve')
+	# # x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
+	# # aPlt, = plt.plot(x, splineInterp(x), c='tab:blue', marker='o', linestyle='-', markersize=6, label=r'$\sigma_{vM}-\varepsilon_{vM}$ curve')
+
+	# bPlt, = plt.plot(strain_intersect_line, stress_intersect_line / 1e6, color='tab:red', marker='s', linestyle=':', markersize=5, label=r'0.2% offset')
+	# cPlt, = plt.plot(computed_yieldStrain, computed_yieldStress / 1e6, c='black', marker='*', linestyle='None', markersize=20, label=r'yield point')
+	# plt.xlabel(r'$\varepsilon_{vM}$ [-]', fontsize=30)
+	# plt.ylabel(r'$\sigma_{vM}$ [MPa]', fontsize=30)
+	# plt.title(r'$\sigma_{vM}-\varepsilon_{vM}$ phenomenological constitutive model Cu', fontsize=24)
+	# plt.legend(handles=[aPlt, bPlt, cPlt], fontsize=24)
+	# # plt.xlim([0, np.max(strain)])
 	# plt.ylim([np.min(stress), 1.2 * np.max(stress) / 1e6])
 	# plt.show()
 
@@ -203,3 +231,5 @@ except:
 	outFile = open('../log.feasible', 'w')
 	outFile.write('%d\n' % 0)
 	outFile.close()	
+
+

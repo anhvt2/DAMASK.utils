@@ -73,13 +73,6 @@ strain = np.hstack(( np.array([[0]]) , strain )) # pad zeros
 stress = np.hstack(( np.array([[0]]) , stress )) # pad zeros
 strain = strain[:, uniq_idx]
 stress = stress[:, uniq_idx]
-print('Stress:')
-print(stress.ravel())
-print('\n\n')
-
-print('Strain:')
-print(strain.ravel())
-print('\n\n')
 
 def removeNaNStrainStress(strain,stress):
 	m, n = stress.shape
@@ -90,16 +83,24 @@ def removeNaNStrainStress(strain,stress):
 def removeNonsenseStrain(strain, stress):
 	m, n = stress.shape
 	removeIndices = []
-	for i in range(strain.shape[1]):
+	for i in range(strain.shape[1] - 1):
 		# print(strain[0,i])
 		# print(strain.shape)
-		if strain[0,i] > 10 or strain[0,i] < 0:
+		if strain[0,i] > 10 or strain[0,i] < 0 or strain[0,i] > strain[0,i+1]:
 			removeIndices += [i]
 	cleanIndices = np.setdiff1d(range(n), removeIndices)
 	return strain[:, cleanIndices], stress[:, cleanIndices]
 
 strain, stress = removeNaNStrainStress(strain, stress)
 strain, stress = removeNonsenseStrain(strain, stress)
+print('Stress:')
+print(stress.ravel())
+print('\n\n')
+
+print('Strain:')
+print(strain.ravel())
+print('\n\n')
+
 n = stress.shape[1] + 1 # update
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html

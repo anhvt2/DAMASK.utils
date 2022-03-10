@@ -45,6 +45,9 @@ mpl.rcParams['ytick.labelsize'] = 24
 d = np.loadtxt(StressStrainFile, skiprows=skiprows)
 vareps = d[:,1] # strain
 sigma  = d[:,2] # stress
+_, uniq_idx = np.unique(vareps, return_index=True)
+vareps = vareps[uniq_idx]
+sigma  = sigma[uniq_idx]
 
 fig = plt.figure()
 ax = fig.add_subplot(111)

@@ -55,8 +55,9 @@ increment = np.atleast_2d(stress_strain_data[:, 1])
 # Fdot = float(load_data[0,1])
 # totalTime = float(load_data[0,11])
 # totalIncrement = float(load_data[0,13])
-Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
-Fdot = Fdot11
+
+# Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
+# Fdot = Fdot11
 
 # n = len(stress_strain_data) * np.array(load_data[:,11], dtype=float)[0] / np.sum(np.array(load_data[:,13], dtype=float)) # only consider the first loading segment # deprecated -- but should
 n = len(stress_strain_data)
@@ -65,6 +66,10 @@ n = int(n) + 1
 ## get Stress and Strain
 stress = np.atleast_2d(stress_strain_data[:n, 2])
 strain = np.atleast_2d(stress_strain_data[:n, 1])
+## remove non-unique strain
+_, uniq_idx = np.unique(strain, return_index=True)
+strain = strain[:, uniq_idx]
+stress = stress[:, uniq_idx]
 strain -= 1.0 # offset for DAMASK, as strain = 1 when started
 print('Stress:')
 print(stress.ravel())
@@ -79,8 +84,8 @@ print('\n\n')
 
 
 ## extract elastic part
-elasticStress = np.atleast_2d(stress[0,1:3]).T
-elasticStrain = np.atleast_2d(strain[0,1:3]).T
+elasticStress = np.atleast_2d(stress[0,1:5]).T
+elasticStrain = np.atleast_2d(strain[0,1:5]).T
 
 # print(elasticStrain.shape)
 # print(elasticStress.shape)
@@ -184,14 +189,16 @@ try:
 	plt.figure()
 	from scipy.interpolate import interp1d
 	splineInterp = interp1d(strain.ravel(), stress.ravel() / 1e6, kind='cubic', fill_value='extrapolate')
-	# plt.plot(strain.ravel(), stress.ravel() / 1e6, 'bo-', markersize=5, linewidth=2)
+	# aPlt, = plt.plot(strain.ravel(), stress.ravel() / 1e6, 'bo-', markersize=5, linewidth=2)
 	aPlt, = plt.plot(strain.ravel(), splineInterp(strain.ravel()), c='tab:blue', marker='o', linestyle='-', markersize=6, label=r'$\sigma_{vM}-\varepsilon_{vM}$ curve')
+	# x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
+	# aPlt, = plt.plot(x, splineInterp(x), c='tab:blue', marker='o', linestyle='-', markersize=6, label=r'$\sigma_{vM}-\varepsilon_{vM}$ curve')
 
 	bPlt, = plt.plot(strain_intersect_line, stress_intersect_line / 1e6, color='tab:red', marker='s', linestyle=':', markersize=5, label=r'0.2% offset')
 	cPlt, = plt.plot(computed_yieldStrain, computed_yieldStress / 1e6, c='black', marker='*', linestyle='None', markersize=20, label=r'yield point')
-	plt.xlabel(r'$\varepsilon_{vM}$ [%]', fontsize=30)
+	plt.xlabel(r'$\varepsilon_{vM}$ [-]', fontsize=30)
 	plt.ylabel(r'$\sigma_{vM}$ [MPa]', fontsize=30)
-	plt.title(r'$\sigma_{vM}-\varepsilon_{vM}$ dislocation-density-based constitutive model W', fontsize=24)
+	plt.title(r'$\sigma_{vM}-\varepsilon_{vM}$ phenomenological constitutive model Cu', fontsize=24)
 	plt.legend(handles=[aPlt, bPlt, cPlt], fontsize=24)
 	plt.xlim([0, np.max(strain)])
 	plt.ylim([np.min(stress), 1.2 * np.max(stress) / 1e6])

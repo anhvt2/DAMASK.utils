@@ -7,7 +7,7 @@ for folderName in $(cat submit.log); do
 #	if [ -d "postProc" ]; then
 #		echo "postProc/ is available in $(basename $(pwd))"
 #	else
-		sdel
+		sdel; rm -rfv postProc/;
 		ssubmit
 		echo "Re-submit job in $(basename $(pwd))"
 #		echo "$(basename $(pwd))" >> ../submit.log

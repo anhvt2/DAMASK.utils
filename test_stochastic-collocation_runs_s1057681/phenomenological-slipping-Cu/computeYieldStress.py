@@ -65,7 +65,44 @@ n = int(n) + 1
 ## get Stress and Strain
 stress = np.atleast_2d(stress_strain_data[:n, 2])
 strain = np.atleast_2d(stress_strain_data[:n, 1])
+## remove non-unique strain
+_, uniq_idx = np.unique(strain, return_index=True)
+strain = strain[:, uniq_idx]
+stress = stress[:, uniq_idx]
 strain -= 1.0 # offset for DAMASK, as strain = 1 when started
+
+def removeNaNStrainStress(strain,stress):
+	m, n = stress.shape
+	removeIndices_stress = np.argwhere(np.isnan(stress.ravel()))
+	removeIndices_strain = np.argwhere(np.isnan(strain.ravel()))
+	removeIndices = np.unique(np.vstack((removeIndices_strain, removeIndices_stress)))
+	cleanIndices = np.setdiff1d(range(n), removeIndices)
+	return strain[:, cleanIndices], stress[:, cleanIndices]
+
+def removeInfStrainStress(strain,stress):
+	m, n = stress.shape
+	removeIndices  = np.argwhere(np.isinf(stress.ravel()))
+	removeIndices2 = np.argwhere(np.isinf(strain.ravel()))
+	cleanIndices = np.setdiff1d(range(n), removeIndices)
+	cleanIndices = np.setdiff1d(range(n), removeIndices2)
+	return strain[:, cleanIndices], stress[:, cleanIndices]
+
+def removeNonsenseStrain(strain, stress):
+	m, n = stress.shape
+	removeIndices = []
+	for i in range(strain.shape[1] - 1):
+		# print(strain[0,i])
+		# print(strain.shape)
+		if strain[0,i] > 10 or strain[0,i] < 0 or strain[0,i] > strain[0,i+1] or stress[0,i] > 1e15:
+			removeIndices += [i]
+	cleanIndices = np.setdiff1d(range(n), removeIndices)
+	return strain[:, cleanIndices], stress[:, cleanIndices]
+
+strain, stress = removeNaNStrainStress(strain, stress)
+strain, stress = removeInfStrainStress(strain, stress)
+strain, stress = removeNonsenseStrain(strain, stress)
+n = stress.shape[1] + 1 # update
+
 print('Stress:')
 print(stress.ravel())
 print('\n\n')
@@ -73,15 +110,6 @@ print('\n\n')
 print('Strain:')
 print(strain.ravel())
 print('\n\n')
-
-def removeNaNStrainStress(strain,stress):
-	m, n = stress.shape
-	removeIndices = np.argwhere(np.isnan(stress.ravel()))
-	cleanIndices = np.setdiff1d(range(n), removeIndices)
-	return strain[:, cleanIndices], stress[:, cleanIndices]
-
-strain, stress = removeNaNStrainStress(strain, stress)
-n = stress.shape[1] + 1 # update
 
 # https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
 
@@ -171,7 +199,7 @@ try:
 			print("Intersection detected: ", R)
 			computed_yieldStrain = R[0]
 			computed_yieldStress = R[1]
-
+			break
 		# print('\n')
 
 	outFile = open('output.dat', 'w')

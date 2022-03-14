@@ -1,16 +1,16 @@
 #!/bin/bash
 
-for folderName in $(ls -1dv sg_input_*/); do
-# for folderName in $(cat submit.log); do
+# for folderName in $(ls -1dv sg_input_*/); do
+for folderName in $(cat submit.log); do
 	cd $folderName
 
-	if [ -d "postProc" ]; then
-		echo "postProc/ is available in $(basename $(pwd))"
-	else
+#	if [ -d "postProc" ]; then
+#		echo "postProc/ is available in $(basename $(pwd))"
+#	else
 		echo "Running $(basename $(pwd)) on s1057681..."
 		ln -sf ../run_damask.sh .
 		bash run_damask.sh
-	fi
+#	fi
 
 	echo "done $folderName"
 	cd ..

@@ -196,8 +196,8 @@ try:
 		# print('\n')
 
 	outFile = open('output.dat', 'w')
-	outFile.write('%.6e\n' % computed_yieldStrain)
-	outFile.write('%.6e\n' % computed_yieldStress)
+	outFile.write('%.12e\n' % computed_yieldStrain)
+	outFile.write('%.12e\n' % computed_yieldStress)
 	outFile.close()
 
 	print("##########")

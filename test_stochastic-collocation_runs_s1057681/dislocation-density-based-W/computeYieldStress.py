@@ -200,6 +200,10 @@ try:
 	outFile.write('%.12e\n' % computed_yieldStress)
 	outFile.close()
 
+	outFile = open('../output.dat', 'w')
+	outFile.write('%.12e,%.12e\n' % (computed_yieldStrain, computed_yieldStress))
+	outFile.close()
+
 	print("##########")
 	print(r"Intersection with Young modulus (obtained from linear regression) with $\sigma-\varepsilon$ occured at:")
 	print("Yield Strain = %.4f" % computed_yieldStrain)

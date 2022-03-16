@@ -208,3 +208,26 @@ Yield Strain = 0.0110
 Yield Stress = 3.6956 GPa
 ```
 
+## Import results to Dakota
+
+#### Method 1: create an annotated response file
+
+Automate by Python script `createDakotaAnnotatedResponses.py` for the Dakota script `textbook7d_uq_sc_import.in`
+
+Step 1: modify `createDakotaAnnotatedResponses.py`
+Step 2: run `createDakotaAnnotatedResponses.py`
+
+#### Method 2: create a dummy Python driver to read inputs / dump outputs
+
+Adopt script from psi-k tutorial `textbook7d_uq_sc_pyImport.in`, 
+```
+interface
+  fork
+  analysis_drivers = 'python3 damask_query.py'
+  file_tag file_save
+```
+
+Step 1: modify `createDakotaAnnotatedResponses.py`
+Step 2: run `createDakotaAnnotatedResponses.py`
+
+

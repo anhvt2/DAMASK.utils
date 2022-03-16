@@ -67,10 +67,10 @@ n = int(n) + 1
 stress = np.atleast_2d(stress_strain_data[:n, 2])
 strain = np.atleast_2d(stress_strain_data[:n, 1])
 ## remove non-unique strain
-strain -= 1.0 # offset for DAMASK, as strain = 1 when started
-_, uniq_idx = np.unique(strain, return_index=True)
 strain = np.hstack(( np.array([[0]]) , strain )) # pad zeros
 stress = np.hstack(( np.array([[0]]) , stress )) # pad zeros
+_, uniq_idx = np.unique(strain.ravel(), return_index=True)
+strain -= 1.0 # offset for DAMASK, as strain = 1 when started
 strain = strain[:, uniq_idx]
 stress = stress[:, uniq_idx]
 

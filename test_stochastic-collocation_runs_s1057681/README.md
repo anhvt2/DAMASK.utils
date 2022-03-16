@@ -216,6 +216,7 @@ Automate by Python script `createDakotaAnnotatedResponses.py` for the Dakota scr
 
 Step 1: modify `createDakotaAnnotatedResponses.py`
 Step 2: run `createDakotaAnnotatedResponses.py`
+Step 3: run Dakota with the imported script from tabulated and annotated responses
 
 #### Method 2: create a dummy Python driver to read inputs / dump outputs
 
@@ -227,7 +228,6 @@ interface
   file_tag file_save
 ```
 
-Step 1: modify `createDakotaAnnotatedResponses.py`
-Step 2: run `createDakotaAnnotatedResponses.py`
-
+Step 1: create a `damask_query.py` where input is `dakota_sparse_tabular.dat` and output is `output.dat`
+Step 2: run Dakota with the lookup table and Python interface
 

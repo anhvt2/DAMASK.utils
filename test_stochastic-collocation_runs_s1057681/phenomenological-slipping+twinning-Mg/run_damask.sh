@@ -100,21 +100,21 @@ echo
 
 
 ### ---------------------------------- copy main file from the parent directory
-cp ../tension.load  .
-cp ../sigma.dat  .
-cp ../mu.dat  .
-cp ../msId.dat  .
+# cp ../tension.load  .
+# cp ../sigma.dat  .
+# cp ../mu.dat  .
+# cp ../msId.dat  .
 # cp ../material.config.preamble  .
-cp ../dimCell.dat  .
-cp ../computeYieldStress.py  .
-cp ../computeYoungModulus.py .
-cp ../numerics.config .
+# cp ../dimCell.dat  .
+# cp ../computeYieldStress.py  .
+# cp ../computeYoungModulus.py .
+# cp ../numerics.config .
 # cp ../single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom  .
-ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
+# ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
 
 ### ---------------------------------- pre-process DAMASK
-rm -fv single_phase_equiaxed_tension* postProc/
-geom_check single_phase_equiaxed.geom
+# rm -fv single_phase_equiaxed_tension* postProc/
+# geom_check single_phase_equiaxed.geom
 
 ### ---------------------------------- run DAMASK
 # mpirun -np 4 /media/anhvt89/seagateRepo/DAMASK/DAMASK-v2.0.2/bin/DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
@@ -131,7 +131,7 @@ fi
 
 
 ### ---------------------------------- post-processing DAMASK
-sleep 10
+# sleep 10
 
 postResults single_phase_equiaxed_tension.spectralOut --cr f,p
 

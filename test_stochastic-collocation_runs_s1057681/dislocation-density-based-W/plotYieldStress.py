@@ -222,7 +222,7 @@ try:
 	cPlt, = plt.plot(computed_yieldStrain, computed_yieldStress / 1e6, c='black', marker='*', linestyle='None', markersize=20, label=r'yield point')
 	plt.xlabel(r'$\varepsilon_{vM}$ [-]', fontsize=30)
 	plt.ylabel(r'$\sigma_{vM}$ [MPa]', fontsize=30)
-	plt.title(r'$\sigma_{vM}-\varepsilon_{vM}$ phenomenological constitutive model Cu', fontsize=24)
+	plt.title(r'$\sigma_{vM}-\varepsilon_{vM}$ phenomenological constitutive model W', fontsize=24)
 	plt.legend(handles=[aPlt, bPlt, cPlt], fontsize=24)
 	# plt.xlim([0, np.max(strain)])
 	plt.ylim([np.min(stress), 1.2 * np.max(stress) / 1e6])

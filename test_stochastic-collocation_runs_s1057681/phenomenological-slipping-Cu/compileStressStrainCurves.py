@@ -42,6 +42,7 @@ def removeNonsenseStrain(strain, stress):
 
 folderList = natsorted(glob.glob('sg_input_*'), alg=ns.IGNORECASE)
 from scipy.interpolate import interp1d
+from scipy.interpolate import PchipInterpolator
 plt.figure()
 
 for folder in folderList:
@@ -53,6 +54,8 @@ for folder in folderList:
 	## get Stress and Strain
 	stress = np.atleast_2d(stress_strain_data[:n, 2])
 	strain = np.atleast_2d(stress_strain_data[:n, 1])
+	strain = np.hstack(( np.array([[0]]) , strain )) # pad zeros
+	stress = np.hstack(( np.array([[0]]) , stress )) # pad zeros
 	## remove non-unique strain
 	_, uniq_idx = np.unique(strain, return_index=True)
 	strain = strain[:, uniq_idx]
@@ -62,11 +65,20 @@ for folder in folderList:
 	strain, stress = removeInfStrainStress(strain, stress)
 	strain, stress = removeNonsenseStrain(strain, stress)
 	# print(strain, stress) # debug
-	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='linear', fill_value='extrapolate')
+	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='cubic', fill_value='extrapolate')
+	# splineInterp = PchipInterpolator(strain.ravel(), stress.ravel())
 	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
 	plt.plot(strain.ravel(), stress.ravel())
+	print(folder, len(strain.ravel()))
+	if len(strain.ravel()) < 10:
+		print('Re-run %s' % folder)
+	# index_ = np.argmax(stress.ravel())
+	# plt.text(strain.ravel()[index_], stress.ravel()[index_], folder)
 	# plt.plot(strain.ravel(), splineInterp(strain.ravel())) # c='tab:blue', marker='o', linestyle='-', markersize=6)
 	plt.plot(x, splineInterp(x), marker='o', markersize=7)
+
+	index_ = np.argmin(splineInterp(x))
+	plt.text(x[index_], splineInterp(x)[index_], folder)
 
 plt.show()
 

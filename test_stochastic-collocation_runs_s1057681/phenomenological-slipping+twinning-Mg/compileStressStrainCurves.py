@@ -63,12 +63,12 @@ for folder in folderList:
 	strain, stress = removeNonsenseStrain(strain, stress)
 	# print(strain, stress) # debug
 	print(folder, len(strain.ravel()))
-	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='linear', fill_value='extrapolate')
+	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='quadratic', fill_value='extrapolate')
 	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
-	plt.plot(strain.ravel(), stress.ravel())
-	plt.text(strain.ravel()[1], stress.ravel()[1], folder)
+	# plt.plot(strain.ravel(), stress.ravel())
+	plt.text(strain.ravel()[4], stress.ravel()[4], folder)
 	# plt.plot(strain.ravel(), splineInterp(strain.ravel())) # c='tab:blue', marker='o', linestyle='-', markersize=6)
-	# plt.plot(x, splineInterp(x), marker='o', markersize=7)
+	plt.plot(x, splineInterp(x), marker='o', markersize=7)
 
 plt.show()
 

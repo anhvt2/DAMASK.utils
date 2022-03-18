@@ -4,7 +4,7 @@ environment
 
 method
   stoch_collocation
-    sparse_grid_level = 5 # subject to change
+    sparse_grid_level = 1 # subject to change
     # dimension_preference = 2 1 # switch from anisotropic to isotropic SG
     samples_on_emulator = 100 seed = 12347
     response_levels = .1 1. 50. 100. 500. 1000.
@@ -13,10 +13,10 @@ method
   output verbose # print input parameters
 
 variables
-  uniform_uncertain = 6 # Legendre polynomial
-    lower_bounds      = -1.0    -1.0    -1.0    -1.0    -1.0    -1.0 
-    upper_bounds      = +1.0    +1.0    +1.0    +1.0    +1.0    +1.0 
-    descriptors       = 'x1'    'x2'    'x3'    'x4'    'x5'    'x6' 
+  uniform_uncertain = 5 # Legendre polynomial
+    lower_bounds      = -1.0    -1.0    -1.0    -1.0    -1.0 
+    upper_bounds      = +1.0    +1.0    +1.0    +1.0    +1.0 
+    descriptors       = 'x1'    'x2'    'x3'    'x4'    'x5' 
 
 interface
   analysis_drivers = 'text_book'

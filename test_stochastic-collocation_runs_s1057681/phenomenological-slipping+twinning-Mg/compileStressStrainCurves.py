@@ -66,9 +66,12 @@ for folder in folderList:
 	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='quadratic', fill_value='extrapolate')
 	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
 	# plt.plot(strain.ravel(), stress.ravel())
-	plt.text(strain.ravel()[4], stress.ravel()[4], folder)
+	# index_ = np.argmax(stress.ravel())
+	index_ = 12
+	# plt.text(strain.ravel()[index_], stress.ravel()[index_], folder)
 	# plt.plot(strain.ravel(), splineInterp(strain.ravel())) # c='tab:blue', marker='o', linestyle='-', markersize=6)
 	plt.plot(x, splineInterp(x), marker='o', markersize=7)
+	plt.text(x[index_], splineInterp(x)[index_], folder)
 
 plt.show()
 

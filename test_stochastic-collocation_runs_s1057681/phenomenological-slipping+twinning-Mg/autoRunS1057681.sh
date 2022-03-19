@@ -9,7 +9,7 @@ for folderName in $(cat submit.log); do
 # 	else
 		echo "Running $(basename $(pwd)) on s1057681..."
 		ln -sf ../run_damask.sh .
-		echo "8" > numProcessors.dat
+		echo "16" > numProcessors.dat
 		bash run_damask.sh
 # 	fi
 

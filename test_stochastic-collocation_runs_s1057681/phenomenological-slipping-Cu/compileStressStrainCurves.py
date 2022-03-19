@@ -65,7 +65,7 @@ for folder in folderList:
 	strain, stress = removeInfStrainStress(strain, stress)
 	strain, stress = removeNonsenseStrain(strain, stress)
 	# print(strain, stress) # debug
-	# splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='cubic', fill_value='extrapolate')
+	# splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='slinear', fill_value='extrapolate')
 	splineInterp = PchipInterpolator(strain.ravel(), stress.ravel())
 	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
 	plt.plot(strain.ravel(), stress.ravel())

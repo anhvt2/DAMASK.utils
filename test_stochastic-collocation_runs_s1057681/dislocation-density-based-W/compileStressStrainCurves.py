@@ -38,6 +38,13 @@ def removeNonsenseStrain(strain, stress):
 	# print(strain[:, cleanIndices], stress[:, cleanIndices])
 	return strain[:, cleanIndices], stress[:, cleanIndices]
 
+def checkMonotonicity(y, folder):
+	for i in range(len(y) - 1):
+		if y[i] > y[i+1]:
+			print('stress is not monotonic in %s' % folder)
+			break
+	return None
+
 ### run
 
 folderList = natsorted(glob.glob('sg_input_*'), alg=ns.IGNORECASE)
@@ -66,12 +73,13 @@ for folder in folderList:
 	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='quadratic', fill_value='extrapolate')
 	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
 	# plt.plot(strain.ravel(), stress.ravel())
-	index_ = np.argmax(splineInterp(x))
+	# index_ = np.argmax(splineInterp(x))
 	# index_ = 12
 	# plt.text(strain.ravel()[index_], stress.ravel()[index_], folder)
 	# plt.plot(strain.ravel(), splineInterp(strain.ravel())) # c='tab:blue', marker='o', linestyle='-', markersize=6)
 	plt.plot(x, splineInterp(x), marker='o', markersize=7)
-	plt.text(x[index_], splineInterp(x)[index_], folder)
+	checkMonotonicity(splineInterp(x), folder)
+	# plt.text(x[index_], splineInterp(x)[index_], folder)
 
 
 plt.show()

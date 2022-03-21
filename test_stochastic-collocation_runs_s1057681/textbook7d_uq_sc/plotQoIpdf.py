@@ -16,9 +16,11 @@ mpl.rcParams['ytick.labelsize'] = 24
 from scipy.stats import norm # The standard Normal distribution
 from scipy.stats import gaussian_kde as gaussian_kde # A standard kernel density estimator
 d = np.loadtxt('tmp.txt', delimiter=':')[:,1]
+# d = np.loadtxt('output.dat',delimiter=',')[:,0]
 q = gaussian_kde(d)
 
 x = np.linspace(0, 0.075, 1000)
+# x = np.linspace(np.min(d) * 0.5, np.max(d) * 1.5, 1000)
 plt.plot(x, q(x), c='tab:blue', marker='o', linestyle='-')
 plt.xlim([0, np.max(x)])
 plt.ylim(bottom=0)

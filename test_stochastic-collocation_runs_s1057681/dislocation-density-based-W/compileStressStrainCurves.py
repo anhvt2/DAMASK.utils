@@ -70,7 +70,7 @@ for folder in folderList:
 	strain, stress = removeNonsenseStrain(strain, stress)
 	# print(strain, stress) # debug
 	print(folder, len(strain.ravel()))
-	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='quadratic', fill_value='extrapolate')
+	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='cubic', fill_value='extrapolate')
 	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
 	# plt.plot(strain.ravel(), stress.ravel())
 	# index_ = np.argmax(splineInterp(x))

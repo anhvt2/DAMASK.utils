@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import os, glob, sys
 
 from natsort import natsorted, ns
+import matplotlib as mpl
+mpl.rcParams['xtick.labelsize'] = 24
+mpl.rcParams['ytick.labelsize'] = 24
 
 ### user-defined functions
 
@@ -38,6 +41,13 @@ def removeNonsenseStrain(strain, stress):
 	# print(strain[:, cleanIndices], stress[:, cleanIndices])
 	return strain[:, cleanIndices], stress[:, cleanIndices]
 
+def checkMonotonicity(y, folder):
+	for i in range(len(y) - 1):
+		if y[i] > y[i+1]:
+			print('stress is not monotonic in %s' % folder)
+			break
+	return None
+
 ### run
 
 folderList = natsorted(glob.glob('sg_input_*'), alg=ns.IGNORECASE)
@@ -65,22 +75,27 @@ for folder in folderList:
 	strain, stress = removeInfStrainStress(strain, stress)
 	strain, stress = removeNonsenseStrain(strain, stress)
 	# print(strain, stress) # debug
-	# splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='slinear', fill_value='extrapolate')
+	# splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='quadratic', fill_value='extrapolate') # quadratic, slinear
 	splineInterp = PchipInterpolator(strain.ravel(), stress.ravel())
-	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
-	plt.plot(strain.ravel(), stress.ravel())
+	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()), 1000)	
+	# plt.plot(strain.ravel(), stress.ravel())
 	print(folder, len(strain.ravel()))
 	if len(strain.ravel()) < 10:
 		print('Re-run %s' % folder)
 	# index_ = np.argmax(stress.ravel())
 	# plt.text(strain.ravel()[index_], stress.ravel()[index_], folder)
 	# plt.plot(strain.ravel(), splineInterp(strain.ravel())) # c='tab:blue', marker='o', linestyle='-', markersize=6)
-	plt.plot(x, splineInterp(x), marker='o', markersize=7)
+	plt.plot(x, splineInterp(x) / 1e6, marker='o', markersize=3)
 
-	# index_ = np.argmax(splineInterp(x))
-	index_ = 20
-	plt.text(x[index_], splineInterp(x)[index_], folder)
+	index_ = np.argmax(splineInterp(x))
+	# index_ = 20
+	# plt.text(x[index_], splineInterp(x)[index_] / 1e6, folder)
 
+plt.xlim(left=0,right=np.max(strain.ravel()))
+plt.ylim(bottom=0)
+plt.xlabel(r'$\varepsilon_{vM}$ [-]', fontsize=24)
+plt.ylabel(r'$\sigma_{vM}$ [MPa]', fontsize=24)
+plt.title(r'$\varepsilon_{vM}-\sigma_{vM}$ with various constitutive parameters for fcc Cu', fontsize=24)
 plt.show()
 
 

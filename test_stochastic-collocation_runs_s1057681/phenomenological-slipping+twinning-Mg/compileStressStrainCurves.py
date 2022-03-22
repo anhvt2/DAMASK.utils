@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import os, glob, sys
 
 from natsort import natsorted, ns
+import matplotlib as mpl
+mpl.rcParams['xtick.labelsize'] = 24
+mpl.rcParams['ytick.labelsize'] = 24
 
 ### user-defined functions
 
@@ -38,10 +41,18 @@ def removeNonsenseStrain(strain, stress):
 	# print(strain[:, cleanIndices], stress[:, cleanIndices])
 	return strain[:, cleanIndices], stress[:, cleanIndices]
 
+def checkMonotonicity(y, folder):
+	for i in range(len(y) - 1):
+		if y[i] > y[i+1]:
+			print('stress is not monotonic in %s' % folder)
+			break
+	return None
+
 ### run
 
 folderList = natsorted(glob.glob('sg_input_*'), alg=ns.IGNORECASE)
 from scipy.interpolate import interp1d
+from scipy.interpolate import PchipInterpolator
 plt.figure()
 
 for folder in folderList:
@@ -53,6 +64,8 @@ for folder in folderList:
 	## get Stress and Strain
 	stress = np.atleast_2d(stress_strain_data[:n, 2])
 	strain = np.atleast_2d(stress_strain_data[:n, 1])
+	strain = np.hstack(( np.array([[0]]) , strain )) # pad zeros
+	stress = np.hstack(( np.array([[0]]) , stress )) # pad zeros
 	## remove non-unique strain
 	_, uniq_idx = np.unique(strain, return_index=True)
 	strain = strain[:, uniq_idx]
@@ -64,15 +77,23 @@ for folder in folderList:
 	# print(strain, stress) # debug
 	print(folder, len(strain.ravel()))
 	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='quadratic', fill_value='extrapolate')
-	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()))	
+	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()), 1000)	
 	# plt.plot(strain.ravel(), stress.ravel())
 	index_ = np.argmax(splineInterp(x))
 	# index_ = 12
 	# plt.text(strain.ravel()[index_], stress.ravel()[index_], folder)
 	# plt.plot(strain.ravel(), splineInterp(strain.ravel())) # c='tab:blue', marker='o', linestyle='-', markersize=6)
-	plt.plot(x, splineInterp(x), marker='o', markersize=7)
-	plt.text(x[index_], splineInterp(x)[index_], folder)
+	plt.plot(x, splineInterp(x) / 1e6, marker='o', markersize=3)
 
+	index_ = np.argmax(splineInterp(x))
+	# index_ = 20
+	# plt.text(x[index_], splineInterp(x)[index_] / 1e6, folder)
+
+plt.xlim(left=0,right=np.max(strain.ravel()))
+plt.ylim(bottom=0)
+plt.xlabel(r'$\varepsilon_{vM}$ [-]', fontsize=24)
+plt.ylabel(r'$\sigma_{vM}$ [MPa]', fontsize=24)
+plt.title(r'$\varepsilon_{vM}-\sigma_{vM}$ with various constitutive parameters for hcp Mg', fontsize=24)
 plt.show()
 
 

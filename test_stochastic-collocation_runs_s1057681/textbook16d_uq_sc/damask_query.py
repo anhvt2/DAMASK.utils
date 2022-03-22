@@ -51,7 +51,7 @@ def searchIndex(i_, inputData):
 	return index_
 
 index_ = searchIndex(i_, inputData)
-o_ = outputData[index_, 0] # change the second index accordingly
+o_ = outputData[index_, 1] # change the second index accordingly
 
 print(i_, o_, index_)
 

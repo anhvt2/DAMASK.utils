@@ -42,11 +42,13 @@ def removeNonsenseStrain(strain, stress):
 	return strain[:, cleanIndices], stress[:, cleanIndices]
 
 def checkMonotonicity(y, folder):
+	boolMonotonic = False
 	for i in range(len(y) - 1):
 		if y[i] > y[i+1]:
 			print('stress is not monotonic in %s' % folder)
+			boolMonotonic = True
 			break
-	return None
+	return boolMonotonic
 
 ### run
 
@@ -77,17 +79,22 @@ for folder in folderList:
 	# print(strain, stress) # debug
 	print(folder, len(strain.ravel()))
 	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='cubic', fill_value='extrapolate')
-	x = np.linspace(np.min(strain.ravel()), np.max(strain.ravel()), 1000)	
+	x = np.linspace(np.min(strain.ravel()), 0.02, 1000)	
 	# plt.plot(strain.ravel(), stress.ravel() / 1e6)
-	# index_ = np.argmax(splineInterp(x))
+	index_ = np.argmax(splineInterp(x))
+	if index_ < len(splineInterp(x)) - 5 or checkMonotonicity(splineInterp(x), folder):
+		f = open('submit.log', 'a') # can be 'r', 'w', 'a', 'r+'
+		f.write('%s\n' % folder)
+		f.close()
 	# index_ = 12
 	# plt.text(strain.ravel()[index_], stress.ravel()[index_], folder)
 	# plt.plot(strain.ravel(), splineInterp(strain.ravel())) # c='tab:blue', marker='o', linestyle='-', markersize=6)
 	plt.plot(x, splineInterp(x) / 1e6, marker='o', markersize=3)
 	checkMonotonicity(splineInterp(x), folder)
-	# plt.text(x[index_], splineInterp(x)[index_], folder)
+	plt.text(x[index_], splineInterp(x)[index_] / 1e6, folder)
 
-plt.xlim(left=0,right=np.max(strain.ravel()))
+# plt.xlim(left=0,right=np.max(strain.ravel()))
+plt.xlim(left=0, right=0.02)
 plt.ylim(bottom=0)
 plt.xlabel(r'$\varepsilon_{vM}$ [-]', fontsize=24)
 plt.ylabel(r'$\sigma_{vM}$ [MPa]', fontsize=24)

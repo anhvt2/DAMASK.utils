@@ -132,6 +132,8 @@ fi
 
 
 ### ---------------------------------- post-processing DAMASK
+# run post-processing in background
+nohup bash ../post_process.sh 2>&1 > log.post_process &
 # sleep 10
 ##
 # postResults single_phase_equiaxed_tension.spectralOut --cr f,p

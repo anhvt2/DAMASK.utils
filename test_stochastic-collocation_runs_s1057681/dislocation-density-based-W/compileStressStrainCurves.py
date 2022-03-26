@@ -78,11 +78,13 @@ for folder in folderList:
 	strain, stress = removeNonsenseStrain(strain, stress)
 	# print(strain, stress) # debug
 	print(folder, len(strain.ravel()))
-	splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='cubic', fill_value='extrapolate')
+	# splineInterp = interp1d(strain.ravel(), stress.ravel(), kind='cubic', fill_value='extrapolate')
+	splineInterp = PchipInterpolator(strain.ravel(), stress.ravel())
 	x = np.linspace(np.min(strain.ravel()), 0.02, 1000)	
 	# plt.plot(strain.ravel(), stress.ravel() / 1e6)
 	index_ = np.argmax(splineInterp(x))
-	if index_ < len(splineInterp(x)) - 5 or checkMonotonicity(splineInterp(x), folder):
+	# if index_ < len(splineInterp(x)) - 5 or checkMonotonicity(splineInterp(x), folder):
+	if index_ < 500:
 		f = open('submit.log', 'a') # can be 'r', 'w', 'a', 'r+'
 		f.write('%s\n' % folder)
 		f.close()
@@ -90,7 +92,7 @@ for folder in folderList:
 	# plt.text(strain.ravel()[index_], stress.ravel()[index_], folder)
 	# plt.plot(strain.ravel(), splineInterp(strain.ravel())) # c='tab:blue', marker='o', linestyle='-', markersize=6)
 	plt.plot(x, splineInterp(x) / 1e6, marker='o', markersize=3)
-	checkMonotonicity(splineInterp(x), folder)
+	# checkMonotonicity(splineInterp(x), folder)
 	plt.text(x[index_], splineInterp(x)[index_] / 1e6, folder)
 
 # plt.xlim(left=0,right=np.max(strain.ravel()))

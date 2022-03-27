@@ -2,6 +2,9 @@
 # ../dakota -i textbook5d_uq_sc_pyImport.in > dakota.log
 # grep -inr ' f1' dakota.log  > tmp.txt
 # sed -i  's/ f1//g' tmp.txt
+# mv tmp.txt strainYield.dat
+
+# python3 plotQoIpdf.py --file=stressYield.dat
 
 # adopt from ./testCBayes-Damask-Phase_Dislotwin_TWIP-Steel-FeMnC-64x64x64/plotQoI.py
 
@@ -36,9 +39,9 @@ if fileName == 'stressYield.dat':
 	plt.xlabel(r'$\sigma_Y$ [MPa]', fontsize=24)
 	plt.ylabel(r'$p(\sigma_Y)$', fontsize=24)
 	plt.title(r'Stochastic Collocation: p.d.f of fcc Cu $\sigma_Y$', fontsize=24)
-	ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
+	# ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
 elif fileName == 'strainYield.dat':
-	plt.xlabel(r'$\varepsilon_Y$ [MPa]', fontsize=24)
+	plt.xlabel(r'$\varepsilon_Y$ [-]', fontsize=24)
 	plt.ylabel(r'$p(\varepsilon_Y)$', fontsize=24)
 	plt.title(r'Stochastic Collocation: p.d.f of fcc Cu $\varepsilon_Y$', fontsize=24)
 	plt.xlim([0.002, 0.004])

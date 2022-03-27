@@ -39,7 +39,7 @@ if fileName == 'stressYield.dat':
 	plt.xlim([50, 200])
 	# ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
 elif fileName == 'strainYield.dat':
-	plt.xlabel(r'$\varepsilon_Y$ [MPa]', fontsize=24)
+	plt.xlabel(r'$\varepsilon_Y$ [-]', fontsize=24)
 	plt.ylabel(r'$p(\varepsilon_Y)$', fontsize=24)
 	plt.title(r'Stochastic Collocation: p.d.f of hcp Mg $\varepsilon_Y$', fontsize=24)
 	# plt.xlim(left=0.002)

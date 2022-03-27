@@ -1,5 +1,5 @@
 
-# ../dakota -i textbook5d_uq_sc_pyImport.in > dakota.log
+# ../dakota -i textbook7d_uq_sc_pyImport.in > dakota.log
 # grep -inr ' f1' dakota.log  > tmp.txt
 # sed -i  's/ f1//g' tmp.txt
 
@@ -36,14 +36,15 @@ if fileName == 'stressYield.dat':
 	plt.xlabel(r'$\sigma_Y$ [MPa]', fontsize=24)
 	plt.ylabel(r'$p(\sigma_Y)$', fontsize=24)
 	plt.title(r'Stochastic Collocation: p.d.f of bcc W $\sigma_Y$', fontsize=24)
-	# ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
+	plt.xlim(left=1000, right=10000)
+	ax.yaxis.set_major_locator(ticker.MultipleLocator(0.0001))
 elif fileName == 'strainYield.dat':
-	plt.xlabel(r'$\varepsilon_Y$ [MPa]', fontsize=24)
+	plt.xlabel(r'$\varepsilon_Y$ [-]', fontsize=24)
 	plt.ylabel(r'$p(\varepsilon_Y)$', fontsize=24)
 	plt.title(r'Stochastic Collocation: p.d.f of bcc W $\varepsilon_Y$', fontsize=24)
 	# plt.xlim(left=0.002)
-	plt.xlim([0.002, 0.015])
-	ax.xaxis.set_major_locator(ticker.MultipleLocator(0.003))
+	plt.xlim([0.002, 0.024])
+	ax.xaxis.set_major_locator(ticker.MultipleLocator(0.004))
 else:
 	print('plotQoIpdf.py: fileName %s is not implemented.' % fileName)
 

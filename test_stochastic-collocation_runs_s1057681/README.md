@@ -105,7 +105,7 @@ cd /home/anhvt89/Documents/dakota/6.15/build/test/examples-users
 
 For input parameters, see `dakota_sparse_tabular.dat` file generated from revoking the above command.
 
-#### Import results -- post-run
+### Import results -- post-run
 
 To import the results, build a Python interface script. In this example, we use `damask_query.py` to look up results from a structured table.
 
@@ -222,6 +222,29 @@ A clean way to modify `material.config`
 <texture>
 {./Texture_Rolling.config}
 ```
+
+### Step to run post-processing
+
+1. Change `damask_query.py`
+```python
+o_ = outputData[index_, 0] # change the second index accordingly
+```
+2. 
+```shell
+../dakota -i textbook7d_uq_sc_pyImport.in > dakota.log
+grep -inr ' f1' dakota.log  > tmp.txt
+sed -i  's/ f1//g' tmp.txt
+mv tmp.txt stressYield.dat # or strainYield.dat -- depending on how damask_query.py is configured
+```
+3. 
+```shell
+python3 plotQoIpdf.py --file=stressYield.dat
+```
+4. Copy the variance-based global sensitivity analysis to 
+* `{strain,stress}Yield.dakota.log`
+* `plotSobolIndices.py`: must reformat to suit the needs
+5. Run `plotSobolIndices.py` for parameter sensitivity
+
 
 ## Computational costs
 

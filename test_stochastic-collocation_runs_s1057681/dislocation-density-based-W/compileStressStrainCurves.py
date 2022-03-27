@@ -93,7 +93,7 @@ for folder in folderList:
 	# plt.plot(strain.ravel(), splineInterp(strain.ravel())) # c='tab:blue', marker='o', linestyle='-', markersize=6)
 	plt.plot(x, splineInterp(x) / 1e6, marker='o', markersize=3)
 	# checkMonotonicity(splineInterp(x), folder)
-	plt.text(x[index_], splineInterp(x)[index_] / 1e6, folder)
+	# plt.text(x[index_], splineInterp(x)[index_] / 1e6, folder)
 
 # plt.xlim(left=0,right=np.max(strain.ravel()))
 plt.xlim(left=0, right=0.02)

@@ -40,6 +40,9 @@ plt.bar(x_axis + 0.2, sobol_index_strain[:,1], width=0.4, label='total effects')
 plt.xticks(x_axis, x_label)
 plt.legend(loc='best', fontsize=24)
 plt.ylim(bottom=0) # plt.yscale('log')
+for i in range(d):
+    plt.text(x_axis[i] - 0.2, sobol_index_strain[i,0], '%.4e' % sobol_index_strain[i,0])
+    plt.text(x_axis[i] + 0.2, sobol_index_strain[i,1], '%.4e' % sobol_index_strain[i,1])
 plt.title(r'Sobol indices for $\varepsilon_Y$ bcc W', fontsize=24)
 
 plt.figure()
@@ -48,6 +51,9 @@ plt.bar(x_axis + 0.2, sobol_index_stress[:,1], width=0.4, label='total effects')
 plt.xticks(x_axis, x_label)
 plt.legend(loc='best', fontsize=24)
 plt.ylim(bottom=0) # plt.yscale('log')
+for i in range(d):
+    plt.text(x_axis[i] - 0.2, sobol_index_stress[i,0], '%.4e' % sobol_index_stress[i,0])
+    plt.text(x_axis[i] + 0.2, sobol_index_stress[i,1], '%.4e' % sobol_index_stress[i,1])
 plt.title(r'Sobol indices for $\sigma_Y$ bcc W', fontsize=24)
 
 plt.show()

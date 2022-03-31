@@ -1,0 +1,21 @@
+#!/bin/csh -f
+
+#SBATCH  -N  8                      # Number of nodes
+#SBATCH --time=12:00:00             # Wall clock time
+#SBATCH --account=FY150075          # WC ID
+#SBATCH --job-name Sphere_Void_nset         # Name of job 
+set job = Sphere_Void_nset
+
+
+@ nodes = ${SLURM_JOB_NUM_NODES}
+@ cores = 36
+@ procs = ${nodes} * ${cores}
+
+#source ~ccbatta/SEACAS2.INTEL121.20101115.MPI/tlcc2/seacas.users.csh
+#source  ~ccbatta/SEACAS2.INTEL121.OMPI16.20110206.MPI/tlcc2/seacas.users.csh 
+
+echo "Running on ${nodes} nodes and ${cores} cores = ${procs} processors."
+echo "Job name is ${job}."
+echo "Jas3d located at `which jas3d`."
+
+jas3d -sub ./package_mat98_v2.f90 -Inc standard -par -- ${job}

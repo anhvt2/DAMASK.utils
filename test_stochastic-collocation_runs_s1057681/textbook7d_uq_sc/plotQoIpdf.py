@@ -37,14 +37,14 @@ if fileName == 'stressYield.dat':
 	plt.ylabel(r'$p(\sigma_Y)$', fontsize=24)
 	plt.title(r'Stochastic Collocation: p.d.f of bcc W $\sigma_Y$', fontsize=24)
 	plt.xlim(left=1000, right=10000)
-	ax.yaxis.set_major_locator(ticker.MultipleLocator(0.0001))
+	# ax.yaxis.set_major_locator(ticker.MultipleLocator(0.0001))
 elif fileName == 'strainYield.dat':
 	plt.xlabel(r'$\varepsilon_Y$ [-]', fontsize=24)
 	plt.ylabel(r'$p(\varepsilon_Y)$', fontsize=24)
 	plt.title(r'Stochastic Collocation: p.d.f of bcc W $\varepsilon_Y$', fontsize=24)
 	# plt.xlim(left=0.002)
 	plt.xlim([0.002, 0.024])
-	ax.xaxis.set_major_locator(ticker.MultipleLocator(0.004))
+	# ax.xaxis.set_major_locator(ticker.MultipleLocator(0.004))
 else:
 	print('plotQoIpdf.py: fileName %s is not implemented.' % fileName)
 

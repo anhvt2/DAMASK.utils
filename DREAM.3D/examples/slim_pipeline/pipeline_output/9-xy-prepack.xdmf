@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd"[]>
+<Xdmf xmlns:xi="http://www.w3.org/2003/XInclude" Version="2.2">
+      <Domain>
+      <!-- *************** START OF ImageDataContainer *************** -->
+      <Grid Name="ImageDataContainer" GridType="Uniform">
+         <Topology TopologyType="3DCoRectMesh" Dimensions="151 151 151">
+         </Topology>
+         <Geometry Type="ORIGIN_DXDYDZ">
+            <!-- Origin  Z, Y, X -->
+            <DataItem Format="XML" Dimensions="3">
+               0 0 0
+            </DataItem>
+            <!-- DxDyDz (Spacing/Resolution) Z, Y, X -->
+            <DataItem Format="XML" Dimensions="3">
+               0.2 0.2 0.2
+            </DataItem>
+         </Geometry>
+         <!-- *************** START OF CellData *************** -->
+         <Attribute Name="Mask_Sphere" AttributeType="Scalar" Center="Cell">
+            <DataItem Format="HDF" Dimensions="150 150 150 1" NumberType="UChar" Precision="1" >
+               9-xy-prepack.dream3d:/DataContainers/ImageDataContainer/CellData/Mask_Sphere
+            </DataItem>
+         </Attribute>
+         <!-- *************** END OF CellData *************** -->
+      </Grid>
+      <!-- *************** END OF ImageDataContainer *************** -->
+   </Domain>
+</Xdmf>

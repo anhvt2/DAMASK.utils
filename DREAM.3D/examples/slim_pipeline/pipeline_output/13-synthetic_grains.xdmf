@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd"[]>
+<Xdmf xmlns:xi="http://www.w3.org/2003/XInclude" Version="2.2">
+ <Domain>
+  <!-- *************** START OF ImageDataContainer *************** -->
+  <Grid Name="ImageDataContainer" GridType="Uniform">
+    <Topology TopologyType="3DCoRectMesh" Dimensions="151 151 151 "></Topology>
+    <Geometry Type="ORIGIN_DXDYDZ">
+      <!-- Origin  Z, Y, X -->
+      <DataItem Format="XML" Dimensions="3">0 0 0</DataItem>
+      <!-- DxDyDz (Spacing/Resolution) Z, Y, X -->
+      <DataItem Format="XML" Dimensions="3">0.2 0.2 0.2</DataItem>
+    </Geometry>
+    <Attribute Name="AvgEulerAngles" AttributeType="Vector" Center="Cell">
+      <DataItem Format="HDF" Dimensions="150 150 150 3" NumberType="Float" Precision="4" >
+        13-synthetic_grains.dream3d:/DataContainers/ImageDataContainer/CellData/AvgEulerAngles
+      </DataItem>
+    </Attribute>
+    <Attribute Name="FeatureIds" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="150 150 150 1" NumberType="Int" Precision="4" >
+        13-synthetic_grains.dream3d:/DataContainers/ImageDataContainer/CellData/FeatureIds
+      </DataItem>
+    </Attribute>
+    <Attribute Name="IPFColor" AttributeType="Vector" Center="Cell">
+      <DataItem Format="HDF" Dimensions="150 150 150 3" NumberType="UChar" Precision="1" >
+        13-synthetic_grains.dream3d:/DataContainers/ImageDataContainer/CellData/IPFColor
+      </DataItem>
+    </Attribute>
+    <Attribute Name="Mask_Sphere" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="150 150 150 1" NumberType="uchar" Precision="1" >
+        13-synthetic_grains.dream3d:/DataContainers/ImageDataContainer/CellData/Mask_Sphere
+      </DataItem>
+    </Attribute>
+    <Attribute Name="Phases" AttributeType="Scalar" Center="Cell">
+      <DataItem Format="HDF" Dimensions="150 150 150 1" NumberType="Int" Precision="4" >
+        13-synthetic_grains.dream3d:/DataContainers/ImageDataContainer/CellData/Phases
+      </DataItem>
+    </Attribute>
+  </Grid>
+  <!-- *************** END OF ImageDataContainer *************** -->
+ </Domain>
+</Xdmf>

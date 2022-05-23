@@ -1,8 +1,9 @@
 
 # Uncertainty quantification for constitutive models in CPFEM
 
-## Phenomenological model
+## Phenomenological model (fcc Cu)
 
+* Dakota post-process is located in `textbook5d_uq_sc/`
 * See `phenomenological/` 
 * Use `Phase_Phenopowerlaw_Copper.config` as an example, vary 5 parameters according to `sedighiani2020efficient`, similar to Table 2.
 
@@ -20,8 +21,12 @@
 
 * DREAM.3D file is generated using `Copper`-type of texture
 
-## Dislocation-density-based model
+## Phenomenological model (hcp Mg)
+* Dakota post-process is located in `textbook16d_uq_sc/`
 
+## Dislocation-density-based model (bcc W)
+
+* Dakota post-process is located in `textbook7d_uq_sc/`
 * See `dislocation-density-based/`
 * Use `Phase_Phenopowerlaw_Magnesium.config` as an example, vary 16 parameters according to `sedighiani2020efficient`, similar to Table 8.
 

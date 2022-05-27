@@ -232,14 +232,14 @@ A clean way to modify `material.config`
 
 1. Change `damask_query.py`
 ```python
-o_ = outputData[index_, 0] # change the second index accordingly
+o_ = outputData[index_, 0] # change the second index accordingly: 0 = strainYield, 1 = stressYield
 ```
-2. 
+2. run `test.sh`: (a) change `sparse_grid_level` in Dakota input script, (b) file name (e.g. `stressYield_level1.dat`), and (c) index in `damask_query.py`
 ```shell
 ../dakota -i textbook7d_uq_sc_pyImport.in > dakota.log
 grep -inr ' f1' dakota.log  > tmp.txt
 sed -i  's/ f1//g' tmp.txt
-mv tmp.txt stressYield.dat # or strainYield.dat -- depending on how damask_query.py is configured
+mv tmp.txt stressYield_level1.dat # or strainYield.dat -- depending on how damask_query.py is configured
 ```
 3. 
 ```shell

@@ -43,7 +43,11 @@ def searchIndex(i_, inputData):
 index_ = searchIndex(i_, inputData)
 o_ = outputData[index_, 0] # change the second index accordingly: 0 = strainYield, 1 = stressYield
 
-print(i_, o_, index_)
+print('debug:')
+print(i_)
+print(inputData[index_, :])
+print(o_)
+print(index_)
 
 outFile = open(output_file, 'w')
 outFile.write('%.12e' % (o_))

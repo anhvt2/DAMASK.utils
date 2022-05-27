@@ -29,7 +29,7 @@ with open(params_file,'rt',encoding='utf8') as FF:
 # print(i_)
 
 # required
-inputData  = np.loadtxt('dakota_sparse_tabular.dat',skiprows=1)[:,2:]
+inputData  = np.loadtxt('dakota_sparse_tabular_template.dat',skiprows=1)[:,2:]
 outputData = np.loadtxt('output.dat',delimiter=',')
 
 def searchIndex(i_, inputData):
@@ -41,7 +41,11 @@ def searchIndex(i_, inputData):
 index_ = searchIndex(i_, inputData)
 o_ = outputData[index_, 0] # change the second index accordingly: 0 = strainYield, 1 = stressYield
 
-print(i_, o_, index_)
+print('debug:')
+print(i_)
+print(inputData[index_, :])
+print(o_)
+print(index_)
 
 outFile = open(output_file, 'w')
 outFile.write('%.12e' % (o_))

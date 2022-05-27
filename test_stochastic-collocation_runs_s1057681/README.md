@@ -230,11 +230,15 @@ A clean way to modify `material.config`
 
 ### Step to run post-processing
 
-1. Change `damask_query.py`
+1: create `dakota_sparse_tabular.dat` by running the original function
+
+2. run `autoDakota.sh`
+
+~~1. Change `damask_query.py`~~
 ```python
 o_ = outputData[index_, 0] # change the second index accordingly: 0 = strainYield, 1 = stressYield
 ```
-2. run `test.sh`: (a) change `sparse_grid_level` in Dakota input script, (b) file name (e.g. `stressYield_level1.dat`), and (c) index in `damask_query.py`
+~~2. run `test.sh`: (a) change `sparse_grid_level` in Dakota input script, (b) file name (e.g. `stressYield_level1.dat`), and (c) index in `damask_query.py`~~
 ```shell
 ../dakota -i textbook7d_uq_sc_pyImport.in > dakota.log
 grep -inr ' f1' dakota.log  > tmp.txt

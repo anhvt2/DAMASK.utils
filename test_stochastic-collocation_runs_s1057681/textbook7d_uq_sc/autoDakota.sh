@@ -16,7 +16,7 @@ sed -i "44s|.*|o_ = outputData[index_, ${qoiIndex}] # change the second index ac
 
 # run dakota
 ../dakota -i "${dakotaInputFile}" > "dakota_${qoi}Yield_level${sparse_grid_level}.log"
-grep -inr ' f1' dakota.log  > tmp.txt
+grep -inr ' f1' "dakota_${qoi}Yield_level${sparse_grid_level}.log"  > tmp.txt
 sed -i  's/ f1//g' tmp.txt
 mv tmp.txt ${qoi}Yield_level${sparse_grid_level}.dat
 

@@ -38,9 +38,9 @@ x2 = np.linspace(np.min(d2), np.max(d2), 10000)
 x3 = np.linspace(np.min(d3), np.max(d3), 10000)
 # fig = plt.figure(figsize=(8,8))
 fig, ax = plt.subplots(1, 1)
-sgPlt1, = plt.plot(x1, q1(x1), c='tab:blue', marker='o', linestyle='-' , markersize=5, label='sparse_grid_level = 1')
-sgPlt2, = plt.plot(x2, q1(x2), c='tab:red',  marker='s', linestyle='--', markersize=5, label='sparse_grid_level = 2')
-sgPlt3, = plt.plot(x3, q1(x3), c='tab:cyan', marker='^', linestyle=':' , markersize=5, label='sparse_grid_level = 3')
+sgPlt1, = plt.plot(x1, q1(x1), c='tab:blue', marker='o', linestyle='-' , markersize=5, label=r'$\ell = 1$')
+sgPlt2, = plt.plot(x2, q1(x2), c='tab:red',  marker='s', linestyle='--', markersize=5, label=r'$\ell = 2$')
+sgPlt3, = plt.plot(x3, q1(x3), c='tab:cyan', marker='^', linestyle=':' , markersize=5, label=r'$\ell = 3$')
 plt.legend(handles=[sgPlt1, sgPlt2, sgPlt3], fontsize=24, markerscale=2, loc='best') # bbox
 plt.xlim([np.min(np.array([d1, d2, d3])), np.max(np.array([d1, d2, d3]))])
 plt.ylim(bottom=0)
@@ -53,8 +53,8 @@ elif qois == 'strainYield':
 	plt.xlabel(r'$\varepsilon_Y$ [-]', fontsize=24)
 	plt.ylabel(r'$p(\varepsilon_Y)$', fontsize=24)
 	plt.title(r'Stochastic Collocation: p.d.f of fcc Cu $\varepsilon_Y$', fontsize=24)
-	plt.xlim([0.002, 0.00225])
-	# ax.xaxis.set_major_locator(ticker.MultipleLocator(0.001))
+	plt.xlim([0.002, 0.00215])
+	ax.xaxis.set_major_locator(ticker.MultipleLocator(0.00005))
 else:
 	print('plotQoIpdf.py: fileName %s is not implemented.' % fileName)
 

@@ -1,0 +1,1 @@
+single_phase_equiaxed_32x32x32.geom

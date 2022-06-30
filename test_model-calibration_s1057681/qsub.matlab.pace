@@ -1,0 +1,29 @@
+#PBS -N aphBO
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=07:00:00:00
+#PBS -l mem=8GB
+#PBS -q prometheus
+#PBS -o aphBO.$PBS_JOBID
+#PBS -j oe
+#PBS -m abe
+#PBS -M anh.vt2@gatech.edu
+
+echo "Started on `/bin/hostname`"
+echo "Nodes chosen are:"
+cat $PBS_NODEFILE
+
+echo "Go to workdir: ${PBS_O_WORKDIR}"
+cd $PBS_O_WORKDIR
+
+#Load the necessary modules
+module purge
+module load intel/15.0
+module load openmpi/1.8
+module load fftw/3.3.4
+module load mkl/11.2
+
+module load matlab/r2014a
+module load python/3.6
+# module load python/2.7
+
+matlab -nodisplay -r "mainprog"

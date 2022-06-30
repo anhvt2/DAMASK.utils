@@ -1,0 +1,1 @@
+autoDelete.sh

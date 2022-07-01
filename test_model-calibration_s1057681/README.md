@@ -7,6 +7,20 @@ This code combines the capability of BayesOpt and MLMC to robustly calibrate mat
 * adopt the MLMC code from `test_MLMC_runs_s1057681_alphaTitanium/` and the Bayesian optimization code from `ooDaceAsyncParHedge.GitHub`. 
 * remove unrelated other `*_Template` folders
 
+### Roadmap
+
+
+Given an experimental stress/strain curve, and a set of input parameters (that parameterizes the underlying constitutive model)
+
+* estimate the noisy loss (noise is induced by microstructure variation) by MLMC
+
+
+May help to convert heteroscedastic to homoscedastic (which is the underlying assumption for GPR).
+
+* run warm-up samples
+* estimate loss in $\ell_2$ norm with specified noise tolerance
+
+
 
 ### Instruction on how to run
 

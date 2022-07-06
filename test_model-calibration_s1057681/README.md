@@ -15,12 +15,18 @@ Given an experimental stress/strain curve, and a set of input parameters (that p
 * estimate the noisy loss (noise is induced by microstructure variation) by MLMC
 
 
-May help to convert heteroscedastic to homoscedastic (which is the underlying assumption for GPR). Use MLMC $\varepsilon$ to tune intrinsic noise in GPR. 
+May help to convert heteroscedastic to homoscedastic (which is the underlying assumption for GPR). Use MLMC tolerance $\varepsilon$ to tune intrinsic noise in GPR. 
 
 * run warm-up samples
 * estimate loss in $\ell_2$ norm with specified noise tolerance
 
+MLMC fidelity hierarchy: $8^3$, $10^3$, $16^3$, $20^3$, $32^3$, $64^3$. 
 
+Algorithm:
+
+* Bayesian optimization loop: query $x$ for constitutive models parameters
+    * sample microstructures
+    * estimate loss within tolerance using MLMC
 
 
 

@@ -15,8 +15,8 @@ mpl.rcParams['ytick.labelsize'] = 24
 
 x = np.loadtxt(fileName, skiprows=1)
 plt.plot(x[:,0], x[:,1], 'bo', ms=5)
-plt.xlabel(r'Engr. $\varepsilon$ [-]', fontsize=24)
-plt.ylabel(r'Engr. $\sigma$ [MPa]', fontsize=24)
+plt.xlabel(r'$\varepsilon$ [-]', fontsize=24)
+plt.ylabel(r'$\sigma$ [MPa]', fontsize=24)
 plt.title(fileName, fontsize=24)
 plt.xlim(left=0)
 plt.ylim(bottom=0)

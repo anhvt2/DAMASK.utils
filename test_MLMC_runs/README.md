@@ -1,5 +1,9 @@
 
-# Instruction on how to run
+
+### 
+
+
+### Instruction on how to run
 
 ```shell
 rm -f nohup.out; nohup julia run_multilevel.jl  &
@@ -56,7 +60,7 @@ Level 2, V = 1.4367480673397417e-6, dV = 6.787460128820753e-11 (9 samples)
 Level 3, V = 1.3906327186679272e-6, dV = 4.865231648575724e-12 (8 samples)
 ```
 
-# A typical results output
+### A typical results output
 
 ```
 [anhtran@solo-login2 test_MLMC_runs]$ python3 wrapper_DREAM3D-DAMASK.py --level=1
@@ -692,7 +696,7 @@ done submitting sbatch.damask.solo
 
 INFO:
 #SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
-#SBATCH --time=4:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
+#SBATCH --time=4:00:00                # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY210060            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
 #SBATCH --partition=short,batch       # partition/queue name: short or batch

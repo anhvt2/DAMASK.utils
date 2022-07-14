@@ -237,20 +237,20 @@
                 },
                 "FeatureSize Vs Neighbors Distributions": {
                     "Average": [
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
                         0.6931471824645996,
                         1.3862943649291992,
                         1.7917594909667969,
@@ -444,13 +444,13 @@
         "StatsGeneratorDataContainerName": "StatsGeneratorDataContainer"
     },
     "01": {
-        "BoxDimensions": "X Range: 0 to 640 (Delta: 640)\nY Range: 0 to 640 (Delta: 640)\nZ Range: 0 to 640 (Delta: 640)",
+        "BoxDimensions": "X Range: 0 to 320 (Delta: 320)\nY Range: 0 to 320 (Delta: 320)\nZ Range: 0 to 320 (Delta: 320)",
         "CellAttributeMatrixName": "CellData",
         "DataContainerName": "SyntheticVolumeDataContainer",
         "Dimensions": {
-            "x": 640,
-            "y": 640,
-            "z": 640
+            "x": 320,
+            "y": 320,
+            "z": 320
         },
         "EnsembleAttributeMatrixName": "CellEnsembleData",
         "EstimateNumberOfFeatures": 0,
@@ -1013,9 +1013,50 @@
         "HomogenizationIndex": 1,
         "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_model-calibration_s1057681/mlmc_Ta_Template/8x8x8"
     },
+    "19": {
+        "CellEulerAnglesArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "EulerAngles",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "CellPhasesArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Phases",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "CrystalStructuresArrayPath": {
+            "Attribute Matrix Name": "CellEnsembleData",
+            "Data Array Name": "CrystalStructures",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "FilterVersion": "6.5.141",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Export Pole Figure Images",
+        "Filter_Name": "WritePoleFigure",
+        "Filter_Uuid": "{a10bb78e-fcff-553d-97d6-830a43c85385}",
+        "GenerationAlgorithm": 0,
+        "GoodVoxelsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "ImageLayout": 2,
+        "ImagePrefix": "",
+        "ImageSize": 1024,
+        "LambertSize": 1024,
+        "MaterialNameArrayPath": {
+            "Attribute Matrix Name": "CellEnsembleData",
+            "Data Array Name": "PhaseName",
+            "Data Container Name": "StatsGeneratorDataContainer"
+        },
+        "NumColors": 32,
+        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_model-calibration_s1057681/mlmc_Ta_Template",
+        "Title": "PoleFigureAnalysis",
+        "UseGoodVoxels": 0
+    },
     "PipelineBuilder": {
         "Name": "test-DownSamplingSVEs-NonExact-base320",
-        "Number_Filters": 19,
+        "Number_Filters": 20,
         "Version": 6
     }
 }

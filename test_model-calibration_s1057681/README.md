@@ -7,6 +7,11 @@ This code combines the capability of BayesOpt and MLMC to robustly calibrate mat
 * adopt the MLMC code from `test_MLMC_runs_s1057681_alphaTitanium/` and the Bayesian optimization code from `ooDaceAsyncParHedge.GitHub`. 
 * remove unrelated other `*_Template` folders
 
+### Workflow
+
+1. `parse2MaterialConfig.py`: this script converts `input.dat` to a correct `material.config` and `material.config.preamble`. can be considered as a **pre-processing** script
+2. `computeLossFunction.py`: this script computes loss function in $L_2$ norm when comparing with experimental data (from Hojun Lim)
+
 ### Roadmap
 
 
@@ -18,7 +23,7 @@ Given an experimental stress/strain curve, and a set of input parameters (that p
 May help to convert heteroscedastic to homoscedastic (which is the underlying assumption for GPR). Use MLMC tolerance $\varepsilon$ to tune intrinsic noise in GPR. 
 
 * run warm-up samples
-* estimate loss in $\ell_2$ norm with specified noise tolerance
+* estimate loss in $L_2$ norm with specified noise tolerance
 
 MLMC fidelity hierarchy: $8^3$, $10^3$, $16^3$, $20^3$, $32^3$, $64^3$. 
 

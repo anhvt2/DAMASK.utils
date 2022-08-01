@@ -10,7 +10,8 @@ This code combines the capability of BayesOpt and MLMC to robustly calibrate mat
 ### Workflow
 
 1. `parse2MaterialConfig.py`: this script converts `input.dat` to a correct `material.config` and `material.config.preamble`. can be considered as a **pre-processing** script
-2. `computeLossFunction.py`: this script computes loss function in $L_2$ norm when comparing with experimental data (from Hojun Lim)
+2. `computeLossFunction.py`: this script computes loss function in $L_2$ norm when comparing with experimental data (from Hojun Lim), dump `output.dat`
+3. build interfaces with asynchronous parallel Bayesian optimization
 
 ### Roadmap
 

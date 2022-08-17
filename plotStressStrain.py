@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import os, sys, datetime
 import argparse
+import pandas as pd
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
@@ -43,17 +44,18 @@ mpl.rcParams['ytick.labelsize'] = 24
 
 # d = np.loadtxt(StressStrainFile, skiprows=4)
 d = np.loadtxt(StressStrainFile, skiprows=skiprows)
-vareps = d[:,1] # strain
-sigma  = d[:,2] # stress
-_, uniq_idx = np.unique(vareps, return_index=True)
-vareps = vareps[uniq_idx]
-sigma  = sigma[uniq_idx]
+df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
+vareps = [1] + list(df['1_f']) # d[:,1] # strain -- pad original
+sigma  = [0] + list(df['1_p']) # d[:,2] # stress -- pad original
+_, uniq_idx = np.unique(np.array(vareps), return_index=True)
+vareps = np.array(vareps)[uniq_idx]
+sigma  = np.array(sigma)[uniq_idx]
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
 
-x = (vareps - 1) * 1e2
+x = (vareps - 1)
 y = sigma / 1e6
 ax.plot(x, y, c='b', marker='o', linestyle=':', markersize=6)
 
@@ -63,7 +65,7 @@ ax.plot(x, splineInterp(x), c='r', marker='^', linestyle='-', markersize=6)
 plt.legend(['true', 'cubic'])
 
 
-plt.xlabel(r'$\varepsilon$ [%]', fontsize=30)
+plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
 if np.all(sigma > -1e-5):

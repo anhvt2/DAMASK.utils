@@ -1,0 +1,306 @@
+{
+    "0": {
+        "DataContainerName": "ImageDataContainer",
+        "FilterVersion": "1.2.826",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Create Data Container",
+        "Filter_Name": "CreateDataContainer",
+        "Filter_Uuid": "{816fbe6b-7c38-581b-b149-3f839fb65b93}"
+    },
+    "1": {
+        "CellEnsembleAttributeMatrixName": "EnsembleAttributeMatrix",
+        "CrystalStructuresArrayName": "CrystalStructures",
+        "DataContainerName": "ImageDataContainer",
+        "Ensemble": [
+            {
+                "CrystalStructure": 1,
+                "PhaseName": "Phase Name",
+                "PhaseType": 0
+            }
+        ],
+        "FilterVersion": "6.5.163",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Create Ensemble Info",
+        "Filter_Name": "CreateEnsembleInfo",
+        "Filter_Uuid": "{2a0bfcd3-2517-5117-b164-964dfac8fe22}",
+        "PhaseNamesArrayName": "PhaseNames",
+        "PhaseTypesArrayName": "PhaseTypes"
+    },
+    "2": {
+        "FilterVersion": "1.2.826",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Import ASCII Data",
+        "Filter_Name": "ReadASCIIData",
+        "Filter_Uuid": "{bdb978bc-96bf-5498-972c-b509c38b8d50}",
+        "Wizard_AttributeMatrixType": 3,
+        "Wizard_AutomaticAM": true,
+        "Wizard_BeginIndex": 8,
+        "Wizard_ConsecutiveDelimiters": 0,
+        "Wizard_DataHeaders": [
+            "inc",
+            "elem",
+            "node",
+            "ip",
+            "grain",
+            "1_pos",
+            "2_pos",
+            "3_pos",
+            "1_f",
+            "2_f",
+            "3_f",
+            "4_f",
+            "5_f",
+            "6_f",
+            "7_f",
+            "8_f",
+            "9_f",
+            "1_p",
+            "2_p",
+            "3_p",
+            "4_p",
+            "5_p",
+            "6_p",
+            "7_p",
+            "8_p",
+            "9_p",
+            "texture",
+            "1_orientation",
+            "2_orientation",
+            "3_orientation",
+            "4_orientation",
+            "1_Cauchy",
+            "2_Cauchy",
+            "3_Cauchy",
+            "4_Cauchy",
+            "5_Cauchy",
+            "6_Cauchy",
+            "7_Cauchy",
+            "8_Cauchy",
+            "9_Cauchy",
+            "Mises(Cauchy)",
+            "1_ln(V)",
+            "2_ln(V)",
+            "3_ln(V)",
+            "4_ln(V)",
+            "5_ln(V)",
+            "6_ln(V)",
+            "7_ln(V)",
+            "8_ln(V)",
+            "9_ln(V)",
+            "Mises(ln(V))",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "Wizard_DataTypes": [
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "float",
+            "float",
+            "float",
+            "float",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "Skip",
+            "double",
+            "double",
+            "double",
+            "double",
+            "double",
+            "double",
+            "double",
+            "double",
+            "double",
+            "double"
+        ],
+        "Wizard_Delimiters": "\t",
+        "Wizard_HeaderIsCustom": true,
+        "Wizard_HeaderLine": -1,
+        "Wizard_HeaderUseDefaults": false,
+        "Wizard_InputFilePath": "/cms1/damask/simulation/plasticity_analysis/306_grains_0.3_comp/postProc/dream3d_grains_compressionZ_inc600.txt",
+        "Wizard_NumberOfLines": 262151,
+        "Wizard_SelectedPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "Wizard_TupleDims": [
+            262144
+        ]
+    },
+    "3": {
+        "FilterVersion": "1.2.826",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Combine Attribute Arrays",
+        "Filter_Name": "CombineAttributeArrays",
+        "Filter_Uuid": "{a6b50fb0-eb7c-5d9b-9691-825d6a4fe772}",
+        "MoveValues": 0,
+        "NormalizeData": 0,
+        "SelectedDataArrayPaths": [
+            {
+                "Attribute Matrix Name": "CellData",
+                "Data Array Name": "1_orientation",
+                "Data Container Name": "ImageDataContainer"
+            },
+            {
+                "Attribute Matrix Name": "CellData",
+                "Data Array Name": "2_orientation",
+                "Data Container Name": "ImageDataContainer"
+            },
+            {
+                "Attribute Matrix Name": "CellData",
+                "Data Array Name": "3_orientation",
+                "Data Container Name": "ImageDataContainer"
+            },
+            {
+                "Attribute Matrix Name": "CellData",
+                "Data Array Name": "4_orientation",
+                "Data Container Name": "ImageDataContainer"
+            }
+        ],
+        "StackedDataArrayName": "quaternion"
+    },
+    "4": {
+        "FilterVersion": "1.2.826",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Create Data Array",
+        "Filter_Name": "CreateDataArray",
+        "Filter_Uuid": "{77f392fb-c1eb-57da-a1b1-e7acf9239fb8}",
+        "InitializationRange": {
+            "Max": 0,
+            "Min": 0
+        },
+        "InitializationType": 0,
+        "InitializationValue": "1",
+        "NewArray": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "phases",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "NumberOfComponents": 1,
+        "ScalarType": 4
+    },
+    "5": {
+        "CellEulerAnglesArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "eulers",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "CellPhasesArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "phases",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "CrystalStructuresArrayPath": {
+            "Attribute Matrix Name": "EnsembleAttributeMatrix",
+            "Data Array Name": "CrystalStructures",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "FilterVersion": "6.5.163",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Export Pole Figure Images",
+        "Filter_Name": "WritePoleFigure",
+        "Filter_Uuid": "{a10bb78e-fcff-553d-97d6-830a43c85385}",
+        "GenerationAlgorithm": 1,
+        "GoodVoxelsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "Mask",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "ImageLayout": 0,
+        "ImagePrefix": "Exposed_Lambert_",
+        "ImageSize": 1000,
+        "LambertSize": 32,
+        "MaterialNameArrayPath": {
+            "Attribute Matrix Name": "EnsembleAttributeMatrix",
+            "Data Array Name": "PhaseNames",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "NumColors": 32,
+        "OutputPath": "/cms1/damask/simulation/plasticity_analysis/306_grains_0.3_comp/dream3d_polefig_filter",
+        "Title": "pole figure",
+        "UseGoodVoxels": 0
+    },
+    "6": {
+        "CellEulerAnglesArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "eulers",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "CellPhasesArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "phases",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "ConvertToDegrees": 1,
+        "Delimiter": 2,
+        "FilterVersion": "6.5.163",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Export StatsGenerator ODF Angle File",
+        "Filter_Name": "WriteStatsGenOdfAngleFile",
+        "Filter_Uuid": "{a4952f40-22dd-54ec-8c38-69c3fcd0e6f7}",
+        "GoodVoxelsArrayPath": {
+            "Attribute Matrix Name": "",
+            "Data Array Name": "",
+            "Data Container Name": ""
+        },
+        "OutputFile": "/cms1/damask/simulation/plasticity_analysis/306_grains_0.3_comp/dream3d_polefig_filter/final_odf.txt",
+        "Sigma": 1,
+        "UseGoodVoxels": 0,
+        "Weight": 1
+    },
+    "PipelineBuilder": {
+        "Name": "polefigure",
+        "Number_Filters": 7,
+        "Version": 6
+    }
+}

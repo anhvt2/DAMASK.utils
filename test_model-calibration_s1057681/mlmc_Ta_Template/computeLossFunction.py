@@ -10,8 +10,8 @@ import os, sys, datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib as mpl
-mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24
+mpl.rcParams['xtick.labelsize'] = 16
+mpl.rcParams['ytick.labelsize'] = 16
 
 parser = argparse.ArgumentParser(description='parse folderName as <str> without /')
 parser.add_argument("-f", "--folderName", type=str)
@@ -78,7 +78,7 @@ plt.plot(interp_vareps, interp_exp_sigma, 'g^', ms=5, label='interp. exp.')
 plt.plot(interp_vareps, interp_comp_sigma, 'mv', ms=5, label='interp. comp.')
 plt.plot(exp_vareps, exp_sigma, 'bo', ms=8, label='exp.')
 plt.plot(comp_vareps, comp_sigma, 'rx', ms=8, label='comp.')
-plt.legend(fontsize=12)
+plt.legend(fontsize=12, markerscale=2)
 plt.xlabel(r'$\varepsilon$', fontsize=18)
 plt.ylabel(r'$\sigma$', fontsize=18)
 plt.xlim(left=1)

@@ -14,11 +14,28 @@ parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
 parser.add_argument("-LoadFile", "--LoadFile", default='tension.load', type=str)
 parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
-parser.add_argument("-skiprows", "--skiprows", type=int, default=4)
+# parser.add_argument("-skiprows", "--skiprows", type=int, default=4) # deprecated
 args = parser.parse_args()
 StressStrainFile = args.StressStrainFile
 LoadFile = args.LoadFile
-skiprows = args.skiprows
+# skiprows = args.skiprows # deprecated
+
+def getMetaInfo(StressStrainFile):
+	"""
+	return 
+	(1) number of lines for headers 
+	(2) list of outputs for pandas dataframe
+	"""
+	fileHandler = open(StressStrainFile)
+	txtInStressStrainFile = fileHandler.readlines()
+	fileHandler.close()
+	numLinesHeader = int(txtInStressStrainFile[0].split('\t')[0])
+	fieldsList = txtInStressStrainFile[numLinesHeader].split('\t')
+	for i in range(len(fieldsList)):
+		fieldsList[i] = fieldsList[i].replace('\n', '')
+	print(numLinesHeader)
+	print(fieldsList)
+	return numLinesHeader, fieldsList
 
 def readLoadFile(LoadFile):
 	load_data = np.loadtxt(LoadFile, dtype=str)
@@ -43,8 +60,11 @@ mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
 # d = np.loadtxt(StressStrainFile, skiprows=4)
-d = np.loadtxt(StressStrainFile, skiprows=skiprows)
-df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
+numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
+# d = np.loadtxt(StressStrainFile, skiprows=skiprows)
+d = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
+# df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
+df = pd.DataFrame(d, columns=fieldsList)
 vareps = [1] + list(df['1_f']) # d[:,1] # strain -- pad original
 sigma  = [0] + list(df['1_p']) # d[:,2] # stress -- pad original
 _, uniq_idx = np.unique(np.array(vareps), return_index=True)

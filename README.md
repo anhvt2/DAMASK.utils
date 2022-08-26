@@ -219,3 +219,10 @@ See the `Reporter` package from Pieterjan Robbe: [https://github.com/PieterjanRo
 ## Discussion
 
 See more at [https://groups.google.com/g/dream3d-users/c/SPCdr-BWROs?pli=1](https://groups.google.com/g/dream3d-users/c/SPCdr-BWROs?pli=1)
+
+# MATLAB/Octave platforms
+
+* `damask-2.0.2` runs on Solo, along with Octave. If optimization is concerned, try using Octave
+* `damask-2.0.3` may be compiled on Skybridge, along with MATLAB and Octave. If successful, can run both. However, Skybridge may limit in 48 hours or SNL may disconnect.
+
+

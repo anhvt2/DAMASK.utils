@@ -33,8 +33,8 @@ def getMetaInfo(StressStrainFile):
 	fieldsList = txtInStressStrainFile[numLinesHeader].split('\t')
 	for i in range(len(fieldsList)):
 		fieldsList[i] = fieldsList[i].replace('\n', '')
-	print(numLinesHeader)
-	print(fieldsList)
+	print('numLinesHeader = ', numLinesHeader)
+	print('fieldsList = ', fieldsList)
 	return numLinesHeader, fieldsList
 
 def readLoadFile(LoadFile):

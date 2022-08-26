@@ -19,7 +19,7 @@ args = parser.parse_args()
 folderName = args.folderName
 folderName = folderName.split('/')[0]
 
-refData = np.loadtxt('../datasets/true_Ta_polycrystal_SS_HCStack_CLC.dat', skiprows=1)
+refData = np.loadtxt('../datasets/true_SS304L_EngStress_EngStrain_exp_4A1.dat', skiprows=1)
 exp_vareps = refData[:,0] + 1.0
 exp_sigma  = refData[:,1] * 1e6
 

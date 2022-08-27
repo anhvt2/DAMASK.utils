@@ -26,18 +26,18 @@ function a = calculateNegativeAcquisitionFunction(x, hyp, meanfunc, covfunc, lik
 	else
 		% default: GP-UCB option-2
 
-		% [y, ~, rmse, ~] = predictor(x,hyp);
-		[y, rmse] = gp(hyp, @infGaussLik, meanfunc, covfunc, likfunc, S, Y, x);
-		if rmse < 0; rmse = 0; end
+		% [y, ~, s2, ~] = predictor(x,hyp);
+		[y, s2] = gp(hyp, @infGaussLik, meanfunc, covfunc, likfunc, S, Y, x);
+		if s2 < 0; s2 = 0; end
 		[fBest,iBest] = max(Y);
 
 		if strcmp(acquisitionFunction, 'PI')
 			%%% GP-PI 
-			a = normcdf((y - fBest) / sqrt(rmse));
+			a = normcdf((y - fBest) / sqrt(s2));
 		elseif strcmp(acquisitionFunction, 'EI')
 			%%% GP-EI
-			gammaX = (y - fBest) / sqrt(rmse);
-			a = sqrt(rmse) * (gammaX * normcdf(gammaX) + normpdf(gammaX) );
+			gammaX = (y - fBest) / sqrt(s2);
+			a = sqrt(s2) * (gammaX * normcdf(gammaX) + normpdf(gammaX) );
 		elseif strcmp(acquisitionFunction, 'UCB')
 			%%% GP-UCB
 			delta = 0.95; % probability; see Srinivas et al. GP-UCB
@@ -50,16 +50,16 @@ function a = calculateNegativeAcquisitionFunction(x, hyp, meanfunc, covfunc, lik
             %% option-3: kappa = constant
             % kappa = 2;
 
-			a = y + sqrt(kappa) * sqrt(rmse);
+			a = y + sqrt(kappa) * sqrt(s2);
 		else
 			fprintf('calculateNegativeAcquisitionFunction.m: acquisitionFunction option is not valid.\n');
 		end
 
 		% debug
-		fprintf('Acquisition %s: mu = %0.8f\n', acquisitionFunction, y);
-		fprintf('Acquisition %s: sigma = %0.8f\n', acquisitionFunction, sqrt(rmse));
+		fprintf('Acquisition %s: mu = %0.4e\n', acquisitionFunction, y);
+		fprintf('Acquisition %s: sigma = %0.4e\n', acquisitionFunction, sqrt(s2));
 		if strcmp(acquisitionFunction, 'UCB')
-            fprintf('Acquisition %s: kappa = %0.8f\n', acquisitionFunction, kappa);
+            fprintf('Acquisition %s: kappa = %0.4e\n', acquisitionFunction, kappa);
 		end
 	end
 
@@ -74,7 +74,7 @@ function a = calculateNegativeAcquisitionFunction(x, hyp, meanfunc, covfunc, lik
 		fprintf('%.4f, ', x(i));
 	end
 	fprintf('\n');
-	fprintf('Negative Acquisition Function Message: a = %.8f\n', a);
+	fprintf('Negative Acquisition Function Message: a = %.4e\n', a);
 	fprintf('\n');
 end
 

@@ -60,10 +60,10 @@ comp_sigma  = np.array(comp_sigma)[uniq_idx]
 interp_vareps = np.linspace(1, np.min([np.max(comp_vareps), np.max(exp_vareps)]), 1000)
 from scipy.interpolate import interp1d
 # get interpolated exp. stress
-interpSpline_exp = interp1d(exp_vareps, exp_sigma, kind='cubic', fill_value='extrapolate')
+interpSpline_exp = interp1d(exp_vareps, exp_sigma, kind='linear', fill_value='extrapolate')
 interp_exp_sigma = interpSpline_exp(interp_vareps)
 # get interpolated comp. stress
-interpSpline_comp = interp1d(comp_vareps, comp_sigma, kind='cubic', fill_value='extrapolate')
+interpSpline_comp = interp1d(comp_vareps, comp_sigma, kind='linear', fill_value='extrapolate')
 interp_comp_sigma = interpSpline_comp(interp_vareps)
 
 import scipy.linalg as sla
@@ -76,7 +76,7 @@ print(loss_sla)
 plt.figure()
 plt.plot(interp_vareps, interp_exp_sigma, 'g^', ms=5, label='interp. exp.')
 plt.plot(interp_vareps, interp_comp_sigma, 'mv', ms=5, label='interp. comp.')
-plt.plot(exp_vareps, exp_sigma, 'bo', ms=8, label='exp.')
+# plt.plot(exp_vareps, exp_sigma, 'bo', ms=8, label='exp.')
 plt.plot(comp_vareps, comp_sigma, 'rx', ms=8, label='comp.')
 plt.legend(fontsize=12, markerscale=2)
 plt.xlabel(r'$\varepsilon$', fontsize=18)

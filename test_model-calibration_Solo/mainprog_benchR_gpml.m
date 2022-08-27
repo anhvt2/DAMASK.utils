@@ -1,5 +1,5 @@
 
-% ------------------------------------------------------------ construct response GPR(s) ------------------------------------------------------------
+% --------------------------------------- construct response GPR(s) ---------------------------------------
 close all;
 clear all;
 home;
@@ -43,7 +43,7 @@ pkg load statistics;
 %
 % 	deprecated: 4. d -- dimensionality
 
-% ------------------------------------------------------------ INSTRUCTION ------------------------------------------------------------
+% --------------------------------------- INSTRUCTION ---------------------------------------
 % procedure to set up a GP-Hedge constrained asynchronously parallel BO applications
 % Step 1: set up a post-processing script that return all the outputs
 %			output.dat 
@@ -62,15 +62,15 @@ pkg load statistics;
 % Step 5: post-process: use buildLogs.sh to build globale {input,output,feasible,complete,batchID}.dat for post-processing analysis
 %
 
-% ------------------------------------------------------------ input parameters ------------------------------------------------------------
+% --------------------------------------- input parameters ---------------------------------------
 
 %% simulation settings
-modelName = 'hart6'; % declare model name -- must match with "_Template/"
+modelName = 'rosen'; % declare model name -- must match with "_Template/"
 queryShellScript = 'queryR.sh'; % query Shell script -- end-to-end, from input.dat to {output,feasible,complete,batchID,rewards}.dat
 
 %% define lower and upper bounds for the control variables
-xLB = zeros(1, 6);
-xUB = ones(1, 6);
+xLB = -0 * ones(1, 20);
+xUB = +2 * ones(1, 20);
 
 % add rough scale of inputs and outputs so that it can be centered around 1e0
 xScale = 1e0 * ones(1,length(xLB));
@@ -90,9 +90,9 @@ d = length(xLB); % dimensionality of the problem
 % upbClf = 2e+1 * ones(1, d);
 
 %% batch-size setting
-exploitSize = 6;        % exploitation by hallucination in batch
-exploreSize = 4;        % exploration by sampling at maximal mse
-exploreClfSize = 0; % exploration by sampling at maximal for classif-GPR
+exploitSize = 3;        % exploitation by hallucination in batch
+exploreSize = 2;        % exploration by sampling at maximal mse
+exploreClfSize = 1; % exploration by sampling at maximal for classif-GPR
 batchSize = exploitSize + exploreSize + exploreClfSize; % total number of concurrent simulations
 
 %% optimization settings
@@ -133,7 +133,7 @@ fprintf('Initialization completed Bayesian-optimization on %s\n', modelName);
 xLB = xLB ./ xScale; % rescale
 xUB = xUB ./ xScale; % rescale
 
-% ------------------------------------------------------------ initial sampling ------------------------------------------------------------ %
+% --------------------------------------- initial sampling --------------------------------------- %
 
 % rng(0);
 % Sinit = [];
@@ -154,7 +154,7 @@ xUB = xUB ./ xScale; % rescale
 % end
 % pause(300);
 
-% ------------------------------------------------------------ read sampling ------------------------------------------------------------ %
+% --------------------------------------- read sampling --------------------------------------- %
 S = []; Y = []; F = []; C = []; B = [];
 
 cd(parentPath);
@@ -257,7 +257,7 @@ fprintf('Done fitting gpml...\n\n\n');
 for i = 1:d; S(:,i) = S(:,i) / xScale(i); end; Y = Y / yScale;
 
 
-% ------------------------------------------------------------ parallel optimization loop ------------------------------------------------------------ %
+% --------------------------------------- parallel optimization loop --------------------------------------- %
 
 
 for i = (numParallelPoint + 1):maxiter

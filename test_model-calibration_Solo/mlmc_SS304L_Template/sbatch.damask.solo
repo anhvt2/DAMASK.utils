@@ -52,31 +52,31 @@ cores=36                             # Number MPI processes to run on each node 
 # cp ../material.config.preamble  .
 # cp ../dimCell.dat  .
 # cp ../computeYieldStress.py  .
-# cp ../single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom  .
-# ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
+# cp ../${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom  .
+# ln -sf *.geom ${filePrefix}.geom # assumption: suppose that there is only one *.geom file
 
 ### ---------------------------------- pre-process DAMASK
-rm -fv single_phase_equiaxed_tension* postProc/
-geom_check single_phase_equiaxed.geom
+filePrefix="single_phase_equiaxed"
+rm -fv ${filePrefix}_tension* postProc/
+geom_check ${filePrefix}*.geom
 
 ### ---------------------------------- run DAMASK
-# mpirun -np 4 /media/anhvt89/seagateRepo/DAMASK/DAMASK-v2.0.2/bin/DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
-# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
+# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${filePrefix}.geom --load tension.load 2>&1 > log.damask
 
 if [ -f "numProcessors.dat" ]; then
 	numProcessors=$(cat numProcessors.dat)
-	mpirun -np ${numProcessors} $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
+	mpirun -np ${numProcessors} $DAMASK_spectral --geom ${filePrefix}*.geom --load tension.load 2>&1 > log.damask
 else
-	mpirun -np 36 $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
+	mpirun -np 36 $DAMASK_spectral --geom ${filePrefix}*.geom --load tension.load 2>&1 > log.damask
 fi
 
 
 ### ---------------------------------- post-processing DAMASK
 sleep 10
-postResults single_phase_equiaxed_tension.spectralOut --cr f,p
+postResults *.spectralOut --cr f,p
 if [ -d "postProc" ]; then
 	cd postProc/
-	filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
+	filterTable < ${filePrefix}*_tension.txt --white inc,1_f,1_p > stress_strain.log
 	cp ../tension.load . 
 	python3 ../computeLossFunction.py
 	if [ -f "output.dat" ]; then

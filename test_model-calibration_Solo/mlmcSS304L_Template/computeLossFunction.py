@@ -50,6 +50,7 @@ compData = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
 # print(compData)
 # print(np.isnan(compData[:,-1]))
 compData = compData[~np.isnan(compData[:,-1]),:]
+compData = compData[~np.isinf(compData[:,-1]),:]
 
 # df = pd.DataFrame(compData, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
 df = pd.DataFrame(compData, columns=fieldsList)

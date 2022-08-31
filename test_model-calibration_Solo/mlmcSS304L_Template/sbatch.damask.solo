@@ -81,7 +81,7 @@ if [ -d "postProc" ]; then
 	filterTable < ${filePrefix}*_tension.txt --white inc,1_f,1_p > stress_strain.log
 	cd ..
 	cd ..
-	python3 ../computeLossFunction.py --f=40x40x40/
+	python3 computeLossFunction.py --f=40x40x40/
 	if [ -f "output.dat" ]; then
 		echo 1 > ../log.feasible
 	fi

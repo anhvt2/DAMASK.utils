@@ -15,12 +15,14 @@ mpl.rcParams['ytick.labelsize'] = 16
 
 parser = argparse.ArgumentParser(description='parse folderName as <str> without /')
 parser.add_argument("-f", "--folderName", type=str)
+parser.add_argument("-p", "--plot", type=bool, default=0)
 args = parser.parse_args()
 folderName = args.folderName
 folderName = folderName.split('/')[0]
+plotDebug = args.plot # debug option for plotting comparison exp. vs. comp.
 
 refData = np.loadtxt('../datasets/true_SS304L_EngStress_EngStrain_exp_4A1.dat', skiprows=1)
-exp_vareps = refData[:,0] + 1.0
+exp_vareps = refData[:,0] # start at vareps = 0
 exp_sigma  = refData[:,1] * 1e6
 
 # compData = np.loadtxt(os.getcwd() + '/' + folderName + '/postProc/single_phase_equiaxed_' + folderName + '_tension.txt', skiprows=3)
@@ -54,12 +56,12 @@ df = pd.DataFrame(compData, columns=fieldsList)
 comp_vareps = [1] + list(df['1_f']) # d[:,1] # strain -- pad original
 comp_sigma  = [0] + list(df['1_p']) # d[:,2] # stress -- pad original
 _, uniq_idx = np.unique(np.array(comp_vareps), return_index=True)
-comp_vareps = np.array(comp_vareps)[uniq_idx]
+comp_vareps = np.array(comp_vareps)[uniq_idx] - 1 # start at vareps = 0
 comp_sigma  = np.array(comp_sigma)[uniq_idx]
 
 
 ### interpolate & compute loss
-interp_vareps = np.linspace(1, np.min([np.max(comp_vareps), np.max(exp_vareps)]), 1000)
+interp_vareps = np.linspace(0, np.min([np.max(comp_vareps), np.max(exp_vareps)]), 1000) # start at vareps = 0
 from scipy.interpolate import interp1d
 # get interpolated exp. stress
 interpSpline_exp = interp1d(exp_vareps, exp_sigma, kind='linear', fill_value='extrapolate')
@@ -76,18 +78,24 @@ print(loss_nla)
 print(loss_sla)
 
 
-# ### plot -- debug
-# plt.figure()
-# plt.plot(interp_vareps, interp_exp_sigma, 'g^', ms=5, label='interp. exp.')
-# plt.plot(interp_vareps, interp_comp_sigma, 'mv', ms=5, label='interp. comp.')
-# plt.plot(exp_vareps, exp_sigma, 'bo', ms=8, label='exp.')
-# plt.plot(comp_vareps, comp_sigma, 'rx', ms=8, label='comp.')
-# plt.legend(fontsize=12, markerscale=2)
-# plt.xlabel(r'$\varepsilon$', fontsize=18)
-# plt.ylabel(r'$\sigma$', fontsize=18)
-# plt.xlim(left=1)
-# plt.ylim(bottom=0)
-# plt.show()
+### plot -- debug
+if plotDebug:
+	plt.figure()
+	plt.plot(interp_vareps, interp_exp_sigma, 'g^', ms=5, label='interp. exp.')
+	plt.plot(interp_vareps, interp_comp_sigma, 'mv', ms=5, label='interp. comp.')
+	plt.plot(exp_vareps, exp_sigma, 'bo', ms=8, label='exp.')
+	plt.plot(comp_vareps, comp_sigma, 'rx', ms=8, label='comp.')
+	plt.legend(fontsize=12, markerscale=2)
+	plt.xlabel(r'$\varepsilon$', fontsize=18)
+	plt.ylabel(r'$\sigma$', fontsize=18)
+	plt.xlim(left=0)
+	plt.ylim(bottom=0)
+	plt.savefig('compareExpComp.png', dpi='figure', format=None, metadata=None,
+        bbox_inches=None, pad_inches=0.1,
+        facecolor='auto', edgecolor='auto',
+        backend=None)
+	# plt.show()
+
 
 
 ### write output

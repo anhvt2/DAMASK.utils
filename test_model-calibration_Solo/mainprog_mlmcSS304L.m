@@ -65,12 +65,12 @@ pkg load statistics;
 % --------------------------------------- input parameters ---------------------------------------
 
 %% simulation settings
-modelName = 'rosen'; % declare model name -- must match with "_Template/"
-queryShellScript = 'queryR.sh'; % query Shell script -- end-to-end, from input.dat to {output,feasible,complete,batchID,rewards}.dat
+modelName = 'mlmcSS304L'; % declare model name -- must match with "_Template/"
+queryShellScript = 'sbatch.damask.solo'; % query Shell script -- end-to-end, from input.dat to {output,feasible,complete,batchID,rewards}.dat
 
 %% define lower and upper bounds for the control variables
-xLB = -0 * ones(1, 20);
-xUB = +2 * ones(1, 20);
+xLB = -0 * ones(1, 6);
+xUB = +1 * ones(1, 6);
 
 % add rough scale of inputs and outputs so that it can be centered around 1e0
 xScale = 1e0 * ones(1,length(xLB));
@@ -324,7 +324,8 @@ for i = (numParallelPoint + 1):maxiter
 
 	%% query functional evaluation
 	system('echo 0 > complete.dat'); % echo 0 > complete.dat; indicate case has been queried
-	system(sprintf('bash ./%s', queryShellScript)); % end-to-end queryX.sh: from input.dat to {output,feasible,complete,batchID,rewards}.dat
+	% system(sprintf('bash ./%s', queryShellScript)); % end-to-end queryX.sh: from input.dat to {output,feasible,complete,batchID,rewards}.dat
+	system(sprintf('ssubmit')); % submit in SLURM scheduler system with convenience
 	% note: system() returns MKL errors
 	cd(parentPath);
 	system('python3 bayesOptSrc-gpml/updateDb.py'); % write to {S,Y,F,C}.dat; no B.dat

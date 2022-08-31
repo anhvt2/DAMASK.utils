@@ -14,6 +14,7 @@ This code combines the capability of BayesOpt and MLMC to robustly calibrate mat
 echo 0 > batchID.dat
 echo 1 > feasible.dat
 echo 0 > acquisitionScheme.dat
+echo 1 > complete.dat
 ```
 
 ### Workflow

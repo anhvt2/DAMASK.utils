@@ -83,11 +83,13 @@ if [ -d "postProc" ]; then
 	cd ..
 	python3 computeLossFunction.py --f=40x40x40/
 	if [ -f "output.dat" ]; then
-		echo 1 > ../log.feasible
+		echo 1 > feasible.dat
+		echo 1 > complete.dat
 	fi
 else
 	echo "Simulation does not converge!!!"
-	echo 0 > log.feasible
+	echo 0 > feasible.dat
+	echo 1 > complete.dat
 fi
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"

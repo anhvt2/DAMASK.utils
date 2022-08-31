@@ -7,6 +7,8 @@
 
 `SS304L_EngStress_EngStrain_exp_4A1.txt` from Hojun Lim
 
+NOTE: truncated at $varepsilon = 0.55$ as the ultimate tensile strength
+
 # Cantor alloy
 
 gratefully shared from Bernd Gludovatz and Robert Ritchie: *Real-time observations of TRIP-induced ultrahigh strain hardening in a dual-phase CrMnFeCoNi high-entropy alloy*

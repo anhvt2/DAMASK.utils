@@ -73,15 +73,22 @@ loss_sla = sla.norm((interp_exp_sigma - interp_comp_sigma) / 1.e6, ord=2) # http
 print(loss_nla)
 print(loss_sla)
 
-plt.figure()
-plt.plot(interp_vareps, interp_exp_sigma, 'g^', ms=5, label='interp. exp.')
-plt.plot(interp_vareps, interp_comp_sigma, 'mv', ms=5, label='interp. comp.')
-plt.plot(exp_vareps, exp_sigma, 'bo', ms=8, label='exp.')
-plt.plot(comp_vareps, comp_sigma, 'rx', ms=8, label='comp.')
-plt.legend(fontsize=12, markerscale=2)
-plt.xlabel(r'$\varepsilon$', fontsize=18)
-plt.ylabel(r'$\sigma$', fontsize=18)
-plt.xlim(left=1)
-plt.ylim(bottom=0)
-plt.show()
 
+# ### plot -- debug
+# plt.figure()
+# plt.plot(interp_vareps, interp_exp_sigma, 'g^', ms=5, label='interp. exp.')
+# plt.plot(interp_vareps, interp_comp_sigma, 'mv', ms=5, label='interp. comp.')
+# plt.plot(exp_vareps, exp_sigma, 'bo', ms=8, label='exp.')
+# plt.plot(comp_vareps, comp_sigma, 'rx', ms=8, label='comp.')
+# plt.legend(fontsize=12, markerscale=2)
+# plt.xlabel(r'$\varepsilon$', fontsize=18)
+# plt.ylabel(r'$\sigma$', fontsize=18)
+# plt.xlim(left=1)
+# plt.ylim(bottom=0)
+# plt.show()
+
+
+### write output
+f = open('output.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+f.write('%.8e\n' % (loss_nla / 1e3)) # example: 20097.859541889356 -- scale by a factor of 1e3
+f.close()

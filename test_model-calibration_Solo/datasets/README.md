@@ -7,7 +7,7 @@
 
 `SS304L_EngStress_EngStrain_exp_4A1.txt` from Hojun Lim
 
-NOTE: truncated at $varepsilon = 0.55$ as the ultimate tensile strength
+NOTE: truncated at $\varepsilon = 0.55$ as the ultimate tensile strength
 
 # Cantor alloy
 

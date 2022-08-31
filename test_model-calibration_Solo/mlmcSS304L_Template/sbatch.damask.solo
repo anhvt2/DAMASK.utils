@@ -43,6 +43,7 @@ cores=36                             # Number MPI processes to run on each node 
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
 # sh generateMsDream3d.sh # call DREAM.3D for microstructure generation
 
+bash generateMsDream3d.sh
 
 ### ---------------------------------- copy main file from the parent directory
 # cp ../tension.load  .
@@ -56,6 +57,7 @@ cores=36                             # Number MPI processes to run on each node 
 # ln -sf *.geom ${filePrefix}.geom # assumption: suppose that there is only one *.geom file
 
 ### ---------------------------------- pre-process DAMASK
+cd 40x40x40/
 filePrefix="single_phase_equiaxed"
 rm -fv ${filePrefix}_tension* postProc/
 geom_check ${filePrefix}*.geom
@@ -77,13 +79,12 @@ postResults *.spectralOut --cr f,p
 if [ -d "postProc" ]; then
 	cd postProc/
 	filterTable < ${filePrefix}*_tension.txt --white inc,1_f,1_p > stress_strain.log
-	cp ../tension.load . 
-	python3 ../computeLossFunction.py
+	cd ..
+	cd ..
+	python3 ../computeLossFunction.py --f=40x40x40/
 	if [ -f "output.dat" ]; then
 		echo 1 > ../log.feasible
-		# needed in wrapper_DREAM3D-DAMASK.py
 	fi
-	cd ..
 else
 	echo "Simulation does not converge!!!"
 	echo 0 > log.feasible

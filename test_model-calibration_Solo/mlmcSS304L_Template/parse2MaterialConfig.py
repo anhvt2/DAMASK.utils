@@ -26,8 +26,8 @@ parentPath = os.getcwd()
 
 ### NOTE: for new case study, modify getDamaskParams() and parseInput()
 def getDamaskParams(bayesOpt_input):
-  lower_bounds = [0.0001,  10, 1,  5e6 ,   5e6, 1e5]
-  upper_bounds = [0.0085, 120, 5, 500e6, 500e6, 9e6]
+  lower_bounds = [0.0001,  10, 1,   5e6,   5e6, 1e5]
+  upper_bounds = [0.0085, 120, 5, 500e8, 500e8, 9e8]
   lower_bounds = np.array(lower_bounds)
   upper_bounds = np.array(upper_bounds)
   matcfg_input = lower_bounds + (upper_bounds - lower_bounds) * (bayesOpt_input - (0)) / (+1 - (0))

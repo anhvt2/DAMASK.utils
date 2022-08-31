@@ -90,9 +90,9 @@ d = length(xLB); % dimensionality of the problem
 % upbClf = 2e+1 * ones(1, d);
 
 %% batch-size setting
-exploitSize = 3;        % exploitation by hallucination in batch
-exploreSize = 2;        % exploration by sampling at maximal mse
-exploreClfSize = 1; % exploration by sampling at maximal for classif-GPR
+exploitSize = 6;        % exploitation by hallucination in batch
+exploreSize = 4;        % exploration by sampling at maximal mse
+exploreClfSize = 0; % exploration by sampling at maximal for classif-GPR
 batchSize = exploitSize + exploreSize + exploreClfSize; % total number of concurrent simulations
 
 %% optimization settings

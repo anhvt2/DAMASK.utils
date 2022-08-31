@@ -7,6 +7,15 @@ This code combines the capability of BayesOpt and MLMC to robustly calibrate mat
 * adopt the MLMC code from `test_MLMC_runs_s1057681_alphaTitanium/` and the Bayesian optimization code from `ooDaceAsyncParHedge.GitHub`. 
 * remove unrelated other `*_Template` folders
 
+### How to setup
+
+1. Initial samples:
+```shell
+echo 0 > batchID.dat
+echo 1 > feasible.dat
+echo 0 > acquisitionScheme.dat
+```
+
 ### Workflow
 
 1. `parse2MaterialConfig.py`: this script converts `input.dat` to a correct `material.config` and `material.config.preamble`. can be considered as a **pre-processing** script

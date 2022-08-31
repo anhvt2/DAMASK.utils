@@ -43,8 +43,8 @@ cores=36                             # Number MPI processes to run on each node 
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
 # sh generateMsDream3d.sh # call DREAM.3D for microstructure generation
 
-bash generateMsDream3d.sh
-
+bash generateMsDream3d.sh # generate microstructures at different meshes
+python3 parse2MaterialConfig.py # parse inputs to material.config
 ### ---------------------------------- copy main file from the parent directory
 # cp ../tension.load  .
 # cp ../sigma.dat  .

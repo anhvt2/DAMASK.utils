@@ -70,7 +70,7 @@ geom_check ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom
 
 if [ -f "numProcessors.dat" ]; then
 	numProcessors=$(cat numProcessors.dat)
-	if [[ "$numProcessors" -eq "1" ]];
+	if [[ "$numProcessors" -eq "1" ]]; then
 		$DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
 	else
 		mpirun -np ${numProcessors} $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask

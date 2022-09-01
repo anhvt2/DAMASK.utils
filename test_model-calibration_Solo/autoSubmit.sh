@@ -1,5 +1,7 @@
 #!/bin/bash
 
+modelName="mlmcSS304L"
+
 for i in $(seq 3 20); do
 	folderName="${modelName}_Iter${i}"
 

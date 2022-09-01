@@ -67,7 +67,11 @@ geom_check ${filePrefix}*.geom
 
 if [ -f "numProcessors.dat" ]; then
 	numProcessors=$(cat numProcessors.dat)
-	mpirun -np ${numProcessors} $DAMASK_spectral --geom ${filePrefix}*.geom --load tension.load 2>&1 > log.damask
+	if [[ "$numProcessors" -eq 1 ]]
+		$DAMASK_spectral --geom ${filePrefix}*.geom --load tension.load 2>&1 > log.damask
+	else
+		mpirun -np ${numProcessors} $DAMASK_spectral --geom ${filePrefix}*.geom --load tension.load 2>&1 > log.damask
+	fi
 else
 	mpirun -np 36 $DAMASK_spectral --geom ${filePrefix}*.geom --load tension.load 2>&1 > log.damask
 fi

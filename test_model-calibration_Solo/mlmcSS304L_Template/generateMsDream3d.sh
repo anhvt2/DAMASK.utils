@@ -86,6 +86,10 @@ echo
 source ~/.bashrc # get geom_check environment variable
 # for dimCell in 72 60 48 36 24 18 12; do
 for dimCell in $(cat dimCellList.dat); do
+	numProcessors=$(( $dimCell / 4 ))
+	if [[ "$numProcessors" -eq "0" ]]; then
+		numProcessors=1
+	fi
 	cd ${dimCell}x${dimCell}x${dimCell}
 	echo ${dimCell} > dimCell.dat # update dimCell.dat
 	cat ../material.config.preamble  | cat - material.config | sponge material.config
@@ -93,6 +97,7 @@ for dimCell in $(cat dimCellList.dat); do
 	sh ../getDream3dInfo.sh
 	ln -sf ../tension.load
 	cp -fv ../material.config.preamble  .
+	echo ${numProcessors} > numProcessors.dat # to be used in sbatch.damask.solo
 	cd ..
 done
 

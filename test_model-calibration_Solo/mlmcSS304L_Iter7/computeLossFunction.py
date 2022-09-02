@@ -15,7 +15,7 @@ mpl.rcParams['ytick.labelsize'] = 16
 
 parser = argparse.ArgumentParser(description='parse folderName as <str> without /')
 parser.add_argument("-f", "--folderName", type=str)
-parser.add_argument("-p", "--plot", type=bool, default=0)
+parser.add_argument("-p", "--plot", type=bool, default=0) # default: no plot
 args = parser.parse_args()
 folderName = args.folderName
 folderName = folderName.split('/')[0]
@@ -75,13 +75,14 @@ import scipy.linalg as sla
 import numpy.linalg as nla
 loss_nla = nla.norm((interp_exp_sigma - interp_comp_sigma) / 1.e6, ord=2) # https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html
 loss_sla = sla.norm((interp_exp_sigma - interp_comp_sigma) / 1.e6, ord=2) # https://docs.scipy.org/doc/scipy/reference/linalg.html#module-scipy.linalg
-print(loss_nla)
+# print(loss_nla)
 print(loss_sla)
 
 
 ### plot -- debug
 if plotDebug:
-	plt.figure()
+	# plt.figure()
+	plt.figure(num=None, figsize=(20, 11.3), dpi=300, facecolor='w', edgecolor='k') # screen size
 	plt.plot(interp_vareps, interp_exp_sigma, 'g^', ms=5, label='interp. exp.')
 	plt.plot(interp_vareps, interp_comp_sigma, 'mv', ms=5, label='interp. comp.')
 	plt.plot(exp_vareps, exp_sigma, 'bo', ms=8, label='exp.')

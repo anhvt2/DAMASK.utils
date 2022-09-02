@@ -43,8 +43,11 @@ cores=36                             # Number MPI processes to run on each node 
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
 # sh generateMsDream3d.sh # call DREAM.3D for microstructure generation
 
-bash generateMsDream3d.sh # generate microstructures at different meshes
+## NOTE: important to run 'parse2MaterialConfig.py' first to generate a correct material.config.preamble
+## 		 that will be later on pasted to a subfoler below for coarse/fine meshes
 python3 parse2MaterialConfig.py # parse inputs to material.config
+bash generateMsDream3d.sh # generate microstructures at different meshes
+
 ### ---------------------------------- copy main file from the parent directory
 # cp ../tension.load  .
 # cp ../sigma.dat  .
@@ -57,23 +60,25 @@ python3 parse2MaterialConfig.py # parse inputs to material.config
 # ln -sf *.geom ${filePrefix}.geom # assumption: suppose that there is only one *.geom file
 
 ### ---------------------------------- pre-process DAMASK
-cd 40x40x40/
+dimCell=8 # 40x40x40 is too computationally expensive
+folderName=${dimCell}x${dimCell}x${dimCell}
+cd ${dimCell}x${dimCell}x${dimCell}/
 filePrefix="single_phase_equiaxed"
-rm -fv ${filePrefix}_tension* postProc/
-geom_check ${filePrefix}*.geom
+rm -fv ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension* postProc/
+geom_check ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom
 
 ### ---------------------------------- run DAMASK
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${filePrefix}.geom --load tension.load 2>&1 > log.damask
 
 if [ -f "numProcessors.dat" ]; then
 	numProcessors=$(cat numProcessors.dat)
-	if [[ "$numProcessors" -eq 1 ]]
-		$DAMASK_spectral --geom ${filePrefix}*.geom --load tension.load 2>&1 > log.damask
+	if [[ "$numProcessors" -eq "1" ]]; then
+		$DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
 	else
-		mpirun -np ${numProcessors} $DAMASK_spectral --geom ${filePrefix}*.geom --load tension.load 2>&1 > log.damask
+		mpirun -np ${numProcessors} $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
 	fi
 else
-	mpirun -np 36 $DAMASK_spectral --geom ${filePrefix}*.geom --load tension.load 2>&1 > log.damask
+	mpirun -np 36 $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
 fi
 
 
@@ -85,13 +90,15 @@ if [ -d "postProc" ]; then
 	filterTable < ${filePrefix}*_tension.txt --white inc,1_f,1_p > stress_strain.log
 	cd ..
 	cd ..
-	python3 computeLossFunction.py --f=40x40x40/
+	python3 computeLossFunction.py --f=40x40x40/ -p 1 # -p 0 if no plot
 	if [ -f "output.dat" ]; then
-		echo 1 > ../log.feasible
+		echo 1 > feasible.dat
+		echo 1 > complete.dat
 	fi
 else
 	echo "Simulation does not converge!!!"
-	echo 0 > log.feasible
+	echo 0 > feasible.dat
+	echo 1 > complete.dat
 fi
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"

@@ -2,11 +2,11 @@
 
 modelName="mlmcSS304L"
 
-rm -rfv ${modelName}_Iter{3,4,5,6,7,8,9}
+rm -rfv ${modelName}_Iter{1,2,3,4,5,6,7,8,9}
 rm -rfv ${modelName}_Iter??
 rm -rfv ${modelName}_Iter???
 
-for i in $(seq 3 20); do
+for i in $(seq 1 20); do
 	folderName="${modelName}_Iter${i}"
 	cp -rfv ${modelName}_Template/ ${folderName}
 	

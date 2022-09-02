@@ -13,19 +13,19 @@ import matplotlib as mpl
 mpl.rcParams['xtick.labelsize'] = 16
 mpl.rcParams['ytick.labelsize'] = 16
 
-parser = argparse.ArgumentParser(description='parse folderName as <str> without /')
-parser.add_argument("-f", "--folderName", type=str)
+parser = argparse.ArgumentParser(description='parse meshFolderName as <str> without /')
+parser.add_argument("-f", "--f", type=str)
 parser.add_argument("-p", "--plot", type=bool, default=0) # default: no plot
 args = parser.parse_args()
-folderName = args.folderName
-folderName = folderName.split('/')[0]
+meshFolderName = args.f
+meshFolderName = meshFolderName.split('/')[0]
 plotDebug = args.plot # debug option for plotting comparison exp. vs. comp.
 
 refData = np.loadtxt('../datasets/true_SS304L_EngStress_EngStrain_exp_4A1.dat', skiprows=1)
 exp_vareps = refData[:,0] # start at vareps = 0
 exp_sigma  = refData[:,1] * 1e6
 
-# compData = np.loadtxt(os.getcwd() + '/' + folderName + '/postProc/single_phase_equiaxed_' + folderName + '_tension.txt', skiprows=3)
+# compData = np.loadtxt(os.getcwd() + '/' + meshFolderName + '/postProc/single_phase_equiaxed_' + meshFolderName + '_tension.txt', skiprows=3)
 
 def getMetaInfo(StressStrainFile):
 	"""
@@ -44,7 +44,7 @@ def getMetaInfo(StressStrainFile):
 	print('fieldsList = ', fieldsList)
 	return numLinesHeader, fieldsList
 
-StressStrainFile = os.getcwd() + '/' + folderName + '/postProc/stress_strain.log'
+StressStrainFile = os.getcwd() + '/' + meshFolderName + '/postProc/stress_strain.log'
 numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
 compData = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
 # print(compData)
@@ -92,7 +92,8 @@ if plotDebug:
 	plt.ylabel(r'$\sigma$', fontsize=18)
 	plt.xlim(left=0)
 	plt.ylim(bottom=0)
-	plt.savefig('compareExpComp.png', dpi='figure', format=None, metadata=None,
+	currentFolderName = os.getcwd().split('/')[-1]
+	plt.savefig('compareExpComp_%s_%s.png' % (currentFolderName, meshFolderName), dpi='figure', format=None, metadata=None,
         bbox_inches=None, pad_inches=0.1,
         facecolor='auto', edgecolor='auto',
         backend=None)

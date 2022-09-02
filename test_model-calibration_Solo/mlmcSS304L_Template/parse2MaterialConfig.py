@@ -18,10 +18,6 @@ import os, sys, time, glob, datetime
 bayesOpt_input = np.loadtxt('input.dat')
 d = len(bayesOpt_input) # dimensionality
 
-matcfgFile = open('material.config') # use 'materials.config' as the template file
-txtcfg = matcfgFile.readlines()
-matcfgFile.close()
-
 parentPath = os.getcwd()
 
 ### NOTE: for new case study, modify getDamaskParams() and parseInput()
@@ -59,41 +55,24 @@ def parseInput(matcfg_input, txtcfg):
 
 
 ### main function
+matcfgFile = open('material.config') # use 'materials.config' as the template file
+txtcfg = matcfgFile.readlines()
+matcfgFile.close()
+
 matcfg_input = getDamaskParams(bayesOpt_input) # translate from [0,1] to [lower_bounds, upper_bounds]
 np.savetxt('bayesOpt_input.dat'     , bayesOpt_input, fmt='%.16e', delimiter=',') # debug
 np.savetxt('matcfg_input.dat', matcfg_input, fmt='%.16e', delimiter=',') # debug
 parsed_txtcfg = parseInput(matcfg_input, txtcfg)
+
+# write to material.config
 f = open('material.config', 'w') # can be 'r', 'w', 'a', 'r+'
 for j in range(len(parsed_txtcfg)):
   f.write(parsed_txtcfg[j])
 f.close()
 
-
-# os.system('rm -rfv bayesOpt_input_*') # remove all folders
-
-# for i in range(n):
-#   ii = i + 1 # dakota index starts from 1
-#   folderName = 'bayesOpt_input_%d' % (ii)
-#   os.system('mkdir -p %s' % (folderName))
-#   localPath = parentPath + '/' + folderName
-#   os.chdir(localPath)
-#   ## link file from parent directory
-#   os.system('ln -sf ../numProcessors.dat .')
-#   os.system('ln -sf ../single_phase_equiaxed.geom .')
-#   os.system('ln -sf ../numerics.config .')
-#   os.system('ln -sf ../tension.load .')
-#   os.system('ln -sf ../run_damask.sh .')
-#   os.system('ln -sf ../sbatch.damask.solo .')
-#   ## write new 'material.config' locally
-#   bayesOpt_input = bayesOpt_input[i] # get input from dakota
-#   matcfg_input = getDamaskParams(bayesOpt_input)
-#   np.savetxt('bayesOpt_input_%d.dat' % ii     , bayesOpt_input, fmt='%.16e', delimiter=',') # debug
-#   np.savetxt('matcfg_input_%d.dat' % ii, matcfg_input, fmt='%.16e', delimiter=',') # debug
-#   parsed_txtcfg = parseInput(matcfg_input, txtcfg)
-#   f = open('material.config', 'w') # can be 'r', 'w', 'a', 'r+'
-#   for j in range(len(parsed_txtcfg)):
-#     f.write(parsed_txtcfg[j])
-#   f.close()
-#   os.chdir(parentPath)
-#   print('Created folder %s' % folderName)
+# write to material.config.preamble
+f = open('material.config.preamble', 'w') # can be 'r', 'w', 'a', 'r+'
+for j in range(len(parsed_txtcfg)):
+  f.write(parsed_txtcfg[j])
+f.close()
 

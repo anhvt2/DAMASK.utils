@@ -1,0 +1,18 @@
+6	header
+postResults v2.0.2	single_phase_equiaxed_tension.spectralOut --cr f,p
+addStrainTensors v2.0.2	single_phase_equiaxed_tension.txt --left --logarithmic
+addCauchy v2.0.2	single_phase_equiaxed_tension.txt
+addMises v2.0.2	single_phase_equiaxed_tension.txt --strain ln(V) --stress Cauchy
+filterTable v2.0.2	--white inc,Mises(ln(V)),Mises(Cauchy)
+inc	Mises(ln(V))	Mises(Cauchy)
+0.0	0.0	3.36713724246e-06
+1.0	0.00133200177512	294732415.08
+2.0	0.00266134751302	431035306.285
+3.0	0.00398804778503	460938394.236
+4.0	0.00531211309945	478261901.68
+5.0	0.00663355390211	492402490.826
+6.0	0.00795238057685	505271772.539
+7.0	0.00926860344599	517475479.997
+8.0	0.0105822327709	529285110.231
+9.0	0.0118932787522	540816715.63
+10.0	0.0132017515308	552155799.239

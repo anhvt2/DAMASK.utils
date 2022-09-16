@@ -62,13 +62,19 @@ comp_sigma  = np.array(comp_sigma)[uniq_idx]
 
 
 ### interpolate & compute loss
-interp_vareps = np.linspace(0, np.min([np.max(comp_vareps), np.max(exp_vareps)]), 1000) # start at vareps = 0
+max_interp_vareps = np.min([np.max(comp_vareps), np.max(exp_vareps)]) 
+""" Explanation: 
+	Even though with the same loading conditions, sometimes CPFEM ends with much shorter strain. 
+	To encourage CPFEM to go further for minimizing the loss between comp. and exp., 
+	we penalize the loss function based on max_interp_vareps
+"""
+interp_vareps = np.linspace(0, max_interp_vareps, 1000) # start at vareps = 0
 from scipy.interpolate import interp1d
 # get interpolated exp. stress
 interpSpline_exp = interp1d(exp_vareps, exp_sigma, kind='linear', fill_value='extrapolate')
 interp_exp_sigma = interpSpline_exp(interp_vareps)
 # get interpolated comp. stress
-interpSpline_comp = interp1d(comp_vareps, comp_sigma, kind='linear', fill_value='extrapolate')
+interpSpline_comp = interp1d(comp_vareps, comp_sigma, kind='cubic', fill_value='extrapolate')
 interp_comp_sigma = interpSpline_comp(interp_vareps)
 
 import scipy.linalg as sla
@@ -103,5 +109,7 @@ if plotDebug:
 
 ### write output
 f = open('output.dat', 'w') # can be 'r', 'w', 'a', 'r+'
-f.write('%.8e\n' % (loss_nla / 1e3)) # example: 20097.859541889356 -- scale by a factor of 1e3
+# f.write('%.8e\n' % (loss_nla / 1e3)) # example: 20097.859541889356 -- scale by a factor of 1e3
+# f.write('%.8e\n' % (loss_nla / 1e3 / max_interp_vareps)) # example: 20097.859541889356 -- scale by a factor of 1e3
+f.write('%.8e\n' % (np.log(loss_nla / max_interp_vareps))) # example: 20097.859541889356 -- scale by a factor of 1e3
 f.close()

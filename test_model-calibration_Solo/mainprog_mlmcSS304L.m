@@ -109,7 +109,7 @@ addpath(strcat(parentPath,'/bayesOptSrc-gpml')); % add BO toolbox
 
 fprintf('Initialization begun for Bayesian-optimization on %s\n', modelName);
 checkTime = 0.10; % minutes to periodically check simulations if they are complete in MATLAB master optimization loop
-waitTime = 1; % hours to stop waiting for a batch to finish; indeed run post-processing after this
+waitTime = 4; % hours to stop waiting for a batch to finish; indeed run post-processing after this
 % note: make sure $waitTime is consistent with other scripts during rolling simulations out, i.e. headers of qsub* in each simulation
 
 % print batchSettings.dat for python3 script checker

@@ -111,5 +111,5 @@ if plotDebug:
 f = open('output.dat', 'w') # can be 'r', 'w', 'a', 'r+'
 # f.write('%.8e\n' % (loss_nla / 1e3)) # example: 20097.859541889356 -- scale by a factor of 1e3
 # f.write('%.8e\n' % (loss_nla / 1e3 / max_interp_vareps)) # example: 20097.859541889356 -- scale by a factor of 1e3
-f.write('%.8e\n' % (np.log(loss_nla / max_interp_vareps))) # example: 20097.859541889356 -- scale by a factor of 1e3
+f.write('%.8e\n' % (- np.log(loss_nla / max_interp_vareps))) # example: 20097.859541889356 -- scale by a factor of 1e3
 f.close()

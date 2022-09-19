@@ -55,8 +55,28 @@ nb_of_warm_up_samples = 10
 # ======================
 # @@@ RUN MULTILEVEL @@@
 # ======================
-run_multilevel(max_level=max_level,
+history = run_multilevel(max_level=max_level,
                cost_model=level -> sum(cost_per_level[key + one(key)] for key in push!(collect(keys(diff(level))), level)),
                ε=ε,
                nb_of_warm_up_samples=nb_of_warm_up_samples
               )
+
+# ==================
+# @@@ PRINT INFO @@@
+# ==================
+open("estimators.dat", "w") do file
+    write(file, "mean of QoI = $(history.data[end][:mean])\n")
+    write(file, "var of QoI = $(history.data[end][:var])\n")
+    write(file, "var of estimator = $(history.data[end][:varest])\n")
+    write(file, "current level or index set =")
+    write(file, "$(history.data[end][:current_index_set])\n")
+    write(file, "expected value E[Q] = \n")
+    write(file, "$(history.data[end][:E])\n")
+    write(file, "expected value E[dQ] = \n")
+    write(file, "$(history.data[end][:dE])\n")
+    write(file, "variance V[Q] = \n")
+    write(file, "$(history.data[end][:V])\n")
+    write(file, "variance V[dQ] = \n")
+    write(file, "$(history.data[end][:dV])\n")
+    write(file, "number of samples = \n")
+    write(file, "$(history.data[end][:nb_of_samples])\n")

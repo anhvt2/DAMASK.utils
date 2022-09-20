@@ -65,7 +65,7 @@ pkg load statistics;
 % --------------------------------------- input parameters ---------------------------------------
 
 %% simulation settings
-modelName = 'mlmcSS304L'; % declare model name -- must match with "_Template/"
+modelName = 'SS304L'; % declare model name -- must match with "_Template/"
 queryShellScript = 'sbatch.damask.solo'; % query Shell script -- end-to-end, from input.dat to {output,feasible,complete,batchID,rewards}.dat
 
 %% define lower and upper bounds for the control variables

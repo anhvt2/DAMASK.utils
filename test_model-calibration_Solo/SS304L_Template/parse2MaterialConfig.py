@@ -22,8 +22,9 @@ parentPath = os.getcwd()
 
 ### NOTE: for new case study, modify getDamaskParams() and parseInput()
 def getDamaskParams(bayesOpt_input):
-  lower_bounds = [0.001,  10, 1, 1e7, 1e7,    1e8]
-  upper_bounds = [0.085, 120, 5, 1e9, 1e9, 1000e6]
+  # gdot0_slip, n_slip, a_slip, tau0_slip, tausat_slip, h0_slipslip
+  lower_bounds = [0.001,  10, 1, np.log10(   1e6), np.log10(   1e6), np.log10(   1e6)]
+  upper_bounds = [0.085, 120, 5, np.log10(8000e6), np.log10(8000e6), np.log10(8000e6)]
   lower_bounds = np.array(lower_bounds)
   upper_bounds = np.array(upper_bounds)
   matcfg_input = lower_bounds + (upper_bounds - lower_bounds) * (bayesOpt_input - (0)) / (+1 - (0))
@@ -34,9 +35,9 @@ def parseInput(matcfg_input, txtcfg):
   gdot0_slip    = matcfg_input[0]
   n_slip        = matcfg_input[1]
   a_slip        = matcfg_input[2]
-  tau0_slip     = matcfg_input[3] 
-  tausat_slip   = matcfg_input[4]
-  h0_slipslip   = matcfg_input[5]
+  tau0_slip     = np.power(10,matcfg_input[3])
+  tausat_slip   = np.power(10,matcfg_input[4])
+  h0_slipslip   = np.power(10,matcfg_input[5])
   parsed_txtcfg = txtcfg # work on a copied version
   # change lines: always add '\n' at the end of the line
   # parsed_txtcfg[48 - 1] = 'gdot0_slip              0.001\n'

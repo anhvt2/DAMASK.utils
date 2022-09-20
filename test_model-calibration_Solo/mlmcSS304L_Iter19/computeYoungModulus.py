@@ -1,1 +1,0 @@
-../../test_MLMC_runs_s1057681_alphaTitanium/../computeYoungModulus.py

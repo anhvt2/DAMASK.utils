@@ -1,6 +1,7 @@
 #!/bin/bash
 
-for i in $(seq 20); do
+# for i in $(seq 20); do
+for i in $(seq 400); do
 	folderName="mlmcSS304L_Iter${i}"
 	cd $folderName
 	# cp ../mlmcSS304L_Template/sbatch.damask.solo .

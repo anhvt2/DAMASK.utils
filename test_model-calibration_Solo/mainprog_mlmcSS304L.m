@@ -97,7 +97,7 @@ batchSize = exploitSize + exploreSize + exploreClfSize; % total number of concur
 
 %% optimization settings
 maxiter = 400; % maximum number of iterations
-numInitPoint = 20; % last maximum number of iterations in the initial sampling phase
+numInitPoint = 52; % last maximum number of iterations in the initial sampling phase
 numParallelPoint = numInitPoint; % true for asynchornous batch-parallel % last maximum number of iterations in the batch parallel BO; constraint numParallelPoint >= numInitPoint; (cont)
 % if no parallel for batch parallel BO, then numParallelPoint = numInitPoint
 

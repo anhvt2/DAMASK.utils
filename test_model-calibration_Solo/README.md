@@ -17,6 +17,23 @@ echo 0 > acquisitionScheme.dat
 echo 1 > complete.dat
 ```
 
+2. Add timestamp to `sbatch.damask.solo`
+
+```shell
+# timestamp
+timeStamp=$(date +%Y-%m-%d-%H:%M:%S)
+logFile="query.log"
+echo "Start querying at" > query.log
+echo ${timeStamp} >> query.log
+
+...
+
+# timestamp
+timeStamp=$(date +%Y-%m-%d-%H:%M:%S)
+echo "Stop querying at" >> query.log
+echo ${timeStamp} >> query.log
+```
+
 ### Workflow
 
 1. `parse2MaterialConfig.py`: this script converts `input.dat` to a correct `material.config` and `material.config.preamble`. can be considered as a **pre-processing** script

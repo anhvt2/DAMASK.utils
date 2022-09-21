@@ -84,6 +84,13 @@ echo
 
 # export geom_check=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/processing/pre/geom_check.sh
 source ~/.bashrc # get geom_check environment variable
+
+### parse input.dat to material.config
+python3 parse2MaterialConfig.py
+cp material.config material.config.bak
+cp material.config.preamble material.config.preamble.bak
+
+### distribute to each folder
 # for dimCell in 72 60 48 36 24 18 12; do
 for dimCell in $(cat dimCellList.dat); do
 	numProcessors=$(( $dimCell / 4 ))
@@ -94,6 +101,8 @@ for dimCell in $(cat dimCellList.dat); do
 		ln -sf ../numerics.config .
 		ln -sf ../sbatch.damask.solo .
 		echo ${dimCell} > dimCell.dat # update dimCell.dat
+		# cp ../material.config .
+		# cp ../material.config.preamble .
 		cat ../material.config.preamble  | cat - material.config | sponge material.config
 		geom_check single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom
 		sh ../getDream3dInfo.sh

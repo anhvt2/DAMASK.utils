@@ -89,6 +89,7 @@ print(loss_sla)
 if plotDebug:
 	# plt.figure()
 	# plt.figure(num=None, figsize=(20, 11.3), dpi=300, facecolor='w', edgecolor='k') # screen size
+	mpl.use('Agg')
 	plt.figure(num=None, figsize=(20, 11.3), dpi=300)
 	plt.plot(interp_vareps, interp_exp_sigma, 'g^', ms=5, label='interp. exp.')
 	plt.plot(interp_vareps, interp_comp_sigma, 'mv', ms=5, label='interp. comp.')

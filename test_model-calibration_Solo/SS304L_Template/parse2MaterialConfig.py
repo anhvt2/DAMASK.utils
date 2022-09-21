@@ -15,7 +15,7 @@ import numpy as np
 import os, sys, time, glob, datetime
 
 ## read input
-bayesOpt_input = np.loadtxt('input.dat')
+bayesOpt_input = np.loadtxt('input.dat', delimiter=',')
 d = len(bayesOpt_input) # dimensionality
 
 parentPath = os.getcwd()

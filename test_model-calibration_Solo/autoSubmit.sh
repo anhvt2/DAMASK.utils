@@ -1,8 +1,8 @@
 #!/bin/bash
 
-modelName="mlmcSS304L"
+modelName="SS304L"
 
-for i in $(seq 1 20); do
+for i in $(seq 1 10); do
 	folderName="${modelName}_Iter${i}"
 
 	cd $folderName

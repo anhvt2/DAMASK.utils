@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # for i in $(seq 20); do
-for i in $(seq 400); do
-	folderName="mlmcSS304L_Iter${i}"
+for i in $(seq 10); do
+	folderName="SS304L_Iter${i}"
 	cd $folderName
 	# cp ../mlmcSS304L_Template/sbatch.damask.solo .
-	cp ../mlmcSS304L_Template/computeLossFunction.py . 
+	cp ../SS304L_Template/computeLossFunction.py . 
 	python3 computeLossFunction.py --f=8x8x8/ -p 1
 	echo 1 > complete.dat
 	echo 1 > feasible.dat

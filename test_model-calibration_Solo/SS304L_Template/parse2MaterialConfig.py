@@ -23,8 +23,8 @@ parentPath = os.getcwd()
 ### NOTE: for new case study, modify getDamaskParams() and parseInput()
 def getDamaskParams(bayesOpt_input):
   # gdot0_slip, n_slip, a_slip, tau0_slip, tausat_slip, h0_slipslip
-  lower_bounds = [0.001,  10, 1, np.log10(   1e6), np.log10(   1e6), np.log10(   1e6)]
-  upper_bounds = [0.085, 120, 5, np.log10(8000e6), np.log10(8000e6), np.log10(8000e6)]
+  lower_bounds = [0.001,   3, 1, np.log10(   1e5), np.log10(1e9), np.log10(  1e8)]
+  upper_bounds = [0.085, 120, 8, np.log10(  90e5), np.log10(9e9), np.log10(100e8)]
   lower_bounds = np.array(lower_bounds)
   upper_bounds = np.array(upper_bounds)
   matcfg_input = lower_bounds + (upper_bounds - lower_bounds) * (bayesOpt_input - (0)) / (+1 - (0))

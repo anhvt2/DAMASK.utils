@@ -108,9 +108,9 @@ import numpy.linalg as nla
 # print(loss_nla)
 # print(loss_sla)
 scaled_l2_loss = np.sqrt(np.trapz((interp_exp_sigma - interp_comp_sigma)**2, x=interp_vareps)) / 1e6
-scaled_l2_derivative_loss = np.sqrt(np.trapz((np.gradient(interp_exp_sigma) - np.gradient(interp_comp_sigma))**2, x=interp_vareps)) / 1e3
+scaled_l2_d1_loss = np.sqrt(np.trapz((np.gradient(interp_exp_sigma) - np.gradient(interp_comp_sigma))**2, x=interp_vareps)) / 1e3
 
-loss = - (scaled_l2_loss + scaled_l2_derivative_loss)
+loss = - (scaled_l2_loss + scaled_l2_d1_loss)
 
 ### write output
 f = open('output.dat', 'w') # can be 'r', 'w', 'a', 'r+'
@@ -121,5 +121,7 @@ f.write('%.8e\n' % (loss)) # example: 20097.859541889356 -- scale by a factor of
 i = np.loadtxt('input.dat', delimiter=',')
 print('%s' % os.getcwd().split('/')[-1])
 print('i = ', i)
-print('loss = ', loss)
+print('l2 loss = ', scaled_l2_loss)
+print('regularized l2 d1 loss = ', scaled_l2_d1_loss)
+print('total loss = ', loss)
 f.close()

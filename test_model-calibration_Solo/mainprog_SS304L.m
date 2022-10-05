@@ -96,8 +96,8 @@ exploreClfSize = 0; % exploration by sampling at maximal for classif-GPR
 batchSize = exploitSize + exploreSize + exploreClfSize; % total number of concurrent simulations
 
 %% optimization settings
-maxiter = 400; % maximum number of iterations
-numInitPoint = 15; % last maximum number of iterations in the initial sampling phase
+maxiter = 1000; % maximum number of iterations
+numInitPoint = 9; % last maximum number of iterations in the initial sampling phase
 numParallelPoint = numInitPoint; % true for asynchornous batch-parallel % last maximum number of iterations in the batch parallel BO; constraint numParallelPoint >= numInitPoint; (cont)
 % if no parallel for batch parallel BO, then numParallelPoint = numInitPoint
 

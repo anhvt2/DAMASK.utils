@@ -110,7 +110,9 @@ import numpy.linalg as nla
 scaled_l2_loss = np.sqrt(np.trapz((interp_exp_sigma - interp_comp_sigma)**2, x=interp_vareps)) / 1e6
 scaled_l2_d1_loss = np.sqrt(np.trapz((np.gradient(interp_exp_sigma) - np.gradient(interp_comp_sigma))**2, x=interp_vareps)) / 1e4 
 
-negative_loss = - (scaled_l2_loss + scaled_l2_d1_loss) / 1e2
+# negative_loss = - (scaled_l2_loss + scaled_l2_d1_loss) / 1e2
+negative_loss = - scaled_l2_loss / 1e2
+
 
 ### write output
 f = open('output.dat', 'w') # can be 'r', 'w', 'a', 'r+'

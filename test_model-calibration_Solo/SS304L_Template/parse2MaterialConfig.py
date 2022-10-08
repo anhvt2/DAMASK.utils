@@ -22,9 +22,9 @@ parentPath = os.getcwd()
 
 ### NOTE: for new case study, modify getDamaskParams() and parseInput()
 def getDamaskParams(bayesOpt_input):
-  # gdot0_slip, n_slip, a_slip, tau0_slip, tausat_slip, h0_slipslip
-  lower_bounds = [0.001,   3, 1, np.log10(   1e5), np.log10(1e9), np.log10(  1e8)]
-  upper_bounds = [0.085, 120, 8, np.log10(  90e5), np.log10(9e9), np.log10(100e8)]
+  # n_slip, a_slip, tau0_slip, tausat_slip, h0_slipslip
+  lower_bounds = [  1.2, 1, np.log10(   1e5), np.log10( 1e8), np.log10(  1e8)]
+  upper_bounds = [  120, 8, np.log10( 900e5), np.log10(90e8), np.log10(100e8)]
   lower_bounds = np.array(lower_bounds)
   upper_bounds = np.array(upper_bounds)
   matcfg_input = lower_bounds + (upper_bounds - lower_bounds) * (bayesOpt_input - (0)) / (+1 - (0))
@@ -32,12 +32,12 @@ def getDamaskParams(bayesOpt_input):
 
 def parseInput(matcfg_input, txtcfg):
   # unpack values and scale to units
-  gdot0_slip    = matcfg_input[0]
-  n_slip        = matcfg_input[1]
-  a_slip        = matcfg_input[2]
-  tau0_slip     = np.power(10,matcfg_input[3])
-  tausat_slip   = np.power(10,matcfg_input[4])
-  h0_slipslip   = np.power(10,matcfg_input[5])
+  gdot0_slip    = 0.001 # reference: 0.001
+  n_slip        = matcfg_input[0]
+  a_slip        = matcfg_input[1]
+  tau0_slip     = np.power(10,matcfg_input[2])
+  tausat_slip   = np.power(10,matcfg_input[3])
+  h0_slipslip   = np.power(10,matcfg_input[4])
   parsed_txtcfg = txtcfg # work on a copied version
   # change lines: always add '\n' at the end of the line
   # parsed_txtcfg[48 - 1] = 'gdot0_slip              0.001\n'
@@ -46,7 +46,7 @@ def parseInput(matcfg_input, txtcfg):
   # parsed_txtcfg[51 - 1] = 'tau0_slip               95.e6\n'
   # parsed_txtcfg[52 - 1] = 'tausat_slip             222.e6\n'
   # parsed_txtcfg[53 - 1] = 'h0_slipslip             1.0e6\n'
-  parsed_txtcfg[48 - 1] = 'gdot0_slip              %.12e\n' % gdot0_slip
+  parsed_txtcfg[48 - 1] = 'gdot0_slip              %.4f\n' % gdot0_slip
   parsed_txtcfg[49 - 1] = 'n_slip                  %.12e\n' % n_slip
   parsed_txtcfg[50 - 1] = 'a_slip                  %.12e\n' % a_slip
   parsed_txtcfg[51 - 1] = 'tau0_slip               %.12e\n' % tau0_slip

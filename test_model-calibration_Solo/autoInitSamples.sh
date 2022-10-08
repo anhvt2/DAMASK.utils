@@ -9,12 +9,12 @@ rm -rfv ${modelName}_Iter???
 for i in $(seq 1 10); do
 	folderName="${modelName}_Iter${i}"
 	cp -rfv ${modelName}_Template/ ${folderName}
-	
+
 	cd $folderName
-	python3 random6d.py # create input.py
+	python3 randomSampleInput.py # create input.py
 	python3 parse2MaterialConfig.py
 	cd ..
-	
+
 	echo "done $folderName"; echo; echo;
 done
 

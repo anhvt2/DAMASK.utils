@@ -69,8 +69,8 @@ modelName = 'SS304L'; % declare model name -- must match with "_Template/"
 queryShellScript = 'sbatch.damask.solo'; % query Shell script -- end-to-end, from input.dat to {output,feasible,complete,batchID,rewards}.dat
 
 %% define lower and upper bounds for the control variables
-xLB = -0 * ones(1, 6);
-xUB = +1 * ones(1, 6);
+xLB = -0 * ones(1, 5);
+xUB = +1 * ones(1, 5);
 
 % add rough scale of inputs and outputs so that it can be centered around 1e0
 xScale = 1e0 * ones(1,length(xLB));

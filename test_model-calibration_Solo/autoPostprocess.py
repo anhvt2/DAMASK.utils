@@ -22,7 +22,7 @@ meshFolderName = '8x8x8/'
 meshFolderName = meshFolderName.split('/')[0]
 plotDebug = 0
 
-refData = np.loadtxt('../datasets/true_SS304L_EngStress_EngStrain_exp_4A1.dat', skiprows=1)
+refData = np.loadtxt('datasets/true_SS304L_EngStress_EngStrain_exp_4A1.dat', skiprows=1)
 exp_vareps = refData[:,0] # start at vareps = 0
 exp_sigma  = refData[:,1] * 1e6
 
@@ -45,11 +45,13 @@ def getMetaInfo(StressStrainFile):
 	print('fieldsList = ', fieldsList)
 	return numLinesHeader, fieldsList
 
-modelName = 'SS304L'
 
 ### loop over a lot of folders
-for i in np.range(1, 712):
-	os.chdir(os.getcwd() + '/' + modelName + '_Iter%d' % i)
+modelName = 'SS304L'
+parentPath = os.getcwd()
+
+for i in np.arange(1, 712):
+	os.chdir(parentPath + '/' + modelName + '_Iter%d' % i)
 	StressStrainFile = os.getcwd() + '/' + meshFolderName + '/postProc/stress_strain.log'
 	numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
 	compData = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
@@ -117,7 +119,9 @@ for i in np.range(1, 712):
 	scaled_l2_d1_loss = np.sqrt(np.trapz((np.gradient(interp_exp_sigma) - np.gradient(interp_comp_sigma))**2, x=interp_vareps)) / 1e4 
 
 	# negative_loss = - (scaled_l2_loss + scaled_l2_d1_loss) / 1e2
-	negative_loss = - scaled_l2_loss / 1e2
+	# negative_loss = - scaled_l2_loss / 1e2
+    negative_loss = - scaled_l2_loss / 1e2 / max_interp_vareps
+
 
 
 	### write output

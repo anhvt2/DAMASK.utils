@@ -2,7 +2,7 @@
 
 modelName="SS304L"
 
-for i in $(seq 1 10); do
+for i in $(seq 1 9); do
 	folderName="${modelName}_Iter${i}"
 
 	cd $folderName

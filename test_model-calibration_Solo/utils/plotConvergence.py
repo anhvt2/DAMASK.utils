@@ -95,6 +95,8 @@ Y = np.array(Y[:(trncLen + 1)] )
 # feasible = np.delete(feasible, np.arange(1, 480))
 # folderName = np.delete(folderName, np.arange(1, 480))
 
+# print(len(Y))
+# print(lenfeasible)
 Y[feasible == 0] = 0
 
 
@@ -141,6 +143,7 @@ if boolMaxOrMin: # if minimization problem is considered
 	plt.xlabel('Number of functional evaluations',fontsize=26)
 	plt.ylabel(r'Objective',fontsize=26)
 	plt.title('aphBO-2GP-3B: Convergence plot of %s' % modelName,fontsize=26)
+	plt.ylim(0, 50)
 	# plt.ylim(-5, 500)
 	# plt.ylim(0.60, 0.80)
 	plt.show()
@@ -188,7 +191,7 @@ else: # if maximization problem is considered
 	plt.xlabel('Number of functional evaluations',fontsize=26)
 	plt.ylabel(r'Objective',fontsize=26)
 	plt.title('aphBO-2GP-3B: Convergence plot of %s' % modelName,fontsize=26)
-	# plt.ylim(-5, 500)
+	plt.ylim(0, 50)
 	# plt.ylim(0.60, 0.80)
 	plt.show()
 

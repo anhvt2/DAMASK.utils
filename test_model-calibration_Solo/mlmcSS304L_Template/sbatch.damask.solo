@@ -39,6 +39,14 @@ echo $(date +%y-%m-%d-%H-%M-%S)
 nodes=$SLURM_JOB_NUM_NODES           # Number of nodes - the number of nodes you have requested (for a list of SLURM environment variables see "man sbatch")
 cores=36                             # Number MPI processes to run on each node (a.k.a. PPN)
 																		 # CTS1 has 36 cores per node
+
+# timestamp
+timeStamp=$(date +%Y-%m-%d-%H:%M:%S)
+logFile="query.log"
+echo "Start querying at" > query.log
+echo ${timeStamp} >> query.log
+
+
 # using openmpi-intel/1.10
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
 # sh generateMsDream3d.sh # call DREAM.3D for microstructure generation
@@ -90,7 +98,7 @@ if [ -d "postProc" ]; then
 	filterTable < ${filePrefix}*_tension.txt --white inc,1_f,1_p > stress_strain.log
 	cd ..
 	cd ..
-	python3 computeLossFunction.py --f=${dimCell}x${dimCell}x${dimCell}/ # -p 1 # -p 0 if no plot
+	python3 computeLossFunction.py --f=${dimCell}x${dimCell}x${dimCell}/ -p 1 # -p 0 if no plot, -p 1 with plt.savefig()
 	if [ -f "output.dat" ]; then
 		echo 1 > feasible.dat
 		echo 1 > complete.dat
@@ -104,3 +112,9 @@ fi
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 echo "Stop running simulation at"
 echo $(date +%y-%m-%d-%H-%M-%S)
+
+# timestamp
+timeStamp=$(date +%Y-%m-%d-%H:%M:%S)
+echo "Stop querying at" >> query.log
+echo ${timeStamp} >> query.log
+

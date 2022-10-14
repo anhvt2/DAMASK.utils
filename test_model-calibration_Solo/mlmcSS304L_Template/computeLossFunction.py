@@ -77,18 +77,11 @@ interp_exp_sigma = interpSpline_exp(interp_vareps)
 interpSpline_comp = interp1d(comp_vareps, comp_sigma, kind='cubic', fill_value='extrapolate')
 interp_comp_sigma = interpSpline_comp(interp_vareps)
 
-import scipy.linalg as sla
-import numpy.linalg as nla
-loss_nla = nla.norm((interp_exp_sigma - interp_comp_sigma) / 1.e6, ord=2) # https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html
-loss_sla = sla.norm((interp_exp_sigma - interp_comp_sigma) / 1.e6, ord=2) # https://docs.scipy.org/doc/scipy/reference/linalg.html#module-scipy.linalg
-# print(loss_nla)
-print(loss_sla)
-
-
 ### plot -- debug
 if plotDebug:
 	# plt.figure()
 	# plt.figure(num=None, figsize=(20, 11.3), dpi=300, facecolor='w', edgecolor='k') # screen size
+	mpl.use('Agg')
 	plt.figure(num=None, figsize=(20, 11.3), dpi=300)
 	plt.plot(interp_vareps, interp_exp_sigma, 'g^', ms=5, label='interp. exp.')
 	plt.plot(interp_vareps, interp_comp_sigma, 'mv', ms=5, label='interp. comp.')
@@ -106,11 +99,31 @@ if plotDebug:
         backend=None)
 	# plt.show()
 
+### compute loss function
 
+import scipy.linalg as sla
+import numpy.linalg as nla
+# loss_nla = nla.norm((interp_exp_sigma - interp_comp_sigma) / 1.e6, ord=2) # https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html
+# loss_sla = sla.norm((interp_exp_sigma - interp_comp_sigma) / 1.e6, ord=2) # https://docs.scipy.org/doc/scipy/reference/linalg.html#module-scipy.linalg
+# print(loss_nla)
+# print(loss_sla)
+scaled_l2_loss = np.sqrt(np.trapz((interp_exp_sigma - interp_comp_sigma)**2, x=interp_vareps)) / 1e6
+scaled_l2_d1_loss = np.sqrt(np.trapz((np.gradient(interp_exp_sigma) - np.gradient(interp_comp_sigma))**2, x=interp_vareps)) / 1e4 
+
+# negative_loss = - (scaled_l2_loss + scaled_l2_d1_loss) / 1e2
+# negative_loss = - scaled_l2_loss / 1e2
+negative_loss = - scaled_l2_loss / 1e2 / max_interp_vareps # normalized by max_interp_vareps
 
 ### write output
 f = open('output.dat', 'w') # can be 'r', 'w', 'a', 'r+'
 # f.write('%.8e\n' % (loss_nla / 1e3)) # example: 20097.859541889356 -- scale by a factor of 1e3
 # f.write('%.8e\n' % (loss_nla / 1e3 / max_interp_vareps)) # example: 20097.859541889356 -- scale by a factor of 1e3
-f.write('%.8e\n' % (- np.log(loss_nla / max_interp_vareps))) # example: 20097.859541889356 -- scale by a factor of 1e3
+# f.write('%.8e\n' % (- np.log(loss_nla / max_interp_vareps))) # example: 20097.859541889356 -- scale by a factor of 1e3
+f.write('%.8e\n' % (negative_loss)) # example: 20097.859541889356 -- scale by a factor of 1e3
+i = np.loadtxt('input.dat', delimiter=',')
+print('%s' % os.getcwd().split('/')[-1])
+print('i = ', i)
+print('l2 loss = ', scaled_l2_loss)
+print('regularized l2 d1 loss = ', scaled_l2_d1_loss)
+print('negative total loss = ', negative_loss)
 f.close()

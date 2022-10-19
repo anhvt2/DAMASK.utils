@@ -75,6 +75,8 @@ elif isinstance(flagMaxOrMin, str):
 		boolMaxOrMin = 1 # assign bool
 
 feasible = np.loadtxt('postproc.feasible.dat')
+print(len(Y))
+print(len(feasible))
 trncLen = len(Y)
 
 folderName = np.loadtxt('postproc.folder.dat', dtype=str)

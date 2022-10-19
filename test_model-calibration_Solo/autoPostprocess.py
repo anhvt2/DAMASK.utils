@@ -50,7 +50,7 @@ def getMetaInfo(StressStrainFile):
 modelName = 'SS304L'
 parentPath = os.getcwd()
 
-for i in np.arange(1, 712):
+for i in np.arange(1, 628):
 	os.chdir(parentPath + '/' + modelName + '_Iter%d' % i)
 	StressStrainFile = os.getcwd() + '/' + meshFolderName + '/postProc/stress_strain.log'
 	numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
@@ -120,8 +120,8 @@ for i in np.arange(1, 712):
 
 	# negative_loss = - (scaled_l2_loss + scaled_l2_d1_loss) / 1e2
 	# negative_loss = - scaled_l2_loss / 1e2
-    negative_loss = - scaled_l2_loss / 1e2 / max_interp_vareps
-
+	# negative_loss = - scaled_l2_loss / 1e2 / max_interp_vareps
+	negative_loss = - (scaled_l2_loss + scaled_l2_d1_loss) / 1e2 / max_interp_vareps
 
 
 	### write output
@@ -131,9 +131,11 @@ for i in np.arange(1, 712):
 	# f.write('%.8e\n' % (- np.log(loss_nla / max_interp_vareps))) # example: 20097.859541889356 -- scale by a factor of 1e3
 	f.write('%.8e\n' % (negative_loss)) # example: 20097.859541889356 -- scale by a factor of 1e3
 	i = np.loadtxt('input.dat', delimiter=',')
+	print('>>>>>>>>>>>>>>>>>>>>>>>>>>>\n')
 	print('%s' % os.getcwd().split('/')[-1])
 	print('i = ', i)
 	print('l2 loss = ', scaled_l2_loss)
 	print('regularized l2 d1 loss = ', scaled_l2_d1_loss)
 	print('negative total loss = ', negative_loss)
+	print('<<<<<<<<<<<<<<<<<<<<<<<<<<<\n')
 	f.close()

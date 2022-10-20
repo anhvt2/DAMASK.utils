@@ -27,8 +27,11 @@ def getDamaskParams(bayesOpt_input):
   # lower_bounds = [  1.2, 1, np.log10(   1e5), np.log10( 1e8), np.log10(  1e8)]
   # upper_bounds = [  120, 8, np.log10( 900e5), np.log10(90e8), np.log10(100e8)]
   # opt 4:
-  lower_bounds = [  1.2,  1, np.log10( 90e6), np.log10( 6e9), np.log10( 20e8)]
-  upper_bounds = [  150, 25, np.log10(150e6), np.log10(12e9), np.log10( 80e8)]
+  # lower_bounds = [  1.2,  1, np.log10( 90e6), np.log10( 6e9), np.log10( 20e8)]
+  # upper_bounds = [  150, 25, np.log10(150e6), np.log10(12e9), np.log10( 80e8)]
+  # opt 5
+  lower_bounds = [  1.2,  1, np.log10(  1e6), np.log10(  1e8), np.log10(  1e8)]
+  upper_bounds = [  150, 25, np.log10(150e6), np.log10(120e8), np.log10(100e8)]
 
   lower_bounds = np.array(lower_bounds)
   upper_bounds = np.array(upper_bounds)

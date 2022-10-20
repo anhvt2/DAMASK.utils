@@ -30,8 +30,8 @@ def getDamaskParams(bayesOpt_input):
   # lower_bounds = [  1.2,  1, np.log10( 90e6), np.log10( 6e9), np.log10( 20e8)]
   # upper_bounds = [  150, 25, np.log10(150e6), np.log10(12e9), np.log10( 80e8)]
   # opt 5
-  lower_bounds = [  1.2,  1, np.log10(  1e6), np.log10(  1e8), np.log10(  1e8)]
-  upper_bounds = [  150, 25, np.log10(150e6), np.log10(120e8), np.log10(100e8)]
+  lower_bounds = [  1.2,  1, 1e6,     1e8,   1e8]
+  upper_bounds = [  150, 25, 150e6, 120e8, 100e8]
 
   lower_bounds = np.array(lower_bounds)
   upper_bounds = np.array(upper_bounds)
@@ -43,9 +43,9 @@ def parseInput(matcfg_input, txtcfg):
   gdot0_slip    = 0.001 # reference: 0.001
   n_slip        = matcfg_input[0]
   a_slip        = matcfg_input[1]
-  tau0_slip     = np.power(10,matcfg_input[2])
-  tausat_slip   = np.power(10,matcfg_input[3])
-  h0_slipslip   = np.power(10,matcfg_input[4])
+  tau0_slip     = matcfg_input[2]
+  tausat_slip   = matcfg_input[3]
+  h0_slipslip   = matcfg_input[4]
   parsed_txtcfg = txtcfg # work on a copied version
   # change lines: always add '\n' at the end of the line
   # parsed_txtcfg[48 - 1] = 'gdot0_slip              0.001\n'

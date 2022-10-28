@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# how to run: nohup bash autoRunS1057681.sh 2>&1 &
+
 prefix="sve2"
 for i in 2 4 8 10 16 20 40; do # 80
 	cd ${prefix}_${i}x${i}x${i};

@@ -5,4 +5,4 @@ size    x 80.000    y 80.000    z 80.000
 origin    x 0.000    y 0.000    z 0.000
 homogenization  1
 microstructures 8
-         7          1          4          3          2          6          8          5
+         5          1          4          3          2          6          8          7

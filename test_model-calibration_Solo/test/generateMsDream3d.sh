@@ -86,7 +86,7 @@ echo
 source ~/.bashrc # get geom_check environment variable
 
 ### parse input.dat to material.config
-python3 parse2MaterialConfig.py
+# python3 parse2MaterialConfig.py
 cp material.config material.config.bak
 cp material.config.preamble material.config.preamble.bak
 

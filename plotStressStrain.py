@@ -9,6 +9,7 @@ import matplotlib as mpl
 import os, sys, datetime
 import argparse
 import pandas as pd
+from scipy.interpolate import interp1d
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
@@ -56,42 +57,50 @@ def readLoadFile(LoadFile):
 			freq = float(load_data[i+1])
 	return Fdot11, totalTime, totalIncrement
 
-mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24
 
-# d = np.loadtxt(StressStrainFile, skiprows=4)
-numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
-# d = np.loadtxt(StressStrainFile, skiprows=skiprows)
-d = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
-# df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
-df = pd.DataFrame(d, columns=fieldsList)
-vareps = [1] + list(df['1_f']) # d[:,1] # strain -- pad original
-sigma  = [0] + list(df['1_p']) # d[:,2] # stress -- pad original
-_, uniq_idx = np.unique(np.array(vareps), return_index=True)
-vareps = np.array(vareps)[uniq_idx]
-sigma  = np.array(sigma)[uniq_idx]
+def getTrueStressStrain(StressStrainFile):
+	# d = np.loadtxt(StressStrainFile, skiprows=4)
+	numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
+	# d = np.loadtxt(StressStrainFile, skiprows=skiprows)
+	d = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
+	# df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
+	df = pd.DataFrame(d, columns=fieldsList)
+	vareps = [1] + list(df['1_f']) # d[:,1] # strain -- pad original
+	sigma  = [0] + list(df['1_p']) # d[:,2] # stress -- pad original
+	_, uniq_idx = np.unique(np.array(vareps), return_index=True)
+	vareps = np.array(vareps)[uniq_idx]
+	sigma  = np.array(sigma)[uniq_idx]
+	x = (vareps - 1)
+	y = sigma / 1e6
+	return x, y
+
+def getInterpStressStrain(StressStrainFile):
+	x, y = getTrueStressStrain(StressStrainFile)
+	interp_x = np.linspace(x.min(), x.max(), num=100)
+	splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
+	interp_y = splineInterp(interp_x)
+	return interp_x, interp_y
+
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
+x, y = getTrueStressStrain(StressStrainFile)
+ax.plot(x, y, c='b', marker='o', linestyle='--', markersize=6)
+mpl.rcParams['xtick.labelsize'] = 24
+mpl.rcParams['ytick.labelsize'] = 24
 
-
-x = (vareps - 1)
-y = sigma / 1e6
-ax.plot(x, y, c='b', marker='o', linestyle=':', markersize=6)
-
-from scipy.interpolate import interp1d
-splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
-ax.plot(x, splineInterp(x), c='r', marker='^', linestyle='-', markersize=6)
+interp_x, interp_y = getInterpStressStrain(StressStrainFile)
+ax.plot(interp_x, interp_y, c='r', marker='^', linestyle=':', markersize=6)
 plt.legend(['true', 'cubic'])
 
 
 plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
-if np.all(sigma > -1e-5):
+if np.all(y * 1e6 > -1e-5):
 	plt.ylim(bottom=0)
 
-if np.all((vareps - 1) > -1e-5):
+if np.all(x > -1e-5):
 	plt.xlim(left=0)
 
 ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))

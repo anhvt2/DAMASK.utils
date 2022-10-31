@@ -1,25 +1,14 @@
 
-# postResults single_phase_equiaxed_tension.spectralOut --cr f,p
-# filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
-# python3 plotStressStrain.py --StressStrainFile "stress_strain.log"
-
+# mostly adopted from <main>/plotStressStrain.py
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import os, sys, datetime
-import argparse
+# import argparse
 import pandas as pd
+import scipy
 from scipy.interpolate import interp1d
 
-parser = argparse.ArgumentParser(description='')
-parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
-parser.add_argument("-LoadFile", "--LoadFile", default='tension.load', type=str)
-parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
-# parser.add_argument("-skiprows", "--skiprows", type=int, default=4) # deprecated
-args = parser.parse_args()
-StressStrainFile = args.StressStrainFile
-LoadFile = args.LoadFile
-# skiprows = args.skiprows # deprecated
 
 def getMetaInfo(StressStrainFile):
 	"""
@@ -59,11 +48,8 @@ def readLoadFile(LoadFile):
 
 
 def getTrueStressStrain(StressStrainFile):
-	# d = np.loadtxt(StressStrainFile, skiprows=4)
 	numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
-	# d = np.loadtxt(StressStrainFile, skiprows=skiprows)
 	d = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
-	# df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
 	df = pd.DataFrame(d, columns=fieldsList)
 	vareps = [1] + list(df['1_f']) # d[:,1] # strain -- pad original
 	sigma  = [0] + list(df['1_p']) # d[:,2] # stress -- pad original
@@ -76,37 +62,56 @@ def getTrueStressStrain(StressStrainFile):
 
 def getInterpStressStrain(StressStrainFile):
 	x, y = getTrueStressStrain(StressStrainFile)
-	interp_x = np.linspace(x.min(), x.max(), num=100)
 	splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
-	interp_y = splineInterp(interp_x)
-	return interp_x, interp_y
+	interp_vareps = np.linspace(x.min(), x.max(), num=100)
+	interp_sigma = splineInterp(interp_vareps)
+	return interp_vareps, interp_sigma
 
-
-fig = plt.figure()
-ax = fig.add_subplot(111)
-x, y = getTrueStressStrain(StressStrainFile)
-ax.plot(x, y, c='b', marker='o', linestyle='--', markersize=6)
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
+fig = plt.figure()
+ax = fig.add_subplot(111)
 
-interp_x, interp_y = getInterpStressStrain(StressStrainFile)
-ax.plot(interp_x, interp_y, c='r', marker='^', linestyle=':', markersize=6)
-plt.legend(['true', 'cubic'])
+LoadFile = 'tension.load'
 
+# StressStrainFile2 = 'sve1_2x2x2/postProc/stress_strain.log'
+# interp_vareps2, interp_sigma2 = getInterpStressStrain(StressStrainFile2)
+
+meshIndexList = np.array([2,4,8,10,16,20])
+markerList = ['^', 'v', 'x', 'd', 's', 'o']
+colorList = ['k', 'm', 'g', 'purple', 'r', 'b']
+array_interp_vareps = np.zeros([100, meshIndexList.shape[0]]) # 100 depends on discretization of getInterpStressStrain()
+array_interp_sigma  = np.zeros([100, meshIndexList.shape[0]]) # 100 depends on discretization of getInterpStressStrain()
+
+for i in range(len(meshIndexList)): # mesh-resolution index
+	StressStrainFile = 'sve1_%dx%dx%d/postProc/stress_strain.log' % (meshIndexList[i], meshIndexList[i], meshIndexList[i])
+	interp_vareps, interp_sigma  = getInterpStressStrain(StressStrainFile)
+	array_interp_vareps[:,i] = interp_vareps
+	array_interp_sigma[:,i] = interp_sigma
+	ax.plot(interp_vareps, interp_sigma, linestyle=':', c=colorList[i], marker=markerList[i], label=r'%d$^3$' % (meshIndexList[i]))
+
+
+# x, y = getTrueStressStrain(StressStrainFile)
+# ax.plot(x, y, c='b', marker='o', linestyle=':', markersize=6)
+
+
+# ax.plot(interp_vareps, interp_sigma, c='r', marker='^', linestyle='-', markersize=6)
+# plt.legend(['true', 'cubic'])
+# plt.legend(loc='best', markerscale=3, fontsize=36)
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0, markerscale=3, fontsize=60, frameon=False)
 
 plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
+plt.title(r'Mesh-sensitivity effect on homogenized $\sigma-\varepsilon$ curves (spectral CPFEM)', fontsize=24)
 
-if np.all(y * 1e6 > -1e-5):
-	plt.ylim(bottom=0)
-
-if np.all(x > -1e-5):
-	plt.xlim(left=0)
-
-ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
-
-parentFolderName = os.getcwd().split('/')[-4:-1]
-plt.title('%s' % parentFolderName, fontsize=24)
-
+plt.xlim(left=0)
+plt.ylim(bottom=0)
 plt.show()
+
+# ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.1f'))
+
+# parentFolderName = os.getcwd().split('/')[-4:-1]
+# plt.title('%s' % parentFolderName, fontsize=24)
+
+# plt.show()
 

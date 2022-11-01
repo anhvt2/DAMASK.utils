@@ -17,7 +17,7 @@
 
 for j in $(seq 10); do # 1 2
 	prefix="sve${j}"
-	for i in 2 4 8 10 16 20; do # 40; do # 80
+	for i in 40; do # 2 4 8 10 16 20; do # 40; do # 80
 		cd ${prefix}_${i}x${i}x${i};
 		# # rm -f nohup.out;
 		# # nohup mpirun -np $(cat numProcessors.dat) $DAMASK_spectral --load tension.load --geom single_phase_equiaxed_8x8x8.geom 2>&1 &

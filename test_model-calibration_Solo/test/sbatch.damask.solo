@@ -1,10 +1,10 @@
 #!/bin/bash
 ## Do not put any commands or blank lines before the #SBATCH lines
 #SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
-#SBATCH --time=4:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
+#SBATCH --time=48:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY210060            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
-#SBATCH --partition=short,batch       # partition/queue name: short or batch
+#SBATCH --partition=batch       	  # partition/queue name: short or batch
 																			#            short: 4hrs wallclock limit
 																			#            batch: nodes reserved for > 4hrs (default)
 #SBATCH --qos=normal                  # Quality of Service: long, large, priority or normal
@@ -47,67 +47,14 @@ echo "Start querying at" > query.log
 echo ${timeStamp} >> query.log
 
 
-# using openmpi-intel/1.10
-# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
-# sh generateMsDream3d.sh # call DREAM.3D for microstructure generation
-
-## NOTE: important to run 'parse2MaterialConfig.py' first to generate a correct material.config.preamble
-## 		 that will be later on pasted to a subfoler below for coarse/fine meshes
-python3 parse2MaterialConfig.py # parse inputs to material.config
-bash generateMsDream3d.sh # generate microstructures at different meshes
-
-### ---------------------------------- copy main file from the parent directory
-# cp ../tension.load  .
-# cp ../sigma.dat  .
-# cp ../mu.dat  .
-# cp ../msId.dat  .
-# cp ../material.config.preamble  .
-# cp ../dimCell.dat  .
-# cp ../computeYieldStress.py  .
-# cp ../${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom  .
-# ln -sf *.geom ${filePrefix}.geom # assumption: suppose that there is only one *.geom file
-
-### ---------------------------------- pre-process DAMASK
-dimCell=8 # 40x40x40 is too computationally expensive
-folderName=${dimCell}x${dimCell}x${dimCell}
-cd ${dimCell}x${dimCell}x${dimCell}/
-filePrefix="single_phase_equiaxed"
-rm -fv ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension* postProc/
-geom_check ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom
-
-### ---------------------------------- run DAMASK
-# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${filePrefix}.geom --load tension.load 2>&1 > log.damask
-
-if [ -f "numProcessors.dat" ]; then
-	numProcessors=$(cat numProcessors.dat)
-	if [[ "$numProcessors" -eq "1" ]]; then
-		$DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
-	else
-		mpirun -np ${numProcessors} $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
-	fi
-else
-	mpirun -np 36 $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
-fi
+i=40
+# nohup mpirun -np $(cat numProcessors.dat) $DAMASK_spectral --load tension.load --geom single_phase_equiaxed_8x8x8.geom 2>&1 &
+mpirun -np $(cat numProcessors.dat) $DAMASK_spectral --load tension.load --geom single_phase_equiaxed_${i}x${i}x${i}.geom
+postResults single_phase_equiaxed_${i}x${i}x${i}_tension.spectralOut --cr f,p
+cd postProc/
+filterTable < single_phase_equiaxed_${i}x${i}x${i}_tension.txt --white inc,1_f,1_p > stress_strain.log
 
 
-### ---------------------------------- post-processing DAMASK
-sleep 10
-postResults *.spectralOut --cr f,p
-if [ -d "postProc" ]; then
-	cd postProc/
-	filterTable < ${filePrefix}*_tension.txt --white inc,1_f,1_p > stress_strain.log
-	cd ..
-	cd ..
-	python3 computeLossFunction.py --f=${dimCell}x${dimCell}x${dimCell}/ -p 1 # -p 0 if no plot, -p 1 with plt.savefig()
-	if [ -f "output.dat" ]; then
-		echo 1 > feasible.dat
-		echo 1 > complete.dat
-	fi
-else
-	echo "Simulation does not converge!!!"
-	echo 0 > feasible.dat
-	echo 1 > complete.dat
-fi
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 echo "Stop running simulation at"

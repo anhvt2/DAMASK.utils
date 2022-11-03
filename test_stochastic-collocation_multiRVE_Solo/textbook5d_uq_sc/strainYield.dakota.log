@@ -1,0 +1,79 @@
+-----------------------------------------------------------------------------
+Statistics derived analytically from polynomial expansion:
+
+Moment statistics for each response function:
+                            Mean           Std Dev          Skewness          Kurtosis
+response_fn_1
+  expansion:    2.2747926863e-03  6.9068641456e-04  3.1662577930e+00  8.2055042973e+00
+  integration:  2.2747926863e-03  6.9068641456e-04  3.1662577930e+00  8.2055042973e+00
+
+Covariance matrix for response functions:
+[[  4.7704772326e-07 ]] 
+
+Local sensitivities for each response function evaluated at uncertain variable means:
+response_fn_1:
+ [  2.4863991757e-05  9.2380517307e-07  1.0039446902e-05  1.0616567633e-06 
+    5.3375456494e-06 ] 
+
+Global sensitivity indices for each response function:
+response_fn_1 Sobol' indices:
+                                  Main             Total
+                      2.3429848766e-01  7.8575444762e-01 x1
+                      2.4413879872e-05 -1.9825853515e-03 x2
+                      1.5014926427e-01  7.0351600222e-01 x3
+                      1.2646414824e-02  1.9222524769e-01 x4
+                      3.7368969257e-04 -1.0383381805e-02 x5
+                           Interaction
+                      1.1668446376e-04 x1 x2 
+                      4.0670352982e-01 x1 x3 
+                      6.9400768605e-05 x2 x3 
+                      3.2414012307e-02 x1 x4 
+                     -3.3253889830e-06 x2 x4 
+                      3.2455653212e-02 x3 x4 
+                      6.8492808435e-03 x1 x5 
+                      2.4979826867e-06 x2 x5 
+                     -3.8589850712e-04 x3 x5 
+                     -3.7723684692e-05 x4 x5 
+                     -1.0941691094e-03 x1 x2 x3 
+                     -6.4558378583e-04 x1 x2 x4 
+                      1.2416072797e-01 x1 x3 x4 
+                     -1.4600146711e-04 x2 x3 x4 
+                     -2.0636778758e-04 x1 x2 x5 
+                     -8.3050957454e-03 x1 x3 x5 
+                     -5.4838304204e-05 x2 x3 x5 
+                     -8.5370590079e-03 x1 x4 x5 
+                     -4.5296603288e-05 x2 x4 x5 
+                     -3.6570683776e-05 x3 x4 x5 
+-----------------------------------------------------------------------------
+Statistics based on 100000 samples performed on polynomial expansion:
+
+Probability Density Function (PDF) histograms for each response function:
+PDF for response_fn_1:
+          Bin Lower          Bin Upper      Density Value
+          ---------          ---------      -------------
+   0.0000000000e+00   1.0000000000e-03   9.0000000000e-02
+   1.0000000000e-03   2.0000000000e-03   2.4586000000e+02
+   2.0000000000e-03   3.0000000000e-03   6.5581000000e+02
+   3.0000000000e-03   4.0000000000e-03   5.7110000000e+01
+   4.0000000000e-03   5.0000000000e-03   2.7360000000e+01
+   5.0000000000e-03   6.0000000000e-03   1.1820000000e+01
+   6.0000000000e-03   9.0739790691e-03   6.3435695434e-01
+
+Level mappings for each response function:
+Cumulative Distribution Function (CDF) for response_fn_1:
+     Response Level  Probability Level  Reliability Index  General Rel Index
+     --------------  -----------------  -----------------  -----------------
+   0.0000000000e+00   0.0000000000e+00
+   1.0000000000e-03   9.0000000000e-05
+   2.0000000000e-03   2.4595000000e-01
+   3.0000000000e-03   9.0176000000e-01
+   4.0000000000e-03   9.5887000000e-01
+   5.0000000000e-03   9.8623000000e-01
+   6.0000000000e-03   9.9805000000e-01
+-----------------------------------------------------------------------------
+
+<<<<< Iterator stoch_collocation completed.
+<<<<< Environment execution completed.
+DAKOTA execution time in seconds:
+  Total CPU        =    5.23727 [parent =    5.23722, child =    4.8e-05]
+  Total wall clock =    51.8822

@@ -1,0 +1,28 @@
+# Dakota Input File: rosen_uq_sc.in
+
+environment
+
+method
+  stoch_collocation
+    sparse_grid_level = 3 # subject to change
+    # dimension_preference = 2 1 # switch from anisotropic to isotropic SG
+    samples_on_emulator = 100000 seed = 12347
+    response_levels = .1 1. 50. 100. 500. 1000.
+    variance_based_decomp #interaction_order = 1
+  # output silent
+  output verbose # print input parameters
+
+variables
+  uniform_uncertain = 7 # Legendre polynomial
+    lower_bounds      = -1.0    -1.0    -1.0    -1.0    -1.0    -1.0     -1.0 
+    upper_bounds      = +1.0    +1.0    +1.0    +1.0    +1.0    +1.0     +1.0 
+    descriptors       = 'x1'    'x2'    'x3'    'x4'    'x5'    'x6'     'x7' 
+
+interface
+  analysis_drivers = 'text_book'
+    direct
+
+responses
+  response_functions = 1
+  no_gradients
+  no_hessians

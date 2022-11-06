@@ -129,3 +129,7 @@ print('l2 loss = ', scaled_l2_loss)
 print('regularized l2 d1 loss = ', scaled_l2_d1_loss)
 print('negative total loss = ', negative_loss)
 f.close()
+
+print('!!!! write checker for feasible.dat in computeLossFunction.py')
+
+

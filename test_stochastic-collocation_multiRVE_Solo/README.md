@@ -1,6 +1,14 @@
 
 # Uncertainty quantification for constitutive models in CPFEM
 
+## How to setup
+
+Every folder has a `*.json` file for DREAM.3D input. Simply rename the `material.config` output from DREAM.3D to `texture.config` and backup the origin `material.config` if needed. 
+```shell
+mv material.config
+cp material.config.bak material.config
+```
+
 ## Phenomenological model (fcc Cu)
 
 * Dakota post-process is located in `textbook5d_uq_sc/`

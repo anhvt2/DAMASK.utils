@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 mpl.rcParams['xtick.labelsize'] = 16
 mpl.rcParams['ytick.labelsize'] = 16
+currentPath = os.getcwd()
 
 parser = argparse.ArgumentParser(description='parse meshFolderName as <str> without /')
 parser.add_argument("-f", "--f", type=str)
@@ -26,6 +27,8 @@ exp_vareps = refData[:,0] # start at vareps = 0
 exp_sigma  = refData[:,1] * 1e6
 
 # compData = np.loadtxt(os.getcwd() + '/' + meshFolderName + '/postProc/single_phase_equiaxed_' + meshFolderName + '_tension.txt', skiprows=3)
+
+print('\n')
 
 def getMetaInfo(StressStrainFile):
 	"""
@@ -119,8 +122,9 @@ scaled_l2_d1_loss = np.sqrt(np.trapz((np.gradient(interp_exp_sigma) - np.gradien
 negative_loss = - (scaled_l2_loss + scaled_l2_d1_loss) / 1e2 / max_interp_vareps
 
 
-### write output
-f = open('output.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+### write output to output.dat
+print('\nWriting output.dat in folder: %s \n' % meshFolderName)
+f = open(currentPath + '/' + meshFolderName + '/' + 'output.dat', 'w') # can be 'r', 'w', 'a', 'r+'
 # f.write('%.8e\n' % (loss_nla / 1e3)) # example: 20097.859541889356 -- scale by a factor of 1e3
 # f.write('%.8e\n' % (loss_nla / 1e3 / max_interp_vareps)) # example: 20097.859541889356 -- scale by a factor of 1e3
 # f.write('%.8e\n' % (- np.log(loss_nla / max_interp_vareps))) # example: 20097.859541889356 -- scale by a factor of 1e3
@@ -131,8 +135,21 @@ print('i = ', i)
 print('l2 loss = ', scaled_l2_loss)
 print('regularized l2 d1 loss = ', scaled_l2_d1_loss)
 print('negative total loss = ', negative_loss)
+print('Finished writing output.dat in folder: %s' % meshFolderName)
 f.close()
 
-print('!!!! write checker for feasible.dat in computeLossFunction.py')
+### decide whether the run is feasible or not feasible
+feasible = 0 # default = 0 unless pass one of these feasible criteria
+if comp_vareps.max() > 0.1 and comp_sigma.max() < 1e12:
+	feasible = 1
+
+
+### write feasible to feasible.dat
+print('Writing feasible.dat in folder: %s' % meshFolderName)
+f = open(currentPath + '/' + meshFolderName + '/' + 'feasible.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+f.write('%d\n' % feasible)
+print('Finished writing feasible.dat in folder: %s' % meshFolderName)
+f.close()
+print('\n')
 
 

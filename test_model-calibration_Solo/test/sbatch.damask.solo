@@ -112,11 +112,11 @@ for i in $(seq ${numMs}); do
 	postResults *.spectralOut --cr f,p
 	if [ -d "postProc" ]; then
 		cd postProc/
-		filterTable < ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --white inc,1_f,1_p > stress_strain.log
 		addStrainTensors ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --left --logarithmic
 		addCauchy ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt
 		addMises ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --strain 'ln(V)' --stress Cauchy
 		addIPFcolor ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --pole 0 0 1 --symmetry cubic -o orientation
+		filterTable < ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
 		cd .. # rve${i}_${dimCell}x${dimCell}x${dimCell}
 		cd .. # *_Iter
 		python3 computeLossFunction.py --f=rve${i}_${dimCell}x${dimCell}x${dimCell}/ -p 1 # -p 0 if no plot, -p 1 with plt.savefig()

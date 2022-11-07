@@ -65,12 +65,15 @@ def getTrueStressStrain(StressStrainFile):
 	d = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
 	# df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
 	df = pd.DataFrame(d, columns=fieldsList)
-	vareps = [1] + list(df['1_f']) # d[:,1] # strain -- pad original
-	sigma  = [0] + list(df['1_p']) # d[:,2] # stress -- pad original
+	# vareps = [1] + list(df['1_f']) # d[:,1]  # strain -- pad original
+	# sigma  = [0] + list(df['1_p']) # d[:,2]  # stress -- pad original
+	vareps = list(df['Mises(ln(V))'])  # strain -- pad original
+	sigma  = list(df['Mises(Cauchy)']) # stress -- pad original
 	_, uniq_idx = np.unique(np.array(vareps), return_index=True)
 	vareps = np.array(vareps)[uniq_idx]
 	sigma  = np.array(sigma)[uniq_idx]
-	x = (vareps - 1)
+	# x = (vareps - 1)
+	x = (vareps)
 	y = sigma / 1e6
 	return x, y
 
@@ -83,11 +86,12 @@ def getInterpStressStrain(StressStrainFile):
 
 
 fig = plt.figure()
+mpl.rcParams['xtick.labelsize'] = 24
+mpl.rcParams['ytick.labelsize'] = 24
+
 ax = fig.add_subplot(111)
 x, y = getTrueStressStrain(StressStrainFile)
 ax.plot(x, y, c='b', marker='o', linestyle='--', markersize=6)
-mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24
 
 interp_x, interp_y = getInterpStressStrain(StressStrainFile)
 ax.plot(interp_x, interp_y, c='r', marker='^', linestyle=':', markersize=6)

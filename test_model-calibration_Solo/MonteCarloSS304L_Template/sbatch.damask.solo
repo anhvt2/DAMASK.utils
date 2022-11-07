@@ -54,7 +54,7 @@ echo ${timeStamp} >> query.log
 ## NOTE: important to run 'parse2MaterialConfig.py' first to generate a correct material.config.preamble
 ## 		 that will be later on pasted to a subfoler below for coarse/fine meshes
 python3 parse2MaterialConfig.py # parse inputs to material.config
-numMs=10 # number of microstructures for Monte Carlo sample
+numMs=2 # number of microstructures for Monte Carlo sample
 
 # run DAMASK over an ensemble of microstructures
 for i in $(seq ${numMs}); do
@@ -69,10 +69,8 @@ for i in $(seq ${numMs}); do
 	mv 40x40x40 rve${i}_40x40x40
 	mv 80x80x80 rve${i}_80x80x80
 
-
-
-
 	### ---------------------------------- pre-process DAMASK
+	# specify a mesh resolution to run simulation
 	dimCell=8 # 40x40x40 is too computationally expensive; 8x8x8 takes ~49 minutes
 	folderName=rve${i}_${dimCell}x${dimCell}x${dimCell}
 	
@@ -90,7 +88,7 @@ for i in $(seq ${numMs}); do
 
 
 	filePrefix="single_phase_equiaxed"
-	rm -fv ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension* postProc/
+	rm -fv ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.* postProc/
 	geom_check ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom
 
 	### ---------------------------------- run DAMASK
@@ -113,10 +111,13 @@ for i in $(seq ${numMs}); do
 	postResults *.spectralOut --cr f,p
 	if [ -d "postProc" ]; then
 		cd postProc/
-		filterTable < ${filePrefix}*_tension.txt --white inc,1_f,1_p > stress_strain.log
-		cd ..
-		cd ..
-		python3 computeLossFunction.py --f=${dimCell}x${dimCell}x${dimCell}/ -p 1 # -p 0 if no plot, -p 1 with plt.savefig()
+		filterTable < ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --white inc,1_f,1_p > stress_strain.log
+		addStrainTensors ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --left --logarithmic
+		addCauchy ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt
+		addMises ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --strain 'ln(V)' --stress Cauchy
+		cd .. # rve${i}_${dimCell}x${dimCell}x${dimCell}
+		cd .. # *_Iter
+		python3 computeLossFunction.py --f=rve${i}_${dimCell}x${dimCell}x${dimCell}/ -p 1 # -p 0 if no plot, -p 1 with plt.savefig()
 		if [ -f "output.dat" ]; then
 			echo 1 > feasible.dat # to-be-replaced in computeLossFunction.py
 			echo 1 > complete.dat

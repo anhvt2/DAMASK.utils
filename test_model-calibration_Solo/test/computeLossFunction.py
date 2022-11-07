@@ -15,7 +15,7 @@ mpl.rcParams['ytick.labelsize'] = 16
 
 parser = argparse.ArgumentParser(description='parse meshFolderName as <str> without /')
 parser.add_argument("-f", "--f", type=str)
-parser.add_argument("-p", "--plot", type=bool, default=0) # default: no plot
+parser.add_argument("-p", "--plot", type=bool, default=1) # default: no plot
 args = parser.parse_args()
 meshFolderName = args.f
 meshFolderName = meshFolderName.split('/')[0]

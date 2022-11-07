@@ -34,6 +34,12 @@ echo "Stop querying at" >> query.log
 echo ${timeStamp} >> query.log
 ```
 
+### To-Do
+
+* implement average loss across an ensemble of microstructures
+* upgrade `computeLossFunction.py` for `feasible.dat`
+* switch `mainprog.m` from `gpml` (slow) to `oodace` (fast)
+
 ### Workflow
 
 1. `parse2MaterialConfig.py`: this script converts `input.dat` to a correct `material.config` and `material.config.preamble`. can be considered as a **pre-processing** script

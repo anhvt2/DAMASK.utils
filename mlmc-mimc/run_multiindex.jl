@@ -4,7 +4,7 @@
 #                                                                             #
 ###############################################################################
 
-include("check_variances.jl") # load check_variances
+include("utils.jl") # load utils
 
 # ========================
 # @@@ SELECT INDEX SET @@@
@@ -72,9 +72,9 @@ cost_per_level = [0.49 1.55; 0.67 3.01; 1.20 3.62; 2.20 7.00; 8.46 26.43]
 # =============================
 # @@@ SELECT RMSE TOLERANCE @@@
 # =============================
-# >> Specify target RMSE (this is just a guess)
+# >> Specify initial RMSE (this is just a guess)
 # >> Lower values of the RMSE means a more accurate result, but also more samples
-ε = 5e-3
+ε = 1e1
 
 # ========================================
 # @@@ SELECT NUMBER OF WARM-UP SAMPLES @@@

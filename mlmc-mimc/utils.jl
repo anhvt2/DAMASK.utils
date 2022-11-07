@@ -9,25 +9,26 @@ using Statistics
 using PrettyTables
 using ProgressMeter
 
-# Command to run multi-index version of DREAM3D-DAMASK
-get_cmd(index::Index) = Cmd(["python3", "wrapperMIMC-DREAM3D-DAMASK.py", "--index", string(index)])
+# Commands to run DREAM3D-DAMASK
+get_cmd(index::Index, nb_of_qoi) = Cmd(["python", "wrapper-DREAM3D-DAMASK.py", index isa Level ? "--level" : "--index", string(index), "--nb_of_qoi", string(nb_of_qoi)])
 
-# Read DREAM3D-DAMASK wrapper output and return value of estimated yield
-# stress for the given level or index
+# Read DREAM3D-DAMASK wrapper output and return value of estimated yield stress for the given level or index
 function get_qoi(out, index)
     for line in split(out, "\n")
         if occursin("Estimated Young modulus at $(index)", line)
-            return parse(Float64, split(line)[end - 1])
+            return [parse(Float64, split(words)[end]) for words in split(split(line, ")")[end], ", ")]
         end
     end
-    return NaN # return NaN if no value could be found
+    return nothing # return NaN if no value could be found
 end
 
-# Compute a sample of the multilevel or multi-index difference at the given
-# level or index
-function sample(index::Index)
-    cmd = get_cmd(index)
-    out = read(cmd, String)
+# Compute a sample of the multilevel or multi-index difference at the given level or index
+function sample(index::Index, nb_of_qoi::Int)
+    out = nothing
+    while isnothing(out)
+        cmd = get_cmd(index, nb_of_qoi)
+        out = read(cmd, String)
+    end
     Qf = get_qoi(out, index)
     dQ = Qf
     for (key, val) in diff(index)
@@ -71,7 +72,7 @@ Check multilevel or multi-index variance decay for level or index set
 `index_set` with maximum level parameter `max_level` by taking samples 
 on each index for approximately `buget` seconds.
 """
-function check_variances(; index_set=ML(), max_level=3, budget=20)
+function check_variances(; index_set=ML(), max_level=3, budget=20, nb_of_qoi=1)
     indices = collect(get_index_set(index_set, max_level))
     nb_of_indices = length(indices)
     budget_per_level = round(Int, budget/(nb_of_indices + 1)) # split budget evenly over all levels/indices
@@ -84,7 +85,7 @@ function check_variances(; index_set=ML(), max_level=3, budget=20)
         timer = 0
         p = Progress(budget_per_level, dt=1, barglyphs=BarGlyphs("[=> ]"), color=:none)
         while timer < budget_per_level # run timer until we run out of buget
-            timer += @elapsed dQ, Qf = sample(index) # take a new sample
+            timer += @elapsed dQ, Qf = sample(index, nb_of_qoi) # take a new sample
             if isfinite(dQ) && isfinite(Qf) # check if the sample is valid
                 push!(samples_dQ, dQ) # update dQ
                 push!(samples_Qf, Qf) # update Qf
@@ -101,44 +102,52 @@ end
 
 Runs an MLMC simulation.
 """
-function run_multilevel(; max_level=4, cost_model=MultilevelEstimators.EmptyFunction(), ε=1e-2, nb_of_warm_up_samples=nb_of_warm_up_samples)
+function run_multilevel(; max_level=4, cost_model=MultilevelEstimators.EmptyFunction(), ε=1e1, nb_of_warm_up_samples=nb_of_warm_up_samples, nb_of_qoi=1)
 
     # create estimator
     estimator = Estimator(ML(),
                           MC(),
-                          (level, x) -> sample(level),
+                          (level, x) -> sample(level, nb_of_qoi),
                           [Uniform()], # placeholder, not important
                           nb_of_warm_up_samples=nb_of_warm_up_samples,
                           max_index_set_param=max_level,
-                          name="DREAM3D",
+                          name="DREAM3D-multilevel",
                           save_samples=true,
                           cost_model=cost_model,
+                          nb_of_qoi=nb_of_qoi
                          )
 
     # run estimator
-    run(estimator, ε)
+    while true
+        run(estimator, [ε])
+        ε /= 2^(1/8)
+    end
 end
 
 """
     run_multiindex([index_set=AD(2)], [max_search_space=FT(3)], [max_level=max_level], [cost_model=MultilevelEstimators.EmptyFunction()], [ε=1e-2], [nb_of_warm_up_samples=nb_of_warm_up_samples])
 
-Runs an MLMC simulation.
+Runs an MIMC simulation.
 """
-function run_multiindex(; index_set=AD(2), max_search_space=FT(3), max_level=4, cost_model=MultilevelEstimators.EmptyFunction(), ε=1e-2, nb_of_warm_up_samples=nb_of_warm_up_samples)
+function run_multiindex(; index_set=AD(2), max_search_space=FT(3), max_level=4, cost_model=MultilevelEstimators.EmptyFunction(), ε=1e1, nb_of_warm_up_samples=nb_of_warm_up_samples, nb_of_qoi=1)
 
     # create estimator
     estimator = Estimator(index_set,
                           MC(),
-                          (level, x) -> sample(level),
+                          (index, x) -> sample(index, nb_of_qoi),
                           [Uniform()], # placeholder, not important
                           nb_of_warm_up_samples=nb_of_warm_up_samples,
                           max_index_set_param=max_level,
-                          name="DREAM3D",
+                          name="DREAM3D-multiindex",
                           save_samples=true,
                           cost_model=cost_model,
-                          max_search_space=max_search_space
+                          max_search_space=max_search_space,
+                          nb_of_qoi=nb_of_qoi
                          )
 
     # run estimator
-    run(estimator, ε)
+    while true
+        run(estimator, [ε])
+        ε /= 2^(1/8)
+    end
 end

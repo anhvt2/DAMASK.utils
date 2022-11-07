@@ -4,7 +4,7 @@
 #                                                                             #
 ###############################################################################
 
-include("check_variances.jl") # load check_variances
+include("utils.jl") # load utils
 
 # ========================
 # @@@ SELECT INDEX SET @@@
@@ -41,9 +41,9 @@ cost_per_level = [1 7.51 8 19 51]
 # =============================
 # @@@ SELECT RMSE TOLERANCE @@@
 # =============================
-# >> Specify target RMSE (this is just a guess)
+# >> Specify initial RMSE (this is just a guess)
 # >> Lower values of the RMSE means a more accurate result, but also more samples
-ε = 5e0 # 1e-2: ~5e5 samples
+ε = 1e1 # 1e-2: ~5e5 samples
 
 # ========================================
 # @@@ SELECT NUMBER OF WARM-UP SAMPLES @@@
@@ -52,11 +52,17 @@ cost_per_level = [1 7.51 8 19 51]
 # >> This value should not be changed
 nb_of_warm_up_samples = 10
 
+# =============================
+# @@@ SPECIFY NUMBER OF QOI @@@
+# =============================
+nb_of_qoi = 100
+
 # ======================
 # @@@ RUN MULTILEVEL @@@
 # ======================
 run_multilevel(max_level=max_level,
                cost_model=level -> sum(cost_per_level[key + one(key)] for key in push!(collect(keys(diff(level))), level)),
                ε=ε,
-               nb_of_warm_up_samples=nb_of_warm_up_samples
+               nb_of_warm_up_samples=nb_of_warm_up_samples,
+               nb_of_qoi=nb_of_qoi
               )

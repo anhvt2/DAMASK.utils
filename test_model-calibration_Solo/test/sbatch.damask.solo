@@ -40,11 +40,6 @@ nodes=$SLURM_JOB_NUM_NODES           # Number of nodes - the number of nodes you
 cores=36                             # Number MPI processes to run on each node (a.k.a. PPN)
 																		 # CTS1 has 36 cores per node
 
-# timestamp
-timeStamp=$(date +%Y-%m-%d-%H:%M:%S)
-logFile="query.log"
-echo "Start querying at" > query.log
-echo ${timeStamp} >> query.log
 
 
 # using openmpi-intel/1.10
@@ -58,6 +53,12 @@ numMs=2 # number of microstructures for Monte Carlo sample
 
 # run DAMASK over an ensemble of microstructures
 for i in $(seq ${numMs}); do
+	# timestamp
+	timeStamp=$(date +%Y-%m-%d-%H:%M:%S)
+	logFile="query.log"
+	echo "Start querying at" > query.log
+	echo ${timeStamp} >> query.log
+	
 	bash generateMsDream3d.sh # generate microstructures at different meshes
 
 	mv 2x2x2 rve${i}_2x2x2
@@ -115,7 +116,7 @@ for i in $(seq ${numMs}); do
 		addStrainTensors ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --left --logarithmic
 		addCauchy ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt
 		addMises ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --strain 'ln(V)' --stress Cauchy
-		addIPFcolor ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --pole 0 0 1 --symmetry cubic -o orientation
+		addIPFcolor ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --pole 0 0 1 --symmetry cubic # -o orientation
 		filterTable < ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
 		cd .. # rve${i}_${dimCell}x${dimCell}x${dimCell}
 		cd .. # *_Iter

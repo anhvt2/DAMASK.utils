@@ -56,9 +56,9 @@ for i in $(seq ${numMs}); do
 	# timestamp
 	timeStamp=$(date +%Y-%m-%d-%H:%M:%S)
 	logFile="query.log"
-	echo "Start querying at" > query.log
+	echo "Start querying at" >> query.log
 	echo ${timeStamp} >> query.log
-	
+
 	bash generateMsDream3d.sh # generate microstructures at different meshes
 
 	mv 2x2x2 rve${i}_2x2x2
@@ -77,6 +77,7 @@ for i in $(seq ${numMs}); do
 
 	cd ${folderName}/
 	### ---------------------------------- copy main file from the parent directory
+	filePrefix="single_phase_equiaxed"
 	cp ../tension.load  .
 	# cp ../sigma.dat  .
 	# cp ../mu.dat  .
@@ -87,9 +88,7 @@ for i in $(seq ${numMs}); do
 	# cp ../computeYieldStress.py  .
 	cp ../${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom  .
 	# ln -sf *.geom ${filePrefix}.geom # assumption: suppose that there is only one *.geom file
-
-
-	filePrefix="single_phase_equiaxed"
+	
 	rm -fv ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.* postProc/
 	geom_check ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom
 

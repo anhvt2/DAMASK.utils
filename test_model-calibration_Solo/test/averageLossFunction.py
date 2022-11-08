@@ -32,3 +32,7 @@ print('Finished writing output.dat in folder: %s' % os.getcwd().split('/')[-1])
 f.close()
 
 
+f = open('feasible.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+f.write('%.d\n' % np.any(feasible))
+f.close()
+

@@ -11,8 +11,12 @@ feasible = []
 
 for folderName in glob.glob('rve*_8x8x8'):
 	os.system('python3 computeLossFunction.py --f=%s' % folderName)
-	loss += [np.loadtxt(folderName + '/' + 'output.dat')]
-	feasible += [np.loadtxt(folderName + '/' + 'feasible.dat')]
+	if os.path.exists(folderName + '/' + 'output.dat'):
+		loss += [np.loadtxt(folderName + '/' + 'output.dat')]
+		feasible += [np.loadtxt(folderName + '/' + 'feasible.dat')]
+	else:
+		loss += [0]
+		feasible += [0]
 
 loss = np.array(loss)
 feasible = np.array(feasible)

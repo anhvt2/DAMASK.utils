@@ -49,7 +49,7 @@ cores=36                             # Number MPI processes to run on each node 
 ## NOTE: important to run 'parse2MaterialConfig.py' first to generate a correct material.config.preamble
 ## 		 that will be later on pasted to a subfoler below for coarse/fine meshes
 python3 parse2MaterialConfig.py # parse inputs to material.config
-numMs=2 # number of microstructures for Monte Carlo sample
+numMs=5 # number of microstructures for Monte Carlo sample
 
 # run DAMASK over an ensemble of microstructures
 for i in $(seq ${numMs}); do

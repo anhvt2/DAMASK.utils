@@ -213,7 +213,7 @@ fprintf('\n\nFitting gpml...\n\n\n');
 
 % covfunc = {@covMaterniso, 3}; ell = 1/4; sf = 1; % iso-Matern-3/2
 % covfunc = {@covMaternard,5}; ell = 1/4; sf = 1; hyp.cov = log([ell; sf]); % iso-Matern-5/2
-gpIter = 5000;
+gpIter = 500;
 covfunc = {@covSEard}; sf = 1 ; hyp.cov = log([rand(d, 1); sf]); % Gaussian with ARD
 meanfunc = {@meanSum, {@meanLinear, @meanConst}}; hyp.mean = zeros(d+1, 1);
 likfunc = @likGauss; sn = 1e-2; hyp.lik = log(sn);

@@ -1,12 +1,13 @@
 #!/bin/bash
 ## Do not put any commands or blank lines before the #SBATCH lines
 #SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
-#SBATCH --time=4:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
+#SBATCH --time=12:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY210060            # WC ID
-#SBATCH --job-name=cpfem              # Name of job
-#SBATCH --partition=short,batch       # partition/queue name: short or batch
-																			#            short: 4hrs wallclock limit
-																			#            batch: nodes reserved for > 4hrs (default)
+#SBATCH --job-name=cpfe               # Name of job
+#SBATCH --partition=short       	  # partition/queue name: short or batch
+																			#           short: 4hrs wallclock limit
+																			#           batch: nodes reserved for > 4hrs (default)
+																			# 			short,batch: accept either short or batch (usually short)
 #SBATCH --qos=normal                  # Quality of Service: long, large, priority or normal
 																			#           normal: request up to 48hrs wallclock (default)
 																			#           long:   request up to 96hrs wallclock and no larger than 64nodes

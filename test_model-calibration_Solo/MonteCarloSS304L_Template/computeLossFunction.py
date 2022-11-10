@@ -3,7 +3,6 @@
 # example syntax: python3 computeLossFunction.py  --f='64x64x64' 
 # note: without '/'
 
-import os
 import numpy as np
 import argparse
 import os, sys, datetime
@@ -47,7 +46,26 @@ def getMetaInfo(StressStrainFile):
 	print('fieldsList = ', fieldsList)
 	return numLinesHeader, fieldsList
 
+
+
 StressStrainFile = os.getcwd() + '/' + meshFolderName + '/postProc/stress_strain.log'
+### safeguard: if the 'postProc/stress_strain.log' does not exist, then quit()
+if not os.path(StressStrainFile):
+	#
+	print('Writing output.dat in folder: %s' % meshFolderName)
+	f = open(currentPath + '/' + meshFolderName + '/' + 'output.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+	f.write('0\n')
+	print('Finished writing output.dat in folder: %s' % meshFolderName)
+	f.close()
+	#
+	print('Writing feasible.dat in folder: %s' % meshFolderName)
+	f = open(currentPath + '/' + meshFolderName + '/' + 'feasible.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+	f.write('0\n')
+	print('Finished writing feasible.dat in folder: %s' % meshFolderName)
+	f.close()
+	quit() # exit the program immediately
+
+
 numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
 compData = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
 # print(compData)

@@ -7,6 +7,15 @@ import glob, os
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
 # https://matplotlib.org/stable/tutorials/colors/colormaps.html
 cmap = plt.cm.get_cmap('coolwarm')
+# cmap = plt.cm.get_cmap('viridis')
+# cmap = plt.cm.get_cmap('plasma')
+# cmap = plt.cm.get_cmap('inferno')
+# cmap = plt.cm.get_cmap('ocean')
+# cmap = plt.cm.get_cmap('gnuplot2')
+
+# https://matplotlib.org/cmocean/#thermal
+# import cmocean
+# cmap = cmocean.cm.phase
 
 # filename = 'single_phase_equiaxed_8x8x8.vtr'
 for filename in glob.glob('*.vtr'): # screenshot for all *.vtr files
@@ -23,7 +32,7 @@ for filename in glob.glob('*.vtr'): # screenshot for all *.vtr files
 	pl.remove_scalar_bar()
 	# pl.show(screenshot='%s.png' % filename.split('.')[0])
 	# pl.show()
-	pl.screenshot('%s.png' % filename.split('.')[0])
+	pl.screenshot('%s.png' % filename.split('.')[0], window_size=[1860*6,968*6])
 	# pl.close()
 
 

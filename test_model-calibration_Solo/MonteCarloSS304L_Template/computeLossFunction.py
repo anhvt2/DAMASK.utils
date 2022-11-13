@@ -50,7 +50,9 @@ def getMetaInfo(StressStrainFile):
 
 StressStrainFile = os.getcwd() + '/' + meshFolderName + '/postProc/stress_strain.log'
 ### safeguard: if the 'postProc/stress_strain.log' does not exist, then quit()
-if not os.path(StressStrainFile):
+print(os.path.exists(StressStrainFile))
+
+if not os.path.exists(StressStrainFile):
 	#
 	print('Writing output.dat in folder: %s' % meshFolderName)
 	f = open(currentPath + '/' + meshFolderName + '/' + 'output.dat', 'w') # can be 'r', 'w', 'a', 'r+'

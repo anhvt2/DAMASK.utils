@@ -97,7 +97,7 @@ batchSize = exploitSize + exploreSize + exploreClfSize; % total number of concur
 
 %% optimization settings
 maxiter = 1000; % maximum number of iterations
-numInitPoint = 9; % last maximum number of iterations in the initial sampling phase
+numInitPoint = 58; % last maximum number of iterations in the initial sampling phase
 numParallelPoint = numInitPoint; % true for asynchornous batch-parallel % last maximum number of iterations in the batch parallel BO; constraint numParallelPoint >= numInitPoint; (cont)
 % if no parallel for batch parallel BO, then numParallelPoint = numInitPoint
 
@@ -109,7 +109,7 @@ addpath(strcat(parentPath,'/bayesOptSrc-gpml')); % add BO toolbox
 
 fprintf('Initialization begun for Bayesian-optimization on %s\n', modelName);
 checkTime = 0.10; % minutes to periodically check simulations if they are complete in MATLAB master optimization loop
-waitTime = 4; % hours to stop waiting for a batch to finish; indeed run post-processing after this
+waitTime = 48; % hours to stop waiting for a batch to finish; indeed run post-processing after this
 % note: make sure $waitTime is consistent with other scripts during rolling simulations out, i.e. headers of qsub* in each simulation
 
 % print batchSettings.dat for python3 script checker

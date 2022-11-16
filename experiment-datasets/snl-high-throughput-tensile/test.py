@@ -40,7 +40,7 @@ mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
 for i in range(n):
-	plt.plot(d['AllData']['StrainPerc'][0,i], d['AllData']['StressMPa'][0,i])
+	plt.plot(d['AllData']['StrainPerc'][0,i], d['AllData']['StressMPa'][0,i], linestyle='None', marker='o', markersize=1)
 
 plt.xlabel(r'$\varepsilon$ [%]', fontsize=24)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=24)

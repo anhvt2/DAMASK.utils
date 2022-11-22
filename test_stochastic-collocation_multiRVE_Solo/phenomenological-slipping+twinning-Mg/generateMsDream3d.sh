@@ -22,6 +22,8 @@ elif [[ ${hostName} == *"s1057681"* ]]; then
 	execPath="/home/anhtran/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # s1057681
 elif [[ ${hostName} == *"strix"* ]]; then
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # Asus ROG strix
+elif [[ ${hostName} == *"asus"* ]]; then # Asus Server
+	execPath="/media/anhvt89/hsgt2Repo/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin"
 else
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # else
 fi

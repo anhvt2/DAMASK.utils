@@ -213,7 +213,7 @@
         "StatsGeneratorDataContainerName": "StatsGeneratorDataContainer"
     },
     "01": {
-        "BoxDimensions": "X Range: 0 to 320 (Delta: 320)\nY Range: 0 to 320 (Delta: 320)\nZ Range: 0 to 320 (Delta: 320)",
+        "BoxDimensions": "X Range: 0 to 64 (Delta: 64)\nY Range: 0 to 64 (Delta: 64)\nZ Range: 0 to 64 (Delta: 64)",
         "CellAttributeMatrixName": "CellData",
         "DataContainerName": "SyntheticVolumeDataContainer",
         "Dimensions": {
@@ -245,9 +245,9 @@
             "z": 0
         },
         "Resolution": {
-            "x": 5,
-            "y": 5,
-            "z": 5
+            "x": 1,
+            "y": 1,
+            "z": 1
         }
     },
     "02": {
@@ -609,24 +609,34 @@
         "StackedDataArrayName": "orientations"
     },
     "16": {
-        "Delimiter": 2,
-        "FileExtension": ".txt",
-        "FilterVersion": "1.2.815",
+        "CellAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "CellFeatureAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellFeatureData",
+            "Data Array Name": "",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "FeatureIdsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "FeatureIds",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "FilterVersion": "6.5.141",
         "Filter_Enabled": true,
-        "Filter_Human_Label": "Export ASCII Data",
-        "Filter_Name": "WriteASCIIData",
-        "Filter_Uuid": "{5fbf9204-2c6c-597b-856a-f4612adbac38}",
-        "MaxValPerLine": 1,
-        "OutputFilePath": "/home/anhvt89",
-        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_stochastic-collocation_runs_s1057681/dislocation-density-based/Magnesium",
-        "OutputStyle": 0,
-        "SelectedDataArrayPaths": [
-            {
-                "Attribute Matrix Name": "CellFeatureData",
-                "Data Array Name": "orientations",
-                "Data Container Name": "SyntheticVolumeDataContainer"
-            }
-        ]
+        "Filter_Human_Label": "Change Resolution",
+        "Filter_Name": "ChangeResolution",
+        "Filter_Uuid": "{1966e540-759c-5798-ae26-0c6a3abc65c0}",
+        "NewDataContainerName": "NewImageDataContainer",
+        "RenumberFeatures": 1,
+        "Resolution": {
+            "x": 4,
+            "y": 4,
+            "z": 4
+        },
+        "SaveAsNewDataContainer": 0
     },
     "17": {
         "CellEulerAnglesArrayPath": {
@@ -655,9 +665,29 @@
         "HomogenizationIndex": 1,
         "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_stochastic-collocation_runs_s1057681/dislocation-density-based"
     },
+    "18": {
+        "Delimiter": 2,
+        "FileExtension": ".txt",
+        "FilterVersion": "1.2.815",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Export ASCII Data",
+        "Filter_Name": "WriteASCIIData",
+        "Filter_Uuid": "{5fbf9204-2c6c-597b-856a-f4612adbac38}",
+        "MaxValPerLine": 1,
+        "OutputFilePath": "/home/anhvt89",
+        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_stochastic-collocation_runs_s1057681/dislocation-density-based/Magnesium",
+        "OutputStyle": 0,
+        "SelectedDataArrayPaths": [
+            {
+                "Attribute Matrix Name": "CellFeatureData",
+                "Data Array Name": "orientations",
+                "Data Container Name": "SyntheticVolumeDataContainer"
+            }
+        ]
+    },
     "PipelineBuilder": {
         "Name": "test-Magnesium",
-        "Number_Filters": 18,
+        "Number_Filters": 19,
         "Version": 6
     }
 }

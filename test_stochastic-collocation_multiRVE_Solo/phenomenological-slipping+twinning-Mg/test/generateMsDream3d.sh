@@ -80,8 +80,9 @@ defaultPath=$(grep -inr 'OutputPath' ${inputFile}.json  | head -n 1  | cut -d: -
 
 sed -i "s|${defaultPath}|${outputPath}/|g" ${inputFile} # add "/" behind ${outputPath}
 
-
 ${execPath}/PipelineRunner -p $(pwd)/${inputFile}
+# prepend material.config
+cat material.config.preamble  | cat - material.config | sponge material.config
 
 
 echo "Microstructure files are generated at:"

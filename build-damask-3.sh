@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -rfv build-grid/ build-mesh/
 # damaskSrc="${damaskSrc}"
 damaskSrc="DAMASK"
 reset;

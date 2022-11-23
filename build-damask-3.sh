@@ -1,5 +1,23 @@
 #!/bin/bash
 
+### PETSc-configure/build/install
+
+sudo ./configure \
+    --prefix=/usr/local/petsc-3.18.1 \
+    --with-fc=gfortran \
+    --with-cc=gcc \
+    --with-cxx=g++ \
+    --download-mpich \
+    --download-fftw \
+    --download-hdf5 \
+    --download-hdf5-fortran-bindings=1 \
+    --download-zlib \
+    --with-mpi-f90module-visibility=0 \
+    PETSC_DIR=$(pwd)
+
+
+### build DAMASK
+
 rm -rfv build-grid/ build-mesh/
 # damaskSrc="${damaskSrc}"
 damaskSrc="DAMASK"

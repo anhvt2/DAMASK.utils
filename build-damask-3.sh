@@ -22,6 +22,7 @@
 # sudo make PETSC_DIR=/home/anhvt89/Documents/DAMASK/petsc/petsc-3.18.1 PETSC_ARCH=arch-linux-c-debug all
 # sudo make PETSC_DIR=/home/anhvt89/Documents/DAMASK/petsc/petsc-3.18.1 PETSC_ARCH=arch-linux-c-debug install
 # export PETSC_DIR=/usr/local/petsc-3.18.1/
+# export PETSC_ARCH=arch-linux-c-debug
 # cd $PETSC_DIR
 # ln -sf /home/anhvt89/Documents/DAMASK/petsc/petsc-3.18.1/arch-linux-c-debug . 
 # cd - 

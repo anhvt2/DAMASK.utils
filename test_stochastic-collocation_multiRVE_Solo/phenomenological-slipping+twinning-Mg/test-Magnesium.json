@@ -543,13 +543,13 @@
         "StatsGeneratorDataContainerName": "StatsGeneratorDataContainer"
     },
     "01": {
-        "BoxDimensions": "X Range: 0 to 2048 (Delta: 2048)\nY Range: 0 to 2048 (Delta: 2048)\nZ Range: 0 to 2048 (Delta: 2048)",
+        "BoxDimensions": "X Range: 0 to 512 (Delta: 512)\nY Range: 0 to 512 (Delta: 512)\nZ Range: 0 to 512 (Delta: 512)",
         "CellAttributeMatrixName": "CellData",
         "DataContainerName": "SyntheticVolumeDataContainer",
         "Dimensions": {
-            "x": 128,
-            "y": 128,
-            "z": 128
+            "x": 512,
+            "y": 512,
+            "z": 512
         },
         "EnsembleAttributeMatrixName": "CellEnsembleData",
         "EstimateNumberOfFeatures": 0,
@@ -575,9 +575,9 @@
             "z": 0
         },
         "Resolution": {
-            "x": 16,
-            "y": 16,
-            "z": 16
+            "x": 1,
+            "y": 1,
+            "z": 1
         }
     },
     "02": {
@@ -949,6 +949,36 @@
         ]
     },
     "16": {
+        "CellAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "CellFeatureAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellFeatureData",
+            "Data Array Name": "",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "FeatureIdsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "FeatureIds",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "FilterVersion": "6.5.141",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Change Resolution",
+        "Filter_Name": "ChangeResolution",
+        "Filter_Uuid": "{1966e540-759c-5798-ae26-0c6a3abc65c0}",
+        "NewDataContainerName": "NewImageDataContainer",
+        "RenumberFeatures": 1,
+        "Resolution": {
+            "x": 64,
+            "y": 64,
+            "z": 64
+        },
+        "SaveAsNewDataContainer": 0
+    },
+    "17": {
         "CellEulerAnglesArrayPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "EulerAngles",
@@ -975,7 +1005,7 @@
         "HomogenizationIndex": 1,
         "OutputPath": "/media/anhvt89/hsgt2Repo/DAMASK/DAMASK.utils/test_stochastic-collocation_multiRVE_Solo/phenomenological-slipping+twinning-Mg"
     },
-    "17": {
+    "18": {
         "CellEulerAnglesArrayPath": {
             "Attribute Matrix Name": "CellFeatureData",
             "Data Array Name": "EulerAngles",
@@ -1018,7 +1048,7 @@
     },
     "PipelineBuilder": {
         "Name": "test-Magnesium",
-        "Number_Filters": 18,
+        "Number_Filters": 19,
         "Version": 6
     }
 }

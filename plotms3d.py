@@ -6,6 +6,7 @@ import glob, os
 # cmap = plt.cm.get_cmap("viridis", 5)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
 # https://matplotlib.org/stable/tutorials/colors/colormaps.html
+# Ranking: (1) 'coolwarm', (2) 'ocean', (3) 'plasma' or 'inferno' or 'viridis'
 cmap = plt.cm.get_cmap('coolwarm')
 # cmap = plt.cm.get_cmap('viridis')
 # cmap = plt.cm.get_cmap('plasma')

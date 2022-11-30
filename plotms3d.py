@@ -3,6 +3,17 @@
 import pyvista
 import matplotlib.pyplot as plt
 import glob, os
+import argparse
+parser = argparse.ArgumentParser()
+
+parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False)
+args = parser.parse_args()
+nameTag = args.nameTag
+
+nameTag = nameTag.split('/')[0]
+print(nameTag)
+
+
 # cmap = plt.cm.get_cmap("viridis", 5)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
 # https://matplotlib.org/stable/tutorials/colors/colormaps.html
@@ -33,7 +44,7 @@ for filename in glob.glob('*.vtr'): # screenshot for all *.vtr files
 	pl.remove_scalar_bar()
 	# pl.show(screenshot='%s.png' % filename.split('.')[0])
 	# pl.show()
-	pl.screenshot('%s.png' % filename.split('.')[0], window_size=[1860*6,968*6])
+	pl.screenshot(filename.split('.')[0] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
 	# pl.close()
 
 

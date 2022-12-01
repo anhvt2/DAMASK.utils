@@ -12,6 +12,7 @@ import matplotlib as mpl
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
+from scipy.interpolate import interp1d
 
 def getMetaInfo(StressStrainFile):
     """
@@ -163,6 +164,7 @@ markerList = ["o",
 # 
 stress_min = []
 stress_max = []
+tmp_stress = []
 # for i in np.arange(1,10+1):
 cellDimList = [4,8,10,16] #,20] # : #,40]: #,80]:
 for i in np.arange(1,4+1):
@@ -173,15 +175,17 @@ for i in np.arange(1,4+1):
         folderName = 'sve%d_%dx%dx%d' % (i, cellDim, cellDim, cellDim)
         StressStrainFile = os.getcwd() + '/' + folderName + '/postProc/stress_strain.log'
         tmpx, tmpy = getStressStrain(StressStrainFile)
-        print(tmpx)
-        print(tmpy)
+        print(len(tmpx))
+        print(len(tmpy))
         stress_min += [tmpy]
         stress_max += [tmpy]
-        #
-        print(stress_min)
-        print(stress_max)
+        # interp
+        tmpx2 = np.linspace(tmpx.min(), tmpx.max(), num=100)
+        interpSpline = interp1d(tmpx, tmpy, kind='cubic', fill_value='extrapolate')
+        tmpy2 = interpSpline(tmpx2)
+        tmp_stress += [tmpy2]
         # plot
-        tmp_line, = plt.plot(tmpx, tmpy, marker=markerList[j], markersize=8, linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
+        tmp_line, = plt.plot(tmpx2, tmpy2, marker=markerList[j], markersize=4, linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
         lineList += [tmp_line]
         # 
         empty_list += [""]
@@ -199,7 +203,7 @@ exp_vareps = refData[:,0] # start at vareps = 0
 exp_sigma  = refData[:,1]
 max_interp_vareps = np.min([np.max(exp_vareps), 0.6]) 
 interp_vareps = np.linspace(0, max_interp_vareps, 1000) # start at vareps = 0
-from scipy.interpolate import interp1d
+
 # get interpolated exp. stress
 interpSpline_exp = interp1d(exp_vareps, exp_sigma, kind='linear', fill_value='extrapolate')
 interp_exp_sigma = interpSpline_exp(interp_vareps)
@@ -208,8 +212,11 @@ lineList += [tmp_line]
 empty_list += [""]
 imgName = 'cropped_exp.eps'
 tmpDict = Merge(tmpDict, {lineList[counter]: HandlerLineImage(imgName)})
-print(np.array(stress_min))
-print(np.array(stress_max))
+
+plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), alpha=0.5, color='cyan')
+
+# print(np.array(stress_min))
+# print(np.array(stress_max))
 # stress_min = stress_min.reshape(int(len(stress_min)/len(cellDimList)), int(len(cellDimList)))
 # stress_max = stress_max.reshape(int(len(stress_max)/len(cellDimList)), int(len(cellDimList)))
 # print(tmpx.shape)
@@ -227,5 +234,6 @@ for legobj in leg.legendHandles:
 
 plt.xlim(left=0,right=0.6)
 plt.ylim(bottom=0)
+plt.title(r'Comparison of $\sigma-\varepsilon$ b/w exp. and comp.', fontsize=24)
 
 plt.show()

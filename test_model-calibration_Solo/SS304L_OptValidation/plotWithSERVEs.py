@@ -70,30 +70,28 @@ def getStressStrain(StressStrainFile):
     return x, y
 
 class HandlerLineImage(HandlerBase):
-    def __init__(self, path, space=15, offset = 10 ):
+    # def __init__(self, path, space=15, offset=10 ):
+    def __init__(self, path, space=15, offset=-15):
         self.space=space
         self.offset=offset
         self.image_data = plt.imread(path)        
         super(HandlerLineImage, self).__init__()
-
+    #
     def create_artists(self, legend, orig_handle,
                        xdescent, ydescent, width, height, fontsize, trans):
-
         l = matplotlib.lines.Line2D([xdescent+self.offset,xdescent+(width-self.space)/3.+self.offset],
                                      [ydescent+height/2., ydescent+height/2.])
         l.update_from(orig_handle)
         l.set_clip_on(False)
         l.set_transform(trans)
-
         bb = Bbox.from_bounds(xdescent +(width+self.space)/3.+self.offset,
                               ydescent,
                               height*self.image_data.shape[1]/self.image_data.shape[0],
                               height)
-
         tbb = TransformedBbox(bb, trans)
         image = BboxImage(tbb)
         image.set_data(self.image_data)
-
+        #
         self.update_prop(image, orig_handle, legend)
         return [l,image]
 
@@ -108,7 +106,7 @@ def Merge(dict1, dict2):
 
 # plot
 plt.figure(figsize=(4.8,3.2))
-lineList = []; empty_list = []
+lineList = []; empty_list = [];
 # for folderName in glob.glob('*/'):
 counter = 0
 tmpDict = {}
@@ -124,19 +122,20 @@ colorList = ['tab:blue',
     'tab:cyan',
 ]
 # https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html
-linestyleList = [('loosely dotted',        (0, (1, 10))),
-     ('dotted',                (0, (1, 1))),
-     ('densely dotted',        (0, (1, 1))),
-     ('long dash with offset', (5, (10, 3))),
-     ('loosely dashed',        (0, (5, 10))),
-     ('dashed',                (0, (5, 5))),
-     ('densely dashed',        (0, (5, 1))),
-     ('loosely dashdotted',    (0, (3, 10, 1, 10))),
-     ('dashdotted',            (0, (3, 5, 1, 5))),
-     ('densely dashdotted',    (0, (3, 1, 1, 1))),
-     ('dashdotdotted',         (0, (3, 5, 1, 5, 1, 5))),
-     ('loosely dashdotdotted', (0, (3, 10, 1, 10, 1, 10))),
-     ('densely dashdotdotted', (0, (3, 1, 1, 1, 1, 1)))
+linestyleList = [
+    ('densely dashed',        (0, (5, 1))),
+    ('loosely dashdotted',    (0, (3, 10, 1, 10))),
+    ('dashdotted',            (0, (3, 5, 1, 5))),
+    ('densely dashdotted',    (0, (3, 1, 1, 1))),
+    ('loosely dashdotdotted', (0, (3, 10, 1, 10, 1, 10))),
+    ('densely dashdotdotted', (0, (3, 1, 1, 1, 1, 1))),
+    ('dashdotdotted',         (0, (3, 5, 1, 5, 1, 5))),
+    ('long dash with offset', (5, (10, 3))),
+    ('loosely dotted',        (0, (1, 10))),
+    ('dotted',                (0, (1, 1))),
+    ('densely dotted',        (0, (1, 1))),
+    ('loosely dashed',        (0, (5, 10))),
+    ('dashed',                (0, (5, 5))),
      ]
 # https://matplotlib.org/stable/api/markers_api.html
 markerList = ["o",
@@ -161,6 +160,9 @@ markerList = ["o",
 "4",
 "8",
 ]
+# 
+stress_min = []
+stress_max = []
 # for i in np.arange(1,10+1):
 cellDimList = [4,8,10,16] #,20] # : #,40]: #,80]:
 for i in np.arange(1,4+1):
@@ -171,8 +173,15 @@ for i in np.arange(1,4+1):
         folderName = 'sve%d_%dx%dx%d' % (i, cellDim, cellDim, cellDim)
         StressStrainFile = os.getcwd() + '/' + folderName + '/postProc/stress_strain.log'
         tmpx, tmpy = getStressStrain(StressStrainFile)
+        print(tmpx)
+        print(tmpy)
+        stress_min += [tmpy]
+        stress_max += [tmpy]
+        #
+        print(stress_min)
+        print(stress_max)
         # plot
-        tmp_line, = plt.plot(tmpx, tmpy, marker=markerList[j], linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
+        tmp_line, = plt.plot(tmpx, tmpy, marker=markerList[j], markersize=8, linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
         lineList += [tmp_line]
         # 
         empty_list += [""]
@@ -185,14 +194,32 @@ plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
 ## plot experimental dataset
-# tmp_line, = plt.plot
-# lineList += [tmp_line]
-# empty_list += ["experimental"]
+refData = np.loadtxt('../datasets/true_SS304L_EngStress_EngStrain_exp_4A1.dat', skiprows=1)
+exp_vareps = refData[:,0] # start at vareps = 0
+exp_sigma  = refData[:,1]
+max_interp_vareps = np.min([np.max(exp_vareps), 0.6]) 
+interp_vareps = np.linspace(0, max_interp_vareps, 1000) # start at vareps = 0
+from scipy.interpolate import interp1d
+# get interpolated exp. stress
+interpSpline_exp = interp1d(exp_vareps, exp_sigma, kind='linear', fill_value='extrapolate')
+interp_exp_sigma = interpSpline_exp(interp_vareps)
+tmp_line, = plt.plot(interp_vareps, interp_exp_sigma, linestyle='-', marker='o', linewidth=2, color='black')
+lineList += [tmp_line]
+empty_list += [""]
+imgName = 'cropped_exp.eps'
+tmpDict = Merge(tmpDict, {lineList[counter]: HandlerLineImage(imgName)})
+print(np.array(stress_min))
+print(np.array(stress_max))
+# stress_min = stress_min.reshape(int(len(stress_min)/len(cellDimList)), int(len(cellDimList)))
+# stress_max = stress_max.reshape(int(len(stress_max)/len(cellDimList)), int(len(cellDimList)))
+# print(tmpx.shape)
+# plt.fill_between(tmpx, np.min(stress_min, axis=1), np.max(stress_max, axis=1), alpha=0.2)
+# print(np.array(stress_min).shape)
 
 ## alternate legend
 leg = plt.legend(lineList, empty_list,
     handler_map=tmpDict,
-    handlelength=2, labelspacing=0.0, fontsize=36, borderpad=0.15, 
+    handlelength=2.5, labelspacing=0.0, fontsize=36, borderpad=0.15, 
     handletextpad=0.2, borderaxespad=0.15, bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)
 
 for legobj in leg.legendHandles:

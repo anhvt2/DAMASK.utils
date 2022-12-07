@@ -167,7 +167,7 @@ stress_max = []
 tmp_stress = []
 # for i in np.arange(1,10+1):
 cellDimList = [4,8,10,16] #,20] # : #,40]: #,80]:
-for i in np.arange(1,4+1):
+for i in np.arange(1,3+1):
     # for cellDim in [4,8,10,16,20]: #,40]: #,80]:
     for j in range(len(cellDimList)):
         cellDim = cellDimList[j]

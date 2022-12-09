@@ -54,7 +54,7 @@ def parseInput(matcfg_input, txtcfg):
   # parsed_txtcfg[51 - 1] = 'tau0_slip               95.e6\n'
   # parsed_txtcfg[52 - 1] = 'tausat_slip             222.e6\n'
   # parsed_txtcfg[53 - 1] = 'h0_slipslip             1.0e6\n'
-  parsed_txtcfg[48 - 1] = 'gdot0_slip              %.4f\n' % gdot0_slip
+  parsed_txtcfg[48 - 1] = 'gdot0_slip              %.4f\n'  % gdot0_slip
   parsed_txtcfg[49 - 1] = 'n_slip                  %.12e\n' % n_slip
   parsed_txtcfg[50 - 1] = 'a_slip                  %.12e\n' % a_slip
   parsed_txtcfg[51 - 1] = 'tau0_slip               %.12e\n' % tau0_slip

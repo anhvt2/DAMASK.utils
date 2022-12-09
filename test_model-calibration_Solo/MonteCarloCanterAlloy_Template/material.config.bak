@@ -31,7 +31,11 @@ nconstituents   1
 #-------------------#
 <phase>
 #-------------------#
-[StainlessSteel304L]
+[CantorAlloy]
+# Elastic constants are extracted from
+# (1) Gludovatz, B., George, E.P. & Ritchie, R.O. Processing, Microstructure and Mechanical Properties of the CrMnFeCoNi High-Entropy Alloy. JOM 67, 2262–2270 (2015). https://doi.org/10.1007/s11837-015-1589-z
+# (2) https://doi.org/10.1016/j.jallcom.2018.02.251
+
 # no twinning
 # (output) totalshear
 
@@ -41,16 +45,16 @@ plasticity              phenopowerlaw
 lattice_structure       fcc
 Nslip                   12        # per family
 Ntwin                   0         # per family
-c11                     262.200e9 #  Lu, J., Becker, A., Sun, W., & Tanner, D. (2014). Simulation of cyclic plastic behavior of 304L steel using the crystal plasticity finite element method. Procedia materials science, 3, 135-140.
-c12                     112.0e9   # Lu, J., Becker, A., Sun, W., & Tanner, D. (2014). Simulation of cyclic plastic behavior of 304L steel using the crystal plasticity finite element method. Procedia materials science, 3, 135-140.
-c44                     74.6e9    # Lu, J., Becker, A., Sun, W., & Tanner, D. (2014). Simulation of cyclic plastic behavior of 304L steel using the crystal plasticity finite element method. Procedia materials science, 3, 135-140.
+c11                     172e9   # Gludovatz, B., George, E.P. & Ritchie, R.O. Processing, Microstructure and Mechanical Properties of the CrMnFeCoNi High-Entropy Alloy. JOM 67, 2262–2270 (2015). https://doi.org/10.1007/s11837-015-1589-z
+c12                     108e9   # Gludovatz, B., George, E.P. & Ritchie, R.O. Processing, Microstructure and Mechanical Properties of the CrMnFeCoNi High-Entropy Alloy. JOM 67, 2262–2270 (2015). https://doi.org/10.1007/s11837-015-1589-z
+c44                     92e9    # Gludovatz, B., George, E.P. & Ritchie, R.O. Processing, Microstructure and Mechanical Properties of the CrMnFeCoNi High-Entropy Alloy. JOM 67, 2262–2270 (2015). https://doi.org/10.1007/s11837-015-1589-z
 
-gdot0_slip              0.0010
-n_slip                  1.200000000000e+00
-a_slip                  1.000000000000e+00
-tau0_slip               1.000000000000e+06
-tausat_slip             1.000000000000e+08
-h0_slipslip             1.000000000000e+08
+gdot0_slip              1e-03
+n_slip                  1.200000000000e+02
+a_slip                  5.000000000000e+00
+tau0_slip               5.000000000000e+08
+tausat_slip             5.000000000000e+08
+h0_slipslip             9.000000000000e+06
 
 
 interaction_slipslip    1.0 1.0 1.4 1.4 1.4 1.4                  # just guessing

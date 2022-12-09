@@ -1,4 +1,5 @@
 # DAMASK.utils
+
 DAMAKS utilities scripts
 
 ```shell
@@ -225,4 +226,16 @@ See more at [https://groups.google.com/g/dream3d-users/c/SPCdr-BWROs?pli=1](http
 * `damask-2.0.2` runs on Solo, along with Octave. If optimization is concerned, try using Octave
 * `damask-2.0.3` may be compiled on Skybridge, along with MATLAB and Octave. If successful, can run both. However, Skybridge may limit in 48 hours or SNL may disconnect.
 
+# Major Branches
 
+1. consistent Bayesian
+    * `testCBayes-Damask-Phase_Dislotwin_TWIP-Steel-FeMnC-64x64x64/`
+    * `testCBayes-Damask-Phase_Phenopowerlaw_Aluminum/`
+2. stochastic collocation for yield
+    * `test_stochastic-collocation_runs_s1057681/`
+    * `test_stochastic-collocation_multiRVE_Solo/`: under construction
+3. model calibration using Bayesian optimization
+    * `test_model-calibration_Solo/`
+4. multi-{level,index} Monte Carlo
+    * `test_MLMC_runs_s1057681_alphaTitanium/`
+    * `test_MIMC_runs_s1057681_Aluminum/`

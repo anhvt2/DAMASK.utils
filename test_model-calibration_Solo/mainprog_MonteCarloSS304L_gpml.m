@@ -211,10 +211,11 @@ l = length(Y);
 tic;
 fprintf('\n\nFitting gpml...\n\n\n');
 
-% covfunc = {@covMaterniso, 3}; ell = 1/4; sf = 1; % iso-Matern-3/2
-% covfunc = {@covMaternard,5}; ell = 1/4; sf = 1; hyp.cov = log([ell; sf]); % iso-Matern-5/2
 gpIter = 500;
-covfunc = {@covSEard}; sf = 1 ; hyp.cov = log([rand(d, 1); sf]); % Gaussian with ARD
+% covfunc = {@covMaterniso, 3}; ell = 1/4; sf = 1; % iso-Matern-3/2
+% covfunc = {@covSEard}; sf = 1 ; hyp.cov = log([rand(d, 1); sf]); % Gaussian with ARD -- note: properly functional
+% covfunc = {@covMaternard,5}; ell = 1/4; sf = 1; hyp.cov = log([ell; sf]); % iso-Matern-5/2
+covfunc = {@covMaternard,1}; sf = 1; hyp.cov = log([rand(d, 1); sf]); % Matern-1/2
 meanfunc = {@meanSum, {@meanLinear, @meanConst}}; hyp.mean = zeros(d+1, 1);
 likfunc = @likGauss; sn = 1e-2; hyp.lik = log(sn);
 hyp = minimize(hyp, @gp, -gpIter, @infGaussLik, meanfunc, covfunc, likfunc, S(F>0,:), Y(F>0));

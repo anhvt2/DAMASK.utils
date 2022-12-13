@@ -44,7 +44,10 @@ for filename in glob.glob('*.vtr'): # screenshot for all *.vtr files
 	pl.remove_scalar_bar()
 	# pl.show(screenshot='%s.png' % filename.split('.')[0])
 	# pl.show()
-	pl.screenshot(filename.split('.')[0] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+	if nameTag == '':
+		pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860*6,968*6])
+	else:
+		pl.screenshot(filename.split('.')[0] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
 	# pl.close()
 
 

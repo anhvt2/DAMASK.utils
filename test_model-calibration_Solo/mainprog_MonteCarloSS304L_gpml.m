@@ -97,7 +97,7 @@ batchSize = exploitSize + exploreSize + exploreClfSize; % total number of concur
 
 %% optimization settings
 maxiter = 1000; % maximum number of iterations
-numInitPoint = 58; % last maximum number of iterations in the initial sampling phase
+numInitPoint = 10; % last maximum number of iterations in the initial sampling phase
 numParallelPoint = numInitPoint; % true for asynchornous batch-parallel % last maximum number of iterations in the batch parallel BO; constraint numParallelPoint >= numInitPoint; (cont)
 % if no parallel for batch parallel BO, then numParallelPoint = numInitPoint
 
@@ -234,7 +234,8 @@ hyp = minimize(hyp, @gp, -gpIter, @infGaussLik, meanfunc, covfunc, likfunc, S, Y
 % [gpml, ~] = dacefit(S, Y, @regpoly0, @corrgauss, theta, lob, upb, xLB, xUB);
 
 meanfuncClf = @meanConst; hypClf.mean = 0;
-covfuncClf = @covSEard;   hypClf.cov = log(ones(d+1, 1));
+% covfuncClf = @covSEard;   hypClf.cov = log(ones(d+1, 1)); % Gaussian with ARD
+covFuncClf = {@covMaternard,1}; sf = 1; hypClf.cov = log([rand(d, 1); sf]); % Matern-1/2
 likfuncClf = @likErf;
 hypClf = minimize(hypClf, @gp, -gpIter, @infEP, meanfuncClf, covfuncClf, likfuncClf, S, F);
 % [yp, s2p] = gp(hypClf, @infEP, meanfuncClf, covfuncClf, likfuncClf, S, F, S);

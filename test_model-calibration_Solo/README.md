@@ -34,6 +34,11 @@ echo "Stop querying at" >> query.log
 echo ${timeStamp} >> query.log
 ```
 
+3. Creat initial samples:
+* change `modelName` in `autoInitSamples.sh`
+* change `modelName` in `autoSubmit.sh`
+* double-check and execute both Bash scripts
+
 ### To-Do
 
 * implement average loss across an ensemble of microstructures

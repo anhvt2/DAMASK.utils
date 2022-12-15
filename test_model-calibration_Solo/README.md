@@ -39,6 +39,10 @@ echo ${timeStamp} >> query.log
 * change `modelName` in `autoSubmit.sh`
 * double-check and execute both Bash scripts
 
+4. Run model calibration:
+* change `modelName` in `mainprog.m`
+* change `numInitPoint` in `mainprog.m`
+
 ### To-Do
 
 * implement average loss across an ensemble of microstructures

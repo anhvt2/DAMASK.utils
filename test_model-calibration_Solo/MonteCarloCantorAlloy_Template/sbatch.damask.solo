@@ -125,6 +125,7 @@ for i in $(seq ${numMs}); do
 			echo 1 > feasible.dat # to-be-replaced in computeLossFunction.py
 			echo 1 > complete.dat
 		fi
+		python3 averageLossFunction.py
 	else
 		echo "Simulation does not converge!!!"
 		echo 0 > feasible.dat # to-be-replaced in computeLossFunction.py
@@ -143,4 +144,4 @@ for i in $(seq ${numMs}); do
 	echo "Done running DAMASK of RVE ${i} in $(pwd)"
 done
 
-python3 averageLossFunction.py
+

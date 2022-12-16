@@ -15,7 +15,9 @@ dimCell=$(cat dimCell.dat)
 ## declare paths
 hostName="$(echo $(hostname))"
 if [[ ${hostName} == *"solo"* ]]; then
-	execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # solo
+	execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # Solo
+elif [[ ${hostName} == *"skybridge"* ]]; then
+    execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # SkyBridge
 elif [[ ${hostName} == *"ideapad"* ]]; then
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # ideapad
 elif [[ ${hostName} == *"s1057681"* ]]; then

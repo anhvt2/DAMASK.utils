@@ -1,6 +1,6 @@
 #!/bin/bash
 
-modelName="MonteCarloSS304L"
+modelName="MonteCarloCantorAlloy"
 
 for i in $(seq 1 9); do
 	folderName="${modelName}_Iter${i}"

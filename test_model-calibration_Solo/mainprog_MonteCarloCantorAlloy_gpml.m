@@ -211,7 +211,7 @@ l = length(Y);
 tic;
 fprintf('\n\nFitting gpml...\n\n\n');
 
-gpIter = 500;
+gpIter = 1000;
 % covfunc = {@covMaterniso, 3}; ell = 1/4; sf = 1; % iso-Matern-3/2
 % covfunc = {@covSEard}; sf = 1 ; hyp.cov = log([rand(d, 1); sf]); % Gaussian with ARD -- note: properly functional
 % covfunc = {@covMaternard,5}; ell = 1/4; sf = 1; hyp.cov = log([ell; sf]); % iso-Matern-5/2

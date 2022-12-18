@@ -17,7 +17,9 @@ hostName="$(echo $(hostname))"
 if [[ ${hostName} == *"solo"* ]]; then
 	execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # Solo
 elif [[ ${hostName} == *"skybridge"* ]]; then
-    execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # SkyBridge
+    execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # Skybridge
+elif [[ ${hostName} == *"attaway"* ]]; then
+    execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # Attaway
 elif [[ ${hostName} == *"ideapad"* ]]; then
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # ideapad
 elif [[ ${hostName} == *"s1057681"* ]]; then

@@ -155,11 +155,11 @@ for i in $(seq ${numMs}); do
 done
 
 
-rm -v *.outputConstitutive
-rm -v *.outputCrystallite
-rm -v *.outputHomogenization
-rm -v *.C_ref
-rm -v *.spectralOut
-rm -v *.hdf5
-rm -v *.sta
+rm -v $(find . -name '*.outputConstitutive')
+rm -v $(find . -name '*.outputCrystallite')
+rm -v $(find . -name '*.outputHomogenization')
+rm -v $(find . -name '*.C_ref')
+rm -v $(find . -name '*.spectralOut')
+rm -v $(find . -name '*.hdf5')
+rm -v $(find . -name '*.sta')
 

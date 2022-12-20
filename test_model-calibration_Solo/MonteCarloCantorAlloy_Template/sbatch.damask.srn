@@ -1,10 +1,10 @@
 #!/bin/bash
 ## Do not put any commands or blank lines before the #SBATCH lines
 #SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
-#SBATCH --time=04:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
+#SBATCH --time=48:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY140174            # WC ID
 #SBATCH --job-name=cpfe               # Name of job
-#SBATCH --partition=short,batch   	  # partition/queue name: short or batch
+#SBATCH --partition=batch   	      # partition/queue name: short or batch
 																			#           short: 4hrs wallclock limit
 																			#           batch: nodes reserved for > 4hrs (default)
 																			# 			short,batch: accept either short or batch (usually short)
@@ -154,4 +154,12 @@ for i in $(seq ${numMs}); do
 	echo "Done running DAMASK of RVE ${i} in $(pwd)"
 done
 
+
+rm -v *.outputConstitutive
+rm -v *.outputCrystallite
+rm -v *.outputHomogenization
+rm -v *.C_ref
+rm -v *.spectralOut
+rm -v *.hdf5
+rm -v *.sta
 

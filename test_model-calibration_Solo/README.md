@@ -2,9 +2,9 @@
 
 ### Potential system
 
-1. SS304L
-2. Tantalum
-3. Cantor alloy
+1. SS304L (data from Hojun Lim)
+2. Tantalum (data from Hojun Lim)
+3. Cantor alloy (data from Robert O. Ritchie)
 
 ### Background
 

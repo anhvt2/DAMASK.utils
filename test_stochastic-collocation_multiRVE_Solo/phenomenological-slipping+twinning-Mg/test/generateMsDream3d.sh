@@ -28,9 +28,9 @@ fi
 
 outputPath=$(pwd)
 
-# inputFile="test-DownSamplingSVEs-NonExact-base320.json"
+inputFile="test-DownSamplingSVEs-NonExact-base320.json"
 # inputFile="PRISMS_pipeline_hcp.json"
-inputFile="test-Magnesium.json"
+# inputFile="test-Magnesium.json"
 currentPath="${inputPath}"
 
 
@@ -69,14 +69,15 @@ echo
 # defaultPath="/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_MLMC_template/"
 # defaultPath=$(grep -inr 'OutputPath' ${inputFile}.json  | head -n 1  | cut -d: -f3 | cut -c 3- | rev | cut -c 10- | rev)
 ## Purposes: trim quotation marks, spaces, and commas
-defaultPath=$(grep -inr 'OutputPath' ${inputFile}.json  | head -n 1  | cut -d: -f3 | cut -c 3- | rev | cut -c 3- | rev)
+defaultPath=$(grep -inr 'OutputPath' ${inputFile}  | head -n 1  | cut -d: -f3 | cut -c 3- | rev | cut -c 3- | rev) # not ${inputFile}.json
 
 # convert from 
-# 641:        "OutputPath": "/qscratch/anhtran/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_14Apr21/DAMASK.utils/test_MLMC_runs/64x64x64"
+# 64:        "OutputPath": "/qscratch/anhtran/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_14Apr21/DAMASK.utils/test_MLMC_runs/64x64x64"
 # to 
 # /qscratch/anhtran/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_14Apr21/DAMASK.utils/test_MLMC_runs/
 
-
+echo "defaultPath=${defaultPath}"
+echo "outputPath=${outputPath}"
 
 sed -i "s|${defaultPath}|${outputPath}/|g" ${inputFile} # add "/" behind ${outputPath}
 

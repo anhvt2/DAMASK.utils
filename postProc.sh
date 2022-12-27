@@ -1,11 +1,14 @@
 #!/bin/bash
 
-postResults $1.spectralOut --cr f,p
+# type in any *.{outputConstitutive,outputCrystallite,outputHomogenization,C_ref,sta,spectralOut}
+fileName=$(echo $1 | cut -d"." -f 1)
+
+postResults $fileName.spectralOut --cr f,p
 
 cd postProc/
-addStrainTensors $1.txt --left --logarithmic
-addCauchy $1.txt
-addMises $1.txt --strain 'ln(V)' --stress Cauchy
-filterTable < $1.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
+addStrainTensors $fileName.txt --left --logarithmic
+addCauchy $fileName.txt
+addMises $fileName.txt --strain 'ln(V)' --stress Cauchy
+filterTable < $fileName.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
 
 

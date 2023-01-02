@@ -19,8 +19,8 @@ matcfg_input = np.loadtxt('matcfg_input.dat', delimiter=',')
 d = len(matcfg_input) # dimensionality
 
 ## get these bounds from parse2MaterialConfig.py -- CHANGE THESE PARAMETERS
-lower_bounds = [  50,  0.1,    1e3,    20e6,     1e8]
-upper_bounds = [ 400,  100, 1000e3,  1000e6,  1000e8]
+lower_bounds = [  50,  0.01,   1e4,    500e6,     1e6]
+upper_bounds = [ 400,  100, 1000e4,  10000e6,  1000e6]
 
 lower_bounds = np.array(lower_bounds)
 upper_bounds = np.array(upper_bounds)
@@ -28,6 +28,6 @@ upper_bounds = np.array(upper_bounds)
 bayesOpt_input = (matcfg_input - lower_bounds) / (upper_bounds - lower_bounds)
 
 np.savetxt('bayesOpt_input.dat'     , bayesOpt_input, fmt='%.16e', delimiter=',') # debug
-np.savetxt('matcfg_input.dat', matcfg_input, fmt='%.16e', delimiter=',') # debug
+# np.savetxt('matcfg_input.dat', matcfg_input, fmt='%.16e', delimiter=',') # debug
 
 

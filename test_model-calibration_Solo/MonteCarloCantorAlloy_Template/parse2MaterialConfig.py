@@ -36,8 +36,8 @@ def getDamaskParams(bayesOpt_input):
   # lower_bounds = [  50,  0.1,    1e2,   20e6,  0.5e9]
   # upper_bounds = [ 400,  100, 1000e2,  500e6,  100e9]
   # opt 5:
-  lower_bounds = [  50,  0.1,    1e3,    20e6,     1e8]
-  upper_bounds = [ 400,  100, 1000e3,  1000e6,  1000e8]
+  lower_bounds = [  50,  0.01,   1e4,    500e6,     1e6]
+  upper_bounds = [ 400,  100, 1000e4,  10000e6,  1000e6]
 
 
 

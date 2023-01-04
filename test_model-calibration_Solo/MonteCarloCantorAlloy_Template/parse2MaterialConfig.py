@@ -36,9 +36,11 @@ def getDamaskParams(bayesOpt_input):
   # lower_bounds = [  50,  0.1,    1e2,   20e6,  0.5e9]
   # upper_bounds = [ 400,  100, 1000e2,  500e6,  100e9]
   # opt 5:
-  lower_bounds = [  50,  0.01,   1e4,    500e6,     1e6]
-  upper_bounds = [ 400,  100, 1000e4,  10000e6,  1000e6]
-
+  # lower_bounds = [  50,  0.01,   1e4,    500e6,     1e6]
+  # upper_bounds = [ 400,  100, 1000e4,  10000e6,  1000e6]
+  # opt 6:
+  lower_bounds = [   1.2,    0.01,     1e4,      1e6,     1e6]
+  upper_bounds = [ 500.0,  100.  , 10000e4,  10000e6,  1000e6]
 
 
   lower_bounds = np.array(lower_bounds)
@@ -62,12 +64,12 @@ def parseInput(matcfg_input, txtcfg):
   # parsed_txtcfg[51 - 1] = 'tau0_slip               95.e6\n'
   # parsed_txtcfg[52 - 1] = 'tausat_slip             222.e6\n'
   # parsed_txtcfg[53 - 1] = 'h0_slipslip             1.0e6\n'
-  parsed_txtcfg[60 - 1] = 'gdot0_slip              %.4f\n'  % gdot0_slip
-  parsed_txtcfg[61 - 1] = 'n_slip                  %.12e\n' % n_slip
-  parsed_txtcfg[62 - 1] = 'a_slip                  %.12e\n' % a_slip
-  parsed_txtcfg[63 - 1] = 'tau0_slip               %.12e\n' % tau0_slip
-  parsed_txtcfg[64 - 1] = 'tausat_slip             %.12e\n' % tausat_slip
-  parsed_txtcfg[65 - 1] = 'h0_slipslip             %.12e\n' % h0_slipslip
+  parsed_txtcfg[64 - 1] = 'gdot0_slip              %.4f\n'  % gdot0_slip
+  parsed_txtcfg[65 - 1] = 'n_slip                  %.12e\n' % n_slip
+  parsed_txtcfg[66 - 1] = 'a_slip                  %.12e\n' % a_slip
+  parsed_txtcfg[67 - 1] = 'tau0_slip               %.12e\n' % tau0_slip
+  parsed_txtcfg[68 - 1] = 'tausat_slip             %.12e\n' % tausat_slip
+  parsed_txtcfg[69 - 1] = 'h0_slipslip             %.12e\n' % h0_slipslip
   return parsed_txtcfg
 
 

@@ -6,8 +6,7 @@ home;
 format longg;
 
 % cd 'gpml-matlab-v4.2-2018-06-11'
-addpath('gpml');
-startup;
+addpath('gpml'); startup;
 % pkg load statistics; % octave only
 
 % log: batch parallel implementation
@@ -90,8 +89,8 @@ d = length(xLB); % dimensionality of the problem
 % upbClf = 2e+1 * ones(1, d);
 
 %% batch-size setting
-exploitSize = 8;        % exploitation by hallucination in batch
-exploreSize = 4;        % exploration by sampling at maximal mse
+exploitSize = 10;        % exploitation by hallucination in batch
+exploreSize = 10;        % exploration by sampling at maximal mse
 exploreClfSize = 0; % exploration by sampling at maximal for classif-GPR
 batchSize = exploitSize + exploreSize + exploreClfSize; % total number of concurrent simulations
 

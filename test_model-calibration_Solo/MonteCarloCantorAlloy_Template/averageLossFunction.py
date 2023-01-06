@@ -32,7 +32,7 @@ print('\nWriting output.dat in folder: %s \n' % os.getcwd().split('/')[-1])
 f = open('output.dat', 'w') # can be 'r', 'w', 'a', 'r+'
 
 if np.isnan(avgLoss):
-	f.write('%.8e\n' % 1e2) # do not write nan in output.dat
+	f.write('%.8e\n' % -1e2) # do not write nan in output.dat
 else:
 	f.write('%.8e\n' % avgLoss) # example: 20097.859541889356 -- scale by a factor of 1e3
 

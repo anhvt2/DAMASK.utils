@@ -2,9 +2,9 @@
 ## Do not put any commands or blank lines before the #SBATCH lines
 #SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
 #SBATCH --time=48:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
-#SBATCH --account=FY210060            # WC ID
+#SBATCH --account=FY140174            # WC ID
 #SBATCH --job-name=cpfe               # Name of job
-#SBATCH --partition=batch       	  # partition/queue name: short or batch
+#SBATCH --partition=batch   	      # partition/queue name: short or batch
 																			#           short: 4hrs wallclock limit
 																			#           batch: nodes reserved for > 4hrs (default)
 																			# 			short,batch: accept either short or batch (usually short)
@@ -16,6 +16,12 @@
 
 
 source ~/.bashrc
+# copy from ~/.bashrc # not totally neccessary
+module purge
+module load gnu/10.2.1
+module load openmpi-gnu/4.1
+module load tce
+module load python/3.6.0
 
 # ---------------------------------- set DAMASK variables
 # export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
@@ -148,4 +154,12 @@ for i in $(seq ${numMs}); do
 	echo "Done running DAMASK of RVE ${i} in $(pwd)"
 done
 
+
+rm -v $(find . -name '*.outputConstitutive')
+rm -v $(find . -name '*.outputCrystallite')
+rm -v $(find . -name '*.outputHomogenization')
+rm -v $(find . -name '*.C_ref')
+rm -v $(find . -name '*.spectralOut')
+rm -v $(find . -name '*.hdf5')
+rm -v $(find . -name '*.sta')
 

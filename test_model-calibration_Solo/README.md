@@ -15,6 +15,8 @@ This code combines the capability of BayesOpt and MLMC to robustly calibrate mat
 
 ### How to setup
 
+0. Search for microstructure information and update DREAM3D files
+
 1. Initial samples:
 ```shell
 echo 0 > batchID.dat

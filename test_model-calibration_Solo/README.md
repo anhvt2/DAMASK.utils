@@ -15,9 +15,9 @@ This code combines the capability of BayesOpt and MLMC to robustly calibrate mat
 
 ### How to setup
 
-0. Search for microstructure information and update DREAM3D files
+1. Search for microstructure information and update DREAM3D files
 
-1. Initial samples:
+2. Initial samples:
 ```shell
 echo 0 > batchID.dat
 echo 1 > feasible.dat
@@ -25,7 +25,7 @@ echo 0 > acquisitionScheme.dat
 echo 1 > complete.dat
 ```
 
-2. Add timestamp to `sbatch.damask.solo`
+3. Add timestamp to `sbatch.damask.solo`
 
 ```shell
 # timestamp
@@ -42,12 +42,12 @@ echo "Stop querying at" >> query.log
 echo ${timeStamp} >> query.log
 ```
 
-3. Creat initial samples:
+4. Creat initial samples:
 * change `modelName` in `autoInitSamples.sh`
 * change `modelName` in `autoSubmit.sh`
 * double-check and execute both Bash scripts
 
-4. Run model calibration:
+5. Run model calibration:
 * change `modelName` in `mainprog.m`
 * change `numInitPoint` in `mainprog.m`
 

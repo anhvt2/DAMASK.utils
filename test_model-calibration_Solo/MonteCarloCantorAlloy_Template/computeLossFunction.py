@@ -79,11 +79,14 @@ compData = compData[~np.isinf(compData[:,-1]),:]
 df = pd.DataFrame(compData, columns=fieldsList)
 # comp_vareps = [1] + list(df['1_f']) # d[:,1] # strain -- pad original
 # comp_sigma  = [0] + list(df['1_p']) # d[:,2] # stress -- pad original
-comp_vareps = list(df['Mises(ln(V))'])  # strain -- pad original
-comp_sigma  = list(df['Mises(Cauchy)']) # stress -- pad original
+# comp_vareps = list(df['Mises(ln(V))'])  # strain -- pad original
+# comp_sigma  = list(df['Mises(Cauchy)']) # stress -- pad original
+comp_vareps = list(df['1_ln(V)'])  # strain -- pad original
+comp_sigma  = list(df['1_Cauchy']) # stress -- pad original
 _, uniq_idx = np.unique(np.array(comp_vareps), return_index=True)
 # comp_vareps = np.array(comp_vareps)[uniq_idx] - 1 # start at vareps = 0: ['1_f', '1_p']
-comp_vareps = np.array(comp_vareps)[uniq_idx] # start at vareps = 0: ['Mises(ln(V))', 'Mises(Cauchy)']
+comp_vareps = np.array(comp_vareps)[uniq_idx] # start at vareps = 0: ['1_ln(V)', '1_Cauchy']
+# comp_vareps = np.array(comp_vareps)[uniq_idx] # start at vareps = 0: ['Mises(ln(V))', 'Mises(Cauchy)']
 comp_sigma  = np.array(comp_sigma)[uniq_idx]
 
 

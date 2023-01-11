@@ -1,6 +1,6 @@
 
 
-### Potential system
+### Potential materials system
 
 1. SS304L (data from Hojun Lim)
 2. Tantalum (data from Hojun Lim)
@@ -59,8 +59,8 @@ echo ${timeStamp} >> query.log
 
 ### Workflow
 
-1. `parse2MaterialConfig.py`: this script converts `input.dat` to a correct `material.config` and `material.config.preamble`. can be considered as a **pre-processing** script
-2. `computeLossFunction.py`: this script computes loss function in $L_2$ norm when comparing with experimental data (from Hojun Lim), dump `output.dat`
+1. `parse2MaterialConfig.py`: this script converts `input.dat` to a correct `material.config` and `material.config.preamble`. This is considered as a **pre-processing** script.
+2. `computeLossFunction.py`: this script computes loss function in a hybrid $L_1/L_2$ norm when comparing with experimental data (from Hojun Lim), dump `output.dat`. Note: use **strain `1_ln(V)`** and **stress `1_Cauchy`** (see Philip Eisenlohr's email). This is considered as a **post-processing** script.
 3. build interfaces with asynchronous parallel Bayesian optimization
 
 ### Roadmap

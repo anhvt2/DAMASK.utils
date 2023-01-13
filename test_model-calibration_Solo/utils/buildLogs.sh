@@ -30,7 +30,7 @@ for i in $(seq $numOfIter); do
 		if [ -e ${modelName}_Iter${i}/${fileType}.dat ]; then
 			cat ${modelName}_Iter${i}/${fileType}.dat >> postproc.${fileType}.dat
 		else
-			echo >> postproc.${fileType}.dat
+			echo "nan" >> postproc.${fileType}.dat
 		fi
 		# for acquisitionScheme.dat insert '\n'
 	done

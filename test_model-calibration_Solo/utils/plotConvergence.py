@@ -75,6 +75,7 @@ elif isinstance(flagMaxOrMin, str):
 		boolMaxOrMin = 1 # assign bool
 
 feasible = np.loadtxt('postproc.feasible.dat')
+feasible[np.where(np.isnan(feasible))] = 0 # replace nan with 0
 print(len(Y))
 print(len(feasible))
 trncLen = len(Y)
@@ -88,9 +89,9 @@ folderName = np.loadtxt('postproc.folder.dat', dtype=str)
 # feasible = np.delete(feasible,8)
 # folderName = np.delete(folderName,8)
 
-# with initial-sampling
-feasible = feasible[:(trncLen + 1) ]
-Y = np.array(Y[:(trncLen + 1)] ) 
+# # with initial-sampling
+# feasible = feasible[:(trncLen + 1) ]
+# Y = np.array(Y[:(trncLen + 1)] ) 
 
 # # without initial sampling
 # Y = np.delete(Y, np.arange(1, 480))

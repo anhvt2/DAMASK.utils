@@ -51,6 +51,8 @@ echo ${timeStamp} >> query.log
 * change `modelName` in `mainprog.m`
 * change `numInitPoint` in `mainprog.m`
 
+6. Insert `nan` instead of blank lines
+
 ### To-Do
 
 * implement average loss across an ensemble of microstructures

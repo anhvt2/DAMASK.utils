@@ -21,7 +21,7 @@ meshFolderName = args.f
 meshFolderName = meshFolderName.split('/')[0]
 plotDebug = args.plot # debug option for plotting comparison exp. vs. comp.
 
-refData = np.loadtxt('../datasets/true_SS304L_EngStress_EngStrain_exp_4A1.dat', skiprows=1)
+refData = np.loadtxt('../datasets/true_Ta_polycrystal_SS_HCStack_CLC.dat', skiprows=1)
 exp_vareps = refData[:,0] # start at vareps = 0
 exp_sigma  = refData[:,1] * 1e6
 

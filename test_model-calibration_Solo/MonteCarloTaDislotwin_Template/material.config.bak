@@ -32,31 +32,46 @@ nconstituents   1
 <phase>
 #-------------------#
 [Tantalum]
-# no twinning
-# (output) totalshear
 
-elasticity              hooke
-plasticity              phenopowerlaw
+elasticity          hooke
+plasticity          dislotwin
 
-lattice_structure       bcc
-Nslip                   12        # per family
-Ntwin                   0         # per family
-c11                     267.0e9   # Lim, Hojun, et al. "Grain-scale experimental validation of crystal plasticity finite element simulations of tantalum oligocrystals." International Journal of Plasticity 60 (2014): 1-18.
-c12                     161.0e9   # Lim, Hojun, et al. "Grain-scale experimental validation of crystal plasticity finite element simulations of tantalum oligocrystals." International Journal of Plasticity 60 (2014): 1-18.
-c44                     82.5e9    # Lim, Hojun, et al. "Grain-scale experimental validation of crystal plasticity finite element simulations of tantalum oligocrystals." International Journal of Plasticity 60 (2014): 1-18.
+### Material parameters ###
+lattice_structure     bcc
+C11                     267.0e9   # Lim, Hojun, et al. "Grain-scale experimental validation of crystal plasticity finite element simulations of tantalum oligocrystals." International Journal of Plasticity 60 (2014): 1-18.
+C12                     161.0e9   # Lim, Hojun, et al. "Grain-scale experimental validation of crystal plasticity finite element simulations of tantalum oligocrystals." International Journal of Plasticity 60 (2014): 1-18.
+C44                     82.5e9    # Lim, Hojun, et al. "Grain-scale experimental validation of crystal plasticity finite element simulations of tantalum oligocrystals." International Journal of Plasticity 60 (2014): 1-18.
 
-gdot0_slip              1e-03
-n_slip                  1.200000000000e+02
-a_slip                  5.000000000000e+00
-tau0_slip               5.000000000000e+08
-tausat_slip             5.000000000000e+08
-h0_slipslip             9.000000000000e+06
+grainsize             8.3e-6       # Average grain size [m] # Lee, Hak Hyeon, Kyo Jun Hwang, Jaimyun Jung, Gwang Lyeon Kim, Yi Hwa Song, Sung Taek Park, Kyeong Won Oh, and Hyoung Seop Kim. "Grain size effect on mechanical properties under biaxial stretching in pure tantalum." Metals and Materials International 25 (2019): 1448-1456.
+SolidSolutionStrength 1.5e8         # Strength due to elements in solid solution
 
 
-interaction_slipslip    1.0 1.0 1.4 1.4 1.4 1.4                  # just guessing
-# interaction_twintwin    1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0  #  - " - 
-# interaction_sliptwin    1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0  #  - " - 
-# interaction_twinslip    1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0  #  - " - 
-# w0_slip                 2.0
+### Average grain size 
+
+### Dislocation glide parameters ###
+# per family
+# (1) Peierls stress are estimated from Wang, Guofeng, et al. "Calculating the Peierls energy and Peierls stress from atomistic simulations of screw dislocation dynamics: application to bcc tantalum." Modelling and Simulation in Materials Science and Engineering 12.4 (2004): S371.
+# (2) p-exponent in glide velocity, 0 < p ≤ 1. See Sedighiani, K., Diehl, M., Traka, K., Roters, F., Sietsma, J., & Raabe, D. (2020). An efficient and robust approach to determine material parameters of crystal plasticity constitutive laws from macro-scale stress–strain curves. International Journal of Plasticity, 134, 102779.
+# (3) q-exponent in glide velocity, 1 ≤ q ≤ 2. See Sedighiani, K., Diehl, M., Traka, K., Roters, F., Sietsma, J., & Raabe, D. (2020). An efficient and robust approach to determine material parameters of crystal plasticity constitutive laws from macro-scale stress–strain curves. International Journal of Plasticity, 134, 102779.
+
+
+Nslip               12 0 
+slipburgers         2.86e-10        # Burgers vector of slip system [m] # Hsiung, L. L., & Campbell, G. H. (2017). Transition of dislocation glide to shear transformation in shocked tantalum. MRS Advances, 2(27), 1417-1428.
+rhoedge0            1.0e12          # Param: Initial edge dislocation density [m/m**3]
+rhoedgedip0         1.0             # Initial edged dipole dislocation density [m/m**3]
+v0                  1.0e-4          # Param: Initial glide velocity [m/s]
+Qedge               2.725e-19       # Param: Activation energy for dislocation glide [J]
+p_slip              0.78            # Param: p-exponent in glide velocity
+q_slip              1.58            # Param: q-exponent in glide velocity
+tau_peierls         1.430e9         # Peierls stress (for bcc) # Wang, Guofeng, et al. "Calculating the Peierls energy and Peierls stress from atomistic simulations of screw dislocation dynamics: application to bcc tantalum." Modelling and Simulation in Materials Science and Engineering 12.4 (2004): S371.
+dipoleformationfactor 0             # to have hardening due to dipole formation off
+
+#hardening
+CLambdaSlip         10.0            # Param: Adj. parameter controlling dislocation mean free path
+D0                  4.0e-5          # Param: Vacancy diffusion prefactor [m**2/s]
+Qsd                 4.5e-19         # Param: Activation energy for climb [J]
+Catomicvolume       1.0             # Param: Adj. parameter controlling the atomic volume [in b]
+Cedgedipmindistance 1.0             # Param: Adj. parameter controlling the minimum dipole distance [in b]
+interaction_slipslip    1.0 1.0 1.4 1.4 1.4 1.4
 
 

@@ -216,7 +216,7 @@ gpIter = 1000;
 % covfunc = {@covMaternard,5}; ell = 1/4; sf = 1; hyp.cov = log([ell; sf]); % iso-Matern-5/2
 covfunc = {@covMaternard,1}; sf = 1; hyp.cov = log([rand(d, 1); sf]); % Matern-1/2
 meanfunc = {@meanSum, {@meanLinear, @meanConst}}; hyp.mean = zeros(d+1, 1);
-likfunc = @likGauss; sn = 1e-2; hyp.lik = log(sn);
+likfunc = @likGauss; sn = 9e-2; hyp.lik = log(sn);
 hyp = minimize(hyp, @gp, -gpIter, @infGaussLik, meanfunc, covfunc, likfunc, S(F>0,:), Y(F>0));
 
 for i = 1:length(Y)
@@ -350,12 +350,20 @@ for i = (numParallelPoint + 1):maxiter
 	fprintf('\n\nFitting gpml...\n\n\n');
 	% theta = gpml.theta; % initialize from the previous hyper-parameters
 	% [dmodelInterp, ~] = dacefit(S(F>0,:), Y(F>0), @regpoly0, @corrgauss, theta, lob, upb, xLB, xUB);
+	clear hyp;
+	covfunc = {@covMaternard,1}; sf = 1; hyp.cov = log([rand(d, 1); sf]); % Matern-1/2
+	meanfunc = {@meanSum, {@meanLinear, @meanConst}}; hyp.mean = zeros(d+1, 1);
+	likfunc = @likGauss; sn = 1e-2; hyp.lik = log(sn);
 	hyp = minimize(hyp, @gp, -gpIter, @infGaussLik, meanfunc, covfunc, likfunc, S(F>0,:), Y(F>0));
 
 	for i = 1:length(Y)
 		% if F(i) == 0, Y(i) = predictor(S(i,:), dmodelInterp); end
 		if F(i) == 0, Y(i) = gp(hyp, @infGaussLik, meanfunc, covfunc, likfunc, S(F>0,:), Y(F>0), S(i,:)); end
 	end
+	clear hyp;
+	covfunc = {@covMaternard,1}; sf = 1; hyp.cov = log([rand(d, 1); sf]); % Matern-1/2
+	meanfunc = {@meanSum, {@meanLinear, @meanConst}}; hyp.mean = zeros(d+1, 1);
+	likfunc = @likGauss; sn = 1e-2; hyp.lik = log(sn);
 	hyp = minimize(hyp, @gp, -gpIter, @infGaussLik, meanfunc, covfunc, likfunc, S, Y);
 	
 	% theta = dmodelInterp.theta; % initialize from the previous hyper-parameters

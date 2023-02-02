@@ -49,15 +49,18 @@ ax2 = ax.twinx()
 ax2.plot(vareps_linspace, np.gradient(sigma_linspace), 'rs', ms=2)
 ax2.set_ylabel(r'$\frac{d\sigma}{d\varepsilon}$', fontsize=24, color='red')
 
-plt.figure()
 
-# print(np.log(vareps_linspace))
-plt.plot(np.log(vareps_linspace), np.log(sigma_linspace), 'bo')
-slope, intercept, r, p, se  = scipy.stats.linregress(np.log(vareps_linspace), np.log(sigma_linspace))
-x_ = np.linspace(np.log(vareps_linspace).min(), np.log(vareps_linspace).max(), num=500)
-print(slope)
-plt.xlabel(r'$\log(\varepsilon)$', fontsize=24)
-plt.ylabel(r'$\log(\sigma)$', fontsize=24)
-plt.plot(x_, slope * x_ + intercept, 'rx', label='OLS')
-plt.legend()
+## plot hardening -- enable if necessary
+# plt.figure()
+# # print(np.log(vareps_linspace))
+# plt.plot(np.log(vareps_linspace), np.log(sigma_linspace), 'bo')
+# slope, intercept, r, p, se  = scipy.stats.linregress(np.log(vareps_linspace), np.log(sigma_linspace))
+# x_ = np.linspace(np.log(vareps_linspace).min(), np.log(vareps_linspace).max(), num=500)
+# print(slope)
+# plt.xlabel(r'$\log(\varepsilon)$', fontsize=24)
+# plt.ylabel(r'$\log(\sigma)$', fontsize=24)
+# plt.plot(x_, slope * x_ + intercept, 'rx', label='OLS')
+# plt.legend()
+
+
 plt.show()

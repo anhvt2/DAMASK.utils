@@ -75,7 +75,7 @@ class HandlerLineImage(HandlerBase):
     def __init__(self, path, space=15, offset=-15):
         self.space=space
         self.offset=offset
-        self.image_data = plt.imread(path)        
+        self.image_data = plt.imread(path)
         super(HandlerLineImage, self).__init__()
     #
     def create_artists(self, legend, orig_handle,
@@ -198,7 +198,7 @@ plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
 ## plot experimental dataset
-refData = np.loadtxt('../datasets/true_SS304L_EngStress_EngStrain_exp_4A1.dat', skiprows=1)
+refData = np.loadtxt('../datasets/true_Ta_polycrystal_SS_HCStack_CLC.bak2', skiprows=1)
 exp_vareps = refData[:,0] # start at vareps = 0
 exp_sigma  = refData[:,1]
 max_interp_vareps = np.min([np.max(exp_vareps), 0.6]) 

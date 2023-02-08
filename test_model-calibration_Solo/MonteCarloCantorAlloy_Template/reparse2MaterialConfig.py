@@ -19,8 +19,8 @@ matcfg_input = np.loadtxt('matcfg_input.dat', delimiter=',')
 d = len(matcfg_input) # dimensionality
 
 ## get these bounds from parse2MaterialConfig.py -- CHANGE THESE PARAMETERS
-lower_bounds = [    1.2,   1,    1e6,     1e6,     1e6]
-upper_bounds = [  150  , 200, 1000e6, 10000e6, 10000e6]
+lower_bounds = [    1.2,   1,    1e5,     1e9,     1e9]
+upper_bounds = [  150  , 200, 1000e5,   100e9,   100e9]
 
 lower_bounds = np.array(lower_bounds)
 upper_bounds = np.array(upper_bounds)

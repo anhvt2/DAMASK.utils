@@ -58,16 +58,20 @@ def getStressStrain(StressStrainFile):
     d = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
     # df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
     df = pd.DataFrame(d, columns=fieldsList)
-    vareps = [1] + list(df['1_f']) # d[:,1]  # strain -- pad original
-    sigma  = [0] + list(df['1_p']) # d[:,2]  # stress -- pad original
+    vareps = [0] + list(df['1_ln(V)']) # d[:,1]  # strain -- pad original
+    sigma  = [0] + list(df['1_Cauchy']) # d[:,2]  # stress -- pad original
+    # vareps = [1] + list(df['1_f']) # d[:,1]  # strain -- pad original
+    # sigma  = [0] + list(df['1_p']) # d[:,2]  # stress -- pad original
     # vareps = list(df['Mises(ln(V))'])  # strain -- pad original
     # sigma  = list(df['Mises(Cauchy)']) # stress -- pad original
     _, uniq_idx = np.unique(np.array(vareps), return_index=True)
     vareps = np.array(vareps)[uniq_idx]
     sigma  = np.array(sigma)[uniq_idx]
-    x = (vareps - 1) # '1_{f,p}'
+    x = vareps # '1_ln(V)'
+    # x = (vareps - 1) # '1_{f,p}'
     # x = (vareps) # 'Mises()'
     y = sigma / 1e6
+    print(x,y)
     return x, y
 
 class HandlerLineImage(HandlerBase):
@@ -180,7 +184,7 @@ for i in np.arange(1,3+1):
         stress_min += [tmpy]
         stress_max += [tmpy]
         # interp
-        tmpx2 = np.linspace(tmpx.min(), tmpx.max(), num=100)
+        tmpx2 = np.linspace(tmpx.min(), tmpx.max(), num=1000)
         interpSpline = interp1d(tmpx, tmpy, kind='cubic', fill_value='extrapolate')
         tmpy2 = interpSpline(tmpx2)
         tmp_stress += [tmpy2]
@@ -190,6 +194,7 @@ for i in np.arange(1,3+1):
         # 
         empty_list += [""]
         imgName = 'cropped_single_phase_equiaxed_%dx%dx%d_%s.png' % (cellDim, cellDim, cellDim, folderName.replace('/', ''))
+        # imgName = 'cropped_compareExpComp_Ta_OptValidation_%s.png' % (folderName.replace('/', ''))
         print('%d: %s' % (counter, imgName))
         tmpDict = Merge(tmpDict, {lineList[counter]: HandlerLineImage(imgName)})
         counter += 1
@@ -232,7 +237,7 @@ leg = plt.legend(lineList, empty_list,
 for legobj in leg.legendHandles:
     legobj.set_linewidth(2.0)
 
-plt.xlim(left=0,right=0.6)
+plt.xlim(left=0,right=4.239007884860644948e-01)
 plt.ylim(bottom=0)
 plt.title(r'Comparison of $\sigma-\varepsilon$ b/w exp. and comp.', fontsize=24)
 

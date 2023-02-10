@@ -121,12 +121,12 @@ colorList = [
     'tab:blue', 
     'tab:purple',
     'tab:brown',
+    'tab:olive',
     'tab:pink',
     'tab:red',
     'tab:orange',
     'tab:green',
     'tab:gray',
-    'tab:olive',
     'tab:cyan',
 ]
 # https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html
@@ -173,8 +173,8 @@ stress_min = []
 stress_max = []
 tmp_stress = []
 # for i in np.arange(1,10+1):
-cellDimList = [4,8,10,16] #,20] # : #,40]: #,80]:
-for i in np.arange(1,3+1):
+cellDimList = [4,8,10] #,20] # : #,40]: #,80]:
+for i in np.arange(1,4+1):
     # for cellDim in [4,8,10,16,20]: #,40]: #,80]:
     for j in range(len(cellDimList)):
         cellDim = cellDimList[j]
@@ -187,7 +187,7 @@ for i in np.arange(1,3+1):
         stress_min += [tmpy]
         stress_max += [tmpy]
         # interp
-        tmpx2 = np.linspace(tmpx.min(), tmpx.max(), num=1000)
+        tmpx2 = np.linspace(tmpx.min(), tmpx.max(), num=200)
         interpSpline = interp1d(tmpx, tmpy, kind='cubic', fill_value='extrapolate')
         tmpy2 = interpSpline(tmpx2)
         tmp_stress += [tmpy2]
@@ -221,7 +221,7 @@ empty_list += [""]
 imgName = 'exp_recentered.png' # 'exp.png' # 'cropped_exp.eps'
 tmpDict = Merge(tmpDict, {lineList[counter]: HandlerLineImage(imgName)})
 
-plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), alpha=0.8, color='orange')
+plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), alpha=0.2, color='blue')
 
 # print(np.array(stress_min))
 # print(np.array(stress_max))
@@ -239,16 +239,15 @@ plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), 
 
 leg = plt.legend(lineList, empty_list,
     handler_map=tmpDict,
-    markerscale=2,
-    handlelength=2.5, labelspacing=0.25, fontsize=36, borderpad=0.15, 
-    handletextpad=0.2, borderaxespad=0.15, bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False, )
+    handlelength=4.0, labelspacing=0.25, fontsize=36, borderpad=0.15, 
+    handletextpad=0.2, borderaxespad=0.15, bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)
 
 for legobj in leg.legendHandles:
     legobj.set_linewidth(2.0)
-
+    legobj.set_markersize(7.0) # 
 
 plt.subplots_adjust(right=0.85)
 plt.xlim(left=0,right=0.6)
 plt.ylim(bottom=0)
-plt.title(r'Comparison of $\sigma-\varepsilon$ b/w exp. and comp.', fontsize=24)
+plt.title(r'SS304L: Comparison of $\sigma-\varepsilon$ b/w exp. and comp.', fontsize=24)
 plt.show()

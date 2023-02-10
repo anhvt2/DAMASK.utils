@@ -76,7 +76,7 @@ class HandlerLineImage(HandlerBase):
     def __init__(self, path, space=15, offset=-15):
         self.space=space
         self.offset=offset
-        self.image_data = plt.imread(path)        
+        self.image_data = plt.imread(path)
         super(HandlerLineImage, self).__init__()
     #
     def create_artists(self, legend, orig_handle,

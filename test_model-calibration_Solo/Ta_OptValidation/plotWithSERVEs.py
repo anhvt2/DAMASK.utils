@@ -52,6 +52,7 @@ def readLoadFile(LoadFile):
 
 
 def getStressStrain(StressStrainFile):
+    print(StressStrainFile)
     # d = np.loadtxt(StressStrainFile, skiprows=4)
     numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
     # d = np.loadtxt(StressStrainFile, skiprows=skiprows)
@@ -71,7 +72,7 @@ def getStressStrain(StressStrainFile):
     # x = (vareps - 1) # '1_{f,p}'
     # x = (vareps) # 'Mises()'
     y = sigma / 1e6
-    print(x,y)
+    # print(x,y)
     return x, y
 
 class HandlerLineImage(HandlerBase):
@@ -84,6 +85,11 @@ class HandlerLineImage(HandlerBase):
     #
     def create_artists(self, legend, orig_handle,
                        xdescent, ydescent, width, height, fontsize, trans):
+        # print("width = ", width)
+        # print("height = ", height)
+        # width = 90 # default
+        # height = 25.2 # default
+        height = 40 # default
         l = matplotlib.lines.Line2D([xdescent+self.offset,xdescent+(width-self.space)/3.+self.offset],
                                      [ydescent+height/2., ydescent+height/2.])
         l.update_from(orig_handle)
@@ -115,15 +121,16 @@ lineList = []; empty_list = [];
 # for folderName in glob.glob('*/'):
 counter = 0
 tmpDict = {}
-colorList = ['tab:blue', 
-    'tab:orange',
-    'tab:green',
-    'tab:red',
+colorList = [
+    'tab:blue', 
     'tab:purple',
     'tab:brown',
-    'tab:pink',
-    'tab:gray',
     'tab:olive',
+    'tab:pink',
+    'tab:red',
+    'tab:orange',
+    'tab:green',
+    'tab:gray',
     'tab:cyan',
 ]
 # https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html
@@ -170,8 +177,8 @@ stress_min = []
 stress_max = []
 tmp_stress = []
 # for i in np.arange(1,10+1):
-cellDimList = [4,8,10,16] #,20] # : #,40]: #,80]:
-for i in np.arange(1,3+1):
+cellDimList = [4,8,10] #,20] # : #,40]: #,80]:
+for i in np.arange(1,4+1):
     # for cellDim in [4,8,10,16,20]: #,40]: #,80]:
     for j in range(len(cellDimList)):
         cellDim = cellDimList[j]
@@ -184,17 +191,17 @@ for i in np.arange(1,3+1):
         stress_min += [tmpy]
         stress_max += [tmpy]
         # interp
-        tmpx2 = np.linspace(tmpx.min(), tmpx.max(), num=1000)
+        tmpx2 = np.linspace(tmpx.min(), tmpx.max(), num=200)
         interpSpline = interp1d(tmpx, tmpy, kind='cubic', fill_value='extrapolate')
         tmpy2 = interpSpline(tmpx2)
         tmp_stress += [tmpy2]
         # plot
-        tmp_line, = plt.plot(tmpx2, tmpy2, marker=markerList[j], markersize=4, linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
+        # tmp_line, = plt.plot(tmpx2, tmpy2, marker=markerList[j], markersize=3, linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
+        tmp_line, = plt.plot(tmpx2, tmpy2, marker=markerList[j], markersize=3, linewidth=0.5, linestyle=linestyleList[j][1], color=colorList[i-1])
         lineList += [tmp_line]
         # 
         empty_list += [""]
         imgName = 'cropped_single_phase_equiaxed_%dx%dx%d_%s.png' % (cellDim, cellDim, cellDim, folderName.replace('/', ''))
-        # imgName = 'cropped_compareExpComp_Ta_OptValidation_%s.png' % (folderName.replace('/', ''))
         print('%d: %s' % (counter, imgName))
         tmpDict = Merge(tmpDict, {lineList[counter]: HandlerLineImage(imgName)})
         counter += 1
@@ -215,10 +222,10 @@ interp_exp_sigma = interpSpline_exp(interp_vareps)
 tmp_line, = plt.plot(interp_vareps, interp_exp_sigma, linestyle='-', marker='o', linewidth=2, color='black')
 lineList += [tmp_line]
 empty_list += [""]
-imgName = 'cropped_exp.eps'
+imgName = 'exp_recentered.png' # 'exp.png' # 'cropped_exp.eps'
 tmpDict = Merge(tmpDict, {lineList[counter]: HandlerLineImage(imgName)})
 
-plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), alpha=0.5, color='cyan')
+plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), alpha=0.2, color='blue')
 
 # print(np.array(stress_min))
 # print(np.array(stress_max))
@@ -229,16 +236,22 @@ plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), 
 # print(np.array(stress_min).shape)
 
 ## alternate legend
+# leg = plt.legend(lineList, empty_list,
+#     handler_map=tmpDict,
+#     handlelength=2.5, labelspacing=0.0, fontsize=36, borderpad=0.15, 
+#     handletextpad=0.2, borderaxespad=0.15, bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)
+
 leg = plt.legend(lineList, empty_list,
     handler_map=tmpDict,
-    handlelength=2.5, labelspacing=0.0, fontsize=36, borderpad=0.15, 
+    handlelength=4.0, labelspacing=0.25, fontsize=36, borderpad=0.15, 
     handletextpad=0.2, borderaxespad=0.15, bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)
 
 for legobj in leg.legendHandles:
     legobj.set_linewidth(2.0)
+    legobj.set_markersize(7.0) # 
 
+plt.subplots_adjust(right=0.85)
 plt.xlim(left=0,right=4.239007884860644948e-01)
 plt.ylim(bottom=0)
-plt.title(r'Comparison of $\sigma-\varepsilon$ b/w exp. and comp.', fontsize=24)
-
+plt.title(r'Tantalum: Comparison of $\sigma-\varepsilon$ b/w exp. and comp.', fontsize=24)
 plt.show()

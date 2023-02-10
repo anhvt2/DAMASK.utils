@@ -119,12 +119,12 @@ counter = 0
 tmpDict = {}
 colorList = [
     'tab:blue', 
-    'tab:orange',
-    'tab:green',
-    'tab:red',
     'tab:purple',
     'tab:brown',
     'tab:pink',
+    'tab:red',
+    'tab:orange',
+    'tab:green',
     'tab:gray',
     'tab:olive',
     'tab:cyan',
@@ -192,7 +192,8 @@ for i in np.arange(1,3+1):
         tmpy2 = interpSpline(tmpx2)
         tmp_stress += [tmpy2]
         # plot
-        tmp_line, = plt.plot(tmpx2, tmpy2, marker=markerList[j], markersize=3, linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
+        # tmp_line, = plt.plot(tmpx2, tmpy2, marker=markerList[j], markersize=3, linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
+        tmp_line, = plt.plot(tmpx2, tmpy2, marker=markerList[j], markersize=3, linewidth=0.5, linestyle=linestyleList[j][1], color=colorList[i-1])
         lineList += [tmp_line]
         # 
         empty_list += [""]
@@ -217,10 +218,10 @@ interp_exp_sigma = interpSpline_exp(interp_vareps)
 tmp_line, = plt.plot(interp_vareps, interp_exp_sigma, linestyle='-', marker='o', linewidth=2, color='black')
 lineList += [tmp_line]
 empty_list += [""]
-imgName = 'cropped_exp.eps'
+imgName = 'exp_recentered.png' # 'exp.png' # 'cropped_exp.eps'
 tmpDict = Merge(tmpDict, {lineList[counter]: HandlerLineImage(imgName)})
 
-plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), alpha=0.5, color='blue')
+plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), alpha=0.8, color='orange')
 
 # print(np.array(stress_min))
 # print(np.array(stress_max))
@@ -238,14 +239,16 @@ plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), 
 
 leg = plt.legend(lineList, empty_list,
     handler_map=tmpDict,
+    markerscale=2,
     handlelength=2.5, labelspacing=0.25, fontsize=36, borderpad=0.15, 
-    handletextpad=0.2, borderaxespad=0.15, bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)
+    handletextpad=0.2, borderaxespad=0.15, bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False, )
 
 for legobj in leg.legendHandles:
     legobj.set_linewidth(2.0)
 
+
+plt.subplots_adjust(right=0.85)
 plt.xlim(left=0,right=0.6)
 plt.ylim(bottom=0)
 plt.title(r'Comparison of $\sigma-\varepsilon$ b/w exp. and comp.', fontsize=24)
-
 plt.show()

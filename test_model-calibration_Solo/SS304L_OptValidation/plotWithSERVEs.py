@@ -52,6 +52,7 @@ def readLoadFile(LoadFile):
 
 
 def getStressStrain(StressStrainFile):
+    print(StressStrainFile)
     # d = np.loadtxt(StressStrainFile, skiprows=4)
     numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
     # d = np.loadtxt(StressStrainFile, skiprows=skiprows)
@@ -80,6 +81,11 @@ class HandlerLineImage(HandlerBase):
     #
     def create_artists(self, legend, orig_handle,
                        xdescent, ydescent, width, height, fontsize, trans):
+        # print("width = ", width)
+        # print("height = ", height)
+        # width = 90 # default
+        # height = 25.2 # default
+        height = 40 # default
         l = matplotlib.lines.Line2D([xdescent+self.offset,xdescent+(width-self.space)/3.+self.offset],
                                      [ydescent+height/2., ydescent+height/2.])
         l.update_from(orig_handle)
@@ -111,7 +117,8 @@ lineList = []; empty_list = [];
 # for folderName in glob.glob('*/'):
 counter = 0
 tmpDict = {}
-colorList = ['tab:blue', 
+colorList = [
+    'tab:blue', 
     'tab:orange',
     'tab:green',
     'tab:red',
@@ -180,12 +187,12 @@ for i in np.arange(1,3+1):
         stress_min += [tmpy]
         stress_max += [tmpy]
         # interp
-        tmpx2 = np.linspace(tmpx.min(), tmpx.max(), num=100)
+        tmpx2 = np.linspace(tmpx.min(), tmpx.max(), num=1000)
         interpSpline = interp1d(tmpx, tmpy, kind='cubic', fill_value='extrapolate')
         tmpy2 = interpSpline(tmpx2)
         tmp_stress += [tmpy2]
         # plot
-        tmp_line, = plt.plot(tmpx2, tmpy2, marker=markerList[j], markersize=4, linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
+        tmp_line, = plt.plot(tmpx2, tmpy2, marker=markerList[j], markersize=3, linewidth=2.5, linestyle=linestyleList[j][1], color=colorList[i-1])
         lineList += [tmp_line]
         # 
         empty_list += [""]
@@ -213,7 +220,7 @@ empty_list += [""]
 imgName = 'cropped_exp.eps'
 tmpDict = Merge(tmpDict, {lineList[counter]: HandlerLineImage(imgName)})
 
-plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), alpha=0.5, color='cyan')
+plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), alpha=0.5, color='blue')
 
 # print(np.array(stress_min))
 # print(np.array(stress_max))
@@ -224,9 +231,14 @@ plt.fill_between(tmpx2, np.min(tmp_stress, axis=0), np.max(tmp_stress, axis=0), 
 # print(np.array(stress_min).shape)
 
 ## alternate legend
+# leg = plt.legend(lineList, empty_list,
+#     handler_map=tmpDict,
+#     handlelength=2.5, labelspacing=0.0, fontsize=36, borderpad=0.15, 
+#     handletextpad=0.2, borderaxespad=0.15, bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)
+
 leg = plt.legend(lineList, empty_list,
     handler_map=tmpDict,
-    handlelength=2.5, labelspacing=0.0, fontsize=36, borderpad=0.15, 
+    handlelength=2.5, labelspacing=0.25, fontsize=36, borderpad=0.15, 
     handletextpad=0.2, borderaxespad=0.15, bbox_to_anchor=(1.05, 1), loc='upper left', frameon=False)
 
 for legobj in leg.legendHandles:

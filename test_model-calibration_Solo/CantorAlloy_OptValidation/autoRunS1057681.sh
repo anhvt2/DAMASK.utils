@@ -25,15 +25,17 @@ for j in $(seq 10); do # 1 2
 		mpirun -np $(cat numProcessors.dat) $DAMASK_spectral --load tension.load --geom single_phase_equiaxed_${i}x${i}x${i}.geom
 		postResults single_phase_equiaxed_${i}x${i}x${i}_tension.spectralOut --cr f,p
 
-		cd postProc/
+		if [ -d "postProc"]; then
+			cd postProc/
 
-		addStrainTensors single_phase_equiaxed_${i}x${i}x${i}_tension.txt --left --logarithmic
-		addCauchy single_phase_equiaxed_${i}x${i}x${i}_tension.txt
-		addMises single_phase_equiaxed_${i}x${i}x${i}_tension.txt --strain 'ln(V)' --stress Cauchy
-		filterTable < single_phase_equiaxed_${i}x${i}x${i}_tension.txt --white inc,'1_ln(V)','1_Cauchy' > stress_strain.log
+			addStrainTensors single_phase_equiaxed_${i}x${i}x${i}_tension.txt --left --logarithmic
+			addCauchy single_phase_equiaxed_${i}x${i}x${i}_tension.txt
+			addMises single_phase_equiaxed_${i}x${i}x${i}_tension.txt --strain 'ln(V)' --stress Cauchy
+			filterTable < single_phase_equiaxed_${i}x${i}x${i}_tension.txt --white inc,'1_ln(V)','1_Cauchy' > stress_strain.log
 
+			cd ..
+		fi
 		cd ..
-		cd ..
-		python3 computeLossFunction.py --f=sve${j}_${i}x${i}x${i}/ -p 1
+#		python3 computeLossFunction.py --f=sve${j}_${i}x${i}x${i}/ -p 1
 	done
 done

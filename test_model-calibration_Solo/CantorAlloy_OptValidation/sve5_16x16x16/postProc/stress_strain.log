@@ -1,0 +1,7 @@
+6	header
+postResults v2.0.2	single_phase_equiaxed_16x16x16_tension.spectralOut --cr f,p
+addStrainTensors v2.0.2	single_phase_equiaxed_16x16x16_tension.txt --left --logarithmic
+addCauchy v2.0.2	single_phase_equiaxed_16x16x16_tension.txt
+addMises v2.0.2	single_phase_equiaxed_16x16x16_tension.txt --strain ln(V) --stress Cauchy
+filterTable v2.0.2	--white inc,1_ln(V),1_Cauchy
+inc	1_ln(V)	1_Cauchy

@@ -1,0 +1,18 @@
+6	header
+postResults v2.0.2	single_phase_equiaxed_4x4x4_tension.spectralOut --cr f,p
+addStrainTensors v2.0.2	single_phase_equiaxed_4x4x4_tension.txt --left --logarithmic
+addCauchy v2.0.2	single_phase_equiaxed_4x4x4_tension.txt
+addMises v2.0.2	single_phase_equiaxed_4x4x4_tension.txt --strain ln(V) --stress Cauchy
+filterTable v2.0.2	--white inc,1_ln(V),1_Cauchy
+inc	1_ln(V)	1_Cauchy
+0.0	0.0	-2.34339389953e-06
+1.0	0.0011711888904629944	36713650.89793465
+2.0	0.0023410077019736667	66092111.23651655
+3.0	0.004676547883901803	114616075.04914711
+4.0	0.009331327428884222	186724545.2566475
+5.0	0.018576385572935457	281975252.22185254
+6.0	0.0368139731227164	395214191.66216135
+7.0	nan	nan
+8.0	nan	nan
+9.0	0.26236426446749106	882965162.2415788
+10.0	0.47000362924573563	1064859639.7730196

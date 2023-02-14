@@ -203,7 +203,7 @@ plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
 ## plot experimental dataset
-refData = np.loadtxt('../datasets/true_Ta_polycrystal_SS_HCStack_CLC.bak2', skiprows=1)
+refData = np.loadtxt('../datasets/true_CantorAlloy_EngStress_EngStrain.dat', skiprows=1)
 exp_vareps = refData[:,0] # start at vareps = 0
 exp_sigma  = refData[:,1]
 max_interp_vareps = np.min([np.max(exp_vareps), 0.6]) 

@@ -247,7 +247,7 @@ for legobj in leg.legendHandles:
     legobj.set_markersize(7.0) # 
 
 plt.subplots_adjust(right=0.85)
-plt.xlim(left=0,right=0.6)
+plt.xlim(left=0,right=5.50006913e-01)
 plt.ylim(bottom=0)
 plt.title(r'SS304L: Comparison of $\sigma-\varepsilon$ b/w exp. and comp.', fontsize=24)
 plt.show()

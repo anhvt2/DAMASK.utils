@@ -5,9 +5,9 @@
 
 ## declare parameters
 # two params for controlling log-normal distribution
-mu=$(cat mu.dat)
-sigma=$(cat sigma.dat)
-msId=$(cat msId.dat)
+# mu=$(cat mu.dat) # deprecated
+# sigma=$(cat sigma.dat) # deprecated
+# msId=$(cat msId.dat) # deprecated
 
 dimCell=$(cat dimCell.dat)
 
@@ -30,7 +30,8 @@ outputPath=$(pwd)
 
 # inputFile="test-DownSamplingSVEs-NonExact-base320.json"
 # inputFile="PRISMS_pipeline_hcp.json"
-inputFile="test-Magnesium.json"
+# inputFile="test-Magnesium.json"
+inputFile="test-Magnesium-DownSamplingSVE-base64.json"
 currentPath="${inputPath}"
 
 

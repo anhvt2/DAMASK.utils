@@ -100,7 +100,7 @@ for dimCell in $(cat dimCellList.dat); do
 	echo ${dimCell} > dimCell.dat # update dimCell.dat
 
 	cat ../material.config.preamble  | cat - material.config | sponge material.config
-	geom_check single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom
+	geom_check MgRve_${dimCell}x${dimCell}x${dimCell}.geom
 	sh ../getDream3dInfo.sh
 
 	cd ..

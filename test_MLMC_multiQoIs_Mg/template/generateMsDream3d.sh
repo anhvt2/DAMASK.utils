@@ -31,7 +31,7 @@ outputPath=$(pwd)
 # inputFile="test-DownSamplingSVEs-NonExact-base320.json"
 # inputFile="PRISMS_pipeline_hcp.json"
 # inputFile="test-Magnesium.json"
-inputFile="test-Magnesium-DownSamplingSVE-base64.json"
+inputFile="test-Magnesium-DownSamplingSVE-base64" # no ".json"
 currentPath="${inputPath}"
 
 
@@ -82,7 +82,7 @@ defaultPath=$(grep -inr 'OutputPath' ${inputFile}.json  | head -n 1  | cut -d: -
 # sed -i "s|${defaultPath}|${outputPath}/|g" ${inputFile} # add "/" behind ${outputPath}
 
 
-${execPath}/PipelineRunner -p $(pwd)/${inputFile}
+${execPath}/PipelineRunner -p $(pwd)/${inputFile}.json
 
 
 echo "Microstructure files are generated at:"
@@ -91,4 +91,7 @@ echo
 echo
 
 echo "${defaultPath}"
-geom_check *.geom
+for geomFile in $(ls *.geom); do
+	geom_check ${geomFile}.geom
+	echo "done $geomFile"
+done

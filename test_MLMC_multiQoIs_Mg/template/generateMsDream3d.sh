@@ -92,8 +92,18 @@ echo "$outputPath"
 echo
 echo
 
-echo "${defaultPath}"
-for geomFile in $(ls *.geom); do
-	geom_check ${geomFile}.geom
-	echo "done $geomFile"
+# echo "${defaultPath}"
+
+source ~/.bashrc # get geom_check environment variable
+# for dimCell in 72 60 48 36 24 18 12; do
+for dimCell in $(cat dimCellList.dat); do
+	cd ${dimCell}x${dimCell}x${dimCell}
+	echo ${dimCell} > dimCell.dat # update dimCell.dat
+
+	cat ../material.config.preamble  | cat - material.config | sponge material.config
+	geom_check single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom
+	sh ../getDream3dInfo.sh
+
+	cd ..
 done
+

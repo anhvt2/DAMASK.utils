@@ -77,9 +77,11 @@ defaultPath=$(grep -inr 'OutputPath' ${inputFile}.json  | head -n 1  | cut -d: -
 # to 
 # /qscratch/anhtran/DAMASK/DAMASK-2.0.2/examples/SpectralMethod/Polycrystal/testMLMC_14Apr21/DAMASK.utils/test_MLMC_runs/
 
+echo "defaultPath = ${defaultPath}"
+echo "outputPath = ${outputPath}"
+echo "inputFile = ${inputFile}.json"
 
-
-sed -i "s|${defaultPath}|${outputPath}/|g" ${inputFile} # add "/" behind ${outputPath}
+sed -i "s|${defaultPath}|${outputPath}/|g" ${inputFile}.json # add "/" behind ${outputPath}
 
 
 ${execPath}/PipelineRunner -p $(pwd)/${inputFile}.json

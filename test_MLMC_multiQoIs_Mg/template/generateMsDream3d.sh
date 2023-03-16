@@ -98,7 +98,7 @@ source ~/.bashrc # get geom_check environment variable
 for dimCell in $(cat dimCellList.dat); do
 	cd ${dimCell}x${dimCell}x${dimCell}
 	echo ${dimCell} > dimCell.dat # update dimCell.dat
-
+	ln -sf ../tension.load . 
 	cat ../material.config.preamble  | cat - material.config | sponge material.config
 	geom_check MgRve_${dimCell}x${dimCell}x${dimCell}.geom
 	sh ../getDream3dInfo.sh

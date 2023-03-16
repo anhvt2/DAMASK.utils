@@ -68,7 +68,7 @@ import socket
 
 ## write dimCellList.dat for "generateMsDream3d.sh" to pick up
 dimCellFile = open('dimCellList.dat', 'w')
-dimCellList = [2, 4, 6, 8, 10, 16, 20, 32, 64]
+dimCellList = [2, 4, 8, 16, 32]
 # dimCellList = [8, 10, 16, 20, 32, 64] # deprecated
 
 for dimCell in dimCellList:

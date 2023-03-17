@@ -105,4 +105,4 @@ for dimCell in $(cat dimCellList.dat); do
 	cd ..
 done
 
-
+python3 getNumProcessors.py

@@ -134,7 +134,7 @@ fi
 # sleep 10
 
 filePrefix=$(ls *.spectralOut | cut -d. -f1)
-postResults single_phase_equiaxed_tension.spectralOut --cr f,p
+postResults ${filePrefix}.spectralOut --cr f,p
 
 if [ -d "postProc" ]; then
 	cd postProc/

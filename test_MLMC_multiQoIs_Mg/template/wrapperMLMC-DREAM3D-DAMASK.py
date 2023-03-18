@@ -56,25 +56,9 @@ For example, the number of levels can (but not yet) be adaptively changed and co
 
 4. DREAM.3D automatically creates folder if it doesn't exist.
 
-300: [1; 2; 3; 4; 5; 6; 10; 12; 15; 20; 25; 30; 50; 60; 75; 100; 150; 300]
-320: [1; 2; 4; 5; 8; 10; 16; 20; 32; 40; 64; 80; 160; 320]
-
-DREAM.3D takes 3 minutes to generate ALL microstructures
-BENCHMARK on Solo: (using numProcessors = int(meshSize / 4.))
-8x8x8: <1 minute
-10x10x10: 7.51 minutes
-16x16x16: 6 -- 10 minutes
-20x20x20: 19 -- 20 minutes
-32x32x32: 51 minutes
-
-BENCHMARK on Solo: (using numProcessors = int(meshSize / 2.)) # unstable
-8x8x8: 1.67 minutes
-16x16x16: (unstable)
-32x32x32: 41 minutes
-64x64x64: > 4 hours (est. 320 minutes ~ 6 hours)
-
 RUNNING COMMAND:
-rm -rfv $(ls -1dv */); python3 wrapperMLMC-DREAM3D-DAMASK.py --index=1 
+rm -rfv $(ls -1dv */); python3 wrapperMLMC-DREAM3D-DAMASK.py --level=1 
+# rm -rfv $(ls -1dv */); python3 wrapperMLMC-DREAM3D-DAMASK.py --index=1 # N/A: for MIMC
 # deprecated: rm -rfv $(ls -1dv */); python3 wrapperMLMC-DREAM3D-DAMASK.py --index=1 --isNewMs="True"
 # deprecated: rm -rfv $(ls -1dv */); python3 wrapperMLMC-DREAM3D-DAMASK.py --meshSize=32 --isNewMs="True"
 """

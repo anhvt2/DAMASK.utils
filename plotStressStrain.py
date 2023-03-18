@@ -95,7 +95,7 @@ ax.plot(x, y, c='b', marker='o', linestyle='--', markersize=6)
 
 interp_x, interp_y = getInterpStressStrain(StressStrainFile)
 ax.plot(interp_x, interp_y, c='r', marker='^', linestyle=':', markersize=6)
-plt.legend(['true', 'cubic'])
+plt.legend(['true', 'cubic'], fontsize=24, frameon=False, markerscale=3)
 
 
 plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)

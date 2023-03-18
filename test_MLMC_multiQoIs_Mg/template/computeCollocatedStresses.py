@@ -85,12 +85,14 @@ def getTrueStressStrain(StressStrainFile):
 
 def getInterpStressStrain(StressStrainFile):
 	x, y = getTrueStressStrain(StressStrainFile)
-	interp_x = np.linspace(x.min(), x.max(), num=1000)
+	# interp_x = np.linspace(x.min(), x.max(), num=100)
+	interp_x = np.linspace(0, 0.10, num=11)
 	splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
 	interp_y = splineInterp(interp_x)
 	return interp_x, interp_y
 
 
+### plot
 fig = plt.figure()
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
@@ -118,5 +120,19 @@ ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
 parentFolderName = os.getcwd().split('/')[-4:-1]
 plt.title('%s' % parentFolderName, fontsize=24)
 
-plt.show()
+# plt.show() # enable this line to plot
+
+### dump to file
+
+outFile = open('../log.feasible', 'w')
+outFile.write('%d\n' % 1)
+outFile.close()
+
+# outFile = open('../output.dat', 'w')
+# outFile.write('%d\n' % 1)
+# outFile.close()
+interp_x = np.atleast_2d(interp_x).T
+interp_y = np.atleast_2d(interp_y).T
+print(interp_x.shape)
+np.savetxt('output.dat', np.hstack([interp_x, interp_y]), fmt='%.6f')
 

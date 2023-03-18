@@ -124,7 +124,7 @@ plt.title('%s' % parentFolderName, fontsize=24)
 
 ### dump to file
 
-outFile = open('../log.feasible', 'w')
+outFile = open('feasible.dat', 'w')
 outFile.write('%d\n' % 1)
 outFile.close()
 

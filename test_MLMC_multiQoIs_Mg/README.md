@@ -6,6 +6,10 @@ copy
 to
 `test-phenomenological-slipping+twinning-Mg/`
 
+### How to set up
+
+The file `utils.jl` implements the interface between the MLMC with multiple QoIs and the `wrapper-DREAM3D-DAMASK.py`. At the end of the evaluation, print the results on the screen according to the format. 
+
 ### DREAM.3D
 
 1. debug `generateMsDream3d.sh`

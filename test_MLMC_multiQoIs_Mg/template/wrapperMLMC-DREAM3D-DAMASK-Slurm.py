@@ -129,10 +129,97 @@ def generateMicrostructures(parentDirectory):
 	os.system('bash generateMsDream3d.sh')
 	# os.system('sh generateMsDream3d.sh')
 
+## define a function to submit a DAMASK job with "meshSize" and "parentDirectory" and parameters
+## WITHOUT generating a new microstructure
+
+def submitDAMASK(meshSize, parentDirectory, level):
+	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
+	os.system('cp ../sbatch.damask.solo .')
+
+	# write down numProcessors to be picked up later by sbatch.damask.solo
+	numProcessors = np.floor(meshSize / 4.)
+	if numProcessors > 36:
+		numProcessors = 36 # threshold on Solo node
+
+	f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+	f.write('%d' % numProcessors)
+	f.close()
+
+	os.system('ssubmit sbatch.damask.solo')
+	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
+
+	startTime = datetime.datetime.now()
+
+	## get thresholdSlurmTime adaptively from sbatch.damask.solo (or just hard-code it, e.g. 48 * 24 * 3600)
+	# return thresholdSlurmTime in seconds, read from sbatch.damask.solo
+	slurmFile = open(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/sbatch.damask.solo')
+	slurmSubmitText = slurmFile.readlines()
+	slurmFile.close()
+	thresholdSlurmTime = slurmSubmitText[3].split('=')[1].split("#")[0].replace(" ", "") # e.g. thresholdSlurmTime = "48:00:00"
+	thresholdSlurmTime = thresholdSlurmTime.split(":")[0]
+	thresholdSlurmTime = int(thresholdSlurmTime)
+	thresholdSlurmTime *= (24*3600) # convert to seconds
+
+	while not os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat'):
+		time.sleep(10)
+		currentTime = datetime.datetime.now()
+		feasible = 0
+		if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible'):
+			feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
+			if feasible == 0:
+				yieldStress = 0 # invalid condition
+				break
+			elif feasible == 1:
+				currentTime = datetime.datetime.now()
+				yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
+				yieldStrain = float(yieldData[0])
+				yieldStress = float(yieldData[1]) / 1e6 # in MPa
+				print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
+				print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
+				print("Estimated Yield Stress at %d is %.16f MPa" % (level, yieldStress))
+
+				f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
+				f.write("Estimated Yield Stress at %d is %.16f MPa\n" % (level, yieldStress))
+				f.close()
+				break
+
+		if (currentTime - startTime).total_seconds() > thresholdSlurmTime:
+			# if the previous loop does not return any output
+			# it means the microstructure was not able to return any results with DAMASK within the time requested
+			feasible = 0
+			yieldStress = 0 # invalid condition
+			break
+			print("Time waited > time submitted: there is something wrong with the submission!")
+			# print("Warning: Regenerating microstructure for another try!")
+			# os.chdir(parentDirectory)
+			# os.system('sh generateMsDream3d.sh')
+			# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
+			# os.system('cp ../sbatch.damask.solo .')
+
+			# numProcessors = np.floor(meshSize / 4.)
+			# if numProcessors > 36:
+			# 	numProcessors = 36 # threshold on Solo node
+
+			# f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
+			# f.write('%d' % numProcessors)
+			# f.close()
+
+			# os.system('ssubmit sbatch.damask.solo')
+			# startTime = datetime.datetime.now()
+
+			# slurmFile = open(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/sbatch.damask.solo')
+			# slurmSubmitText = slurmFile.readlines()
+			# slurmFile.close()
+			# thresholdSlurmTime = slurmSubmitText[3].split('=')[1].split("#")[0].replace(" ", "") # e.g. thresholdSlurmTime = "48:00:00"
+			# thresholdSlurmTime = thresholdSlurmTime.split(":")[0]
+			# thresholdSlurmTime = int(thresholdSlurmTime)
+			# thresholdSlurmTime *= (24*3600) # convert to seconds
+
+	return feasible
 
 def run_DAMASK_offline(meshSize, parentDirectory, level):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
-	# os.system('cp ../run_damask.sh .')
+	os.system('cp ../run_damask.sh .')
 
 	# write down numProcessors to be picked up later by sbatch.damask.solo
 	numProcessors = np.floor(meshSize / 4.)
@@ -144,21 +231,22 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 	f.close()
 
 	startTime = datetime.datetime.now()
-	os.system('bash ../run_damask.sh')
+	# os.system('bash run_damask.sh') # deprecated
+	os.system('bash run_damask.sh "YieldStress"')
+	# os.system('bash run_damask.sh "YoungModulus"')
 	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
 
 	currentTime = datetime.datetime.now()
 	feasible = 0
-	if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/feasible.dat'):
-		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/feasible.dat')
+	if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible'):
+		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/log.feasible')
 		if feasible == 0:
-			vmStrain = [np.nan] * np.ones([11,2]) # invalid condition
-			vmStress = [np.nan] * np.ones([11,2]) # invalid condition
+			yieldStress = 0 # invalid condition
 		elif feasible == 1:
 			currentTime = datetime.datetime.now()
-			outData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
-			vmStrain = float(outData[0])
-			vmStress = float(outData[1]) / 1e6 # in MPa
+			yieldData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
+			yieldStrain = float(yieldData[0])
+			yieldStress = float(yieldData[1]) / 1e6 # in MPa
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 			print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
 			print("Estimated Yield Stress at %d is %.16f MPa" % (level, yieldStress))

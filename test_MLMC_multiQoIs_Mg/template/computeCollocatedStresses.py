@@ -21,10 +21,12 @@ parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
 parser.add_argument("-LoadFile", "--LoadFile", default='tension.load', type=str)
 parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
+parser.add_argument("-gui", "--gui", type=bool, default=False)
 # parser.add_argument("-skiprows", "--skiprows", type=int, default=4) # deprecated
 args = parser.parse_args()
 StressStrainFile = args.StressStrainFile
 LoadFile = args.LoadFile
+gui = args.gui
 # skiprows = args.skiprows # deprecated
 
 def getMetaInfo(StressStrainFile):
@@ -86,41 +88,43 @@ def getTrueStressStrain(StressStrainFile):
 def getInterpStressStrain(StressStrainFile):
 	x, y = getTrueStressStrain(StressStrainFile)
 	# interp_x = np.linspace(x.min(), x.max(), num=100)
-	interp_x = np.linspace(0, 0.10, num=11)
+	interp_x = np.linspace(0, 0.10, num=11) # specify stress for collocated strain here
 	splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
 	interp_y = splineInterp(interp_x)
 	return interp_x, interp_y
 
 
-### plot
-fig = plt.figure()
-mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24
-
-ax = fig.add_subplot(111)
 x, y = getTrueStressStrain(StressStrainFile)
-ax.plot(x, y, c='b', marker='o', linestyle='--', markersize=6)
-
 interp_x, interp_y = getInterpStressStrain(StressStrainFile)
-ax.plot(interp_x, interp_y, c='r', marker='^', linestyle=':', markersize=6)
-plt.legend(['true', 'cubic'])
+
+### plot
+if gui == True:
+	fig = plt.figure()
+	mpl.rcParams['xtick.labelsize'] = 24
+	mpl.rcParams['ytick.labelsize'] = 24
+
+	ax = fig.add_subplot(111)
+	ax.plot(x, y, c='b', marker='o', linestyle='--', markersize=6)
+
+	ax.plot(interp_x, interp_y, c='r', marker='^', linestyle=':', markersize=6)
+	plt.legend(['true', 'cubic'], fontsize=24, markerscale=3, frameon=False)
 
 
-plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
-plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
+	plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
+	plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
-if np.all(y * 1e6 > -1e-5):
-	plt.ylim(bottom=0)
+	if np.all(y * 1e6 > -1e-5):
+		plt.ylim(bottom=0)
 
-if np.all(x > -1e-5):
-	plt.xlim(left=0)
+	if np.all(x > -1e-5):
+		plt.xlim(left=0)
 
-ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
+	ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
 
-parentFolderName = os.getcwd().split('/')[-4:-1]
-plt.title('%s' % parentFolderName, fontsize=24)
+	parentFolderName = os.getcwd().split('/')[-4:-1]
+	plt.title('%s' % parentFolderName, fontsize=24)
 
-# plt.show() # enable this line to plot
+	plt.show() # enable this line to plot
 
 ### dump to file
 

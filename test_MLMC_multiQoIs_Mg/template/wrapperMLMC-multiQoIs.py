@@ -132,7 +132,7 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 
 	startTime = datetime.datetime.now()
-	os.system('bash run_damask.sh')
+	os.system('bash ../run_damask.sh')
 
 	### read outputs
 	currentTime = datetime.datetime.now()
@@ -147,7 +147,8 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 			outData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
 			vmStrain = outData[:, 0]
 			vmStress = outData[:, 1] # in MPa
-			str2print = ', '.join(vmStress) # construct a string to print on screen
+			vmStress2str = np.array(vmStress, dtype=str)
+			str2print = ', '.join(vmStress2str) # construct a string to print on screen
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 			print("\n Elapsed time = %.2f minutes on %s" % ((currentTime - startTime).total_seconds() / 60.), socket.gethostname())
 			print("Collocated von Mises stresses at level %d is %s MPa" % (level, str2print))

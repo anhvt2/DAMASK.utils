@@ -145,7 +145,7 @@ if [ -d "postProc" ]; then
 	filterTable < ${filePrefix}.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
 
 	cp ../tension.load . 
-	python3 ../../computeCollatedStress.py
+	python3 ../../computeCollocatedStresses.py
 
 	# # check $1 argument in running this script, i.e. bash run_damask.sh $1
 	# if [[ $1 == "YieldStress" ]]; then 

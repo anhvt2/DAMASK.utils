@@ -130,11 +130,9 @@ def generateMicrostructures(parentDirectory):
 
 def run_DAMASK_offline(meshSize, parentDirectory, level):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
-	# os.system('cp ../run_damask.sh .')
 
 	startTime = datetime.datetime.now()
-	os.system('bash ../run_damask.sh')
-	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
+	os.system('bash run_damask.sh')
 
 	### read outputs
 	currentTime = datetime.datetime.now()
@@ -148,15 +146,16 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 			currentTime = datetime.datetime.now()
 			outData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
 			vmStrain = outData[:, 0]
-			vmStress = outData[:, 1] / 1e6 # in MPa
+			vmStress = outData[:, 1] # in MPa
+			str2print = ', '.join(vmStress) # construct a string to print on screen
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 			print("\n Elapsed time = %.2f minutes on %s" % ((currentTime - startTime).total_seconds() / 60.), socket.gethostname())
-			print("Collocated von Mises stresses at level %d is %.16f MPa" % (level, vmStress))
+			print("Collocated von Mises stresses at level %d is %s MPa" % (level, str2print))
 			### write log
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-multiQoIs', 'a') # can be 'r', 'w', 'a', 'r+'
-			f.write("Collocated von Mises stresses at level %d is %.16f MPa\n" % (level, vmStress))
+			f.write("Collocated von Mises stresses at level %d is %s MPa" % (level, str2print))
 			f.close()
-			### save results for forensic analysis
+			### save results (the whole mesh hierarchy with computed outputs) for forensic analysis
 			### TODO
 
 	return feasible

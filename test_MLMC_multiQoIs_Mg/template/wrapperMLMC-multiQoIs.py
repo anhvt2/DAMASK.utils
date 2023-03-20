@@ -73,7 +73,6 @@ import socket
 ## write dimCellList.dat for "generateMsDream3d.sh" to pick up
 dimCellFile = open('dimCellList.dat', 'w')
 dimCellList = [2, 4, 8, 16, 32]
-# dimCellList = [8, 10, 16, 20, 32, 64] # deprecated
 
 for dimCell in dimCellList:
 	dimCellFile.write('%d\n' % int(dimCell))
@@ -82,8 +81,8 @@ dimCellFile.close()
 
 
 # adopt from Sandwich.py and Example.jl from Pieterjan Robbe (KU Leuven)
+# python3 Sandwich.py --elemx $(hex) --elemy $(hey) --young $(Ed1) $(Ed2)
 
-## python3 Sandwich.py --elemx $(hex) --elemy $(hey) --young $(Ed1) $(Ed2)
 def str2bool(v):
 	if isinstance(v, bool):
 	   return v
@@ -127,45 +126,38 @@ def generateMicrostructures(parentDirectory):
 
 	print("wrapperMLMC-DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
 	os.system('bash generateMsDream3d.sh')
-	# os.system('sh generateMsDream3d.sh')
 
 
 def run_DAMASK_offline(meshSize, parentDirectory, level):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 	# os.system('cp ../run_damask.sh .')
 
-	# write down numProcessors to be picked up later by sbatch.damask.solo
-	numProcessors = np.floor(meshSize / 4.)
-	if numProcessors > 36:
-		numProcessors = 36 # threshold on Solo node
-
-	f = open('numProcessors.dat', 'w') # can be 'r', 'w', 'a', 'r+'
-	f.write('%d' % numProcessors)
-	f.close()
-
 	startTime = datetime.datetime.now()
 	os.system('bash ../run_damask.sh')
 	# os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc')
 
+	### read outputs
 	currentTime = datetime.datetime.now()
 	feasible = 0
-	if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/feasible.dat'):
-		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/feasible.dat')
+	if os.path.exists(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/feasible.dat'):
+		feasible = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/feasible.dat')
 		if feasible == 0:
 			vmStrain = [np.nan] * np.ones([11,2]) # invalid condition
 			vmStress = [np.nan] * np.ones([11,2]) # invalid condition
 		elif feasible == 1:
 			currentTime = datetime.datetime.now()
 			outData = np.loadtxt(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize) + '/postProc/output.dat')
-			vmStrain = float(outData[0])
-			vmStress = float(outData[1]) / 1e6 # in MPa
+			vmStrain = outData[:, 0]
+			vmStress = outData[:, 1] / 1e6 # in MPa
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
-			print("\n Elapsed time = %.2f minutes on Solo" % ((currentTime - startTime).total_seconds() / 60.))
-			print("Estimated Yield Stress at %d is %.16f MPa" % (level, yieldStress))
-
-			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-DAMASK-DREAM3D', 'a') # can be 'r', 'w', 'a', 'r+'
-			f.write("Estimated Yield Stress at %d is %.16f MPa\n" % (level, yieldStress))
+			print("\n Elapsed time = %.2f minutes on %s" % ((currentTime - startTime).total_seconds() / 60.), socket.gethostname())
+			print("Collocated von Mises stresses at level %d is %.16f MPa" % (level, vmStress))
+			### write log
+			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-multiQoIs', 'a') # can be 'r', 'w', 'a', 'r+'
+			f.write("Collocated von Mises stresses at level %d is %.16f MPa\n" % (level, vmStress))
 			f.close()
+			### save results for forensic analysis
+			### TODO
 
 	return feasible
 

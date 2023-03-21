@@ -155,6 +155,7 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 			### write log
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-multiQoIs', 'a') # can be 'r', 'w', 'a', 'r+'
 			f.write("Collocated von Mises stresses at level %d is %s MPa" % (level, str2print))
+			f.write("\n")
 			f.close()
 
 

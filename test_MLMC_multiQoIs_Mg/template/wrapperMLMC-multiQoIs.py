@@ -5,21 +5,21 @@
 REQUIREMENTS:
 
 # $ python wrapper-DREAM3D-DAMASK.py --level 0
-# Estimated Young modulus at 0 is -2.921755914475476
+# Collocated von Mises stresses at 0 is -2.921755914475476
 #
 # $ python wrapper-DREAM3D-DAMASK.py --level 1
-# Estimated Young modulus at 1 is 1.4565607955675095
-# Estimated Young modulus at 0 is -2.4967721807515217
+# Collocated von Mises stresses at 1 is 1.4565607955675095
+# Collocated von Mises stresses at 0 is -2.4967721807515217
 #
-# $ python wrapper-DREAM3D-DAMASK.py --level 3 --nb_of_qoi 4
-# Estimated Young modulus at 3 is 0.2761242362928689, -0.9839518678051921, -0.1033699430980116, 0.13297340048334058
-# Estimated Young modulus at 2 is 0.8931224201628596, -0.42128388915439724, 0.3768735421579537, 0.24507689336645652
+# $ python wrapperMLMC-mutiQoIs.py --level 3 --nb_of_qoi 4
+# Collocated von Mises stresses at 3 is 0.2761242362928689, -0.9839518678051921, -0.1033699430980116, 0.13297340048334058
+# Collocated von Mises stresses at 2 is 0.8931224201628596, -0.42128388915439724, 0.3768735421579537, 0.24507689336645652
 #
 # $ python wrapper-DREAM3D-DAMASK.py --index (2, 1) --nb_of_qoi 3
-# Estimated Young modulus at (2, 1) is -2.5457461714149145, -0.02181018669814895, -2.3552475764029435
-# Estimated Young modulus at (1, 1) is 0.501231535869913, 0.5191660280513454, -2.1937281246076665
-# Estimated Young modulus at (2, 0) is -0.10207593026854639, 1.547139317467864, -0.9352563652562738
-# Estimated Young modulus at (1, 0) is -0.5373920568687983, -0.31172737038566456, 0.24969705569949627
+# Collocated von Mises stresses at (2, 1) is -2.5457461714149145, -0.02181018669814895, -2.3552475764029435
+# Collocated von Mises stresses at (1, 1) is 0.501231535869913, 0.5191660280513454, -2.1937281246076665
+# Collocated von Mises stresses at (2, 0) is -0.10207593026854639, 1.547139317467864, -0.9352563652562738
+# Collocated von Mises stresses at (1, 0) is -0.5373920568687983, -0.31172737038566456, 0.24969705569949627
 
 PURPOSES:
 
@@ -151,10 +151,10 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 			str2print = ', '.join(vmStress2str) # construct a string to print on screen
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 			print("\n Elapsed time = %.2f minutes on %s" % ((currentTime - startTime).total_seconds() / 60., socket.gethostname()))
-			print("Collocated von Mises stresses at level %d is %s MPa" % (level, str2print))
+			print("Collocated von Mises stresses at %d is %s MPa" % (level, str2print))
 			### write log
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-multiQoIs', 'a') # can be 'r', 'w', 'a', 'r+'
-			f.write("Collocated von Mises stresses at level %d is %s MPa" % (level, str2print))
+			f.write("Collocated von Mises stresses at %d is %s MPa" % (level, str2print))
 			f.write("\n")
 			f.close()
 

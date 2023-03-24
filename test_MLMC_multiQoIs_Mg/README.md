@@ -10,6 +10,11 @@ to
 
 The file `utils.jl` implements the interface between the MLMC with multiple QoIs and the `wrapper-DREAM3D-DAMASK.py`. At the end of the evaluation, print the results on the screen according to the format. 
 
+1. specify settings in `run_multilevel_multiple_qoi.jl`
+1. build an interface in `utils.jl`
+1. build a wrapper in `wrapperMLMC-multiQoIs.py` that returns conformal responses according to `utils.jl`
+1. run `run_multilevel_multiple_qoi.jl`
+
 ### DREAM.3D
 
 1. debug `generateMsDream3d.sh`
@@ -31,22 +36,22 @@ adopt `material.config` from `DAMASK.utils/test_stochastic-collocation_runs_s105
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    logincs 10    freq 1
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    incs 20    freq 1
 ```
-1. `16x16x16`: 54 minutes 30 seconds
+1. `16x16x16`: 54 minutes 30 seconds = 3270
 ```
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    logincs 10    freq 1
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    incs 20    freq 1
 ```
-1. `8x8x8`: 17 minutes
+1. `8x8x8`: 17 minutes = 1020 seconds
 ```
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    incs 10    freq 1
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  200.0    logincs 10    freq 1
 ```
-1. `8x8x8`: 32 minutes
+1. `8x8x8`: 32 minutes = 1920 seconds
 ```
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    logincs 10    freq 1
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    incs 20    freq 1
 ```
-1. `4x4x4`: 5 minutes 30 seconds
+1. `4x4x4`: 5 minutes 30 seconds or 330 seconds
 ```
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    logincs 10    freq 1
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    incs 20    freq 1

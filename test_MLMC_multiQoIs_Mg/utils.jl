@@ -4,18 +4,43 @@
 #                                                                             #
 ###############################################################################
 
+# From dummy-wrapper-DREAM3D-DAMASK.py
+# =========================================================
+# @@@ THIS IS A DUMMY WRAPPER - IT DOES NOT DO ANYTHING @@@
+# =========================================================
+
+# example usage
+# =============
+#
+# $ python wrapper-DREAM3D-DAMASK.py --level 0
+# Collocated von Mises stresses at 0 is -2.921755914475476
+#
+# $ python wrapper-DREAM3D-DAMASK.py --level 1
+# Collocated von Mises stresses at 1 is 1.4565607955675095
+# Collocated von Mises stresses at 0 is -2.4967721807515217
+#
+# $ python wrapper-DREAM3D-DAMASK.py --level 3 --nb_of_qoi 4
+# Collocated von Mises stresses at 3 is 0.2761242362928689, -0.9839518678051921, -0.1033699430980116, 0.13297340048334058
+# Collocated von Mises stresses at 2 is 0.8931224201628596, -0.42128388915439724, 0.3768735421579537, 0.24507689336645652
+#
+# $ python wrapper-DREAM3D-DAMASK.py --index (2, 1) --nb_of_qoi 3
+# Collocated von Mises stresses at (2, 1) is -2.5457461714149145, -0.02181018669814895, -2.3552475764029435
+# Collocated von Mises stresses at (1, 1) is 0.501231535869913, 0.5191660280513454, -2.1937281246076665
+# Collocated von Mises stresses at (2, 0) is -0.10207593026854639, 1.547139317467864, -0.9352563652562738
+# Collocated von Mises stresses at (1, 0) is -0.5373920568687983, -0.31172737038566456, 0.24969705569949627
+
 using MultilevelEstimators
 using Statistics
 using PrettyTables
 using ProgressMeter
 
 # Commands to run DREAM3D-DAMASK
-get_cmd(index::Index, nb_of_qoi) = Cmd(["python", "wrapper-DREAM3D-DAMASK.py", index isa Level ? "--level" : "--index", string(index), "--nb_of_qoi", string(nb_of_qoi)])
+get_cmd(index::Index, nb_of_qoi) = Cmd(["python3", "wrapperMLMC-multiQoIs.py", index isa Level ? "--level" : "--index", string(index), "--nb_of_qoi", string(nb_of_qoi)])
 
 # Read DREAM3D-DAMASK wrapper output and return value of estimated yield stress for the given level or index
 function get_qoi(out, index)
     for line in split(out, "\n")
-        if occursin("Estimated Young modulus at $(index)", line)
+        if occursin("Collocated von Mises stresses at $(index)", line)
             return [parse(Float64, split(words)[end]) for words in split(split(line, ")")[end], ", ")]
         end
     end

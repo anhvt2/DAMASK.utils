@@ -14,7 +14,7 @@ index_set = ML()
 # ========================
 # @@@ SELECT MAX LEVEL @@@
 # ========================
-max_level = 4 # See note below
+max_level = 5 # See note below
 
 # @@@ NOTE @@@
 # !!! In a multilevel setting, `max_level=3` means 4 levels in total (i.e.,
@@ -36,26 +36,26 @@ max_level = 4 # See note below
 # +-------+----------------+
 # Then, these values can be specified as:
 # cost_per_level = [1 2 4 8 16]
-cost_per_level = [1 7.51 8 19 51]
+cost_per_level = [4    330    1920    3270    51]
 
 # =============================
 # @@@ SELECT RMSE TOLERANCE @@@
 # =============================
 # >> Specify initial RMSE (this is just a guess)
 # >> Lower values of the RMSE means a more accurate result, but also more samples
-ε = 1e1 # 1e-2: ~5e5 samples
+ε = 1e-1 # 1e-2: 
 
 # ========================================
 # @@@ SELECT NUMBER OF WARM-UP SAMPLES @@@
 # ========================================
 # >> Specify number of warm-up samples on levels 0, 1, and 2
 # >> This value should not be changed
-nb_of_warm_up_samples = 10
+nb_of_warm_up_samples = 2
 
 # =============================
 # @@@ SPECIFY NUMBER OF QOI @@@
 # =============================
-nb_of_qoi = 100
+nb_of_qoi = 11
 
 # ======================
 # @@@ RUN MULTILEVEL @@@

@@ -96,6 +96,7 @@ def str2bool(v):
 parser = argparse.ArgumentParser()
 # parser.add_argument("-meshSize", "--meshSize", type=int)
 parser.add_argument("-level", "--level", type=int)
+parser.add_argument("-nb_of_qoi", "--nb_of_qoi", type=int)
 # parser.add_argument("-isNewMs", "--isNewMs", default="True", type=str) # deprecated: always generate new microstructure
 # parser.add_argument("-baseSize", "--baseSize", default=320, type=int) # unnecessary -- unless generateMsDream3d.sh is adaptive then this parameter is fixed for now
 # NOTE: note that "generateMsDream3d.sh" is hard-coded with a specific number of levels and a specific set of lines to change
@@ -103,17 +104,11 @@ parser.add_argument("-level", "--level", type=int)
 args = parser.parse_args()
 # meshSize = int(args.meshSize) # make sure meshSize is integer
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
+nb_of_qoi = int(args.nb_of_qoi) # currently not being used
 # isNewMs = str2bool(args.isNewMs) # if true, then run DREAM.3D to get new microstructures
 
-# generate all the meshSize but only run in the selected meshSize
-# NOTE: meshSize must be divisible by the base
-# for example: base 320 generate 320x320x320 SVE initially
-# 			then the meshSize could be 64, 32, and so on
 
-# for testing purposes: probably best to test with small size 8x8x8 (2 procs) or 16x16x16 (4 procs)
-
-
-## generate ALL microstructure approximations
+### generate ALL microstructure approximations
 parentDirectory = os.getcwd() # get parentDirectory for reference
 def generateMicrostructures(parentDirectory):
 	# only generate if isNewMs is True (default = True) -- deprecated
@@ -127,7 +122,7 @@ def generateMicrostructures(parentDirectory):
 	print("wrapperMLMC-DREAM3D-DAMASK.py: calling DREAM.3D to generate microstructures")
 	os.system('bash generateMsDream3d.sh')
 
-
+### run DAMASK end-to-end at a particular level/meshSize within a parentDirectory
 def run_DAMASK_offline(meshSize, parentDirectory, level):
 	os.chdir(parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)) # go into subfolder "${meshSize}x${meshSize}x${meshSize}"
 
@@ -157,8 +152,6 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 			f.write("Collocated von Mises stresses at %d is %s MPa" % (level, str2print))
 			f.write("\n")
 			f.close()
-
-
 	return feasible
 
 def evaluate_DAMASK(meshSize, parentDirectory, level):
@@ -169,10 +162,11 @@ def evaluate_DAMASK(meshSize, parentDirectory, level):
 		feasible = run_DAMASK_offline(meshSize, parentDirectory, level)
 	return feasible
 
-## if level > 0 then submit a DAMASK job at [level - 1]
 feasible = 0
 
-# while feasible == 0:
+### main loop
+# if level > 0 then submit a DAMASK job at [level - 1]
+
 generateMicrostructures(parentDirectory)
 level = int(args.level); meshSize = int(dimCellList[level]) # get the meshSize from dimCellList[level]
 

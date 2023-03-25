@@ -35,7 +35,7 @@ using PrettyTables
 using ProgressMeter
 
 # Commands to run DREAM3D-DAMASK
-get_cmd(index::Index, nb_of_qoi) = Cmd(["python3", "wrapperMLMC-multiQoIs.py", index isa Level ? "--level" : "--index", string(index), "--nb_of_qoi", string(nb_of_qoi)])
+get_cmd(index::Index, nb_of_qoi) = Cmd(["python3", "wrapper_multilevel_multiple_qoi.py", index isa Level ? "--level" : "--index", string(index), "--nb_of_qoi", string(nb_of_qoi)])
 
 # Read DREAM3D-DAMASK wrapper output and return value of estimated yield stress for the given level or index
 function get_qoi(out, index)

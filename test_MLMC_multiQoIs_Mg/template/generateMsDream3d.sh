@@ -8,8 +8,7 @@
 # mu=$(cat mu.dat) # deprecated
 # sigma=$(cat sigma.dat) # deprecated
 # msId=$(cat msId.dat) # deprecated
-
-dimCell=$(cat dimCell.dat)
+# dimCell=$(cat dimCell.dat)
 
 
 ## declare paths

@@ -15,6 +15,16 @@ The file `utils.jl` implements the interface between the MLMC with multiple QoIs
 1. build a wrapper in `wrapperMLMC-multiQoIs.py` that returns conformal responses according to `utils.jl`
 1. run `run_multilevel_multiple_qoi.jl`
 
+
+### How to run
+
+```shell
+cp -rfv template/ test/
+cd test/
+ln -sf ../*jl .
+rm -f nohup.out; nohup julia run_multilevel_multiple_qoi.jl &
+```
+
 ### DREAM.3D
 
 1. debug `generateMsDream3d.sh`

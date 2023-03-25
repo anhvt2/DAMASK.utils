@@ -146,10 +146,10 @@ def run_DAMASK_offline(meshSize, parentDirectory, level):
 			str2print = ', '.join(vmStress2str) # construct a string to print on screen
 			print("Results available in %s" % (parentDirectory + '/%dx%dx%d' % (meshSize, meshSize, meshSize)))
 			print("\n Elapsed time = %.2f minutes on %s" % ((currentTime - startTime).total_seconds() / 60., socket.gethostname()))
-			print("Collocated von Mises stresses at %d is %s MPa" % (level, str2print))
+			print("Collocated von Mises stresses at %d is %s " % (level, str2print))
 			### write log
 			f = open(parentDirectory + '/' + 'log.MultilevelEstimators-multiQoIs', 'a') # can be 'r', 'w', 'a', 'r+'
-			f.write("Collocated von Mises stresses at %d is %s MPa" % (level, str2print))
+			f.write("Collocated von Mises stresses at %d is %s " % (level, str2print))
 			f.write("\n")
 			f.close()
 	return feasible

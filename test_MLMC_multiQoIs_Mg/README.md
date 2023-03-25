@@ -19,6 +19,7 @@ The file `utils.jl` implements the interface between the MLMC with multiple QoIs
 ### How to run
 
 ```shell
+rm -rfv test/
 cp -rfv template/ test/
 cd test/
 ln -sf ../*jl .

@@ -35,7 +35,7 @@ adopt `material.config` from `DAMASK.utils/test_stochastic-collocation_runs_s105
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    logincs 10    freq 1
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    incs 20    freq 1
 ```
-1. `16x16x16`: Mg -- 300 * 1e-3: 29 mins 20 seconds
+1. `16x16x16`: 29 mins 20 seconds
 ```
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    logincs 10    freq 1
 fdot    1.0e-3 0 0    0 * 0    0 0 *    stress  * * *   * 0 *   * * 0 time  100.0    incs 20    freq 1

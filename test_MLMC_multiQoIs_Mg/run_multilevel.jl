@@ -36,7 +36,7 @@ max_level = 4 # See note below
 # +-------+----------------+
 # Then, these values can be specified as:
 # cost_per_level = [1 2 4 8 16]
-cost_per_level = [1 7.51 8 19 51]
+cost_per_level = [4    330    1920    3270    12452]
 
 # =============================
 # @@@ SELECT RMSE TOLERANCE @@@

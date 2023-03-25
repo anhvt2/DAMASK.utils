@@ -14,7 +14,7 @@ index_set = ML()
 # ========================
 # @@@ SELECT MAX LEVEL @@@
 # ========================
-max_level = 5 # See note below
+max_level = 4 # See note below
 
 # @@@ NOTE @@@
 # !!! In a multilevel setting, `max_level=3` means 4 levels in total (i.e.,
@@ -36,7 +36,7 @@ max_level = 5 # See note below
 # +-------+----------------+
 # Then, these values can be specified as:
 # cost_per_level = [1 2 4 8 16]
-cost_per_level = [4    330    1920    3270    51]
+cost_per_level = [4    330    1920    3270    12452]
 
 # =============================
 # @@@ SELECT RMSE TOLERANCE @@@

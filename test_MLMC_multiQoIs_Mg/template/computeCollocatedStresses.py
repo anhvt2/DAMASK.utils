@@ -99,6 +99,7 @@ interp_x, interp_y = getInterpStressStrain(StressStrainFile)
 
 ### impose NaN constraint if physically implausible
 if np.any(interp_y < 0) or np.any(interp_y > 1e3):
+	y[:] = np.nan
 
 ### plot
 if gui == True:

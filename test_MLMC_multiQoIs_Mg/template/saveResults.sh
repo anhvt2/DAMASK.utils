@@ -1,6 +1,8 @@
 #!/bin/bash
 
 mkdir -p bak/
+ln -sf ../tension.load bak/
+ln -sf ../numerics.config bak/
 
 timeStamp=$(date +%y-%m-%d-%H-%M-%S)
 # for folderName in $(ls -1dv */); do

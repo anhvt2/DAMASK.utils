@@ -55,7 +55,7 @@ nb_of_warm_up_samples = 2
 # =============================
 # @@@ SPECIFY NUMBER OF QOI @@@
 # =============================
-nb_of_qoi = 11
+nb_of_qoi = 10
 
 # ======================
 # @@@ RUN MULTILEVEL @@@

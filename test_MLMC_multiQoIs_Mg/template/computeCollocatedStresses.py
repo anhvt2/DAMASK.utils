@@ -96,6 +96,7 @@ def getInterpStressStrain(StressStrainFile):
 
 x, y = getTrueStressStrain(StressStrainFile)
 interp_x, interp_y = getInterpStressStrain(StressStrainFile)
+interp_x, interp_y = interp_x[1:], interp_y[1:] # remove the first element - always 0 means infty variance
 
 ### impose NaN constraint if physically implausible
 if np.any(interp_y < 0) or np.any(interp_y > 1e3):

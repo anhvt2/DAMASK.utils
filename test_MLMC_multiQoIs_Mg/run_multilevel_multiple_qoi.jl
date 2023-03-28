@@ -50,7 +50,7 @@ cost_per_level = [4    330    1920    3270    12452]
 # ========================================
 # >> Specify number of warm-up samples on levels 0, 1, and 2
 # >> This value should not be changed
-nb_of_warm_up_samples = 2
+nb_of_warm_up_samples = 3
 
 # =============================
 # @@@ SPECIFY NUMBER OF QOI @@@

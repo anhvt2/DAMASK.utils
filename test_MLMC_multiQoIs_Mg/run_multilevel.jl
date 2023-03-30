@@ -36,7 +36,9 @@ max_level = 4 # See note below
 # +-------+----------------+
 # Then, these values can be specified as:
 # cost_per_level = [1 2 4 8 16]
-cost_per_level = [4    330    1920    3270    12452]
+# cost_per_level = [4    330    1920    3270    12452]
+# Add cost to generate microstructures: +35 seconds
+cost_per_level = [39    365    1955    3305    12487]
 
 # =============================
 # @@@ SELECT RMSE TOLERANCE @@@

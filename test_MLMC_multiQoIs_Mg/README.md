@@ -26,6 +26,18 @@ ln -sf ../*jl .
 rm -f nohup.out; nohup julia run_multilevel_multiple_qoi.jl &
 ```
 
+### How to post-process
+
+```
+julia> using MultilevelEstimators, JLD2, Reporter
+
+julia> history = load("DAMASK.jld2", "history")
+
+MultilevelEstimators.jl history file
+
+julia> report(history, include_preamble=true, png=true)
+```
+
 ### DREAM.3D
 
 1. debug `generateMsDream3d.sh`

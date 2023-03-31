@@ -6,6 +6,29 @@ copy
 to
 `test-phenomenological-slipping+twinning-Mg/`
 
+### How to install Julia packages
+
+(also available at `./MultilevelEstimators.jl/README.md`, but this version is more comprehensive)
+
+Mostly comes from private communication with Pieterjan Robbe
+
+```julia
+julia> ENV["JULIA_SSL_NO_VERIFY_HOSTS"] = "**" # useful behind Sandia firewall -- no certificate for downloading
+pkg> dev https://github.com/PieterjanRobbe/MultilevelEstimators.jl
+pkg> dev https://github.com/PieterjanRobbe/Reporter.jl
+pkg> add Random
+pkg> add Statistics
+
+julia> import Pkg; Pkg.resolve()
+julia> Pkg.add("PrettyTables")
+julia> Pkg.add("ProgressMeter")
+
+include("Example.jl")
+check_variances()
+run_multilevel_checkpoint()
+run_multilevel()
+```
+
 ### How to set up
 
 The file `utils.jl` implements the interface between the MLMC with multiple QoIs and the `wrapper-DREAM3D-DAMASK.py`. At the end of the evaluation, print the results on the screen according to the format. 
@@ -28,10 +51,10 @@ rm -f nohup.out; nohup julia run_multilevel_multiple_qoi.jl &
 
 ### How to post-process
 
-```
+```julia
 julia> using MultilevelEstimators, JLD2, Reporter
 
-julia> history = load("DAMASK.jld2", "history")
+julia> history = load("DREAM3D-multilevel.jld2", "history")
 
 MultilevelEstimators.jl history file
 

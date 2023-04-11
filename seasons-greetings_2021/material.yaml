@@ -1,0 +1,36 @@
+---
+homogenization:
+  SX:
+    N_constituents: 1
+    mechanical: {type: pass}
+
+material:
+  - homogenization: SX
+    constituents:
+      - phase: hard
+        v: 1.0
+        O: [1.0, 0.0, 0.0, 0.0]
+  - homogenization: SX
+    constituents:
+      - phase: soft
+        v: 1.0
+        O: [1.0, 0.0, 0.0, 0.0]
+  - homogenization: SX
+    constituents:
+      - phase: soft
+        v: 1.0
+        O: [1.0, 0.0, 0.0, 0.0]
+
+phase:
+  soft:
+    lattice: cF
+    mechanical:
+      output: [F, P]
+      elastic: {C_11: 106.75e8, C_12: 60.41e8, C_44: 28.34e8, type: Hooke}
+      plastic: {type: none}
+  hard:
+    lattice: cF
+    mechanical:
+      output: [F, P]
+      elastic: {C_11: 106.75e9, C_12: 60.41e9, C_44: 28.34e9, type: Hooke}
+      plastic: {type: none}

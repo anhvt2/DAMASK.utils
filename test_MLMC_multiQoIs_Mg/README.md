@@ -41,12 +41,24 @@ The file `utils.jl` implements the interface between the MLMC with multiple QoIs
 
 ### How to run
 
+1. With real wrapper `wrapper_multilevel_multiple_qoi.py`
 ```shell
 rm -rfv test/
 cp -rfv template/ test/
 cd test/
 ln -sf ../*jl .
 rm -f nohup.out; nohup julia run_multilevel_multiple_qoi.jl &
+```
+
+2. With fake wrapper `fakewrapper_multilevel_multiple_qoi.py`
+including:
+* `fakeutils.jl`
+* `fakerun_multilevel_multiple_qoi.jl`
+* `fakewrapper_multilevel_multiple_qoi.py`
+```shell
+cd fakeWrappers/
+python3 cleanseDataset.py # convert log to clean data file -- initial
+rm -f nohup.out; nohup julia fakerun_multilevel_multiple_qoi.jl & # run Julia again with fake wrapper
 ```
 
 ### How to post-process

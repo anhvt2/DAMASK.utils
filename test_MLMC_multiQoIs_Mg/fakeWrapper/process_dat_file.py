@@ -8,6 +8,7 @@ nb_of_qoi = data.shape[1] - 1
 # get max level
 max_level = int(np.amax(data, axis=0)[0])
 print(f"max_level: {max_level}")
+print(f"number of samples: {nb_of_rows}")
 
 # gather all samples
 samples = []

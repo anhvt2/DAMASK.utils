@@ -60,5 +60,5 @@ if len(query) > 0: # if there are results, then simply look up
 	np.savetxt("MultilevelEstimators-multiQoIs.dat", reduced_d, delimiter=",", header="level, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9", fmt="%d, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e")
 
 else: # if there is no results, then run DAMASK
-	os.system('python3 wrapperMLMC-DREAM3D-DAMASK.py --level=%d --nb_of_qoi 10' % (level))
+	os.system('python3 wrapper_multilevel_multiple_qoi.py --level=%d --nb_of_qoi 10' % (level))
 

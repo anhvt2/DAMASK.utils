@@ -27,8 +27,6 @@ for qoi in range(nb_of_qoi):
     print(f"Statistics for qoi {qoi}:")
     print(*[f"{s:<12s}" for s in ("level", "E_l", "dE_l", "V_l", "dV_l")])
     for level in range(max_level):
-        print(samples[level])
-        print(dsamples[level])
         x = data[samples[level], qoi + 1]
         dx = data[dsamples[level], qoi + 1]
         print(f"{level:<13d}", end="")

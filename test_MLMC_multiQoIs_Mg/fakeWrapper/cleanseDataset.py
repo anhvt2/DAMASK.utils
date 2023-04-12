@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-os.system('cat ../log.MultilevelEstimators-multiQoIs.2 >  log.MultilevelEstimators-multiQoIs')
-os.system('cat ../log.MultilevelEstimators-multiQoIs.1 >> log.MultilevelEstimators-multiQoIs')
+os.system('cat ../log.MultilevelEstimators-multiQoIs.1 >  log.MultilevelEstimators-multiQoIs')
+os.system('cat ../log.MultilevelEstimators-multiQoIs.2 >> log.MultilevelEstimators-multiQoIs')
 
 # read dataset
 logFile = open('log.MultilevelEstimators-multiQoIs')

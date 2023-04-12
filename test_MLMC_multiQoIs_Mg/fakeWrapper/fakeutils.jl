@@ -143,10 +143,13 @@ function run_multilevel(; max_level=4, cost_model=MultilevelEstimators.EmptyFunc
                          )
 
     # run estimator
-    while true
-        run(estimator, [ε])
-        ε /= 2^(1/8)
-    end
+    ## Note: do NOT run forever
+    run(estimator, [ε])
+    ## Note: run forever
+    # while true
+    #     run(estimator, [ε])
+    #     ε /= 2^(1/8)
+    # end
 end
 
 """

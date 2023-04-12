@@ -1,4 +1,4 @@
-## Usage: python3 wrapperMLMC-DREAM3D-DAMASK.py --level=1 --nb_of_qoi 10
+## Usage: python3 wrapperMLMC-DREAM3D-DAMASK.py --level=1
 
 """ 
 

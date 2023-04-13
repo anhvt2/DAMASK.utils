@@ -45,7 +45,7 @@ cost_per_level = [39    365    1955    3305    12487]
 # =============================
 # >> Specify initial RMSE (this is just a guess)
 # >> Lower values of the RMSE means a more accurate result, but also more samples
-ε = 4e-1
+ε = 4e0
 
 # ========================================
 # @@@ SELECT NUMBER OF WARM-UP SAMPLES @@@

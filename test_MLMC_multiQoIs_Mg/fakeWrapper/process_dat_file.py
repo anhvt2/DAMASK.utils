@@ -6,7 +6,7 @@ nb_of_rows = data.shape[0]
 nb_of_qoi = data.shape[1] - 1
 
 # get max level
-max_level = int(np.amax(data, axis=0)[0])
+max_level = int(np.amax(data, axis=0)[0]) + 1 #: ignore the last level due to numerical instability
 print(f"max_level: {max_level}")
 print(f"number of samples: {nb_of_rows}")
 
@@ -16,8 +16,8 @@ dsamples = []
 for level in range(max_level):
     samples.append([])
     dsamples.append([])
-    for row in range(nb_of_rows):
-        if data[row, 0] == level and (row == nb_of_rows - 1 or data[row + 1, 0] == max(0, level - 1)):
+    for row in range(nb_of_rows - 1):
+        if data[row, 0] == level and data[row + 1, 0] == max(0, level - 1):
             samples[level].append(row)
             if level > 0:
                 dsamples[level].append(row + 1)

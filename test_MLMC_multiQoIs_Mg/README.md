@@ -81,7 +81,8 @@ Idea:
 ```shell
 cd fakeWrappers/
 python3 cleanseDataset.py # convert log to clean data file -- initial
-julia hybridrun_multilevel_multiple_qoi.jl
+# julia hybridrun_multilevel_multiple_qoi.jl
+rm -f nohup.out; nohup julia hybridrun_multilevel_multiple_qoi.jl & # run Julia again with fake wrapper
 ```
 
 ### How to post-process

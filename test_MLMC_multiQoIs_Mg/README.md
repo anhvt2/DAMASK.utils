@@ -21,6 +21,7 @@ pkg> add Statistics
 
 julia> import Pkg; Pkg.resolve()
 julia> Pkg.add("PrettyTables")
+julia> Pkg.add("FileIO")
 julia> Pkg.add("ProgressMeter")
 
 include("Example.jl")
@@ -91,10 +92,14 @@ rm -f nohup.out; nohup julia hybridrun_multilevel_multiple_qoi.jl & # run Julia 
 julia> using MultilevelEstimators, JLD2, Reporter
 
 julia> history = load("DREAM3D-multilevel.jld2", "history")
-
 MultilevelEstimators.jl history file
 
 julia> report(history, include_preamble=true, png=true)
+```
+
+```shell
+julia history2costfrac.jl
+python3 plot_fractional_cost.py
 ```
 
 ### DREAM.3D

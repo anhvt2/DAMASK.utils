@@ -44,5 +44,6 @@ for i in range(num_level):
 		for lineNo in len(slurmtext):
 			slurmfile.write(slurmtext[lineNo])
 		slurmfile.close()
+		os.chdir(currentPath)
 
 

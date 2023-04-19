@@ -34,11 +34,11 @@ for i in range(num_level):
 		slurmtext = slurmfile.readlines()
 		slurmfile.close()
 		# modify query (level) based on char location
-		old_string = slurmtext[45]
+		old_string = slurmtext[44]
 		list_str = list(old_string)
 		list_str[46] = str(i)
 		new_string = ''.join(list_str)
-		slurmtext[45] = new_string
+		slurmtext[44] = new_string
 		# write
 		slurmfile = open('sbatch.damask.srn', 'w') # can be 'r', 'w', 'a', 'r+'
 		for lineNo in range(len(slurmtext)):

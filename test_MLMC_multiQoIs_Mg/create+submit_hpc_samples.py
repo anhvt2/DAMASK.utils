@@ -1,7 +1,7 @@
 
 import numpy as np
 import argparse
-import os, sys, glob, datetimeq
+import os, sys, glob, datetime
 
 cost_per_level = [39,    365,    1955,    3305,    12487] # taken from run_multilevel_multiple_qoi.py
 cost_per_level = np.array(cost_per_level)
@@ -24,7 +24,7 @@ for i in range(num_level):
 	num_sample = num_samples[i]
 
 	for j in range(num_sample):
-		folderName = "hpc_level-%d_sample-%d" (i, j)
+		folderName = "hpc_level-%d_sample-%d" % (i, j)
 		os.system('cp -r template/ %s' % folderName)
 		print(f"Create {folderName}.")
 		os.chdir(currentPath + '/' + folderName)
@@ -41,9 +41,9 @@ for i in range(num_level):
 		slurmtext[45] = new_string
 		# write
 		slurmfile = open('sbatch.damask.srn', 'w') # can be 'r', 'w', 'a', 'r+'
-		for lineNo in len(slurmtext):
+		for lineNo in range(len(slurmtext)):
 			slurmfile.write(slurmtext[lineNo])
 		slurmfile.close()
 		os.chdir(currentPath)
-
+	os.chdir(currentPath)
 

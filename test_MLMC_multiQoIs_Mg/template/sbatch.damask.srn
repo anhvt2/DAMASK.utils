@@ -1,7 +1,7 @@
 #!/bin/bash
 ## Do not put any commands or blank lines before the #SBATCH lines
 #SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
-#SBATCH --time=4:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
+#SBATCH --time=24:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY140174            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
 #SBATCH --partition=short,batch       # partition/queue name: short or batch
@@ -43,51 +43,7 @@ cores=36                             # Number MPI processes to run on each node 
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
 # sh generateMsDream3d.sh # call DREAM.3D for microstructure generation
 
-
-### ---------------------------------- copy main file from the parent directory
-cp ../tension.load  .
-cp ../sigma.dat  .
-cp ../mu.dat  .
-cp ../msId.dat  .
-cp ../material.config.preamble  .
-cp ../dimCell.dat  .
-cp ../computeYieldStress.py  .
-# cp ../single_phase_equiaxed_${dimCell}x${dimCell}x${dimCell}.geom  .
-ln -sf *.geom single_phase_equiaxed.geom # assumption: suppose that there is only one *.geom file
-
-### ---------------------------------- pre-process DAMASK
-rm -fv single_phase_equiaxed_tension* postProc/
-geom_check single_phase_equiaxed.geom
-
-### ---------------------------------- run DAMASK
-# mpirun -np 4 /media/anhvt89/seagateRepo/DAMASK/DAMASK-v2.0.2/bin/DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
-# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
-
-if [ -f "numProcessors.dat" ]; then
-	numProcessors=$(cat numProcessors.dat)
-	mpirun -np ${numProcessors} $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
-else
-	mpirun -np 36 $DAMASK_spectral --geom single_phase_equiaxed.geom --load tension.load 2>&1 > log.damask
-fi
-
-
-### ---------------------------------- post-processing DAMASK
-sleep 10
-postResults single_phase_equiaxed_tension.spectralOut --cr f,p
-if [ -d "postProc" ]; then
-	cd postProc/
-	filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
-	cp ../tension.load . 
-	python3 ../computeYieldStress.py
-	if [ -f "output.dat" ]; then
-		echo 1 > ../log.feasible 
-		# needed in wrapper_DREAM3D-DAMASK.py
-	fi
-	cd ..
-else
-	echo "Simulation does not converge!!!"
-	echo 0 > log.feasible
-fi
+python3 wrapperMLMC-DREAM3D-DAMASK.py --level=1 --nb_of_qoi=10
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 echo "Stop running simulation at"

@@ -64,8 +64,10 @@ for i in range(num_level):
 
 ## automatic submission
 for i in range(num_level):
+	num_sample = num_samples[i]
 	for j in range(num_sample):
 		folderName = "hpc_level-%d_sample-%d" % (i, j)
+		print(f"Submit Slurm job in {folderName}")
 		os.chdir(currentPath + '/' + folderName)
 		os.system('ssubmit')
 	os.chdir(currentPath)

@@ -13,14 +13,25 @@
 
 ## declare paths
 hostName="$(echo $(hostname))"
+echo "hostName=${hostName}"
 if [[ ${hostName} == *"solo"* ]]; then
-	execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # solo
+	execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # Solo
+elif [[ ${hostName} == *"skybridge"* ]]; then
+    execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # Skybridge
+elif [[ ${hostName} == *"sb"* ]]; then
+    execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # Skybridge sbatch
+elif [[ ${hostName} == *"attaway"* ]]; then
+    execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # Attaway
+elif [[ ${hostName} == *"swa"* ]]; then
+    execPath="/ascldap/users/anhtran/data/DREAM.3D/DREAM3D-6.5.138-Linux-x86_64/bin" # Attaway sbatch
 elif [[ ${hostName} == *"ideapad"* ]]; then
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # ideapad
 elif [[ ${hostName} == *"s1057681"* ]]; then
 	execPath="/home/anhtran/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # s1057681
 elif [[ ${hostName} == *"strix"* ]]; then
-	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # Asus ROG strix
+	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # Asus Laptop ROG strix
+elif [[ ${hostName} == *"rog"* ]]; then
+	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.141-Linux-x86_64/bin" # Asus Desktop ROG strix
 else
 	execPath="/home/anhvt89/Documents/DREAM.3D/DREAM3D-6.5.128-Linux-x86_64/bin" # else
 fi

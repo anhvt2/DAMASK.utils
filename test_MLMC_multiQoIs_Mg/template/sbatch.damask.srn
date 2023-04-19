@@ -4,7 +4,7 @@
 #SBATCH --time=24:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY140174            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
-#SBATCH --partition=short,batch       # partition/queue name: short or batch
+#SBATCH --partition=batch       # partition/queue name: short or batch
 																			#            short: 4hrs wallclock limit
 																			#            batch: nodes reserved for > 4hrs (default)
 #SBATCH --qos=normal                  # Quality of Service: long, large, priority or normal
@@ -41,9 +41,8 @@ cores=36                             # Number MPI processes to run on each node 
 																		 # CTS1 has 36 cores per node
 # using openmpi-intel/1.10
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
-# sh generateMsDream3d.sh # call DREAM.3D for microstructure generation
 
-python3 wrapperMLMC-DREAM3D-DAMASK.py --level=1 --nb_of_qoi=10
+python3 wrapper_multilevel_multiple_qoi.py --level=1 --nb_of_qoi=10
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 echo "Stop running simulation at"

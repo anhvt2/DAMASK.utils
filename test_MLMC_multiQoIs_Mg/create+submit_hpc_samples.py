@@ -11,17 +11,24 @@ currentPath = os.getcwd()
 parser = argparse.ArgumentParser()
 parser.add_argument("-ms", "--max_sample", type=int) # desired number of samples at the highest level of fidelity
 
-
-
 args = parser.parse_args()
 max_sample = int(args.max_sample)
 
 num_samples = np.array(max_sample * np.max(cost_per_level) / cost_per_level, dtype=int)
 
+### remove all related folders
+os.system('scancel -u anhtran')
+os.system('rm -rfv hpc_level-*')
+
 for i in range(num_level):
 # 	print(f"Need {int( max_sample * cost_per_level[-1] / cost_per_level[i])} samples at level {i}")
 	print(f"Need {num_samples[i]} samples at level {i}")
 	num_sample = num_samples[i]
+	cost = cost_per_level[i]
+	# convert seconds to seconds/minutes/hours
+	# https://stackoverflow.com/questions/775049/how-do-i-convert-seconds-to-hours-minutes-and-seconds
+	minutes_cost, seconds_cost = divmod(cost, 60)
+	hours_cost, minutes_cost = divmod(minutes_cost, 60)
 
 	for j in range(num_sample):
 		folderName = "hpc_level-%d_sample-%d" % (i, j)
@@ -33,17 +40,33 @@ for i in range(num_level):
 		slurmfile = open('sbatch.damask.srn')
 		slurmtext = slurmfile.readlines()
 		slurmfile.close()
+		
 		# modify query (level) based on char location
 		old_string = slurmtext[44]
 		list_str = list(old_string)
 		list_str[51] = str(i)
 		new_string = ''.join(list_str)
 		slurmtext[44] = new_string
+
+		# add to 'short' queue to promote shorter wait time
+		if hours_cost < 4:
+			slurmtext[3] = '#SBATCH --time=04:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)\n'
+			slurmtext[6] = '#SBATCH --partition=short,batch       # partition/queue name: short or batch\n'
+		
 		# write
 		slurmfile = open('sbatch.damask.srn', 'w') # can be 'r', 'w', 'a', 'r+'
 		for lineNo in range(len(slurmtext)):
 			slurmfile.write(slurmtext[lineNo])
 		slurmfile.close()
+		
 		os.chdir(currentPath)
 	os.chdir(currentPath)
 
+## automatic submission
+for i in range(num_level):
+	for j in range(num_sample):
+		folderName = "hpc_level-%d_sample-%d" % (i, j)
+		os.chdir(currentPath + '/' + folderName)
+		os.system('ssubmit')
+	os.chdir(currentPath)
+os.chdir(currentPath)

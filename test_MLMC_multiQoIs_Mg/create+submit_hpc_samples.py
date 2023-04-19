@@ -26,7 +26,7 @@ for i in range(num_level):
 	for j in range(num_sample):
 		folderName = "hpc_level-%d_sample-%d" % (i, j)
 		os.system('cp -r template/ %s' % folderName)
-		print(f"Create {folderName}.")
+		print(f"Create folder {folderName}")
 		os.chdir(currentPath + '/' + folderName)
 
 		# read

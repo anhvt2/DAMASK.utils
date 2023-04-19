@@ -36,7 +36,7 @@ for i in range(num_level):
 		# modify query (level) based on char location
 		old_string = slurmtext[44]
 		list_str = list(old_string)
-		list_str[46] = str(i)
+		list_str[51] = str(i)
 		new_string = ''.join(list_str)
 		slurmtext[44] = new_string
 		# write

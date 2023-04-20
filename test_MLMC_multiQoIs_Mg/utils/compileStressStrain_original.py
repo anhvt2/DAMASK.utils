@@ -13,11 +13,11 @@ plt.figure()
 dimCellList = [2, 4, 8, 16, 32]
 for i in range(len(dimCellList)):
 	dimCell = dimCellList[i]
-	num_obs = len(glob.glob('%sx%sx%s*output.dat' % (dimCell, dimCell, dimCell)))
+	num_obs = len(glob.glob('%sx%sx%s*stress_strain.log' % (dimCell, dimCell, dimCell)))
 	print(f"Found {num_obs} observations at {dimCell}x{dimCell}x{dimCell}")
 
-	for fileName in glob.glob('%sx%sx%s*output.dat' % (dimCell, dimCell, dimCell)):
-		o = np.loadtxt(fileName)
+	for fileName in glob.glob('%sx%sx%s*stress_strain.log' % (dimCell, dimCell, dimCell)):
+		o = np.loadtxt(fileName, skiprows=7)
 		strain = o[:,0]
 		stress = o[:,1]
 		strain = np.insert(strain, 0, 0)

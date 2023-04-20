@@ -1,0 +1,17 @@
+6	header
+postResults v2.0.2	MgRve_32x32x32_tension.spectralOut --cr f,p
+addStrainTensors v2.0.2	MgRve_32x32x32_tension.txt --left --logarithmic
+addCauchy v2.0.2	MgRve_32x32x32_tension.txt
+addMises v2.0.2	MgRve_32x32x32_tension.txt --strain ln(V) --stress Cauchy
+filterTable v2.0.2	--white inc,Mises(ln(V)),Mises(Cauchy)
+inc	Mises(ln(V))	Mises(Cauchy)
+0.0	0.0	7.60933983352e-07
+1.0	0.000168406927801	8807201.87566
+2.0	0.000336797769462	17621392.9259
+3.0	0.000673704572337	35198578.8293
+4.0	0.00135359442509	67842772.9925
+5.0	0.00278780389471	109755895.069
+6.0	0.00592851286199	122478072.298
+7.0	0.0123176890955	129857773.77
+8.0	0.0249468309376	139075979.592
+9.0	0.0491440342712	150219132.079

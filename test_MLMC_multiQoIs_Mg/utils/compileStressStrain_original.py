@@ -64,6 +64,7 @@ colorList = ["#5f9fff",
 alphaList = [0.4, 0.5, 0.6, 0.7, 0.8]
 linestyleList = ['dotted', 'dotted', 'dashdot', 'dashed', 'solid']
 markersizeList = np.linspace(4,6,num=5)
+linewidthList = np.linspace(1,2,num=5)
 validLegendFileList = ['', '', '', '', ''] # collect last valid file for legend plotting purpose
 
 for i in range(len(dimCellList)):
@@ -88,7 +89,7 @@ for i in range(len(dimCellList)):
 
 			interp_stress = splineInterp(interp_strain)
 			collocated_stress = splineInterp(collocated_strain)
-			plt.plot(interp_strain, interp_stress, color=colorList[i], alpha=alphaList[i], linewidth=i+1, linestyle=linestyleList[i], markersize=markersizeList[i])
+			plt.plot(interp_strain, interp_stress, color=colorList[i], alpha=alphaList[i], linewidth=linewidthList[i], linestyle=linestyleList[i], markersize=markersizeList[i])
 			plt.plot(collocated_strain, collocated_stress, marker='x', color='r', linestyle='None', markersize=markersizeList[i])
 			# plt.plot(strain, stress, 'bo', linestyle='None')
 			plt.plot(strain, stress, color=colorList[i], alpha=alphaList[i], marker='o', linewidth=0, linestyle=linestyleList[i])

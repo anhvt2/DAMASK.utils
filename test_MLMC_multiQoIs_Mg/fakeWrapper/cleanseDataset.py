@@ -4,6 +4,7 @@ import os
 
 os.system('cat ../log.MultilevelEstimators-multiQoIs.1 >  log.MultilevelEstimators-multiQoIs')
 os.system('cat ../log.MultilevelEstimators-multiQoIs.2 >> log.MultilevelEstimators-multiQoIs')
+os.system('cat ../log.MultilevelEstimators-multiQoIs.3 >> log.MultilevelEstimators-multiQoIs')
 
 # read dataset
 logFile = open('log.MultilevelEstimators-multiQoIs')

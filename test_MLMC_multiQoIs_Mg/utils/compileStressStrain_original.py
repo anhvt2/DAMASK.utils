@@ -61,7 +61,7 @@ colorList = ["#5f9fff",
 "#ff8269",
 "#006b38",
 "#905300"]
-alphaList = np.linspace(0.7,0.9,5)
+alphaList = [0.4, 0.5, 0.6, 0.7, 0.8]
 linestyleList = ['dotted', 'dotted', 'dashdot', 'dashed', 'solid']
 markersizeList = np.linspace(4,6,num=5)
 validLegendFileList = ['', '', '', '', ''] # collect last valid file for legend plotting purpose

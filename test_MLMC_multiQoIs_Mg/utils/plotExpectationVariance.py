@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from scipy import stats
+from matplotlib.ticker import StrMethodFormatter
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
@@ -35,14 +36,14 @@ for qoi in range(nb_of_qoi):
 	print(f"Statistics for qoi {qoi}:")
 	print(*[f"{s:<12s}" for s in ("level", "E_l", "dE_l", "V_l", "dV_l")])
 	collocated_strain = (qoi + 1) / 10
-	plt.figure(figsize=(12,12))
+	
 	E_l, dE_l, V_l, dV_l = [], [], [], []
 	for level in range(max_level):
 		x = data[samples[level], qoi + 1]
 		dx = data[dsamples[level], qoi + 1]
 		E_l.append(np.mean(x))
 		dE_l.append(np.abs(np.mean(x - dx)) if level > 0 else np.nan)
-		V_l.append(np.abs(np.var(x - dx)) if level > 0 else np.nan)
+		V_l.append(np.var(x))
 		dV_l.append(np.abs(np.var(x - dx)) if level > 0 else np.nan)
 		print(f"{level:<13d}", end="")
 		print(f"{np.mean(x):<13.5f}", end="")
@@ -51,6 +52,8 @@ for qoi in range(nb_of_qoi):
 		print(f"{np.abs(np.var(x - dx)):<13.5f}" if level > 0 else "-".ljust(13))
 	
 	E_l, dE_l, V_l, dV_l = np.array(E_l), np.array(dE_l), np.array(V_l), np.array(dV_l)
+	# plot expectation
+	plt.figure(figsize=(12,12))
 	plt.plot(levels, np.log2(E_l), color='r', marker='o', markersize=8, linestyle='-', linewidth=2, label=r'$Q_{\ell}$')
 	plt.plot(levels, np.log2(dE_l), color='r', marker='o', markersize=8, linestyle='--', linewidth=2, label=r'$\Delta Q_{\ell}$')
 
@@ -62,12 +65,31 @@ for qoi in range(nb_of_qoi):
 	plt.ylabel(r'$\log_2(\mathrm{\mathbb{E}}[|\cdot|])$', fontsize=24)
 
 	plt.xlim(left=levels[0], right=levels[-1])
-	# plt.ylim(bottom=np.min(np.log2(dE_l)), top=np.max(np.log2(dE_l))) 
 	plt.title(r'$\sigma(\varepsilon = %.1f)$' % collocated_strain, fontsize=24)
+	# plt.gca().xaxis.set_major_formatter(StrMethodFormatter('{x:,.0f}')) # 0 decimal places
+	plt.xticks(levels)
 	plt.savefig('E_l-qoi-%d.png' % qoi, dpi=600)
+	plt.clf()
 
 
+	# plot variance
+	plt.figure(figsize=(12,12))
+	plt.plot(levels, np.log2(V_l), color='b', marker='o', markersize=8, linestyle='-', linewidth=2, label=r'$Q_{\ell}$')
+	plt.plot(levels, np.log2(dV_l), color='b', marker='o', markersize=8, linestyle='--', linewidth=2, label=r'$\Delta Q_{\ell}$')
 
+	slope, intercept, r_value, p_value, std_err = stats.linregress(levels[1:], np.log2(dV_l[1:]))
+	x = np.linspace(levels[1], levels[-1], num=100)
+	plt.plot(x, intercept + x * slope, linestyle='--', color='k', linewidth=1, label=r'$\beta \approx %.2f$' % -slope)
+	plt.legend(fontsize=24, loc='best', frameon=False)
+	plt.xlabel(r'level $\ell$', fontsize=24)
+	plt.ylabel(r'$\log_2(\mathrm{\mathbb{V}}[|\cdot|])$', fontsize=24)
+
+	plt.xlim(left=levels[0], right=levels[-1])
+	plt.title(r'$\sigma(\varepsilon = %.1f)$' % collocated_strain, fontsize=24)
+	# plt.gca().xaxis.set_major_formatter(StrMethodFormatter('{x:,.0f}')) # 0 decimal places
+	plt.xticks(levels)
+	plt.savefig('V_l-qoi-%d.png' % qoi, dpi=600)
+	plt.clf()
 
 # plt.show()
 

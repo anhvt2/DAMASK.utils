@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -v log.MultilevelEstimators-multiQoIs
+rm -fv log.MultilevelEstimators-multiQoIs
 
 for folderName in $(find . -name 'postProc'); do
 	shortFolderName=$(echo $folderName | cut -d/ -f4)

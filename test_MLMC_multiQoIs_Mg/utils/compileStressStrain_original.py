@@ -73,28 +73,31 @@ for i in range(len(dimCellList)):
 	print(f"Found {num_obs} observations at {dimCell}x{dimCell}x{dimCell}")
 	#
 	for fileName in glob.glob('%sx%sx%s*stress_strain.log' % (dimCell, dimCell, dimCell)):
-		strain, stress = getTrueStressStrain(fileName)
-		#
-		if np.any(stress > 3e2) or np.any(np.diff(stress) < 0) or np.max(strain) < 0.08 or np.any(stress) < 0:
-		# if np.max(strain) < 0.08:
-			print(f"{fileName} is not usable.")
-		else:
-			interp_strain = np.linspace(0, 0.12, num=201)
-			collocated_strain = np.linspace(0, 0.10, num=11)
-			
-			# choose one interpolator
-			# splineInterp = interp1d(strain, stress, kind='cubic', fill_value='extrapolate')
-			splineInterp = PchipInterpolator(strain, stress)
-			# splineInterp = interp1d(strain, stress, kind='cubic', fill_value=('NaN','NaN'))
+		try:
+			strain, stress = getTrueStressStrain(fileName)
+			#
+			if np.any(stress > 3e2) or np.any(np.diff(stress) < 0) or np.max(strain) < 0.08 or np.any(stress) < 0:
+			# if np.max(strain) < 0.08:
+				print(f"{fileName} is not usable.")
+			else:
+				interp_strain = np.linspace(0, 0.12, num=201)
+				collocated_strain = np.linspace(0, 0.10, num=11)
+				
+				# choose one interpolator
+				# splineInterp = interp1d(strain, stress, kind='cubic', fill_value='extrapolate')
+				splineInterp = PchipInterpolator(strain, stress)
+				# splineInterp = interp1d(strain, stress, kind='cubic', fill_value=('NaN','NaN'))
 
-			interp_stress = splineInterp(interp_strain)
-			collocated_stress = splineInterp(collocated_strain)
-			plt.plot(interp_strain, interp_stress, color=colorList[i], alpha=alphaList[i], linewidth=linewidthList[i], linestyle=linestyleList[i], markersize=markersizeList[i])
-			plt.plot(collocated_strain, collocated_stress, marker='x', color='r', linestyle='None', markersize=markersizeList[i])
-			# plt.plot(strain, stress, 'bo', linestyle='None')
-			plt.plot(strain, stress, color=colorList[i], alpha=alphaList[i], marker='o', linewidth=0, linestyle=linestyleList[i])
-			print(f"{fileName} is usable.")
-			validLegendFileList[i] = fileName
+				interp_stress = splineInterp(interp_strain)
+				collocated_stress = splineInterp(collocated_strain)
+				plt.plot(interp_strain, interp_stress, color=colorList[i], alpha=alphaList[i], linewidth=linewidthList[i], linestyle=linestyleList[i], markersize=markersizeList[i])
+				plt.plot(collocated_strain, collocated_stress, marker='x', color='r', linestyle='None', markersize=markersizeList[i])
+				# plt.plot(strain, stress, 'bo', linestyle='None')
+				plt.plot(strain, stress, color=colorList[i], alpha=alphaList[i], marker='o', linewidth=0, linestyle=linestyleList[i])
+				print(f"{fileName} is usable.")
+				validLegendFileList[i] = fileName
+		except:
+			print(f"{fileName} is not valid.")
 
 # plot for legend
 plt.plot(strain, stress, color='k', marker='o', markerfacecolor='None', linestyle='None', label='observations')

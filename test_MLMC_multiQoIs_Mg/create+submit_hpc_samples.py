@@ -61,6 +61,7 @@ for i in range(min_level, num_level):
 		slurmtext[44] = new_string
 
 		# add to 'short' queue to promote shorter wait time
+		# default: 24:00:00
 		if hours_cost < 4:
 			slurmtext[3] = '#SBATCH --time=04:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)\n'
 			slurmtext[6] = '#SBATCH --partition=short,batch       # partition/queue name: short or batch\n'

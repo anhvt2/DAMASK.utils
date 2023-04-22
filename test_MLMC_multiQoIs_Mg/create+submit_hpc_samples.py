@@ -4,7 +4,8 @@ import argparse
 import os, sys, glob, datetime
 
 cost_per_level = [39,    365,    1955,    3305,    12487] # taken from run_multilevel_multiple_qoi.py
-cost_per_level = np.array(cost_per_level)
+safetyFactor = 3 # to account for run-over time on HPC
+cost_per_level = np.array(cost_per_level) * safetyFactor
 num_level = len(cost_per_level)
 currentPath = os.getcwd()
 

@@ -22,6 +22,7 @@ for i in range(len(txt)):
 	d += [tmp_list]
 
 d = np.array(d, dtype=float)
+num_levels = int(np.max(d[:,0]) - np.min(d[:,0]) + 1)
 
 del_idx = []
 for i in range(d.shape[0]):
@@ -40,7 +41,17 @@ for i in range(d.shape[0]):
 		# print(i)
 		del_idx.append(i)
 
+# diagnostics
+print(f"Start with {d.shape[0]} samples.")
+print(f"Remove {len(del_idx)} samples.")
+del_idx = np.array(del_idx)
+del_level = d[del_idx, 0]
+
+for level in range(num_levels):
+	print(f"Specifically, remove {np.sum(d[del_idx, 0] == level)} samples at level {level}.")
+
 d = np.delete(d, del_idx, axis=0)
+print(f"End with {d.shape[0]} samples.")
 
 # save dataset
 np.savetxt("MultilevelEstimators-multiQoIs.dat", d, delimiter=",", header="level, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9", fmt="%d, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e")

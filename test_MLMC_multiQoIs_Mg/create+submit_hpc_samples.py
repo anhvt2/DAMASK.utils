@@ -14,6 +14,7 @@ parser.add_argument("-min_level", "--min_level", type=int, default=0) # minimum 
 
 args = parser.parse_args()
 samples_max_level = int(args.samples_max_level)
+min_level = int(args.min_level)
 
 num_samples = np.array(samples_max_level * np.max(cost_per_level) / cost_per_level, dtype=int)
 

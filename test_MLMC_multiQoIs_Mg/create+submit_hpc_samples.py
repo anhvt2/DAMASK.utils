@@ -10,11 +10,13 @@ currentPath = os.getcwd()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-ms", "--samples_max_level", type=int) # desired number of samples at the highest level of fidelity
-parser.add_argument("-min_level", "--min_level", type=int, default=0) # minimum starting level, default = 0
+parser.add_argument("-min_level", "--min_level", type=int, default=0) # minimum starting level, default: 0
+parser.add_argument("-sbatch", "--slurm_file_name", type=str, default='sbatch.damask.srn') # slurm file name, default: on SRN
 
 args = parser.parse_args()
 samples_max_level = int(args.samples_max_level)
 min_level = int(args.min_level)
+slurm_file_name = args.slurm_file_name
 
 num_samples = np.array(samples_max_level * np.max(cost_per_level) / cost_per_level, dtype=int)
 
@@ -39,7 +41,7 @@ for i in range(min_level, num_level):
 		os.chdir(currentPath + '/' + folderName)
 
 		# read
-		slurmfile = open('sbatch.damask.srn')
+		slurmfile = open(slurm_file_name)
 		slurmtext = slurmfile.readlines()
 		slurmfile.close()
 		
@@ -56,7 +58,7 @@ for i in range(min_level, num_level):
 			slurmtext[6] = '#SBATCH --partition=short,batch       # partition/queue name: short or batch\n'
 		
 		# write
-		slurmfile = open('sbatch.damask.srn', 'w') # can be 'r', 'w', 'a', 'r+'
+		slurmfile = open(slurm_file_name, 'w') # can be 'r', 'w', 'a', 'r+'
 		for lineNo in range(len(slurmtext)):
 			slurmfile.write(slurmtext[lineNo])
 		slurmfile.close()

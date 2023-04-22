@@ -3,6 +3,13 @@ import numpy as np
 import argparse
 import os, sys, glob, datetime
 
+"""
+Usage: 
+	python3 create+submit_hpc_samples.py -ms 20
+	python3 create+submit_hpc_samples.py -ms 20  --min_level=3
+	python3 create+submit_hpc_samples.py -ms 200 --min_level=3 --slurm_file_name='sbatch.damask.solo'
+"""
+
 cost_per_level = [39,    365,    1955,    3305,    12487] # taken from run_multilevel_multiple_qoi.py
 safetyFactor = 3 # to account for run-over time on HPC
 cost_per_level = np.array(cost_per_level) * safetyFactor

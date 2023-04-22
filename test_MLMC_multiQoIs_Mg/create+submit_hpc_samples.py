@@ -10,8 +10,8 @@ currentPath = os.getcwd()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-ms", "--samples_max_level", type=int) # desired number of samples at the highest level of fidelity
-parser.add_argument("-min_level", "--min_level", type=int, default=0) # minimum starting level, default: 0
-parser.add_argument("-sbatch", "--slurm_file_name", type=str, default='sbatch.damask.srn') # slurm file name, default: on SRN
+parser.add_argument("-min_level", "--min_level", type=int, default=0) # minimum starting level, default: 0, alternative: any less than max_level
+parser.add_argument("-sbatch", "--slurm_file_name", type=str, default='sbatch.damask.srn') # slurm file name, default: on SRN, alternative: sbatch.damask.solo
 
 args = parser.parse_args()
 samples_max_level = int(args.samples_max_level)

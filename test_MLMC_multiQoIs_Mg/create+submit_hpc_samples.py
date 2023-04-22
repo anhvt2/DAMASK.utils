@@ -9,19 +9,20 @@ num_level = len(cost_per_level)
 currentPath = os.getcwd()
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-ms", "--max_sample", type=int) # desired number of samples at the highest level of fidelity
+parser.add_argument("-ms", "--samples_max_level", type=int) # desired number of samples at the highest level of fidelity
+parser.add_argument("-min_level", "--min_level", type=int, default=0) # minimum starting level, default = 0
 
 args = parser.parse_args()
-max_sample = int(args.max_sample)
+samples_max_level = int(args.samples_max_level)
 
-num_samples = np.array(max_sample * np.max(cost_per_level) / cost_per_level, dtype=int)
+num_samples = np.array(samples_max_level * np.max(cost_per_level) / cost_per_level, dtype=int)
 
 ### remove all related folders
 os.system('scancel -u anhtran')
 os.system('rm -rfv hpc_level-*')
 
-for i in range(num_level):
-# 	print(f"Need {int( max_sample * cost_per_level[-1] / cost_per_level[i])} samples at level {i}")
+for i in range(min_level, num_level):
+# 	print(f"Need {int( samples_max_level * cost_per_level[-1] / cost_per_level[i])} samples at level {i}")
 	print(f"Need {num_samples[i]} samples at level {i}")
 	num_sample = num_samples[i]
 	cost = cost_per_level[i]

@@ -20,4 +20,4 @@ rm *stress_strain.log
 tar cvzf ${tag}.output.dat.tar.gz *output.dat
 rm *output.dat
 
-cp log.MultilevelEstimators-multiQoIs ../${tag}.log.MultilevelEstimators-multiQoIs
+cp log.MultilevelEstimators-multiQoIs ${tag}.log.MultilevelEstimators-multiQoIs

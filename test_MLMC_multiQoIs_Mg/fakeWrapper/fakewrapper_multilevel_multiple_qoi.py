@@ -35,6 +35,7 @@ for i in possible_idx:
 	if i < d.shape[0] - 1:
 		if level == 0:
 			query_index = possible_idx[0]
+			break
 		else:
 			if levels[i] - levels[i+1] == 1: # check if level decreasement is satisfied
 				query_index = i

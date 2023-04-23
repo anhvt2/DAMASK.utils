@@ -2,11 +2,60 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-os.system('cat ../log.MultilevelEstimators-multiQoIs.1 >  log.MultilevelEstimators-multiQoIs')
-os.system('cat ../log.MultilevelEstimators-multiQoIs.2 >> log.MultilevelEstimators-multiQoIs')
-os.system('cat ../hpc-run-1.log.MultilevelEstimators-multiQoIs >> log.MultilevelEstimators-multiQoIs')
-os.system('cat ../hpc-run-2.log.MultilevelEstimators-multiQoIs >> log.MultilevelEstimators-multiQoIs')
-os.system('cat ../hpc-run-3.log.MultilevelEstimators-multiQoIs >> log.MultilevelEstimators-multiQoIs')
+## deprecated - replaced by import_dataset()
+# os.system('cat ../log.MultilevelEstimators-multiQoIs.1 >>  log.MultilevelEstimators-multiQoIs')
+# os.system('cat ../log.MultilevelEstimators-multiQoIs.2 >> log.MultilevelEstimators-multiQoIs')
+# os.system('cat ../hpc-run-1.log.MultilevelEstimators-multiQoIs >> log.MultilevelEstimators-multiQoIs')
+# os.system('cat ../hpc-run-2.log.MultilevelEstimators-multiQoIs >> log.MultilevelEstimators-multiQoIs')
+# os.system('cat ../hpc-run-3.log.MultilevelEstimators-multiQoIs >> log.MultilevelEstimators-multiQoIs')
+
+os.system('rm -v log.MultilevelEstimators-multiQoIs')
+
+def import_dataset(datasetFileName):
+	"""
+	Usage:
+		check and import dataset to log.MultilevelEstimators-multiQoIs
+	"""
+	# read
+	logFile = open(datasetFileName)
+	txt = logFile.readlines()
+	logFile.close()
+	d = []
+	for i in range(len(txt)):
+		txt[i] = txt[i].replace('Collocated von Mises stresses at ', '')
+		txt[i] = txt[i].replace(' is ', ',') # replace with a comma
+		txt[i] = txt[i].replace('\n', '') 
+		tmp_list = txt[i].split(',')
+		d += [tmp_list]
+
+	d = np.array(d, dtype=float)
+	# check
+	tossaway_idx = []
+	while i < d.shape[0] - 1:
+		if d[i+1,0] - d[i,0] == 1:
+			i += 1 # skip next index if valid
+			# print(f"Index {i} valid in {datasetFileName}.") # debug
+
+		if d[i,0] != 0 and d[i+1,0] - d[i,0] != 1:
+			print(f"Index {i} is not valid in {datasetFileName} -- Toss away.")
+			tossaway_idx.append(i)
+
+		i += 1
+
+	for i in range(len(tossaway_idx) - 1, -1, -1):
+		txt = txt.pop(tossaway_idx[i])
+	# import
+	logFile = open('log.MultilevelEstimators-multiQoIs', 'a+')
+	for i in range(len(txt)):
+		logFile.write(txt[i])
+		logFile.write('\n')
+	logFile.close()
+
+import_dataset('../log.MultilevelEstimators-multiQoIs.1')
+import_dataset('../log.MultilevelEstimators-multiQoIs.2')
+import_dataset('../hpc-run-1.log.MultilevelEstimators-multiQoIs')
+import_dataset('../hpc-run-2.log.MultilevelEstimators-multiQoIs')
+import_dataset('../hpc-run-3.log.MultilevelEstimators-multiQoIs')
 
 # read dataset
 logFile = open('log.MultilevelEstimators-multiQoIs')

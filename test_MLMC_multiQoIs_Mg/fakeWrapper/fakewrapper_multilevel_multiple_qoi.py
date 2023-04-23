@@ -24,14 +24,23 @@ levels = d[:,0]
 
 ### lookup data and return only FIRST correct result: query_index
 possible_idx = np.where(levels == level)[0]
-for i in possible_idx:
-	if levels[i] - levels[i+1] == 1:
-		query_index = i
-		# verbose
-		print(f"levels[{i}] = {int(levels[i])}")
-		print(f"levels[{i+1}] = {int(levels[i+1])}")
-		print(f"Found query_index = {i}")
-		break
+
+# remove last index in case level = 0 to avoid index overflow
+if level == 0:
+	possible_idx = np.delete(possible_idx, len(possible_idx) - 1)
+
+# return query_index
+if level == 0:
+	query_index = possible_idx[0]
+else:
+	for i in possible_idx:
+		if levels[i] - levels[i+1] == 1:
+			query_index = i
+			# verbose
+			print(f"levels[{i}] = {int(levels[i])}")
+			print(f"levels[{i+1}] = {int(levels[i+1])}")
+			print(f"Found query_index = {i}")
+			break
 
 if level == 0:
 	results = d[ query_index ]

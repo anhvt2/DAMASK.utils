@@ -29,18 +29,20 @@ possible_idx = np.where(levels == level)[0]
 if level == 0:
 	possible_idx = np.delete(possible_idx, len(possible_idx) - 1)
 
-# return query_index
-if level == 0:
-	query_index = possible_idx[0]
-else:
-	for i in possible_idx:
-		if levels[i] - levels[i+1] == 1: # check if level decreasement is satisfied
-			query_index = i
-			# # verbose
-			# print(f"levels[{i}] = {int(levels[i])}")
-			# print(f"levels[{i+1}] = {int(levels[i+1])}")
-			# print(f"Found query_index = {i}")
-			break
+# search and return query_index
+
+for i in possible_idx:
+	if i < d.shape[0] - 1:
+		if level == 0:
+			query_index = possible_idx[0]
+		else:
+			if levels[i] - levels[i+1] == 1: # check if level decreasement is satisfied
+				query_index = i
+				# # verbose
+				# print(f"levels[{i}] = {int(levels[i])}")
+				# print(f"levels[{i+1}] = {int(levels[i+1])}")
+				# print(f"Found query_index = {i}")
+				break
 
 if level == 0:
 	results = d[ query_index ]

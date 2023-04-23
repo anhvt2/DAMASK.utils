@@ -4,7 +4,9 @@ import os
 
 os.system('cat ../log.MultilevelEstimators-multiQoIs.1 >  log.MultilevelEstimators-multiQoIs')
 os.system('cat ../log.MultilevelEstimators-multiQoIs.2 >> log.MultilevelEstimators-multiQoIs')
-os.system('cat ../log.MultilevelEstimators-multiQoIs.3 >> log.MultilevelEstimators-multiQoIs')
+os.system('cat ../hpc-run-1.log.MultilevelEstimators-multiQoIs >> log.MultilevelEstimators-multiQoIs')
+os.system('cat ../hpc-run-2.log.MultilevelEstimators-multiQoIs >> log.MultilevelEstimators-multiQoIs')
+os.system('cat ../hpc-run-3.log.MultilevelEstimators-multiQoIs >> log.MultilevelEstimators-multiQoIs')
 
 # read dataset
 logFile = open('log.MultilevelEstimators-multiQoIs')
@@ -52,6 +54,9 @@ for level in range(num_levels):
 
 d = np.delete(d, del_idx, axis=0)
 print(f"End with {d.shape[0]} samples.")
+print("Statistics")
+for level in range(num_levels):
+	print(f"Found {np.sum(d[:, 0] == level)} samples at level {level}.")
 
 # save dataset
 np.savetxt("MultilevelEstimators-multiQoIs.dat", d, delimiter=",", header="level, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9", fmt="%d, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e")

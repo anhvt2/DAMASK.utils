@@ -31,19 +31,41 @@ def import_dataset(datasetFileName):
 	d = np.array(d, dtype=float)
 	# check
 	tossaway_idx = []
-	while i < d.shape[0] - 1:
-		if d[i+1,0] - d[i,0] == 1:
-			i += 1 # skip next index if valid
-			# print(f"Index {i} valid in {datasetFileName}.") # debug
+	# print(d.shape[0]) # debug
+	ii = 0 # debug
+	while ii < d.shape[0] - 1:
+		# print(ii)
+		if d[ii,0] - d[ii+1,0] == 1:
+			# print(f"Index {ii} valid in {datasetFileName}. Skip index {ii+1}.") # debug
+			ii += 1 # skip next index if valid
+		# elif d[ii,0] == 0: # debug
+		# 	print(f"Index {ii} valid in {datasetFileName}.") # debug
+		else:
+			if d[ii,0] != 0 and d[ii,0] - d[ii+1,0] != 1:
+				# print(f"Index {ii} is not valid in {datasetFileName}: lonely sample. -- Discard.") # debug
+				# print(f"{d[ii]}, {d[ii+1]}")
+				# print(txt[ii])
+				tossaway_idx.append(ii)
+			## deprecated: move to later
+			# if np.any(np.isnan(d[ii,:])):
+			# 	if d[ii,0] == 0:
+			# 		print(f"Index {ii} is not valid in {datasetFileName}: NaN found. -- Discard.")
+			# 		tossaway_idx.append(ii)
+			# 		print(f"{ii}: {np.any(np.isnan(d[ii,:]))}") # debug
+			# 	else:
+			# 		tossaway_idx.append(ii)
+			# 		print(f"Index {ii} is not valid in {datasetFileName}: NaN found. Discard.")
+			# 		if d[ii,0] - d[ii+1,0] == 1:
+			# 			tossaway_idx.append(ii+1)
+			# 			print(f"Index {ii+1} is not valid in {datasetFileName}: NaN found in previous level. -- Discard.")
+			# 			ii += 1
+		ii += 1
 
-		if d[i,0] != 0 and d[i+1,0] - d[i,0] != 1:
-			print(f"Index {i} is not valid in {datasetFileName} -- Toss away.")
-			tossaway_idx.append(i)
+	tossaway_idx = np.sort(np.unique(np.array(tossaway_idx)))
 
-		i += 1
-
+	# print(len(txt))
 	for i in range(len(tossaway_idx) - 1, -1, -1):
-		txt = txt.pop(tossaway_idx[i])
+		txt.pop(tossaway_idx[i])
 	# import
 	logFile = open('log.MultilevelEstimators-multiQoIs', 'a+')
 	for i in range(len(txt)):
@@ -53,9 +75,11 @@ def import_dataset(datasetFileName):
 
 import_dataset('../log.MultilevelEstimators-multiQoIs.1')
 import_dataset('../log.MultilevelEstimators-multiQoIs.2')
-import_dataset('../hpc-run-1.log.MultilevelEstimators-multiQoIs')
-import_dataset('../hpc-run-2.log.MultilevelEstimators-multiQoIs')
-import_dataset('../hpc-run-3.log.MultilevelEstimators-multiQoIs')
+
+for i in range(1,5):
+	import_dataset('../hpc-run-%d.log.MultilevelEstimators-multiQoIs' % i)
+
+# import_dataset('../hpc-run-5.log.MultilevelEstimators-multiQoIs') # nan - debug
 
 # read dataset
 logFile = open('log.MultilevelEstimators-multiQoIs')
@@ -92,18 +116,28 @@ for i in range(d.shape[0]):
 		# print(i)
 		del_idx.append(i)
 
+for i in range(d.shape[0]):
+	# removal condition: nan
+	if np.any(np.isnan(d[i, 1:])):
+		del_idx.append(i)
+
+del_idx = np.unique(np.sort(np.array(del_idx)))
+print(del_idx)
+
 # diagnostics
+print("Pre-cleanse Statistics")
 print(f"Start with {d.shape[0]} samples.")
 print(f"Remove {len(del_idx)} samples.")
-del_idx = np.array(del_idx)
+
 del_level = d[del_idx, 0]
 
 for level in range(num_levels):
-	print(f"Specifically, remove {np.sum(d[del_idx, 0] == level)} samples at level {level}.")
+	print(f"Remove {np.sum(d[del_idx, 0] == level)} samples at level {level}.")
 
 d = np.delete(d, del_idx, axis=0)
 print(f"End with {d.shape[0]} samples.")
-print("Statistics")
+print('\n')
+print("Post-cleanse Statistics")
 for level in range(num_levels):
 	print(f"Found {np.sum(d[:, 0] == level)} samples at level {level}.")
 

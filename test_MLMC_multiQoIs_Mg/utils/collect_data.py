@@ -7,7 +7,10 @@
 import os, sys, datetime
 import numpy as np
 
-os.system('find . -name %s' % 'postProc > folders.list') 
+if os.path.exists('folders.list'):
+	print(f"Use existing folders.list. Command: 'find . -name %s' % 'postProc > folders.list' ignore")
+else:
+	os.system('find . -name %s' % 'postProc > folders.list') 
 
 folders_list = np.loadtxt('folders.list', dtype=str)
 parentPath = os.getcwd()
@@ -38,11 +41,16 @@ def check_valid(parentPath, folderName):
 			pass only two cases: 
 			(1) IF level == 0 AND no NaN THEN pass
 			(2) IF level > 0 AND levels are valid AND no NaN THEN pass
+
+			Also check stresses:
+			(1) not NaN
+			(2) not out-of-range: max stress < threshold = 5e2
+			(3) monotonic
 		"""
 		validFlag = 0 # initialize
-		if num_rows == 1 and levels == 0 and (not np.any(np.isnan(d[:, 1:]))):
+		if num_rows == 1 and levels == 0 and (not np.any(np.isnan(d[:, 1:]))) and np.all(np.max(d[:, 1:] < 5e2)) and np.all(np.diff(d[:, 1:]) > 0):
 			validFlag = 1
-		if num_rows == 2 and levels[0] - levels[1] == 1 and (not np.any(np.isnan(d[:, 1:]))):
+		if num_rows == 2 and levels[0] - levels[1] == 1 and (not np.any(np.isnan(d[:, 1:]))) and np.all(np.max(d[:, 1:] < 5e2)) and np.all(np.diff(d[:, 1:]) > 0):
 			validFlag = 1
 	else:
 		validFlag = 0	

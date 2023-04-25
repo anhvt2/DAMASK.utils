@@ -122,7 +122,7 @@ for i in range(d.shape[0]):
 		del_idx.append(i)
 
 del_idx = np.unique(np.sort(np.array(del_idx)))
-print(del_idx)
+# print(del_idx)
 
 # diagnostics
 print("Pre-cleanse Statistics")

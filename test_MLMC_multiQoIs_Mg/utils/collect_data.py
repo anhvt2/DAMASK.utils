@@ -73,9 +73,9 @@ for folderStr in folders_list:
 	f.write('%s\n' % validFlag)
 	f.close()
 	if validFlag:
-		os.system('cp %s/output.dat ./%s-output.dat' % (folderStr, folderName))
-		os.system('cp %s/stress_strain.log ./%s-stress_strain.log' % (folderStr, folderName))
-		os.system('cat %s/../../../log.MultilevelEstimators-multiQoIs >> %s/log.MultilevelEstimators-multiQoIs' % (folderStr, parentPath))
+		os.system('cp %s/%s/output.dat %s/%s-output.dat' % (parentPath, folderStr, parentPath, folderName))
+		os.system('cp %s/%s/stress_strain.log %s/%s-stress_strain.log' % (parentPath, folderStr, parentPath, folderName))
+		os.system('cat %s/%s/../../../log.MultilevelEstimators-multiQoIs >> %s/log.MultilevelEstimators-multiQoIs' % (parentPath, folderStr, parentPath))
 
 
 	print(f"done {folderName}")

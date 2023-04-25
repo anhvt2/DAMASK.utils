@@ -12,11 +12,12 @@ os.system('find . -name %s' % 'postProc > folders.list')
 folders_list = np.loadtxt('folders.list', dtype=str)
 parentPath = os.getcwd()
 
-os.system('rm -v {folderName,mesh_time_stamp,mesh_size,validity}.log')
+os.system('rm -v {folderName,mesh_time_stamp,mesh_size,validFlag}.log')
+os.system('rm -v *output.dat *stress_strain.log log.MultilevelEstimators-multiQoIs')
 
-def checkValidity(parentPath, folderName):
-	# check validity
-	logFile = open(parentPath + '/' + folderName + '/' + '../log.MultilevelEstimators-multiQoIs')
+def check_valid(parentPath, folderName):
+	# check validFlag
+	logFile = open(parentPath + '/' + folderName + '/' + 'log.MultilevelEstimators-multiQoIs')
 	txt = logFile.readlines()
 	logFile.close()
 	d = []
@@ -26,7 +27,7 @@ def checkValidity(parentPath, folderName):
 		txt[i] = txt[i].replace('\n', '') 
 		tmp_list = txt[i].split(',')
 		d += [tmp_list]
-	
+
 	d = np.array(d, dtype=float)
 	# print(d)
 	num_rows = d.shape[0]
@@ -36,12 +37,12 @@ def checkValidity(parentPath, folderName):
 		(1) IF level == 0 AND no NaN THEN pass
 		(2) IF level > 0 AND levels are valid AND no NaN THEN pass
 	"""
-	validity = 0 # initialize
+	validFlag = 0 # initialize
 	if num_rows == 1 and levels == 0 and (not np.any(np.isnan(d[:, 1:]))):
-		validity = 1
+		validFlag = 1
 	if num_rows == 2 and levels[0] - levels[1] == 1 and (not np.any(np.isnan(d[:, 1:]))):
-		validity = 1
-	return validity
+		validFlag = 1
+	return validFlag
 
 for folderStr in folders_list:
 	os.chdir(parentPath + '/' + folderStr)
@@ -60,18 +61,24 @@ for folderStr in folders_list:
 	f.write('%s\n' % mesh_size)
 	f.close()
 	f = open(parentPath + '/' + 'time_stamp.log', 'a+') # e.g. hpc_level-0_sample-4747
-	f.write('%s\n' % time_stamp)
+	f.write('%s\n' % time_stamp) # format: '%y-%m-%d-%H-%M-%S', e.g. ['23', '04', '22', '21', '16', '17']
 	f.close()
 	# calculate elapsed time
-	validity = checkValidity(parentPath, folderName)
-	f = open(parentPath + '/' + 'validity.log', 'a+')
-	f.write('%s\n' % validity)
+	validFlag = check_valid(parentPath, folderName)
+	f = open(parentPath + '/' + 'validFlag.log', 'a+')
+	f.write('%s\n' % validFlag)
 	f.close()
+	if validFlag:
+		os.system('cp %s/output.dat ./%s-output.dat' % (folderStr, folderName))
+		os.system('cp %s/stress_strain.log ./%s-stress_strain.log' % (folderStr, folderName))
+		os.system('cat %s/../../../log.MultilevelEstimators-multiQoIs >> %s/log.MultilevelEstimators-multiQoIs' % (folderStr, parentPath))
+
+
 	print(f"done {folderName}")
 	# copy data
 
 
-
+os.system('bash packTarballs.sh')
 
 
 

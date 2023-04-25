@@ -17,31 +17,35 @@ os.system('rm -v *output.dat *stress_strain.log log.MultilevelEstimators-multiQo
 
 def check_valid(parentPath, folderName):
 	# check validFlag
-	logFile = open(parentPath + '/' + folderName + '/' + 'log.MultilevelEstimators-multiQoIs')
-	txt = logFile.readlines()
-	logFile.close()
-	d = []
-	for i in range(len(txt)):
-		txt[i] = txt[i].replace('Collocated von Mises stresses at ', '')
-		txt[i] = txt[i].replace(' is ', ',') # replace with a comma
-		txt[i] = txt[i].replace('\n', '') 
-		tmp_list = txt[i].split(',')
-		d += [tmp_list]
+	logFileHandler = parentPath + '/' + folderName + '/' + 'log.MultilevelEstimators-multiQoIs'
+	if os.path.exists(logFileHandler): # check if file exist
+		logFile = open()
+		txt = logFile.readlines()
+		logFile.close()
+		d = []
+		for i in range(len(txt)):
+			txt[i] = txt[i].replace('Collocated von Mises stresses at ', '')
+			txt[i] = txt[i].replace(' is ', ',') # replace with a comma
+			txt[i] = txt[i].replace('\n', '') 
+			tmp_list = txt[i].split(',')
+			d += [tmp_list]
 
-	d = np.array(d, dtype=float)
-	# print(d)
-	num_rows = d.shape[0]
-	levels = d[:, 0]
-	"""
-		pass only two cases: 
-		(1) IF level == 0 AND no NaN THEN pass
-		(2) IF level > 0 AND levels are valid AND no NaN THEN pass
-	"""
-	validFlag = 0 # initialize
-	if num_rows == 1 and levels == 0 and (not np.any(np.isnan(d[:, 1:]))):
-		validFlag = 1
-	if num_rows == 2 and levels[0] - levels[1] == 1 and (not np.any(np.isnan(d[:, 1:]))):
-		validFlag = 1
+		d = np.array(d, dtype=float)
+		# print(d)
+		num_rows = d.shape[0]
+		levels = d[:, 0]
+		"""
+			pass only two cases: 
+			(1) IF level == 0 AND no NaN THEN pass
+			(2) IF level > 0 AND levels are valid AND no NaN THEN pass
+		"""
+		validFlag = 0 # initialize
+		if num_rows == 1 and levels == 0 and (not np.any(np.isnan(d[:, 1:]))):
+			validFlag = 1
+		if num_rows == 2 and levels[0] - levels[1] == 1 and (not np.any(np.isnan(d[:, 1:]))):
+			validFlag = 1
+	else:
+		validFlag = 0	
 	return validFlag
 
 for folderStr in folders_list:

@@ -12,7 +12,7 @@ os.system('find . -name %s' % 'postProc > folders.list')
 folders_list = np.loadtxt('folders.list', dtype=str)
 parentPath = os.getcwd()
 
-os.system('rm -v folderName.log mesh_time_stamp.log validity.log')
+os.system('rm -v {folderName,mesh_time_stamp,mesh_size,validity}.log')
 
 def checkValidity(parentPath, folderName):
 	# check validity
@@ -39,7 +39,7 @@ def checkValidity(parentPath, folderName):
 	validity = 0 # initialize
 	if num_rows == 1 and levels == 0 and (not np.any(np.isnan(d[:, 1:]))):
 		validity = 1
-	if num_rows == 2 and levels[0] - levels[1] == 1 and (not np.any(np.isnan(d[:, 1:])))
+	if num_rows == 2 and levels[0] - levels[1] == 1 and (not np.any(np.isnan(d[:, 1:]))):
 		validity = 1
 	return validity
 
@@ -65,8 +65,9 @@ for folderStr in folders_list:
 	# calculate elapsed time
 	validity = checkValidity(parentPath, folderName)
 	f = open(parentPath + '/' + 'validity.log', 'a+')
-	f.write('%s\n' % valid)
+	f.write('%s\n' % validity)
 	f.close()
+	print(f"done {folderName}")
 	# copy data
 
 

@@ -82,7 +82,7 @@ for folderStr in folders_list:
 	# copy data
 
 
-os.system('bash packTarballs.sh')
+os.system('bash ../utils/packTarballs.sh')
 
 
 

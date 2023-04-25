@@ -81,7 +81,7 @@ for folderStr in folders_list:
 	print(f"done {folderName}")
 	# copy data
 
-
+os.chdir(parentPath)
 os.system('bash ../utils/packTarballs.sh')
 
 

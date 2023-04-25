@@ -8,7 +8,7 @@ import os, sys, datetime
 import numpy as np
 
 if os.path.exists('folders.list'):
-	print(f"Use existing folders.list. Command: 'find . -name %s' % 'postProc > folders.list' ignore")
+	print(f"Use existing folders.list. Ignore command: find . -name 'postProc' > folders.list")
 else:
 	os.system('find . -name %s' % 'postProc > folders.list') 
 

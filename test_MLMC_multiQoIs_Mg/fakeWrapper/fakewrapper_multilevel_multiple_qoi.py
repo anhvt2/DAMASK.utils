@@ -10,9 +10,6 @@ import socket
 parser = argparse.ArgumentParser()
 parser.add_argument("-level", "--level", type=int)
 parser.add_argument("-nb_of_qoi", "--nb_of_qoi", type=int)
-# parser.add_argument("-isNewMs", "--isNewMs", default="True", type=str) # deprecated: always generate new microstructure
-# parser.add_argument("-baseSize", "--baseSize", default=320, type=int) # unnecessary -- unless generateMsDream3d.sh is adaptive then this parameter is fixed for now
-# NOTE: note that "generateMsDream3d.sh" is hard-coded with a specific number of levels and a specific set of lines to change
 
 args = parser.parse_args()
 level = int(args.level);
@@ -29,8 +26,7 @@ possible_idx = np.where(levels == level)[0]
 if level == 0:
 	possible_idx = np.delete(possible_idx, len(possible_idx) - 1)
 
-# search and return query_index
-
+### search and return query_index
 for i in possible_idx:
 	if i < d.shape[0] - 1:
 		if level == 0:
@@ -53,7 +49,6 @@ else:
 	stress_only_results = results[:,1:]
 
 ### print results w/ identical interface
-
 if level == 0:
 	vmStress2str = np.array(stress_only_results, dtype=str)
 	str2print = ', '.join(vmStress2str) # construct a string to print on screen

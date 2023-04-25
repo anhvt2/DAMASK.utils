@@ -19,7 +19,7 @@ def check_valid(parentPath, folderName):
 	# check validFlag
 	logFileHandler = parentPath + '/' + folderName + '/' + 'log.MultilevelEstimators-multiQoIs'
 	if os.path.exists(logFileHandler): # check if file exist
-		logFile = open()
+		logFile = open(logFileHandler)
 		txt = logFile.readlines()
 		logFile.close()
 		d = []

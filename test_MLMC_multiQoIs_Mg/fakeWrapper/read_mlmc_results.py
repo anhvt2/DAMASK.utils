@@ -49,3 +49,14 @@ for fileName in natsorted(glob.glob('log.mlmc.vareps-*'), reverse=True):
 	f = open('mlmc_frac_cost.txt', 'a+')
 	f.write('%.8e\t%.8e\t%.8e\t%.8e\t%.8e\t%.2f\n' % (frac_cost[0], frac_cost[1], frac_cost[2], frac_cost[3], frac_cost[4], total_cost))
 	f.close()
+
+## TODO: rewrite mlmc_frac_cost.txt and mlmc_cost.dat sorted by vareps
+d = np.loadtxt('mlmc_cost.dat', delimiter=',', skiprows=1)
+d = d[d[:, 0].argsort()]
+d = d[::-1,:] # flip top/bottom
+np.savetxt('mlmc_cost.dat', d, header="# varepsilon, n, computational_cost, rmse", fmt="%.8e, %d, %d, %d, %d, %d, %.2f, %.8e")
+
+d = np.loadtxt('mlmc_frac_cost.txt', delimiter='\t', skiprows=1)
+d = d[d[:, -1].argsort()]
+np.savetxt('mlmc_frac_cost.txt', d, header="0	1	2	3	4	total", fmt="%.8e	%.8e	%.8e	%.8e	%.8e	%.2f")
+

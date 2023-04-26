@@ -45,7 +45,7 @@ cost_per_level = [39    365    1955    3305    12487]
 # =============================
 # >> Specify initial RMSE (this is just a guess)
 # >> Lower values of the RMSE means a more accurate result, but also more samples
-ε = 4.0e-1
+vareps = 4.0e-1
 
 # ========================================
 # @@@ SELECT NUMBER OF WARM-UP SAMPLES @@@
@@ -64,7 +64,7 @@ nb_of_qoi = 10
 # ======================
 run_multilevel(max_level=max_level,
                cost_model=level -> sum(cost_per_level[key + one(key)] for key in push!(collect(keys(diff(level))), level)),
-               ε=ε,
+               ε=vareps,
                nb_of_warm_up_samples=nb_of_warm_up_samples,
                nb_of_qoi=nb_of_qoi
               )

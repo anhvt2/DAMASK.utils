@@ -6,6 +6,7 @@ import glob, os
 from natsort import natsorted, ns
 
 cost_per_level = [39,    365,    1955,    3305,    12487]
+cost_per_level = np.array(cost_per_level) / 60 # measured in hours
 num_levels = len(cost_per_level)
 
 # os.system('rm -v mlmc_cost')
@@ -39,10 +40,12 @@ for fileName in natsorted(glob.glob('log.mlmc.vareps-*'), reverse=True):
 	except: n[4] = 0
 	rmse = float(txt[-5].split('≈')[1].replace('\n','')[:-1]) # rmse
 
+	total_cost = np.sum(n * cost_per_level) 
+	frac_cost = n * cost_per_level / total_cost * 1e2
 	f = open('mlmc_cost.dat', 'a+')
-	f.write('%.8e, %d, %d, %d, %d, %d, %.2f, %.8e\n' % (vareps, n[0], n[1], n[2], n[3], n[4], np.sum(n * cost_per_level), rmse))
+	f.write('%.8e, %d, %d, %d, %d, %d, %.2f, %.8e\n' % (vareps, n[0], n[1], n[2], n[3], n[4], total_cost, rmse))
 	f.close()
 
 	f = open('mlmc_frac_cost.txt', 'a+')
-	f.write('%d\t%d\t%d\t%d\t%d\t%.8e\n' % (n[0], n[1], n[2], n[3], n[4], np.sum(n * cost_per_level)))
+	f.write('%.8e\t%.8e\t%.8e\t%.8e\t%.8e\t%.8e\n' % (frac_cost[0], frac_cost[1], frac_cost[2], frac_cost[3], frac_cost[4], total_cost))
 	f.close()

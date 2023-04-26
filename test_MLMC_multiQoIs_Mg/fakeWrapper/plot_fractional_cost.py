@@ -46,7 +46,7 @@ def plot_frac_cost(filename, label=None):
 # In[59]:
 
 
-plot_frac_cost("mlmc_multiQoIs_frac_cost.txt", label=r'MLMC for Magnesium, multiple QoIs')
+plot_frac_cost("mlmc_frac_cost.txt", label=r'MLMC for Magnesium, multiple QoIs')
 
 
 

@@ -9,8 +9,9 @@ mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
 mc_cost = np.loadtxt('vanilla_mc_cost.dat', delimiter=',')
+varepsilon, num_samples, computational_cost, final_vareps = mc_cost[:,0], mc_cost[:,1], mc_cost[:,2], mc_cost[:,3]
 
-plt.plot(mc_cost[:,0], mc_cost[:,2], color='tab:red', linestyle='-', marker='o', 
+plt.plot(final_vareps, computational_cost, color='tab:red', linestyle='-', marker='o', 
 	markersize=15, markerfacecoloralt='white', markeredgecolor='k', 
 	fillstyle='left', label='MC')
 

@@ -6,6 +6,8 @@ import time
 import datetime
 import socket
 
+os.system('python3 cleanseDataset.py')
+
 def computeNumberSamples(vareps):
 	d = np.loadtxt('MultilevelEstimators-multiQoIs.dat', skiprows=1, delimiter=',')
 	levels = d[:,0]
@@ -26,15 +28,15 @@ def computeNumberSamples(vareps):
 		V = np.var(x, axis=0)
 		print(f"Take {n:<2d} samples. np.max(V) / n = {np.max(V) / n:<8.5f}. Tolerance: vareps**2 / 2 = {vareps**2 / 2:<13.8f}")
 		n += 1
-	return n, n * cost_per_level[-1]
+	return n, n * cost_per_level[-1], np.sqrt(2 * np.max(V) / n)
 
 
 
 os.system('rm -fv vanilla_mc_cost.dat')
 f = open('vanilla_mc_cost.dat', 'a+')
-f.write('# varepsilon, num_samples, computational_cost\n')
+f.write('# varepsilon, num_samples, computational_cost, final_vareps\n')
 for vareps in np.arange(1.0, 0.2, -0.1):
-	n, comp_cost = computeNumberSamples(vareps)
-	f.write('%.8e, %d, %.2f\n' % (vareps, n, comp_cost))
+	n, comp_cost, final_vareps = computeNumberSamples(vareps)
+	f.write('%.8e, %d, %.2f, %.8e\n' % (vareps, n, comp_cost, final_vareps))
 
 f.close()

@@ -34,9 +34,9 @@ def computeNumberSamples(vareps):
 
 os.system('rm -fv vanilla_mc_cost.dat')
 f = open('vanilla_mc_cost.dat', 'a+')
-
+f.write('# varepsilon, num_samples, computational_cost\n')
 for vareps in np.arange(1.0, 0.2, -0.1):
 	n, comp_cost = computeNumberSamples(vareps)
-	f.write('%d, %.2f\n' % (n, comp_cost))
+	f.write('%.8e, %d, %.2f\n' % (vareps, n, comp_cost))
 
 f.close()

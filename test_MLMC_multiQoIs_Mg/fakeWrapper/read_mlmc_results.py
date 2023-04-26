@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import glob, os
+from natsort import natsorted, ns
 
 cost_per_level = [39,    365,    1955,    3305,    12487]
 num_levels = len(cost_per_level)
@@ -16,9 +17,9 @@ f = open('mlmc_frac_cost.txt', 'w')
 f.write('0	1	2	3	4	total\n')
 f.close()
 
-for fileName in glob.glob('log.mlmc.vareps-*'):
+for fileName in natsorted(glob.glob('log.mlmc.vareps-*'), reverse=True):
 	str_vareps = fileName.split('vareps')[1]
-	vareps = float(str_vareps)
+	vareps = - float(str_vareps)
 	print(f"Processing {fileName}")
 
 	f = open(fileName)
@@ -43,5 +44,5 @@ for fileName in glob.glob('log.mlmc.vareps-*'):
 	f.close()
 
 	f = open('mlmc_frac_cost.txt', 'a+')
-	f.write('%d  %d  %d  %d  %d  %.8e\n' % (n[0], n[1], n[2], n[3], n[4], np.sum(n * cost_per_level)))
+	f.write('%d\t%d\t%d\t%d\t%d\t%.8e\n' % (n[0], n[1], n[2], n[3], n[4], np.sum(n * cost_per_level)))
 	f.close()

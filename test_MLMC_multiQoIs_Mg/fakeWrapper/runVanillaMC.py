@@ -17,7 +17,6 @@ def computeNumberSamples(vareps):
 	x = d[:n, 1:]
 	E = np.mean(x, axis=0)
 	V = np.var(x, axis=0)
-	# while i < num_samples-1:
 	while np.max(V) / n > vareps**2 / 2:
 		if n > max_num_samples:
 			print(f"Require more than {max_num_samples:<2d} samples. Out of budget.")
@@ -28,7 +27,6 @@ def computeNumberSamples(vareps):
 		print(f"Take {n:<2d} samples. np.max(V) / n = {np.max(V) / n:<8.5f}. Tolerance: vareps**2 / 2 = {vareps**2 / 2:<13.8f}")
 		n += 1
 	return n, n * cost_per_level[-1]
-
 
 
 

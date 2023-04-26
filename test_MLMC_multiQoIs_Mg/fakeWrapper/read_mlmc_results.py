@@ -54,7 +54,7 @@ for fileName in natsorted(glob.glob('log.mlmc.vareps-*'), reverse=True):
 d = np.loadtxt('mlmc_cost.dat', delimiter=',', skiprows=1)
 d = d[d[:, 0].argsort()]
 d = d[::-1,:] # flip top/bottom
-np.savetxt('mlmc_cost.dat', d, header="# varepsilon, n, computational_cost, rmse", fmt="%.8e, %d, %d, %d, %d, %d, %.2f, %.8e")
+np.savetxt('mlmc_cost.dat', d, header="# varepsilon, n, computational_cost, rmse", fmt="%.8e, %d, %d, %d, %d, %d, %.2f, %.8e", comments='')
 
 d = np.loadtxt('mlmc_frac_cost.txt', delimiter='\t', skiprows=1)
 d = d[d[:, -1].argsort()]

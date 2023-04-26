@@ -36,7 +36,7 @@ def plot_frac_cost(filename, label=None):
     ax.legend(bbox_to_anchor=(1, 1), frameon=False, fontsize=24)
     ax.set_xticks(range(frac_cost.shape[0]))
     ax.set_xticklabels(frac_cost["total"])
-    ax.set_xlabel(r"Total Cost [CPU $\times$ hr]", fontsize=24)
+    ax.set_xlabel(r"Total Cost [hr]", fontsize=24)
     ax.set_ylabel("Percentage (%) of Total Cost", fontsize=24)
     ax.set_title(label, fontsize=24)
     ax.set_ylim(top=100)

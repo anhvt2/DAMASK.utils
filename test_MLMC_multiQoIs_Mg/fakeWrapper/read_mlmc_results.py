@@ -58,5 +58,5 @@ np.savetxt('mlmc_cost.dat', d, header="# varepsilon, n, computational_cost, rmse
 
 d = np.loadtxt('mlmc_frac_cost.txt', delimiter='\t', skiprows=1)
 d = d[d[:, -1].argsort()]
-np.savetxt('mlmc_frac_cost.txt', d, header="0	1	2	3	4	total", fmt="%.8e	%.8e	%.8e	%.8e	%.8e	%.2f")
+np.savetxt('mlmc_frac_cost.txt', d, header="0	1	2	3	4	total", fmt="%.8e	%.8e	%.8e	%.8e	%.8e	%.2f", comments='')
 

@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import matplotlib as mpl
+from matplotlib.ticker import FormatStrFormatter
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
@@ -39,6 +40,7 @@ def plot_frac_cost(filename, label=None):
     ax.set_ylabel("Percentage (%) of Total Cost", fontsize=24)
     ax.set_title(label, fontsize=24)
     ax.set_ylim(top=100)
+    # ax.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
     plt.subplots_adjust(left=0.1, right=0.85)
     plt.show()
 

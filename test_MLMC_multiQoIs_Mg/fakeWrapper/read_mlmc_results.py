@@ -47,5 +47,5 @@ for fileName in natsorted(glob.glob('log.mlmc.vareps-*'), reverse=True):
 	f.close()
 
 	f = open('mlmc_frac_cost.txt', 'a+')
-	f.write('%.8e\t%.8e\t%.8e\t%.8e\t%.8e\t%.8e\n' % (frac_cost[0], frac_cost[1], frac_cost[2], frac_cost[3], frac_cost[4], total_cost))
+	f.write('%.8e\t%.8e\t%.8e\t%.8e\t%.8e\t%.2f\n' % (frac_cost[0], frac_cost[1], frac_cost[2], frac_cost[3], frac_cost[4], total_cost))
 	f.close()

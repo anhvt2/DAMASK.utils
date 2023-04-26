@@ -13,7 +13,9 @@ for i in $(seq $(cat vanilla_mc_cost.dat | wc -l)); do
 		echo $vareps
 
 		sed -i "48s|.*|vareps = ${vareps}|" fakerun_multilevel_multiple_qoi.jl
-		julia fakerun_multilevel_multiple_qoi.jl > log.mlmc.vareps-${vareps}
+		python3 cleanseDataset.py # reset database
+		# rm -f nohup.out; nohup julia fakerun_multilevel_multiple_qoi.jl 2>&1 > log.mlmc.vareps-${vareps} &
+		julia fakerun_multilevel_multiple_qoi.jl 2>&1 > log.mlmc.vareps-${vareps}
 	fi
 done
 

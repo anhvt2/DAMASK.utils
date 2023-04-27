@@ -5,6 +5,7 @@ import argparse
 import time
 import datetime
 import socket
+import random
 
 ### adopt from wrapper_multilevel_multiple_qoi.py
 parser = argparse.ArgumentParser()
@@ -26,6 +27,7 @@ possible_idx = np.where(levels == level)[0]
 if level == 0:
 	possible_idx = np.delete(possible_idx, len(possible_idx) - 1)
 
+possible_idx = np.random.shuffle(possible_idx)
 ### search and return query_index
 for i in possible_idx:
 	if i < d.shape[0] - 1:

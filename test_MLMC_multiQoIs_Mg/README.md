@@ -7,7 +7,6 @@
 	* `fakerun_2levels_multiple_qoi.jl` and `fakewrapper_2levels_multiple_qoi.py`: 2 levels
 * `hybrid`: combines both `fake` and `template` -- lookup first, if failed, then run CPFEM
 
-
 # Documentation
 
 copy 
@@ -76,6 +75,11 @@ cd fakeWrappers/
 python3 cleanseDataset.py # convert log to clean data file -- initial
 julia fakerun_multilevel_multiple_qoi.jl
 # rm -f nohup.out; nohup julia fakerun_multilevel_multiple_qoi.jl & # run Julia again with fake wrapper
+```
+
+For automating runs,
+```shell
+rm -f nohup.out; nohup bash autoRun_julia.sh 2>&1 > log.autoRun_julia.sh & 
 ```
 
 3. With **hybrid** wrapper `hybridwrapper_multilevel_multiple_qoi.py`

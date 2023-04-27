@@ -5,6 +5,7 @@
 ## Objective:
 # Mirror effort from MC with MLMC
 
+rm -rfv log.mlmc
 mkdir -p log.mlmc
 
 for i in $(seq $(cat vanilla_mc_cost.dat | wc -l)); do

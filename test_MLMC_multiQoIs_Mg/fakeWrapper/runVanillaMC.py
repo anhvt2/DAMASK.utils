@@ -12,7 +12,7 @@ def computeNumberSamples(vareps):
 	d = np.loadtxt('MultilevelEstimators-multiQoIs.dat', skiprows=1, delimiter=',')
 	levels = d[:,0]
 	cost_per_level = [39,    365,    1955,    3305,    12487]
-	d_mc = d[np.where(levels == 4)]
+	d_mc = d[np.where(levels == 3)]
 	max_num_samples = d_mc.shape[0]
 	# calculate number of samples to converge
 	n = 3 # warm-up samples
@@ -31,12 +31,10 @@ def computeNumberSamples(vareps):
 	return n, n * cost_per_level[-1], np.sqrt(2 * np.max(V) / n)
 
 
-
-
 os.system('rm -fv vanilla_mc_cost.dat')
 f = open('vanilla_mc_cost.dat', 'a+')
 f.write('# varepsilon, num_samples, computational_cost, rmse\n')
-for vareps in np.arange(1.0, 0.2, -0.1):
+for vareps in np.arange(1.0, 0.04, -0.02):
 	n, comp_cost, rmse = computeNumberSamples(vareps)
 	f.write('%.8e, %d, %.2f, %.8e\n' % (vareps, n, comp_cost, rmse))
 

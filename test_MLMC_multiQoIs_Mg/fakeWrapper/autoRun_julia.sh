@@ -14,7 +14,8 @@ for i in $(seq $(cat vanilla_mc_cost.dat | wc -l)); do
 		vareps=$(echo $line | cut -d, -f1)
 		echo $vareps
 
-		sed -i "48s|.*|vareps = ${vareps}|" fakerun_multilevel_multiple_qoi.jl
+		# sed -i "48s|.*|vareps = ${vareps}|" fakerun_multilevel_multiple_qoi.jl
+		sed -i "48s|.*|vareps = ${vareps}|" fakerun_2levels_multiple_qoi.jl
 		python3 cleanseDataset.py # reset database
 
 		if [ ! -e "log.mlmc.vareps-${vareps}" ]; then

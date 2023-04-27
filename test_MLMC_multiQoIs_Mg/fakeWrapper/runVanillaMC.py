@@ -19,15 +19,14 @@ def computeNumberSamples(vareps, fixed_level=4):
 	x = d[:n, 1:]
 	E = np.mean(x, axis=0)
 	V = np.var(x, axis=0)
-	# while np.max(V) / n > vareps**2 / 2:
-	while np.sqrt(np.max(V) / n) > vareps:
+	while np.max(V) / n > vareps**2:
 		if n > max_num_samples:
 			print(f"Require more than {max_num_samples:<2d} samples. Out of budget.")
 			break
 		x = d[:n, 1:]
 		E = np.mean(x, axis=0)
 		V = np.var(x, axis=0)
-		print(f"Take {n:<2d} samples. RMSE = {np.sqrt(np.max(V) / n):<8.5f}. Tolerance: vareps = {vareps:<13.8f}.")
+		print(f"Take {n:<2d} samples. RMSE = {np.sqrt(np.max(V) / n):<8.8f}. Tolerance: vareps = {vareps:<8.8f}.")
 		n += 1
 	if n <= max_num_samples:
 		return n, n * cost_per_level[-1], np.sqrt(np.max(V) / n)
@@ -37,8 +36,8 @@ def computeNumberSamples(vareps, fixed_level=4):
 os.system('rm -fv vanilla_mc_cost.dat')
 f = open('vanilla_mc_cost.dat', 'a+')
 f.write('# varepsilon, num_samples, computational_cost, rmse\n')
-vareps_ub = 1.0e-0 # upper bound
-vareps_lb = 1.6e-1 # lower bound
+vareps_ub = 3.51e-1 # upper bound - determined by warm-up MLMC limit
+vareps_lb = 1.30e-1  # lower bound - determined by MC limit
 
 for log_vareps in np.linspace(np.log10(vareps_ub), np.log10(vareps_lb), num=10):
 	vareps = 10**log_vareps

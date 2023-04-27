@@ -16,7 +16,7 @@ level = int(args.level);
 nb_of_qoi = int(args.nb_of_qoi) # currently not being used
 
 ### load dataset
-d = np.loadtxt('MultilevelEstimators-multiQoIs.dat', skiprows=1, delimiter=',')
+d = np.loadtxt('2levelsEstimators-multiQoIs.dat', skiprows=1, delimiter=',')
 levels = d[:,0]
 
 ### lookup data and return only FIRST correct result: query_index
@@ -70,7 +70,7 @@ else:
 	reduced_d = np.delete(d, (query_index, query_index + 1), axis=0) # remove the corresponding results after query
 
 ### save reduced dataset after eliminating appropriate rows
-np.savetxt("MultilevelEstimators-multiQoIs.dat", reduced_d, delimiter=",", header="level, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9", fmt="%d, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e")
+np.savetxt("2levelsEstimators-multiQoIs.dat", reduced_d, delimiter=",", header="level, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9", fmt="%d, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e")
 
 
 

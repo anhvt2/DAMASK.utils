@@ -14,7 +14,7 @@ index_set = ML()
 # ========================
 # @@@ SELECT MAX LEVEL @@@
 # ========================
-max_level = 4 # See note below
+max_level = 1 # See note below
 
 # @@@ NOTE @@@
 # !!! In a multilevel setting, `max_level=3` means 4 levels in total (i.e.,
@@ -38,7 +38,7 @@ max_level = 4 # See note below
 # cost_per_level = [1 2 4 8 16]
 # cost_per_level = [4    330    1920    3270    12452]
 # Add cost to generate microstructures: +35 seconds
-cost_per_level = [39    365    1955    3305    12487]
+cost_per_level = [3305    12487]
 
 # =============================
 # @@@ SELECT RMSE TOLERANCE @@@

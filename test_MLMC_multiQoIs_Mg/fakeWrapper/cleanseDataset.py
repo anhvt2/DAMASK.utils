@@ -63,4 +63,5 @@ for i in range(d.shape[0]):
 		sel_idx += [i]
 
 d_2levels = d[sel_idx, :]
+d_2levels[:,0] -= 3
 np.savetxt("2levelsEstimators-multiQoIs.dat", d_2levels, delimiter=",", header="level, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9", fmt="%d, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e")

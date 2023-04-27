@@ -55,3 +55,12 @@ for level in range(num_levels):
 # save dataset
 np.savetxt("MultilevelEstimators-multiQoIs.dat", d, delimiter=",", header="level, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9", fmt="%d, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e")
 # np.savetxt("MultilevelEstimators-multiQoIs.dat", d, delimiter=",", header="level, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9", fmt="%d, %.8f, %.8f, %.8f, %.8f, %.8f, %.8f, %.8f, %.8f, %.8f, %.8f")
+
+# also save dataset with levels = {3,4} only
+sel_idx = []
+for i in range(d.shape[0]):
+	if d[i,0] == 3 or d[i,0] == 4:
+		sel_idx += [i]
+
+d_2levels = d[sel_idx, :]
+np.savetxt("2levelsEstimators-multiQoIs.dat", d_2levels, delimiter=",", header="level, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9", fmt="%d, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e, %.8e")

@@ -4,7 +4,7 @@
 * `template`: vanilla MLMC + CPFEM -- run alternatively, hand-in-hand, MLMC and CPFEM
 * `fake`: build a generated dataset from CPFEM and run MLMC on a fake wrapper, which simply looks up values from the dataset
 	* `fakerun_multilevel_multiple_qoi.jl` and `fakewrapper_multilevel_multiple_qoi.py`: 5 levels
-	* `*2levels*`: `fakerun_2levels_multiple_qoi.jl` and `fakewrapper_2levels_multiple_qoi.py`: 2 levels (removing 3 coarsest levels, level=0,1,2, corresponding to 2x2x2, 4x4x4, 8x8x8, due to insufficient correlations - advised by Pieterjan)
+	* `*2levels*`: `fakerun_2levels_multiple_qoi.jl` and `fakewrapper_2levels_multiple_qoi.py` and `log.MultilevelEstimators-multiQoIs.2levels`: 2 levels (removing 3 coarsest levels, level=0,1,2, corresponding to 2x2x2, 4x4x4, 8x8x8, due to insufficient correlations - advised by Pieterjan)
 * `hybrid`: combines both `fake` and `template` -- lookup first, if failed, then run CPFEM
 
 # Documentation

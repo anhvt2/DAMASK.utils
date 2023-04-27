@@ -113,6 +113,13 @@ julia> report(history, include_preamble=true, png=true)
 ```shell
 julia history2costfrac.jl
 python3 plot_fractional_cost.py
+
+
+python3 runVanillaMC.py # dump vanilla_mc_cost.dat
+bash autoRun_julia.sh # automatically run a lot of Julia scripts sequentially, dump log.mlmc.vareps-*
+python3 read_mlmc_results.py # read a lot of log.mlmc.vareps.* and dump mlmc_cost.dat
+python3 compareMLMCversusMC.py # in log/log plot
+python3 plot_fractional_cost.py # plot distributed total cost
 ```
 
 ### DREAM.3D

@@ -3,8 +3,10 @@
 
 * `template`: vanilla MLMC + CPFEM -- run alternatively, hand-in-hand, MLMC and CPFEM
 * `fake`: build a generated dataset from CPFEM and run MLMC on a fake wrapper, which simply looks up values from the dataset
+	* `fakerun_multilevel_multiple_qoi.jl` and `fakewrapper_multilevel_multiple_qoi.py`: 5 levels
+	* `fakerun_2levels_multiple_qoi.jl` and `fakewrapper_2levels_multiple_qoi.py`: 2 levels
 * `hybrid`: combines both `fake` and `template` -- lookup first, if failed, then run CPFEM
-* `hpc_template`: adopt from `template` folder for massively parallel generation of dataset at a particular level
+
 
 # Documentation
 

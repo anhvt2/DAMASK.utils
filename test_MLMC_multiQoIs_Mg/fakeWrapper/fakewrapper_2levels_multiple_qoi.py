@@ -21,13 +21,15 @@ d = np.loadtxt('2levelsEstimators-multiQoIs.dat', skiprows=1, delimiter=',')
 levels = d[:,0]
 
 ### lookup data and return only FIRST correct result: query_index
-possible_idx = np.where(levels == level)[0]
+possible_idx = np.where(levels == level)
+possible_idx = np.random.shuffle(possible_idx)
+possible_idx = possible_idx[0]
 
 # remove last index in case level = 0 to avoid index overflow
 if level == 0:
 	possible_idx = np.delete(possible_idx, len(possible_idx) - 1)
 
-possible_idx = np.random.shuffle(possible_idx)
+
 ### search and return query_index
 for i in possible_idx:
 	if i < d.shape[0] - 1:

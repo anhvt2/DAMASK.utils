@@ -5,7 +5,7 @@ vareps_lb = 5.0e-3 # lower bound
 
 f = open('vareps_mlmc.dat', 'w')
 for log_vareps in np.linspace(np.log10(vareps_ub), np.log10(vareps_lb), num=100):
-	f.write('%.8e' % log_vareps)
+	f.write('%.8e\n' % 10**log_vareps)
 
 f.close()
 

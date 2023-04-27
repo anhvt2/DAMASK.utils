@@ -17,7 +17,8 @@ for i in $(seq $(cat vanilla_mc_cost.dat | wc -l)); do
 
 		if [ ! -e "log.mlmc.vareps-${vareps}" ]; then
 			# rm -f nohup.out; nohup julia fakerun_multilevel_multiple_qoi.jl 2>&1 > log.mlmc.vareps-${vareps} &
-			julia fakerun_multilevel_multiple_qoi.jl 2>&1 > log.mlmc.vareps-${vareps}
+			# julia fakerun_multilevel_multiple_qoi.jl 2>&1 > log.mlmc.vareps-${vareps}
+			julia fakerun_2levels_multiple_qoi.jl 2>&1 > log.mlmc.vareps-${vareps}
 		fi
 
 

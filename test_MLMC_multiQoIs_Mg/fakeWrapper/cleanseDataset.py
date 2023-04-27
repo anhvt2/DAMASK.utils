@@ -23,7 +23,7 @@ def import_dataset(datasetFileName):
 
 # import
 
-for i in range(1,6):
+for i in range(1,7):
 	import_dataset('../hpc-run-%d.log.MultilevelEstimators-multiQoIs' % i)
 
 # import_dataset('../log.MultilevelEstimators-multiQoIs.1')

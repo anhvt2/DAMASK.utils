@@ -31,7 +31,9 @@ def plot_frac_cost(filename, label=None):
     for col in frac_cost.columns:
         if col == "total":
             continue
-        ax.bar(range(frac_cost.shape[0]), frac_cost[col], 0.5, bottom=bottom, label=r"$\ell$ = " + col)
+        else:
+            true_level = int(col) + 3
+        ax.bar(range(frac_cost.shape[0]), frac_cost[col], 0.5, bottom=bottom, label=r"$\ell$ = " + str(true_level))
         bottom += frac_cost[col].values
     ax.legend(bbox_to_anchor=(1, 1), frameon=False, fontsize=24)
     ax.set_xticks(range(frac_cost.shape[0]))

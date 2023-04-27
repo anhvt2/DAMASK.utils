@@ -117,6 +117,7 @@ python3 plot_fractional_cost.py
 
 python3 runVanillaMC.py # dump vanilla_mc_cost.dat
 bash autoRun_julia.sh # automatically run a lot of Julia scripts sequentially, dump log.mlmc.vareps-*
+# rm -f nohup.out; nohup bash autoRun_julia.sh 2>&1 > log.autoRun_julia.sh & # or this, if running on s1057681
 python3 read_mlmc_results.py # read a lot of log.mlmc.vareps.* and dump mlmc_cost.dat
 python3 compareMLMCversusMC.py # in log/log plot
 python3 plot_fractional_cost.py # plot distributed total cost

@@ -26,8 +26,8 @@ def import_dataset(datasetFileName):
 for i in range(1,7):
 	import_dataset('../hpc-run-%d.log.MultilevelEstimators-multiQoIs' % i)
 
-# import_dataset('../log.MultilevelEstimators-multiQoIs.1')
-import_dataset('cleansed.log.MultilevelEstimators-multiQoIs.2')
+# import_dataset('../log.MultilevelEstimators-multiQoIs.1') # do not use this dataset
+# import_dataset('cleansed.log.MultilevelEstimators-multiQoIs.2')
 
 # read dataset
 logFile = open('log.MultilevelEstimators-multiQoIs')

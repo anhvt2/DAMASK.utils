@@ -21,17 +21,15 @@ f.close()
 d = np.loadtxt('vanilla_mc_cost_level-4.dat', delimiter=',', dtype=str)
 str_vareps = d[:,0]
 
-## This directly compares MC with MLMC
-for i in range(len(str_vareps)):
-	fileName = 'log.mlmc/log.mlmc.vareps-%s' % str_vareps[i]
-	vareps = float(str_vareps[i])
+# ## This directly compares MC with MLMC
+# for i in range(len(str_vareps)):
+# 	fileName = 'log.mlmc/log.mlmc.vareps-%s' % str_vareps[i]
+# 	vareps = float(str_vareps[i])
 
-## This loop may allow more MLMC samples than MC
-# for fileName in natsorted(glob.glob('log.mlmc/log.mlmc.vareps-*'), reverse=True):
-# 	str_vareps = fileName.split('vareps')[1]
-# 	vareps = - float(str_vareps)
-
-	print(f"Processing {fileName}")
+# This loop may allow more MLMC samples than MC
+for fileName in natsorted(glob.glob('log.mlmc/log.mlmc.vareps-*'), reverse=True):
+	str_vareps = fileName.split('vareps')[1]
+	vareps = - float(str_vareps)
 
 	f = open(fileName)
 	txt = f.readlines()
@@ -61,6 +59,7 @@ for i in range(len(str_vareps)):
 		f = open('mlmc_frac_cost.txt', 'a+')
 		f.write('%.8e	%.8e	%.2f\n' % (frac_cost[0], frac_cost[1], total_cost))
 		f.close()
+		print(f"Processed {fileName}. {int(n[0]):<1d} samples at level 3. {int(n[1]):<1d} samples at level 4. RMSE = {rmse:<4e}. Total cost: {total_cost:<4e}")
 	except:
 		print(f"Could not find convergence info in {fileName}")
 

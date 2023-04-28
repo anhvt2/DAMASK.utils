@@ -20,16 +20,16 @@ if mc_computational_cost.shape[0] == mlmc_computational_cost.shape[0]:
 
 plt.plot(mc_rmse, mc_computational_cost, color='tab:red', linestyle='-', marker='o', 
 	markersize=15, markerfacecoloralt='white', markeredgecolor='k', 
-	fillstyle='left', label='MC')
+	fillstyle='top', label='MC')
 
 print(mlmc_rmse, mlmc_computational_cost)
 plt.plot(mlmc_rmse, mlmc_computational_cost, color='tab:blue', linestyle='-', marker='s', 
 	markersize=15, markerfacecoloralt='white', markeredgecolor='k', 
-	fillstyle='top', label='MLMC')
+	fillstyle='left', label='MLMC')
 
 plt.legend(fontsize=24, frameon=False, loc='best')
 plt.xlabel(r'tolerance $\varepsilon$', fontsize=24)
 plt.ylabel(r'time [$s$]', fontsize=24)
-plt.xscale('log',base=10)
+# plt.xscale('log',base=10)
 plt.yscale('log',base=10)
 plt.show()

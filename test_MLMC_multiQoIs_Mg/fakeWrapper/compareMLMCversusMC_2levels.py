@@ -15,12 +15,14 @@ mlmc_cost = np.loadtxt('mlmc_cost.dat', skiprows=1, delimiter=',')
 mlmc_cost = mlmc_cost[mlmc_cost[:, -1].argsort()] # sort by rmse
 mlmc_varepsilon, mlmc_n, mlmc_computational_cost, mlmc_rmse = mlmc_cost[:,0], mlmc_cost[:,1:3], mlmc_cost[:,3], mlmc_cost[:,4]
 
-print(f"Average computational speedup: {np.mean(mc_computational_cost / mlmc_computational_cost)}")
+if mc_computational_cost.shape[0] == mlmc_computational_cost.shape[0]:
+	print(f"Average computational speedup: {np.mean(mc_computational_cost / mlmc_computational_cost)}")
 
 plt.plot(mc_rmse, mc_computational_cost, color='tab:red', linestyle='-', marker='o', 
 	markersize=15, markerfacecoloralt='white', markeredgecolor='k', 
 	fillstyle='left', label='MC')
 
+print(mlmc_rmse, mlmc_computational_cost)
 plt.plot(mlmc_rmse, mlmc_computational_cost, color='tab:blue', linestyle='-', marker='s', 
 	markersize=15, markerfacecoloralt='white', markeredgecolor='k', 
 	fillstyle='top', label='MLMC')

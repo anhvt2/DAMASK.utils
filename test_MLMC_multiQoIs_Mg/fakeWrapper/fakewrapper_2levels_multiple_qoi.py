@@ -22,7 +22,7 @@ levels = d[:,0]
 
 ### lookup data and return only FIRST correct result: query_index
 possible_idx = np.where(levels == level)[0]
-np.random.shuffle(possible_idx)
+# np.random.shuffle(possible_idx) # note: shuffle will make MLMC convergence very noisy
 
 # remove last index in case level = 0 to avoid index overflow
 if level == 0:

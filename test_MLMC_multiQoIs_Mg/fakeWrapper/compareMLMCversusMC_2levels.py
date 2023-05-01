@@ -50,7 +50,7 @@ i = 0
 while i < 10:
 	del_idx = []
 	for i in range(len(mlmc_rmse) - 1):
-		if np.diff(np.log(mlmc_rmse))[i] < 0.045: # change this parameter to refine the MLMC plot
+		if np.diff(np.log(mlmc_rmse))[i] < 0.02: # change this parameter to refine the MLMC plot - default: 0.04
 			del_idx.append(i)
 
 	mlmc_varepsilon = np.delete(mlmc_varepsilon, del_idx)

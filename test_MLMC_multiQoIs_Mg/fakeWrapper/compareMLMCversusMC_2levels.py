@@ -62,6 +62,8 @@ while i < 10:
 print(np.diff(np.log(mlmc_rmse)))
 print(del_idx)
 
+print(f"")
+
 if mc_computational_cost.shape[0] == mlmc_computational_cost.shape[0]:
 	print(f"Average computational speedup: {np.mean(mc_computational_cost / mlmc_computational_cost)}")
 

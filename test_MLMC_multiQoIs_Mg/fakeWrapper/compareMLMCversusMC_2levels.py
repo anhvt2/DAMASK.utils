@@ -69,6 +69,7 @@ print(f"There are {mc_computational_cost.shape[0]} MC samples.")
 print(f"There are {mlmc_computational_cost.shape[0]} MLMC samples.")
 
 if mc_computational_cost.shape[0] == mlmc_computational_cost.shape[0]:
+	print(f"All computational speedup: {mc_computational_cost / mlmc_computational_cost}")
 	print(f"Average computational speedup: {np.mean(mc_computational_cost / mlmc_computational_cost)}")
 
 plt.plot(mc_rmse, mc_computational_cost, color='tab:red', linestyle='-', marker='s', 

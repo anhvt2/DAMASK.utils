@@ -6,7 +6,7 @@ import glob, os
 from natsort import natsorted, ns
 
 cost_per_level = [3305,    12487]
-cost_per_level = np.array(cost_per_level) / 60 # measured in hours
+cost_per_level = np.array(cost_per_level) # measured in hours
 num_levels = len(cost_per_level)
 
 # os.system('rm -v mlmc_cost')

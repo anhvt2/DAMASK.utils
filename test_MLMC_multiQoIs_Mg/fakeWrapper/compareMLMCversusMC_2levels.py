@@ -46,23 +46,27 @@ mlmc_varepsilon, mlmc_n, mlmc_computational_cost, mlmc_rmse = mlmc_cost[:,0], ml
 # 		del_idx.append(i)
 # print(np.diff(np.log(mlmc_computational_cost)))
 
-i = 0
-while i < 10:
-	del_idx = []
-	for i in range(len(mlmc_rmse) - 1):
-		if np.diff(np.log(mlmc_rmse))[i] < 0.02: # change this parameter to refine the MLMC plot - default: 0.04
-			del_idx.append(i)
 
-	mlmc_varepsilon = np.delete(mlmc_varepsilon, del_idx)
-	mlmc_n = np.delete(mlmc_n, del_idx)
-	mlmc_computational_cost = np.delete(mlmc_computational_cost, del_idx)
-	mlmc_rmse = np.delete(mlmc_rmse, del_idx)
-	i += 1
+if mlmc_computational_cost.shape[0] > mc_computational_cost.shape[0]:
+	# only run this loop if number of MLMC samples > number of MC samples 
+	i = 0
+	while i < 10:
+		del_idx = []
+		for i in range(len(mlmc_rmse) - 1):
+			if np.diff(np.log(mlmc_rmse))[i] < 0.02: # change this parameter to refine the MLMC plot - default: 0.04
+				del_idx.append(i)
 
-print(np.diff(np.log(mlmc_rmse)))
-print(del_idx)
+		mlmc_varepsilon = np.delete(mlmc_varepsilon, del_idx)
+		mlmc_n = np.delete(mlmc_n, del_idx)
+		mlmc_computational_cost = np.delete(mlmc_computational_cost, del_idx)
+		mlmc_rmse = np.delete(mlmc_rmse, del_idx)
+		i += 1
 
-print(f"")
+	print(np.diff(np.log(mlmc_rmse)))
+	print(del_idx)
+
+print(f"There are {mc_computational_cost.shape[0]} MC samples.")
+print(f"There are {mlmc_computational_cost.shape[0]} MLMC samples.")
 
 if mc_computational_cost.shape[0] == mlmc_computational_cost.shape[0]:
 	print(f"Average computational speedup: {np.mean(mc_computational_cost / mlmc_computational_cost)}")

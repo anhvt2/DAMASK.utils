@@ -8,6 +8,12 @@ Connection:
 
 We will address graph in terms of cut/edit distance, and maybe attributes of the nodes.
 
+# TODO
+
+Develop a function from RVE to graph
+
+* Question: how many RVEs can go to one graph?
+
 # Permutation matrix
 
 https://en.wikipedia.org/wiki/Permutation_matrix

@@ -14,7 +14,7 @@ Develop a function from RVE to graph
 
 * Question: how many RVEs can go to one graph?
 
-Can we plot a cube with grain ID in Python?
+Can we plot a cube with grain ID in Python? Yes, see https://www.geeksforgeeks.org/how-to-draw-3d-cube-using-matplotlib-in-python/
 
 # Permutation matrix
 

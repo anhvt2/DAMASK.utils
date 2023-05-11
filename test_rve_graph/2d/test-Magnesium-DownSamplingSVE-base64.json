@@ -543,13 +543,13 @@
         "StatsGeneratorDataContainerName": "StatsGeneratorDataContainer"
     },
     "01": {
-        "BoxDimensions": "X Range: 0 to 1024 (Delta: 1024)\nY Range: 0 to 1024 (Delta: 1024)\nZ Range: 0 to 1 (Delta: 1)",
+        "BoxDimensions": "X Range: 0 to 1024 (Delta: 1024)\nY Range: 0 to 1024 (Delta: 1024)\nZ Range: 0 to 1024 (Delta: 1024)",
         "CellAttributeMatrixName": "CellData",
         "DataContainerName": "SyntheticVolumeDataContainer",
         "Dimensions": {
             "x": 32,
             "y": 32,
-            "z": 1
+            "z": 32
         },
         "EnsembleAttributeMatrixName": "CellEnsembleData",
         "EstimateNumberOfFeatures": 0,
@@ -577,7 +577,7 @@
         "Resolution": {
             "x": 32,
             "y": 32,
-            "z": 1
+            "z": 32
         }
     },
     "02": {
@@ -782,7 +782,7 @@
         "Filter_Human_Label": "Export Dx File (Feature Ids)",
         "Filter_Name": "DxWriter",
         "Filter_Uuid": "{9072e51c-632f-5ee5-bf6b-9a90bfac2fcf}",
-        "OutputFile": "/home/anhvt89/Documents/DAMASK.utils/test_rve_graph/2d/grainID.txt"
+        "OutputFile": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_rve_graph/2d/grainID.txt"
     },
     "08": {
         "FilterVersion": "1.2.815",
@@ -790,7 +790,7 @@
         "Filter_Human_Label": "Write DREAM.3D Data File",
         "Filter_Name": "DataContainerWriter",
         "Filter_Uuid": "{3fcd4c43-9d75-5b86-aad4-4441bc914f37}",
-        "OutputFile": "/home/anhvt89/Documents/DAMASK.utils/test_rve_graph/2d/Magnesium.dream3d",
+        "OutputFile": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_rve_graph/2d/Magnesium.dream3d",
         "WriteTimeSeries": 0,
         "WriteXdmfFile": 1
     },
@@ -948,7 +948,7 @@
         "Filter_Uuid": "{5fbf9204-2c6c-597b-856a-f4612adbac38}",
         "MaxValPerLine": 1,
         "OutputFilePath": "/home/anhvt89",
-        "OutputPath": "/home/anhvt89/Documents/DAMASK.utils/test_rve_graph/2d/",
+        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_rve_graph/2d/",
         "OutputStyle": 0,
         "SelectedDataArrayPaths": [
             {
@@ -995,11 +995,41 @@
             "Data Container Name": "SyntheticVolumeDataContainer"
         },
         "NumColors": 32,
-        "OutputPath": "/home/anhvt89/Documents/DAMASK.utils/test_rve_graph/2d/",
+        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_rve_graph/2d/",
         "Title": "magnesium_odf",
         "UseGoodVoxels": 0
     },
     "18": {
+        "CellAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "CellFeatureAttributeMatrixPath": {
+            "Attribute Matrix Name": "CellFeatureData",
+            "Data Array Name": "",
+            "Data Container Name": "ImageDataContainer"
+        },
+        "FeatureIdsArrayPath": {
+            "Attribute Matrix Name": "CellData",
+            "Data Array Name": "FeatureIds",
+            "Data Container Name": "SyntheticVolumeDataContainer"
+        },
+        "FilterVersion": "6.5.141",
+        "Filter_Enabled": true,
+        "Filter_Human_Label": "Change Resolution",
+        "Filter_Name": "ChangeResolution",
+        "Filter_Uuid": "{1966e540-759c-5798-ae26-0c6a3abc65c0}",
+        "NewDataContainerName": "NewImageDataContainer",
+        "RenumberFeatures": 1,
+        "Resolution": {
+            "x": 1,
+            "y": 1,
+            "z": 1024
+        },
+        "SaveAsNewDataContainer": 0
+    },
+    "19": {
         "CellEulerAnglesArrayPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "EulerAngles",
@@ -1024,9 +1054,9 @@
         "Filter_Uuid": "{7c58e612-d7d6-5ec7-806b-cce0c1c211a3}",
         "GeometryFileName": "MgRve_32x32x1",
         "HomogenizationIndex": 1,
-        "OutputPath": "/home/anhvt89/Documents/DAMASK.utils/test_rve_graph/2d/32x32x1/"
+        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_rve_graph/2d/32x32x1/"
     },
-    "19": {
+    "20": {
         "CellAttributeMatrixPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "",
@@ -1052,11 +1082,11 @@
         "Resolution": {
             "x": 64,
             "y": 64,
-            "z": 1
+            "z": 1024
         },
         "SaveAsNewDataContainer": 0
     },
-    "20": {
+    "21": {
         "CellEulerAnglesArrayPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "EulerAngles",
@@ -1081,9 +1111,9 @@
         "Filter_Uuid": "{7c58e612-d7d6-5ec7-806b-cce0c1c211a3}",
         "GeometryFileName": "MgRve_16x16x1",
         "HomogenizationIndex": 1,
-        "OutputPath": "/home/anhvt89/Documents/DAMASK.utils/test_rve_graph/2d/16x16x1/"
+        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_rve_graph/2d/16x16x1/"
     },
-    "21": {
+    "22": {
         "CellAttributeMatrixPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "",
@@ -1109,11 +1139,11 @@
         "Resolution": {
             "x": 128,
             "y": 128,
-            "z": 1
+            "z": 1024
         },
         "SaveAsNewDataContainer": 0
     },
-    "22": {
+    "23": {
         "CellEulerAnglesArrayPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "EulerAngles",
@@ -1138,9 +1168,9 @@
         "Filter_Uuid": "{7c58e612-d7d6-5ec7-806b-cce0c1c211a3}",
         "GeometryFileName": "MgRve_8x8x1",
         "HomogenizationIndex": 1,
-        "OutputPath": "/home/anhvt89/Documents/DAMASK.utils/test_rve_graph/2d/8x8x1/"
+        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_rve_graph/2d/8x8x1/"
     },
-    "23": {
+    "24": {
         "CellAttributeMatrixPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "",
@@ -1166,11 +1196,11 @@
         "Resolution": {
             "x": 256,
             "y": 256,
-            "z": 1
+            "z": 1024
         },
         "SaveAsNewDataContainer": 0
     },
-    "24": {
+    "25": {
         "CellEulerAnglesArrayPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "EulerAngles",
@@ -1195,9 +1225,9 @@
         "Filter_Uuid": "{7c58e612-d7d6-5ec7-806b-cce0c1c211a3}",
         "GeometryFileName": "MgRve_4x4x1",
         "HomogenizationIndex": 1,
-        "OutputPath": "/home/anhvt89/Documents/DAMASK.utils/test_rve_graph/2d/4x4x1/"
+        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_rve_graph/2d/4x4x1/"
     },
-    "25": {
+    "26": {
         "CellAttributeMatrixPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "",
@@ -1223,11 +1253,11 @@
         "Resolution": {
             "x": 512,
             "y": 512,
-            "z": 1
+            "z": 1024
         },
         "SaveAsNewDataContainer": 0
     },
-    "26": {
+    "27": {
         "CellEulerAnglesArrayPath": {
             "Attribute Matrix Name": "CellData",
             "Data Array Name": "EulerAngles",
@@ -1252,11 +1282,11 @@
         "Filter_Uuid": "{7c58e612-d7d6-5ec7-806b-cce0c1c211a3}",
         "GeometryFileName": "MgRve_2x2x1",
         "HomogenizationIndex": 1,
-        "OutputPath": "/home/anhvt89/Documents/DAMASK.utils/test_rve_graph/2d/2x2x1/"
+        "OutputPath": "/home/anhvt89/Documents/DAMASK/DAMASK.utils/test_rve_graph/2d/2x2x1/"
     },
     "PipelineBuilder": {
         "Name": "test-Magnesium-DownSamplingSVE-base64",
-        "Number_Filters": 27,
+        "Number_Filters": 28,
         "Version": 6
     }
 }

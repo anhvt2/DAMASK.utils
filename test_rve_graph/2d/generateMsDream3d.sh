@@ -110,7 +110,7 @@ for dimCell in $(cat dimCellList.dat); do
 	echo ${dimCell} > dimCell.dat # update dimCell.dat
 	cat ../material.config.preamble  | cat - material.config | sponge material.config
 	geom_check MgRve_${dimCell}x${dimCell}x1.geom
-	python3 ../../../plotms3d.py
+	python3 ../../../plotms2d.py
 	sh ../getDream3dInfo.sh
 	cd ..
 done

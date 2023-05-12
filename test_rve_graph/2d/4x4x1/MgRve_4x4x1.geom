@@ -4,6 +4,6 @@ grid    a 4    b 4    c 1
 size    x 1024.000    y 1024.000    z 1024.000
 origin    x 0.000    y 0.000    z 0.000
 homogenization  1
-microstructures 16
-         3          2         16          1          9         10         15          5         12          8
-        13          4          7         14         11          6
+microstructures 15
+         4         10         11          1          3          5         14         13         15          6
+         2         13          9         12          7          8

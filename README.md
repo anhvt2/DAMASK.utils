@@ -229,13 +229,17 @@ See more at [https://groups.google.com/g/dream3d-users/c/SPCdr-BWROs?pli=1](http
 # Major Branches
 
 1. consistent Bayesian
-    * `testCBayes-Damask-Phase_Dislotwin_TWIP-Steel-FeMnC-64x64x64/`
+    * `testCBayes-Damask-Phase_Dislotwin_TWIP-Steel-FeMnC-64x64x64/`: TWIP grain size inferrence
     * `testCBayes-Damask-Phase_Phenopowerlaw_Aluminum/`
+    * `test_Dbone-spk2damask`: learning void distribution in dogbone specimen
 2. stochastic collocation for yield
-    * `test_stochastic-collocation_runs_s1057681/`
+    * `test_stochastic-collocation_runs_s1057681/`: stochastic collocation for constitutive model UQ
     * `test_stochastic-collocation_multiRVE_Solo/`: under construction
 3. model calibration using Bayesian optimization
-    * `test_model-calibration_Solo/`
+    * `test_model-calibration_Solo/`: asynchronous parallel Bayesian optimization for model calibration
 4. multi-{level,index} Monte Carlo
-    * `test_MLMC_runs_s1057681_alphaTitanium/`
-    * `test_MIMC_runs_s1057681_Aluminum/`
+    * `test_MLMC_runs_s1057681_alphaTitanium/`: MLMC for titanium
+    * `test_MIMC_runs_s1057681_Aluminum/`: MIMC for aluminum
+    * `test_MLMC_multiQoIs_Mg`: multi-output MLMC for stress/strain
+5. graph CPFEM:
+    * `test_rve_graph`: discrete combinatorics / graph theory for RVE

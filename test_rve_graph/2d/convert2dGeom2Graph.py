@@ -38,7 +38,7 @@ def computeDistance(pts_cloud_1, pts_cloud_2):
 	This function computes Manhattan distance between two point clouds (often queried by two grain_id's) 
 		where pts_cloud = locateGrainId(grain_id)
 	
-	This implpementation is NOT optimal. Consider improving in the future.
+	This implementation is NOT optimal. Consider improving in the future.
 	"""
 	num_pts_1 = pts_cloud_1.shape[0]
 	num_pts_2 = pts_cloud_2.shape[0]
@@ -116,7 +116,8 @@ def buildAdjacencyMatrix(grain_ids):
 	for i in range(num_grains):
 		for j in range(i+1, num_grains):
 			# print(f"i = {i}; j = {j}") # debug
-			A[i,j] = isNeighborPBC(i+1, j+1, pbc='xyz') # NOTE: grain_ids indexed 1, A[i,j] indexed at 0
+			A[i,j] = isNeighbor(i+1, j+1) # NOTE: grain_ids indexed 1, A[i,j] indexed at 0
+			# A[i,j] = isNeighborPBC(i+1, j+1, pbc='xyz') # NOTE: grain_ids indexed 1, A[i,j] indexed at 0
 	A = A + A.T # mirror symmetric
 	return A
 
@@ -167,6 +168,8 @@ A = buildAdjacencyMatrix(grain_ids)
 G = buildGraph(A)
 D = buildDegreeMatrix(A)
 L = buildLaplacianMatrix(A)
+
+print(D)
 # nx.draw(G, with_labels=True, node_color="tab:blue", font_size=22)
 labeldict = {}
 for i in range(num_grains):
@@ -181,8 +184,8 @@ nx.draw(G, with_labels=True, labels=labeldict)
 # nx.draw(G, with_labels=True, node_color="tab:blue", alpha=0.75, node_size=[D[i,i] * 100 for i in range(num_grains)], font_size=12)
 # nx.draw(G, labels=labeldict, with_labels=True, node_color="tab:blue", alpha=0.75, node_size=[D[i,i] * 100 for i in range(num_grains)], font_size=12)
 # nx.draw_networkx_labels(G, pos=nx.spring_layout(G), labels=grain_ids, alpha=0.75, font_size=22)
-# print([D[i,i] for i in range(num_grains)])
+print([D[i,i] for i in range(num_grains)])
 
 plt.savefig('graph_' + geomFileName.split('.')[0] + '.png')
-plt.show()
+# plt.show()
 

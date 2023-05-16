@@ -18,7 +18,7 @@ geomFile = 'MgRve_8x8x8.geom'
 
 d = read_geom(geomFile)
 # from geom to table
-d = np.reshape(d, [8, 8, 8]).T
+d = np.reshape(d, [8, 8, 8]).T # [z_res, y_res, x_res]
 
 # from table to geom
 geom = d.T.flatten()

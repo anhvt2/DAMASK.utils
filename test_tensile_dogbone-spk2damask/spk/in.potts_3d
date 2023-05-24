@@ -2,18 +2,21 @@
 
 seed		 56789
 
-variable 	 Nx  equal  600
-variable 	 Ny  equal  100
-variable 	 Nz  equal 1000
+variable 	 Nx  	equal  600
+variable 	 Ny  	equal  100
+variable 	 Nz  	equal 1000
+variable	 Nspin	equal 1000000
 
-app_style	 potts 	5000
+# app_style	 potts 	5000
+app_style	 potts 	${Nspin}
 
 dimension	 3
 lattice		 sc/26n 1.0
 region		 box block 0 ${Nx} 0 ${Ny} 0 ${Nz}
 create_box	 	box
 create_sites	box
-set		 		site range 1 5000
+# set		 		site range 1 5000
+set		 		site range 1 ${Nspin}
 
 sweep		 random
 # sweep		 raster mask yes
@@ -30,7 +33,7 @@ diag_style       energy
 temperature 	0.1
 
 stats       	1.0 logfreq 9 10.0
-dump        	1 text 1.0 dump.*.out id site i1 energy
+dump        	1 text 1.0 dump.*.out id site i1 energy x y z
 dump_modify     1 logfreq 9 10.0
 
 # stats            10.0

@@ -26,4 +26,12 @@ Attempted resolution:
 	variable     Nz     equal  500
 	```
 
+2. 50 um: 0.48M pixels
+	```
+	variable     Nx     equal  120
+	variable     Ny     equal   20
+	variable     Nz     equal  200
+	```
+
+
 # DAMASK

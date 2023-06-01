@@ -49,7 +49,7 @@ Microstructure info are in
 
 # SPPARKS (+ DREAM.3D)
 
-need a parser from SPPARKS to DAMASK `.geom` file.
+~~need a parser from SPPARKS to DAMASK `.geom` file~~: `geom_spk2dmsk.py`
 
 Dimension: 10 mm (4 mm middle) x 6 mm x 1 mm
 
@@ -75,5 +75,18 @@ Attempted resolution:
 	variable     Nz     equal  200
 	```
 
+Input decks:
+
+1. try with `t = 16.681021` corresponding to `spk/res-50um/dump.12.out`
+2. DREAM.3D file for orientation generation: 
+	1. run `test-Magnesium.json` to generate `material.config`
+	2. rename `material.config` to `dream3d.material.config`
+	3. `grep -ir 'phi1' dream3d.material.config > orientations.dat`
+	4. (manually) remove all text in `orientations.dat`, only keep number
+	5. save `orientations.dat`
+2. `geom_spk2dmsk.py`: 
+	1. read `dump.12.out` and `orientations.dat`
+	2. write `spk.material.config`
+	3. write `spk_dump_12_out.geom`
 
 # DAMASK

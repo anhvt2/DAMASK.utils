@@ -7,11 +7,13 @@ Here is a few versions of the dogbone specimens and their references:
 
 1. The born-qualified version: 17-4PH materials
 
-* [https://www.sciencedirect.com/science/article/abs/pii/S0924013616303727](dx.doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively
-manufactured stainless steel
+* [https://www.sciencedirect.com/science/article/abs/pii/S0924013616303727](dx.doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively manufactured stainless steel
 * [Combining Measure Theory and Bayes Rule to Solve a Stochastic Inverse Problem](https://www.osti.gov/servlets/purl/1877851): slides from Tim Wildey
+* [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102): Extreme-Value Statistics Reveal Rare Failure-Critical Defects in Additive Manufacturing
 
-![Geometry of the dogbone specimen](./dogbone_geom.png)
+![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge.png)
+
+![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge-2.png)
 
 2. The A-/B- (large-/small-) size version: AlSi10Mg
 
@@ -28,6 +30,14 @@ Microstructure info are in
 
 * [https://doi.org/10.1557/jmr.2018.405](https://doi.org/10.1557/jmr.2018.405): P. Yang, L.A. Deibler, D.R. Bradley, D.K. Stefan, and J.D. Carroll, J. Mater. Res. 33, 4040-4052. (2018).
 * [https://doi.org/10.1557/jmr.2018.82](https://doi.org/10.1557/jmr.2018.82): P. Yang, M.A. Rodriguez, L.A. Deibler, B.H. Jared, J. Griego, A. Kilgo, A. Allen, and D.K. Stefan, J. Mater. Res. 33, 1701–1712. (2018) (*contain microstructure information - Section III.B.2*).
+
+3. 316L dogbone
+
+![Geometry of the dogbone specimen](./316L_dogbone.png)
+
+* [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632): Automated high-throughput tensile testing reveals stochastic process parameter sensitivity
+
+
 
 # SPPARKS (+ DREAM.3D)
 

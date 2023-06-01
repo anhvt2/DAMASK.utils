@@ -1,4 +1,9 @@
 
+
+"""
+	python3 geom_spk2dmsk.py --res=50 --dump=dump.12.out
+"""
+
 import numpy as np
 import os, sys
 import pandas as pd
@@ -7,16 +12,29 @@ import matplotlib.pyplot as plt
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--dump", type=str, required=True)
+parser.add_argument("-r", "--resolution", type=int, required=True)
 args = parser.parse_args()
-dumpFileName = args.dump
+dumpFileName = args.dump # 'dump.12.out'
 outFileName = 'spk_' + dumpFileName.replace('.','_') + '.geom'
+res = args.resolution
 
-# dumpFileName = 'dump.12.out'
+dumpFile = open(dumpFileName)
+dumptxt = dumpFile.readlines()
+dumpFile.close()
+
+for i in range(20):
+	tmp = dumptxt[i]
+	if 'BOX BOUNDS' in tmp:
+		Nx = int(dumptxt[i+1].replace('\n','').replace('0 ', '').replace(' ', ''))
+		Ny = int(dumptxt[i+2].replace('\n','').replace('0 ', '').replace(' ', ''))
+		Nz = int(dumptxt[i+3].replace('\n','').replace('0 ', '').replace(' ', ''))
+		break
+
 # headers: ATOMS id type i1 energy x y z
-res = 50
-Nx = 120
-Ny = 20
-Nz = 200
+# res = 50
+# Nx  = 120
+# Ny  = 20
+# Nz  = 200
 d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
 num_grains = len(np.unique(d[:,1]))
 
@@ -33,8 +51,8 @@ for i in range(len(d)):
 
 geom = m.T.flatten()
 geom = np.array(geom, dtype=int)
-num_lines = np.floor(len(geom)) / 10
-num_elems_last_line = len(geom) % 10
+num_lines = int(np.floor(len(geom)) / 10)
+num_elems_last_line = int(len(geom) % 10)
 
 f = open(outFileName, 'w')
 f.write('6       header\n')

@@ -7,7 +7,7 @@ Here is a few versions of the dogbone specimens and their references:
 
 1. The born-qualified version: **17-4PH** materials
 
-* [https://www.sciencedirect.com/science/article/abs/pii/S0924013616303727](dx.doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively manufactured stainless steel
+* [https://doi.org/10.1016/j.jmatprotec.2016.10.023](https://dx.doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively manufactured stainless steel
 * [Combining Measure Theory and Bayes Rule to Solve a Stochastic Inverse Problem](https://www.osti.gov/servlets/purl/1877851): slides from Tim Wildey
 * [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102): Extreme-Value Statistics Reveal Rare Failure-Critical Defects in Additive Manufacturing
 
@@ -39,9 +39,11 @@ Microstructure info are in
 
 ![Geometry of the dogbone specimen](./316L_dogbone_3.png)
 
+![Geometry of the dogbone specimen](./316L_dogbone_4.png)
+
 * [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632): Automated high-throughput tensile testing reveals stochastic process parameter sensitivity
 * [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090): Size-dependent stochastic tensile properties in additively manufactured 316L stainless steel
-
+* [https://doi.org/10.1016/j.addma.2022.102943](https://doi.org/10.1016/j.addma.2022.102943): Optimization of stochastic feature properties in laser powder bed fusion
 
 
 

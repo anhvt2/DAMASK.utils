@@ -3,7 +3,31 @@
 
 The idea of this project to model microstructure of high-throughput dogbone specimen through SPPARKS, and run the CPFEM through DAMASK.
 
+Here is a few versions of the dogbone specimens and their references:
+
+1. The born-qualified version: 17-4PH materials
+
+* [https://www.sciencedirect.com/science/article/abs/pii/S0924013616303727](dx.doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively
+manufactured stainless steel
+* [Combining Measure Theory and Bayes Rule to Solve a Stochastic Inverse Problem](https://www.osti.gov/servlets/purl/1877851): slides from Tim Wildey
+
 ![Geometry of the dogbone specimen](./dogbone_geom.png)
+
+2. The A-/B- (large-/small-) size version: AlSi10Mg
+
+![Geometry of the dogbone specimen](./AlSi10Mg_dogbone.png)
+
+![Geometry of the dogbone specimen](./AlSi10Mg_dogbone_intentional_void.png)
+
+* [https://doi.org/10.1007/s11837-021-04888-4](https://doi.org/10.1007/s11837-021-04888-4): High-Throughput Statistical Interrogation of Mechanical Properties with Build Plate Location and Powder Reuse in AlSi10Mg
+* [https://doi.org/10.1016/j.msea.2020.139922](https://doi.org/10.1016/j.msea.2020.139922): Relationship between ductility and the porosity of additively manufactured AlSi10Mg
+
+* [https://doi.org/10.1007/s11340-021-00696-8](https://doi.org/10.1007/s11340-021-00696-8): (*intentionally precipitated voids*) The Interplay of Geometric Defects and Porosity on the Mechanical Behavior of Additively Manufactured Components
+
+Microstructure info are in
+
+* [https://doi.org/10.1557/jmr.2018.405](https://doi.org/10.1557/jmr.2018.405): P. Yang, L.A. Deibler, D.R. Bradley, D.K. Stefan, and J.D. Carroll, J. Mater. Res. 33, 4040-4052. (2018).
+* [https://doi.org/10.1557/jmr.2018.82](https://doi.org/10.1557/jmr.2018.82): P. Yang, M.A. Rodriguez, L.A. Deibler, B.H. Jared, J. Griego, A. Kilgo, A. Allen, and D.K. Stefan, J. Mater. Res. 33, 1701–1712. (2018) (*contain microstructure information - Section III.B.2*).
 
 # SPPARKS (+ DREAM.3D)
 

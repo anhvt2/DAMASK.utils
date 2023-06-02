@@ -84,9 +84,13 @@ Input decks:
 	3. `grep -ir 'phi1' dream3d.material.config > orientations.dat`
 	4. (manually) remove all text in `orientations.dat`, only keep number
 	5. save `orientations.dat`
-2. `geom_spk2dmsk.py`: 
+3. sketch (and visualize) dogbone specimen using `draw_dogbone.py`.
+For example: ![Sketch of the dogbone specimen](./dogbone-sketch.png)
+4. `geom_cad2phase.py`: dump a phase matrix from dogbone geometry
+5. `geom_spk2dmsk.py`: 
 	1. read `dump.12.out` and `orientations.dat`
 	2. write `spk.material.config`
 	3. write `spk_dump_12_out.geom`
+
 
 # DAMASK

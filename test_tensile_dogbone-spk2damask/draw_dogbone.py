@@ -70,7 +70,8 @@ def line2dfillet(p1, p2):
 
 # https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines
 def line(p1, p2):
-	# Ax + By = C for 'p1' and 'p2'
+	# This function computes the coefs (A,B,C) s.t. Ax + By = C for 'p1' and 'p2'
+	# or Ax + By -C = 0
     A = (p1[1] - p2[1])
     B = (p2[0] - p1[0])
     C = (p1[0]*p2[1] - p2[0]*p1[1])
@@ -86,6 +87,27 @@ def intersection(L1, L2):
         return x,y
     else:
         return False
+
+
+def projectPt2Line(c, p1, p2):
+	# https://math.stackexchange.com/questions/62633/orthogonal-projection-of-a-point-onto-a-line
+	# This function	projects the point 'c' (supposed to be the fillet center) 
+	# to a line (parameterized by 'p1' and 'p2')
+	A,B,C = line(p1, p2) # Ax + By - C = 0
+	if B != 0:
+		c0 = np.atleast_2d([0, C/B]).T # c0: an arbitrary point on the line Ax + By - C = 0
+	else:
+		c0 = np.atleast_2d([C/A, 0]).T # c0: an arbitrary point on the line Ax + By - C = 0
+	v = np.atleast_2d([-B, A]).T # a column vector normal to the normal vector (A,B)
+	proj_c = np.matmul(np.matmul(v,v.T)/np.matmul(v.T, v), c) + np.matmul(np.eye(2) - np.matmul(v,v.T) / np.matmul(v.T,v), c0)
+	return proj_c
+
+# v  = np.atleast_2d([3,5]).T
+# c  = np.atleast_2d([-4,5]).T
+# c0 = np.atleast_2d([0,-5]).T
+# proj_c = np.matmul(np.matmul(v,v.T)/np.matmul(v.T, v), c) + np.matmul(np.eye(2) - np.matmul(v,v.T) / np.matmul(v.T,v), c0)
+# print(f"{proj_c}") # [[3.35294118], [0.58823529]]
+
 
 # line2d([0,0], [0, L])
 # line2d([0, L], [W, L])
@@ -114,21 +136,37 @@ line2dfillet([W/2.+w/2., L/2.-l/2.+R/np.cos(alpha)], [W,b+R/np.cos(alpha)])
 
 fillet_c_nw = intersection(line([0, L-b-R/np.cos(alpha)], [W/2.-w/2., L/2.+l/2.-R/np.cos(alpha)]), line([W/2.-w/2.-R, L/2.+l/2], [W/2.-w/2.-R, L/2.-l/2]))
 print(f"NW fillet center = {fillet_c_nw}")
+proj_c_nw_1 = projectPt2Line(np.atleast_2d(fillet_c_nw).T, [0, L-b], [W/2.-w/2., L/2.+l/2.]).ravel()
+plt.plot(proj_c_nw_1[0], proj_c_nw_1[1], '*', c='r', markersize=10)
+proj_c_nw_2 = projectPt2Line(np.atleast_2d(fillet_c_nw).T, [W/2.-w/2., L/2.+l/2], [W/2.-w/2., L/2.-l/2]).ravel()
+plt.plot(proj_c_nw_2[0], proj_c_nw_2[1], '*', c='r', markersize=10)
 patch_circle_nw = plt.Circle(fillet_c_nw, R, fill='False', color='tab:blue')
 ax.add_artist(patch_circle_nw)
 
 fillet_c_sw = intersection(line([0, b+R/np.cos(alpha)], [W/2.-w/2., L/2.-l/2.+R/np.cos(alpha)]), line([W/2.-w/2.-R, L/2.+l/2], [W/2.-w/2.-R, L/2.-l/2]))
 print(f"SW fillet center = {fillet_c_sw}")
+proj_c_sw_1 = projectPt2Line(np.atleast_2d(fillet_c_sw).T, [W/2.-w/2., L/2.+l/2], [W/2.-w/2., L/2.-l/2]).ravel()
+plt.plot(proj_c_sw_1[0], proj_c_sw_1[1], '*', c='r', markersize=10)
+proj_c_sw_2 = projectPt2Line(np.atleast_2d(fillet_c_sw).T, [0, b], [W/2.-w/2., L/2.-l/2]).ravel()
+plt.plot(proj_c_sw_2[0], proj_c_sw_2[1], '*', c='r', markersize=10)
 patch_circle_sw = plt.Circle(fillet_c_sw, R, fill='False', color='tab:orange')
 ax.add_artist(patch_circle_sw)
 
 fillet_c_ne = intersection(line([W, L-b-R/np.cos(alpha)], [W/2.+w/2., L/2.+l/2.-R/np.cos(alpha)]), line([W/2.+w/2.+R, L/2.+l/2.], [W/2.+w/2.+R, L/2.-l/2.]))
 print(f"NE fillet center = {fillet_c_ne}")
+proj_c_ne_1 = projectPt2Line(np.atleast_2d(fillet_c_ne).T, [W, L-b], [W/2.+w/2., L/2.+l/2.]).ravel()
+plt.plot(proj_c_ne_1[0], proj_c_ne_1[1], '*', c='r', markersize=10)
+proj_c_ne_2 = projectPt2Line(np.atleast_2d(fillet_c_ne).T, [W/2.+w/2., L/2.+l/2.], [W/2.+w/2., L/2.-l/2.]).ravel()
+plt.plot(proj_c_ne_2[0], proj_c_ne_2[1], '*', c='r', markersize=10)
 patch_circle_ne = plt.Circle(fillet_c_ne, R, fill='False', color='tab:purple')
 ax.add_artist(patch_circle_ne)
 
 fillet_c_se = intersection(line([W/2.+w/2.+R, L/2.+l/2.], [W/2.+w/2.+R, L/2.-l/2.]), line([W/2.+w/2., L/2.-l/2.+R/np.cos(alpha)], [W,b+R/np.cos(alpha)]))
 print(f"SE fillet center = {fillet_c_se}")
+proj_c_se_1 = projectPt2Line(np.atleast_2d(fillet_c_se).T, [W/2.+w/2., L/2.+l/2.], [W/2.+w/2., L/2.-l/2.]).ravel()
+plt.plot(proj_c_se_1[0], proj_c_se_1[1], '*', c='r', markersize=10)
+proj_c_se_2 = projectPt2Line(np.atleast_2d(fillet_c_se).T, [W/2.+w/2., L/2.-l/2.], [W,b]).ravel()
+plt.plot(proj_c_se_2[0], proj_c_se_2[1], '*', c='r', markersize=10)
 patch_circle_se = plt.Circle(fillet_c_se, R, fill='False', color='tab:cyan')
 ax.add_artist(patch_circle_se)
 

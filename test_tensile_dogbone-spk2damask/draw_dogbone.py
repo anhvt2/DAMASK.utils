@@ -114,6 +114,7 @@ def projectPt2Line(c, p1, p2):
 # line2d([W, L], [W,0])
 # line2d([W,0], [0,0])
 
+### plot line segments for dogbone
 line2d([0,0], [0, b])
 line2d([0, b], [W/2.-w/2., L/2.-l/2.])
 line2d([W/2.-w/2., L/2.-l/2.], [W/2.-w/2., L/2.+l/2.])
@@ -127,6 +128,7 @@ line2d([W/2.+w/2., L/2.-l/2.], [W, b])
 line2d([W, b], [W,0])
 line2d([W,0], [0,0])
 
+### plot fillet intersecting line segment to determine the center of the circle
 line2dfillet([0, L-b-R/np.cos(alpha)], [W/2.-w/2., L/2.+l/2.-R/np.cos(alpha)])
 line2dfillet([W/2.-w/2.-R, L/2.+l/2], [W/2.-w/2.-R, L/2.-l/2])
 line2dfillet([0, b+R/np.cos(alpha)], [W/2.-w/2., L/2.-l/2+R/np.cos(alpha)])
@@ -134,6 +136,8 @@ line2dfillet([W, L-b-R/np.cos(alpha)], [W/2.+w/2., L/2.+l/2.-R/np.cos(alpha)])
 line2dfillet([W/2.+w/2.+R, L/2.+l/2.], [W/2.+w/2.+R, L/2.-l/2.])
 line2dfillet([W/2.+w/2., L/2.-l/2.+R/np.cos(alpha)], [W,b+R/np.cos(alpha)])
 
+### plot (1) fillet circle and (2) projection of fillet circle onto the line segment to determine tangential points
+# for every nw/sw/ne/se section, plot two of them
 fillet_c_nw = intersection(line([0, L-b-R/np.cos(alpha)], [W/2.-w/2., L/2.+l/2.-R/np.cos(alpha)]), line([W/2.-w/2.-R, L/2.+l/2], [W/2.-w/2.-R, L/2.-l/2]))
 print(f"NW fillet center = {fillet_c_nw}")
 proj_c_nw_1 = projectPt2Line(np.atleast_2d(fillet_c_nw).T, [0, L-b], [W/2.-w/2., L/2.+l/2.]).ravel()

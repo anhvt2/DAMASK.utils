@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import argparse
+import math
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--dump", type=str, required=True)
@@ -44,13 +45,13 @@ outFileName = 'phase_' + dumpFileName.replace('.','_') + '.npy'
 		L = Nz * res
 		W = Nx * res
 		T = Ny * res
-		45 degree from gage section to the dogbone
 
+	Note: NOT (but close to) 45 degree from gage section to the dogbone
 
 	Return:
 		A numpy 3d array in '.npy' format that encodes phase of the microstructure.
 		Normal grain = -1
-		Void = num_grains + 1
+		Void = num_grains+1
 
 	Description:
 		The dogbone is measured in the box (0, Nx), (0, Ny), (0, Nz)
@@ -102,9 +103,16 @@ def getDumpMs(dumpFileName):
 
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
-p = np.zeros([Nx, Ny, Nz])
+# example from Tim'slides
+L = 10000
+W = 6000
+l = 4000
+w = 1000
+b = 1000
 
-# voids are marked as -1
+p = np.ones([Nx, Ny, Nz]) * (-1)
+
+# work in true coordinate system
 for i in range(Nx):
 	for j in range(Ny):
 		for k in range(Nz):

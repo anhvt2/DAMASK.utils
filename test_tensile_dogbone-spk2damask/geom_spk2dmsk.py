@@ -2,7 +2,12 @@
 
 """
 	How to use: 
-		python3 geom_spk2dmsk.py --res=50 --dump=dump.12.out
+		python3 geom_spk2dmsk.py -r 50 -d 'dump.12.out'
+
+	Parameters:
+		-r: resolution: 1 pixel to 'r' micrometer
+		-d: dump file from SPPARKS
+
 	Description:
 		This script converts a microstructure SPPARKS output (dump file)
 		to a geom DAMASK input file. This script is to be used in concert with
@@ -31,7 +36,6 @@ def getDumpMs(dumpFileName):
 	dumpFile = open(dumpFileName)
 	dumptxt = dumpFile.readlines()
 	dumpFile.close()
-
 	for i in range(20): # look for header info in first 20 lines
 		tmp = dumptxt[i]
 		if 'BOX BOUNDS' in tmp:
@@ -39,14 +43,10 @@ def getDumpMs(dumpFileName):
 			Ny = int(dumptxt[i+2].replace('\n','').replace('0 ', '').replace(' ', ''))
 			Nz = int(dumptxt[i+3].replace('\n','').replace('0 ', '').replace(' ', ''))
 			break
-
 	header = np.array(dumptxt[i+4].replace('\n','').replace('ITEM: ATOMS ', '').split(' '), dtype=str)
-
 	d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
 	num_grains = len(np.unique(d[:,1]))
-
 	m = np.zeros([Nx, Ny, Nz])
-
 	for i in range(len(d)):
 		x = int(d[i,np.where(header=='x')[0][0]])
 		y = int(d[i,np.where(header=='y')[0][0]])
@@ -54,13 +54,16 @@ def getDumpMs(dumpFileName):
 		grain_id = int(d[i,1]) # or d[i,2] -- both are the same
 		m[x,y,z] = grain_id
 		# print(f"finish ({x},{y}, {z})")
-
 	return m, Nx, Ny, Nz, num_grains
 
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
+p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py
+
 geom = m.T.flatten()
 geom = np.array(geom, dtype=int)
+
+# write output
 num_lines = int(np.floor(len(geom)) / 10)
 num_elems_last_line = int(len(geom) % 10)
 

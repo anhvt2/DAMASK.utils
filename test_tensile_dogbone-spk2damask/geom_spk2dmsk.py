@@ -1,7 +1,13 @@
 
 
 """
-	python3 geom_spk2dmsk.py --res=50 --dump=dump.12.out
+	How to use: 
+		python3 geom_spk2dmsk.py --res=50 --dump=dump.12.out
+	Description:
+		This script converts a microstructure SPPARKS output (dump file)
+		to a geom DAMASK input file. This script is to be used in concert with
+			1. `geom_cad2phase.py` to model void,
+			2. and `orientations.txt` generated from DREAM.3D for crystallographic texture
 """
 
 import numpy as np
@@ -18,36 +24,40 @@ dumpFileName = args.dump # 'dump.12.out'
 outFileName = 'spk_' + dumpFileName.replace('.','_') + '.geom'
 res = args.resolution
 
-dumpFile = open(dumpFileName)
-dumptxt = dumpFile.readlines()
-dumpFile.close()
+def getDumpMs(dumpFileName):
+	"""
+		This function return a 3d array 'm' microstructure from reading a SPPARKS dump file, specified by 'dumpFileName'.
+	"""
+	dumpFile = open(dumpFileName)
+	dumptxt = dumpFile.readlines()
+	dumpFile.close()
 
-for i in range(20):
-	tmp = dumptxt[i]
-	if 'BOX BOUNDS' in tmp:
-		Nx = int(dumptxt[i+1].replace('\n','').replace('0 ', '').replace(' ', ''))
-		Ny = int(dumptxt[i+2].replace('\n','').replace('0 ', '').replace(' ', ''))
-		Nz = int(dumptxt[i+3].replace('\n','').replace('0 ', '').replace(' ', ''))
-		break
+	for i in range(20): # look for header info in first 20 lines
+		tmp = dumptxt[i]
+		if 'BOX BOUNDS' in tmp:
+			Nx = int(dumptxt[i+1].replace('\n','').replace('0 ', '').replace(' ', ''))
+			Ny = int(dumptxt[i+2].replace('\n','').replace('0 ', '').replace(' ', ''))
+			Nz = int(dumptxt[i+3].replace('\n','').replace('0 ', '').replace(' ', ''))
+			break
 
-# headers: ATOMS id type i1 energy x y z
-# res = 50
-# Nx  = 120
-# Ny  = 20
-# Nz  = 200
-d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
-num_grains = len(np.unique(d[:,1]))
+	header = np.array(dumptxt[i+4].replace('\n','').replace('ITEM: ATOMS ', '').split(' '), dtype=str)
 
-m = np.zeros([Nx, Ny, Nz])
+	d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
+	num_grains = len(np.unique(d[:,1]))
 
-for i in range(len(d)):
-	x = int(d[i,4])
-	y = int(d[i,5])
-	z = int(d[i,6])
-	grain_id = int(d[i,1]) # or d[i,2] -- both are the same
-	m[x,y,z] = grain_id
-	print(f"finish ({x},{y}, {z})")
+	m = np.zeros([Nx, Ny, Nz])
 
+	for i in range(len(d)):
+		x = int(d[i,np.where(header=='x')[0][0]])
+		y = int(d[i,np.where(header=='y')[0][0]])
+		z = int(d[i,np.where(header=='z')[0][0]])
+		grain_id = int(d[i,1]) # or d[i,2] -- both are the same
+		m[x,y,z] = grain_id
+		# print(f"finish ({x},{y}, {z})")
+
+	return m, Nx, Ny, Nz, num_grains
+
+m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
 geom = m.T.flatten()
 geom = np.array(geom, dtype=int)
@@ -67,13 +77,10 @@ for j in range(int(num_lines)):
 	for k in range(10):
 		idx = int(j * 10 + k)
 		f.write('%10d' % int(geom[idx]))
-		# f.write({':>10d'}.format(geom[idx]))
-		# f.write(f"{int(geom[idx]):>10d}")
 	f.write('\n')
 
 if num_elems_last_line > 0:
 	for idx in range(-num_elems_last_line,0):
-		# f.write({': >10d'}.format(geom[idx]))
 		f.write('%10d' % int(geom[idx]))
 
 f.close()

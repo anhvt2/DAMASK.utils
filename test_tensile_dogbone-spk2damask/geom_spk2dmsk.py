@@ -52,14 +52,15 @@ def getDumpMs(dumpFileName):
 		j = int(d[ii,np.where(header=='y')[0][0]]) # 'y'
 		k = int(d[ii,np.where(header=='z')[0][0]]) # 'z'
 		grain_id = int(d[ii,1]) # or d[i,2] -- both are the same
-		m[i,j,k] = grain_id
+		m[i,j,k] = grain_id # TODO: implement re-enumerate grain_id
 		# print(f"finish ({x},{y}, {z})")
 	return m, Nx, Ny, Nz, num_grains
 
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
 p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py
-void_id = np.max(m) + 1
+# void_id = np.max(m) + 1
+void_id = np.inf
 
 for i in range(Nx):
 	for j in range(Ny):

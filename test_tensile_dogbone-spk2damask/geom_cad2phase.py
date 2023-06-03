@@ -10,21 +10,48 @@ import math
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--dump", type=str, required=True)
 parser.add_argument("-r", "--resolution", type=int, required=True)
-parser.add_argument('--dogbone_geom', nargs='+', type=int) # geometry input: (L, W, T, l, w, b, R)
-geom_tuple = tuple(args.dogbone_geom)
-# https://stackoverflow.com/questions/33564246/passing-a-tuple-as-command-line-argument
+# parser.add_argument('--dogbone_geom', nargs='+', type=int) # geometry input: (L, W, T, l, w, b, R)
+# geometry input: (L, W, T, l, w, b, R)
+parser.add_argument('-L', "--L", type=float)
+parser.add_argument('-W', "--W", type=float)
+parser.add_argument('-T', "--T", type=float)
+parser.add_argument('-l', "--l", type=float)
+parser.add_argument('-w', "--w", type=float)
+parser.add_argument('-b', "--b", type=float)
+parser.add_argument('-R', "--R", type=float)
 
 args = parser.parse_args()
 
 dumpFileName = args.dump # 'dump.12.out'
 res = args.resolution # 50
+# geom_tuple = tuple(args.dogbone_geom)
+# https://stackoverflow.com/questions/33564246/passing-a-tuple-as-command-line-argument
+L = args.L # unit: um
+W = args.W # unit: um
+T = args.T # unit: um
+l = args.l # unit: um
+w = args.w # unit: um
+b = args.b # unit: um
+R = args.R # unit: um
 
 outFileName = 'phase_' + dumpFileName.replace('.','_') + '.npy'
 
 
 """
 	How to use: 
-		python3 geom_cad2phase.py -r 50 -d 'dump.12.out' --dogbone-geom L W T l w b R
+		python3 geom_cad2phase.py -r <res> -d <dumpFileName> --dogbone-geom L W T l w b R
+		python3 geom_cad2phase.py -r 50 -d 'dump.12.out' -L 10000 -W 6000 -T 1000 -l 4000 -w 1000 -b 1000 -R 1000
+
+		# deprecated: python3 geom_cad2phase.py -r 50 -d 'dump.12.out' --dogbone-geom 10000 6000 1000 4000 1000 1000 1000
+
+		# example from Tim'slides (unit: micrometer - um)
+		L = 10000
+		W = 6000
+		w = 1000
+		T = w
+		l = 4*w
+		b = w
+		R = w
 
 	Note:
 		A lot of this script is adopted from 'draw_dogbone.py' in 2d. 
@@ -107,15 +134,6 @@ def getDumpMs(dumpFileName):
 
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
-# example from Tim'slides
-L = 10000
-W = 6000
-w = 1000
-T = w
-l = 4*w
-b = w
-R = w
-
 def rad2deg(alpha):
 	return alpha*360/(2*math.pi)
 
@@ -128,7 +146,7 @@ print(f"Corner degree = {rad2deg(alpha)}")
 # https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines
 def line(p1, p2):
 	# This function computes the coefs (A,B,C) s.t. Ax + By = C for 'p1' and 'p2'
-	# or Ax + By -C = 0
+	# or Ax + By - C = 0
 	A = (p1[1] - p2[1])
 	B = (p2[0] - p1[0])
 	C = (p1[0]*p2[1] - p2[0]*p1[1])
@@ -164,9 +182,22 @@ def projectPt2Line(c, p1, p2):
 	proj_c = np.matmul(np.matmul(v,v.T)/np.matmul(v.T, v), c) + np.matmul(np.eye(2) - np.matmul(v,v.T) / np.matmul(v.T,v), c0)
 	return proj_c
 
-p = np.ones([Nx, Ny, Nz]) * (-1)
+def reorder(p1, p2):
+	# define a rectangle given 2 points
+	xmin = min(p1[0], p2[0])
+	xmax = max(p1[0], p2[0])
+	ymin = min(p1[1], p2[1])
+	ymax = max(p1[1], p2[1])
+	return np.array([xmin, xmax, ymin, ymax])
 
-# calculate the position of the fillet center & its projections
+def getL2dist(p1, p2):
+	distance = numpy.linalg.norm(p1-p2)
+	return distance
+
+### initialize
+p = np.ones([Nx, Ny, Nz]) * (-1) # default: normal grain
+
+### calculate the position of the fillet center & its projections
 fillet_c_nw = intersection(line([0, L-b-R/np.cos(alpha)], [W/2.-w/2., L/2.+l/2.-R/np.cos(alpha)]), line([W/2.-w/2.-R, L/2.+l/2], [W/2.-w/2.-R, L/2.-l/2]))
 proj_c_nw_1 = projectPt2Line(np.atleast_2d(fillet_c_nw).T, [0, L-b], [W/2.-w/2., L/2.+l/2.]).ravel()
 proj_c_nw_2 = projectPt2Line(np.atleast_2d(fillet_c_nw).T, [W/2.-w/2., L/2.+l/2], [W/2.-w/2., L/2.-l/2]).ravel()
@@ -180,15 +211,74 @@ fillet_c_se = intersection(line([W/2.+w/2.+R, L/2.+l/2.], [W/2.+w/2.+R, L/2.-l/2
 proj_c_se_1 = projectPt2Line(np.atleast_2d(fillet_c_se).T, [W/2.+w/2., L/2.+l/2.], [W/2.+w/2., L/2.-l/2.]).ravel()
 proj_c_se_2 = projectPt2Line(np.atleast_2d(fillet_c_se).T, [W/2.+w/2., L/2.-l/2.], [W,b]).ravel()
 
-# work in true coordinate system
+
+### geometric modeling of crude dogbone
+# work with true coordinate
+# divide in 6 regions: (left/right) 2 triangles and 1 rectangle
+# z: vertical; x: horizontal
 for i in range(Nx):
 	for j in range(Ny):
 		for k in range(Nz):
-			x, y, z = np.array(i,j,k) * res
-			line2d([0, b], [W/2.-w/2., L/2.-l/2.])
-			
-			line2d([W/2.-w/2., L/2.+l/2.], [0, L-b])
+			x, y, z = np.array([i,j,k]) * res
+			# check if the point (x,y,z) belongs to any 1 of 6 regions
+			if 0 <= x <= W/2.-w/2. and b <= z <= L/2.-l/2.:
+				# region 1
+				A,B,C = line([0, b], [W/2.-w/2., L/2.-l/2.])
+				if z > (C-A*x)/B:
+					# if upper-half of the triangle
+					p[i,j,k] = num_grains+1
+			elif 0 <= x <= W/2.-w/2. and L/2.-l/2. <= z <= L/2.+l/2.:
+				# region 2
+				p[i,j,k] = num_grains+1
+			elif 0 <= x <= W/2.-w/2. and L/2.+l/2. <= z <= L-b:
+				# region 3
+				A,B,C = line([W/2.-w/2., L/2.+l/2.], [0, L-b])
+				if z < (C-A*x)/B:
+					# if lower-half of the triangle
+					p[i,j,k] = num_grains+1
+			elif W/2.+w/2. <= x <= W and L/2.+l/2. <= z <= L-b:
+				# region 4
+				A,B,C = line([W, L-b], [W/2.+w/2., L/2.+l/2.])
+				if z < (C-A*x)/B:
+					# if upper-half of the triangle
+					p[i,j,k] = num_grains+1
+			elif W/2.+w/2. <= x <= W and L/2.-l/2. <= z <= L/2.+l/2.:
+				# region 5
+				p[i,j,k] = num_grains+1
+			elif W/2.+w/2. <= x <= W and b <= z <= L/2.-l/2.:
+				# region 6
+				A,B,C = line([W/2.+w/2., L/2.-l/2.], [W, b])
+				if z > (C-A*x)/B:
+					# if lower-half of the triangle
+					p[i,j,k] = num_grains+1
 
+nw_box = reorder(proj_c_nw_1, proj_c_nw_2)
+sw_box = reorder(proj_c_sw_1, proj_c_sw_2)
+ne_box = reorder(proj_c_ne_1, proj_c_ne_2)
+se_box = reorder(proj_c_se_1, proj_c_se_2)
 
+### geometric modeling of fillet
+for i in range(Nx):
+	for j in range(Ny):
+		for k in range(Nz):
+			x, y, z = np.array([i,j,k]) * res
+			if nw_box[0] <= x <= nw_box[1] and nw_box[2] <= z <= nw_box[3]:
+				p[i,j,k] = -1 # initialize as grain
+				if (x-fillet_c_nw[0])**2 + (z-fillet_c_nw[1])**2 < R**2:
+					p[i,j,k] = num_grains+1
+			if sw_box[0] <= x <= sw_box[1] and sw_box[2] <= z <= sw_box[3]:
+				p[i,j,k] = -1 # initialize as grain
+				if (x-fillet_c_sw[0])**2 + (z-fillet_c_sw[1])**2 < R**2:
+					p[i,j,k] = num_grains+1
+			if ne_box[0] <= x <= ne_box[1] and ne_box[2] <= z <= ne_box[3]:
+				p[i,j,k] = -1 # initialize as grain
+				if (x-fillet_c_ne[0])**2 + (z-fillet_c_ne[1])**2 < R**2:
+					p[i,j,k] = num_grains+1
+			if se_box[0] <= x <= se_box[1] and se_box[2] <= z <= se_box[3]:
+				p[i,j,k] = -1 # initialize as grain
+				if (x-fillet_c_se[0])**2 + (z-fillet_c_se[1])**2 < R**2:
+					p[i,j,k] = num_grains+1
 
 np.save(outFileName, p)
+plt.imshow(p[:,0,:].T)
+plt.show()

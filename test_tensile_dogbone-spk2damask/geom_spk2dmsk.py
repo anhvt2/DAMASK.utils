@@ -46,12 +46,19 @@ def getDumpMs(dumpFileName):
 	header = np.array(dumptxt[i+4].replace('\n','').replace('ITEM: ATOMS ', '').split(' '), dtype=str)
 	d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
 	num_grains = len(np.unique(d[:,1]))
-	m = np.zeros([Nx, Ny, Nz])
+	old_grain_ids = np.unique(d[:,1])
+	new_grain_ids = range(len(np.unique(d[:,1])))
+	m = np.zeros([Nx, Ny, Nz]) # initialize
 	for ii in range(len(d)):
 		i = int(d[ii,np.where(header=='x')[0][0]]) # 'x'
 		j = int(d[ii,np.where(header=='y')[0][0]]) # 'y'
 		k = int(d[ii,np.where(header=='z')[0][0]]) # 'z'
 		grain_id = int(d[ii,1]) # or d[i,2] -- both are the same
+		# option: DO re-enumerating
+		lookup_idx = np.where(old_grain_ids == grain_id)[0][0]
+		new_grain_id = new_grain_ids[lookup_idx]
+		m[i,j,k] = new_grain_id
+		# option: DO NOT re-enumerating
 		m[i,j,k] = grain_id # TODO: implement re-enumerate grain_id
 		# print(f"finish ({x},{y}, {z})")
 	return m, Nx, Ny, Nz, num_grains
@@ -60,7 +67,8 @@ m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
 p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py
 # void_id = np.max(m) + 1
-void_id = np.inf
+# void_id = np.inf # DAMASK pre-proc error
+void_id = -1
 
 for i in range(Nx):
 	for j in range(Ny):

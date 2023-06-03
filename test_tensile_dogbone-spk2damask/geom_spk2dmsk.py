@@ -51,7 +51,7 @@ def getDumpMs(dumpFileName):
 		i = int(d[ii,np.where(header=='x')[0][0]]) # 'x'
 		j = int(d[ii,np.where(header=='y')[0][0]]) # 'y'
 		k = int(d[ii,np.where(header=='z')[0][0]]) # 'z'
-		grain_id = int(d[i,1]) # or d[i,2] -- both are the same
+		grain_id = int(d[ii,1]) # or d[i,2] -- both are the same
 		m[i,j,k] = grain_id
 		# print(f"finish ({x},{y}, {z})")
 	return m, Nx, Ny, Nz, num_grains
@@ -95,4 +95,5 @@ if num_elems_last_line > 0:
 
 f.close()
 
-
+# diagnostics
+print(f"Number of unique grains = {num_grains}")

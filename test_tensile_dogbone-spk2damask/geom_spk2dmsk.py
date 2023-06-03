@@ -47,18 +47,25 @@ def getDumpMs(dumpFileName):
 	d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
 	num_grains = len(np.unique(d[:,1]))
 	m = np.zeros([Nx, Ny, Nz])
-	for i in range(len(d)):
-		x = int(d[i,np.where(header=='x')[0][0]])
-		y = int(d[i,np.where(header=='y')[0][0]])
-		z = int(d[i,np.where(header=='z')[0][0]])
+	for ii in range(len(d)):
+		i = int(d[ii,np.where(header=='x')[0][0]]) # 'x'
+		j = int(d[ii,np.where(header=='y')[0][0]]) # 'y'
+		k = int(d[ii,np.where(header=='z')[0][0]]) # 'z'
 		grain_id = int(d[i,1]) # or d[i,2] -- both are the same
-		m[x,y,z] = grain_id
+		m[i,j,k] = grain_id
 		# print(f"finish ({x},{y}, {z})")
 	return m, Nx, Ny, Nz, num_grains
 
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
 p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py
+void_id = np.max(m) + 1
+
+for i in range(Nx):
+	for j in range(Ny):
+		for k in range(Nz):
+			if p[i,j,k] == np.inf:
+				m[i,j,k] = void_id # assign void
 
 geom = m.T.flatten()
 geom = np.array(geom, dtype=int)

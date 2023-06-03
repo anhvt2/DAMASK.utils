@@ -226,31 +226,31 @@ for i in range(Nx):
 				A,B,C = line([0, b], [W/2.-w/2., L/2.-l/2.])
 				if z > (C-A*x)/B:
 					# if upper-half of the triangle
-					p[i,j,k] = num_grains+1
+					p[i,j,k] = np.inf # assign void
 			elif 0 <= x <= W/2.-w/2. and L/2.-l/2. <= z <= L/2.+l/2.:
 				# region 2
-				p[i,j,k] = num_grains+1
+				p[i,j,k] = np.inf # assign void
 			elif 0 <= x <= W/2.-w/2. and L/2.+l/2. <= z <= L-b:
 				# region 3
 				A,B,C = line([W/2.-w/2., L/2.+l/2.], [0, L-b])
 				if z < (C-A*x)/B:
 					# if lower-half of the triangle
-					p[i,j,k] = num_grains+1
+					p[i,j,k] = np.inf # assign void
 			elif W/2.+w/2. <= x <= W and L/2.+l/2. <= z <= L-b:
 				# region 4
 				A,B,C = line([W, L-b], [W/2.+w/2., L/2.+l/2.])
 				if z < (C-A*x)/B:
 					# if upper-half of the triangle
-					p[i,j,k] = num_grains+1
+					p[i,j,k] = np.inf # assign void
 			elif W/2.+w/2. <= x <= W and L/2.-l/2. <= z <= L/2.+l/2.:
 				# region 5
-				p[i,j,k] = num_grains+1
+				p[i,j,k] = np.inf # assign void
 			elif W/2.+w/2. <= x <= W and b <= z <= L/2.-l/2.:
 				# region 6
 				A,B,C = line([W/2.+w/2., L/2.-l/2.], [W, b])
 				if z > (C-A*x)/B:
 					# if lower-half of the triangle
-					p[i,j,k] = num_grains+1
+					p[i,j,k] = np.inf # assign void
 
 nw_box = reorder(proj_c_nw_1, proj_c_nw_2)
 sw_box = reorder(proj_c_sw_1, proj_c_sw_2)
@@ -265,19 +265,19 @@ for i in range(Nx):
 			if nw_box[0] <= x <= nw_box[1] and nw_box[2] <= z <= nw_box[3]:
 				p[i,j,k] = -1 # initialize as grain
 				if (x-fillet_c_nw[0])**2 + (z-fillet_c_nw[1])**2 < R**2:
-					p[i,j,k] = num_grains+1
+					p[i,j,k] = np.inf # assign void
 			if sw_box[0] <= x <= sw_box[1] and sw_box[2] <= z <= sw_box[3]:
 				p[i,j,k] = -1 # initialize as grain
 				if (x-fillet_c_sw[0])**2 + (z-fillet_c_sw[1])**2 < R**2:
-					p[i,j,k] = num_grains+1
+					p[i,j,k] = np.inf # assign void
 			if ne_box[0] <= x <= ne_box[1] and ne_box[2] <= z <= ne_box[3]:
 				p[i,j,k] = -1 # initialize as grain
 				if (x-fillet_c_ne[0])**2 + (z-fillet_c_ne[1])**2 < R**2:
-					p[i,j,k] = num_grains+1
+					p[i,j,k] = np.inf # assign void
 			if se_box[0] <= x <= se_box[1] and se_box[2] <= z <= se_box[3]:
 				p[i,j,k] = -1 # initialize as grain
 				if (x-fillet_c_se[0])**2 + (z-fillet_c_se[1])**2 < R**2:
-					p[i,j,k] = num_grains+1
+					p[i,j,k] = np.inf # assign void
 
 np.save(outFileName, p)
 plt.imshow(p[:,0,:].T)

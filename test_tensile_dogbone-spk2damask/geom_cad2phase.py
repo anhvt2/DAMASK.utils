@@ -17,14 +17,18 @@ geom_tuple = tuple(args.dogbone_geom)
 args = parser.parse_args()
 
 dumpFileName = args.dump # 'dump.12.out'
-res = args.resolution
+res = args.resolution # 50
 
 outFileName = 'phase_' + dumpFileName.replace('.','_') + '.npy'
 
 
 """
 	How to use: 
-		python3 geom_cad2phase.py -r 50 -d 'dump.12.out' -L
+		python3 geom_cad2phase.py -r 50 -d 'dump.12.out' --dogbone-geom L W T l w b R
+
+	Note:
+		A lot of this script is adopted from 'draw_dogbone.py' in 2d. 
+		It is usually a good idea to visualize the dogbone geometry first before getting hand dirty.
 
 	Parameters:
 		-r: resolution: 1 pixel to 'r' micrometer
@@ -106,17 +110,85 @@ m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 # example from Tim'slides
 L = 10000
 W = 6000
-l = 4000
 w = 1000
-b = 1000
+T = w
+l = 4*w
+b = w
+R = w
+
+def rad2deg(alpha):
+	return alpha*360/(2*math.pi)
+
+def deg2rad(alpha):
+	return alpha/360*(2*math.pi)
+
+alpha = np.arctan( (L/2.-l/2.-b) / (W/2.-w/2.) )
+print(f"Corner degree = {rad2deg(alpha)}")
+
+# https://stackoverflow.com/questions/20677795/how-do-i-compute-the-intersection-point-of-two-lines
+def line(p1, p2):
+	# This function computes the coefs (A,B,C) s.t. Ax + By = C for 'p1' and 'p2'
+	# or Ax + By -C = 0
+	A = (p1[1] - p2[1])
+	B = (p2[0] - p1[0])
+	C = (p1[0]*p2[1] - p2[0]*p1[1])
+	# parameterized in term of B: 
+	# 	upper-half plane mean y > (C-Ax)/B and lower-half plane mean y < (C-Ax)/B
+	# 	normal vector (A,B) always points upward (B>0 regardless of A) 
+	if B > 0:
+		return A, B, -C
+	else:
+		return -A, -B, +C
+
+def intersection(L1, L2):
+    D  = L1[0] * L2[1] - L1[1] * L2[0]
+    Dx = L1[2] * L2[1] - L1[1] * L2[2]
+    Dy = L1[0] * L2[2] - L1[2] * L2[0]
+    if D != 0:
+        x = Dx / D
+        y = Dy / D
+        return x,y
+    else:
+        return False
+
+def projectPt2Line(c, p1, p2):
+	# https://math.stackexchange.com/questions/62633/orthogonal-projection-of-a-point-onto-a-line
+	# This function	projects the point 'c' (supposed to be the fillet center) 
+	# to a line (parameterized by 'p1' and 'p2')
+	A,B,C = line(p1, p2) # Ax + By - C = 0
+	if B != 0:
+		c0 = np.atleast_2d([0, C/B]).T # c0: an arbitrary point on the line Ax + By - C = 0
+	else:
+		c0 = np.atleast_2d([C/A, 0]).T # c0: an arbitrary point on the line Ax + By - C = 0
+	v = np.atleast_2d([-B, A]).T # a column vector normal to the normal vector (A,B)
+	proj_c = np.matmul(np.matmul(v,v.T)/np.matmul(v.T, v), c) + np.matmul(np.eye(2) - np.matmul(v,v.T) / np.matmul(v.T,v), c0)
+	return proj_c
 
 p = np.ones([Nx, Ny, Nz]) * (-1)
+
+# calculate the position of the fillet center & its projections
+fillet_c_nw = intersection(line([0, L-b-R/np.cos(alpha)], [W/2.-w/2., L/2.+l/2.-R/np.cos(alpha)]), line([W/2.-w/2.-R, L/2.+l/2], [W/2.-w/2.-R, L/2.-l/2]))
+proj_c_nw_1 = projectPt2Line(np.atleast_2d(fillet_c_nw).T, [0, L-b], [W/2.-w/2., L/2.+l/2.]).ravel()
+proj_c_nw_2 = projectPt2Line(np.atleast_2d(fillet_c_nw).T, [W/2.-w/2., L/2.+l/2], [W/2.-w/2., L/2.-l/2]).ravel()
+fillet_c_sw = intersection(line([0, b+R/np.cos(alpha)], [W/2.-w/2., L/2.-l/2.+R/np.cos(alpha)]), line([W/2.-w/2.-R, L/2.+l/2], [W/2.-w/2.-R, L/2.-l/2]))
+proj_c_sw_1 = projectPt2Line(np.atleast_2d(fillet_c_sw).T, [W/2.-w/2., L/2.+l/2], [W/2.-w/2., L/2.-l/2]).ravel()
+proj_c_sw_2 = projectPt2Line(np.atleast_2d(fillet_c_sw).T, [0, b], [W/2.-w/2., L/2.-l/2]).ravel()
+fillet_c_ne = intersection(line([W, L-b-R/np.cos(alpha)], [W/2.+w/2., L/2.+l/2.-R/np.cos(alpha)]), line([W/2.+w/2.+R, L/2.+l/2.], [W/2.+w/2.+R, L/2.-l/2.]))
+proj_c_ne_1 = projectPt2Line(np.atleast_2d(fillet_c_ne).T, [W, L-b], [W/2.+w/2., L/2.+l/2.]).ravel()
+proj_c_ne_2 = projectPt2Line(np.atleast_2d(fillet_c_ne).T, [W/2.+w/2., L/2.+l/2.], [W/2.+w/2., L/2.-l/2.]).ravel()
+fillet_c_se = intersection(line([W/2.+w/2.+R, L/2.+l/2.], [W/2.+w/2.+R, L/2.-l/2.]), line([W/2.+w/2., L/2.-l/2.+R/np.cos(alpha)], [W,b+R/np.cos(alpha)]))
+proj_c_se_1 = projectPt2Line(np.atleast_2d(fillet_c_se).T, [W/2.+w/2., L/2.+l/2.], [W/2.+w/2., L/2.-l/2.]).ravel()
+proj_c_se_2 = projectPt2Line(np.atleast_2d(fillet_c_se).T, [W/2.+w/2., L/2.-l/2.], [W,b]).ravel()
 
 # work in true coordinate system
 for i in range(Nx):
 	for j in range(Ny):
 		for k in range(Nz):
 			x, y, z = np.array(i,j,k) * res
+			line2d([0, b], [W/2.-w/2., L/2.-l/2.])
+			
+			line2d([W/2.-w/2., L/2.+l/2.], [0, L-b])
+
 
 
 np.save(outFileName, p)

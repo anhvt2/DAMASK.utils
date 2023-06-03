@@ -41,6 +41,7 @@ mpl.rcParams['ytick.labelsize'] = 24
 L = 10000
 W = 6000
 w = 1000
+T = w
 l = 4*w
 b = w
 R = w
@@ -72,21 +73,27 @@ def line2dfillet(p1, p2):
 def line(p1, p2):
 	# This function computes the coefs (A,B,C) s.t. Ax + By = C for 'p1' and 'p2'
 	# or Ax + By -C = 0
-    A = (p1[1] - p2[1])
-    B = (p2[0] - p1[0])
-    C = (p1[0]*p2[1] - p2[0]*p1[1])
-    return A, B, -C
+	A = (p1[1] - p2[1])
+	B = (p2[0] - p1[0])
+	C = (p1[0]*p2[1] - p2[0]*p1[1])
+	# parameterized in term of B: 
+	# 	upper-half plane mean y > (C-Ax)/B and lower-half plane mean y < (C-Ax)/B
+	# 	normal vector (A,B) always points upward (B>0 regardless of A) 
+	if B > 0:
+		return A, B, -C
+	else:
+		return -A, -B, +C
 
 def intersection(L1, L2):
-    D  = L1[0] * L2[1] - L1[1] * L2[0]
-    Dx = L1[2] * L2[1] - L1[1] * L2[2]
-    Dy = L1[0] * L2[2] - L1[2] * L2[0]
-    if D != 0:
-        x = Dx / D
-        y = Dy / D
-        return x,y
-    else:
-        return False
+	D  = L1[0] * L2[1] - L1[1] * L2[0]
+	Dx = L1[2] * L2[1] - L1[1] * L2[2]
+	Dy = L1[0] * L2[2] - L1[2] * L2[0]
+	if D != 0:
+		x = Dx / D
+		y = Dy / D
+		return x,y
+	else:
+		return False
 
 
 def projectPt2Line(c, p1, p2):
@@ -178,4 +185,10 @@ ax.add_artist(patch_circle_se)
 plt.axis('equal')
 # plt.xlim([-1, L+1])
 # plt.ylim([-1, W+1])
+
+### construct p matrix 2d
+
+
+
 plt.show()
+

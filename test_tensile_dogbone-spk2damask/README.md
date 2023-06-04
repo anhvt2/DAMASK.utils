@@ -85,7 +85,14 @@ Input decks:
 	4. (manually) remove all text in `orientations.dat`, only keep number
 	5. save `orientations.dat`
 3. sketch (and visualize) dogbone specimen using `draw_dogbone.py`.
-For example: ![Sketch of the dogbone specimen](./dogbone-sketch.png)
+For example: 
+- medium fillet radius
+![Sketch of the dogbone specimen](./dogbone-sketch.png)
+- large fillet radius
+![Sketch of the dogbone specimen](./dogbone-sketch-big-fillet.png)
+- small fillet radius
+![Sketch of the dogbone specimen](./dogbone-sketch-small-fillet.png)
+
 4. `geom_cad2phase.py`: dump a phase matrix from dogbone geometry
 5. `geom_spk2dmsk.py`: 
 	1. read `dump.12.out` and `orientations.dat`

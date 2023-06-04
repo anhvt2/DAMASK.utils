@@ -93,4 +93,9 @@ For example: ![Sketch of the dogbone specimen](./dogbone-sketch.png)
 	3. write `spk_dump_12_out.geom`
 
 
+Results from exporting SPPARKS: 
+![Geometry of the dogbone specimen](./vtk-visualization-res-50um.png)
+
+![Geometry of the dogbone specimen](./vtk-visualization-res-10um.png)
+
 # DAMASK

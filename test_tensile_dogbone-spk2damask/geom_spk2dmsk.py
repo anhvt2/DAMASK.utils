@@ -65,6 +65,7 @@ def getDumpMs(dumpFileName):
 
 t_start = time.time()
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
+m += 2
 
 p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py
 # void_id = np.max(m) + 1
@@ -99,12 +100,12 @@ f.write('microstructures %d\n' % (num_grains+1))
 for j in range(int(num_lines)):
 	for k in range(10):
 		idx = int(j * 10 + k)
-		f.write('%10d' % int(geom[idx]+1)) # grain index starts from 1
+		f.write('%10d' % int(geom[idx]))
 	f.write('\n')
 
 if num_elems_last_line > 0:
 	for idx in range(-num_elems_last_line,0):
-		f.write('%10d' % int(geom[idx]+1)) # grain index starts from 1
+		f.write('%10d' % int(geom[idx]))
 
 f.close()
 

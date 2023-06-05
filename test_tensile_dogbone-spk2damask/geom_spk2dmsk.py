@@ -120,7 +120,7 @@ f.write('<texture>\n')
 # void info
 
 for i in range(num_grains):
-	f.write('[grain%d]\n' % i)
+	f.write('[grain%d]\n' % (i+1))
 	phi1, Phi, phi2 = orientations[i,:]
 	f.write('(gauss) phi1 %.3f   Phi %.3f    phi2 %.3f   scatter 0.0   fraction 1.0 \n' % (phi1, Phi, phi2))
 
@@ -131,13 +131,13 @@ f.write('\n')
 f.write('<microstructure>\n')
 
 for i in range(num_grains):
-	f.write('[grain%d]\n' % i)
+	f.write('[grain%d]\n' % (i+1))
 	f.write('crystallite 1\n')
-	f.write('(constituent)   phase 1 texture 1 fraction 1.0\n')
+	f.write('(constituent)   phase 1 texture %d fraction 1.0\n' % (i+1))
 
 f.write('[grain%d]\n' % (void_id))
 f.write('crystallite 1\n')
-f.write('(constituent)   phase 2 texture 1 fraction 1.0\n')
+f.write('(constituent)   phase 2 texture %d fraction 1.0\n' % void_id)
 
 f.close()
 

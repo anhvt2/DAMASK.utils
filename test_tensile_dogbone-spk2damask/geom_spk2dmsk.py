@@ -63,7 +63,7 @@ def getDumpMs(dumpFileName):
 		# print(f"finish ({x},{y}, {z})")
 	return m, Nx, Ny, Nz, num_grains
 
-t_start = time()
+t_start = time.time()
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
 p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py

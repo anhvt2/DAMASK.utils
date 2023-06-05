@@ -197,6 +197,7 @@ def getL2dist(p1, p2):
 	return distance
 
 ### initialize
+t_start = time.time()
 p = np.ones([Nx, Ny, Nz]) * (-1) # default: normal grain
 
 ### calculate the position of the fillet center & its projections
@@ -287,8 +288,8 @@ for i in range(Nx):
 						p[i,j,k] = void_id # assign void
 
 np.save(outFileName, p)
-plt.imshow(p[:,0,:].T)
-plt.show()
+# plt.imshow(p[:,0,:].T)
+# plt.show()
 
 # diagnostics
 print(f"Number of voxels: {Nx*Ny*Nz}")

@@ -16,7 +16,7 @@
 """
 
 import numpy as np
-import os, sys
+import os, sys, time
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -63,6 +63,7 @@ def getDumpMs(dumpFileName):
 		# print(f"finish ({x},{y}, {z})")
 	return m, Nx, Ny, Nz, num_grains
 
+t_start = time()
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
 p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py
@@ -118,32 +119,35 @@ f.write('#######################################################################
 f.write('# Add <homogenization>, <crystallite>, and <phase> for a complete definition\n')
 f.write('#############################################################################\n')
 f.write('<texture>\n')
-# void info
 
+### NOTE:
 # if void_id = 1, then grain ids translate to (i+2)
 # if void_id = num_grains, then grain ids translate to (i+1)
+
+f.write('[grain%d]\n' % (void_id))
+f.write('(gauss) phi1 0   Phi 0    phi2 0   scatter 0.0   fraction 1.0 \n')
 
 for i in range(num_grains):
 	f.write('[grain%d]\n' % (i+2)) # assign grain id
 	phi1, Phi, phi2 = orientations[i,:]
 	f.write('(gauss) phi1 %.3f   Phi %.3f    phi2 %.3f   scatter 0.0   fraction 1.0 \n' % (phi1, Phi, phi2))
 
-f.write('[grain%d]\n' % (void_id))
-f.write('(gauss) phi1 0   Phi 0    phi2 0   scatter 0.0   fraction 1.0 \n')
-
 f.write('\n')
 f.write('<microstructure>\n')
+
+f.write('[grain%d]\n' % (void_id))
+f.write('crystallite 1\n')
+f.write('(constituent)   phase 2 texture %d fraction 1.0\n' % void_id)
 
 for i in range(num_grains):
 	f.write('[grain%d]\n' % (i+2)) # assign grain id
 	f.write('crystallite 1\n')
 	f.write('(constituent)   phase 1 texture %d fraction 1.0\n' % (i+2)) # assign grain id
 
-f.write('[grain%d]\n' % (void_id))
-f.write('crystallite 1\n')
-f.write('(constituent)   phase 2 texture %d fraction 1.0\n' % void_id)
 
 f.close()
 
 ### diagnostics
 print(f"Number of unique grains = {num_grains}")
+elapsed = time.time() - t_start
+print("geom_spk2dmsk.py: finished in {:5.2f} seconds.".format(elapsed), end="")

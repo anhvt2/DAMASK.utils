@@ -1,6 +1,6 @@
 
 import numpy as np
-import os, sys
+import os, sys, time
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -294,3 +294,5 @@ plt.show()
 print(f"Number of voxels: {Nx*Ny*Nz}")
 print(f"Number of void voxels: {len(np.where(p == void_id)[0])}")
 print(f"Fraction of void over computational domain: {len(np.where(p == void_id)[0])/Nx/Ny/Nz}")
+elapsed = time.time() - t_start
+print("geom_spk2dmsk.py: finished in {:5.2f} seconds.".format(elapsed), end="")

@@ -101,8 +101,11 @@ For example:
 
 
 Results from exporting SPPARKS: 
+* 50um
 ![Geometry of the dogbone specimen](./vtk-visualization-res-50um.png)
-
+* 20um
+![Geometry of the dogbone specimen](./vtk-visualization-res-20um.png)
+* 10um
 ![Geometry of the dogbone specimen](./vtk-visualization-res-10um.png)
 
 # DAMASK

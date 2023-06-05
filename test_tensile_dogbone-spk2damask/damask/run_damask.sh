@@ -96,6 +96,8 @@ echo
 ### ---------------------------------- run DAMASK
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
 
+geomFileName='spk_dump_12_out'
+
 if [ -f "numProcessors.dat" ]; then
 	numProcessors=$(cat numProcessors.dat)
 	if [[ "$numProcessors" -eq 1 ]]

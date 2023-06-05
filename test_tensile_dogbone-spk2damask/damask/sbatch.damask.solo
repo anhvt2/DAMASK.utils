@@ -42,6 +42,8 @@ cores=36                             # Number MPI processes to run on each node 
 ### ---------------------------------- run DAMASK
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
 
+geomFileName='spk_dump_12_out'
+
 if [ -f "numProcessors.dat" ]; then
     numProcessors=$(cat numProcessors.dat)
     if [[ "$numProcessors" -eq 1 ]]
@@ -50,7 +52,7 @@ if [ -f "numProcessors.dat" ]; then
         mpirun -np ${numProcessors} $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
     fi
 else
-    mpirun -np 36 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+    mpirun -np ${cores} $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
 fi
 
 
@@ -62,11 +64,6 @@ if [ -d "postProc" ]; then
     filterTable < ${geomFileName}*_tension.txt --white inc,1_f,1_p > stress_strain.log
     cd ..
     cd ..
-    python3 computeLossFunction.py --f=40x40x40/
-    if [ -f "output.dat" ]; then
-        echo 1 > feasible.dat
-        echo 1 > complete.dat
-    fi
 else
     echo "Simulation does not converge!!!"
     echo 0 > feasible.dat

@@ -260,26 +260,31 @@ ne_box = reorder(proj_c_ne_1, proj_c_ne_2)
 se_box = reorder(proj_c_se_1, proj_c_se_2)
 
 ### geometric modeling of fillet
+# TODO: (1) exploit symmetry
+#		(2) do only one j's instead of Ny j's
 for i in range(Nx):
 	for j in range(Ny):
 		for k in range(Nz):
 			x, y, z = np.array([i,j,k]) * res
-			if nw_box[0] <= x <= nw_box[1] and nw_box[2] <= z <= nw_box[3]:
-				p[i,j,k] = -1 # initialize as grain
-				if (x-fillet_c_nw[0])**2 + (z-fillet_c_nw[1])**2 < R**2:
-					p[i,j,k] = void_id # assign void
-			if sw_box[0] <= x <= sw_box[1] and sw_box[2] <= z <= sw_box[3]:
-				p[i,j,k] = -1 # initialize as grain
-				if (x-fillet_c_sw[0])**2 + (z-fillet_c_sw[1])**2 < R**2:
-					p[i,j,k] = void_id # assign void
-			if ne_box[0] <= x <= ne_box[1] and ne_box[2] <= z <= ne_box[3]:
-				p[i,j,k] = -1 # initialize as grain
-				if (x-fillet_c_ne[0])**2 + (z-fillet_c_ne[1])**2 < R**2:
-					p[i,j,k] = void_id # assign void
-			if se_box[0] <= x <= se_box[1] and se_box[2] <= z <= se_box[3]:
-				p[i,j,k] = -1 # initialize as grain
-				if (x-fillet_c_se[0])**2 + (z-fillet_c_se[1])**2 < R**2:
-					p[i,j,k] = void_id # assign void
+			if j > 0:
+				p[i,j,k] = p[i,j-1,k]
+			else:
+				if nw_box[0] <= x <= nw_box[1] and nw_box[2] <= z <= nw_box[3]:
+					p[i,j,k] = -1 # initialize as grain
+					if (x-fillet_c_nw[0])**2 + (z-fillet_c_nw[1])**2 < R**2:
+						p[i,j,k] = void_id # assign void
+				if sw_box[0] <= x <= sw_box[1] and sw_box[2] <= z <= sw_box[3]:
+					p[i,j,k] = -1 # initialize as grain
+					if (x-fillet_c_sw[0])**2 + (z-fillet_c_sw[1])**2 < R**2:
+						p[i,j,k] = void_id # assign void
+				if ne_box[0] <= x <= ne_box[1] and ne_box[2] <= z <= ne_box[3]:
+					p[i,j,k] = -1 # initialize as grain
+					if (x-fillet_c_ne[0])**2 + (z-fillet_c_ne[1])**2 < R**2:
+						p[i,j,k] = void_id # assign void
+				if se_box[0] <= x <= se_box[1] and se_box[2] <= z <= se_box[3]:
+					p[i,j,k] = -1 # initialize as grain
+					if (x-fillet_c_se[0])**2 + (z-fillet_c_se[1])**2 < R**2:
+						p[i,j,k] = void_id # assign void
 
 np.save(outFileName, p)
 plt.imshow(p[:,0,:].T)

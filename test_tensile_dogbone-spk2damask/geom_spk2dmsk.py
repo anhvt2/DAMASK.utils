@@ -66,9 +66,10 @@ def getDumpMs(dumpFileName):
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
 p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py
-void_id = np.max(m) + 1
+# void_id = np.max(m) + 1
 # void_id = np.inf # DAMASK pre-proc error 
 # void_id = -1
+void_id = 1 # based on Philip Eisenlohr's suggestion
 
 for i in range(Nx):
 	for j in range(Ny):
@@ -119,8 +120,11 @@ f.write('#######################################################################
 f.write('<texture>\n')
 # void info
 
+# if void_id = 1, then grain ids translate to (i+2)
+# if void_id = num_grains, then grain ids translate to (i+1)
+
 for i in range(num_grains):
-	f.write('[grain%d]\n' % (i+1))
+	f.write('[grain%d]\n' % (i+2)) # assign grain id
 	phi1, Phi, phi2 = orientations[i,:]
 	f.write('(gauss) phi1 %.3f   Phi %.3f    phi2 %.3f   scatter 0.0   fraction 1.0 \n' % (phi1, Phi, phi2))
 
@@ -131,9 +135,9 @@ f.write('\n')
 f.write('<microstructure>\n')
 
 for i in range(num_grains):
-	f.write('[grain%d]\n' % (i+1))
+	f.write('[grain%d]\n' % (i+2)) # assign grain id
 	f.write('crystallite 1\n')
-	f.write('(constituent)   phase 1 texture %d fraction 1.0\n' % (i+1))
+	f.write('(constituent)   phase 1 texture %d fraction 1.0\n' % (i+2)) # assign grain id
 
 f.write('[grain%d]\n' % (void_id))
 f.write('crystallite 1\n')

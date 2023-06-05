@@ -46,7 +46,7 @@ geomFileName='spk_dump_12_out'
 
 if [ -f "numProcessors.dat" ]; then
     numProcessors=$(cat numProcessors.dat)
-    if [[ "$numProcessors" -eq 1 ]]
+    if [[ "$numProcessors" -eq 1 ]]; then
         $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
     else
         mpirun -np ${numProcessors} $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask

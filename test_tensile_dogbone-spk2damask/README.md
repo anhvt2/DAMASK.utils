@@ -118,4 +118,33 @@ Note: 0.49945833333333334 volume of fraction is void.
 ```shell
 cat material.config.preamble  | cat - material.config | sponge material.config
 ```
+3. Void config is adopted from `Phase_Isotropic_FreeSurface.config` based on a conversation with Philip Eisenlohr.
+```
+[Void]
+
+## Isotropic Material model to simulate free surfaces ##
+## For more information see paper Maiti+Eisenlohr2018, Scripta Materialia, 
+## "Fourier-based spectral method solution to finite strain crystal plasticity with free surfaces"
+
+elasticity              hooke
+plasticity              isotropic
+
+/dilatation/
+
+(output)                flowstress
+(output)                strainrate
+
+lattice_structure       isotropic
+c11                     0.24e9
+c12                     0.0
+c44						0.12e9
+taylorfactor            3
+tau0                    0.3e6
+gdot0                   0.001
+n                       5
+h0                      1e6
+tausat                  0.6e6
+w0                      2.25
+atol_resistance         1
+```
 

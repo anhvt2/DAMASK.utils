@@ -15,7 +15,7 @@ nconstituents   1
 (output) texture
 (output) volume
 (output) orientation    # quaternion
-# (output) eulerangles    # orientation as Bunge triple
+# (output) eulerangles  # orientation as Bunge triple
 (output) grainrotation  # deviation from initial orientation as axis (1-3) and angle in degree (4)
 (output) f              # deformation gradient tensor; synonyms: "defgrad"
 (output) fe             # elastic deformation gradient tensor
@@ -26,14 +26,13 @@ nconstituents   1
 # (output) lp             # plastic velocity gradient tensor
 (output) s              # second Piola-Kichhoff stress tensor
 (output) lp             # plastic velocity gradient tensor
-(output) elasmatrix     # elastic stiffness matrix
-
+# (output) elasmatrix     # elastic stiffness matrix
+# (output) totalshear
+# no twinning
 #-------------------#
 <phase>
 #-------------------#
 [StainlessSteel304L]
-# no twinning
-# (output) totalshear
 
 elasticity              hooke
 plasticity              phenopowerlaw

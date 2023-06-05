@@ -94,9 +94,10 @@ For example:
 ![Sketch of the dogbone specimen](./dogbone-sketch-small-fillet.png)
 
 4. `geom_cad2phase.py`: dump a phase matrix from dogbone geometry
+	* produce a `.npy` file: `phase_' + dumpFileName.replace('.','_') + '.npy`
 5. `geom_spk2dmsk.py`: 
 	1. read `dump.12.out` and `orientations.dat`
-	2. write `spk.material.config`
+	2. write `material.config`
 	3. write `spk_dump_12_out.geom`
 
 
@@ -109,3 +110,10 @@ Results from exporting SPPARKS:
 ![Geometry of the dogbone specimen](./vtk-visualization-res-10um.png)
 
 # DAMASK
+
+1. `geom` file is obtained from `geom_spk2dmsk.py`, might require `geom_cad2phase.py` run.
+2. combine `material.config` and `material.config.preamble` for material and void
+```shell
+cat ../material.config.preamble  | cat - material.config | sponge material.config
+```
+

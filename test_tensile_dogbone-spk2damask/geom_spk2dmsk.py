@@ -67,7 +67,7 @@ m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 
 p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py
 void_id = np.max(m) + 1
-# void_id = np.inf # DAMASK pre-proc error
+# void_id = np.inf # DAMASK pre-proc error 
 # void_id = -1
 
 for i in range(Nx):
@@ -92,17 +92,17 @@ f.write('grid    a %d    b %d    c %d\n' % (Nx, Ny, Nz))
 f.write('size    x %.3f    y %.3f    z %.3f\n' % (Nx*res, Ny*res, Nz*res))
 f.write('origin    x 0.000    y 0.000    z 0.000\n')
 f.write('homogenization  1\n')
-f.write('microstructures %d\n' % num_grains)
+f.write('microstructures %d\n' % (num_grains+1))
 
 for j in range(int(num_lines)):
 	for k in range(10):
 		idx = int(j * 10 + k)
-		f.write('%10d' % int(geom[idx]))
+		f.write('%10d' % int(geom[idx]+1)) # grain index starts from 1
 	f.write('\n')
 
 if num_elems_last_line > 0:
 	for idx in range(-num_elems_last_line,0):
-		f.write('%10d' % int(geom[idx]))
+		f.write('%10d' % int(geom[idx]+1)) # grain index starts from 1
 
 f.close()
 

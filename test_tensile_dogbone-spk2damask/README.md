@@ -111,6 +111,8 @@ Results from exporting SPPARKS:
 
 # DAMASK
 
+Note: 0.49945833333333334 volume of fraction is void.
+
 1. `geom` file is obtained from `geom_spk2dmsk.py`, might require `geom_cad2phase.py` run.
 2. combine `material.config` and `material.config.preamble` for material and void
 ```shell

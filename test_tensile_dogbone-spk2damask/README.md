@@ -114,6 +114,6 @@ Results from exporting SPPARKS:
 1. `geom` file is obtained from `geom_spk2dmsk.py`, might require `geom_cad2phase.py` run.
 2. combine `material.config` and `material.config.preamble` for material and void
 ```shell
-cat ../material.config.preamble  | cat - material.config | sponge material.config
+cat material.config.preamble  | cat - material.config | sponge material.config
 ```
 

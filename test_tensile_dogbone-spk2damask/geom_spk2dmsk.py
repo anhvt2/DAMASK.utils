@@ -117,6 +117,10 @@ f.write('#######################################################################
 f.write('# Add <homogenization>, <crystallite>, and <phase> for a complete definition\n')
 f.write('#############################################################################\n')
 f.write('<texture>\n')
+# void info
+f.write('[grain%d]\n' % (-1))
+phi1, Phi, phi2 = orientations[i,:]
+f.write('(gauss) phi1 0   Phi 0    phi2 0   scatter 0.0   fraction 1.0 \n')
 for i in range(num_grains):
 	f.write('[grain%d]\n' % i)
 	phi1, Phi, phi2 = orientations[i,:]
@@ -124,6 +128,9 @@ for i in range(num_grains):
 
 f.write('\n')
 f.write('<microstructure>\n')
+f.write('[grain%d]\n' % (-1))
+f.write('crystallite 1\n')
+f.write('(constituent)   phase 2 texture 1 fraction 1.0\n')
 for i in range(num_grains):
 	f.write('[grain%d]\n' % i)
 	f.write('crystallite 1\n')

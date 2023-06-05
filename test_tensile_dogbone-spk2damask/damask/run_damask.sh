@@ -94,7 +94,7 @@ echo
 
 
 ### ---------------------------------- run DAMASK
-# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${filePrefix}.geom --load tension.load 2>&1 > log.damask
+# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
 
 if [ -f "numProcessors.dat" ]; then
 	numProcessors=$(cat numProcessors.dat)
@@ -113,7 +113,7 @@ sleep 10
 postResults *.spectralOut --cr f,p
 if [ -d "postProc" ]; then
 	cd postProc/
-	filterTable < ${filePrefix}*_tension.txt --white inc,1_f,1_p > stress_strain.log
+	filterTable < ${geomFileName}*_tension.txt --white inc,1_f,1_p > stress_strain.log
 	cd ..
 	cd ..
 	python3 computeLossFunction.py --f=40x40x40/

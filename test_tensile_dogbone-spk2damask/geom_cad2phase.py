@@ -296,4 +296,4 @@ print(f"Number of voxels: {Nx*Ny*Nz}")
 print(f"Number of void voxels: {len(np.where(p == void_id)[0])}")
 print(f"Fraction of void over computational domain: {len(np.where(p == void_id)[0])/Nx/Ny/Nz}")
 elapsed = time.time() - t_start
-print("geom_spk2dmsk.py: finished in {:5.2f} seconds.".format(elapsed), end="")
+print("geom_cad2phase.py: finished in {:5.2f} seconds.\n".format(elapsed), end="")

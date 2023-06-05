@@ -150,4 +150,4 @@ f.close()
 ### diagnostics
 print(f"Number of unique grains = {num_grains}")
 elapsed = time.time() - t_start
-print("geom_spk2dmsk.py: finished in {:5.2f} seconds.".format(elapsed), end="")
+print("geom_spk2dmsk.py: finished in {:5.2f} seconds.\n".format(elapsed), end="")

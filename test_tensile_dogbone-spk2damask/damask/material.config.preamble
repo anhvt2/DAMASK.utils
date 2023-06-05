@@ -61,21 +61,27 @@ interaction_slipslip    1.0 1.0 1.4 1.4 1.4 1.4                  # just guessing
 
 [Void]
 
+## Isotropic Material model to simulate free surfaces ##
+## For more information see paper Maiti+Eisenlohr2018, Scripta Materialia, 
+## "Fourier-based spectral method solution to finite strain crystal plasticity with free surfaces"
+
 elasticity              hooke
-plasticity              phenopowerlaw
+plasticity              isotropic
 
-lattice_structure       fcc
-Nslip                   12        # per family
-Ntwin                   0         # per family
-c11                     10.0e6
-c12                     10.0e6
-c44                     10.0e6
+/dilatation/
 
-gdot0_slip              0.0010
-n_slip                  100
-a_slip                  8.0e1
-tau0_slip               1.0e5
-tausat_slip             1.0e7
-h0_slipslip             5.0e5
+(output)                flowstress
+(output)                strainrate
 
-interaction_slipslip    1.0 1.0 1.4 1.4 1.4 1.4
+lattice_structure       isotropic
+c11                     0.24e9
+c12                     0.0
+c44						0.12e9
+taylorfactor            3
+tau0                    0.3e6
+gdot0                   0.001
+n                       5
+h0                      1e6
+tausat                  0.6e6
+w0                      2.25
+atol_resistance         1

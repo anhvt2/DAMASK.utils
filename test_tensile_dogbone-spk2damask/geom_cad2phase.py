@@ -291,7 +291,7 @@ np.save(outFileName, p)
 # plt.imshow(p[:,0,:].T)
 # plt.show()
 
-# diagnostics
+### diagnostics
 print(f"Number of voxels: {Nx*Ny*Nz}")
 print(f"Number of void voxels: {len(np.where(p == void_id)[0])}")
 print(f"Fraction of void over computational domain: {len(np.where(p == void_id)[0])/Nx/Ny/Nz}")

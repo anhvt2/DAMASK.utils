@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Do not put any commands or blank lines before the #SBATCH lines
-#SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
+#SBATCH --nodes=3                     # Number of nodes - all cores per node are allocated to the job
 #SBATCH --time=04:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY140174            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
@@ -57,7 +57,8 @@ else
     # mpirun -np 10 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
     # mpirun -np 16 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
 	# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-	mpiexec --bind-to core --npernode $cores --n 8 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+	# mpiexec --bind-to core --npernode $cores --n 8 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+    mpiexec --bind-to core --npernode $cores -np 25 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
 fi
 
 

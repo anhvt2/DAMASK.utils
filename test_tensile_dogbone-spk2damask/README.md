@@ -55,35 +55,35 @@ Dimension: 10 mm (4 mm middle) x 6 mm x 1 mm
 
 Attempted resolution:
 1. 10 um: 60M pixels
-	```
-	variable     Nx     equal  600
-	variable     Ny     equal  100
-	variable     Nz     equal 1000
-	```
+    ```
+    variable     Nx     equal  600
+    variable     Ny     equal  100
+    variable     Nz     equal 1000
+    ```
 
 2. 20 um: 7.5M pixels
-	```
-	variable     Nx     equal  300
-	variable     Ny     equal   50
-	variable     Nz     equal  500
-	```
+    ```
+    variable     Nx     equal  300
+    variable     Ny     equal   50
+    variable     Nz     equal  500
+    ```
 
 3. 50 um: 0.48M pixels
-	```
-	variable     Nx     equal  120
-	variable     Ny     equal   20
-	variable     Nz     equal  200
-	```
+    ```
+    variable     Nx     equal  120
+    variable     Ny     equal   20
+    variable     Nz     equal  200
+    ```
 
 Input decks:
 
 1. try with `t = 16.681021` corresponding to `spk/res-50um/dump.12.out`
 2. DREAM.3D file for orientation generation: 
-	1. run `test-Magnesium.json` to generate `material.config`
-	2. rename `material.config` to `dream3d.material.config`
-	3. `grep -ir 'phi1' dream3d.material.config > orientations.dat`
-	4. (manually) remove all text in `orientations.dat`, only keep number
-	5. save `orientations.dat`
+    1. run `test-Magnesium.json` to generate `material.config`
+    2. rename `material.config` to `dream3d.material.config`
+    3. `grep -ir 'phi1' dream3d.material.config > orientations.dat`
+    4. (manually) remove all text in `orientations.dat`, only keep number
+    5. save `orientations.dat`
 3. sketch (and visualize) dogbone specimen using `draw_dogbone.py`.
 For example: 
 - medium fillet radius
@@ -94,11 +94,11 @@ For example:
 ![Sketch of the dogbone specimen](./dogbone-sketch-small-fillet.png)
 
 4. `geom_cad2phase.py`: dump a phase matrix from dogbone geometry
-	* produce a `.npy` file: `phase_' + dumpFileName.replace('.','_') + '.npy`
+    * produce a `.npy` file: `phase_' + dumpFileName.replace('.','_') + '.npy`
 5. `geom_spk2dmsk.py`: 
-	1. read `dump.12.out` and `orientations.dat`
-	2. write `material.config`
-	3. write `spk_dump_12_out.geom`
+    1. read `dump.12.out` and `orientations.dat`
+    2. write `material.config`
+    3. write `spk_dump_12_out.geom`
 
 
 Results from exporting SPPARKS: 
@@ -137,7 +137,7 @@ plasticity              isotropic
 lattice_structure       isotropic
 c11                     0.24e9
 c12                     0.0
-c44						0.12e9
+c44                     0.12e9
 taylorfactor            3
 tau0                    0.3e6
 gdot0                   0.001

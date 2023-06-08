@@ -14,7 +14,7 @@
 """
 
 import numpy as np
-import os, sys
+import os, sys, time
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -67,15 +67,19 @@ def getDumpMs(dumpFileName):
 		grain_sizes[new_grain_id] += 1
 	return m, Nx, Ny, Nz, num_grains, grain_sizes
 
+t_start = time.time()
 m, Nx, Ny, Nz, num_grains, grain_sizes = getDumpMs(dumpFileName)
 
 grain_size_kernel = stats.gaussian_kde(grain_sizes)
 g = np.linspace(0, np.max(grain_sizes) * 1.1, num=100)
-normalized_factor = np.max(np.histogram(grain_sizes, bins='auto')[0]) / np.max(grain_size_kernel(g)) 
-plt.plot(g, grain_size_kernel(g) * normalized_factor, 'ro', ms=2, label='KDE')
-plt.hist(grain_sizes, bins='auto', label='histogram')
-plt.legend(loc='best', fontsize=24, frameon=False)
-plt.xlabel(r'grain size [pixel$^3$]', fontsize=24)
-plt.ylabel(r'frequency', fontsize=24)
-plt.title('SPPARKS dump statistics by computeGeomStatistics.py', fontsize=24)
-plt.show()
+grain_size_kernel(g)
+# normalized_factor = np.max(np.histogram(grain_sizes, bins='auto')[0]) / np.max(grain_size_kernel(g)) 
+# plt.plot(g, grain_size_kernel(g) * normalized_factor, 'ro', ms=2, label='KDE')
+# plt.hist(grain_sizes, bins='auto', label='histogram')
+# plt.legend(loc='best', fontsize=24, frameon=False)
+# plt.xlabel(r'grain size [pixel$^3$]', fontsize=24)
+# plt.ylabel(r'frequency', fontsize=24)
+# plt.title('SPPARKS dump statistics by computeGeomStatistics.py', fontsize=24)
+# plt.show()
+elapsed = time.time() - t_start
+print("computeGeomStatistics.py: finished in {:5.2f} seconds.\n".format(elapsed), end="")

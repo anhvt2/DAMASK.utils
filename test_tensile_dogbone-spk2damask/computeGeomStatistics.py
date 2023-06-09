@@ -92,5 +92,5 @@ f.write("computeGeomStatistics.py: finished in {:5.2f} seconds.\n".format(elapse
 f.write('complete_header:\n')
 for i in range(len(complete_header)):
 	f.write(complete_header[i])
-f.write('###')
+f.write('###\n')
 f.close()

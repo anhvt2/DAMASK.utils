@@ -12,6 +12,7 @@ ITEM: BOX BOUNDS
 0 1000
 ITEM: ATOMS id type i1 energy x y z
 ###
+###
 dumpFileName = 'dump.12.out'
 computeGeomStatistics.py: finished in 18.87 seconds.
 complete_header:
@@ -23,5 +24,19 @@ ITEM: BOX BOUNDS
 0 120
 0 20
 0 200
+ITEM: ATOMS id type i1 energy x y z
+###
+###
+dumpFileName = 'dump.20.out'
+computeGeomStatistics.py: finished in 321.18 seconds.
+complete_header:
+ITEM: TIMESTEP
+20    129.155
+ITEM: NUMBER OF ATOMS
+7500000
+ITEM: BOX BOUNDS
+0 300
+0 50
+0 500
 ITEM: ATOMS id type i1 energy x y z
 ###

@@ -7,9 +7,11 @@ The idea of this project to model microstructure of sprinback through SPPARKS, a
 
 Geometry of a microspring
 
-[![A microspring.](./microspring-1 "A microspring")](https://doi.org/10.1016/j.matdes.2020.109198)
+<!-- ![A microspring](./17-4PH_dogbone_GrandChallenge.png) -->
 
-[![A microspring.](./microspring-2 "A microspring")](https://doi.org/10.1016/j.matdes.2020.109198)
+[![A microspring.](./microspring-1.png "A microspring")](https://doi.org/10.1016/j.matdes.2020.109198)
+
+[![A microspring.](./microspring-2.png "A microspring")](https://doi.org/10.1016/j.matdes.2020.109198)
 
 # DAMASK
 

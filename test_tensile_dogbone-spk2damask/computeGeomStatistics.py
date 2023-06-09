@@ -88,6 +88,7 @@ elapsed = time.time() - t_start
 f = open('log.computeGeomStatistics.py', 'a')
 f.write('###\n')
 f.write('dumpFileName = \'%s\'\n' % dumpFileName)
+f.write('num_grains = %d' % num_grains)
 f.write("computeGeomStatistics.py: finished in {:5.2f} seconds.\n".format(elapsed))
 f.write('complete_header:\n')
 for i in range(len(complete_header)):

@@ -3,6 +3,7 @@
 """
 	How to use: 
 		python3 geom_spk2dmsk.py -r 50 -d 'dump.12.out'
+		rm -f nohup.out; nohup python3 computeGeomStatistics.py --dump 'dump.12.out' --res 50 2>&1   > log.computeGeomStatistics.py &
 
 	Parameters:
 		-r: resolution: 1 pixel to 'r' micrometer
@@ -66,7 +67,7 @@ def getDumpMs(dumpFileName):
 		# print(f"finish ({x},{y}, {z})")
 		## aggregate grain size statistics -- only works for re-enumerating case
 		grain_sizes[new_grain_id] += 1
-	complete_header = dumptxt[:i+5]
+	complete_header = dumptxt[:tmp_i+5]
 	return m, Nx, Ny, Nz, num_grains, grain_sizes, complete_header
 
 t_start = time.time()
@@ -85,10 +86,10 @@ grain_size_kernel(g)
 # plt.show()
 elapsed = time.time() - t_start
 f = open('log.computeGeomStatistics.py', 'a')
-f.write('###')
-f.write('dumpFileName = %s' % dumpFileName)
+f.write('###\n')
+f.write('dumpFileName = \'%s\'\n' % dumpFileName)
 f.write("computeGeomStatistics.py: finished in {:5.2f} seconds.\n".format(elapsed))
-f.write('complete_header')
+f.write('complete_header:\n')
 for i in range(len(complete_header)):
 	f.write(complete_header[i])
 f.write('###')

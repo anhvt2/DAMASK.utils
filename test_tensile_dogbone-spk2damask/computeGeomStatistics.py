@@ -43,6 +43,7 @@ def getDumpMs(dumpFileName):
 			Nx = int(dumptxt[i+1].replace('\n','').replace('0 ', '').replace(' ', ''))
 			Ny = int(dumptxt[i+2].replace('\n','').replace('0 ', '').replace(' ', ''))
 			Nz = int(dumptxt[i+3].replace('\n','').replace('0 ', '').replace(' ', ''))
+			tmp_i = i
 			break
 	header = np.array(dumptxt[i+4].replace('\n','').replace('ITEM: ATOMS ', '').split(' '), dtype=str)
 	d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
@@ -65,10 +66,11 @@ def getDumpMs(dumpFileName):
 		# print(f"finish ({x},{y}, {z})")
 		## aggregate grain size statistics -- only works for re-enumerating case
 		grain_sizes[new_grain_id] += 1
-	return m, Nx, Ny, Nz, num_grains, grain_sizes
+	complete_header = dumptxt[:i+5]
+	return m, Nx, Ny, Nz, num_grains, grain_sizes, complete_header
 
 t_start = time.time()
-m, Nx, Ny, Nz, num_grains, grain_sizes = getDumpMs(dumpFileName)
+m, Nx, Ny, Nz, num_grains, grain_sizes, complete_header = getDumpMs(dumpFileName)
 
 grain_size_kernel = stats.gaussian_kde(grain_sizes)
 g = np.linspace(0, np.max(grain_sizes) * 1.1, num=100)
@@ -82,4 +84,12 @@ grain_size_kernel(g)
 # plt.title('SPPARKS dump statistics by computeGeomStatistics.py', fontsize=24)
 # plt.show()
 elapsed = time.time() - t_start
-print("computeGeomStatistics.py: finished in {:5.2f} seconds.\n".format(elapsed), end="")
+f = open('log.computeGeomStatistics.py', 'a')
+f.write('###')
+f.write('dumpFileName = %s' % dumpFileName)
+f.write("computeGeomStatistics.py: finished in {:5.2f} seconds.\n".format(elapsed))
+f.write('complete_header')
+for i in range(len(complete_header)):
+	f.write(complete_header[i])
+f.write('###')
+f.close()

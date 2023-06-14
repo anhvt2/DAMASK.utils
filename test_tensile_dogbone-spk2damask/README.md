@@ -148,3 +148,16 @@ w0                      2.25
 atol_resistance         1
 ```
 
+# Future directions
+
+1. Precipitate pores into dogbone
+2. Physics-informed machine learning
+3. Stochastic inverse UQ with pores
+4. Constitutive model calibration under uncertainty and pores
+5. Microstructure-sensitive fracture?
+6. Multi-fidelity UQ/SciML? Fusing computational + experimental
+7. Reduced-order model for polycrystalline materials?
+8. Fracture modeling with CPFEM/PF
+9. Fatigue prediction
+
+

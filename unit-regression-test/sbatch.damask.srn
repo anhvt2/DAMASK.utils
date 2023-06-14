@@ -5,20 +5,24 @@
 #SBATCH --account=FY140174            # WC ID
 #SBATCH --job-name=cpfe               # Name of job
 #SBATCH --partition=short,batch       # partition/queue name: short or batch
-																			#           short: 4hrs wallclock limit
-																			#           batch: nodes reserved for > 4hrs (default)
-																			# 			short,batch: accept either short or batch (usually short)
+                                                                            #           short: 4hrs wallclock limit
+                                                                            #           batch: nodes reserved for > 4hrs (default)
+                                                                            #           short,batch: accept either short or batch (usually short)
 #SBATCH --qos=normal                  # Quality of Service: long, large, priority or normal
-																			#           normal: request up to 48hrs wallclock (default)
-																			#           long:   request up to 96hrs wallclock and no larger than 64nodes
-																			#           large:  greater than 50% of cluster (special request)
-																			#           priority: High priority jobs (special request)
+                                                                            #           normal: request up to 48hrs wallclock (default)
+                                                                            #           long:   request up to 96hrs wallclock and no larger than 64nodes
+                                                                            #           large:  greater than 50% of cluster (special request)
+                                                                            #           priority: High priority jobs (special request)
 
 
 source ~/.bashrc
-# module purge
-# module load openmpi-gnu/2.1
-# module load gnu/8.2.1
+## compatible with DAMASK-2.0.2
+module purge
+module load gnu/10.2.1
+module load openmpi-gnu/4.1
+module load tce
+module load python/3.6.0
+
 
 # ---------------------------------- set DAMASK variables
 # export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
@@ -42,7 +46,7 @@ echo $(date +%y-%m-%d-%H-%M-%S)
 
 nodes=$SLURM_JOB_NUM_NODES           # Number of nodes - the number of nodes you have requested (for a list of SLURM environment variables see "man sbatch")
 cores=36                             # Number MPI processes to run on each node (a.k.a. PPN)
-																		 # CTS1 has 36 cores per node
+                                                                         # CTS1 has 36 cores per node
 
 
 
@@ -67,14 +71,14 @@ geom_check ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${filePrefix}.geom --load tension.load 2>&1 > log.damask
 
 if [ -f "numProcessors.dat" ]; then
-	numProcessors=$(cat numProcessors.dat)
-	if [[ "$numProcessors" -eq "1" ]]; then
-		$DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
-	else
-		mpirun -np ${numProcessors} $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
-	fi
+    numProcessors=$(cat numProcessors.dat)
+    if [[ "$numProcessors" -eq "1" ]]; then
+        $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
+    else
+        mpirun -np ${numProcessors} $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
+    fi
 else
-	mpirun -np 36 $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
+    mpirun -np 36 $DAMASK_spectral --geom ${filePrefix}_${dimCell}x${dimCell}x${dimCell}.geom --load tension.load 2>&1 > log.damask
 fi
 
 
@@ -82,13 +86,13 @@ fi
 sleep 10
 postResults *.spectralOut --cr f,p
 if [ -d "postProc" ]; then
-	cd postProc/
-	addStrainTensors ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --left --logarithmic
-	addCauchy ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt
-	addMises ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --strain 'ln(V)' --stress Cauchy
-	addIPFcolor ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --pole 0 0 1 --symmetry cubic # -o orientation
-	filterTable < ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
-	cd ..
+    cd postProc/
+    addStrainTensors ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --left --logarithmic
+    addCauchy ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt
+    addMises ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --strain 'ln(V)' --stress Cauchy
+    addIPFcolor ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --pole 0 0 1 --symmetry cubic # -o orientation
+    filterTable < ${filePrefix}_${dimCell}x${dimCell}x${dimCell}_tension.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
+    cd ..
 fi
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"

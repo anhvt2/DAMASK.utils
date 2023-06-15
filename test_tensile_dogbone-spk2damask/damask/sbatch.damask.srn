@@ -1,13 +1,13 @@
 #!/bin/bash
 ## Do not put any commands or blank lines before the #SBATCH lines
-#SBATCH --nodes=5                     # Number of nodes - all cores per node are allocated to the job
+#SBATCH --nodes=6                     # Number of nodes - all cores per node are allocated to the job
 #SBATCH --time=04:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY140174            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
-#SBATCH --partition=short,batch       # partition/queue name: short or batch
+#SBATCH --partition=batch             # partition/queue name: short or batch
                                                                             #            short: 4hrs wallclock limit
                                                                             #            batch: nodes reserved for > 4hrs (default)
-#SBATCH --qos=long                  # Quality of Service: long, large, priority or normal
+#SBATCH --qos=normal                  # Quality of Service: long, large, priority or normal
                                                                             #           normal: request up to 48hrs wallclock (default)
                                                                             #           long:   request up to 96hrs wallclock and no larger than 64nodes
                                                                             #           large:  greater than 50% of cluster (special request)
@@ -47,11 +47,12 @@ cores=10                             # Number MPI processes to run on each node 
                                                                          # CTS1 has 36 cores per node
 ### ---------------------------------- run DAMASK
 
-geomFileName='spk_dump_12_out'
+geomFileName='spk_dump_20_out'
 rm -fv ${geomFileName}_tension.*
 
 if [ -f "numProcessors.dat" ]; then
     numProcessors=$(cat numProcessors.dat)
+	echo "Using numProcessors.dat"
     if [[ "$numProcessors" -eq 1 ]]; then
         $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
     else
@@ -63,9 +64,9 @@ else
     # mpirun -np 10 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
     # mpirun -np 16 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
 	# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-	mpirun -np 50 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+	# mpirun -np 125 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
 	# mpiexec --bind-to core --npernode 10 --n 5 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-    # mpiexec --bind-to core --npernode $cores -np 10 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+    mpiexec --bind-to package -np 125 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
 fi
 
 

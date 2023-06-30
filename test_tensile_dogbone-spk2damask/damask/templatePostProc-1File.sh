@@ -1,11 +1,7 @@
 #!/bin/bash
 # rm -f nohup.out; nohup bash ${fileName}.sh 2>&1 > ${fileName}.sh.log &
 
-geomFileName="spk_dump_20_out" # ${geomFileName}.geom
-loadFileName="tension" # ${loadFileName}.load
-
-
-fileName=$(echo ${fileName} | cut -d. -f1)
+fileName=""
 
 addStrainTensors -0 -v ${fileName}.txt
 addCauchy ${fileName}.txt

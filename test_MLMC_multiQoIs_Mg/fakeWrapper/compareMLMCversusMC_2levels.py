@@ -14,29 +14,32 @@ mpl.rcParams['ytick.labelsize'] = 18
 def myComplexFunc(x, a, b, c):
     return a * np.power(x, b) + c
 
-mc_cost = np.loadtxt('vanilla_mc_cost.dat', delimiter=',')
-mc_varepsilon, mc_num_samples, mc_computational_cost, mc_rmse = mc_cost[:,0], mc_cost[:,1], mc_cost[:,2] / 60, mc_cost[:,3] # convert to hr
+# mc_cost = np.loadtxt('vanilla_mc_cost.dat', delimiter=',')
+mc_cost = np.loadtxt('approx_vanilla_mc_cost.dat', delimiter=',') # use MC as an estimator
+mc_varepsilon, mc_num_samples, mc_computational_cost, mc_rmse = mc_cost[:,0], mc_cost[:,1], mc_cost[:,2] / 60., mc_cost[:,3] # convert to hr
 popt, pcov = curve_fit(myComplexFunc, mc_rmse, mc_computational_cost)
 mc_x = np.linspace(mc_rmse.min(), mc_rmse.max(), num=10)
 # plt.plot(mc_x, myComplexFunc(mc_x, *popt), 'r-', label="({0:.3f}*x**{1:.3f}) + {2:.3f}".format(*popt)) # debug
 
 mlmc_cost = np.loadtxt('mlmc_cost.dat', skiprows=1, delimiter=',')
-mlmc_cost = mlmc_cost[mlmc_cost[:, -1].argsort()] # sort by rmse
-mlmc_varepsilon, mlmc_n, mlmc_computational_cost, mlmc_rmse = mlmc_cost[:,0], mlmc_cost[:,1:3], mlmc_cost[:,3] / 60, mlmc_cost[:,4] # convert to hr
+if mlmc_cost.shape[0] > mc_cost.shape[0]:
+	mlmc_cost = mlmc_cost[mlmc_cost[:, -1].argsort()] # sort by rmse
 
-# ### impose monotonicity
-# good_idx = []
-# i = 0; tmp = 1e9 # very large initial value
-# while i < len(mlmc_computational_cost) - 1:
-# 	if tmp > mlmc_computational_cost[i]:
-# 		good_idx.append(i)
-# 		tmp = mlmc_computational_cost[i]
-# 	i += 1
+mlmc_varepsilon, mlmc_n, mlmc_computational_cost, mlmc_rmse = mlmc_cost[:,0], mlmc_cost[:,1:3], mlmc_cost[:,3] / 60., mlmc_cost[:,4] # convert to hr
 
-# mlmc_varepsilon = mlmc_varepsilon[good_idx]
-# mlmc_n = mlmc_n[good_idx]
-# mlmc_computational_cost = mlmc_computational_cost[good_idx]
-# mlmc_rmse = mlmc_rmse[good_idx]
+### impose monotonicity
+good_idx = []
+i = 0; tmp = 1e9 # very large initial value
+while i < len(mlmc_computational_cost) - 1:
+	if tmp > mlmc_computational_cost[i]:
+		good_idx.append(i)
+		tmp = mlmc_computational_cost[i]
+	i += 1
+
+mlmc_varepsilon = mlmc_varepsilon[good_idx]
+mlmc_n = mlmc_n[good_idx]
+mlmc_computational_cost = mlmc_computational_cost[good_idx]
+mlmc_rmse = mlmc_rmse[good_idx]
 
 ### filter too close data points
 # print(np.diff(np.log(mlmc_computational_cost)))
@@ -53,7 +56,7 @@ if mlmc_computational_cost.shape[0] > mc_computational_cost.shape[0]:
 	while i < 10:
 		del_idx = []
 		for i in range(len(mlmc_rmse) - 1):
-			if np.diff(np.log(mlmc_rmse))[i] < 0.02: # change this parameter to refine the MLMC plot - default: 0.04
+			if np.diff(np.log(mlmc_rmse))[i] < 0.01: # change this parameter to refine the MLMC plot - default: 0.04
 				del_idx.append(i)
 
 		mlmc_varepsilon = np.delete(mlmc_varepsilon, del_idx)
@@ -69,6 +72,8 @@ print(f"There are {mc_computational_cost.shape[0]} MC samples.")
 print(f"There are {mlmc_computational_cost.shape[0]} MLMC samples.")
 
 if mc_computational_cost.shape[0] == mlmc_computational_cost.shape[0]:
+	print(f"MC computational cost: {mc_computational_cost}")
+	print(f"MLMC computational cost: {mlmc_computational_cost}")
 	print(f"All computational speedup: {mc_computational_cost / mlmc_computational_cost}")
 	print(f"Average computational speedup: {np.mean(mc_computational_cost / mlmc_computational_cost)}")
 
@@ -82,9 +87,9 @@ plt.plot(mlmc_rmse, mlmc_computational_cost, color='tab:blue', linestyle='-', ma
 	fillstyle='left', label='Multi-level Monte Carlo')
 
 # plt.legend(fontsize=24, frameon=False, bbox_to_anchor=(1, 1))
-plt.legend(fontsize=24, frameon=False, loc='best') 
+plt.legend(fontsize=20, frameon=False, loc='best') 
 plt.xlabel(r'tolerance $\varepsilon$', fontsize=24)
-plt.ylabel(r'time [hour]', fontsize=24)
+plt.ylabel(r'total cost [hour]', fontsize=24)
 plt.xscale('log',base=10)
 plt.yscale('log',base=10)
 # plt.xlim(left=1e-2,right=1)

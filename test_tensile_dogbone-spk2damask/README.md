@@ -150,17 +150,43 @@ atol_resistance         1
 
 # To-Do
 
-1. Test out `restart` capability
-2. Test out `postResults` capability 
+1. Test out `restart` capability option: https://damask2.mpie.de/bin/view/Usage/SpectralSolver#Restart
 
+##### `restart` examples
+```
+DAMASK_spectral --geom  PathToGeomFile/NameOfGeomFile.geom --load PathToLoadFile/NameOfLoadFile.load --workingdir PathToWorkingDir --restart XX
 ```
 
+`--restart / -r / --rs XX`: Reads in total increment No. XX and continues to calculate total increment No. XX+1. Appends to existing results file 
+
+2. Test out `postResults` capability with `--filter` option: https://damask2.mpie.de/bin/view/Documentation/PostResults
+
+##### `postResults` Examples
+* volume-averaged results of deformation gradient and first Piola-Kirchhoff stress for all increments
+```
+--cr f,p
+```
+* spatially resolved slip resistance (of phenopowerlaw) in separate files for increments 10, 11, and 12
+```
+--range 10 12 1 --increments --split --separation x,y,z --co resistance_slip
+```
+* get averaged results in slices perpendicular to x for all negative y coordinates split per increment
+```
+--filter 'y < 0.0'  --split --separation x --map 'avg'
+```
+* global sum of squared data falling into first quadrant arc between R1 and R2
+```
+--filter 'x >= 0.0 and y >= 0.0 and x*x + y*y >= R1*R1 and x*x + y*y <=R2*R2' --map 'lambda n,b,a: n*b+a*a'
+```
+
+See private communication with Philip Eisenlohr:
+```
 I believe restarting was already possible with DAMASK2. One needed to specify a restart frequency in the load file. Probably “r 10” or something to write out a restartable file every 10 increments. Restarting itself then required to add a —restart (maybe) argument to the DAMASK_spectral call and a load file that “runs” longer than the current restarting increment. I believe that the (binary) output file will just be extended with new data until the end of the load file is reached (regular termination).
 
-The addDisplacment nodal should write a new file that contains the nodal displacements as a dataset. That data can be included when creating a VTK file (there is either two calls, one for all cell data, another for all nodal data, or both can be specified in one go...) Once the displacement is included in the VTK, you can “warp by vector” and use the displacements as source.
+The addDisplacment nodal should write a new file that contains the nodal displacements as a dataset. That data can be included when creating a VTK file (there is either two calls, one for all cell data, another for all nodal data, or both can be specified in one go...) Once the displacement is included in the VTK, you can "warp by vector" and use the displacements as source.
 I believe what you are currently doing is to create cell displacements, which have the same data count as all other (cell) quantities. For (nicer) visualization, it might be advisable to add nodal displacements, which have more data points than cells (because there are one extra layer of nodes compared to cells). Then the above mentioned two-step/two-file solution is needed. Fortunately, VTK can contain both nodal and cell data in one container!
 
-When running postResults, there is also an option to filter the data. You would probably use something along the lines of “z<upper and z>lower” with upper and lower the z-coordinates of the end of the gage section. The damask2 website (or help in postResutls) should explain this...
+When running postResults, there is also an option to filter the data. You would probably use something along the lines of "z<upper and z>lower" with upper and lower the z-coordinates of the end of the gage section. The damask2 website (or help in postResutls) should explain this...
 ``
 
 # Future directions

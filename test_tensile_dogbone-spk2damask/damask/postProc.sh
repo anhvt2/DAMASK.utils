@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # how to run in quiet mode:
+# (0) export geomFileName="spk_dump_20_out"; export loadFileName="tension"
 # (1) rm -f nohup.out; nohup postResults --cr fp,f,p,grainrotation,texture --split --separation x,y,z --increments --range 1 44 1 ${geomFileName}_${loadFileName}.spectralOut 2>&1 > log.postResults &
 # (2) rm -f nohup.out; nohup bash postProc.sh 2>&1 > log.postProc &
 

@@ -118,7 +118,7 @@ Note: 0.49945833333333334 volume of fraction is void.
 ```shell
 cat material.config.preamble  | cat - material.config | sponge material.config
 ```
-3. Void config is adopted from `Phase_Isotropic_FreeSurface.config` based on a conversation with Philip Eisenlohr.
+3. void config is adopted from `Phase_Isotropic_FreeSurface.config` based on a conversation with Philip Eisenlohr.
 ```
 [Void]
 
@@ -147,6 +147,7 @@ tausat                  0.6e6
 w0                      2.25
 atol_resistance         1
 ```
+4. create `vtr` file by `geom_check` command in DAMASK pre-/post-processing script. 
 
 # To-Do
 
@@ -187,7 +188,7 @@ The addDisplacment nodal should write a new file that contains the nodal displac
 I believe what you are currently doing is to create cell displacements, which have the same data count as all other (cell) quantities. For (nicer) visualization, it might be advisable to add nodal displacements, which have more data points than cells (because there are one extra layer of nodes compared to cells). Then the above mentioned two-step/two-file solution is needed. Fortunately, VTK can contain both nodal and cell data in one container!
 
 When running postResults, there is also an option to filter the data. You would probably use something along the lines of "z<upper and z>lower" with upper and lower the z-coordinates of the end of the gage section. The damask2 website (or help in postResutls) should explain this...
-``
+```
 
 # Future directions
 

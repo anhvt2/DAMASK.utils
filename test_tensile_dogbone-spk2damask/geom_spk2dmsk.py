@@ -1,14 +1,17 @@
 
 
 """
-	How to use: 
+	Example
+	-------
 		python3 geom_spk2dmsk.py -r 50 -d 'dump.12.out'
 
-	Parameters:
+	Parameters
+	----------
 		-r: resolution: 1 pixel to 'r' micrometer
 		-d: dump file from SPPARKS
 
-	Description:
+	Description
+	-----------
 		This script converts a microstructure SPPARKS output (dump file)
 		to a geom DAMASK input file. This script is to be used in concert with
 			1. `geom_cad2phase.py` to model void,

@@ -54,6 +54,13 @@ Microstructure info are in
 Dimension: 10 mm (4 mm middle) x 6 mm x 1 mm
 
 Attempted resolution:
+
+```
+dump.20.out -> spk/res-20um/dump.20.out
+dump.12.out -> spk/res-50um/dump.12.out
+dump.10.out -> spk/res-10um/dump.10.out
+```
+
 1. 10 um: 60M pixels
     ```
     variable     Nx     equal  600

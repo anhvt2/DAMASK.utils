@@ -1,4 +1,4 @@
-
+ 
 
 """
 	Example
@@ -9,6 +9,7 @@
 	----------
 		-r: resolution: 1 pixel to 'r' micrometer
 		-d: dump file from SPPARKS
+		phase: from running geom_cad2phase.py: 'phase_' + dumpFileName.replace('.','_') + '.npy'
 
 	Description
 	-----------

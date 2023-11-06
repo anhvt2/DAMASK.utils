@@ -1,0 +1,78 @@
+#!/bin/bash
+## Do not put any commands or blank lines before the #SBATCH lines
+#SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
+#SBATCH --time=24:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
+#SBATCH --account=FY140174            # WC ID
+#SBATCH --job-name=cpfem              # Name of job
+#SBATCH --partition=batch             # partition/queue name: short or batch
+                                                                            #            short: 4hrs wallclock limit
+                                                                            #            batch: nodes reserved for > 4hrs (default)
+#SBATCH --qos=normal                  # Quality of Service: long, large, priority or normal
+                                                                            #           normal: request up to 48hrs wallclock (default)
+                                                                            #           long:   request up to 96hrs wallclock and no larger than 64nodes
+                                                                            #           large:  greater than 50% of cluster (special request)
+                                                                            #           priority: High priority jobs (special request)
+
+
+source ~/.bashrc
+
+# ---------------------------------- set DAMASK variables
+# export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
+export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2
+# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.10.5 # no longer at /data/ -- damask-2.0.3
+# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.13.6 # DAMASK-3.0.0-alpha
+export PETSC_ARCH=arch-linux2-c-opt # could be arch-linux2-c-debug
+export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
+# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
+# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
+export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
+
+source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
+# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo "Start running simulation at"
+echo $(date +%y-%m-%d-%H-%M-%S)
+
+### ---------------------------------- pre-set on Solo
+
+nodes=$SLURM_JOB_NUM_NODES           # Number of nodes - the number of nodes you have requested (for a list of SLURM environment variables see "man sbatch")
+cores=36                             # Number MPI processes to run on each node (a.k.a. PPN)
+                                                                         # CTS1 has 36 cores per node
+### ---------------------------------- run DAMASK
+# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+
+geomFileName='spk_dump_12_out'
+
+if [ -f "numProcessors.dat" ]; then
+    numProcessors=$(cat numProcessors.dat)
+    if [[ "$numProcessors" -eq 1 ]]; then
+        $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+    else
+        mpirun -np ${numProcessors} $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+    fi
+else
+    mpirun -np ${cores} $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+fi
+
+
+### ---------------------------------- post-processing DAMASK
+sleep 10
+postResults *.spectralOut --cr f,p
+if [ -d "postProc" ]; then
+    cd postProc/
+    filterTable < ${geomFileName}*_tension.txt --white inc,1_f,1_p > stress_strain.log
+    cd ..
+    cd ..
+else
+    echo "Simulation does not converge!!!"
+    echo 0 > feasible.dat
+    echo 1 > complete.dat
+fi
+
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+echo "Stop running simulation at"
+echo $(date +%y-%m-%d-%H-%M-%S)
+echo "from :"
+echo $(pwd)
+echo

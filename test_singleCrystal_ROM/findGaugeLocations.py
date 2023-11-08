@@ -4,6 +4,7 @@
 '''
 
 import numpy as np
+import glob
 
 fileName = glob.glob('*.geom')[0]
 ms = np.load(fileName.split('.')[0] + '.npy')

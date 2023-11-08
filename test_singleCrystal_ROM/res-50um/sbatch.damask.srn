@@ -72,17 +72,37 @@ fi
 
 ### ---------------------------------- post-processing DAMASK
 sleep 10
-postResults *.spectralOut --cr f,p
-if [ -d "postProc" ]; then
-    cd postProc/
-    filterTable < ${geomFileName}*_tension.txt --white inc,1_f,1_p > stress_strain.log
-    cd ..
-    cd ..
-else
-    echo "Simulation does not converge!!!"
-    echo 0 > feasible.dat
-    echo 1 > complete.dat
-fi
+
+# homogenization
+python3 ../findGaugeLocations.py # dump gaugeFilter.txt
+postResults *.spectralOut --cr f,p --filter $(cat gaugeFilter.txt)
+cd postProc/
+addStrainTensors singleCrystal_res_50um_tension.txt --left --logarithmic
+addCauchy singleCrystal_res_50um_tension.txt
+addMises singleCrystal_res_50um_tension.txt --strain 'ln(V)' --stress Cauchy
+filterTable < singleCrystal_res_50um_tension.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
+
+postResults \
+--cr fp,f,p \
+--split --separation x,y,z \
+--increments \
+--range 1 10 1 singleCrystal_res_50um_tension.spectralOut
+
+cd postProc
+for i in $(seq 10); do
+    addStrainTensors -0 -v singleCrystal_res_50um_tension_inc${i}.txt
+    addCauchy singleCrystal_res_50um_tension_inc${i}.txt
+    addMises -s Cauchy singleCrystal_res_50um_tension_inc${i}.txt
+    addStrainTensors --left --logarithmic singleCrystal_res_50um_tension_inc${i}.txt
+    addMises -e 'ln(V)' singleCrystal_res_50um_tension_inc${i}.txt
+    addDisplacement --nodal singleCrystal_res_50um_tension_inc${i}.txt
+done
+
+
+# echo "Simulation does not converge!!!"
+# echo 0 > feasible.dat
+# echo 1 > complete.dat
+
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
 echo "Stop running simulation at"

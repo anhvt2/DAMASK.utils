@@ -34,3 +34,7 @@ for j in range(Nz):
 
 print(f'{np.min(xLocs)} <= x <= {np.max(xLocs)}')
 print(f'{np.min(zLocs)} <= z <= {np.max(zLocs)}')
+
+f = open('gaugeFilter.txt', 'w')
+f.write('%d <= x <= %d and %d <= z <= %d\n' % (np.min(xLocs), np.max(xLocs), np.min(zLocs), np.max(zLocs)))
+f.close()

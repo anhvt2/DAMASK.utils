@@ -197,6 +197,14 @@ I believe what you are currently doing is to create cell displacements, which ha
 When running postResults, there is also an option to filter the data. You would probably use something along the lines of "z<upper and z>lower" with upper and lower the z-coordinates of the end of the gage section. The damask2 website (or help in postResutls) should explain this...
 ```
 
+```
+I am glad the simulations did work out. Looking at the structure now in more detail, I realize that the geometry is actually not a dogbone, but a dogsheet (fully periodic in Y). You might need to add some pixels of air to break material continuity along Y...
+
+That your workstation is faster than an HPC might be attributable to differences in their hardware? An undergrad student of mine recently compared the efficiency of using cores for MPI or thread (openMP) parallelization and found that for large (enough) problems, the first about 8 cores can be indiscriminately distributed as either. With more resources at one’s disposal, throwing those towards MPI makes better sense since openMP appears to peter out in the high single digits (of threads).
+
+What to do with such simulations is a good question. We all know that averaged results (for “simple” materials) are usually quite accurately reproduced. I am fairly certain that the volume averaged sigma_zz in the gage section would be equal to the volume average of the farthest (or probably any) Z layer of the widest head section. Together with either the displacement data at the ends of the gage section or the volume averaged gage strain, this stress–strain curve should reflect macroscopic behavior. Now, of course, you are actually not having a large number of grains in the gage section... Hence, evaluating the intrinsic variability (maybe as function of texture sharpness) for micro samples (with only "few" grains) might be a nice exercise (and example to be put on the DAMASK website).
+```
+
 # Future directions
 
 1. Precipitate pores into dogbone

@@ -81,7 +81,7 @@ fileHandler.close()
 numSkippingLines = int(txt[0].split(' ')[0])+1 
 # Search for 'size' within header:
 for j in range(numSkippingLines):
-	if 'size' in txt[j]:
+	if 'grid' in txt[j]:
 		cleanString = delete(txt[j].replace('\n', '').split(' '), '')
 		Nx = int(cleanString[2])
 		Ny = int(cleanString[4])

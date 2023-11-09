@@ -106,6 +106,9 @@ For example:
     1. read `dump.12.out` and `orientations.dat`
     2. write `material.config`
     3. write `spk_dump_12_out.geom`
+6. `../writeGeom.py`: write `.geom` file from a complete header and flatten 1d `geom` array
+7. `../readGeom.py`: read `geom` file into 3d numpy array and other header variables (grid, size, etc.)
+
 
 
 Results from exporting SPPARKS: 

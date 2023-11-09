@@ -1,17 +1,37 @@
 
 ''' 
-    This script reads a .geom file and prints the locations of the gauge in tensile bar for postResults in DAMASK
+    This script reads a .geom file and prints the locations of the gauge in tensile bar for postResults in DAMASK.
+
+    Example
+    -------
+    python3 findGaugeLocations.py --geom spk_dump_12_out.npy
+
+    Parameters
+    ----------
+    --geom: geometry in 3d numpy array (if don't have, can run geom2npy.py)
+
+    Return
+    ------
+    gaugeFilter.txt for filtering x and z directions
 '''
 
 import numpy as np
-import glob
+import argparse
+# import glob
 
-fileName = glob.glob('*.geom')[0]
-ms = np.load(fileName.split('.')[0] + '.npy')
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-g", "--geom", type=str, required=True)
+args = parser.parse_args()
+
+# fileName = glob.glob('*.geom')[0]
+fileName = args.geom
+ms = np.load(fileName)
 Nx, Ny, Nz = ms.shape
 
 # Take a random 2d slice of ms
 slice2d = ms[:,0,:] - 1 # y-direction is extrusion direction - not important, so any would work
+slice2d = slice2d.astype(bool)
 
 # Assume void id is '1'
 

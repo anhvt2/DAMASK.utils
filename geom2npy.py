@@ -3,7 +3,30 @@ import numpy as np
 import glob, os
 from natsort import natsorted, ns # natural-sort
 import pyvista
+import argparse
 
+'''
+Example
+-------
+
+python3 geom2npy.py --geom spk_dump_12_out.geom
+
+Parameters
+----------
+--geom: geometry file
+
+Return
+------
+microstructure in 3d numpy array: spk_dump_12_out.npy
+vti file: spk_dump_12_out.vti
+
+'''
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-g", "--geom", type=str, required=True)
+args = parser.parse_args()
+
+fileName = args.geom
 
 def save_array2vti(file_name, array):
 	import vtk
@@ -51,34 +74,29 @@ def delete(lst, to_delete):
 	'''
 	return [element for element in lst if element != to_delete]
 
-for fileName in natsorted(glob.glob('*.geom')):
-	'''
-	For every '.geom' file, dump 1 numpy array '.npy' and a cross-sanity check '.vti'
-	to compare with DAMASK '.vtr'
-	'''
-	outFileName = fileName.split('.')[0]
-	fileHandler = open(fileName)
-	txt = fileHandler.readlines()
-	fileHandler.close()
-	numSkippingLines = int(txt[0].split(' ')[0])+1 
-	# Search for 'size' within header:
-	for j in range(numSkippingLines):
-		if 'size' in txt[j]:
-			cleanString = delete(txt[j].replace('\n', '').split(' '), '')
-			Nx = int(cleanString[2])
-			Ny = int(cleanString[4])
-			Nz = int(cleanString[6])
+outFileName = fileName.split('.')[0]
+fileHandler = open(fileName)
+txt = fileHandler.readlines()
+fileHandler.close()
+numSkippingLines = int(txt[0].split(' ')[0])+1 
+# Search for 'size' within header:
+for j in range(numSkippingLines):
+	if 'size' in txt[j]:
+		cleanString = delete(txt[j].replace('\n', '').split(' '), '')
+		Nx = int(cleanString[2])
+		Ny = int(cleanString[4])
+		Nz = int(cleanString[6])
 
-	geomBlock = txt[numSkippingLines:]
-	geom = ''
-	for i in range(len(geomBlock)):
-		geom += geomBlock[i]
+geomBlock = txt[numSkippingLines:]
+geom = ''
+for i in range(len(geomBlock)):
+	geom += geomBlock[i]
 
-	geom = geom.split(' ')
-	geom = list(filter(('').__ne__, geom))
-	geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
-	np.save(outFileName + '.npy', geom)
-	save_array2vti(outFileName + '.vti', geom)
+geom = geom.split(' ')
+geom = list(filter(('').__ne__, geom))
+geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
+np.save(outFileName + '.npy', geom)
+save_array2vti(outFileName + '.vti', geom)
 
 
 

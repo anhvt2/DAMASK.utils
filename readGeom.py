@@ -3,19 +3,15 @@ import numpy as np
 import glob, os
 from natsort import natsorted, ns # natural-sort
 import pyvista
-
+import vtk
+from vtk.util.numpy_support import vtk_to_numpy, numpy_to_vtk
 
 def save_array2vti(file_name, array):
-    import vtk
-    from vtk.util.numpy_support import vtk_to_numpy, numpy_to_vtk
-    import numpy as np
     """
     Credit to Leidong Xu (UConn) with some generalizations and correction
     (1) .ravel() -> .T.flatten()
     (2) SetDimension(array.shape)
-
     Save a 3D numpy array to a VTI file.
-
     Args:
     - file_name (str): Path where the VTI file should be saved.
     - array (np.ndarray): 3D numpy array to be saved.
@@ -76,7 +72,8 @@ def geom2npy(fileName):
     geom = geom.split(' ')
     geom = list(filter(('').__ne__, geom))
     geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
-    return Nx, Ny, Nz, geom
+    headers = txt[:numSkippingLines] # also return headers
+    return Nx, Ny, Nz, geom, headers
 
 
 

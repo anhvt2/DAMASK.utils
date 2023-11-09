@@ -81,6 +81,7 @@ addStrainTensors singleCrystal_res_50um_tension.txt --left --logarithmic
 addCauchy singleCrystal_res_50um_tension.txt
 addMises singleCrystal_res_50um_tension.txt --strain 'ln(V)' --stress Cauchy
 filterTable < singleCrystal_res_50um_tension.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
+cd ..
 
 postResults \
 --cr fp,f,p \

@@ -1,4 +1,7 @@
 #!/bin/bash
+geomFileName='padded_spk_dump_12_out'
+loadFileName='tension'
+
 python3 findGaugeLocations.py # dump gaugeFilter.txt
 postResults *.spectralOut --cr f,p --filter $(cat gaugeFilter.txt)
 cd postProc/
@@ -15,7 +18,8 @@ postResults \
 --range 1 10 1 ${geomFileName}_${loadFileName}.spectralOut
 
 cd postProc
-for i in $(seq 10); do
+# seq -f "%05g" 10 15
+for i in $(seq -f "%02g" 10); do
     addStrainTensors -0 -v ${geomFileName}_${loadFileName}_inc${i}.txt
     addCauchy ${geomFileName}_${loadFileName}_inc${i}.txt
     addMises -s Cauchy ${geomFileName}_${loadFileName}_inc${i}.txt

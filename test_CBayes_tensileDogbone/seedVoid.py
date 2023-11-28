@@ -100,6 +100,11 @@ numVoidVoxels = np.floor(numSolidVoxels * percentage / 100).astype(int)
 
 # Insert void voxels to phase
 print(f'Sampling efficiency: {numSolidVoxels / np.prod(phase.shape)}')
+print(f'\n--------------------NOTE--------------------\n')
+print(f'Number of grains: {np.max(origGeom)-1}')
+print(f'Grain id for AIR: 1\n')
+print(f'Grain id for VOIDS: from 2 to {numVoidVoxels+1}\n')
+print(f'Grain id for SOLID: from {numVoidVoxels+2} to {numVoidVoxels+np.max(origGeom)}\n')
 
 def sampleLocation(Nx, Ny, Nz):
     """

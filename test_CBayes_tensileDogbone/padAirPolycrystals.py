@@ -1,6 +1,6 @@
 
 import numpy as np
-import glob, os
+import glob, os, sys, time
 from natsort import natsorted, ns # natural-sort
 import pyvista
 import argparse
@@ -10,7 +10,8 @@ This script pads air in the Y-direction to break periodicity for dogbone tensile
 
 Example
 -------
-python3 padAirPolycrystals.py --origGeomFileName spk_dump_12_out.geom
+python3 padAirPolycrystals.py \
+    --origGeomFileName spk_dump_12_out.geom
 # dump 'padded_spk_dump_12_out.geom'
 
 Parameters

@@ -100,7 +100,7 @@ numVoidVoxels = np.floor(numSolidVoxels * percentage / 100).astype(int)
 
 # Insert void voxels to phase
 print(f'Sampling efficiency: {numSolidVoxels / np.prod(phase.shape)}')
-print(f'\n--------------------NOTE--------------------\n')
+print(f'\n-------------------- NOTE --------------------\n')
 print(f'Number of grains: {np.max(origGeom)-1}')
 print(f'Grain id for AIR: 1\n')
 print(f'Grain id for VOIDS: from 2 to {numVoidVoxels+1}\n')
@@ -135,11 +135,13 @@ Index for grain id:
     2 < ? < numVoidVoxels+1: voids
     ? > numVoidVoxels+2: solid
 '''
-origGeom[x,y,z] += (numVoidVoxels+1)
+# Make a copy of origGeom and work on this copy
+geom = np.copy(origGeom)
+geom[x,y,z] += (numVoidVoxels+1)
 # Insert voids
 for i in range(numVoidVoxels):
     x, y, z = voidLocations[i]
-    origGeom[x,y,z] = (i+2) # i=0 means origGeom[?,?,?] = 2
+    geom[x,y,z] = (i+2) # i=0 means geom[?,?,?] = 2
 
 # Test intermediate results
 def writeGeom(geomFileName, geom):
@@ -182,7 +184,7 @@ def writeGeom(geomFileName, geom):
     #
     f.close()
 
-writeGeom('insertedVoid_test.geom', origGeom)
+writeGeom('insertedVoid_test.geom', geom)
 
 # Write output
 num_lines = int(np.floor(len(geom)) / 10)

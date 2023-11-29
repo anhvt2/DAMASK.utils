@@ -22,7 +22,7 @@ Example
 -------
 python3 seedVoid.py \
     --origGeomFileName spk_dump_12_out.geom \
-    --percentage 1.5 \
+    --percentage 1 \
     --phaseFileName phase_dump_12_out.npy
 
 # dump 'voidSeeded_1pc_spk_dump_12_out.geom'
@@ -94,7 +94,7 @@ args = parser.parse_args()
 origGeomFileName = args.origGeomFileName # e.g. 'singleCrystal_res_50um.geom'
 phaseFileName = args.phaseFileName
 voidPercentage = args.percentage
-outFileName = 'voidSeeded_%.3f_' % voidPercentage + origGeomFileName 
+outFileName = 'voidSeeded_%.3fpc_' % voidPercentage + origGeomFileName 
 
 Nx_grid, Ny_grid, Nz_grid, Nx_size, Ny_size, Nz_size, origGeom, headers = geom2npy(origGeomFileName)
 phase = np.load(phaseFileName)
@@ -110,6 +110,12 @@ numVoidVoxels = np.floor(numSolidVoxels * voidPercentage / 100).astype(int)
 numGrains = np.max(origGeom) - 1
 
 # Insert void voxels to phase
+logging.info(f'\n-------------------- COMMAND --------------------\n')
+logging.info(f'python3 seedVoid.py \\')
+logging.info(f'    --origGeomFileName {origGeomFileName} \\')
+logging.info(f'    --percentage {voidPercentage} \\')
+logging.info(f'    --phaseFileName {phaseFileName}')
+logging.info(f'\n')
 logging.info(f'\n-------------------- INFORMATION --------------------\n')
 logging.info(f'Box shape = {phase.shape}')
 logging.info(f'Sampling efficiency: {numSolidVoxels / np.prod(phase.shape)}')

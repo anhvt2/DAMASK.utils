@@ -10,6 +10,8 @@ loadFileName="tension" # ${loadFileName}.load
 
 # how to run in quiet mode: rm -f nohup.out; nohup postResults --cr fp,f,p,grainrotation,texture --split --separation x,y,z --increments --range 1 44 1 ${geomFileName}_${loadFileName}.spectralOut 2>&1 > log.postResults &
 
+postResults --cr fp,f,p,grainrotation,texture --split --separation x,y,z --increments --range 1 20 1 ${geomFileName}_${loadFileName}.spectralOut 2>&1 > log.postResults &
+
 cd postProc
 for fileName in $(ls -1v ${geomFileName}_${loadFileName}*.txt); do
 	fileName=$(echo ${fileName} | cut -d. -f1)

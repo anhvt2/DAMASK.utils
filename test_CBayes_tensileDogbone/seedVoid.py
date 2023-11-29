@@ -223,7 +223,7 @@ for i in range(numVoidVoxels):
     phi1, Phi, phi2 = voidOrientations[i,:]
     f.write('(gauss) phi1 %.3f   Phi %.3f    phi2 %.3f   scatter 0.0   fraction 1.0 \n' % (phi1, Phi, phi2))
 
-for i in range(numGrains):
+for i in range(numGrains+1):
     f.write('[grain%d]\n' % (i+numVoidVoxels+air_id+1)) # assign grain id
     phi1, Phi, phi2 = solidOrientations[i,:]
     f.write('(gauss) phi1 %.3f   Phi %.3f    phi2 %.3f   scatter 0.0   fraction 1.0 \n' % (phi1, Phi, phi2))
@@ -235,11 +235,11 @@ f.write('crystallite 1\n')
 f.write('(constituent)   phase 2 texture %d fraction 1.0\n' % air_id)
 
 for i in range(numVoidVoxels):
-    f.write('[grain%d]\n' % (i+air_id)) # assign grain id
+    f.write('[grain%d]\n' % (i+air_id+1)) # assign grain id
     f.write('crystallite 1\n')
     f.write('(constituent)   phase 2 texture %d fraction 1.0\n' % (i+air_id+1)) # assign grain id
 
-for i in range(numGrains):
+for i in range(numGrains+1):
     f.write('[grain%d]\n' % (i+numVoidVoxels+air_id+1)) # assign grain id
     f.write('crystallite 1\n')
     f.write('(constituent)   phase 1 texture %d fraction 1.0\n' % (i+numVoidVoxels+air_id+1)) # assign grain id

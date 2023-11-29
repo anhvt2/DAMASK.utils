@@ -242,7 +242,7 @@ for i in range(numVoidVoxels):
 for i in range(numGrains):
     f.write('[grain%d]\n' % (i+numVoidVoxels+air_id+1)) # assign grain id
     f.write('crystallite 1\n')
-    f.write('(constituent)   phase 1 texture %d fraction 1.0\n' % (i+2)) # assign grain id
+    f.write('(constituent)   phase 1 texture %d fraction 1.0\n' % (i+numVoidVoxels+air_id+1)) # assign grain id
 
 
 f.close()

@@ -1,0 +1,114 @@
+#!/bin/bash
+## Do not put any commands or blank lines before the #SBATCH lines
+#SBATCH --nodes=2                     # Number of nodes - all cores per node are allocated to the job
+#SBATCH --time=96:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
+#SBATCH --account=FY140174            # WC ID
+#SBATCH --job-name=cpfem              # Name of job
+#SBATCH --partition=batch             # partition/queue name: short or batch
+                                                                            #            short: 4hrs wallclock limit
+                                                                            #            batch: nodes reserved for > 4hrs (default)
+#SBATCH --qos=long                    # Quality of Service: long, large, priority or normal
+                                                                            #           normal: request up to 48hrs wallclock (default)
+                                                                            #           long:   request up to 96hrs wallclock and no larger than 64nodes
+                                                                            #           large:  greater than 50% of cluster (special request)
+                                                                            #           priority: High priority jobs (special request)
+
+
+source ~/.bashrc
+# ---------------------------------- set SRN modules
+## compatible with DAMASK-2.0.2
+module load gnu/10.2.1
+module load openmpi-gnu/4.1
+module load tce
+module load python/3.6.0
+
+# ---------------------------------- set DAMASK variables
+# export PETSC_DIR=/ascldap/users/anhtran/data/local/petsc-3.9.4
+export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 # DAMASK-2.0.2
+# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.10.5 # no longer at /data/ -- damask-2.0.3
+# export PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.13.6 # DAMASK-3.0.0-alpha
+export PETSC_ARCH=arch-linux2-c-opt # could be arch-linux2-c-debug
+export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2
+# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-2.0.3
+# export DAMASK_ROOT=/ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha
+export DAMASK_spectral=$DAMASK_ROOT/bin/DAMASK_spectral
+
+source /ascldap/users/anhtran/data/DAMASK/DAMASK-2.0.2/DAMASK_env.sh
+# source /ascldap/users/anhtran/data/DAMASK/damask-3.0.0-alpha/env/DAMASK.sh
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo "Start running simulation at"
+echo $(date +%y-%m-%d-%H-%M-%S)
+
+### ---------------------------------- pre-set on Solo
+
+nodes=$SLURM_JOB_NUM_NODES           # Number of nodes - the number of nodes you have requested (for a list of SLURM environment variables see "man sbatch")
+cores=10                             # Number MPI processes to run on each node (a.k.a. PPN)
+                                                                         # CTS1 has 36 cores per node
+### ---------------------------------- run DAMASK
+
+geomFileName='padded_voidSeeded_1.500_spk_dump_12_out'
+loadFileName='tension'
+rm -fv ${geomFileName}_${loadFileName}.*
+
+if [ -f "numProcessors.dat" ]; then
+    numProcessors=$(cat numProcessors.dat)
+	echo "Using numProcessors.dat"
+    if [[ "$numProcessors" -eq 1 ]]; then
+        $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+    else
+        mpirun -np ${numProcessors} $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+    fi
+else
+    # mpirun -np ${cores} $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+	# export DAMASK_NUM_THREADS=3
+    # mpirun -np 10 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+    # mpirun -np 16 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+	# mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+	# mpirun -np 125 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+	# mpiexec --bind-to core --npernode 10 --n 5 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+    mpiexec --bind-to package -np 125 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
+fi
+
+
+### ---------------------------------- post-processing DAMASK
+sleep 10
+
+# homogenization
+python3 ../findGaugeLocations.py # dump gaugeFilter.txt
+postResults *.spectralOut --cr f,p --filter $(cat gaugeFilter.txt)
+cd postProc/
+addStrainTensors ${geomFileName}_${loadFileName}.txt --left --logarithmic
+addCauchy ${geomFileName}_${loadFileName}.txt
+addMises ${geomFileName}_${loadFileName}.txt --strain 'ln(V)' --stress Cauchy
+filterTable < ${geomFileName}_${loadFileName}.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
+cd ..
+
+postResults \
+--cr fp,f,p \
+--split --separation x,y,z \
+--increments \
+--range 1 10 1 ${geomFileName}_${loadFileName}.spectralOut
+
+cd postProc
+for i in $(seq -f "%02g" 10); do
+    addStrainTensors -0 -v ${geomFileName}_${loadFileName}_inc${i}.txt
+    addCauchy ${geomFileName}_${loadFileName}_inc${i}.txt
+    addMises -s Cauchy ${geomFileName}_${loadFileName}_inc${i}.txt
+    addStrainTensors --left --logarithmic ${geomFileName}_${loadFileName}_inc${i}.txt
+    addMises -e 'ln(V)' ${geomFileName}_${loadFileName}_inc${i}.txt
+    addDisplacement --nodal ${geomFileName}_${loadFileName}_inc${i}.txt
+done
+
+
+# echo "Simulation does not converge!!!"
+# echo 0 > feasible.dat
+# echo 1 > complete.dat
+
+
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+echo "Stop running simulation at"
+echo $(date +%y-%m-%d-%H-%M-%S)
+echo "from :"
+echo $(pwd)
+echo

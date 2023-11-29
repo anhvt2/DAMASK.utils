@@ -74,7 +74,7 @@ def delete(lst, to_delete):
 	'''
 	return [element for element in lst if element != to_delete]
 
-outFileName = fileName.split('.')[0]
+outFileName = fileName[:-5] # deprecate fileName.split('.')[0] to avoid '.' in outFileName
 fileHandler = open(fileName)
 txt = fileHandler.readlines()
 fileHandler.close()

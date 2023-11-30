@@ -75,7 +75,7 @@ fi
 sleep 10
 
 # Global: Homogenization
-python3 findGaugeLocations.py # dump gaugeFilter.txt
+python3 findGaugeLocations.py --geom ${geomFileName}.geom # dump gaugeFilter.txt
 postResults *.spectralOut --cr f,p --filter $(cat gaugeFilter.txt)
 cd postProc/
 addStrainTensors ${geomFileName}_${loadFileName}.txt --left --logarithmic

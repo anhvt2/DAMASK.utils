@@ -20,7 +20,7 @@ addStrainTensors -0 -v ${fileName}.txt
 addCauchy ${fileName}.txt
 addMises -s Cauchy ${fileName}.txt
 addStrainTensors --left --logarithmic ${fileName}.txt
-# addMises -e 'ln(V)' ${fileName}.txt
+addMises -e 'ln(V)' ${fileName}.txt
 # addDisplacement --nodal ${fileName}.txt
 
 vtk_rectilinearGrid ${fileName}.txt

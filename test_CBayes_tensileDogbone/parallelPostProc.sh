@@ -5,7 +5,8 @@ loadFileName='tension'
 
 cd postProc/
 for fileName in $(ls -1v ${geomFileName}_${loadFileName}*.txt); do
-    fileName=$(echo ${fileName} | cut -d. -f1)
+    fileName=$(echo ${fileName} | rev | cut -c 5- | rev)
+    # fileName=$(echo ${fileName} | cut -d. -f1) # deprecated
     cp ../templatePostProc-1File.sh postProc-${fileName}.sh
     cp ../sbatch.postprocDamask.srn postProc-${fileName}.sh
     sed -i "4s|.*|fileName=\"${fileName}\"|" postProc-${fileName}.sh

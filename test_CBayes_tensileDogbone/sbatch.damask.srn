@@ -97,7 +97,7 @@ postResults \
 cd postProc
 for fileName in $(ls -1v ${geomFileName}_${loadFileName}*.txt); do
     fileName=$(echo ${fileName} | rev | cut -c 5- | rev)
-	# fileName=$(echo ${fileName} | cut -d. -f1)
+	# fileName=$(echo ${fileName} | cut -d. -f1) # deprecated
 
 	addStrainTensors -0 -v ${fileName}.txt
 	addCauchy ${fileName}.txt

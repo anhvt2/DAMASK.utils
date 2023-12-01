@@ -51,4 +51,13 @@ python3 seedVoid.py \
 python3 padAirPolycrystals.py \
     --origGeomFileName spk_dump_12_out.geom
 ```
+# Mesh convergence study
+
+Based on a discussion with Philip Eisenlohr on Nov 30, 2023.
+
+mesh convergence study for void spatial discretization
+coarse/fine: 1x1x1 and 2x2x2 and 4x4x4
+
+4x4x4: instead of cube, try to model sphere with voxels
+is the answer the same? yes: converged; no: not converged
 

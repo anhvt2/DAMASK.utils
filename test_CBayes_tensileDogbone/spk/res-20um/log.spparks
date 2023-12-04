@@ -1,0 +1,88 @@
+SPPARKS (24 June 2021)
+# SPPARKS Potts tests on generic lattice
+
+seed		 56789
+
+variable 	 Nx  	equal  300
+variable 	 Ny  	equal   50
+variable 	 Nz  	equal  500
+variable	 Nspin	equal ${Nx}*${Ny}*${Nz}/10
+variable	 Nspin	equal 300*${Ny}*${Nz}/10
+variable	 Nspin	equal 300*50*${Nz}/10
+variable	 Nspin	equal 300*50*500/10
+
+# app_style	 potts 	5000
+app_style	 potts 	${Nspin}
+app_style	 potts 	750000
+
+dimension	 3
+lattice		 sc/26n 1.0
+region		 box block 0 ${Nx} 0 ${Ny} 0 ${Nz}
+region		 box block 0 300 0 ${Ny} 0 ${Nz}
+region		 box block 0 300 0 50 0 ${Nz}
+region		 box block 0 300 0 50 0 500
+create_box	 	box
+Created box = (0 0 0) to (300 50 500)
+  16 by 2 by 20 processor grid
+create_sites	box
+Creating sites ...
+  7500000 sites
+  7500000 sites have 26 neighbors
+# set		 		site range 1 5000
+set		 		site range 1 ${Nspin}
+set		 		site range 1 750000
+  7500000 settings made for site
+
+sweep		 random
+# sweep		 raster mask yes
+# solve_style      tree
+sector		 yes
+
+#solve_style      tree
+#solve_style      group 26 1
+#sector		 yes
+
+diag_style       energy
+
+# temperature	0.0 
+temperature 	0.1
+
+stats       	1.0 logfreq 9 10.0
+dump        	1 text 1.0 dump.*.out id site i1 energy x y z
+dump_modify     1 logfreq 9 10.0
+
+# stats            10.0
+# dump             1 text 10.0 dump.potts
+dump vtkFile 	 vtk 1.0 potts_3d.*.vti i1
+dump_modify  	 vtkFile vtk ${Nx} ${Ny} ${Nz} 0 10000 sort id
+dump_modify  	 vtkFile vtk 300 ${Ny} ${Nz} 0 10000 sort id
+dump_modify  	 vtkFile vtk 300 50 ${Nz} 0 10000 sort id
+dump_modify  	 vtkFile vtk 300 50 500 0 10000 sort id
+diag_style       cluster delt 1.0 stats no logfreq 9 10.0 filename cluster.dat
+
+run              1000.0
+Setting up run ...
+Running with 32-bit site IDs
+Memory usage per processor = 4.375 Mbytes
+      Time    Naccept    Nreject    Nsweeps        CPU     Energy
+         0          0          0          0          0   1.95e+08
+         1 933796131554 4691211368446     750001    2.1e+03 1.33643e+08
+   1.29155 974896086156 6290076413844     968663   2.85e+03 1.2538e+08
+    1.6681 1007560093482 8375509906518    1251076   3.84e+03 1.17247e+08
+   2.15444 1033465270695 11085237229305    1615827   5.09e+03 1.09498e+08
+   2.78256 1054400717565 14597499282435    2086920   6.69e+03 1.02282e+08
+   3.59381 1071561204091 19143646295909    2695361   8.73e+03 9.56492e+07
+   4.64159 1085743516385 25023196483615    3481192   1.13e+04 8.95924e+07
+   5.99484 1097603125314 32623386874686    4496132   1.46e+04 8.39636e+07
+   7.74264 1107748751119 42444586248881    5806978   1.89e+04 7.86188e+07
+        10 1116427446977 55133572553023    7500000   2.44e+04 7.35179e+07
+   12.9155 1123946034428 71525726465572    9686623   3.12e+04 6.86036e+07
+    16.681 1130423487368 92700239012632   12510755   3.99e+04 6.38338e+07
+   21.5443 1135994419984 120050963080016   16158261   5.09e+04 5.9174e+07
+   27.8256 1140836812492 155378133187508   20869196    6.5e+04 5.46723e+07
+   35.9381 1144881976035 201007140523965   26953603   8.27e+04 5.04269e+07
+   46.4159 1148262169526 259941115330474   34811917   1.05e+05 4.63636e+07
+   59.9484 1151167037029 336058725462971   44961319   1.34e+05 4.25594e+07
+   77.4264 1153603368856 434369724131144   58069777    1.7e+05 3.89109e+07
+       100 1155741998836 561344265501164   75000001   2.17e+05 3.53988e+07
+   129.155 1157602024406 725339092975594   96866226   2.75e+05 3.20179e+07

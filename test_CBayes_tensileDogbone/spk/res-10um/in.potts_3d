@@ -11,14 +11,13 @@ variable	 Nspin	equal 1000000
 app_style	 potts 	${Nspin}
 
 dimension	 3
+boundary     n n n # non-periodic boundary condition: https://spparks.github.io/doc/boundary.html
 lattice		 sc/26n 1.0
 region		 box block 0 ${Nx} 0 ${Ny} 0 ${Nz}
 create_box	 	box
 create_sites	box
 # set		 		site range 1 5000
 set		 		site range 1 ${Nspin}
-
-boundary     n n n # non-periodic boundary condition: https://spparks.github.io/doc/boundary.html
 
 sweep		 random
 # sweep		 raster mask yes

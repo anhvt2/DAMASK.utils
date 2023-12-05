@@ -15,9 +15,8 @@ variable     Nspin  equal ${Nx}*${Ny}*${Nz}/10
 # app_style  potts  5000
 app_style    potts  ${Nspin}
 
-boundary     n n n # non-periodic boundary condition: https://spparks.github.io/doc/boundary.html
-
 dimension    3
+boundary     n n n # non-periodic boundary condition: https://spparks.github.io/doc/boundary.html
 lattice      sc/26n 1.0
 region       box block 0 ${Nx} 0 ${Ny} 0 ${Nz}
 create_box      box

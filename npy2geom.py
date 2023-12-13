@@ -6,8 +6,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-npy", "--npy", type=str, required=True)
 args = parser.parse_args()
 
-npyFileName = args.geom
-geomFileName = npy[:-4] + '.geom'
+npyFileName = args.npy
+geomFileName = npyFileName[:-4] + '.geom'
 
 geom = np.load(npyFileName)
 Nx, Ny, Nz = geom.shape

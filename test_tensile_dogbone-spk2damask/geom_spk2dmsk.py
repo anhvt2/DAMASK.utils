@@ -3,13 +3,13 @@
 """
 	Example
 	-------
-		python3 geom_spk2dmsk.py -r 50 -d 'dump.12.out'
+		python3 geom_spk2dmsk.py -r 50 -d 'dump.12.out' --phaseFileName='phase_dump_12_out.npy'
 
 	Parameters
 	----------
 		-r: resolution: 1 pixel to 'r' micrometer
 		-d: dump file from SPPARKS
-		phase: from running geom_cad2phase.py: 'phase_' + dumpFileName.replace('.','_') + '.npy'
+		-p, --phaseFileName: phase: from running geom_cad2phase.py: 'phase_' + dumpFileName.replace('.','_') + '.npy'
 
 	Description
 	-----------
@@ -28,7 +28,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--dump", type=str, required=True)
 parser.add_argument("-r", "--resolution", type=int, required=True)
-parser.add_argument("-p", "--phaseFileName", type=int, required=True)
+parser.add_argument("-p", "--phaseFileName", type=str, required=True)
 args = parser.parse_args()
 dumpFileName = args.dump # 'dump.12.out'
 outFileName = 'spk_' + dumpFileName.replace('.','_') + '.geom'

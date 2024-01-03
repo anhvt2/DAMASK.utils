@@ -28,6 +28,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--dump", type=str, required=True)
 parser.add_argument("-r", "--resolution", type=int, required=True)
+parser.add_argument("-p", "--phaseFileName", type=int, required=True)
 args = parser.parse_args()
 dumpFileName = args.dump # 'dump.12.out'
 outFileName = 'spk_' + dumpFileName.replace('.','_') + '.geom'
@@ -71,7 +72,8 @@ t_start = time.time()
 m, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
 m += 2
 
-p = np.load('phase_' + dumpFileName.replace('.','_') + '.npy') # output from geom_cad2phase.py
+# phaseFileName = 'phase_' + dumpFileName.replace('.','_') + '.npy' # deprecated: required as an input parameter
+p = np.load(phaseFileName) # output from geom_cad2phase.py
 # void_id = np.max(m) + 1
 # void_id = np.inf # DAMASK pre-proc error 
 # void_id = -1

@@ -17,6 +17,8 @@ for pc in 0.25 0.50 0.75 1.00 1.25 1.50 1.75 2.00; do
 
     mkdir ${pc}
     mv material.config seedVoid.log ${pc}
+    mv voidSeeded_${pc}0pc_spk_dump_12_out.geom ${pc}
+    mv padded_voidSeeded_${pc}0pc_spk_dump_12_out.geom ${pc}
     cd ${pc}
     cat ../../../material.config.preamble  | cat - ./material.config | sponge ./material.config
     cd ..

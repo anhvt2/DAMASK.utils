@@ -31,6 +31,7 @@ parser.add_argument("-r", "--resolution", type=int, required=True)
 parser.add_argument("-p", "--phaseFileName", type=str, required=True)
 args = parser.parse_args()
 dumpFileName = args.dump # 'dump.12.out'
+phaseFileName = args.phaseFileName
 outFileName = 'spk_' + dumpFileName.replace('.','_') + '.geom'
 res = args.resolution
 

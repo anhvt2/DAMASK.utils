@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in $(seq 10); do
+for i in $(seq 100); do
 	cd res-50um-run-${i}
 	ln -sf ../phase_dump_12_out.npy .
 	ln -sf ../orientations.dat .

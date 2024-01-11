@@ -3,6 +3,15 @@
 
 The objective of this case study is to infer/learn a distribution for void (e.g. volume fraction), given a distribution in observables, using **data-consistent stochastic inverse** approach
 
+# Workflow
+
+Step-1: Run SPPARKS with *no periodic boundary condition*
+Step-2: Convert SPPARKS geometry to DAMASK-readable, helped by `orientations.dat` generated from DREAM.3D
+Step-3: Pad air and seed voids into the newly generated microstructure geometry
+Step-4: Run and post-process DAMASK
+Step-5: Build a physics-constrained ML model (monotonic GPR)
+Step-6: Perform data-consistent inversion
+
 # Roadmap
 
 * 8x8x8: 512 voxels -- very fast

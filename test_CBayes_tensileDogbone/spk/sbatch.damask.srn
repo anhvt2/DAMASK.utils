@@ -47,7 +47,7 @@ cores=10                             # Number MPI processes to run on each node 
                                                                          # CTS1 has 36 cores per node
 ### ---------------------------------- run DAMASK
 
-geomFileName='padded_voidSeeded_1.500pc_spk_dump_12_out'
+geomFileName='main'
 loadFileName='tension'
 rm -fv ${geomFileName}_${loadFileName}.*
 
@@ -75,7 +75,7 @@ fi
 sleep 10
 
 # Global: Homogenization
-python3 findGaugeLocations.py --geom ${geomFileName}.geom # dump gaugeFilter.txt
+python3 ../../findGaugeLocations.py --geom ${geomFileName}.geom # dump gaugeFilter.txt
 postResults *.spectralOut --cr f,p --filter $(cat gaugeFilter.txt)
 cd postProc/
 addStrainTensors ${geomFileName}_${loadFileName}.txt --left --logarithmic
@@ -86,7 +86,6 @@ cd ..
 
 
 ### Local
-cd ..
 postResults \
     --cr fp,f,p,grainrotation,texture \
     --split \

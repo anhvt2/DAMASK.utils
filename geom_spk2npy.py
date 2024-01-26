@@ -69,23 +69,35 @@ def getDumpMs(dumpFileName):
     header = np.array(
         dumptxt[i+4].replace('\n', '').replace('ITEM: ATOMS ', '').split(' '), dtype=str)
     d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
-    num_grains = len(np.unique(d[:, 1]))
-    old_grain_ids = np.unique(d[:, 1])
-    new_grain_ids = range(len(np.unique(d[:, 1])))
+    # Get indices of relevant fields
+    # print(header) # debug
+    typeIdx = np.where(header=='type')[0]
+    xIdx = np.where(header=='x')[0]
+    yIdx = np.where(header=='y')[0]
+    zIdx = np.where(header=='z')[0]
+    # print(typeIdx, xIdx, yIdx, zIdx) # debug
+    '''
+    Re-enumerate grains: instead of having unique but sparse grain id, e.g. [1,2,4,7], now re-enumerate to [0,1,2,3]
+    '''
+    numGrains = len(np.unique(d[:, typeIdx]))
+    oldGrainIds = np.unique(d[:, typeIdx])
+    newGrainIds = range(len(np.unique(d[:, typeIdx])))
+    # Create ms in .npy format
     ms = np.zeros([Nx, Ny, Nz])  # initialize
     for ii in range(len(d)):
-        i = int(d[ii, np.where(header == 'x')[0][0]])  # 'x'
-        j = int(d[ii, np.where(header == 'y')[0][0]])  # 'y'
-        k = int(d[ii, np.where(header == 'z')[0][0]])  # 'z'
-        grain_id = int(d[ii, 1])  # or d[i,2] -- both are the same
+        i = int(d[ii, xIdx])  # 'x'
+        j = int(d[ii, yIdx])  # 'y'
+        k = int(d[ii, zIdx])  # 'z'
+        grain_id = int(d[ii, typeIdx]) # grain id
         # option: DO re-enumerating
-        lookup_idx = np.where(old_grain_ids == grain_id)[0][0]
-        new_grain_id = new_grain_ids[lookup_idx]
+        lookupIdx = np.where(oldGrainIds == grain_id)[0][0]
+        new_grain_id = newGrainIds[lookupIdx]
         ms[i, j, k] = new_grain_id
         # option: DO NOT re-enumerating
         # m[i,j,k] = grain_id # TODO: implement re-enumerate grain_id
         # print(f"finish ({x},{y}, {z})")
-    return ms, Nx, Ny, Nz, num_grains
+
+    return ms, Nx, Ny, Nz, numGrains
 
 def reEnumerate(ms):
     '''
@@ -146,7 +158,7 @@ t_start = time.time()  # tic
 
 # Process
 print(f'Reading dumpFileName {dumpFileName}...', end=' ')
-ms, Nx, Ny, Nz, num_grains = getDumpMs(dumpFileName)
+ms, Nx, Ny, Nz, numGrains = getDumpMs(dumpFileName)
 print(f'done!')
 print(f'Reenumerate microstructure...', end=' ')
 reEnum_ms = reEnumerate(ms)

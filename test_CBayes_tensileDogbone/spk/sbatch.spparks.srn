@@ -22,4 +22,4 @@ cores=16                             # Number MPI processes to run on each node 
 
 
 mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) spk < in.potts_3d
-
+rm *.vti

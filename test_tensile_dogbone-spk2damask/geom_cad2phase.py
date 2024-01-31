@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 import argparse
 import math
 
+mpl.rcParams['xtick.labelsize'] = 24
+mpl.rcParams['ytick.labelsize'] = 24
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--dump", type=str, required=True)
 parser.add_argument("-r", "--resolution", type=int, required=True)
@@ -288,8 +291,8 @@ for i in range(Nx):
 						p[i,j,k] = void_id # assign void
 
 np.save(outFileName, p)
-# plt.imshow(p[:,0,:].T)
-# plt.show()
+plt.imshow(p[:,0,:].T)
+plt.show()
 
 ### diagnostics
 print(f"Number of voxels: {Nx*Ny*Nz}")

@@ -7,8 +7,8 @@ import argparse
 import gc
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False)
 parser.add_argument("-f", "--fileName", type=str, required=True)
+parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False)
 args = parser.parse_args()
 nameTag = args.nameTag
 fileName = args.fileName
@@ -36,9 +36,9 @@ cmap = plt.cm.get_cmap('coolwarm')
 
 reader = pyvista.get_reader(fileName)
 msMesh = reader.read()
-ms = msMesh.get_array('Spin')
-msMesh.cell_data['Spin']
-msMesh.set_active_scalars('Spin', preference='cell')
+ms = msMesh.get_array('microstructure')
+msMesh.cell_data['microstructure']
+msMesh.set_active_scalars('microstructure', preference='cell')
 threshed = msMesh.threshold(value=1.0+1e-3)
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)

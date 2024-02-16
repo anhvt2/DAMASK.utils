@@ -11,6 +11,7 @@ for i in $(seq 0 28); do
     geom_check ${geomFileName}
 
     # Create PNG file
-    plotms3d_maskedDogbone.py --fileName ${vtrFileName}
+    vtrFileName="spk_dump_${i}_out.vtr"
+    python3 plotms3d_maskedDogbone.py --fileName ${vtrFileName}
     echo "Finished processing SPPARKS dump file: ${fileName}."
 done

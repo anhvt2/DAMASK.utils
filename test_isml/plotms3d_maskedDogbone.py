@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import glob, os
 import argparse
 import gc
+
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-f", "--fileName", type=str, required=True)

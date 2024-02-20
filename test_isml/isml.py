@@ -43,7 +43,7 @@ for selStr in ['1_pos', '2_pos', '3_pos']:
 
 # df.keys()
 stress = df['Mises(Cauchy)']
-strain = df['Mises(Cauchy)']
+strain = df['Mises(ln(V))']
 
 # Add outliers
 X = np.concatenate([X, rng.uniform(low=-6, high=6,

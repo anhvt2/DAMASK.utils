@@ -19,21 +19,20 @@ headers = txt[numHeaderRows].replace('\n', '').split('\t')
 data = np.loadtxt(fileName, skiprows=numHeaderRows+1)
 df = pd.DataFrame(data, columns=headers)
 
+# Define outlier/anomaly detection methods to be compared
 # https://scikit-learn.org/0.20/auto_examples/plot_anomaly_comparison.html
-
 n_samples = df.shape[0]
 outliers_fraction = 0.02 # percentage of void: soft parameter (to be studied)
 n_outliers = int(outliers_fraction * n_samples)
 n_inliers = n_samples - n_outliers
 
-# define outlier/anomaly detection methods to be compared
 anomaly_algorithms = [
-	("Robust covariance", EllipticEnvelope(contamination=outliers_fraction)),
-	("One-Class SVM", svm.OneClassSVM(nu=outliers_fraction, kernel="rbf",
+	(0, "Robust covariance", EllipticEnvelope(contamination=outliers_fraction)),
+	(1, "One-Class SVM", svm.OneClassSVM(nu=outliers_fraction, kernel="rbf",
 									  gamma=0.1)),
-	("Isolation Forest", IsolationForest(contamination=outliers_fraction,
+	(2, "Isolation Forest", IsolationForest(contamination=outliers_fraction,
 										 random_state=42)),
-	("Local Outlier Factor", LocalOutlierFactor(
+	(3, "Local Outlier Factor", LocalOutlierFactor(
 		n_neighbors=35, contamination=outliers_fraction))]
 
 resolution = 50
@@ -44,27 +43,41 @@ for selStr in ['1_pos', '2_pos', '3_pos']:
 # df.keys()
 stress = df['Mises(Cauchy)']
 strain = df['Mises(ln(V))']
+X = df[['Mises(Cauchy)', 'Mises(ln(V))']]
+X = np.atleast_2d(X)
+# X = (X - X.min()) / (X.max() - X.min()) * 2 - 1
+from sklearn.preprocessing import MinMaxScaler
+X = MinMaxScaler(feature_range=(-1, 1), copy=True, clip=False).fit_transform(X)
 
-# Add outliers
-X = np.concatenate([X, rng.uniform(low=-6, high=6,
-				   size=(n_outliers, 2))], axis=0)
+# # Anomaly detection
+# y_pred = np.zeros([X.shape[0], len(anomaly_algorithms)])
+# for i, name, algorithm in anomaly_algorithms:
+# 	t0 = time.time()
+# 	algorithm.fit(X)
+# 	t1 = time.time()
+# 	# fit the data and tag outliers
+# 	if name == "Local Outlier Factor":
+# 		y_pred[:,i] = algorithm.fit_predict(X)
+# 	else:
+# 		y_pred[:,i] = algorithm.fit(X).predict(X)
 
-for name, algorithm in anomaly_algorithms:
-	t0 = time.time()
-	algorithm.fit(X)
-	t1 = time.time()
-	plt.subplot(len(datasets), len(anomaly_algorithms), plot_num)
-	if i_dataset == 0:
-		plt.title(name, size=18)
+# y_pred = y_pred * (-1) / 2. + 0.5
+# np.save('y_pred.npy', y_pred)
+y_pred = np.load('y_pred.npy')
 
-	# fit the data and tag outliers
-	if name == "Local Outlier Factor":
-		y_pred = algorithm.fit_predict(X)
-	else:
-		y_pred = algorithm.fit(X).predict(X)
+# # Read ground true - y3d: void true/false in 3d .npy; y: flatten 1d array
+y3d = np.load('padded_voidSeeded_2.000pc_spk_dump_12_out.npy')
+# extract info from seedVoid.log
+y3d = (y3d>=2) & (y3d<= 4806) # extract void
+numTotalVoxels = 120 * 20 * 200
+numSolidVoxels = 240260
+numVoidVoxels = 4805
+# y3d = y3d.astype(int)
+# y = np.zeros(numTotalVoxels)
+# for i in range(numTotalVoxels): # flatten 3d array
+#     y[i] = y3d[ int(df['1_pos'][i]), int(df['2_pos'][i]), int(df['3_pos'][i]) ]
+# np.save('y.npy', y)
+y = np.load('y.npy')
 
-	# plot the levels lines and the points
-	if name != "Local Outlier Factor":  # LOF does not implement predict
-		Z = algorithm.predict(np.c_[xx.ravel(), yy.ravel()])
-		Z = Z.reshape(xx.shape)
-		plt.contour(xx, yy, Z, levels=[0], linewidths=2, colors='black')
+# Plot
+

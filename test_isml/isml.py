@@ -129,7 +129,7 @@ for j, fileName in zip(range(len(anomaly_algorithms)), fileNames):
 	ms = np.load('padded_voidSeeded_2.000pc_spk_dump_12_out.npy')
 	ms[ms>=2] = 2 # if not air then assign phase 3 -- solid
 	for i in range(len(y)):
-		if y_pred[i] == 1:
+		if y_pred[i,j] == 1:
 			xx = int(np.array(df['1_pos'][selIndex])[i])
 			yy = int(np.array(df['2_pos'][selIndex])[i])
 			zz = int(np.array(df['3_pos'][selIndex])[i])

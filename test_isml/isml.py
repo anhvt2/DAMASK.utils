@@ -134,5 +134,5 @@ for j, fileName in zip(range(len(anomaly_algorithms)), fileNames):
 			yy = int(np.array(df['2_pos'][selIndex])[i])
 			zz = int(np.array(df['3_pos'][selIndex])[i])
 			ms[xx,yy,zz] = 3 # if detected anomaly, then assign phase 2
-	np.save(fileName + '.npy')
+	np.save(fileName + '.npy', ms)
 	del(ms)

@@ -2,7 +2,6 @@
 import numpy as np
 import pandas as pd
 
-
 from sklearn import svm
 from sklearn.covariance import EllipticEnvelope
 from sklearn.ensemble import IsolationForest
@@ -99,11 +98,22 @@ np.save('y_pred.npy', y_pred)
 
 ### Plot
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
-for i in range(len(anomaly_algorithms)):
-	cm = confusion_matrix(y, y_pred[:,i], labels=[0,1])
-	disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=[0,1])
+mpl.rcParams['xtick.labelsize'] = 14
+mpl.rcParams['ytick.labelsize'] = 14
+
+for j, fileName in zip(range(len(anomaly_algorithms)), fileNames):
+	plt.figure(figsize=(20,20))
+	cm = confusion_matrix(y, y_pred[:,j], labels=[0,1])
+	disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Solid','Void']) # Solid = 0; Void = 1
 	disp.plot()
-	plt.show()
+	disp.im_.colorbar.remove()
+	plt.xlabel('Predicted labels', fontsize=14)
+	plt.ylabel('True labels', fontsize=14)
+	# plt.colorbar().remove()
+	plt.savefig('cfsMtrx' + fileName + '.png', dpi=None, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches=None, pad_inches=0.1, metadata=None)
+	plt.close()
+	plt.clf()
+	# plt.show()
 
 ### Create a masked anomalous microstructure with the predicted anomaly
 '''

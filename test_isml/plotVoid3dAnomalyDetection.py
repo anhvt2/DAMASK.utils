@@ -39,19 +39,30 @@ msMesh = reader.read()
 ms = msMesh.get_array('microstructure')
 msMesh.cell_data['microstructure']
 msMesh.set_active_scalars('microstructure', preference='cell')
-threshed = msMesh.threshold(value=(3,3))
+
+### draw a box
+pvBoxMesh = pyvista.Box(level=0, bounds=(0,120, 0,24, 0,200))
+# pvBox.plot(show_edges=True)
+
+### 
+
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)
+pl.add_mesh(pvBoxMesh, opacity=0.01, color=True)
+
+threshed = msMesh.threshold(value=(3,3))
+# pl.add_bounding_box(line_width=5, color='black')
 # pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)
 pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()
+print(pl.bounds)
 # pl.camera_position = 'xz'
 # pl.camera.azimuth = -10
 # pl.camera.elevation = +10
 # pl.show(screenshot='%s.png' % fileName[:-4])
 # pl.show()
-pl.add_axes()
+# pl.add_axes()
 if nameTag == '':
 	pl.screenshot(fileName[:-4] + '.png', window_size=[1860*6,968*6])
 else:

@@ -44,11 +44,13 @@ msMesh.set_active_scalars('microstructure', preference='cell')
 pvBoxMesh = pyvista.Box(level=0, bounds=(0,120, 0,24, 0,200))
 # pvBox.plot(show_edges=True)
 
-### 
 
+### plot meshes
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)
-pl.add_mesh(pvBoxMesh, opacity=0.01, color=True)
+
+pl.add_mesh(pvBoxMesh, opacity=0.01, color=True, show_edges=True, line_width=1)
+pl.add_mesh(msMesh.threshold(value=(2,3)), opacity=0.10, show_edges=True, line_width=1)
 
 threshed = msMesh.threshold(value=(3,3))
 # pl.add_bounding_box(line_width=5, color='black')

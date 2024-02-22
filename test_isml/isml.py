@@ -100,10 +100,10 @@ np.save('y_pred.npy', y_pred)
 ### Plot
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 for i in range(len(anomaly_algorithms)):
-    cm = confusion_matrix(y, y_pred[:,i], labels=[0,1])
-    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=[0,1])
-    disp.plot()
-    plt.show()
+	cm = confusion_matrix(y, y_pred[:,i], labels=[0,1])
+	disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=[0,1])
+	disp.plot()
+	plt.show()
 
 ### Create a masked anomalous microstructure with the predicted anomaly
 '''
@@ -114,25 +114,25 @@ phase = 3: anomaly
 # original microstructure
 ms = np.load('padded_voidSeeded_2.000pc_spk_dump_12_out.npy')
 ms[ms>=2] = 2 # if not air then assign phase 2 -- solid
-for i in range(numTotalVoxels):
-    xx = int(df['1_pos'][i])
-    yy = int(df['2_pos'][i])
-    zz = int(df['3_pos'][i])
-    if y[i] == 1:
-        ms[xx,yy,zz] = 3 # if detected anomaly, then assign phase 3 -- anomaly
-    np.save('origVoid' + '.npy', ms)
+for i in range(len(y)):
+	if y[i] == 1:
+		xx = int(np.array(df['1_pos'][selIndex])[i])
+		yy = int(np.array(df['2_pos'][selIndex])[i])
+		zz = int(np.array(df['3_pos'][selIndex])[i])
+		ms[xx,yy,zz] = 3 # if detected anomaly, then assign phase 3 -- anomaly
 
+np.save('origVoid' + '.npy', ms)
 del(ms)
 
 # anomaly detection microstructure
 for j, fileName in zip(range(len(anomaly_algorithms)), fileNames):
-    ms = np.load('padded_voidSeeded_2.000pc_spk_dump_12_out.npy')
-    ms[ms>=2] = 2 # if not air then assign phase 3 -- solid
-    for i in range(numTotalVoxels):
-        xx = int(df['1_pos'][i])
-        yy = int(df['2_pos'][i])
-        zz = int(df['3_pos'][i])
-        if y_pred[i] == 1:
-            ms[xx,yy,zz] = 3 # if detected anomaly, then assign phase 2
-        np.save(fileName + '.npy')
-    del(ms)
+	ms = np.load('padded_voidSeeded_2.000pc_spk_dump_12_out.npy')
+	ms[ms>=2] = 2 # if not air then assign phase 3 -- solid
+	for i in range(len(y)):
+		if y_pred[i] == 1:
+			xx = int(np.array(df['1_pos'][selIndex])[i])
+			yy = int(np.array(df['2_pos'][selIndex])[i])
+			zz = int(np.array(df['3_pos'][selIndex])[i])
+			ms[xx,yy,zz] = 3 # if detected anomaly, then assign phase 2
+	np.save(fileName + '.npy')
+	del(ms)

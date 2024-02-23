@@ -10,15 +10,21 @@ import os, sys, datetime
 import argparse
 import pandas as pd
 from scipy.interpolate import interp1d
+from scipy.interpolate import PchipInterpolator
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
 parser.add_argument("-LoadFile", "--LoadFile", default='tension.load', type=str)
-parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
+parser.add_argument("-OptSaveFig", "--OptSaveFig", type=bool, default=False)
+parser.add_argument("-PlotTitle", "--PlotTitle", default='', type=str, required=False)
 # parser.add_argument("-skiprows", "--skiprows", type=int, default=4) # deprecated
+
 args = parser.parse_args()
 StressStrainFile = args.StressStrainFile
-LoadFile = args.LoadFile
+LoadFile         = args.LoadFile
+OptSaveFig       = args.OptSaveFig
+PlotTitle        = args.PlotTitle
+
 # skiprows = args.skiprows # deprecated
 
 def getMetaInfo(StressStrainFile):
@@ -80,7 +86,8 @@ def getTrueStressStrain(StressStrainFile):
 def getInterpStressStrain(StressStrainFile):
 	x, y = getTrueStressStrain(StressStrainFile)
 	interp_x = np.linspace(x.min(), x.max(), num=100)
-	splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
+	# splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
+	splineInterp = PchipInterpolator(x, y, extrapolate=True)
 	interp_y = splineInterp(interp_x)
 	return interp_x, interp_y
 
@@ -110,7 +117,11 @@ if np.all(x > -1e-5):
 ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
 
 parentFolderName = os.getcwd().split('/')[-4:-1]
-plt.title('%s' % parentFolderName, fontsize=24)
+
+if PlotTitle == '':
+	plt.title('%s' % parentFolderName, fontsize=24)
+else:
+	plt.title(PlotTitle, fontsize=24)
 
 plt.show()
 

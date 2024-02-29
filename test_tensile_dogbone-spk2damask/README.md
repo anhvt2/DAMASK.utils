@@ -45,6 +45,9 @@ Microstructure info are in
 * [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090): Size-dependent stochastic tensile properties in additively manufactured 316L stainless steel
 * [https://doi.org/10.1016/j.addma.2022.102943](https://doi.org/10.1016/j.addma.2022.102943): Optimization of stochastic feature properties in laser powder bed fusion
 
+4. **17-4PH** dogbone
+
+* [https://doi.org/10.1016/j.jmatprotec.2016.10.023](https://doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively manufactured stainless steel
 
 
 # SPPARKS (+ DREAM.3D)

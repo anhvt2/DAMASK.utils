@@ -91,7 +91,7 @@ def getDumpMs(dumpFileName):
 t_start = time.time()  # tic
 
 for vtiFileName in natsorted(glob.glob(vtiFileNames)):
-    outFileName = 'masked_' + vtiFileName
+    outFileName = 'masked_' + vtiFileName[:-4] + '.vti'
     vtiData = pyvista.read(vtiFileName)
     Nx, Ny, Nz = np.array(vtiData.dimensions) - 1
     spin = vtiData.get_array('Spin').reshape(Nz, Ny, Nx).T

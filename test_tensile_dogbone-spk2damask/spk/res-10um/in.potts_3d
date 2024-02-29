@@ -2,15 +2,10 @@
 
 seed		 56789
 
-variable	 res	equal   10    # resolution: 1 pixel = ${res} um
-variable	 L		equal 	10000 # dogbone specimen length (um)
-variable 	 W		equal	6000  # dogbone specimen width (um)
-variable 	 T		equal 	1000  # dogbone specimen thickness (um)
-
-variable 	 Nx  	equal ${W}/${res}
-variable 	 Ny  	equal ${T}/${res}
-variable 	 Nz  	equal ${L}/${res}
-variable	 Nspin	equal ${Nx}*${Ny}*${Nz}/10
+variable 	 Nx  	equal  600
+variable 	 Ny  	equal  100
+variable 	 Nz  	equal 1000
+variable	 Nspin	equal 1000000
 
 # app_style	 potts 	5000
 app_style	 potts 	${Nspin}
@@ -35,7 +30,7 @@ sector		 yes
 diag_style       energy
 
 # temperature	0.0 
-temperature 	0.5
+temperature 	0.1
 
 stats       	1.0 logfreq 9 10.0
 dump        	1 text 1.0 dump.*.out id site i1 energy x y z

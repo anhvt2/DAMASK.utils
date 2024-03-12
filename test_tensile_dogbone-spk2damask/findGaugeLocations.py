@@ -6,6 +6,7 @@
 	-------
 	python3 findGaugeLocations.py --geom spk_dump_12_out.npy
 	python3 findGaugeLocations.py --geom padded_spk_dump_12_out.npy
+	python3 findGaugeLocations.py --geom padded_spk_dump_12_out.npy --resolution 50
 
 	Parameters
 	----------
@@ -22,9 +23,12 @@ import glob, os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-g", "--geom", type=str, required=True)
+parser.add_argument("-r", "--resolution", type=int, required=True) # resolution, e.g. 50um/voxel
 args = parser.parse_args()
 
 fileName = args.geom
+resolution = args.resolution
+
 msFileName = fileName[:-5] + '.npy' # fileName.split('.')[0] + '.npy'
 if os.path.exists(msFileName):
     print(f"\nCheckpoint: ms {msFileName} .npy exists. Proceed forward.")
@@ -70,8 +74,8 @@ print(f'{np.min(yLocs)} <= y <= {np.max(yLocs)}')
 print(f'{np.min(zLocs)} <= z <= {np.max(zLocs)}')
 
 f = open('gaugeFilter.txt', 'w')
-f.write('%d <= x <= %d and %d <= y <= %d and %d <= z <= %d\n' % 
-    (   np.min(xLocs), np.max(xLocs), 
-        np.min(yLocs), np.max(yLocs), 
-        np.min(zLocs), np.max(zLocs)))
+f.write('%d*%d <= x <= %d*%d and %d*%d <= y <= %d*%d and %d*%d <= z <= %d*%d\n' % 
+    (   np.min(xLocs), resolution, np.max(xLocs), resolution, 
+        np.min(yLocs), resolution, np.max(yLocs), resolution, 
+        np.min(zLocs), resolution, np.max(zLocs), resolution))
 f.close()

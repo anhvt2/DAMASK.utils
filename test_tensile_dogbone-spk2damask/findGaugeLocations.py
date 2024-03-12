@@ -29,7 +29,7 @@ args = parser.parse_args()
 fileName = args.geom
 resolution = args.resolution
 
-msFileName = fileName[:-5] + '.npy' # fileName.split('.')[0] + '.npy'
+msFileName = fileName[:-4] + '.npy' # fileName.split('.')[0] + '.npy'
 if os.path.exists(msFileName):
     print(f"\nCheckpoint: ms {msFileName} .npy exists. Proceed forward.")
 else:

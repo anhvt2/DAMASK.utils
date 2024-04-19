@@ -35,6 +35,22 @@ done
 
 Upon which, 1, 10, 100, 1000 MCS-step microstructures are extracted. 
 
-2. Perform ISML from `sklearn`
+2. Perform ISML from `sklearn`:
 
+This step creates a classification microstructure. As explained in `isml.py`: `1` means air, `2` means solid, `3` means detected anomaly. 
+
+```shell
+python3 isml.py
+```
+
+3. Create anomaly detection with masked microstructure on dogbone:
+
+This step 
+* (1) converts detected anomaly to a DAMASK geometry file `.geom`,
+* (2) utilizes `geom_check` to create a `.vtr` file,
+* (3) use `pyvista` to highlight the anomaly detection in dogbone
+
+```shell
+bash autoPostProcess.sh
+```
 

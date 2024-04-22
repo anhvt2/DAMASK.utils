@@ -174,15 +174,19 @@ DAMASK_spectral --geom  PathToGeomFile/NameOfGeomFile.geom --load PathToLoadFile
 
 2. Test out `postResults` capability with `--filter` option: https://damask2.mpie.de/bin/view/Documentation/PostResults
 
-3. Implement a `pyvista` script that shows stresses warped by a deformed geometry. Some possible hints include
+3. Implement a AM SPPARKS apps to generate microstructure from SPPARKS
+* **with possible visualization**
+
+4. Implement a `pyvista` script that shows stresses warped by a deformed geometry. Some possible hints include
 
 * https://github.com/pyvista/pyvista/issues/650
 * https://discourse.paraview.org/t/visualizing-stress-on-the-deformed-geometry/654
 
-4. Seed void from a void geometry dictionary. Maybe see some works from experimentalists, e.g. Andrew Polonsky, Philip Noell
+3. Seed void from a void geometry dictionary. Maybe see some works from experimentalists, e.g. Andrew Polonsky, Philip Noell
 
 * Polonsky, A. T., Madison, J. D., Arnhart, M., Jin, H., Karlson, K. N., Skulborstad, A. J., ... & Murawski, S. G. (2023). Toward accurate prediction of partial-penetration laser weld performance informed by three-dimensional characterization–Part I: High fidelity interrogation. Tomography of Materials and Structures, 2, 100006.
 * Karlson, K. N., Skulborstad, A. J., Madison, J. D., Polonsky, A. T., Jin, H., Jones, A., ... & Lu, W. Y. (2023). Toward accurate prediction of partial-penetration laser weld performance informed by three-dimensional characterization–part II: μCT based finite element simulations. Tomography of Materials and Structures, 2, 100007.
+* Madison, J. D., & Aagesen, L. K. (2012). Quantitative characterization of porosity in laser welds of stainless steel. Scripta Materialia, 67(9), 783-786.
 
 ##### `postResults` Examples
 * volume-averaged results of deformation gradient and first Piola-Kirchhoff stress for all increments

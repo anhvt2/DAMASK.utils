@@ -88,19 +88,19 @@ dump_modify vtkFile vtk ${Nx} ${Ny} ${Nz} 0 ${NxNyNz} sort id # dump_modify vtkF
 dump top image 2 top.additive_dogbone.*.jpg site site crange 1 1000 drange 1 1 view 0.0 0.0 shape cube box no 1 zoom 2 size ${Ny} ${Nx} sdiam 1.05
 dump mobility_top image 2 mobility_top.additive_dogbone.*.jpg d1 i1 view 0.0 0.0 shape cube size ${Ny} ${Nx} sdiam 1.05 box no 1 zoom 2
 
-dump_modify top boundcolor black backcolor black pad 4 thresh z <= 18
-dump_modify mobility_top smap 0 1 cf 0.05 5 min blue 0.45 lightblue 0.65 yellow 0.75 orange max red thresh z <= 20
+# dump_modify top boundcolor black backcolor black pad 4 thresh z <= 18
+# dump_modify mobility_top smap 0 1 cf 0.05 5 min blue 0.45 lightblue 0.65 yellow 0.75 orange max red thresh z <= 20
 
 # tranverse
 dump transverse image 2 transverse.additive_dogbone.*.jpg site site crange 1 1000 drange 1 1 view 90.0 -90.0 shape cube box no 1 zoom 1.5 size ${Nx} ${Nz}
-dump_modify transverse boundcolor black backcolor black pad 4  thresh y <= 10
+# dump_modify transverse boundcolor black backcolor black pad 4  thresh y <= 10
 
 # longitudinal
 dump longitudinal image 2 longitudinal.additive_dogbone.*.jpg site site crange 1 1000  drange 1 1 view 90.0 0.0 shape cube box no 1 zoom 1.5 size ${Ny} ${Nz}
-dump_modify longitudinal boundcolor black backcolor black pad 4  thresh x <= 20
+# dump_modify longitudinal boundcolor black backcolor black pad 4  thresh x <= 20
  
 dump mobility_long image 2 mobility_long.additive_dogbone.*.jpg d1 i1 view 90.0 0.0 shape cube size ${Ny} ${Nz} sdiam 1.05 box no 1 zoom 1.5
-dump_modify mobility_long smap 0 1 cf 0.05 5 min blue 0.45 lightblue 0.65 yellow 0.75 orange max red thresh x <= 20
+# dump_modify mobility_long smap 0 1 cf 0.05 5 min blue 0.45 lightblue 0.65 yellow 0.75 orange max red thresh x <= 20
 #——————————————————————————————————————————— 
 
 run              500

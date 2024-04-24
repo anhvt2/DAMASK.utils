@@ -11,7 +11,7 @@ variable     Nx     equal ${W}/${res}
 variable     Ny     equal ${T}/${res}
 variable     Nz     equal ${L}/${res}
 variable     Nspin  equal ${Nx}*${Ny}*${Nz}/10
-variable 	 NxNyNz equal ${Nx}*${Ny}*${Nz}
+variable     NxNyNz equal ${Nx}*${Ny}*${Nz}
 
 		 
 app_style	 potts/additive		1000 30 70 30 7		50 90 45 12 0.1
@@ -36,16 +36,16 @@ app_style	 potts/additive		1000 30 70 30 7		50 90 45 12 0.1
 #Define simulation domain and initialize site variables
 #———————————————————————————————————————————
 dimension	 3
-lattice	 	 sc/26n 1.0
+lattice	     sc/26n 1.0
 # region		 box block 0 100 0 100 0 100
 region       box block 0 ${Nx} 0 ${Ny} 0 ${Nz}
 
 boundary     n n n # non-periodic boundary condition: https://spparks.github.io/doc/boundary.html
 
-create_box	 	box
+create_box	    box
 create_sites	box
-set		 		i1 range 1 1000 
-set		 		d1 value 0.0
+set		        i1 range 1 1000 
+set		        d1 value 0.0
 #———————————————————————————————————————————
 
 
@@ -73,7 +73,7 @@ temperature	 0.25
 
 #Specify output commands and styles.
 #——————————————————————————————————————————— 
-diag_style   	energy
+diag_style      energy
 stats           1.0
 
 
@@ -86,7 +86,7 @@ dump_modify vtkFile vtk ${Nx} ${Ny} ${Nz} 0 ${NxNyNz} sort id # dump_modify vtkF
 # https://spparks.github.io/doc/dump_image.html
 # top
 dump top image 2 top.additive_dogbone.*.jpg site site crange 1 1000 drange 1 1 view 0.0 0.0 shape cube box no 1 zoom 2 size ${Ny} ${Nx} sdiam 1.05
-dump mobility_optop image 2 mobiity_top.additive_dogbone.*.jpg d1 i1 view 0.0 0.0 shape cube size ${Ny} ${Nx} sdiam 1.05 box no 1 zoom 2
+dump mobility_top image 2 mobility_top.additive_dogbone.*.jpg d1 i1 view 0.0 0.0 shape cube size ${Ny} ${Nx} sdiam 1.05 box no 1 zoom 2
 
 dump_modify top boundcolor black backcolor black pad 4 thresh z <= 18
 dump_modify mobility_top smap 0 1 cf 0.05 5 min blue 0.45 lightblue 0.65 yellow 0.75 orange max red thresh z <= 20

@@ -13,8 +13,13 @@ variable     Nz     equal ${L}/${res}
 variable     Nspin  equal ${Nx}*${Ny}*${Nz}/10
 variable     NxNyNz equal ${Nx}*${Ny}*${Nz}
 
+variable     imgRes equal 20
+variable     NxRes  equal ${Nx}*${imgRes}
+variable     NyRes  equal ${Ny}*${imgRes}
+variable     NzRes  equal ${Nz}*${imgRes}
 		 
-app_style	 potts/additive		1000 30 70 30 7		50 90 45 12 0.1
+# app_style	 potts/additive		1000 30 70 30 7		50 90 45 12 0.1
+app_style    potts/additive     1000  6 14  6 2     10 16  9  2 0.1
 
 #  |————————————————————————————————————————
 #  | nspins		= atoi(arg[1])
@@ -103,4 +108,4 @@ dump mobility_long image 2 mobility_long.additive_dogbone.*.jpg d1 i1 view 90.0 
 # dump_modify mobility_long smap 0 1 cf 0.05 5 min blue 0.45 lightblue 0.65 yellow 0.75 orange max red thresh x <= 20
 #——————————————————————————————————————————— 
 
-run              500
+run              50000

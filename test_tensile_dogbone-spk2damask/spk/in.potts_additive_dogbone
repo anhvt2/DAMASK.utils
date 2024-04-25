@@ -1,6 +1,6 @@
 # SPPARKS potts/additive test file
 
-seed		 56789
+seed         56789
 
 variable     res    equal   50    # resolution: 1 pixel = ${res} um
 variable     L      equal   10000 # dogbone specimen length (um)
@@ -17,18 +17,44 @@ variable     imgRes equal 5
 variable     NxRes  equal ${Nx}*${imgRes}
 variable     NyRes  equal ${Ny}*${imgRes}
 variable     NzRes  equal ${Nz}*${imgRes}
-		 
-# app_style	 potts/additive		1000 30 70 30 7		50 90 45 12 0.1
-app_style    potts/additive     1000  6 14  6 2     10 16  9  2 0.1
+
+#———————————————————————————————————————————
+
+#Define melt pool parameters
+#——————————————————————————————————————————— 
+         
+# app_style  potts/additive     1000 30 70 30 7     50 90 45 12 0.1 # default
+# app_style    potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: kind of working
+#
+variable    spotWidth       equal   10
+variable    meltTailLength  equal   23
+variable    meltDepth       equal   10
+variable    capHeight       equal   4
+
+variable    haz             equal   16
+variable    tailHaz         equal   30
+variable    depthHaz        equal   15
+variable    capHaz          equal   5
+
+variable    thickness       equal   ${meltDepth}
+variable    numLayers       equal   floor(${Nz}/${meltDepth})
+
+
+#———————————————————————————————————————————
+
+#Setup melt pool and scanning patterns
+#——————————————————————————————————————————— 
+
+app_style   potts/additive     1000 ${spotWidth} ${meltTailLength} ${meltDepth} ${capHeight}     ${haz} ${tailHaz} ${depthHaz}  ${capHaz} 0.1 # user-defined
 
 #  |————————————————————————————————————————
-#  | nspins		= atoi(arg[1])
+#  | nspins     = atoi(arg[1])
 #  |————————————————————————————————————————
-#  | nspins = atoi(arg[1]); #Number of spins
-#  | spot_width = atoi(arg[2]); #Width of the melt pool
-#  | melt_tail_length = atoi(arg[3]); #Length of tail from meltpool midpoint
-#  | melt_depth = atoi(arg[4]); #How many lattice sites deep the melt pool is
-#  | cap_height = atoi(arg[5]); #Height of the cap leading the meltpool
+#  | nspins = atoi(arg[1]); # Number of spins
+#  | spot_width = atoi(arg[2]); # Width of the melt pool
+#  | melt_tail_length = atoi(arg[3]); # Length of tail from meltpool midpoint
+#  | melt_depth = atoi(arg[4]); # How many lattice sites deep the melt pool is
+#  | cap_height = atoi(arg[5]); # Height of the cap leading the meltpool
 #  |————————————————————————————————————————
 #  | HAZ = atoi(arg[6]); #Size of the HAZ surrounding the melt pool (must be larger than spot_width and melt_depth)
 #  | tail_HAZ = atoi(arg[7]); #Length of hot zone behind meltpool (must be larger than melt_tail_length)
@@ -40,17 +66,17 @@ app_style    potts/additive     1000  6 14  6 2     10 16  9  2 0.1
 
 #Define simulation domain and initialize site variables
 #———————————————————————————————————————————
-dimension	 3
-lattice	     sc/26n 1.0
-# region		 box block 0 100 0 100 0 100
+dimension    3
+lattice      sc/26n 1.0
+# region         box block 0 100 0 100 0 100
 region       box block 0 ${Nx} 0 ${Ny} 0 ${Nz}
 
 boundary     n n n # non-periodic boundary condition: https://spparks.github.io/doc/boundary.html
 
-create_box	    box
-create_sites	box
-set		        i1 range 1 1000 
-set		        d1 value 0.0
+create_box      box
+create_sites    box
+set             i1 range 1 1000 
+set             d1 value 0.0
 #———————————————————————————————————————————
 
 
@@ -59,14 +85,16 @@ set		        d1 value 0.0
 #———————————————————————————————————————————
 
 am pass 1 dir X speed 10 hatch 5
-am pass 2 dir Y speed 10 hatch 5
+# am pass 2 dir Y speed 10 hatch 10
 
-am cartesian_layer 1 start LL pass_id 1 thickness 5 offset -400.0 0.0
-am cartesian_layer 2 start UL pass_id 2 thickness 5 offset 0.0 400.0
-am cartesian_layer 3 start UR pass_id 1 thickness 5 offset 400.0 0.0
-am cartesian_layer 4 start LR pass_id 2 thickness 5 offset 0.0 -400.0
 
-am build start 25.0 num_layers 10
+
+am cartesian_layer 1 start LL pass_id 1 thickness ${thickness} offset -${Nx} 0.0
+# am cartesian_layer 2 start UL pass_id 2 thickness 5 # offset 0.0 400.0
+# am cartesian_layer 3 start UR pass_id 1 thickness 5 # offset 400.0 0.0
+# am cartesian_layer 4 start LR pass_id 2 thickness 5 # offset 0.0 -400.0
+
+am build start 0.0 num_layers 15
 
 # example:
 # am pass 1 dir X speed 10 hatch 25
@@ -82,9 +110,9 @@ am build start 25.0 num_layers 10
 
 #Setup the solver type and parameters. Must use a "sweep" style solver
 #——————————————————————————————————————————— 
-sector		 yes
-sweep		 random mask no
-temperature	 0.25
+sector       yes
+sweep        random mask no
+temperature  0.25
 #———————————————————————————————————————————
 
 #Specify output commands and styles.
@@ -119,4 +147,5 @@ dump longitudinal image 2 longitudinal.additive_dogbone.*.jpg site site crange 1
 # dump_modify mobility_long smap 0 1 cf 0.05 5 min blue 0.45 lightblue 0.65 yellow 0.75 orange max red thresh x <= 20
 #——————————————————————————————————————————— 
 
-run              5000000
+run             50
+# run              5000000

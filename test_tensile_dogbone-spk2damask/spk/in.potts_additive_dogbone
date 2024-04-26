@@ -84,7 +84,7 @@ set             d1 value 0.0
 # using am pass and cartesian layer commands.   
 #———————————————————————————————————————————
 
-am pass 1 dir X speed 10 hatch 5
+am pass 1 dir X speed 10 hatch 10
 # am pass 2 dir Y speed 10 hatch 10
 
 
@@ -94,7 +94,7 @@ am cartesian_layer 1 start LL pass_id 1 thickness ${thickness} offset -${Nx} 0.0
 # am cartesian_layer 3 start UR pass_id 1 thickness 5 # offset 400.0 0.0
 # am cartesian_layer 4 start LR pass_id 2 thickness 5 # offset 0.0 -400.0
 
-am build start 0.0 num_layers 15
+am build start ${thickness} num_layers ${numLayers}
 
 # example:
 # am pass 1 dir X speed 10 hatch 25

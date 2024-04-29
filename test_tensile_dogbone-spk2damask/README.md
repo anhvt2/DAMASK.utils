@@ -57,6 +57,13 @@ Attempts:
     1. 3D grain growth as conventional microstructure to benchmark AM: `spk/in.potts_3d`
     2. Simulating AM with parameters: `spk/in.potts_additive_dogbone`
 
+SPPARKS commands used:
+    * [https://spparks.github.io/doc/variable.html](https://spparks.github.io/doc/variable.html)
+    * [https://spparks.github.io/doc/am_cartesian_layer.html](https://spparks.github.io/doc/am_cartesian_layer.html)
+    * [https://spparks.github.io/doc/am_pass.html](https://spparks.github.io/doc/am_pass.html)
+    * [https://spparks.github.io/doc/am_build.html](https://spparks.github.io/doc/am_build.html)
+    * [https://spparks.github.io/doc/app_potts_am_path_gen.html](~~https://spparks.github.io/doc/app_potts_am_path_gen.html~~)
+
 
 Dimension: 10 mm (4 mm middle) x 6 mm x 1 mm
 

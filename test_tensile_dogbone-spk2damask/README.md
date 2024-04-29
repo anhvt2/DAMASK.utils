@@ -175,7 +175,12 @@ atol_resistance         1
 
 # To-Do
 
-1. Test out `restart` capability option: https://damask2.mpie.de/bin/view/Usage/SpectralSolver#Restart
+1. Implement a visualization pipeline for visualizing microstructure growth due to AM. Some ideas:
+
+* Only visualize the different part when comparing with initial microstructure
+* Only visualize the different between current and last time-step
+
+2. Test out `restart` capability option: https://damask2.mpie.de/bin/view/Usage/SpectralSolver#Restart
 
 ##### `restart` examples
 ```

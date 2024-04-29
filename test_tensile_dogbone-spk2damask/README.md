@@ -53,6 +53,11 @@ Microstructure info are in
 
 ~~need a parser from SPPARKS to DAMASK `.geom` file~~: `geom_spk2dmsk.py`
 
+Attempts:
+    1. 3D grain growth as conventional microstructure to benchmark AM: `spk/in.potts_3d`
+    2. Simulating AM with parameters: `spk/in.potts_additive_dogbone`
+
+
 Dimension: 10 mm (4 mm middle) x 6 mm x 1 mm
 
 Attempted resolution:

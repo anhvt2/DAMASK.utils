@@ -21,7 +21,9 @@ parser.add_argument("-f", "--fileName", help='.vtr file', type=str, default='', 
 parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False) 
 parser.add_argument("-show_edges", "--show_edges", help='append to fileName', type=bool, default=True, required=False)
 args = parser.parse_args()
+fileName = args.fileName
 nameTag = args.nameTag
+show_edges = args.show_edges
 
 nameTag = nameTag.split('/')[0]
 print(nameTag)
@@ -54,6 +56,7 @@ msMesh.set_active_scalars('microstructure', preference='cell')
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)
 pl.add_mesh(msMesh, show_edges=show_edges, line_width=1, cmap=cmap)
+# pl.add_mesh(msMesh.threshold(0.1), show_edges=show_edges, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()
 # pl.show(screenshot='%s.png' % fileName.split('.')[0])

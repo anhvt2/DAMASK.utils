@@ -70,6 +70,8 @@ for fileName in $(ls -1v ${geomFileName}_${loadFileName}*.txt); do
 	addMises -s Cauchy ${fileName}.txt
 	addStrainTensors --left --logarithmic ${fileName}.txt
 	addMises -e 'ln(V)' ${fileName}.txt
+	addDisplacement ${fileName}.txt
+
 	addDisplacement --nodal ${fileName}.txt
 
 	vtk_rectilinearGrid ${fileName}.txt

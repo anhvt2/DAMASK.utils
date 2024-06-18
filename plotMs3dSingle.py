@@ -59,6 +59,10 @@ pl.add_mesh(msMesh, show_edges=show_edges, line_width=1, cmap=cmap)
 # pl.add_mesh(msMesh.threshold(0.1), show_edges=show_edges, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()
+# pl.camera_position = 'yz'
+# pl.camera.elevation += 25
+# pl.camera.roll += 0
+# pl.camera.azimuth += 25
 # pl.show(screenshot='%s.png' % fileName.split('.')[0])
 # pl.show()
 if nameTag == '':

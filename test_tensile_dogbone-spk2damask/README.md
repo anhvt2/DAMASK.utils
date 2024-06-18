@@ -194,7 +194,11 @@ DAMASK_spectral --geom  PathToGeomFile/NameOfGeomFile.geom --load PathToLoadFile
 3. Implement a AM SPPARKS apps to generate microstructure from SPPARKS
 * **with possible visualization**
 
-4. Implement a `pyvista` script that shows stresses warped by a deformed geometry. Some possible hints include
+4. Implement a `pyvista` script that shows stresses warped by a deformed geometry. 
+
+An example is given in the PyVista documentation: https://docs.pyvista.org/version/stable/examples/01-filter/warp-by-vector.html
+
+Some possible hints include
 
 * https://github.com/pyvista/pyvista/issues/650
 * https://discourse.paraview.org/t/visualizing-stress-on-the-deformed-geometry/654

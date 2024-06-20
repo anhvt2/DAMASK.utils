@@ -1,0 +1,142 @@
+! Copyright 2011-2024 Max-Planck-Institut für Eisenforschung GmbH
+! 
+! DAMASK is free software: you can redistribute it and/or modify
+! it under the terms of the GNU Affero General Public License as
+! published by the Free Software Foundation, either version 3 of the
+! License, or (at your option) any later version.
+! 
+! This program is distributed in the hope that it will be useful,
+! but WITHOUT ANY WARRANTY; without even the implied warranty of
+! MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+! GNU Affero General Public License for more details.
+! 
+! You should have received a copy of the GNU Affero General Public License
+! along with this program.  If not, see <https://www.gnu.org/licenses/>.
+module test_HDF5_utilities
+  use prec
+  use HDF5
+  use HDF5_utilities
+
+  implicit none(type,external)
+
+  private
+  public :: test_HDF5_utilities_run
+
+  contains
+
+subroutine test_HDF5_utilities_run()
+
+  call read_write()
+
+end subroutine test_HDF5_utilities_run
+
+
+subroutine read_write()
+
+  integer(HID_T) :: f
+
+  real(pREAL), dimension(3) :: real_d1_in,real_d1_out
+  real(pREAL), dimension(3,3) :: real_d2_in,real_d2_out
+  real(pREAL), dimension(3,3,3) :: real_d3_in,real_d3_out
+  real(pREAL), dimension(3,3,3,3) :: real_d4_in,real_d4_out
+  real(pREAL), dimension(3,3,3,3,3) :: real_d5_in,real_d5_out
+
+  integer, dimension(3) :: int_d1_in,int_d1_out
+  integer, dimension(3,3) :: int_d2_in,int_d2_out
+  integer, dimension(3,3,3) :: int_d3_in,int_d3_out
+  integer, dimension(3,3,3,3) :: int_d4_in,int_d4_out
+  integer, dimension(3,3,3,3,3) :: int_d5_in,int_d5_out
+
+
+  call random_number(real_d1_in)
+  call random_number(real_d2_in)
+  call random_number(real_d3_in)
+  call random_number(real_d4_in)
+  call random_number(real_d5_in)
+
+  int_d1_in = int(real_d1_in*2048._pREAL)
+  int_d2_in = int(real_d2_in*2048._pREAL)
+  int_d3_in = int(real_d3_in*2048._pREAL)
+  int_d4_in = int(real_d4_in*2048._pREAL)
+  int_d5_in = int(real_d5_in*2048._pREAL)
+
+
+  f = HDF5_openFile('test.hdf5','w')
+
+
+  call HDF5_write(real_d1_in,f,'real_d1')
+  call HDF5_write(real_d2_in,f,'real_d2')
+  call HDF5_write(real_d3_in,f,'real_d3')
+  call HDF5_write(real_d4_in,f,'real_d4')
+  call HDF5_write(real_d5_in,f,'real_d5')
+
+  call HDF5_write(int_d1_in,f,'int_d1')
+  call HDF5_write(int_d2_in,f,'int_d2')
+  call HDF5_write(int_d3_in,f,'int_d3')
+  call HDF5_write(int_d4_in,f,'int_d4')
+  call HDF5_write(int_d5_in,f,'int_d5')
+
+
+  call HDF5_read(real_d1_out,f,'real_d1')
+  call HDF5_read(real_d2_out,f,'real_d2')
+  call HDF5_read(real_d3_out,f,'real_d3')
+  call HDF5_read(real_d4_out,f,'real_d4')
+  call HDF5_read(real_d5_out,f,'real_d5')
+
+  call HDF5_read(int_d1_out,f,'int_d1')
+  call HDF5_read(int_d2_out,f,'int_d2')
+  call HDF5_read(int_d3_out,f,'int_d3')
+  call HDF5_read(int_d4_out,f,'int_d4')
+  call HDF5_read(int_d5_out,f,'int_d5')
+
+
+  if (any(real_d1_in /= real_d1_out)) error stop 'test_read_write(w)/real_d1'
+  if (any(real_d2_in /= real_d2_out)) error stop 'test_read_write(w)/real_d2'
+  if (any(real_d3_in /= real_d3_out)) error stop 'test_read_write(w)/real_d3'
+  if (any(real_d4_in /= real_d4_out)) error stop 'test_read_write(w)/real_d4'
+  if (any(real_d5_in /= real_d5_out)) error stop 'test_read_write(w)/real_d5'
+
+  if (any(int_d1_in /= int_d1_out)) error stop 'test_read_write(w)/int_d1'
+  if (any(int_d2_in /= int_d2_out)) error stop 'test_read_write(w)/int_d2'
+  if (any(int_d3_in /= int_d3_out)) error stop 'test_read_write(w)/int_d3'
+  if (any(int_d4_in /= int_d4_out)) error stop 'test_read_write(w)/int_d4'
+  if (any(int_d5_in /= int_d5_out)) error stop 'test_read_write(w)/int_d5'
+
+
+  call HDF5_closeFile(f)
+
+  f = HDF5_openFile('test.hdf5','r')
+
+
+  call HDF5_read(real_d1_out,f,'real_d1')
+  call HDF5_read(real_d2_out,f,'real_d2')
+  call HDF5_read(real_d3_out,f,'real_d3')
+  call HDF5_read(real_d4_out,f,'real_d4')
+  call HDF5_read(real_d5_out,f,'real_d5')
+
+  call HDF5_read(int_d1_out,f,'int_d1')
+  call HDF5_read(int_d2_out,f,'int_d2')
+  call HDF5_read(int_d3_out,f,'int_d3')
+  call HDF5_read(int_d4_out,f,'int_d4')
+  call HDF5_read(int_d5_out,f,'int_d5')
+
+
+  if (any(real_d1_in /= real_d1_out)) error stop 'test_read_write(r)/real_d1'
+  if (any(real_d2_in /= real_d2_out)) error stop 'test_read_write(r)/real_d2'
+  if (any(real_d3_in /= real_d3_out)) error stop 'test_read_write(r)/real_d3'
+  if (any(real_d4_in /= real_d4_out)) error stop 'test_read_write(r)/real_d4'
+  if (any(real_d5_in /= real_d5_out)) error stop 'test_read_write(r)/real_d5'
+
+  if (any(int_d1_in /= int_d1_out)) error stop 'test_read_write(r)/int_d1'
+  if (any(int_d2_in /= int_d2_out)) error stop 'test_read_write(r)/int_d2'
+  if (any(int_d3_in /= int_d3_out)) error stop 'test_read_write(r)/int_d3'
+  if (any(int_d4_in /= int_d4_out)) error stop 'test_read_write(r)/int_d4'
+  if (any(int_d5_in /= int_d5_out)) error stop 'test_read_write(r)/int_d5'
+
+
+  call HDF5_closeFile(f)
+
+
+end subroutine read_write
+
+end module test_HDF5_utilities

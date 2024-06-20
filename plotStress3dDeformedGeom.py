@@ -17,6 +17,10 @@ parser = argparse.ArgumentParser()
     Output
     ------
     an image: fileName.split('.')[0] + '_' + nameTag + '.png'
+
+    How to use
+    ----------
+    python3 ../../../plotStress3d.py  --fileName='main_tension_inc16_pos(cell)_added.vtr'
 '''
 
 parser.add_argument("-f", "--fileName", help='.vtr file', type=str, default='', required=True) 

@@ -194,7 +194,37 @@ DAMASK_spectral --geom  PathToGeomFile/NameOfGeomFile.geom --load PathToLoadFile
 3. Implement a AM SPPARKS apps to generate microstructure from SPPARKS
 * **with possible visualization**
 
-4. Implement a `pyvista` script that shows stresses warped by a deformed geometry. 
+4. ~~Implement a `pyvista` script that shows stresses warped by a deformed geometry.~~
+
+A DAMASK example is given by: https://damask2.mpie.de/bin/view/Usage/SpectralSolver
+```
+> postResults --cr f,p --split --separation x,y,z 20grains16x16x16_tensionX.spectralOut
+
+> cd postProc
+> viewTable -a 20grains16x16x16_tensionX_inc100.txt
+
+> addCauchy 20grains16x16x16_tensionX_inc100.txt
+> addMises -s Cauchy 20grains16x16x16_tensionX_inc100.txt
+> viewTable -a 20grains16x16x16_tensionX_inc100.txt
+
+> addStrainTensors --left --logarithmic 20grains16x16x16_tensionX_inc100.txt
+> addMises -e 'ln(V)' 20grains16x16x16_tensionX_inc100.txt
+> viewTable -a 20grains16x16x16_tensionX_inc100.txt
+
+> vtk_rectilinearGrid 20grains16x16x16_tensionX_inc100.txt
+> vtk_addRectilinearGridData \
+ --data 'Mises(Cauchy)',1_p,'1_ln(V)',1_Cauchy \
+ --vtk '20grains16x16x16_tensionX_inc100_pos(cell).vtr' \
+ 20grains16x16x16_tensionX_inc100.txt
+
+> addDisplacement --nodal 20grains16x16x16_tensionX_inc100.txt
+
+vtk_addRectilinearGridData \
+ --data 'fluct(f).pos','avg(f).pos' \
+ --vtk '20grains16x16x16_tensionX_inc100_pos(cell).vtr' \
+ 20grains16x16x16_tensionX_inc100_nodal.txt
+```
+followed by `Filters` > `Common` > `Warp By Vector` in ParaView from the menu and select first `avg(f).pos`. Select the new entry in the pipeline to visualize the uniformly deformed geometry. Similarly, choose `Filters` > `Common` > `Warp By Vector` from the menu and select first `fluct(f).pos` to also see the fluctuations resulting from the solution of static mechanical equilibrium. 
 
 An example is given in the PyVista documentation: https://docs.pyvista.org/version/stable/examples/01-filter/warp-by-vector.html
 

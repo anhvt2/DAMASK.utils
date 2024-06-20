@@ -198,26 +198,26 @@ DAMASK_spectral --geom  PathToGeomFile/NameOfGeomFile.geom --load PathToLoadFile
 
 A DAMASK example is given by: https://damask2.mpie.de/bin/view/Usage/SpectralSolver
 ```
-> postResults --cr f,p --split --separation x,y,z 20grains16x16x16_tensionX.spectralOut
+postResults --cr f,p --split --separation x,y,z 20grains16x16x16_tensionX.spectralOut
 
-> cd postProc
-> viewTable -a 20grains16x16x16_tensionX_inc100.txt
+cd postProc
+viewTable -a 20grains16x16x16_tensionX_inc100.txt
 
-> addCauchy 20grains16x16x16_tensionX_inc100.txt
-> addMises -s Cauchy 20grains16x16x16_tensionX_inc100.txt
-> viewTable -a 20grains16x16x16_tensionX_inc100.txt
+addCauchy 20grains16x16x16_tensionX_inc100.txt
+addMises -s Cauchy 20grains16x16x16_tensionX_inc100.txt
+viewTable -a 20grains16x16x16_tensionX_inc100.txt
 
-> addStrainTensors --left --logarithmic 20grains16x16x16_tensionX_inc100.txt
-> addMises -e 'ln(V)' 20grains16x16x16_tensionX_inc100.txt
-> viewTable -a 20grains16x16x16_tensionX_inc100.txt
+addStrainTensors --left --logarithmic 20grains16x16x16_tensionX_inc100.txt
+addMises -e 'ln(V)' 20grains16x16x16_tensionX_inc100.txt
+viewTable -a 20grains16x16x16_tensionX_inc100.txt
 
-> vtk_rectilinearGrid 20grains16x16x16_tensionX_inc100.txt
-> vtk_addRectilinearGridData \
+vtk_rectilinearGrid 20grains16x16x16_tensionX_inc100.txt
+vtk_addRectilinearGridData \
  --data 'Mises(Cauchy)',1_p,'1_ln(V)',1_Cauchy \
  --vtk '20grains16x16x16_tensionX_inc100_pos(cell).vtr' \
  20grains16x16x16_tensionX_inc100.txt
 
-> addDisplacement --nodal 20grains16x16x16_tensionX_inc100.txt
+addDisplacement --nodal 20grains16x16x16_tensionX_inc100.txt
 
 vtk_addRectilinearGridData \
  --data 'fluct(f).pos','avg(f).pos' \

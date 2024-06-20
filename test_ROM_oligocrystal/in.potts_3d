@@ -1,0 +1,51 @@
+# SPPARKS Potts tests on generic lattice
+
+seed         56789
+
+variable     res    equal   10    # resolution: 1 pixel = ${res} um
+variable     L      equal   10000 # dogbone specimen length (um)
+variable     W      equal   6000  # dogbone specimen width (um)
+variable     T      equal   1000  # dogbone specimen thickness (um)
+
+variable     Nx     equal ${W}/${res}
+variable     Ny     equal ${T}/${res}
+variable     Nz     equal ${L}/${res}
+variable     Nspin  equal ${Nx}*${Ny}*${Nz}/10
+
+# app_style  potts  5000
+app_style    potts  ${Nspin}
+
+dimension    3
+boundary     n n n # non-periodic boundary condition: https://spparks.github.io/doc/boundary.html
+lattice      sc/26n 1.0
+region       box block 0 ${Nx} 0 ${Ny} 0 ${Nz}
+create_box      box
+create_sites    box
+# set               site range 1 5000
+set             site range 1 ${Nspin}
+
+sweep        random
+# sweep      raster mask yes
+# solve_style      tree
+sector       yes
+
+#solve_style      tree
+#solve_style      group 26 1
+#sector      yes
+
+diag_style       energy
+
+# temperature   0.0 
+temperature     0.5
+
+stats           1.0 logfreq 9 10.0
+dump            1 text 1.0 dump.*.out id site i1 energy x y z
+dump_modify     1 logfreq 9 10.0
+
+# stats            10.0
+# dump             1 text 10.0 dump.potts
+dump vtkFile     vtk 1.0 potts_3d.*.vti i1
+dump_modify      vtkFile vtk ${Nx} ${Ny} ${Nz} 0 10000 sort id
+diag_style       cluster delt 1.0 stats no logfreq 9 10.0 filename cluster.dat
+
+run              10000.0

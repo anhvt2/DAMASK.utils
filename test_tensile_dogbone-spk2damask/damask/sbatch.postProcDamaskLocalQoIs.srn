@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Do not put any commands or blank lines before the #SBATCH lines
-#SBATCH --nodes=2                     # Number of nodes - all cores per node are allocated to the job
+#SBATCH --nodes=1                     # Number of nodes - all cores per node are allocated to the job
 #SBATCH --time=96:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY140174            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
@@ -49,41 +49,8 @@ cores=10                             # Number MPI processes to run on each node 
 
 geomFileName='main'
 loadFileName='tension'
-rm -fv ${geomFileName}_${loadFileName}.*
-
-if [ -f "numProcessors.dat" ]; then
-    numProcessors=$(cat numProcessors.dat)
-    echo "Using numProcessors.dat"
-    if [[ "$numProcessors" -eq 1 ]]; then
-        $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-    else
-        mpirun -np ${numProcessors} $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-    fi
-else
-    # mpirun -np ${cores} $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-    # export DAMASK_NUM_THREADS=3
-    # mpirun -np 10 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-    # mpirun -np 16 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-    # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-    # mpirun -np 125 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-    # mpiexec --bind-to core --npernode 10 --n 5 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-    mpiexec --bind-to package -np 125 $DAMASK_spectral --geom ${geomFileName}.geom --load tension.load 2>&1 > log.damask
-fi
-
 
 ### ---------------------------------- post-processing DAMASK
-sleep 10
-
-# Global: Homogenization
-python3 ../../findGaugeLocations.py --geom ${geomFileName}.geom # dump gaugeFilter.txt
-postResults *.spectralOut --cr f,p --filter $(cat gaugeFilter.txt)
-cd postProc/
-addStrainTensors ${geomFileName}_${loadFileName}.txt --left --logarithmic
-addCauchy ${geomFileName}_${loadFileName}.txt
-addMises ${geomFileName}_${loadFileName}.txt --strain 'ln(V)' --stress Cauchy
-filterTable < ${geomFileName}_${loadFileName}.txt --white inc,'Mises(ln(V))','Mises(Cauchy)' > stress_strain.log
-cd ..
-
 
 ### Local
 postResults \
@@ -103,6 +70,8 @@ for fileName in $(ls -1v ${geomFileName}_${loadFileName}*.txt); do
     addMises -s Cauchy ${fileName}.txt
     addStrainTensors --left --logarithmic ${fileName}.txt
     addMises -e 'ln(V)' ${fileName}.txt
+    addDisplacement ${fileName}.txt
+
     addDisplacement --nodal ${fileName}.txt
 
     vtk_rectilinearGrid ${fileName}.txt
@@ -117,7 +86,6 @@ for fileName in $(ls -1v ${geomFileName}_${loadFileName}*.txt); do
      --data 'fluct(f).pos','avg(f).pos' \
      --vtk "${fileName}_pos(cell).vtr" \
      ${fileName}_nodal.txt
-
 
     echo "done processing ${fileName}."
 done

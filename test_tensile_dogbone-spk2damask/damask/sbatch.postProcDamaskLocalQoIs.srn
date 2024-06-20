@@ -5,14 +5,13 @@
 #SBATCH --account=FY140174            # WC ID
 #SBATCH --job-name=cpfem              # Name of job
 #SBATCH --partition=batch             # partition/queue name: short or batch
-                                                                            #            short: 4hrs wallclock limit
-                                                                            #            batch: nodes reserved for > 4hrs (default)
+                                      #            short: 4hrs wallclock limit
+                                      #            batch: nodes reserved for > 4hrs (default)
 #SBATCH --qos=long                    # Quality of Service: long, large, priority or normal
-                                                                            #           normal: request up to 48hrs wallclock (default)
-                                                                            #           long:   request up to 96hrs wallclock and no larger than 64nodes
-                                                                            #           large:  greater than 50% of cluster (special request)
-                                                                            #           priority: High priority jobs (special request)
-
+                                      #           normal: request up to 48hrs wallclock (default)
+                                      #           long:   request up to 96hrs wallclock and no larger than 64nodes
+                                      #           large:  greater than 50% of cluster (special request)
+                                      #           priority: High priority jobs (special request)
 
 source ~/.bashrc
 # ---------------------------------- set SRN modules

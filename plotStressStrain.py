@@ -36,8 +36,16 @@ def getMetaInfo(StressStrainFile):
 	fileHandler = open(StressStrainFile)
 	txtInStressStrainFile = fileHandler.readlines()
 	fileHandler.close()
-	numLinesHeader = int(txtInStressStrainFile[0].split('\t')[0])
-	fieldsList = txtInStressStrainFile[numLinesHeader].split('\t')
+	try:
+		numLinesHeader = int(txtInStressStrainFile[0].split('\t')[0])
+		fieldsList = txtInStressStrainFile[numLinesHeader].split('\t')
+	except:
+		numLinesHeader = int(txtInStressStrainFile[0].split(' ')[0])
+		fieldsList = txtInStressStrainFile[numLinesHeader].split(' ')
+		fieldsList = list(filter(('').__ne__, fieldsList)) # remove all ''
+		print('%s is not natural - i.e. it may have been copied/pasted.' % (StressStrainFile))
+	else:
+		print('Reading results in %s...' % (StressStrainFile))
 	for i in range(len(fieldsList)):
 		fieldsList[i] = fieldsList[i].replace('\n', '')
 	print('numLinesHeader = ', numLinesHeader)

@@ -49,6 +49,7 @@ cmap = plt.cm.get_cmap('coolwarm')
 
 reader = pyvista.get_reader(fileName)
 msMesh = reader.read()
+# print(msMesh.array_names)
 ms = msMesh.get_array('microstructure')
 msMesh.cell_data['microstructure']
 msMesh.set_active_scalars('microstructure', preference='cell')

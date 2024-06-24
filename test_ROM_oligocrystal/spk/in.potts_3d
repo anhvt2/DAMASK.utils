@@ -21,7 +21,8 @@ set		 		site range 1 ${Nspin}
 
 sweep		 random
 # sweep		 raster mask yes
-solve_style      tree 		# tree: O(logN); linear: O(N)
+solve_style      group 1.0 1.0e-6
+# linear: O(N); tree: O(logN); group: O(1) - see https://spparks.github.io/doc/solve_style.html
 sector		 yes
 
 #solve_style      tree

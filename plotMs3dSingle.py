@@ -67,9 +67,10 @@ pl.remove_scalar_bar()
 # pl.show(screenshot='%s.png' % fileName.split('.')[0])
 # pl.show()
 if nameTag == '':
-    pl.screenshot(fileName.split('.')[0] + '.png', window_size=[1860*6,968*6])
+    # pl.screenshot(fileName.split('.')[0] + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(fileName[:-4] + '.png', window_size=[1860*6,968*6])
 else:
-    pl.screenshot(fileName.split('.')[0] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(fileName[:-4] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
 # pl.close()
 
 

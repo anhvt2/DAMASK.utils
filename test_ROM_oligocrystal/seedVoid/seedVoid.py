@@ -23,7 +23,7 @@ Example
 -------
 python3 seedVoid.py \
     --origGeomFileName potts-12_3d.975.geom \
-    --voidPercentage 1 \
+    --voidPercentage 3 \
     --voidDictionary voidEquiaxed.geom \
     --phaseFileName phase_dump_12_out.npy
 
@@ -189,14 +189,17 @@ def sampleLocation(Nx, Ny, Nz):
 
 # Initialize
 totalNumVoidVoxels = 0
-geom = renumerate(np.copy(origGeom)) + 2 # make a deep copy of origGeom, sindex starts at 2
-solidIdx = 2
+solidIdx = 2 # minimum = 2
+geom = renumerate(np.copy(origGeom)) + solidIdx # make a deep copy of origGeom, sindex starts at solidIdx
+numVoids = 0
+if solidIdx < 2:
+    raise ValueError('solidIdx must be at least 2.')
 
 # Insert/seed voids
 '''
 Index for grainIDs:
     ?=1: air
-    2 < ? < solidIdx: voids
+    2 < ? < solidIdx: voids (or more precisely, 2 < ? <= numVoids)
     ? >= solidIdx: solid
 '''
 while totalNumVoidVoxels < minNumVoidVoxels:
@@ -205,12 +208,14 @@ while totalNumVoidVoxels < minNumVoidVoxels:
     x, y, z = sampleLocation(Nx_grid, Ny_grid, Nz_grid)
     # Sample a void from voidDictionary
     xV, yV, zV = sampleVoid(voidDictGeom)
-    print(xV, yV, zV) # debug
+    # print(xV, yV, zV) # debug
     voidVoxels = len(xV)
     # Assign void id (if possible -- passed if not)
     for i in range(len(xV)):
         try:
-            geom[x+xV[i], y+yV[i], z+zV[i]] = tmpVoidIdx
+            # Criteria: do not assign void on the top of void
+            if (x+xV[i] <= Nx_grid) and (y+yV[i] <= Ny_grid) and (z+zV[i] <= Nz_grid) and geom[x+xV[i], y+yV[i], z+zV[i]] > solidIdx:
+                geom[x+xV[i], y+yV[i], z+zV[i]] = tmpVoidIdx
         except:
             print('Warning: out-of-bounds error. Temporarily skip assigning void.')
     # Increase void counter
@@ -219,6 +224,8 @@ while totalNumVoidVoxels < minNumVoidVoxels:
     geom += 1
     # Track solidIdx
     solidIdx += 1
+    # Track number of voids
+    numVoids += 1
 
 # Assign AIR (TODO: is there a more efficient implementation?)
 for i in range(Nx_grid):
@@ -235,11 +242,23 @@ logging.info(f'Number of grains: {numGrains}.')
 logging.info(f'\n-------------------- NOTE --------------------\n')
 logging.info(f'Indexing grain id:')
 logging.info(f'Grain id for AIR: 1.')
-logging.info(f'Grain id for VOIDS: from 2 to {solidIdx-1}.')
+# logging.info(f'Grain id for VOIDS: from 2 to {solidIdx-1}.') # deprecated
+logging.info(f'Grain id for VOIDS: from 2 to {numVoids+1}.')
 logging.info(f'Grain id for SOLID: from {solidIdx} to {np.max(geom)}.')
+
+f = open('grainInfo.dat', 'w')
+f.write('1\n')
+f.write('2\n')
+f.write('%d\n' % (numVoids+1))
+f.write('%d\n' % solidIdx)
+f.write('%d\n' % np.max(geom))
+f.close()
 
 # Convert 3d numpy array to 1d flatten array
 geom = geom.T.flatten()
+# print(np.unique(geom)) # debug
+# logging.info(f'geom_spk2dmsk.py: save modified geometry in {%s}\n') # need to debug
+np.save(outFileName[:-5] + '.npy', geom)
 
 # Write output
 num_lines = int(np.floor(len(geom)) / 10)

@@ -230,7 +230,7 @@ for i in range(Nx_grid):
 logging.info(f'Total number of voxels = {np.prod(phase.shape)} voxels.')
 logging.info(f'Number of solid voxels = {numSolidVoxels} voxels.')
 logging.info(f'Number of air voxels = {np.prod(phase.shape) - numSolidVoxels} voxels.')
-logging.info(f'Inserting {minNumVoidVoxels} voxels as voids.')
+logging.info(f'Inserting AT LEAST {minNumVoidVoxels} voxels as voids.')
 logging.info(f'Number of grains: {numGrains}.')
 logging.info(f'\n-------------------- NOTE --------------------\n')
 logging.info(f'Indexing grain id:')

@@ -131,9 +131,9 @@ else:
     raise Exception('\nError: phase.shape() != origGeom.shape().\n')
 
 # Read void dictionary from voidDictionary
-_, _, _, _, _, _, voidDict, _ = geom2npy(voidDictionary)
+_, _, _, _, _, _, voidDictGeom, _ = geom2npy(voidDictionary)
 
-def sampleVoid(voidDict):
+def sampleVoid(voidDictGeom):
     '''
     This function reads a voidDict and randomly samples a local void based on its random indices. 
     For example:
@@ -143,19 +143,17 @@ def sampleVoid(voidDict):
     array([0, 0, 1])
     >>> zV
     array([0, 1, 0])
-
     Input
     -----
     voidDict: a .npy array
-
     Output
     ------
     3 arrays (x,y,z) of locations
     '''
     # Sample void index
-    randomIdx = random.choice(np.unique(voidDict))
+    randomIdx = random.choice(np.unique(voidDictGeom))
     # Locate void
-    xV, yV, zV = np.where(voidDict == randomIdx)
+    xV, yV, zV = np.where(voidDictGeom == randomIdx)
     # Left-center void location
     xV -= min(xV)
     yV -= min(yV)
@@ -168,7 +166,6 @@ The number of void voxels is at least minNumVoidVoxels. Seeding algorithms stop 
 '''
 numSolidVoxels = (~np.isinf(phase)).sum()
 minNumVoidVoxels = np.floor(numSolidVoxels * voidPercentage / 100).astype(int)
-# deprecate: numGrains = np.max(origGeom) - 1
 numGrains = len(np.unique(origGeom))
 
 # Insert void voxels to phase
@@ -180,17 +177,6 @@ logging.info(f'    --phaseFileName {phaseFileName}')
 logging.info(f'\n')
 logging.info(f'\n-------------------- INFORMATION --------------------\n')
 logging.info(f'Box shape = {phase.shape}')
-# logging.info(f'Sampling efficiency: {numSolidVoxels / np.prod(phase.shape)}')
-# logging.info(f'Total number of voxels = {np.prod(phase.shape)} voxels.')
-# logging.info(f'Number of solid voxels = {numSolidVoxels} voxels.')
-# logging.info(f'Number of air voxels = {np.prod(phase.shape) - numSolidVoxels} voxels.')
-# logging.info(f'Inserting {minNumVoidVoxels} voxels as voids.')
-# logging.info(f'Number of grains: {numGrains}.')
-# logging.info(f'\n-------------------- NOTE --------------------\n')
-# logging.info(f'Indexing grain id:')
-# logging.info(f'Grain id for AIR: 1.')
-# logging.info(f'Grain id for VOIDS: from 2 to {minNumVoidVoxels+1}.')
-# logging.info(f'Grain id for SOLID: from {minNumVoidVoxels+2} to {minNumVoidVoxels+np.max(origGeom)}.')
 
 def sampleLocation(Nx, Ny, Nz):
     """
@@ -202,44 +188,55 @@ def sampleLocation(Nx, Ny, Nz):
     return x, y, z
 
 # Initialize
-voidLocations = []
 totalNumVoidVoxels = 0
-geom = renumerate(np.copy(origGeom)) + 1 # make a deep copy of origGeom, sindex starts at 1
+geom = renumerate(np.copy(origGeom)) + 2 # make a deep copy of origGeom, sindex starts at 2
 solidIdx = 2
+
 # Insert/seed voids
 '''
-Index for grain id:
+Index for grainIDs:
     ?=1: air
-    2 < ? < minNumVoidVoxels+1: voids
-    ? > minNumVoidVoxels+2: solid
+    2 < ? < solidIdx: voids
+    ? >= solidIdx: solid
 '''
 while totalNumVoidVoxels < minNumVoidVoxels:
+    tmpVoidIdx = 1
     # Sample a solid voxel in the dogbone specimen
     x, y, z = sampleLocation(Nx_grid, Ny_grid, Nz_grid)
     # Sample a void from voidDictionary
-    xV, yV, zV = sampleVoid(voidDictionary)
+    xV, yV, zV = sampleVoid(voidDictGeom)
+    print(xV, yV, zV) # debug
     voidVoxels = len(xV)
+    # Assign void id (if possible -- passed if not)
     for i in range(len(xV)):
-        geom[x+xV[i], y+yV[i], z+zV[i]] = 
+        try:
+            geom[x+xV[i], y+yV[i], z+zV[i]] = tmpVoidIdx
+        except:
+            print('Warning: out-of-bounds error. Temporarily skip assigning void.')
+    # Increase void counter
     totalNumVoidVoxels += voidVoxels
+    # Bump grainID by 1, leave space for assigning tmpVoidIdx in the future
+    geom += 1
+    # Track solidIdx
+    solidIdx += 1
 
-# # Sample void locations
-# for i in range(minNumVoidVoxels):
-#     # Sample a solid voxel in the dogbone specimen
-#     x, y, z = sampleLocation(Nx_grid, Ny_grid, Nz_grid)
-#     while np.isinf(phase[x,y,z]):
-#         x, y, z = sampleLocation(Nx_grid, Ny_grid, Nz_grid)
-#     voidLocations += [[x,y,z]]
+# Assign AIR (TODO: is there a more efficient implementation?)
+for i in range(Nx_grid):
+    for j in range(Ny_grid):
+        for k in range(Nz_grid):
+            if np.isinf(phase[i,j,k]):
+                geom[i,j,k] = 1
 
-voidLocations = np.array(voidLocations)
-
-# Increase grain id for solid
-x, y, z = np.where(origGeom > 1)
-geom[x,y,z] += (minNumVoidVoxels+1)
-# Insert voids
-for i in range(minNumVoidVoxels):
-    x, y, z = voidLocations[i]
-    geom[x,y,z] = (i+2) # i=0 means geom[?,?,?] = 2
+logging.info(f'Total number of voxels = {np.prod(phase.shape)} voxels.')
+logging.info(f'Number of solid voxels = {numSolidVoxels} voxels.')
+logging.info(f'Number of air voxels = {np.prod(phase.shape) - numSolidVoxels} voxels.')
+logging.info(f'Inserting {minNumVoidVoxels} voxels as voids.')
+logging.info(f'Number of grains: {numGrains}.')
+logging.info(f'\n-------------------- NOTE --------------------\n')
+logging.info(f'Indexing grain id:')
+logging.info(f'Grain id for AIR: 1.')
+logging.info(f'Grain id for VOIDS: from 2 to {solidIdx-1}.')
+logging.info(f'Grain id for SOLID: from {solidIdx} to {np.max(geom)}.')
 
 # Convert 3d numpy array to 1d flatten array
 geom = geom.T.flatten()

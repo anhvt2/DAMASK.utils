@@ -84,6 +84,7 @@ def geom2npy(fileName):
     headers = txt[:numSkippingLines] # also return headers
     return Nx_grid, Ny_grid, Nz_grid, Nx_size, Ny_size, Nz_size, geom, headers
 
+# Set up parser
 parser = argparse.ArgumentParser(description='')
 parser.add_argument("-g" , "--origGeomFileName", help='original geom fileName', type=str, required=True)
 parser.add_argument("-p" , "--phaseFileName", help='phase fileName', type=str, required=True)
@@ -96,6 +97,7 @@ phaseFileName = args.phaseFileName
 voidPercentage = args.percentage
 outFileName = 'voidSeeded_%.3fpc_' % voidPercentage + origGeomFileName 
 
+# Read from origGeomFileName
 Nx_grid, Ny_grid, Nz_grid, Nx_size, Ny_size, Nz_size, origGeom, headers = geom2npy(origGeomFileName)
 phase = np.load(phaseFileName)
 

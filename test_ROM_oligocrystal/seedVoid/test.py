@@ -47,11 +47,11 @@ def delete(lst, to_delete):
     https://stackoverflow.com/questions/53265275/deleting-a-value-from-a-list-using-recursion/
     Parameter
     ---------
-        to_delete: content needs removing
-        lst: list
+    to_delete: content needs removing
+    lst: list
     Return
     ------
-        a list without to_delete element
+    a list without to_delete element
     '''
     return [element for element in lst if element != to_delete]
 
@@ -87,38 +87,10 @@ def geom2npy(fileName):
     headers = txt[:numSkippingLines] # also return headers
     return Nx_grid, Ny_grid, Nz_grid, Nx_size, Ny_size, Nz_size, geom, headers
 
-def renumerate(geom): 
-    ''' 
-    This function renumerates so that grain index starts at ZERO (0) and increases by 1. 
-    Input
-    -----
-        3d npy array
-    Output
-    ------
-        3d npy array
-    '''
-    grainIdxList = np.unique(geom)
-    renumeratedGeom = np.copy(geom) # make a deep copy
-    for i in range(len(grainIdxList)):
-        grainIdx = grainIdxList[i]
-        x, y, z = np.where(geom==grainIdx)
-        for j in range(len(x)):
-            renumeratedGeom[x[j],y[j],z[j]] = i
-    return renumeratedGeom
-
-# Set up parser
-parser = argparse.ArgumentParser(description='')
-parser.add_argument("-g" , "--origGeomFileName", help='original geom fileName', type=str, required=True)
-parser.add_argument("-p" , "--phaseFileName", help='phase fileName', type=str, required=True)
-parser.add_argument("-v" , "--voidDictionary", help='void dictionary', type=str, required=True)
-parser.add_argument("-pc", "--voidPercentage", help='voidPercentage of void', type=float, required=True)
-
-# Parse file names
-args = parser.parse_args()
-origGeomFileName = args.origGeomFileName # e.g. 'singleCrystal_res_50um.geom'
-phaseFileName = args.phaseFileName
-voidDictionary = args.voidDictionary
-voidPercentage = args.voidPercentage
+origGeomFileName = 'potts-12_3d.975.geom' \
+voidPercentage = 1
+voidDictionary = 'voidEquiaxed.geom'
+phaseFileName = 'phase_dump_12_out.npy'
 outFileName = 'voidSeeded_%.3fpc_' % voidPercentage + origGeomFileName 
 
 # Read from origGeomFileName
@@ -143,14 +115,6 @@ def sampleVoid(voidDict):
     array([0, 0, 1])
     >>> zV
     array([0, 1, 0])
-
-    Input
-    -----
-    voidDict: a .npy array
-
-    Output
-    ------
-    3 arrays (x,y,z) of locations
     '''
     # Sample void index
     randomIdx = random.choice(np.unique(voidDict))
@@ -194,7 +158,7 @@ logging.info(f'Box shape = {phase.shape}')
 
 def sampleLocation(Nx, Ny, Nz):
     """
-    This function samples a uniformly distributed random location in dogbone tensile specimen.
+    This function samples a random location in dogbone tensile specimen.
     """
     x = np.random.randint(low=0, high=Nx)
     y = np.random.randint(low=0, high=Ny)
@@ -204,23 +168,16 @@ def sampleLocation(Nx, Ny, Nz):
 # Initialize
 voidLocations = []
 totalNumVoidVoxels = 0
-geom = renumerate(np.copy(origGeom)) + 1 # make a deep copy of origGeom, sindex starts at 1
-solidIdx = 2
+geom = np.copy(origGeom) # Make a copy of origGeom and work on this copy
+
 # Insert/seed voids
-'''
-Index for grain id:
-    ?=1: air
-    2 < ? < minNumVoidVoxels+1: voids
-    ? > minNumVoidVoxels+2: solid
-'''
 while totalNumVoidVoxels < minNumVoidVoxels:
     # Sample a solid voxel in the dogbone specimen
     x, y, z = sampleLocation(Nx_grid, Ny_grid, Nz_grid)
     # Sample a void from voidDictionary
     xV, yV, zV = sampleVoid(voidDictionary)
     voidVoxels = len(xV)
-    for i in range(len(xV)):
-        geom[x+xV[i], y+yV[i], z+zV[i]] = 
+
     totalNumVoidVoxels += voidVoxels
 
 # # Sample void locations
@@ -235,6 +192,12 @@ voidLocations = np.array(voidLocations)
 
 # Increase grain id for solid
 x, y, z = np.where(origGeom > 1)
+'''
+Index for grain id:
+    ?=1: air
+    2 < ? < minNumVoidVoxels+1: voids
+    ? > minNumVoidVoxels+2: solid
+'''
 geom[x,y,z] += (minNumVoidVoxels+1)
 # Insert voids
 for i in range(minNumVoidVoxels):

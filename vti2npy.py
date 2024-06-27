@@ -7,9 +7,9 @@ parser = argparse.ArgumentParser()
 import vtk
 from vtk.util.numpy_support import vtk_to_numpy
 
-parser.add_argument("-f", "--fileName", help='.vti file', type=str, default='', required=True)
+parser.add_argument("-vti", "--vti", help='.vti file', type=str, default='', required=True)
 args = parser.parse_args()
-fileName = args.fileName
+fileName = args.vti
 
 def load_vti_to_array(fileName):
     reader = pyvista.get_reader(fileName)

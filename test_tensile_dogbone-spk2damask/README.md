@@ -11,18 +11,35 @@ Here is a few versions of the dogbone specimens and their references:
 * [Combining Measure Theory and Bayes Rule to Solve a Stochastic Inverse Problem](https://www.osti.gov/servlets/purl/1877851): slides from Tim Wildey
 * [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102): Extreme-Value Statistics Reveal Rare Failure-Critical Defects in Additive Manufacturing
 
+
+
 ![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge.png)
+
 *A picture from Tim's slides at https://www.osti.gov/servlets/purl/1877851*
 
+
+
+
 ![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge-2.png)
-*[Figure 1 in https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102)*
+
+*Figure 1 in [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102)*
+
 
 2. The A-/B- (large-/small-) size version: **AlSi10Mg**
 
+
+
 ![Geometry of the dogbone specimen](./AlSi10Mg_dogbone.png)
+
+*Figure 1 in [https://doi.org/10.1007/s11837-021-04888-4](https://doi.org/10.1007/s11837-021-04888-4)*
+
+
 
 ![Geometry of the dogbone specimen](./AlSi10Mg_dogbone_intentional_void.png)
 
+*Figure 1 in [https://doi.org/10.1007/s11340-021-00696-8](https://doi.org/10.1007/s11340-021-00696-8)*
+
+References:
 * [https://doi.org/10.1007/s11837-021-04888-4](https://doi.org/10.1007/s11837-021-04888-4): High-Throughput Statistical Interrogation of Mechanical Properties with Build Plate Location and Powder Reuse in AlSi10Mg
 * [https://doi.org/10.1016/j.msea.2020.139922](https://doi.org/10.1016/j.msea.2020.139922): Relationship between ductility and the porosity of additively manufactured AlSi10Mg
 * [https://doi.org/10.1007/s11340-021-00696-8](https://doi.org/10.1007/s11340-021-00696-8): (*intentionally precipitated voids*) The Interplay of Geometric Defects and Porosity on the Mechanical Behavior of Additively Manufactured Components
@@ -34,13 +51,31 @@ Microstructure info are in
 
 3. **316L** dogbone
 
+
+
 ![Geometry of the dogbone specimen](./316L_dogbone.png)
+
+*Figure 2 in [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)*
+
+
 
 ![Geometry of the dogbone specimen](./316L_dogbone_2.png)
 
+*Figure 1 in [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090)*
+
+
+
 ![Geometry of the dogbone specimen](./316L_dogbone_3.png)
 
+*Table 1 in [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090)*
+
+
+
 ![Geometry of the dogbone specimen](./316L_dogbone_4.png)
+
+*Figure 1 in [https://doi.org/10.1016/j.addma.2022.102943](https://doi.org/10.1016/j.addma.2022.102943)*
+
+
 
 * [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632): Automated high-throughput tensile testing reveals stochastic process parameter sensitivity
 * [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090): Size-dependent stochastic tensile properties in additively manufactured 316L stainless steel

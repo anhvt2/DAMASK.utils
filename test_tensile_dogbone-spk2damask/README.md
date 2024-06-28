@@ -5,6 +5,11 @@ The idea of this project to model microstructure of high-throughput dogbone spec
 
 Here is a few versions of the dogbone specimens and their references:
 
+How are these mades? See [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)
+```
+Printed arrays were designed specifically for the high-throughput set-up where each contained a total of 25 tensile samples, as illustrated in Fig. 2. Tensile samples had ratios consistent with geometries in ASTM E8, with a 1 x 1 x 4 mm reduced section with and utilized a 45 degree dovetail grip section for automated testing procedures. Each build plate contained up to 10 of these arrays (for a total of up to 250 tensile samples per build), with each array within the build printed under a specific set of processing parameters.
+```
+
 1. The born-qualified version: **17-4PH** materials
 
 * [https://doi.org/10.1016/j.jmatprotec.2016.10.023](https://dx.doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively manufactured stainless steel
@@ -32,7 +37,7 @@ Here is a few versions of the dogbone specimens and their references:
 
 
 <!-- | ![Geometry of the dogbone specimen](./AlSi10Mg_dogbone.png) | -->
-| [./AlSi10Mg_dogbone.png](./AlSi10Mg_dogbone.png) |
+| ![./AlSi10Mg_dogbone.png](./AlSi10Mg_dogbone.png) |
 |:--:|
 | *Figure 1 in [https://doi.org/10.1007/s11837-021-04888-4](https://doi.org/10.1007/s11837-021-04888-4)* |
 
@@ -60,7 +65,7 @@ Microstructure info are in
 <!-- | ![Geometry of the dogbone specimen](./316L_dogbone.png) | -->
 | ![./316L_dogbone.png](./316L_dogbone.png) |
 |:--:|
-| *Figure 2 in [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)* |
+| *Figure 2 (25 tensile dogbones per array) in [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)* |
 
 
 
@@ -79,7 +84,7 @@ Microstructure info are in
 
 
 <!-- ![Geometry of the dogbone specimen](./316L_dogbone_4.png) | -->
-! [./316L_dogbone_4.png](./316L_dogbone_4.png)|
+! ![./316L_dogbone_4.png](./316L_dogbone_4.png)|
 |:--:|
 | *Figure 1 in [https://doi.org/10.1016/j.addma.2022.102943](https://doi.org/10.1016/j.addma.2022.102943)*
 

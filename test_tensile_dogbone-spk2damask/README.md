@@ -12,8 +12,10 @@ Here is a few versions of the dogbone specimens and their references:
 * [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102): Extreme-Value Statistics Reveal Rare Failure-Critical Defects in Additive Manufacturing
 
 ![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge.png)
+*A picture from Tim's slides at https://www.osti.gov/servlets/purl/1877851*
 
-![Geometry of the dogbone specimen - [Figure 1 in https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102)](./17-4PH_dogbone_GrandChallenge-2.png)
+![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge-2.png)
+*[Figure 1 in https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102)*
 
 2. The A-/B- (large-/small-) size version: **AlSi10Mg**
 
@@ -277,14 +279,14 @@ What to do with such simulations is a good question. We all know that averaged r
 
 # Future directions
 
-1. Precipitate pores into dogbone
-2. Physics-informed machine learning
-3. Stochastic inverse UQ with pores
-4. Constitutive model calibration under uncertainty and pores
-5. Microstructure-sensitive fracture?
-6. Multi-fidelity UQ/SciML? Fusing computational + experimental
-7. Reduced-order model for polycrystalline materials?
-8. Fracture modeling with CPFEM/PF
-9. Fatigue prediction
+1. ~~Precipitate pores into dogbone~~ (see `seedVoid.py`)
+1. POD ROM for polycrystalline materials?
+1. Physics-informed machine learning
+1. Stochastic inverse UQ with pores
+1. Constitutive model calibration under uncertainty and pores
+1. Microstructure-sensitive fracture?
+1. Multi-fidelity UQ/SciML? Fusing computational + experimental
+1. Fracture modeling with CPFEM/PF
+1. Fatigue prediction
 
 

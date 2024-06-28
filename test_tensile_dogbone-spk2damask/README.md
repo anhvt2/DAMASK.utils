@@ -77,8 +77,8 @@ Microstructure info are in
 
 
 
-<!-- | ![Geometry of the dogbone specimen](./HTTBar-ExpTest) | -->
-| ![./HTTBar-ExpTest](https://doi.org/10.1016/j.msea.2019.138632) |
+<!-- | ![Geometry of the dogbone specimen](./HTTBar-ExpTest.png) | -->
+| ![./HTTBar-ExpTest.png](https://doi.org/10.1016/j.msea.2019.138632) |
 |:--:|
 | *Figure 3 in [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)* |
 

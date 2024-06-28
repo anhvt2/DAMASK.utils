@@ -13,7 +13,7 @@ Here is a few versions of the dogbone specimens and their references:
 
 ![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge.png)
 
-![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge-2.png)
+![Geometry of the dogbone specimen - [Figure 1 in https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102)](./17-4PH_dogbone_GrandChallenge-2.png)
 
 2. The A-/B- (large-/small-) size version: **AlSi10Mg**
 

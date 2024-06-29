@@ -12,6 +12,9 @@ How?
 - Dump masked *.npy based on (1) phase and (2) difference with the initial condition *.npy
 - Convert masked *.npy to *.geom
 - Convert *.geom to *.vtr
+OR
+- Convert masked *.npy directly to *.vtr # https://tutorial.pyvista.org/tutorial/02_mesh/solutions/c_create-uniform-grid.html
+
 
 Show us with threshold, hide the rest.
 - Always show the final us (with opacity=0 for consistent grain ID colormap)
@@ -34,14 +37,32 @@ npyFolderName = args.npyFolderName # 'npy'
 phaseFileName = args.phaseFileName # 'phase_dump_12_out.npy'
 
 npyFolderList = natsorted(glob.glob(npyFolderName + '/*.npy'))
-initialVti = np.load(npyFolderList[0])
-lastVti = np.load(npyFolderList[-1])
 phase = np.load(phaseFileName)
+initialMs = maskMs(phase, np.load(npyFolderList[0]))
+lastMs    = maskMs(phase, np.load(npyFolderList[-1]))
+
+def maskMs(phase, ms):
+	'''
+	This function masks a microstructure (ms) using phase.
+	The resulting microstructure has grainID += 1 due to masking.
+	'''
+	maskedPhase = np.array(~np.isinf(phase), dtype=int)
+	maskedMs = np.multiply(maskedPhase, ms)
+	maskedMs += 1
+	return maskedMs
+
+def highlightMs(currentMs, initialMs):
+	'''
+	This function 
+		(1) compares a current ms with the initial ms,
+		(2) and masks every element as 1 if the same, retain the same if different
+	'''
+	return highlightedCurrentMs
 
 for i in range(len(npyFolderList) - 1):
-	currentVti = np.load(npyFolderList[i])
-	previousVti = np.load(npyFolderList[i-1])
-	nextVti = np.load(npyFolderList[i+1])
+	currentMs = maskMs(phase, np.load(npyFolderList[i]))
+	previousMs = maskMs(phase, np.load(npyFolderList[i-1]))
+	nextMs = maskMs(phase, np.load(npyFolderList[i+1]))
 
 
 

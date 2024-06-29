@@ -12,7 +12,10 @@ How?
 - Dump masked *.npy based on (1) phase and (2) difference with the initial condition *.npy
 - Convert masked *.npy to *.geom
 - Convert *.geom to *.vtr
-- Convert *.vtr to *.{jpg,png}
+
+Show us with threshold, hide the rest.
+- Always show the final us (with opacity=0 for consistent grain ID colormap)
+- Only show the diff b/w the current us and the initial us, but NOT include masked phase
 """
 
 import numpy as np
@@ -21,16 +24,25 @@ import matplotlib.pyplot as plt
 import glob, os
 import argparse
 import gc
+from natsort import natsorted, ns # natural-sort
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False)
-parser.add_argument("-f", "--fileName", type=str, required=True)
+parser.add_argument("-n", "--npyFolderName", help='provide folders that supply all *.npy', type=str, default='', required=True)
+parser.add_argument("-p", "--phaseFileName", help='provide masked phase', type=str, default='', required=True)
 args = parser.parse_args()
-nameTag = args.nameTag
-fileName = args.fileName
+npyFolderName = args.npyFolderName # 'npy'
+phaseFileName = args.phaseFileName # 'phase_dump_12_out.npy'
 
-nameTag = nameTag.split('/')[0]
-print(nameTag)
+npyFolderList = natsorted(glob.glob(npyFolderName + '/*.npy'))
+initialVti = np.load(npyFolderList[0])
+lastVti = np.load(npyFolderList[-1])
+phase = np.load(phaseFileName)
+
+for i in range(len(npyFolderList) - 1):
+	currentVti = np.load(npyFolderList[i])
+	previousVti = np.load(npyFolderList[i-1])
+	nextVti = np.load(npyFolderList[i+1])
+
 
 
 # cmap = plt.cm.get_cmap("viridis", 5)

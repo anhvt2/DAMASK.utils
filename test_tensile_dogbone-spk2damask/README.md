@@ -237,6 +237,8 @@ atol_resistance         1
 * Only visualize the different part when comparing with initial microstructure
 * Only visualize the different between current and last time-step
 
+See `vizAM.py`
+
 2. Test out `restart` capability option: https://damask2.mpie.de/bin/view/Usage/SpectralSolver#Restart
 
 ##### `restart` examples
@@ -332,9 +334,30 @@ That your workstation is faster than an HPC might be attributable to differences
 What to do with such simulations is a good question. We all know that averaged results (for “simple” materials) are usually quite accurately reproduced. I am fairly certain that the volume averaged sigma_zz in the gage section would be equal to the volume average of the farthest (or probably any) Z layer of the widest head section. Together with either the displacement data at the ends of the gage section or the volume averaged gage strain, this stress–strain curve should reflect macroscopic behavior. Now, of course, you are actually not having a large number of grains in the gage section... Hence, evaluating the intrinsic variability (maybe as function of texture sharpness) for micro samples (with only "few" grains) might be a nice exercise (and example to be put on the DAMASK website).
 ```
 
+##### Efficient masking implementation
+
+```python
+# phase = {-1, np.inf}
+maskedPhase = np.array(~np.isinf(phase), dtype=int)
+maskedVti = np.multiply(maskedPhase, currentNpy)
+maskedVti += 1
+```
+
+
+
 # Future directions
 
 1. ~~Precipitate pores into dogbone~~ (see `seedVoid.py`)
+```
+@article{tran2024anomaly,
+  title={Anomaly Detection in Materials Digital Twins with Multiscale ICME for Additive Manufacturing},
+  author={Tran, Anh and Carlson, Max and Eisenlohr, Philip and Kolla, Hemanth and Davis, Warren},
+  journal={Integrating Materials and Manufacturing Innovation},
+  pages={1--14},
+  year={2024},
+  publisher={Springer}
+}
+```
 1. POD ROM for polycrystalline materials?
 1. Physics-informed machine learning
 1. Stochastic inverse UQ with pores

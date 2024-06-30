@@ -12,9 +12,11 @@ from natsort import natsorted, ns # natural-sort
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-n", "--npy", help='*.npy file', type=str, default='', required=True)
+parser.add_argument("-threshold", "--threshold", help='threshold', type=int, default=-1, required=False)
 parser.add_argument("-nameTag", "--nameTag", help='', type=str, default='', required=False)
 args = parser.parse_args()
 npyFileName = args.npy # 'npy'
+threshold = args.threshold
 nameTag = args.nameTag
 
 # cmap = plt.cm.get_cmap("viridis", 5)
@@ -51,7 +53,9 @@ grid.cell_data["microstructure"] = ms.flatten(order="F") # ImageData()
 
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)
-pl.add_mesh(grid, scalars='microstructure', show_edges=True, line_width=1, cmap=cmap)
+# pl.add_mesh(grid, scalars='microstructure', show_edges=True, line_width=1, cmap=cmap)
+pl.add_mesh(grid.threshold(value=1e-6), scalars='microstructure', opacity=0.01, show_edges=True, line_width=1, cmap=cmap)
+pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure', show_edges=True, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()
 # pl.camera_position = 'xz'
@@ -63,6 +67,7 @@ if nameTag == '':
     pl.screenshot(npyFileName[:-4] + '.png', window_size=[1860*6,968*6])
 else:
     pl.screenshot(npyFileName[:-4] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+
 # pl.close()
 gc.collect()
 

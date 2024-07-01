@@ -254,6 +254,18 @@ f.write('%d\n' % solidIdx)
 f.write('%d\n' % np.max(geom))
 f.close()
 
+# Dump void+air phases to another 3d *.npy array
+phasePlusVoids = np.copy(phase)
+for i in range(Nx_grid):
+    for j in range(Ny_grid):
+        for k in range(Nz_grid):
+            if geom[i,j,k] < solidIdx:
+                phasePlusVoids[i,j,k] = np.inf
+
+logging.info(f'dump new phase into phase + {phaseFileName}')
+np.save('void+' + phaseFileName, phasePlusVoids)
+
+
 # Convert 3d numpy array to 1d flatten array
 geom = geom.T.flatten()
 # print(np.unique(geom)) # debug
@@ -338,5 +350,6 @@ for i in range(numGrains+1):
 f.close()
 
 ### diagnostics
+
 elapsed = time.time() - t_start
 logging.info("geom_spk2dmsk.py: finished in {:5.2f} seconds.\n".format(elapsed))

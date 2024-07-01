@@ -5,22 +5,50 @@ The idea of this project to model microstructure of high-throughput dogbone spec
 
 Here is a few versions of the dogbone specimens and their references:
 
+How are these mades? See [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)
+```
+Printed arrays were designed specifically for the high-throughput set-up where each contained a total of 25 tensile samples, as illustrated in Fig. 2. Tensile samples had ratios consistent with geometries in ASTM E8, with a 1 x 1 x 4 mm reduced section with and utilized a 45 degree dovetail grip section for automated testing procedures. Each build plate contained up to 10 of these arrays (for a total of up to 250 tensile samples per build), with each array within the build printed under a specific set of processing parameters.
+```
+
 1. The born-qualified version: **17-4PH** materials
 
 * [https://doi.org/10.1016/j.jmatprotec.2016.10.023](https://dx.doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively manufactured stainless steel
 * [Combining Measure Theory and Bayes Rule to Solve a Stochastic Inverse Problem](https://www.osti.gov/servlets/purl/1877851): slides from Tim Wildey
 * [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102): Extreme-Value Statistics Reveal Rare Failure-Critical Defects in Additive Manufacturing
 
-![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge.png)
 
-![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge-2.png)
+
+<!-- | ![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge.png) | -->
+| ![./17-4PH_dogbone_GrandChallenge.png](./17-4PH_dogbone_GrandChallenge.png) |
+|:--:|
+| *A picture from Tim's slides at https://www.osti.gov/servlets/purl/1877851*  |
+
+
+
+
+<!-- | ![Geometry of the dogbone specimen](./17-4PH_dogbone_GrandChallenge-2.png) | -->
+| ![./17-4PH_dogbone_GrandChallenge-2.png](./17-4PH_dogbone_GrandChallenge-2.png) |
+|:--:|
+| *Figure 1 in [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102)* |
+
 
 2. The A-/B- (large-/small-) size version: **AlSi10Mg**
 
-![Geometry of the dogbone specimen](./AlSi10Mg_dogbone.png)
 
-![Geometry of the dogbone specimen](./AlSi10Mg_dogbone_intentional_void.png)
 
+<!-- | ![Geometry of the dogbone specimen](./AlSi10Mg_dogbone.png) | -->
+| ![./AlSi10Mg_dogbone.png](./AlSi10Mg_dogbone.png) |
+|:--:|
+| *Figure 1 in [https://doi.org/10.1007/s11837-021-04888-4](https://doi.org/10.1007/s11837-021-04888-4)* |
+
+
+
+<!-- | ![Geometry of the dogbone specimen](./AlSi10Mg_dogbone_intentional_void.png) | -->
+| ![./AlSi10Mg_dogbone_intentional_void.png](./AlSi10Mg_dogbone_intentional_void.png) |
+|:--:|
+| *Figure 1 in [https://doi.org/10.1007/s11340-021-00696-8](https://doi.org/10.1007/s11340-021-00696-8)* |
+
+References:
 * [https://doi.org/10.1007/s11837-021-04888-4](https://doi.org/10.1007/s11837-021-04888-4): High-Throughput Statistical Interrogation of Mechanical Properties with Build Plate Location and Powder Reuse in AlSi10Mg
 * [https://doi.org/10.1016/j.msea.2020.139922](https://doi.org/10.1016/j.msea.2020.139922): Relationship between ductility and the porosity of additively manufactured AlSi10Mg
 * [https://doi.org/10.1007/s11340-021-00696-8](https://doi.org/10.1007/s11340-021-00696-8): (*intentionally precipitated voids*) The Interplay of Geometric Defects and Porosity on the Mechanical Behavior of Additively Manufactured Components
@@ -32,14 +60,43 @@ Microstructure info are in
 
 3. **316L** dogbone
 
-![Geometry of the dogbone specimen](./316L_dogbone.png)
 
-![Geometry of the dogbone specimen](./316L_dogbone_2.png)
 
-![Geometry of the dogbone specimen](./316L_dogbone_3.png)
+<!-- | ![Geometry of the dogbone specimen](./316L_dogbone.png) | -->
+| ![./316L_dogbone.png](./316L_dogbone.png) |
+|:--:|
+| *Figure 2 (25 tensile dogbones per array) in [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)* |
 
-![Geometry of the dogbone specimen](./316L_dogbone_4.png)
 
+
+<!-- | ![Geometry of the dogbone specimen](./316L_dogbone_2.png) | -->
+| ![./316L_dogbone_2.png](./316L_dogbone_2.png) |
+|:--:|
+| *Figure 1 in [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090)* |
+
+
+
+<!-- ![Geometry of the dogbone specimen](./316L_dogbone_3.png) | -->
+| ![./316L_dogbone_3.png](./316L_dogbone_3.png) |
+|:--:|
+| *Table 1 in [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090)* |
+
+
+
+<!-- ![Geometry of the dogbone specimen](./316L_dogbone_4.png) | -->
+! ![./316L_dogbone_4.png](./316L_dogbone_4.png)|
+|:--:|
+| *Figure 1 in [https://doi.org/10.1016/j.addma.2022.102943](https://doi.org/10.1016/j.addma.2022.102943)*
+
+
+
+<!-- | ![Geometry of the dogbone specimen](./HTTBar-ExpTest.png) | -->
+| ![./HTTBar-ExpTest.png](./HTTBar-ExpTest.png) |
+|:--:|
+| *Figure 3 in [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)* |
+
+
+References:
 * [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632): Automated high-throughput tensile testing reveals stochastic process parameter sensitivity
 * [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090): Size-dependent stochastic tensile properties in additively manufactured 316L stainless steel
 * [https://doi.org/10.1016/j.addma.2022.102943](https://doi.org/10.1016/j.addma.2022.102943): Optimization of stochastic feature properties in laser powder bed fusion
@@ -180,6 +237,8 @@ atol_resistance         1
 * Only visualize the different part when comparing with initial microstructure
 * Only visualize the different between current and last time-step
 
+See `vizAM.py`
+
 2. Test out `restart` capability option: https://damask2.mpie.de/bin/view/Usage/SpectralSolver#Restart
 
 ##### `restart` examples
@@ -275,16 +334,37 @@ That your workstation is faster than an HPC might be attributable to differences
 What to do with such simulations is a good question. We all know that averaged results (for “simple” materials) are usually quite accurately reproduced. I am fairly certain that the volume averaged sigma_zz in the gage section would be equal to the volume average of the farthest (or probably any) Z layer of the widest head section. Together with either the displacement data at the ends of the gage section or the volume averaged gage strain, this stress–strain curve should reflect macroscopic behavior. Now, of course, you are actually not having a large number of grains in the gage section... Hence, evaluating the intrinsic variability (maybe as function of texture sharpness) for micro samples (with only "few" grains) might be a nice exercise (and example to be put on the DAMASK website).
 ```
 
+##### Efficient masking implementation
+
+```python
+# phase = {-1, np.inf}
+maskedPhase = np.array(~np.isinf(phase), dtype=int)
+maskedVti = np.multiply(maskedPhase, currentNpy)
+maskedVti += 1
+```
+
+
+
 # Future directions
 
-1. Precipitate pores into dogbone
-2. Physics-informed machine learning
-3. Stochastic inverse UQ with pores
-4. Constitutive model calibration under uncertainty and pores
-5. Microstructure-sensitive fracture?
-6. Multi-fidelity UQ/SciML? Fusing computational + experimental
-7. Reduced-order model for polycrystalline materials?
-8. Fracture modeling with CPFEM/PF
-9. Fatigue prediction
+1. ~~Precipitate pores into dogbone~~ (see `seedVoid.py`)
+```
+@article{tran2024anomaly,
+  title={Anomaly Detection in Materials Digital Twins with Multiscale ICME for Additive Manufacturing},
+  author={Tran, Anh and Carlson, Max and Eisenlohr, Philip and Kolla, Hemanth and Davis, Warren},
+  journal={Integrating Materials and Manufacturing Innovation},
+  pages={1--14},
+  year={2024},
+  publisher={Springer}
+}
+```
+1. POD ROM for polycrystalline materials?
+1. Physics-informed machine learning
+1. Stochastic inverse UQ with pores
+1. Constitutive model calibration under uncertainty and pores
+1. Microstructure-sensitive fracture?
+1. Multi-fidelity UQ/SciML? Fusing computational + experimental
+1. Fracture modeling with CPFEM/PF
+1. Fatigue prediction
 
 

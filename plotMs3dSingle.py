@@ -70,6 +70,7 @@ if nameTag == '':
     # pl.screenshot(fileName.split('.')[0] + '.png', window_size=[1860*6,968*6])
     pl.screenshot(fileName[:-4] + '.png', window_size=[1860*6,968*6])
 else:
+    # pl.screenshot(fileName.split('.')[0] + nameTag + '.png', window_size=[1860*6,968*6])
     pl.screenshot(fileName[:-4] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
 # pl.close()
 

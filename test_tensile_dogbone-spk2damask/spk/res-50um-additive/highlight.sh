@@ -1,5 +1,5 @@
 #!/bin/bash
-for npyFileName in $(ls -1v *.npy); do
+for npyFileName in $(ls -1v highlighted_*.npy); do
 	python3 ../../../npy2png.py --npy="${npyFileName}" --threshold=1
 	echo "done ${npyFileName}"
 done

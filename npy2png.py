@@ -54,7 +54,7 @@ grid.cell_data["microstructure"] = ms.flatten(order="F") # ImageData()
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)
 # pl.add_mesh(grid, scalars='microstructure', show_edges=True, line_width=1, cmap=cmap)
-pl.add_mesh(grid.threshold(value=1e-6), scalars='microstructure', opacity=0.01, show_edges=True, line_width=1, cmap=cmap)
+# pl.add_mesh(grid.threshold(value=1e-6), scalars='microstructure', opacity=0.01, show_edges=True, line_width=1, cmap=cmap) # maybe replace by an optional phase for background masking
 pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure', show_edges=True, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()

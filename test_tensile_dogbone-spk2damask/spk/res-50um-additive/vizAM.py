@@ -1,10 +1,11 @@
 
 """
 Example how to use:
-python3 vizAM.py --npyFolderName='npy' --phaseFileName='phase_dump_12_out.npy'
+python3 vizAM.py --npyFolderName='npy' --phaseFileName='void+phase_dump_12_out.npy'
 
 then
-python3 npy2png.py --threshold=1
+bash highlight.sh
+# python3 ../../../npy2png.py --threshold=1
 
 This script 
     (1) converts a series of microstructures formatted in *.npy (must be)

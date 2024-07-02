@@ -238,6 +238,7 @@ logging.info(f'Total number of voxels = {np.prod(phase.shape)} voxels.')
 logging.info(f'Number of solid voxels = {numSolidVoxels} voxels.')
 logging.info(f'Number of air voxels = {np.prod(phase.shape) - numSolidVoxels} voxels.')
 logging.info(f'Inserting AT LEAST {minNumVoidVoxels} voxels as voids.')
+logging.info(f'Estimate {len(np.unique(geom)) - numGrains - 1} clusters of voids.')
 logging.info(f'Number of grains: {numGrains}.')
 logging.info(f'\n-------------------- NOTE --------------------\n')
 logging.info(f'Indexing grain id:')
@@ -265,12 +266,15 @@ for i in range(Nx_grid):
 logging.info(f'dump new phase into phase + {phaseFileName}')
 np.save('void+' + phaseFileName, phasePlusVoids)
 
+# Save 3d microstructure as *.npy array
+np.save(outFileName[:-5] + '.npy', geom)
+
 
 # Convert 3d numpy array to 1d flatten array
 geom = geom.T.flatten()
 # print(np.unique(geom)) # debug
 # logging.info(f'geom_spk2dmsk.py: save modified geometry in {%s}\n') # need to debug
-np.save(outFileName[:-5] + '.npy', geom)
+
 
 # Write output
 num_lines = int(np.floor(len(geom)) / 10)

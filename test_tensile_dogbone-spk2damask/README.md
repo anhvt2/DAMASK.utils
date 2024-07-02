@@ -258,6 +258,14 @@ Maybe use
 * `scipy.signale.resample()` (*periodic signal only*): https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample.html#scipy.signal.resample
 
 Upsample/Downsample:
+* `scipy.zoom`
+```python
+# https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html#scipy.ndimage.zoom
+from scipy.ndimage import zoom
+origGeom = np.load('voidSeeded_3.000pc_potts-12_3d.975.npy') # (120, 20, 200)
+downsampledGeom = zoom(origGeom, (0.5, 0.5, 0.5), order=0) # order must be 0 for disabling interpolation
+np.save('downsampledGeom.npy', downsampledGeom)
+```
 * `numpy`
 ```python
 import numpy as np

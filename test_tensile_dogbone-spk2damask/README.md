@@ -192,19 +192,19 @@ For example:
 Results from exporting SPPARKS: 
 * 50um
 <!-- ![Geometry of the dogbone specimen](./vtk-visualization-res-50um.png) -->
-| ![./res-50-additive.png](./res-50-additive.png) |
+| ![./cropped_res-50-additive.png](./cropped_res-50-additive.png) |
 |:--:|
 | *50 um microstr  ucture geometry with log-normal distributed defects -- total 3% porosity* |
 
 <!-- * 20um
 ![Geometry of the dogbone specimen](./vtk-visualization-res-20um.png) -->
-| ![./res-20um-gg.png](./res-20um-gg.png) |
+| ![./cropped_res-20um-gg.png](./cropped_res-20um-gg.png) |
 |:--:|
 | *20 um microstructure geometry with SPPARKS Potts normal grain growth* |
 
 <!-- * 10um
 ![Geometry of the dogbone specimen](./vtk-visualization-res-10um.png) -->
-| ![./res-10um-gg.png](./res-10um-gg.png) |
+| ![./cropped_res-10um-gg.png](./cropped_res-10um-gg.png) |
 |:--:|
 | *10 um microstructure geometry with SPPARKS Potts normal grain growth* |
 

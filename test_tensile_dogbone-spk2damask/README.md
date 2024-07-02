@@ -257,7 +257,7 @@ Maybe use
 * `scipy.signal.decimate()`: https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.decimate.html?
 * `scipy.signale.resample()` (*periodic signal only*): https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample.html#scipy.signal.resample
 
-Upsample
+Upsample/Downsample:
 * `numpy`
 ```python
 import numpy as np

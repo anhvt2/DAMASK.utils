@@ -10,7 +10,7 @@ How are these mades? See [https://doi.org/10.1016/j.msea.2019.138632](https://do
 Printed arrays were designed specifically for the high-throughput set-up where each contained a total of 25 tensile samples, as illustrated in Fig. 2. Tensile samples had ratios consistent with geometries in ASTM E8, with a 1 x 1 x 4 mm reduced section with and utilized a 45 degree dovetail grip section for automated testing procedures. Each build plate contained up to 10 of these arrays (for a total of up to 250 tensile samples per build), with each array within the build printed under a specific set of processing parameters.
 ```
 
-1. The born-qualified version: **17-4PH** materials
+##### The born-qualified version: **17-4PH** materials
 
 * [https://doi.org/10.1016/j.jmatprotec.2016.10.023](https://dx.doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively manufactured stainless steel
 * [Combining Measure Theory and Bayes Rule to Solve a Stochastic Inverse Problem](https://www.osti.gov/servlets/purl/1877851): slides from Tim Wildey
@@ -32,7 +32,11 @@ Printed arrays were designed specifically for the high-throughput set-up where e
 | *Figure 1 in [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102)* |
 
 
-2. The A-/B- (large-/small-) size version: **AlSi10Mg**
+| ![./adem201700102-fig-0003-m.jpg](./adem201700102-fig-0003-m.jpg) |
+|:--:|
+| *Defect distribution shown in Figure 3 of [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102)* |
+
+##### The A-/B- (large-/small-) size version: **AlSi10Mg**
 
 
 
@@ -58,7 +62,10 @@ Microstructure info are in
 * [https://doi.org/10.1557/jmr.2018.405](https://doi.org/10.1557/jmr.2018.405): P. Yang, L.A. Deibler, D.R. Bradley, D.K. Stefan, and J.D. Carroll, J. Mater. Res. 33, 4040-4052. (2018).
 * [https://doi.org/10.1557/jmr.2018.82](https://doi.org/10.1557/jmr.2018.82): P. Yang, M.A. Rodriguez, L.A. Deibler, B.H. Jared, J. Griego, A. Kilgo, A. Allen, and D.K. Stefan, J. Mater. Res. 33, 1701–1712. (2018) (*contain microstructure information - Section III.B.2*).
 
-3. **316L** dogbone
+
+
+
+##### **316L** dogbone
 
 
 
@@ -101,12 +108,12 @@ References:
 * [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090): Size-dependent stochastic tensile properties in additively manufactured 316L stainless steel
 * [https://doi.org/10.1016/j.addma.2022.102943](https://doi.org/10.1016/j.addma.2022.102943): Optimization of stochastic feature properties in laser powder bed fusion
 
-4. **17-4PH** dogbone
+<!-- 4. **17-4PH** dogbone
 
-* [https://doi.org/10.1016/j.jmatprotec.2016.10.023](https://doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively manufactured stainless steel
+* [https://doi.org/10.1016/j.jmatprotec.2016.10.023](https://doi.org/10.1016/j.jmatprotec.2016.10.023): High-throughput stochastic tensile performance of additively manufactured stainless steel -->
 
 
-# SPPARKS (+ DREAM.3D)
+# SPPARKS (+ DREAM.3D + seedVoid.py)
 
 ~~need a parser from SPPARKS to DAMASK `.geom` file~~: `geom_spk2dmsk.py`
 
@@ -184,7 +191,11 @@ For example:
 
 Results from exporting SPPARKS: 
 * 50um
-![Geometry of the dogbone specimen](./vtk-visualization-res-50um.png)
+<!-- ![Geometry of the dogbone specimen](./vtk-visualization-res-50um.png) -->
+| ![./highlighted_ms_808.png](./highlighted_ms_808.png) |
+|:--:|
+| *50$|mu$m microstructure geometry with log-normal distributed defects -- total 3% porosity* |
+
 * 20um
 ![Geometry of the dogbone specimen](./vtk-visualization-res-20um.png)
 * 10um
@@ -347,6 +358,7 @@ maskedVti += 1
 
 # Future directions
 
+1. Tensile dogbone or gear with cellular or meta-materials. Maybe consider some topology-optimized geometry.
 1. ~~Precipitate pores into dogbone~~ (see `seedVoid.py`)
 ```
 @article{tran2024anomaly,

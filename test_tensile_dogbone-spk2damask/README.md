@@ -202,8 +202,11 @@ Results from exporting SPPARKS:
 |:--:|
 | *20 um microstructure geometry with SPPARKS Potts normal grain growth* |
 
-* 10um
-![Geometry of the dogbone specimen](./vtk-visualization-res-10um.png)
+<!-- * 10um
+![Geometry of the dogbone specimen](./vtk-visualization-res-10um.png) -->
+| ![./res-10um-gg.png](./res-10um-gg.png) |
+|:--:|
+| *10 um microstructure geometry with SPPARKS Potts normal grain growth* |
 
 # DAMASK
 

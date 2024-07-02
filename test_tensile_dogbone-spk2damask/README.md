@@ -194,13 +194,13 @@ Results from exporting SPPARKS:
 <!-- ![Geometry of the dogbone specimen](./vtk-visualization-res-50um.png) -->
 | ![./res-50-additive.png](./res-50-additive.png) |
 |:--:|
-| *50 $|mu$m microstructure geometry with log-normal distributed defects -- total 3% porosity* |
+| *50 um microstr  ucture geometry with log-normal distributed defects -- total 3% porosity* |
 
 <!-- * 20um
 ![Geometry of the dogbone specimen](./vtk-visualization-res-20um.png) -->
 | ![./res-20um-gg.png](./res-20um-gg.png) |
 |:--:|
-| *20 $|mu$m microstructure geometry with SPPARKS Potts normal grain growth* |
+| *20 um microstructure geometry with SPPARKS Potts normal grain growth* |
 
 * 10um
 ![Geometry of the dogbone specimen](./vtk-visualization-res-10um.png)

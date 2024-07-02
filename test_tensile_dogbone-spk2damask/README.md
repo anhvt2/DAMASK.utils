@@ -248,16 +248,18 @@ atol_resistance         1
 ```
 4. create `vtr` file by `geom_check` command in DAMASK pre-/post-processing script. 
 
-# To-Do
+# ToDo (To-Do)
 
-1. Implement a visualization pipeline for visualizing microstructure growth due to AM. Some ideas:
+1. Adjust SPPARKS resolution (multi-resolution / multi-fidelity) either by DREAM.3D or personal script.
 
-* Only visualize the different part when comparing with initial microstructure
-* Only visualize the different between current and last time-step
+2. ~~Implement a visualization pipeline for visualizing microstructure growth due to AM. Some ideas:~~
+
+* ~~Only visualize the different part when comparing with initial microstructure~~
+* ~~Only visualize the different between current and last time-step~~
 
 See `vizAM.py`
 
-2. Test out `restart` capability option: https://damask2.mpie.de/bin/view/Usage/SpectralSolver#Restart
+3. Test out `restart` capability option: https://damask2.mpie.de/bin/view/Usage/SpectralSolver#Restart
 
 ##### `restart` examples
 ```
@@ -266,12 +268,21 @@ DAMASK_spectral --geom  PathToGeomFile/NameOfGeomFile.geom --load PathToLoadFile
 
 `--restart / -r / --rs XX`: Reads in total increment No. XX and continues to calculate total increment No. XX+1. Appends to existing results file 
 
-2. Test out `postResults` capability with `--filter` option: https://damask2.mpie.de/bin/view/Documentation/PostResults
+4. ~~Test out `postResults` capability with `--filter` option: https://damask2.mpie.de/bin/view/Documentation/PostResults~~ (successful, see `findGaugeLocations.py`)
 
-3. Implement a AM SPPARKS apps to generate microstructure from SPPARKS
-* **with possible visualization**
+```
+$ cat gaugeFilter.txt 
+51 <= x <= 69 and 2 <= y <= 21 and 70 <= z <= 130
+```
 
-4. ~~Implement a `pyvista` script that shows stresses warped by a deformed geometry.~~
+```shell
+python3 ../../findGaugeLocations.py --geom ${geomFileName}.geom # dump gaugeFilter.txt
+postResults *.spectralOut --cr f,p --filter $(cat gaugeFilter.txt)
+```
+
+5. ~~Implement a AM SPPARKS apps to generate microstructure from SPPARKS with possible visualization~~
+
+6. ~~Implement a `pyvista` script that shows stresses warped by a deformed geometry.~~ (see `plotStress3dDeformedGeom.py`)
 
 A DAMASK example is given by: https://damask2.mpie.de/bin/view/Usage/SpectralSolver
 ```
@@ -303,6 +314,8 @@ vtk_addRectilinearGridData \
 ```
 followed by `Filters` > `Common` > `Warp By Vector` in ParaView from the menu and select first `avg(f).pos`. Select the new entry in the pipeline to visualize the uniformly deformed geometry. Similarly, choose `Filters` > `Common` > `Warp By Vector` from the menu and select first `fluct(f).pos` to also see the fluctuations resulting from the solution of static mechanical equilibrium. 
 
+Also, see `plotStress3dDeformedGeom.py` implementation for showing a threshed mesh, warped by a deformation field `mesh.threshold().warp_by_vector()`.
+
 An example is given in the PyVista documentation: https://docs.pyvista.org/version/stable/examples/01-filter/warp-by-vector.html
 
 Some possible hints include
@@ -310,7 +323,7 @@ Some possible hints include
 * https://github.com/pyvista/pyvista/issues/650
 * https://discourse.paraview.org/t/visualizing-stress-on-the-deformed-geometry/654
 
-3. Seed void from a void geometry dictionary. Maybe see some works from experimentalists, e.g. Andrew Polonsky, Philip Noell
+7. ~~Seed void from a void geometry dictionary.~~ Maybe see some works from experimentalists, e.g. Andrew Polonsky, Philip Noell.
 
 * Polonsky, A. T., Madison, J. D., Arnhart, M., Jin, H., Karlson, K. N., Skulborstad, A. J., ... & Murawski, S. G. (2023). Toward accurate prediction of partial-penetration laser weld performance informed by three-dimensional characterization–Part I: High fidelity interrogation. Tomography of Materials and Structures, 2, 100006.
 * Karlson, K. N., Skulborstad, A. J., Madison, J. D., Polonsky, A. T., Jin, H., Jones, A., ... & Lu, W. Y. (2023). Toward accurate prediction of partial-penetration laser weld performance informed by three-dimensional characterization–part II: μCT based finite element simulations. Tomography of Materials and Structures, 2, 100007.
@@ -378,6 +391,7 @@ maskedVti += 1
 }
 ```
 1. POD ROM for polycrystalline materials?
+1. Multi-fidelity ROM with POD/AE-based
 1. Physics-informed machine learning
 1. Stochastic inverse UQ with pores
 1. Constitutive model calibration under uncertainty and pores

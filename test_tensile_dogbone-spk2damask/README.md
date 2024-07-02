@@ -252,6 +252,28 @@ atol_resistance         1
 
 1. Adjust SPPARKS resolution (multi-resolution / multi-fidelity) either by DREAM.3D or personal script.
 
+Maybe use 
+
+* `scipy.signal.decimate()`: https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.decimate.html?
+* `scipy.signale.resample()` (*periodic signal only*): https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample.html#scipy.signal.resample
+
+Upsample
+* `numpy`
+```python
+import numpy as np
+input_array=np.array([[1.,2],[3,4]])
+np.resize(input_array, (3,3))
+```
+* `cv2`
+```python
+import cv2
+import numpy as np
+input_array=np.array([[1.,2],[3,4]])
+cv2.resize(input_array,
+           (3,3),
+           interpolation=cv2.INTER_NEAREST)
+```
+
 2. ~~Implement a visualization pipeline for visualizing microstructure growth due to AM. Some ideas:~~
 
 * ~~Only visualize the different part when comparing with initial microstructure~~

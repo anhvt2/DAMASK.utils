@@ -347,6 +347,7 @@ maskedVti += 1
 
 # Future directions
 
+1. Tensile dogbone or gear with cellular or meta-materials. Maybe consider some topology-optimized geometry.
 1. ~~Precipitate pores into dogbone~~ (see `seedVoid.py`)
 ```
 @article{tran2024anomaly,

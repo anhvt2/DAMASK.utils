@@ -246,6 +246,7 @@ logging.info(f'Grain id for AIR: 1.')
 # logging.info(f'Grain id for VOIDS: from 2 to {solidIdx-1}.') # deprecated
 logging.info(f'Grain id for VOIDS: from 2 to {numVoids+1}.')
 logging.info(f'Grain id for SOLID: from {solidIdx} to {np.max(geom)}.')
+logging.info(f'Average grain size [m] = {(numSolidVoxels / numGrains * (5e-6)**3)**(1/3)}.') # For DAMASK material.config
 
 f = open('grainInfo.dat', 'w')
 f.write('1\n')

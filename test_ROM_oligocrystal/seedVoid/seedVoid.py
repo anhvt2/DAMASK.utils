@@ -217,7 +217,8 @@ while totalNumVoidVoxels < minNumVoidVoxels:
             if (x+xV[i] <= Nx_grid) and (y+yV[i] <= Ny_grid) and (z+zV[i] <= Nz_grid) and geom[x+xV[i], y+yV[i], z+zV[i]] > solidIdx:
                 geom[x+xV[i], y+yV[i], z+zV[i]] = tmpVoidIdx
         except:
-            print('Warning: out-of-bounds error. Temporarily skip assigning void.')
+            # print('Warning: out-of-bounds error. Temporarily skip assigning void.')
+            pass
     # Increase void counter
     totalNumVoidVoxels += voidVoxels
     # Bump grainID by 1, leave space for assigning tmpVoidIdx in the future
@@ -234,11 +235,19 @@ for i in range(Nx_grid):
             if np.isinf(phase[i,j,k]):
                 geom[i,j,k] = 1
 
+# Get void and solid indices/statistics
+# https://numpy.org/doc/stable/reference/routines.logic.html
+
+indices = np.unique(geom)
+voidIdxList  = indices[np.where(np.logical_and(np.greater(indices,1), np.less(indices,solidIdx)))[0]]
+solidIdxList = indices[np.where(np.greater_equal(indices,solidIdx))[0]]
+
 logging.info(f'Total number of voxels = {np.prod(phase.shape)} voxels.')
 logging.info(f'Number of solid voxels = {numSolidVoxels} voxels.')
 logging.info(f'Number of air voxels = {np.prod(phase.shape) - numSolidVoxels} voxels.')
 logging.info(f'Inserting AT LEAST {minNumVoidVoxels} voxels as voids.')
 logging.info(f'Estimate {len(np.unique(geom)) - numGrains - 1} clusters of voids.')
+logging.info(f'Calculate {len(voidIdxList)} clusters of voids.') # do not account for AIR=1
 logging.info(f'Number of grains: {numGrains}.')
 logging.info(f'\n-------------------- NOTE --------------------\n')
 logging.info(f'Indexing grain id:')
@@ -247,7 +256,22 @@ logging.info(f'Grain id for AIR: 1.')
 logging.info(f'Grain id for VOIDS: from 2 to {numVoids+1}.')
 logging.info(f'Grain id for SOLID: from {solidIdx} to {np.max(geom)}.')
 logging.info(f'Average grain size [m] = {(numSolidVoxels / numGrains * (5e-6)**3)**(1/3)}.') # For DAMASK material.config
+logging.info(f'\n--------------- VOID STATISTICS ---------------\n')
+logging.info(str(('Void indices are: ', list(voidIdxList))))
+logging.info(f'\nVoid Index, Void Size')
+for voidIdx in voidIdxList:
+    tmpVoid = np.where(geom == voidIdx)
+    logging.info(f'{voidIdx},{len(tmpVoid[0])}')
 
+
+logging.info(f'\n-------------- GRAIN STATISTICS ---------------\n')
+logging.info(str(('Grain indices are: ', list(solidIdxList))))
+logging.info(f'\nGrain Index, Grain Size')
+for solidIdx in solidIdxList:
+    tmpGrain = np.where(geom == solidIdx)
+    logging.info(f'{solidIdx},{len(tmpGrain[0])}')
+
+# Dump essential indices to grainInfo.dat for fast check
 f = open('grainInfo.dat', 'w')
 f.write('1\n')
 f.write('2\n')
@@ -264,18 +288,14 @@ for i in range(Nx_grid):
             if geom[i,j,k] < solidIdx:
                 phasePlusVoids[i,j,k] = np.inf
 
-logging.info(f'dump new phase into phase + {phaseFileName}')
+logging.info(f'\nDumping new phase into phase + {phaseFileName}')
 np.save('void+' + phaseFileName, phasePlusVoids)
 
 # Save 3d microstructure as *.npy array
 np.save(outFileName[:-5] + '.npy', geom)
 
-
 # Convert 3d numpy array to 1d flatten array
 geom = geom.T.flatten()
-# print(np.unique(geom)) # debug
-# logging.info(f'geom_spk2dmsk.py: save modified geometry in {%s}\n') # need to debug
-
 
 # Write output
 num_lines = int(np.floor(len(geom)) / 10)
@@ -357,4 +377,4 @@ f.close()
 ### diagnostics
 
 elapsed = time.time() - t_start
-logging.info("geom_spk2dmsk.py: finished in {:5.2f} seconds.\n".format(elapsed))
+logging.info("seedVoid.py: finished in {:5.2f} seconds.\n".format(elapsed))

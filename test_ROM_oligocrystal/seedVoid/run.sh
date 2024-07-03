@@ -10,6 +10,8 @@ python3 seedVoid.py \
 
 python3 padAirPolycrystals.py --origGeomFileName="voidSeeded_3.000pc_${spkFileName}.geom"
 
+geom_check voidSeeded_3.000pc_${spkFileName}.geom
+
 geom_check padded_voidSeeded_3.000pc_${spkFileName}.geom
 
 python3 geom2npy.py --geom="padded_voidSeeded_3.000pc_${spkFileName}.geom"

@@ -7,15 +7,12 @@ import argparse
 import gc
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False)
 parser.add_argument("-f", "--fileName", type=str, required=True)
+parser.add_argument("-n", "--nameTag", type=str, default='', required=False)
+
 args = parser.parse_args()
-nameTag = args.nameTag
 fileName = args.fileName
-
-nameTag = nameTag.split('/')[0]
-print(nameTag)
-
+nameTag  = args.nameTag
 
 # cmap = plt.cm.get_cmap("viridis", 5)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
@@ -39,9 +36,8 @@ msMesh = reader.read()
 ms = msMesh.get_array('microstructure')
 msMesh.cell_data['microstructure']
 msMesh.set_active_scalars('microstructure', preference='cell')
-grainInfo = np.loadtxt('grainInfo.dat')
-# threshed = msMesh.threshold(value=1.0+1e-3)
-threshed = msMesh.threshold(value=(grainInfo[3], grainInfo[4]))
+threshed = msMesh.threshold(value=1.0+1e-3)
+# threshed = msMesh.threshold(value=(grainInfo[3], grainInfo[4]))
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)
 # pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)

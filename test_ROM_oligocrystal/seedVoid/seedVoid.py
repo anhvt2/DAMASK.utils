@@ -277,19 +277,21 @@ for solidIdx in solidIdxList:
 # renumerate geom
 logging.info(f'-------------- RE-ENUMERATION ---------------')
 geom = renumerate(geom, startIndex=1) # index start at 1
-numVoids = len(voidIdxList)
-solidIdx = 1 + numVoids + 1
-logging.info(f'Indexing grain id:')
+updatedNumVoids = len(voidIdxList)
+updatedSolidIdx = 1 + updatedNumVoids + 1
+updatedNumGrains = np.max(geom) - updatedSolidIdx + 1
+logging.info(f'\n\nIndexing grain id:')
 logging.info(f'Grain id for AIR: 1.')
-logging.info(f'Grain id for VOIDS: from 2 to {numVoids+1}.')
-logging.info(f'Grain id for SOLID: from {solidIdx} to {np.max(geom)}.')
+logging.info(f'Grain id for VOIDS: from 2 to {updatedNumVoids+1}.')
+logging.info(f'Grain id for SOLID: from {updatedSolidIdx} to {np.max(geom)}.')
+logging.info(f'Number of grains: {updatedNumGrains}.')
 
 # Dump essential indices to grainInfo.dat for fast check
 f = open('grainInfo.dat', 'w')
 f.write('1\n')
 f.write('2\n')
-f.write('%d\n' % (numVoids+1))
-f.write('%d\n' % solidIdx)
+f.write('%d\n' % (updatedNumVoids+1))
+f.write('%d\n' % updatedSolidIdx)
 f.write('%d\n' % np.max(geom))
 f.close()
 
@@ -298,7 +300,7 @@ phasePlusVoids = np.copy(phase)
 for i in range(Nx_grid):
     for j in range(Ny_grid):
         for k in range(Nz_grid):
-            if geom[i,j,k] < solidIdx:
+            if geom[i,j,k] < updatedSolidIdx:
                 phasePlusVoids[i,j,k] = np.inf
 
 logging.info(f'\nDumping new phase into phase + {phaseFileName}')
@@ -338,7 +340,7 @@ f.close()
 # Write orientations as part of material.config
 ubEulerAngles = np.array([360,180,360]) # upper bound
 lbEulerAngles = np.array([0,0,0]) # lower bound
-voidOrientations = np.random.rand(len(voidIdxList)+1, 3) * (ubEulerAngles - lbEulerAngles) + lbEulerAngles # +1 to include air
+voidOrientations = np.random.rand(updatedNumVoids+1, 3) * (ubEulerAngles - lbEulerAngles) + lbEulerAngles # +1 to include air
 solidOrientations = np.loadtxt('orientations.dat')
 outFileName = 'material.config'
 f = open(outFileName, 'w')
@@ -349,22 +351,21 @@ f.write('#######################################################################
 f.write('# Add <homogenization>, <crystallite>, and <phase> for a complete definition\n')
 f.write('#############################################################################\n')
 f.write('<texture>\n')
-
 ### NOTE:
 # if air_id = 1, then grain ids translate to (i+2)
-# if air_id = numGrains, then grain ids translate to (i+1)
+# if air_id = updatedNumGrains, then grain ids translate to (i+1)
 
 air_id = 1
 f.write('[grain%d]\n' % (air_id))
 f.write('(gauss) phi1 0   Phi 0    phi2 0   scatter 0.0   fraction 1.0 \n')
 
-for i in range(minNumVoidVoxels):
+for i in range(updatedNumVoids):
     f.write('[grain%d]\n' % (i+air_id+1)) # assign grain id
     phi1, Phi, phi2 = voidOrientations[i,:]
     f.write('(gauss) phi1 %.3f   Phi %.3f    phi2 %.3f   scatter 0.0   fraction 1.0 \n' % (phi1, Phi, phi2))
 
-for i in range(numGrains+1):
-    f.write('[grain%d]\n' % (i+minNumVoidVoxels+air_id+1)) # assign grain id
+for i in range(updatedNumGrains):
+    f.write('[grain%d]\n' % (i+updatedNumVoids+air_id+1)) # assign grain id
     phi1, Phi, phi2 = solidOrientations[i,:]
     f.write('(gauss) phi1 %.3f   Phi %.3f    phi2 %.3f   scatter 0.0   fraction 1.0 \n' % (phi1, Phi, phi2))
 
@@ -374,15 +375,15 @@ f.write('[grain%d]\n' % (air_id))
 f.write('crystallite 1\n')
 f.write('(constituent)   phase 2 texture %d fraction 1.0\n' % air_id)
 
-for i in range(minNumVoidVoxels):
+for i in range(updatedNumVoids):
     f.write('[grain%d]\n' % (i+air_id+1)) # assign grain id
     f.write('crystallite 1\n')
     f.write('(constituent)   phase 2 texture %d fraction 1.0\n' % (i+air_id+1)) # assign grain id
 
-for i in range(numGrains+1):
-    f.write('[grain%d]\n' % (i+minNumVoidVoxels+air_id+1)) # assign grain id
+for i in range(updatedNumGrains):
+    f.write('[grain%d]\n' % (i+updatedNumVoids+air_id+1)) # assign grain id
     f.write('crystallite 1\n')
-    f.write('(constituent)   phase 1 texture %d fraction 1.0\n' % (i+minNumVoidVoxels+air_id+1)) # assign grain id
+    f.write('(constituent)   phase 1 texture %d fraction 1.0\n' % (i+updatedNumVoids+air_id+1)) # assign grain id
 
 
 f.close()

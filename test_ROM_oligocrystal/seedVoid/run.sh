@@ -12,6 +12,10 @@ python3 padAirPolycrystals.py --origGeomFileName="voidSeeded_3.000pc_${spkFileNa
 
 geom_check padded_voidSeeded_3.000pc_${spkFileName}.geom
 
+python3 geom2npy.py --geom="padded_voidSeeded_3.000pc_${spkFileName}.geom"
+
+python3 findGaugeLocations.py --geom="padded_voidSeeded_3.000pc_${spkFileName}.npy" --resolution 50
+
 python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_3.000pc_${spkFileName}.vtr"
 
 cat material.config.preamble  | cat - material.config | sponge material.config

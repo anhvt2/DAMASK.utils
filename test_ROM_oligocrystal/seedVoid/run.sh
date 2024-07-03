@@ -22,4 +22,4 @@ python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_3.000pc_${spkFil
 
 cat material.config.preamble  | cat - material.config | sponge material.config
 
-cp padded_voidSeeded_3.000pc_${spkFileName}.vtr ../damask/main.geom
+cp padded_voidSeeded_3.000pc_${spkFileName}.geom ../damask/main.geom

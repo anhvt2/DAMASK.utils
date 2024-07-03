@@ -113,6 +113,12 @@ for fileName in $(ls -1v ${geomFileName}_${loadFileName}*.txt); do
 	 --vtk "${fileName}_pos(cell).vtr" \
 	 ${fileName}.txt
 
+    vtk_addRectilinearGridData \
+     --data 'fluct(f).pos','avg(f).pos' \
+     --vtk "${fileName}_pos(cell).vtr" \
+     ${fileName}_nodal.txt
+
+
 	echo "done processing ${fileName}."
 done
 

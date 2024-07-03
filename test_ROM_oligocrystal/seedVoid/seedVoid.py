@@ -87,9 +87,9 @@ def geom2npy(fileName):
     headers = txt[:numSkippingLines] # also return headers
     return Nx_grid, Ny_grid, Nz_grid, Nx_size, Ny_size, Nz_size, geom, headers
 
-def renumerate(geom): 
+def renumerate(geom, startIndex=0):
     ''' 
-    This function renumerates so that grain index starts at ZERO (0) and increases by 1. 
+    This function renumerates so that the DEFAULT grain index starts at ZERO (0) and increases by 1. 
     Input
     -----
         3d npy array
@@ -102,8 +102,9 @@ def renumerate(geom):
     for i in range(len(grainIdxList)):
         grainIdx = grainIdxList[i]
         x, y, z = np.where(geom==grainIdx)
+        logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')
         for j in range(len(x)):
-            renumeratedGeom[x[j],y[j],z[j]] = i
+            renumeratedGeom[x[j],y[j],z[j]] = i+startIndex
     return renumeratedGeom
 
 # Set up parser
@@ -208,25 +209,27 @@ while totalNumVoidVoxels < minNumVoidVoxels:
     x, y, z = sampleLocation(Nx_grid, Ny_grid, Nz_grid)
     # Sample a void from voidDictionary
     xV, yV, zV = sampleVoid(voidDictGeom)
-    # print(xV, yV, zV) # debug
     voidVoxels = len(xV)
     # Assign void id (if possible -- passed if not)
+    boolVoidSeed = False
     for i in range(len(xV)):
         try:
             # Criteria: do not assign void on the top of void
             if (x+xV[i] <= Nx_grid) and (y+yV[i] <= Ny_grid) and (z+zV[i] <= Nz_grid) and geom[x+xV[i], y+yV[i], z+zV[i]] > solidIdx:
                 geom[x+xV[i], y+yV[i], z+zV[i]] = tmpVoidIdx
+                boolVoidSeed = True
         except:
             # print('Warning: out-of-bounds error. Temporarily skip assigning void.')
             pass
-    # Increase void counter
-    totalNumVoidVoxels += voidVoxels
-    # Bump grainID by 1, leave space for assigning tmpVoidIdx in the future
-    geom += 1
-    # Track solidIdx
-    solidIdx += 1
-    # Track number of voids
-    numVoids += 1
+    if boolVoidSeed:
+        # Increase void counter
+        totalNumVoidVoxels += voidVoxels
+        # Bump grainID by 1, leave space for assigning tmpVoidIdx in the future
+        geom += 1
+        # Track solidIdx
+        solidIdx += 1
+        # Track number of voids
+        numVoids += 1
 
 # Assign AIR (TODO: is there a more efficient implementation?)
 for i in range(Nx_grid):
@@ -246,7 +249,7 @@ logging.info(f'Total number of voxels = {np.prod(phase.shape)} voxels.')
 logging.info(f'Number of solid voxels = {numSolidVoxels} voxels.')
 logging.info(f'Number of air voxels = {np.prod(phase.shape) - numSolidVoxels} voxels.')
 logging.info(f'Inserting AT LEAST {minNumVoidVoxels} voxels as voids.')
-logging.info(f'Estimate {len(np.unique(geom)) - numGrains - 1} clusters of voids.')
+# logging.info(f'Estimate {len(np.unique(geom)) - numGrains - 1} clusters of voids.') # deprecate: inaccurate indicator
 logging.info(f'Calculate {len(voidIdxList)} clusters of voids.') # do not account for AIR=1
 logging.info(f'Number of grains: {numGrains}.')
 logging.info(f'\n-------------------- NOTE --------------------\n')
@@ -270,6 +273,16 @@ logging.info(f'\nGrain Index, Grain Size')
 for solidIdx in solidIdxList:
     tmpGrain = np.where(geom == solidIdx)
     logging.info(f'{solidIdx},{len(tmpGrain[0])}')
+
+# renumerate geom
+logging.info(f'-------------- RE-ENUMERATION ---------------')
+geom = renumerate(geom, startIndex=1) # index start at 1
+numVoids = len(voidIdxList)
+solidIdx = 1 + numVoids + 1
+logging.info(f'Indexing grain id:')
+logging.info(f'Grain id for AIR: 1.')
+logging.info(f'Grain id for VOIDS: from 2 to {numVoids+1}.')
+logging.info(f'Grain id for SOLID: from {solidIdx} to {np.max(geom)}.')
 
 # Dump essential indices to grainInfo.dat for fast check
 f = open('grainInfo.dat', 'w')
@@ -325,7 +338,7 @@ f.close()
 # Write orientations as part of material.config
 ubEulerAngles = np.array([360,180,360]) # upper bound
 lbEulerAngles = np.array([0,0,0]) # lower bound
-voidOrientations = np.random.rand(minNumVoidVoxels+1, 3) * (ubEulerAngles - lbEulerAngles) + lbEulerAngles # +1 to include air
+voidOrientations = np.random.rand(len(voidIdxList)+1, 3) * (ubEulerAngles - lbEulerAngles) + lbEulerAngles # +1 to include air
 solidOrientations = np.loadtxt('orientations.dat')
 outFileName = 'material.config'
 f = open(outFileName, 'w')

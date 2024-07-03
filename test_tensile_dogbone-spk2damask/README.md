@@ -266,6 +266,7 @@ origGeom = np.load('voidSeeded_3.000pc_potts-12_3d.975.npy') # (120, 20, 200)
 downsampledGeom = zoom(origGeom, (0.5, 0.5, 0.5), order=0) # order must be 0 for disabling interpolation
 np.save('downsampledGeom.npy', downsampledGeom)
 ```
+* https://stackoverflow.com/questions/47775621/interpolate-resize-3d-array
 * `numpy`
 ```python
 import numpy as np

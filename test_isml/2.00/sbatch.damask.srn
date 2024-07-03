@@ -94,7 +94,7 @@ postResults \
     --range 1 40 1 ${geomFileName}_${loadFileName}.spectralOut 2>&1 > log.postResults
 
 cd postProc
-for fileName in $(ls -1v ${geomFileName}_${loadFileName}*.txt); do
+for fileName in $(ls -1v ${geomFileName}_${loadFileName}_inc*.txt); do
     fileName=$(echo ${fileName} | rev | cut -c 5- | rev)
     # fileName=$(echo ${fileName} | cut -d. -f1) # deprecated
 

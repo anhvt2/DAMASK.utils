@@ -58,12 +58,12 @@ pl = pyvista.Plotter(off_screen=True)
 reader = pyvista.get_reader(fileName)
 msMesh = reader.read()
 msMesh.set_active_scalars('texture', preference='cell')
-threshedMs = msMesh.threshold(value=(4807,8685), scalars='texture')
+threshedMs = msMesh.threshold(value=(779,816), scalars='texture')
 threshedMs.set_active_scalars('Mises(Cauchy)', preference='cell')
 
 msMesh.set_active_scalars('Mises(Cauchy)', preference='cell')
-# pl.add_mesh(msMesh, opacity=0.02, show_edges=False, line_width=0.01) # show original geometry
-pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01) # show original geometry
+pl.add_mesh(msMesh.threshold(value=1+1e-6), opacity=0.02, show_edges=False, line_width=0.01) # show original geometry
+# pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01) # show original geometry
 
 ## warped by deforming geometry with displacement field
 # https://docs.pyvista.org/version/stable/api/core/_autosummary/pyvista.DataSetFilters.warp_by_vector.html#pyvista.DataSetFilters.warp_by_vector

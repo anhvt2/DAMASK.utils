@@ -45,8 +45,8 @@ def computeDistance(pts_cloud_1, pts_cloud_2):
 	matrix_distance = np.zeros([num_pts_1, num_pts_2])
 	for i in range(num_pts_1):
 		for j in range(num_pts_2):
-			matrix_distance[i,j] = np.linalg.norm(pts_cloud_1[i] - pts_cloud_2[j], ord=1)
-			# matrix_distance[i,j] = np.sum(np.abs(pts_cloud_1[i] - pts_cloud_2[j]))
+			# matrix_distance[i,j] = np.linalg.norm(pts_cloud_1[i] - pts_cloud_2[j], ord=1)
+			matrix_distance[i,j] = np.sum(np.abs(pts_cloud_1[i] - pts_cloud_2[j]))
 	return matrix_distance
 
 def isNeighbor(grain_id_1, grain_id_2):
@@ -150,6 +150,7 @@ z_res = int(geomFileName.split('.')[0].split('_')[1].split('x')[2])
 d = read_geom(geomFileName)
 # from geom to table
 d = np.reshape(d, [z_res, y_res, x_res]).T
+np.save('geom', d)
 
 # from table to geom
 geom = d.T.flatten()
@@ -169,7 +170,8 @@ G = buildGraph(A)
 D = buildDegreeMatrix(A)
 L = buildLaplacianMatrix(A)
 
-print(D)
+print(A)
+# print(D) # debug
 # nx.draw(G, with_labels=True, node_color="tab:blue", font_size=22)
 labeldict = {}
 for i in range(num_grains):
@@ -184,7 +186,9 @@ nx.draw(G, with_labels=True, labels=labeldict)
 # nx.draw(G, with_labels=True, node_color="tab:blue", alpha=0.75, node_size=[D[i,i] * 100 for i in range(num_grains)], font_size=12)
 # nx.draw(G, labels=labeldict, with_labels=True, node_color="tab:blue", alpha=0.75, node_size=[D[i,i] * 100 for i in range(num_grains)], font_size=12)
 # nx.draw_networkx_labels(G, pos=nx.spring_layout(G), labels=grain_ids, alpha=0.75, font_size=22)
-print([D[i,i] for i in range(num_grains)])
+
+# print([D[i,i] for i in range(num_grains)]) # debug
+
 
 plt.savefig('graph_' + geomFileName.split('.')[0] + '.png')
 # plt.show()

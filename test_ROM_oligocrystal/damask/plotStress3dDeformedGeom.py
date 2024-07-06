@@ -74,11 +74,14 @@ pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01) # show o
 pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap)
 # pl.add_mesh(threshedMs, opacity=0.90, show_edges=True, line_width=1, cmap=cmap) # functional
 
-# pl.background_color = "white"
-# pl.remove_scalar_bar()
-labels = dict(xlabel='X', ylabel='Y', zlabel='Z')
-pl.show_grid(**labels)
+pl.background_color = "white"
+pl.remove_scalar_bar()
+# add_scalar_bar
+labels = dict(xlabel='X', ylabel='Y', zlabel='Z', color='black')
+# https://docs.pyvista.org/version/stable/api/plotting/_autosummary/pyvista.Plotter.add_axes.html#pyvista.Plotter.add_axes
+# pl.show_grid(**labels)
 pl.add_axes(**labels)
+# p.add_axes(x_color='pink', y_color='navy', z_color='tan', line_width=5)
 
 if nameTag == '':
     pl.screenshot(fileName.split('.')[0] + '.png', window_size=[1860*6,968*6])

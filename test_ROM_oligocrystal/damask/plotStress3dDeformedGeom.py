@@ -58,7 +58,11 @@ pl = pyvista.Plotter(off_screen=True)
 reader = pyvista.get_reader(fileName)
 msMesh = reader.read()
 msMesh.set_active_scalars('texture', preference='cell')
-threshedMs = msMesh.threshold(value=(779,816), scalars='texture')
+try:
+    grainInfo = np.loadtxt('../grainInfo.dat')
+except:
+    grainInfo = np.loadtxt('./grainInfo.dat')
+threshedMs = msMesh.threshold(value=(grainInfo[3],grainInfo[4]), scalars='texture')
 threshedMs.set_active_scalars('Mises(Cauchy)', preference='cell')
 
 msMesh.set_active_scalars('Mises(Cauchy)', preference='cell')
@@ -70,8 +74,11 @@ pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01) # show o
 pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap)
 # pl.add_mesh(threshedMs, opacity=0.90, show_edges=True, line_width=1, cmap=cmap) # functional
 
-pl.background_color = "white"
-pl.remove_scalar_bar()
+# pl.background_color = "white"
+# pl.remove_scalar_bar()
+labels = dict(xlabel='X', ylabel='Y', zlabel='Z')
+pl.show_grid(**labels)
+pl.add_axes(**labels)
 
 if nameTag == '':
     pl.screenshot(fileName.split('.')[0] + '.png', window_size=[1860*6,968*6])

@@ -62,25 +62,37 @@ try:
     grainInfo = np.loadtxt('../grainInfo.dat')
 except:
     grainInfo = np.loadtxt('./grainInfo.dat')
+
+## warped by deforming geometry with displacement field
+# https://docs.pyvista.org/version/stable/api/core/_autosummary/pyvista.DataSetFilters.warp_by_vector.html#pyvista.DataSetFilters.warp_by_vector
+# args_cbar = dict(height=0.75, vertical=True, position_x=0.25, position_y=0.15,
+#                  title_font_size=144, label_font_size=96, 
+#                  color='k') 
+args_cbar = dict(height=0.05, vertical=False, position_x=0.25, position_y=0.025,
+                 title_font_size=144, label_font_size=96, 
+                 color='k') 
+
+# see more options at https://docs.pyvista.org/version/stable/_downloads/3ee46f61736bb2769dbf5ed73c33d5dc/scalar-bars.py
+
+
 threshedMs = msMesh.threshold(value=(grainInfo[3],grainInfo[4]), scalars='texture')
 threshedMs.set_active_scalars('Mises(Cauchy)', preference='cell')
 
 msMesh.set_active_scalars('Mises(Cauchy)', preference='cell')
 # pl.add_mesh(msMesh, opacity=0.02, show_edges=False, line_width=0.01) # show original geometry
-pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01) # show original geometry
+pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01, scalar_bar_args=args_cbar) # show original geometry
 
-## warped by deforming geometry with displacement field
-# https://docs.pyvista.org/version/stable/api/core/_autosummary/pyvista.DataSetFilters.warp_by_vector.html#pyvista.DataSetFilters.warp_by_vector
-pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap)
+pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap, scalar_bar_args=args_cbar) # add scalar_bar_args
+# pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap)
 # pl.add_mesh(threshedMs, opacity=0.90, show_edges=True, line_width=1, cmap=cmap) # functional
 
 pl.background_color = "white"
-pl.remove_scalar_bar()
+# pl.remove_scalar_bar()
 # add_scalar_bar
 labels = dict(xlabel='X', ylabel='Y', zlabel='Z', color='black')
+pl.add_axes(**labels)
 # https://docs.pyvista.org/version/stable/api/plotting/_autosummary/pyvista.Plotter.add_axes.html#pyvista.Plotter.add_axes
 # pl.show_grid(**labels)
-pl.add_axes(**labels)
 # p.add_axes(x_color='pink', y_color='navy', z_color='tan', line_width=5)
 
 if nameTag == '':

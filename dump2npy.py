@@ -11,30 +11,18 @@
 
     Examples
     --------
-        python3 geom_spk2spk.py --vti='potts_3d.*.vti' --phase='m_dump_12_out.npy'
+        python3 geom_spk2spk.py --dumpFileName='dump.additive_dogbone.2802'
 
     Parameters
     ----------
-        --vti: dump file from SPPARKS
-        --phase (formatted in .npy): phase for dogbone modeling (could be generalized to internal void as well)
-        --void_id (DEPRECATED) (adopted from geom_cad2phase.py): default void_id = np.inf, non void = -1 (see geom_cad2phase.py for more information)
-
-
+        --dumpFileName: dump file from SPPARKS
 """
 
 import numpy as np
-import os
-import sys
-import time
-import glob
-import pandas as pd
-import matplotlib as mpl
-import matplotlib.pyplot as plt
+import os, sys, time, glob
 import argparse
-import pyvista
-from natsort import natsorted, ns
 from sklearn.cluster import DBSCAN
-from scipy.spatial.distance import pdist,squareform
+# from scipy.spatial.distance import pdist,squareform
 
 
 parser = argparse.ArgumentParser()
@@ -99,7 +87,7 @@ def getDumpMs(dumpFileName):
 
     return ms, Nx, Ny, Nz, numGrains
 
-def reEnumerate(ms):
+def renumerate(ms):
     '''
     ASSUMPTION: NON-PERIODIC
     This function
@@ -160,8 +148,8 @@ t_start = time.time()  # tic
 print(f'Reading dumpFileName {dumpFileName}...', end=' ')
 ms, Nx, Ny, Nz, numGrains = getDumpMs(dumpFileName)
 print(f'done!')
-print(f'Reenumerate microstructure...', end=' ')
-reEnum_ms = reEnumerate(ms)
+print(f'Renumerating microstructure...', end=' ')
+reEnum_ms = renumerate(ms)
 print(f'done!')
 
 # Save outputs
@@ -169,4 +157,4 @@ np.save(npyFileName, ms)
 np.save('reenum_' + npyFileName, reEnum_ms)
 
 elapsed = time.time() - t_start  # toc
-print("geom_spk2npy.py: finished in {:5.2f} seconds.\n".format(elapsed), end="")
+print("dump2npy.py: finished in {:5.2f} seconds.\n".format(elapsed), end="")

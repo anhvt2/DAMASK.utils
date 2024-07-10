@@ -1,1 +1,0 @@
-../geom_spk2npy.py

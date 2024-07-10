@@ -27,10 +27,13 @@ from sklearn.cluster import DBSCAN
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--dumpFileName",     type=str, required=True)
+parser.add_argument("-renum", "--renumateFlag",     type=str, required=False, default=False)
 args = parser.parse_args()
 
+
 dumpFileName = args.dumpFileName
-npyFileName = dumpFileName[:-4] + '.npy'
+renumateFlag = args.renumateFlag
+npyFileName = dumpFileName + '.npy'
 
 if os.path.exists(dumpFileName):
     print(f'{dumpFileName} exists. Checkpoint passed.')
@@ -84,7 +87,6 @@ def getDumpMs(dumpFileName):
         # option: DO NOT renumerate
         # m[i,j,k] = grain_id # TODO: implement renumerate grain_id
         # print(f"finish ({x},{y}, {z})")
-
     return ms, Nx, Ny, Nz, numGrains
 
 def renumerate(ms):
@@ -149,7 +151,10 @@ print(f'Reading dumpFileName {dumpFileName}...', end=' ')
 ms, Nx, Ny, Nz, numGrains = getDumpMs(dumpFileName)
 print(f'done!')
 print(f'Renumerating microstructure...', end=' ')
-reEnum_ms = renumerate(ms)
+if renumateFlag == True:
+    reEnum_ms = renumerate(ms)
+else:
+    reEnum_ms = ms
 print(f'done!')
 
 # Save outputs

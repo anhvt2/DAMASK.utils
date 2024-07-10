@@ -89,7 +89,7 @@ pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity
 pl.background_color = "white"
 # pl.remove_scalar_bar()
 # add_scalar_bar
-labels = dict(xlabel='X', ylabel='Y', zlabel='Z', color='black')
+labels = dict(xlabel='X', ylabel='Y', zlabel='Z', color='black', line_width=5)
 pl.add_axes(**labels)
 # https://docs.pyvista.org/version/stable/api/plotting/_autosummary/pyvista.Plotter.add_axes.html#pyvista.Plotter.add_axes
 # pl.show_grid(**labels)

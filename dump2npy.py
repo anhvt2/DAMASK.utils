@@ -26,12 +26,12 @@ from sklearn.cluster import DBSCAN
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-d", "--dumpFileName",     type=str, required=True)
+parser.add_argument("-dump", "--dump",     type=str, required=True)
 parser.add_argument("-renum", "--renumateFlag",     type=str, required=False, default=False)
 args = parser.parse_args()
 
 
-dumpFileName = args.dumpFileName
+dumpFileName = args.dump
 renumateFlag = args.renumateFlag
 npyFileName = dumpFileName + '.npy'
 
@@ -62,7 +62,7 @@ def getDumpMs(dumpFileName):
     d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
     # Get indices of relevant fields
     # print(header) # debug
-    typeIdx = np.where(header=='id')[0] # header=='type' or 'id' or 'i1'
+    typeIdx = np.where(header=='i1')[0] # header=='type' or 'i1'
     xIdx = np.where(header=='x')[0]
     yIdx = np.where(header=='y')[0]
     zIdx = np.where(header=='z')[0]
@@ -159,7 +159,7 @@ print(f'done!')
 
 # Save outputs
 np.save(npyFileName, ms)
-np.save('reenum_' + npyFileName, reEnum_ms)
+np.save(npyFileName, reEnum_ms) # deprecate: 'reenum_' + npyFileName
 
 elapsed = time.time() - t_start  # toc
 print("dump2npy.py: finished in {:5.2f} seconds.\n".format(elapsed), end="")

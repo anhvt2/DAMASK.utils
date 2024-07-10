@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export spkFileName="potts-12_3d.975"
+export spkFileName="dump.additive_dogbone.2807"
 
 python3 seedVoid.py \
     --origGeomFileName ${spkFileName}.geom \

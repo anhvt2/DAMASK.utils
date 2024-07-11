@@ -1,7 +1,12 @@
 
 # AM Dogbone - from SPK to DAMASK
 
-The idea of this project to model microstructure of high-throughput dogbone specimen through SPPARKS, and run the CPFEM through DAMASK.
+The idea of this project to model microstructure of high-throughput dogbone specimen through SPPARKS, and run the CPFEM through DAMASK. 
+
+Sandia hosted a few videos about the high-throughput tensile testing (HTT) on [https://www.sandia.gov/am/materials-reliability/materials/](https://www.sandia.gov/am/materials-reliability/materials/) with several videos in `mp4` format (see these videos, for examples, [./1-s2.0-S0921509319314182-mmc2.mp4](./1-s2.0-S0921509319314182-mmc2.mp4), [./vizAm-htt-dogbone-nodefect.mp4](./vizAm-htt-dogbone-nodefect.mp4), [./vizAm-htt-dogbone-wDefect.mp4](./vizAm-htt-dogbone-wDefect.mp4), [./hi-res-tomography.mp4](./hi-res-tomography.mp4), [./alinstante.mp4](./alinstante.mp4), [./tensile-demo.mp4](./tensile-demo.mp4)).
+
+* **High-throughput tensile testing**: To rapidly and inexpensively generate a statistically meaningful database for AM metal properties, Sandia created a unique, automated, high-throughput tensile testing system capable of testing approximately 100 samples/hour.
+* **Computer tomography**: Computer tomography (CT) imaging of porosity in the gauge section of an AM printed “dog bone” tensile sample.
 
 Here is a few versions of the dogbone specimens and their references:
 

@@ -406,6 +406,13 @@ That your workstation is faster than an HPC might be attributable to differences
 What to do with such simulations is a good question. We all know that averaged results (for “simple” materials) are usually quite accurately reproduced. I am fairly certain that the volume averaged sigma_zz in the gage section would be equal to the volume average of the farthest (or probably any) Z layer of the widest head section. Together with either the displacement data at the ends of the gage section or the volume averaged gage strain, this stress–strain curve should reflect macroscopic behavior. Now, of course, you are actually not having a large number of grains in the gage section... Hence, evaluating the intrinsic variability (maybe as function of texture sharpness) for micro samples (with only "few" grains) might be a nice exercise (and example to be put on the DAMASK website).
 ```
 
+8. Add `damage` and simulate fracture 
+
+References:
+1. [https://doi.org/10.1002/adem.201901044](https://doi.org/10.1002/adem.201901044) Diehl, Martin, Ding Wang, Chuanlai Liu, Jaber Rezaei Mianroodi, Fengbo Han, Duancheng Ma, Piet JJ Kok, Franz Roters, and Pratheek Shanthraj. "Solving material mechanics and multiphysics problems of metals with complex microstructures using DAMASK—The Düsseldorf advanced material simulation kit." Advanced Engineering Materials 22, no. 3 (2020): 1901044.
+2. [https://doi.org/10.1007/s11837-017-2308-8](https://doi.org/10.1007/s11837-017-2308-8) Diehl, M., Wicke, M., Shanthraj, P., Roters, F., Brueckner-Foit, A., & Raabe, D. (2017). Coupled crystal plasticity–phase field fracture simulation study on damage evolution around a void: Pore shape versus crystallographic orientation. JOM, 69, 872-878.
+3. [https://doi.org/10.1016/j.cma.2016.05.006](https://doi.org/10.1016/j.cma.2016.05.006) Shanthraj, P., Sharma, L., Svendsen, B., Roters, F., & Raabe, D. (2016). A phase field model for damage in elasto-viscoplastic materials. Computer Methods in Applied Mechanics and Engineering, 312, 167-185.
+
 ##### Efficient masking implementation
 
 ```python

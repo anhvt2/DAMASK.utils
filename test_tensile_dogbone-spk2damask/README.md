@@ -95,7 +95,7 @@ Microstructure info are in
 <!-- ![Geometry of the dogbone specimen](./316L_dogbone_3.png) | -->
 | ![./316L_dogbone_3.png](./316L_dogbone_3.png) |
 |:--:|
-| *Table 1 in [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090)* |
+| *Table 1 in [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090)*. Note that the yield strength increases (slide 14 - https://www.osti.gov/servlets/purl/1643360) as the size increases. |
 
 
 

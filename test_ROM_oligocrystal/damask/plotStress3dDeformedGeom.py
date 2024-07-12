@@ -38,8 +38,10 @@ print(nameTag)
 # cmap = plt.cm.get_cmap("viridis", 5)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
 # https://matplotlib.org/stable/tutorials/colors/colormaps.html
+# https://matplotlib.org/stable/users/explain/colors/colormaps.html
 # Ranking: (1) 'coolwarm', (2) 'ocean', (3) 'plasma' or 'inferno' or 'viridis'
 cmap = plt.cm.get_cmap('coolwarm')
+# cmap = plt.cm.get_cmap('RdBu')
 # cmap = plt.cm.get_cmap('viridis')
 # cmap = plt.cm.get_cmap('plasma')
 # cmap = plt.cm.get_cmap('inferno')
@@ -76,9 +78,9 @@ args_cbar = dict(height=0.05, vertical=False, position_x=0.25, position_y=0.025,
 
 
 threshedMs = msMesh.threshold(value=(grainInfo[3],grainInfo[4]), scalars='texture')
-threshedMs.set_active_scalars('Mises(Cauchy)', preference='cell')
+threshedMs.set_active_scalars('Mises(ln(V))', preference='cell')
 
-msMesh.set_active_scalars('Mises(Cauchy)', preference='cell')
+msMesh.set_active_scalars('Mises(ln(V))', preference='cell')
 # pl.add_mesh(msMesh, opacity=0.02, show_edges=False, line_width=0.01) # show original geometry
 pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01, scalar_bar_args=args_cbar) # show original geometry
 

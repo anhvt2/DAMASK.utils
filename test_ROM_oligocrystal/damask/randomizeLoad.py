@@ -47,7 +47,7 @@ for i in range(numSim):
     # Go back to the main directory
     os.chdir(currentPath)
     # Diagnostics
-    print(f'Finished folder {i}')
+    print(f'Finished folder {folderName}/')
 
 logger.close()
 os.chdir(currentPath) # reset to the original path

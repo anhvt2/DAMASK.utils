@@ -438,4 +438,26 @@ maskedVti += 1
 1. Fracture modeling with CPFEM/PF
 1. Fatigue prediction
 
+# Other references
 
+
+### Experimental
+1. B. Boyce, B. Salzbrenner, J. Rodelas, L. Swiler, J. Madison, B. Jared, Y. Shen, Extreme‐Value Statistics Reveal Rare Failure‐Critical Defects in Additive Manufacturing, Advanced Engineering Materials, 19(8) (2017) 1-10.
+1. B. Jared, M. Aguilo, L. Beghini, B. Boyce, B. Clark, A. Cook, B. Kaehr, J. Robbins, Additive Manufacturing: Toward Holistic Design, Scripta Materialia, 135 (2017) 141-147.
+1. B. Salzbrenner, J. Rodelas, J. Madison, B. Jared, L. Swiler, Y. Shen, B. Boyce, High-Throughput Stochastic Tensile Performance of Additively Manufactured Stainless Steel, Journal of Materials Processing Technology, 241 (2017) 1-12.
+1. J.D. Madison, O.D. Underwood, L.P. Swiler, B.L. Boyce, B.H. Jared, J.M. Rodelas, B.C. Salzbrenner, Corroborating Tomographic Defect Metrics with Mechanical Response in an Additively Manufactured Precipitation-Hardened Stainless Steel, 44th Annual Review of Progress in Quantitative Nondestructive Evaluation, Vol 37 1949(1) (2018) 020009.
+1. P. Yang, M.A. Rodriguez, L.A. Deibler, B.H. Jared, J. Griego, A. Kilgo, A. Allen, D.K. Stefan, Effect of thermal annealing on microstructure evolution and mechanical behavior of an additive manufactured AlSi10Mg part, Journal of Materials Research 33(12) (2018) 1701-1712.
+1. R.F. Schaller, J.M. Taylor, J. Rodelas, E.J. Schindelholz, Corrosion Properties of Powder Bed Fusion Additively Manufactured 17-4 PH Stainless Steel, Corrosion 73(7) (2017) 796-807.
+1. R.F. Schaller, A. Mishra, J.M. Rodelas, J.M. Taylor, E.J. Schindelholz, The Role of Microstructure and Surface Finish on the Corrosion of Selective Laser Melted 304L, Journal of The Electrochemical Society 165(5) (2018) C234-C242.
+1. N. Yang, J. Yee, B. Zheng, K. Gaiser, T. Reynolds, L. Clemon, W. Lu, J. Schoenung, E. Lavernia, Process-structure-property relationships for 316L stainless steel fabricated by additive manufacturing and its implication for component engineering, Journal of Thermal Spray Technology 26(4) (2017) 610-626.
+1. C.B. Finfrock, A. Exil, J.D. Carroll, L. Deibler, Effect of Hot Isostatic Pressing and Powder Feedstock on Porosity, Microstructure, and Mechanical Properties of Selective Laser Melted AlSi10Mg, Metallography, Microstructure, and Analysis  (2018) 1-14.
+### Modeling & Simulation
+1. T.M. Rodgers, J.E. Bishop, J.D. Madison, “Direct Numerical Simulation of Mechanical Response in Synthetic Additively Manufactured Microstructures” Modelling & Simulation in Materials Science and Engineering 2018, 26(5)
+1. T.M. Rodgers, J. Mitchell, V. Tikare, “A Monte Carlo model for 3D grain evolution during welding” Modelling & Simulation in Materials Science and Engineering 2017, 25(6)
+1. T.M. Rodgers, J. Madison, V. Tikare, “Simulation of Metal Additive Manufacturing Microstructures Using Kinetic Monte Carlo” Computational Materials Science 2017, 135: p. 78-89
+1. E. Popova, T.M. Rodgers, X. Gong, A Cecen, J. Madison, S. Kalidindi, “Process-Structure Linkages Using a Data Science Approach: Application to Simulated Additive Manufacturing Data” Integr Mater Manuf Innov 2017
+1. T.M. Rodgers, J. Madison, V. Tikare, M. Maguire, “Predicting Mesoscale Microstructural Evolution in Electron Beam Welding” JOM 2016, 68(5): p. 1419-1426
+1. Stender, M.E., Beghini, L.L., Sugar, J.D., Veilleux, M.G., Subia, S.R., Smith, T.R., San Marchi, C.W., Brown, A.A., Dagel, D.J., “A Thermal-Mechanical Finite Element Workflow for Directed Energy Deposition Additive Manufacturing Process Modeling,” Additive Manufacturing, 2018. https://doi.org/10.1016/j.addma.2018.04.012
+1. Johnson, K.L, Rodgers, T.M., Underwood, O.D., Madison, J.D., Ford, K.R., Whetten, S.R. Dagel, D.J., Bishop, J.E. “Simulation and Experimental Comparison of the Thermo-Mechanical History and 3D Microstructure Evolution of 304L Stainless Steel Tubes Manufactured Using LENS,” Computational Mechanics, 2018.  https://doi.org/10.1007/s00466-017-1516-y
+1. Salloum, M., Johnson, K.L., Bishop, J.E., Aytec, J.M., Dagel, D.J., van Bloemen Waanders, B., “Adaptive Wavelet Compression of Large Additive Manufacturing Experimental and Simulation Datasets,” Computational Mechanics, 2018.  https://doi.org/10.1007/s00466-018-1605-6
+1. Kustas, A.B., Susan, D.F., Johnson, K.L., Whetten, S.R., Rodriquez, M.A., Dagel, D.J., Michael, J.R., Keicher, D.M., Argibay, N. “Characterization of the Fe-Co-1.5V Soft Ferromagnetic Alloy Processed by Laser Engineered Net Shaping (LENS),” Additive Manufacturing (21), 2018.

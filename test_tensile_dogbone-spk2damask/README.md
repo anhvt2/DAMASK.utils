@@ -413,6 +413,8 @@ References:
 2. [https://doi.org/10.1007/s11837-017-2308-8](https://doi.org/10.1007/s11837-017-2308-8) Diehl, M., Wicke, M., Shanthraj, P., Roters, F., Brueckner-Foit, A., & Raabe, D. (2017). Coupled crystal plasticity–phase field fracture simulation study on damage evolution around a void: Pore shape versus crystallographic orientation. JOM, 69, 872-878.
 3. [https://doi.org/10.1016/j.cma.2016.05.006](https://doi.org/10.1016/j.cma.2016.05.006) Shanthraj, P., Sharma, L., Svendsen, B., Roters, F., & Raabe, D. (2016). A phase field model for damage in elasto-viscoplastic materials. Computer Methods in Applied Mechanics and Engineering, 312, 167-185.
 
+9. Extend to **cellular/metamaterials** architectures. See prior numerical works done by Minh-Son Pham and experimental works by Brad Boyce.
+
 ##### Efficient masking implementation
 
 ```python

@@ -2,21 +2,22 @@
 
 seed         56789
 
-variable     res    equal   10    # resolution: 1 pixel = ${res} um
-variable     L      equal   10000 # dogbone specimen length (um)
-variable     W      equal   6000  # dogbone specimen width (um)
-variable     T      equal   1000  # dogbone specimen thickness (um)
+variable     res        equal   10          # resolution: 1 pixel = ${res} um
+variable     refRatio   equal   50 / ${res} # reference ratio for scaling, reference resolution = 50um
+variable     L          equal   10000       # dogbone specimen length (um)
+variable     W          equal   6000        # dogbone specimen width (um)
+variable     T          equal   1000        # dogbone specimen thickness (um)
 
-variable     Nx     equal ${W}/${res}
-variable     Ny     equal ${T}/${res}
-variable     Nz     equal ${L}/${res}
-variable     Nspin  equal ${Nx}*${Ny}*${Nz}/10
-variable     NxNyNz equal ${Nx}*${Ny}*${Nz}
+variable     Nx         equal ${W}/${res}
+variable     Ny         equal ${T}/${res}
+variable     Nz         equal ${L}/${res}
+variable     Nspin      equal ${Nx}*${Ny}*${Nz}/10
+variable     NxNyNz     equal ${Nx}*${Ny}*${Nz}
 
-variable     imgRes equal 5
-variable     NxRes  equal ${Nx}*${imgRes}
-variable     NyRes  equal ${Ny}*${imgRes}
-variable     NzRes  equal ${Nz}*${imgRes}
+variable     imgRes     equal 5
+variable     NxRes      equal ${Nx}*${imgRes}
+variable     NyRes      equal ${Ny}*${imgRes}
+variable     NzRes      equal ${Nz}*${imgRes}
 
 #———————————————————————————————————————————
 
@@ -25,29 +26,30 @@ variable     NzRes  equal ${Nz}*${imgRes}
          
 # app_style     potts/additive     1000 30 70 30 7     50 90 45 12 0.1 # default
 # app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: kind of working
-#
-variable    spotWidth       equal   40 # 8
-variable    meltTailLength  equal   100 # 20
-variable    meltDepth       equal   40 # 8
-variable    capHeight       equal   20 # 4
+# app_style     potts/additive     1000  8 20  8 4     16 25 12  5 0.1 # user-defined: kind of working
+# app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: kind of working
+variable    spotWidth       equal   10 * ${refRatio}
+variable    meltTailLength  equal   23 * ${refRatio}
+variable    meltDepth       equal   10 * ${refRatio}
+variable    capHeight       equal    4 * ${refRatio}
 
-variable    haz             equal   90 # 16
-variable    tailHaz         equal   125 # 25
-variable    depthHaz        equal   60 # 12
-variable    capHaz          equal   25 # 5
+variable    haz             equal   16 * ${refRatio}
+variable    tailHaz         equal   30 * ${refRatio}
+variable    depthHaz        equal   15 * ${refRatio}
+variable    capHaz          equal    5 * ${refRatio}
 
 variable    thickness       equal   ${meltDepth}
 variable    numLayers       equal   floor(${Nz}/${meltDepth})+1
 
-variable    speed           equal   50 # 10
-variable    hatchSpacing    equal   50 # 10
+variable    speed           equal   10 * ${refRatio}
+variable    hatchSpacing    equal   10 * ${refRatio}
 
 #———————————————————————————————————————————
 
 #Setup melt pool and scanning patterns
 #——————————————————————————————————————————— 
 
-app_style   potts/additive     5000 ${spotWidth} ${meltTailLength} ${meltDepth} ${capHeight}     ${haz} ${tailHaz} ${depthHaz}  ${capHaz} 0.1 # user-defined
+app_style   potts/additive     1000 ${spotWidth} ${meltTailLength} ${meltDepth} ${capHeight}     ${haz} ${tailHaz} ${depthHaz}  ${capHaz} 0.1 # user-defined
 
 #  |————————————————————————————————————————
 #  | nspins     = atoi(arg[1])

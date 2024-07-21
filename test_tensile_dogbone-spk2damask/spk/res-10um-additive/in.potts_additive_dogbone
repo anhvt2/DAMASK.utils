@@ -3,7 +3,7 @@
 seed         56789
 
 variable     res        equal   10          # resolution: 1 pixel = ${res} um
-variable     refRatio   equal   50 / ${res} # reference ratio for scaling, reference resolution = 50um
+variable     refRatio   equal   50/${res} # reference ratio for scaling, reference resolution = 50um
 variable     L          equal   10000       # dogbone specimen length (um)
 variable     W          equal   6000        # dogbone specimen width (um)
 variable     T          equal   1000        # dogbone specimen thickness (um)
@@ -28,21 +28,21 @@ variable     NzRes      equal ${Nz}*${imgRes}
 # app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: kind of working
 # app_style     potts/additive     1000  8 20  8 4     16 25 12  5 0.1 # user-defined: kind of working
 # app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: kind of working
-variable    spotWidth       equal   10 * ${refRatio}
-variable    meltTailLength  equal   23 * ${refRatio}
-variable    meltDepth       equal   10 * ${refRatio}
-variable    capHeight       equal    4 * ${refRatio}
+variable    spotWidth       equal   10*${refRatio}
+variable    meltTailLength  equal   23*${refRatio}
+variable    meltDepth       equal   10*${refRatio}
+variable    capHeight       equal    4*${refRatio}
 
-variable    haz             equal   16 * ${refRatio}
-variable    tailHaz         equal   30 * ${refRatio}
-variable    depthHaz        equal   15 * ${refRatio}
-variable    capHaz          equal    5 * ${refRatio}
+variable    haz             equal   16*${refRatio}
+variable    tailHaz         equal   30*${refRatio}
+variable    depthHaz        equal   15*${refRatio}
+variable    capHaz          equal    5*${refRatio}
 
 variable    thickness       equal   ${meltDepth}
 variable    numLayers       equal   floor(${Nz}/${meltDepth})+1
 
-variable    speed           equal   10 * ${refRatio}
-variable    hatchSpacing    equal   10 * ${refRatio}
+variable    speed           equal   10*${refRatio}
+variable    hatchSpacing    equal   10*${refRatio}
 
 #———————————————————————————————————————————
 

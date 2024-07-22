@@ -424,6 +424,9 @@ maskedVti = np.multiply(maskedPhase, currentNpy)
 maskedVti += 1
 ```
 
+10. Animate / create a gif animation of SPPARKS and DAMASK:
+* see https://tutorial.pyvista.org/tutorial/03_figures/d_gif.html
+
 
 
 # Future directions

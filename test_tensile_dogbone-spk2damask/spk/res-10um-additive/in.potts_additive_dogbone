@@ -27,22 +27,24 @@ variable     NzRes      equal ${Nz}*${imgRes}
 # app_style     potts/additive     1000 30 70 30 7     50 90 45 12 0.1 # default
 # app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: kind of working
 # app_style     potts/additive     1000  8 20  8 4     16 25 12  5 0.1 # user-defined: kind of working
-# app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: kind of working
-variable    spotWidth       equal   10*${refRatio}
-variable    meltTailLength  equal   23*${refRatio}
-variable    meltDepth       equal   10*${refRatio}
-variable    capHeight       equal    4*${refRatio}
+# app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: working
+# app_style     potts/additive     1000 20 45 20 8     27 50 30 10 0.1 # user-defined: kind of working
 
-variable    haz             equal   16*${refRatio}
-variable    tailHaz         equal   30*${refRatio}
-variable    depthHaz        equal   15*${refRatio}
-variable    capHaz          equal   5*${refRatio}
+variable    spotWidth       equal   20*${refRatio}
+variable    meltTailLength  equal   45*${refRatio}
+variable    meltDepth       equal   20*${refRatio}
+variable    capHeight       equal   8*${refRatio}
+
+variable    haz             equal   27*${refRatio}
+variable    tailHaz         equal   50*${refRatio}
+variable    depthHaz        equal   30*${refRatio}
+variable    capHaz          equal   10*${refRatio}
 
 variable    thickness       equal   ${meltDepth}/2
 variable    numLayers       equal   floor(${Nz}/${meltDepth})+1
 
-variable    speed           equal   10*${refRatio}
-variable    hatchSpacing    equal   5*${refRatio}
+variable    speed           equal   12*${refRatio}
+variable    hatchSpacing    equal   4*${refRatio}
 
 #———————————————————————————————————————————
 

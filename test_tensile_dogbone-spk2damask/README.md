@@ -426,6 +426,7 @@ maskedVti += 1
 
 10. Animate / create a gif animation of SPPARKS and DAMASK:
 * see https://tutorial.pyvista.org/tutorial/03_figures/d_gif.html
+* see https://github.com/pyvista/pyvista-xarray/discussions/49
 
 
 

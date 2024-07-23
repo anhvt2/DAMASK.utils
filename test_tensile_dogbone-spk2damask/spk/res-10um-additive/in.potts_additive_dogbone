@@ -28,7 +28,7 @@ variable     NzRes      equal ${Nz}*${imgRes}
 # app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: kind of working
 # app_style     potts/additive     1000  8 20  8 4     16 25 12  5 0.1 # user-defined: kind of working
 # app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: working
-# app_style     potts/additive     1000 20 45 20 8     27 50 30 10 0.1 # user-defined: kind of working
+# app_style     potts/additive     1000 20 45 20 8     27 50 30 10 0.1 # user-defined: testing
 
 variable    spotWidth       equal   20*${refRatio}
 variable    meltTailLength  equal   45*${refRatio}
@@ -41,10 +41,10 @@ variable    depthHaz        equal   30*${refRatio}
 variable    capHaz          equal   10*${refRatio}
 
 variable    thickness       equal   ${meltDepth}/4
-variable    numLayers       equal   floor(${Nz}/${meltDepth})+1
+variable    numLayers       equal   floor(${Nz}/${thickness})+1
 
-variable    speed           equal   6*${refRatio}
-variable    hatchSpacing    equal   4*${refRatio}
+variable    speed           equal   12*${refRatio}
+variable    hatchSpacing    equal    5*${refRatio}
 
 #———————————————————————————————————————————
 

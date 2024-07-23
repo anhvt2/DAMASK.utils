@@ -428,6 +428,16 @@ maskedVti += 1
 * see https://tutorial.pyvista.org/tutorial/03_figures/d_gif.html
 * see https://github.com/pyvista/pyvista-xarray/discussions/49
 
+##### Efficient conversion from .vti to .npy
+```python
+def load_vti_to_array(fileName):
+    reader = pyvista.get_reader(fileName)
+    msMesh = reader.read()
+    ms = msMesh.get_array('Spin')
+    x, y, z = int(msMesh.bounds[1]), int(msMesh.bounds[3]), int(msMesh.bounds[5])
+    ms = ms.reshape(z,y,x).T
+    return np.array(ms)
+```
 
 
 # Future directions

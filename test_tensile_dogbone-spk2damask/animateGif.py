@@ -52,9 +52,9 @@ msMesh = pyvista.get_reader(vtiFileList[0]).read()
 x_ex, y_ex, z_ex = msMesh.x, msMesh.y, msMesh.z
 
 ### 
-grid = pv.StructuredGrid(x_ex, y_ex, z_ex)
+grid = pyvista.StructuredGrid(x_ex, y_ex, z_ex)
 
-pl = pv.Plotter()
+pl = pyvista.Plotter()
 pl.add_mesh(
     grid.threshold(value=1, scalars='Spin'),
     scalars="Spin",

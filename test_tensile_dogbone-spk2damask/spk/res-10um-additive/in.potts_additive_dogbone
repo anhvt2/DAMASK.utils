@@ -30,21 +30,21 @@ variable     NzRes      equal ${Nz}*${imgRes}
 # app_style     potts/additive     1000 10 23 10 4     16 30 15  5 0.1 # user-defined: working
 # app_style     potts/additive     1000 20 45 20 8     27 50 30 10 0.1 # user-defined: testing
 
-variable    spotWidth       equal   20*${refRatio}
-variable    meltTailLength  equal   45*${refRatio}
-variable    meltDepth       equal   20*${refRatio}
-variable    capHeight       equal   8*${refRatio}
+variable    spotWidth       equal   6*${refRatio}
+variable    meltTailLength  equal   4*${refRatio}
+variable    meltDepth       equal   15*${refRatio}
+variable    capHeight       equal   5*${refRatio}
 
-variable    haz             equal   27*${refRatio}
-variable    tailHaz         equal   50*${refRatio}
-variable    depthHaz        equal   30*${refRatio}
-variable    capHaz          equal   10*${refRatio}
+variable    haz             equal   8*${refRatio}
+variable    tailHaz         equal   6*${refRatio}
+variable    depthHaz        equal   20*${refRatio}
+variable    capHaz          equal   6*${refRatio}
 
-variable    thickness       equal   ${meltDepth}/4
+variable    thickness       equal   ${meltDepth}/2
 variable    numLayers       equal   floor(${Nz}/${thickness})+1
 
 variable    speed           equal   8*${refRatio}
-variable    hatchSpacing    equal   5*${refRatio}
+variable    hatchSpacing    equal   2*${refRatio}
 
 #———————————————————————————————————————————
 
@@ -90,7 +90,7 @@ set             d1 value 0.0
 # using am pass and cartesian layer commands.   
 #———————————————————————————————————————————
 
-am pass 1 dir X speed ${speed} hatch ${hatchSpacing}
+am pass 1 dir X speed ${speed} hatch ${hatchSpacing} serpentine 0
 # am pass 2 dir Y speed 10 hatch 10
 
 

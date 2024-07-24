@@ -52,11 +52,12 @@ msMesh = pyvista.get_reader(vtiFileList[0]).read()
 x_ex, y_ex, z_ex = msMesh.x, msMesh.y, msMesh.z
 
 ### 
-grid = pyvista.StructuredGrid(x_ex, y_ex, z_ex)
+# grid = pyvista.StructuredGrid(x_ex, y_ex, z_ex)
+grid = msMesh.copy(deep=True)
 
 pl = pyvista.Plotter()
 pl.add_mesh(
-    grid.threshold(value=1, scalars='Spin'),
+    grid, # msMesh.threshold(value=1+1e-6, scalars='Spin'),
     scalars="Spin",
     lighting=False,
     show_edges=True,
@@ -70,7 +71,8 @@ for i in range(1, len(vtiFileList)):
     if np.any(currentMs != previousMs):
         highlightedCurrentMs = highlightMs(currentMs, initialMs)
         # nextMs = maskMs(phase, np.load(vtiFileList[i+1]))
-        grid['Spin'] = highlightedCurrentMs
+        grid.points = highlightedCurrentMs.ravel()
+        grid['Spin'] = highlightedCurrentMs.ravel()
         pl.write_frame()
         print(f'done {vtiFileList[i]}')
         j += 1

@@ -1,4 +1,12 @@
 
+"""
+This script stitches *.vti to a *.gif with sequentially different sequences. It only selects the frames that are different (no matter how small the difference is) to make a movie.
+
+How to use:
+    ls -1v *.vti > vtiFileList.txt
+    python3 ../../animateGif.py --vtiFileListPointer='vtiFileList.txt' --phaseFileName='phase_dump_10_out.npy'
+"""
+
 import numpy as np
 import pyvista
 import matplotlib.pyplot as plt
@@ -6,6 +14,8 @@ import glob, os
 import argparse
 import gc
 from natsort import natsorted, ns # natural-sort
+pyvista.start_xvfb() # for running on headless server
+
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-fl", "--vtiFileListPointer", help='provide the (synchronous) file for *.vti', type=str, default='', required=True) # 'ls -1v *.vti > vtiFileList.txt'

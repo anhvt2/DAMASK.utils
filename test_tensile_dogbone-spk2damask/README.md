@@ -415,6 +415,22 @@ References:
 
 9. Extend to **cellular/metamaterials** architectures. See prior numerical works done by Minh-Son Pham and experimental works by Brad Boyce.
 
+##### Running PyVista on a headless server
+
+Based on [https://github.com/pyvista/pyvista-support/issues/190](https://github.com/pyvista/pyvista-support/issues/190)
+
+```shell
+#!/bin/bash
+set -x
+export DISPLAY=:99.0
+export PYVISTA_OFF_SCREEN=true
+which Xvfb
+Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+sleep 3
+set +x
+exec "$@"
+```
+
 ##### Efficient masking implementation
 
 ```python

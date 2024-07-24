@@ -131,7 +131,23 @@ Attempts:
     1. 3D grain growth as conventional microstructure to benchmark AM: `spk/in.potts_3d`
     2. Simulating AM with parameters: `spk/in.potts_additive_dogbone`
 
+| ![./spk-400am_pool_schematic.png](./spk-400am_pool_schematic.png) |
+|:--:|
+| *Melt pool geometry parameters setting (more info in [https://spparks.github.io/doc/app_am_ellipsoid.html](https://spparks.github.io/doc/app_am_ellipsoid.html)* |
+
+| ![./spk-pass_schematic.png](./spk-pass_schematic.png) |
+|:--:|
+| *SPPARKS raster scan pattern (more info in [https://spparks.github.io/doc/am_pass.html](https://spparks.github.io/doc/am_pass.html)* |
+
+
+| ![./spk-am_bezier_curves.png](./spk-am_bezier_curves.png) |
+|:--:|
+| *SPPARKS melt pool geometry modeling with Bezier curve (more info in [https://spparks.github.io/doc/app_potts_am_bezier.html](https://spparks.github.io/doc/app_potts_am_bezier.html)* |
+
+
 SPPARKS commands used:
+* Specify Bezier curves: [https://spparks.github.io/doc/potts_am_bezier.html](https://spparks.github.io/doc/potts_am_bezier.html)
+* Specify Bezier control points: [https://spparks.github.io/doc/app_potts_am_bezier.html](https://spparks.github.io/doc/app_potts_am_bezier.html)
 * [https://spparks.github.io/doc/variable.html](https://spparks.github.io/doc/variable.html)
 * [https://spparks.github.io/doc/am_cartesian_layer.html](https://spparks.github.io/doc/am_cartesian_layer.html)
 * [https://spparks.github.io/doc/am_pass.html](https://spparks.github.io/doc/am_pass.html)

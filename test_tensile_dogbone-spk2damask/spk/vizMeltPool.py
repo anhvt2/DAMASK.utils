@@ -9,6 +9,7 @@ This script
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
+from matplotlib import colors
 from matplotlib.ticker import LinearLocator
 from mpl_toolkits.mplot3d import Axes3D
 import random
@@ -72,7 +73,7 @@ print('')
 # Plot
 
 
-def plotHalfEllipsoid(a,b,c,optLT,ax,optLR='both',**kwargs):
+def plotHalfEllipsoid(a,b,c,optLT,ax,optLR='both', alpha=0.9,**kwargs):
     '''
     See DAMASK.utils/test_tensile_dogbone-spk2damask/README.md for more info on parameterization
     * $\phi \in [-\frac{\pi}{2}, \frac{\pi}{2}]$ for leading half-ellipsoid
@@ -106,27 +107,28 @@ def plotHalfEllipsoid(a,b,c,optLT,ax,optLR='both',**kwargs):
     x = a*np.sin(theta)*np.cos(phi)
     y = b*np.sin(theta)*np.sin(phi)
     z = c*np.cos(theta)
-    ax.plot_surface(x, y, z, color="#"+''.join([random.choice('0123456789ABCDEF') for j in range(6)])) # randomize colors: https://stackoverflow.com/questions/28999287/generate-random-colors-rgb
+    randomColor = "#"+''.join([random.choice('0123456789ABCDEF') for j in range(6)])
+    ax.plot_surface(x, y, z, color=randomColor, alpha=alpha) # randomize colors: https://stackoverflow.com/questions/28999287/generate-random-colors-rgb
     return None
 
 fig = plt.figure()  # Square figure
 ax = fig.add_subplot(111, projection='3d')
 # Plot metling pool
-plotHalfEllipsoid(capHeight, spotWidth/2, meltDepth, 'lead', ax, optLR='left')
-plotHalfEllipsoid(meltTailLength, spotWidth/2, meltDepth, 'trail', ax, optLR='left')
+plotHalfEllipsoid(capHeight, spotWidth/2, meltDepth, 'lead', ax, optLR='both', alpha=0.75)
+plotHalfEllipsoid(meltTailLength, spotWidth/2, meltDepth, 'trail', ax, optLR='both', alpha=0.75)
 # Plot HAZ
-plotHalfEllipsoid(capHaz, haz/2, depthHaz, 'lead', ax, optLR='right')
-plotHalfEllipsoid(tailHaz, haz/2, depthHaz, 'trail', ax, optLR='right')
+plotHalfEllipsoid(capHaz, haz/2, depthHaz, 'lead', ax, optLR='both', alpha=0.5)
+plotHalfEllipsoid(tailHaz, haz/2, depthHaz, 'trail', ax, optLR='both', alpha=0.5)
 
 plt.axis('equal')
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.set_zlabel('z')
-# https://matplotlib.org/stable/api/_as_gen/mpl_toolkits.mplot3d.axes3d.Axes3D.voxels.html#mpl_toolkits.mplot3d.axes3d.Axes3D.voxels
-x,y,z = np.indices((int(tailHaz+capHaz+1), int(haz+1), int(depthHaz+1)))
-x -= int(tailHaz)
-y -= int(haz/2.)
-z -= int(depthHaz)
-ax.voxels(x,y,z, np.full((x.shape[0]-1,x.shape[1]-1,x.shape[2]-1), True), edgecolors='k', alpha=0.2)
+# # https://matplotlib.org/stable/api/_as_gen/mpl_toolkits.mplot3d.axes3d.Axes3D.voxels.html#mpl_toolkits.mplot3d.axes3d.Axes3D.voxels
+# x,y,z = np.indices((int(tailHaz+capHaz+1), int(haz+1), int(depthHaz+1)))
+# x -= int(tailHaz)
+# y -= int(haz/2.)
+# z -= int(depthHaz)
+# ax.voxels(x,y,z, np.full((x.shape[0]-1,x.shape[1]-1,x.shape[2]-1), True), edgecolors=(0.0, 0.0, 0.0, 0.25))
 plt.show()
 

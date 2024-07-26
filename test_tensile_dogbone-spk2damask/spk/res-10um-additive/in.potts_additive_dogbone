@@ -32,18 +32,18 @@ variable     NzRes      equal ${Nz}*${imgRes}
 
 variable    spotWidth       equal   20 # 6*${refRatio}
 variable    meltTailLength  equal   20 # 4*${refRatio}
-variable    meltDepth       equal   25 # 15*${refRatio}
+variable    meltDepth       equal   15 # 15*${refRatio}
 variable    capHeight       equal   10 # 5*${refRatio}
 
 variable    haz             equal   30 # 8*${refRatio}
 variable    tailHaz         equal   30 # 6*${refRatio}
-variable    depthHaz        equal   30 # 20*${refRatio}
+variable    depthHaz        equal   20 # 20*${refRatio}
 variable    capHaz          equal   15 # 6*${refRatio}
 
-variable    thickness       equal   15 # ${meltDepth}/5
+variable    thickness       equal   10 # ${meltDepth}/5
 variable    numLayers       equal   floor(${Nz}/${thickness})+1
 
-variable    speed           equal   5 # 4*${refRatio}
+variable    speed           equal   10 # 4*${refRatio}
 variable    hatchSpacing    equal   10 # 2*${refRatio}
 
 #———————————————————————————————————————————
@@ -51,7 +51,7 @@ variable    hatchSpacing    equal   10 # 2*${refRatio}
 #Setup melt pool and scanning patterns
 #——————————————————————————————————————————— 
 
-app_style   potts/additive     1000 ${spotWidth} ${meltTailLength} ${meltDepth} ${capHeight}     ${haz} ${tailHaz} ${depthHaz}  ${capHaz} 0.1 # user-defined
+app_style   potts/additive     1000 ${spotWidth} ${meltTailLength} ${meltDepth} ${capHeight}     ${haz} ${tailHaz} ${depthHaz}  ${capHaz} 0.05 # user-defined
 
 #  |————————————————————————————————————————
 #  | nspins     = atoi(arg[1])

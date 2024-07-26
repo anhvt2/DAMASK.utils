@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Do not put any commands or blank lines before the #SBATCH lines
-#SBATCH --nodes=50                    # Number of nodes - all cores per node are allocated to the job
+#SBATCH --nodes=2                     # Number of nodes - all cores per node are allocated to the job
 #SBATCH --time=96:00:00               # Wall clock time (HH:MM:SS) - once the job exceeds this time, the job will be terminated (default is 5 minutes)
 #SBATCH --account=FY140174	      # WC ID
 #SBATCH --job-name=spk                # Name of job
@@ -15,11 +15,12 @@
 
 
 nodes=$SLURM_JOB_NUM_NODES           # Number of nodes - the number of nodes you have requested (for a list of SLURM environment variables see "man sbatch")
-cores=36                             # Number MPI processes to run on each node (a.k.a. PPN)
+nProc=$(nproc)
+cores=$(( $nProc/2 ))                # Number MPI processes to run on each node (a.k.a. PPN)
                                      # CTS1 has 36 cores per node
 # using openmpi-intel/1.10
 # mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) /path/to/executable [--args...]
 
-
-mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) spk < in.potts_additive_HelicalGear
+rm *.vti
+mpiexec --bind-to core --npernode $cores --n $(($cores*$nodes)) spk < in.potts_additive_dogbone
 

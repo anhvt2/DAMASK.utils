@@ -140,7 +140,7 @@ For AM visualization:
 * $\phi$:
     * $\phi \in [-\frac{\pi}{2}, \frac{\pi}{2}]$ for leading half-ellipsoid
     * $\phi \in [\frac{\pi}{2}, \frac{3\pi}{2}]$ for trailing half-ellipsoid.
-* $\theta$: $\theta \in [\frac{pi}{2}, \pi]$ for below melting pool.
+* $\theta$: $\theta \in [\frac{\pi}{2}, \pi]$ for below melting pool.
 
 
 

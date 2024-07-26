@@ -125,6 +125,57 @@ References:
 
 # SPPARKS (+ DREAM.3D + seedVoid.py)
 
+##### Parameterization of double-ellipsoid for AM
+
+See https://mathworld.wolfram.com/Ellipsoid.html for spherical coordinates parameterization.
+$$x = a * \cos(\phi) * \sin(\theta)$$
+$$y = b * \sin(\phi) * \sin(\theta)$$
+$$z = c * \cos(\theta)$$
+
+Usual intervals used:
+* $\phi \in [0, 2\pi]$
+* $\theta \in [0, \pi]$
+
+For AM visualization:
+* $\phi$:
+    * $\phi \in [-\frac{\pi}{2}, \frac{\pi}{2}]$ for leading half-ellipsoid
+    * $\phi \in [\frac{\pi}{2}, \frac{3\pi}{2}]$ for trailing half-ellipsoid.
+* $\theta$: $\theta \in [\frac{pi}{2}, \pi]$ for below melting pool.
+
+
+
+```python
+# https://stackoverflow.com/questions/37812525/plotting-an-ellipsoid
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator
+import numpy as np
+
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+import numpy as np
+
+# phi = np.linspace(-1/2*np.pi,1/2*np.pi, 256).reshape(256, 1) # leading ellipsoid
+phi = np.linspace(1/2*np.pi,3/2*np.pi, 256).reshape(256, 1) # leading ellipsoid
+theta = np.linspace(0.5*np.pi, np.pi, 256).reshape(-1, 256) # the angle from the polar axis, ie the polar angle
+radius = 4
+
+# Transformation formulae for a spherical coordinate system.
+ratio=3
+x = ratio*radius*np.sin(theta)*np.cos(phi)
+y = radius*np.sin(theta)*np.sin(phi)
+z = radius*np.cos(theta)
+
+fig = plt.figure()  # Square figure
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(x, y, z, color='b')
+ax.set_box_aspect([ratio,1,1])
+plt.show()
+```
+
+
+##### SPPARKS double-ellipsoid AM parameters
+
 ~~need a parser from SPPARKS to DAMASK `.geom` file~~: `geom_spk2dmsk.py`
 
 Attempts:

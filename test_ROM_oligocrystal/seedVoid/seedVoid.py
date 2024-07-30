@@ -106,17 +106,18 @@ def renumerate(geom, startIndex=0, cluster=False):
         grainIdx = grainIdxList[i]
         x, y, z = np.where(geom==grainIdx)
         if cluster==True:
+            # Perform clustering algorithm to decluster many grains with same grain id: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html
             X = np.hstack((np.atleast_2d(x).T, np.atleast_2d(y).T, np.atleast_2d(z).T))
-            # Perform clustering algorithm
             clustering = DBSCAN(eps=2, min_samples=5).fit(X)
-            # Relabel grainId for every pixels needed relabel: np.min(clustering.labels_[j]) = 0
+            # Relabel grainId for every pixels needed relabel: Cluster labels for each point in the dataset given to fit(). Noisy samples are given the label -1.
+            clustering.labels_ -= np.min(clustering.labels_) # re-start at 0: no noisy samples
             for j in range(clustering.labels_.shape[0]):
                 renumeratedGeom[x[j],y[j],z[j]] = maxGrainId+clustering.labels_[j]+1+startIndex
             # Update maxGrainId
             maxGrainId = np.max(np.sort(np.unique(renumeratedGeom)))
-            logging.info(f'Segregating grains for grainId {grainIdx}')
-            logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {maxGrainId+clustering.labels_[j]+1+startIndex}.')
+            logging.info(f'renumerate(): Segregating grains from grainId {grainIdx} to [{maxGrainId+1+startIndex}, {grainIdx+np.max(clustering.labels_)+1+startIndex}].')
         else:
+            # (simply) Renumerate without clustering grains
             logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')
             for j in range(len(x)):
                 renumeratedGeom[x[j],y[j],z[j]] = i+startIndex
@@ -245,6 +246,8 @@ while totalNumVoidVoxels < minNumVoidVoxels:
         solidIdx += 1
         # Track number of voids
         numVoids += 1
+        # Print diagnostics
+        print(f'Finished seeding {totalNumVoidVoxels} out of {minNumVoidVoxels} voxels...')
 
 # Assign AIR (TODO: is there a more efficient implementation?)
 for i in range(Nx_grid):

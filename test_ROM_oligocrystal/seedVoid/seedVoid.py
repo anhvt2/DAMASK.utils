@@ -115,7 +115,7 @@ def renumerate(geom, startIndex=0, cluster=False):
                 renumeratedGeom[x[j],y[j],z[j]] = maxGrainId+clustering.labels_[j]+1+startIndex
             # Update maxGrainId
             maxGrainId = np.max(np.sort(np.unique(renumeratedGeom)))
-            logging.info(f'renumerate(): Segregating grains from grainId {grainIdx} to [{maxGrainId+1+startIndex}, {grainIdx+np.max(clustering.labels_)+1+startIndex}].')
+            logging.info(f'renumerate(): Segregating grains from grainId {grainIdx} to [{maxGrainId+1+startIndex}, {maxGrainId+np.max(clustering.labels_)+1+startIndex}].')
         else:
             # (simply) Renumerate without clustering grains
             logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')

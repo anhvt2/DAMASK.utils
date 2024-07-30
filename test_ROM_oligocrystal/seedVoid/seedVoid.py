@@ -1,6 +1,8 @@
 import numpy as np
 import glob, os
 from natsort import natsorted, ns # natural-sort
+from sklearn.cluster import DBSCAN
+from scipy.spatial.distance import pdist,squareform
 import random
 import pyvista
 import argparse
@@ -87,7 +89,7 @@ def geom2npy(fileName):
     headers = txt[:numSkippingLines] # also return headers
     return Nx_grid, Ny_grid, Nz_grid, Nx_size, Ny_size, Nz_size, geom, headers
 
-def renumerate(geom, startIndex=0):
+def renumerate(geom, startIndex=0, cluster=False):
     ''' 
     This function renumerates so that the DEFAULT grain index starts at ZERO (0) and increases by 1. 
     Input
@@ -97,14 +99,27 @@ def renumerate(geom, startIndex=0):
     ------
         3d npy array
     '''
-    grainIdxList = np.unique(geom)
+    grainIdxList = np.sort(np.unique(geom))
     renumeratedGeom = np.copy(geom) # make a deep copy
+    maxGrainId = np.max(grainIdList)
     for i in range(len(grainIdxList)):
         grainIdx = grainIdxList[i]
         x, y, z = np.where(geom==grainIdx)
-        logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')
-        for j in range(len(x)):
-            renumeratedGeom[x[j],y[j],z[j]] = i+startIndex
+        if cluster==True:
+            X = np.hstack((np.atleast_2d(x).T, np.atleast_2d(y).T, np.atleast_2d(z).T))
+            # Perform clustering algorithm
+            clustering = DBSCAN(eps=2, min_samples=10).fit(X)
+            # Relabel grainId for every pixels needed relabel
+            for j in range(clustering.labels_.shape[0]):
+                renumeratedGeom[x[j],y[j],z[j]] = maxGrainId+clustering.labels_[j]+startIndex
+            # Update maxGrainId
+            maxGrainId = np.max(np.sort(np.unique(renumeratedGeom)))
+            logging.info(f'Segregating grains for grainId {grainId}')
+            logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {maxGrainId+clustering.labels_[j]+startIndex}.')
+        else:
+            logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')
+            for j in range(len(x)):
+                renumeratedGeom[x[j],y[j],z[j]] = i+startIndex
     return renumeratedGeom
 
 # Set up parser
@@ -191,7 +206,7 @@ def sampleLocation(Nx, Ny, Nz):
 # Initialize
 totalNumVoidVoxels = 0
 solidIdx = 2 # minimum = 2
-geom = renumerate(np.copy(origGeom)) + solidIdx # make a deep copy of origGeom, sindex starts at solidIdx
+geom = renumerate(np.copy(origGeom), cluster=True) + solidIdx # make a deep copy of origGeom, sindex starts at solidIdx
 numVoids = 0
 if solidIdx < 2:
     raise ValueError('solidIdx must be at least 2.')

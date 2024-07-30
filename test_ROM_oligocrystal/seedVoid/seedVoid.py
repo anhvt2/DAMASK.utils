@@ -102,10 +102,10 @@ def renumerate(geom, startIndex=0, cluster=False):
     grainIdxList = np.sort(np.unique(geom))
     renumeratedGeom = np.copy(geom) # make a deep copy
     maxGrainId = np.max(grainIdxList)
-    for i in range(len(grainIdxList)):
-        grainIdx = grainIdxList[i]
-        x, y, z = np.where(geom==grainIdx)
-        if cluster==True:
+    if cluster==True:
+        for i in range(len(grainIdxList)):
+            grainIdx = grainIdxList[i]
+            x, y, z = np.where(geom==grainIdx)
             # Perform clustering algorithm to decluster many grains with same grain id: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html
             X = np.hstack((np.atleast_2d(x).T, np.atleast_2d(y).T, np.atleast_2d(z).T))
             clustering = DBSCAN(eps=2, min_samples=5).fit(X)
@@ -114,9 +114,19 @@ def renumerate(geom, startIndex=0, cluster=False):
             for j in range(clustering.labels_.shape[0]):
                 renumeratedGeom[x[j],y[j],z[j]] = maxGrainId+clustering.labels_[j]+1+startIndex
             # Update maxGrainId
-            maxGrainId = np.max(np.sort(np.unique(renumeratedGeom)))
+            maxGrainId = np.max(np.unique(renumeratedGeom))+np.max(clustering.labels_)+1+startIndex
             logging.info(f'renumerate(): Segregating grains from grainId {grainIdx} to [{maxGrainId+1+startIndex}, {maxGrainId+np.max(clustering.labels_)+1+startIndex}].')
-        else:
+        for i in range(len(grainIdxList)):
+            grainIdx = grainIdxList[i]
+            x, y, z = np.where(geom==grainIdx)    
+            # (simply) Renumerate without clustering grains
+            logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')
+            for j in range(len(x)):
+                renumeratedGeom[x[j],y[j],z[j]] = i+startIndex
+    else:
+        for i in range(len(grainIdxList)):
+            grainIdx = grainIdxList[i]
+            x, y, z = np.where(geom==grainIdx)    
             # (simply) Renumerate without clustering grains
             logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')
             for j in range(len(x)):

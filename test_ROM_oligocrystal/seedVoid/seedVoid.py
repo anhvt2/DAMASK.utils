@@ -101,21 +101,21 @@ def renumerate(geom, startIndex=0, cluster=False):
     '''
     grainIdxList = np.sort(np.unique(geom))
     renumeratedGeom = np.copy(geom) # make a deep copy
-    maxGrainId = np.max(grainIdList)
+    maxGrainId = np.max(grainIdxList)
     for i in range(len(grainIdxList)):
         grainIdx = grainIdxList[i]
         x, y, z = np.where(geom==grainIdx)
         if cluster==True:
             X = np.hstack((np.atleast_2d(x).T, np.atleast_2d(y).T, np.atleast_2d(z).T))
             # Perform clustering algorithm
-            clustering = DBSCAN(eps=2, min_samples=10).fit(X)
-            # Relabel grainId for every pixels needed relabel
+            clustering = DBSCAN(eps=2, min_samples=5).fit(X)
+            # Relabel grainId for every pixels needed relabel: np.min(clustering.labels_[j]) = 0
             for j in range(clustering.labels_.shape[0]):
-                renumeratedGeom[x[j],y[j],z[j]] = maxGrainId+clustering.labels_[j]+startIndex
+                renumeratedGeom[x[j],y[j],z[j]] = maxGrainId+clustering.labels_[j]+1+startIndex
             # Update maxGrainId
             maxGrainId = np.max(np.sort(np.unique(renumeratedGeom)))
-            logging.info(f'Segregating grains for grainId {grainId}')
-            logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {maxGrainId+clustering.labels_[j]+startIndex}.')
+            logging.info(f'Segregating grains for grainId {grainIdx}')
+            logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {maxGrainId+clustering.labels_[j]+1+startIndex}.')
         else:
             logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')
             for j in range(len(x)):

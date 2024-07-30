@@ -91,10 +91,14 @@ def geom2npy(fileName):
 
 def renumerate(geom, startIndex=0, cluster=False):
     ''' 
-    This function renumerates so that the DEFAULT grain index starts at ZERO (0) and increases by 1. 
+    This function renumerates so that the DEFAULT grain index starts at ZERO (0) and (gradually) increases by 1. 
     Input
     -----
         3d npy array
+        startIndex: starting index, usually at 0 or 1
+        cluster: 'False' or 'True'
+            * True: perform clustering algorithm using DBSCAN then renumerate
+            * False: only renumerate
     Output
     ------
         3d npy array
@@ -103,31 +107,40 @@ def renumerate(geom, startIndex=0, cluster=False):
     renumeratedGeom = np.copy(geom) # make a deep copy
     maxGrainId = np.max(grainIdxList)
     if cluster==True:
+        # Perform clustering algorithm to decluster many grains with same grain id: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html
         for i in range(len(grainIdxList)):
             grainIdx = grainIdxList[i]
             x, y, z = np.where(geom==grainIdx)
-            # Perform clustering algorithm to decluster many grains with same grain id: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html
             X = np.hstack((np.atleast_2d(x).T, np.atleast_2d(y).T, np.atleast_2d(z).T))
             clustering = DBSCAN(eps=2, min_samples=5).fit(X)
             # Relabel grainId for every pixels needed relabel: Cluster labels for each point in the dataset given to fit(). Noisy samples are given the label -1.
             clustering.labels_ -= np.min(clustering.labels_) # re-start at 0: no noisy samples
             for j in range(clustering.labels_.shape[0]):
-                renumeratedGeom[x[j],y[j],z[j]] = maxGrainId+clustering.labels_[j]+1+startIndex
+                renumeratedGeom[x[j],y[j],z[j]] = maxGrainId+clustering.labels_[j]+startIndex+1
+            # Print diagnostics
+            logging.info(f'clustering.labels_ = {clustering.labels_}')
+            logging.info(f'np.min(clustering.labels_) = {np.min(clustering.labels_)}')
+            logging.info(f'np.max(clustering.labels_) = {np.max(clustering.labels_)}')
+            logging.info(f'maxGrainId = {maxGrainId}')
+            logging.info(f'renumerate(): Segregating grains from grainId {grainIdx} to [{maxGrainId+np.min(clustering.labels_)+startIndex+1}, {maxGrainId+np.max(clustering.labels_)+startIndex+1}].')
+            logging.info(f'\n')
             # Update maxGrainId
-            maxGrainId = np.max(np.unique(renumeratedGeom))+np.max(clustering.labels_)+1+startIndex
-            logging.info(f'renumerate(): Segregating grains from grainId {grainIdx} to [{maxGrainId+1+startIndex}, {maxGrainId+np.max(clustering.labels_)+1+startIndex}].')
+            # maxGrainId = np.max(renumeratedGeom)+np.max(clustering.labels_)+startIndex+1 # debug
+            # maxGrainId += np.max(clustering.labels_)+startIndex+1 # debug
+            maxGrainId = np.max(renumeratedGeom) # debug
+        # run vanilla renumerate()
+        grainIdxList = np.sort(np.unique(renumeratedGeom))
         for i in range(len(grainIdxList)):
             grainIdx = grainIdxList[i]
             x, y, z = np.where(geom==grainIdx)    
-            # (simply) Renumerate without clustering grains
             logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')
             for j in range(len(x)):
                 renumeratedGeom[x[j],y[j],z[j]] = i+startIndex
     else:
+        # run vanilla renumerate() without clustering grains
         for i in range(len(grainIdxList)):
             grainIdx = grainIdxList[i]
             x, y, z = np.where(geom==grainIdx)    
-            # (simply) Renumerate without clustering grains
             logging.info(f'renumerate(): Mapping grain id from {grainIdx} to {startIndex+i}.')
             for j in range(len(x)):
                 renumeratedGeom[x[j],y[j],z[j]] = i+startIndex

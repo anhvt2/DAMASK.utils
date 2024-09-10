@@ -58,9 +58,10 @@ pl = pyvista.Plotter(off_screen=True)
 pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure', show_edges=True, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()
-# pl.camera_position = 'xz'
-# pl.camera.azimuth = -10
-# pl.camera.elevation = +10
+# pl.camera_position = 'yz'
+# pl.camera.elevation += 25
+# pl.camera.roll += 0
+# pl.camera.azimuth += 25
 # pl.show(screenshot='%s.png' % fileName[:-4])
 # pl.show()
 if nameTag == '':

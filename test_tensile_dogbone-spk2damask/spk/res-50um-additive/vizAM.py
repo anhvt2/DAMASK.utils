@@ -1,7 +1,7 @@
 
 """
 Example how to use:
-python3 vizAM.py --npyFolderName='npy' --phaseFileName='void+phase_dump_12_out.npy'
+    python3 vizAM.py --npyFolderName='npy' --phaseFileName='void+phase_dump_12_out.npy'
 
 then
 bash highlight.sh

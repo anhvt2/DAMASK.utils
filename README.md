@@ -8,7 +8,8 @@ To download external packages for *any* PETSc packages, go to [https://ftp.mcs.a
 
 ##### Ghost HPC
 ```shell
-# Ghost - 25Sep24
+
+# Ghost - 25Sep24 (WORKED - in production)
 module purge
 module load gnu/13.1.1
 # Currently Loaded Modules:
@@ -48,8 +49,9 @@ cd petsc-3.9.4
     --FFLAGS='-w -fallow-argument-mismatch -O2' \
     PETSC_ARCH="arch-linux2-c-opt" PETSC_DIR=`pwd`
 
-# cd ..
-htop
+make PETSC_DIR=/ascldap/users/anhtran/data/petsc/petsc-3.9.4 PETSC_ARCH=arch-linux2-c-opt all
+make PETSC_DIR=/ascldap/users/anhtran/data/petsc/petsc-3.9.4 PETSC_ARCH=arch-linux2-c-opt install
+make PETSC_DIR=/ascldap/users/anhtran/local/petsc-3.9.4 PETSC_ARCH="" test
 ```
 
 ##### Skybridge HPC

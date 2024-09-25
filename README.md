@@ -1,3 +1,117 @@
+# PETSc
+
+Compiling PETsc can be a challenging task. Version control, dependencies, for examples, are a few challenges.
+
+To download external packages for *any* PETSc packages, go to [https://ftp.mcs.anl.gov/pub/petsc/externalpackages/](https://ftp.mcs.anl.gov/pub/petsc/externalpackages/). Many Sandia HPCs sit behind a great firewall and will not be able to download a simple package (even from a `.gov` domain), so it may be wise to supply all external packages internally. 
+
+### PETSc-3.9.4
+
+##### Ghost HPC
+```shell
+# Ghost - 25Sep24
+module purge
+module load gnu/13.1.1
+# Currently Loaded Modules:
+#   1) gnu/13.1.1
+rm -rfv petsc-3.9.4/
+tar -xvzf petsc-3.9.4.tar.gz
+cd petsc-3.9.4
+
+
+./configure \
+    --prefix=$HOME/local/petsc-3.9.4 \
+    --download-openmpi=$HOME/data/petsc/externalpackages-3.9.4/openmpi/openmpi-3.0.1.tar.gz \
+    --download-cmake=$HOME/data/petsc/externalpackages-3.9.4/cmake/cmake-3.9.6.tar.gz \
+    --download-fblaslapack=$HOME/data/petsc/externalpackages-3.9.4/fblaslapack/fblaslapack-3.4.2.tar.gz \
+    --download-fftw=$HOME/data/petsc/externalpackages-3.9.4/fftw/fftw-3.3.3.tar.gz \
+    --download-hdf5=$HOME/data/petsc/externalpackages-3.9.4/hdf5/hdf5-1.8.18.tar.gz \
+    --download-chaco=$HOME/data/petsc/externalpackages-3.9.4/Chaco-2.2-p2.tar.gz \
+    --download-hypre=$HOME/data/petsc/externalpackages-3.9.4/git.hypre \
+    --download-ml=$HOME/data/petsc/externalpackages-3.9.4/git.ml \
+    --download-metis=$HOME/data/petsc/externalpackages-3.9.4/git.metis \
+    --download-netcdf=$HOME/data/petsc/externalpackages-3.9.4/netcdf-4.5.0 \
+    --download-parmetis=$HOME/data/petsc/externalpackages-3.9.4/git.parmetis \
+    --download-superlu=$HOME/data/petsc/externalpackages-3.9.4/git.superlu \
+    --download-superlu_dist=$HOME/data/petsc/externalpackages-3.9.4/git.superlu_dist \
+    --download-triangle=$HOME/data/petsc/externalpackages-3.9.4/Triangle/Triangle.tar.gz \
+    --download-zlib=$HOME/data/petsc/externalpackages-3.9.4/zlib/zlib-1.2.11.tar.gz \
+    --with-x=0 \
+    --with-cxx-dialect=C++11 \
+    --with-c2html=0 \
+    --with-fc=gfortran \
+    --with-cc=gcc \
+    --with-f77=gfortran \
+    --with-f90=gfortran \
+    --with-debugging=0 \
+    --with-ssl=0 \
+    --FCFLAGS='-w -fallow-argument-mismatch -O2' \
+    --FFLAGS='-w -fallow-argument-mismatch -O2' \
+    PETSC_ARCH="arch-linux2-c-opt" PETSC_DIR=`pwd`
+
+# cd ..
+htop
+```
+
+##### Skybridge HPC
+
+```shell
+# Skybridge - 14Jun23 (WORKED - in production - see modules load for running)
+module purge
+module load openmpi-gnu/2.1
+module load gnu/8.2.1 
+# Currently Loaded Modules:
+#   1) openmpi-gnu/2.1   2) gnu/8.2.1
+rm -rfv petsc-3.9.4/
+tar -xvzf petsc-3.9.4.tar.gz
+cd petsc-3.9.4
+
+./configure \
+    --prefix=$HOME/local/petsc-3.9.4 \
+    --download-openmpi \
+    --download-cmake \
+    --download-fblaslapack \
+    --download-fftw \
+    --download-hdf5 \
+    --download-chaco \
+    --download-hypre=$HOME/data/petsc/externalpackages-3.9.4/git.hypre \
+    --download-ml=$HOME/data/petsc/externalpackages-3.9.4/git.ml \
+    --download-metis=$HOME/data/petsc/externalpackages-3.9.4/git.metis \
+    --download-netcdf=$HOME/data/petsc/externalpackages-3.9.4/netcdf-4.5.0 \
+    --download-parmetis=$HOME/data/petsc/externalpackages-3.9.4/git.parmetis \
+    --download-superlu=$HOME/data/petsc/externalpackages-3.9.4/git.superlu \
+    --download-superlu_dist=$HOME/data/petsc/externalpackages-3.9.4/git.superlu_dist \
+    --download-triangle \
+    --download-zlib \
+    --with-x=0 \
+    --with-cxx-dialect=C++11 \
+    --with-c2html=0 \
+    --with-debugging=0 \
+    --with-ssl=0 \
+    --with-fc=mpif90 \
+    --with-cc=mpicc \
+    --with-cxx=mpicxx \
+    --with-f77=mpif77 \
+    --with-f90=mpif90 \
+    PETSC_ARCH="arch-linux2-c-opt" PETSC_DIR=`pwd`
+
+
+    # COPTFLAGS="-frecursive" \
+    # COPTFLAGS="-O3 -xHost -no-prec-div -frecursive" \
+    # CXXOPTFLAGS="-O3 -xHost -no-prec-div" \
+    # FOPTFLAGS="-O3 -xHost -no-prec-div" \
+    # PETSC_ARCH="arch-linux2-c-opt" PETSC_DIR=`pwd`
+
+make PETSC_DIR=/ascldap/users/anhtran/data/petsc/petsc-3.9.4 PETSC_ARCH=arch-linux2-c-opt all
+make PETSC_DIR=/ascldap/users/anhtran/data/petsc/petsc-3.9.4 PETSC_ARCH=arch-linux2-c-opt install
+
+# when running -- use these modules instead
+module load gnu/10.2.1
+module load openmpi-gnu/4.1
+module load tce
+module load python/3.6.0
+
+```
+
 # DAMASK.utils
 
 DAMAKS utilities scripts

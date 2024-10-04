@@ -64,6 +64,9 @@ pl.remove_scalar_bar()
 # pl.camera.azimuth += 25
 # pl.show(screenshot='%s.png' % fileName[:-4])
 # pl.show()
+pl.add_axes(color='k')
+pl.show_axes() # https://docs.pyvista.org/api/plotting/_autosummary/pyvista.renderer.add_axes
+
 if nameTag == '':
     pl.screenshot(npyFileName[:-4] + '.png', window_size=[1860*6,968*6])
 else:

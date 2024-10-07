@@ -39,4 +39,13 @@ Make sure to use dislocation-density-based constitutive model for high-/low-stra
 
 # ROM
 
+ROM is constructed from FOM following these steps.
+
+1. Extract numerical values from FOM
+2. Compute POD basis and POD coefficients
+3. Train ML
+4. Predict POD coefficients
+5. Reconstruct ROM
+6. Reparse ROM to FOM for visualization
+
 # 3D Visualization

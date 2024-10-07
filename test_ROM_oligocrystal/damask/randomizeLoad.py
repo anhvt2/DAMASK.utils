@@ -27,7 +27,7 @@ dotVareps = sample_scaled[:,0]
 initialT  = sample_scaled[:,1]
 loadingTime = maxTargetStrain / sample_scaled[:,0]
 logger = open('control.log', 'w')
-logger.write('dotVareps, loadingTime, initialT\n')
+logger.write('i, dotVareps, loadingTime, initialT\n')
 
 # Create file based on DAMASK 'template/' folder
 for i in range(numSim):

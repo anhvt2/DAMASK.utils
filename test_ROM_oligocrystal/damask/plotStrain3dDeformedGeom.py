@@ -24,7 +24,7 @@ parser = argparse.ArgumentParser()
 '''
 
 parser.add_argument("-f", "--vtr", help='.vtr file', type=str, default='', required=True) 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='Stress', required=False) 
+parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='Strain', required=False) 
 parser.add_argument("-show_edges", "--show_edges", help='append to fileName', type=bool, default=True, required=False)
 args = parser.parse_args()
 fileName = args.vtr
@@ -79,9 +79,9 @@ args_cbar = dict(height=0.05, vertical=False, position_x=0.25, position_y=0.025,
 
 
 threshedMs = msMesh.threshold(value=(grainInfo[3],grainInfo[4]), scalars='texture')
-threshedMs.set_active_scalars('Mises(Cauchy)', preference='cell')
+threshedMs.set_active_scalars('Mises(ln(V))', preference='cell')
 
-msMesh.set_active_scalars('Mises(Cauchy)', preference='cell')
+msMesh.set_active_scalars('Mises(ln(V))', preference='cell')
 # pl.add_mesh(msMesh, opacity=0.02, show_edges=False, line_width=0.01) # show original geometry
 pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01, scalar_bar_args=args_cbar) # show original geometry
 

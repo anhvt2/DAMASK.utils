@@ -186,15 +186,17 @@ cd ..
 
 #### SPPARKS
 
-Run `in.potts_3d` with hybrid phase-field/kMC with sufficiently long trajectory.
+~~Run `in.potts_3d` with hybrid phase-field/kMC with sufficiently long trajectory.~~
+
+Run `in.potts_additive_dogbone` and visualize the whole AM process. Note: use an appropriate `.mp4` viewer (or risk having your computer shutdown for choking memory).
 
 #### DREAM.3D
 
-Sample orientation, and voids morphology.
+Sample orientation, and voids morphology. See `dream3d-void-libs/voidDAMASK.json`. This is a DREAM3D file and can be opened by DREAM3D.
 
 #### seedVoid.py
 
-Sample void throughout the computational domain
+Sample void throughout the computational domain where voids are sampled from a dictionary with log normal distribution. See `seedVoid/seedVoid.py`. 
 
 #### DAMASK
 

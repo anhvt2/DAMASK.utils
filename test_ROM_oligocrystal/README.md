@@ -206,7 +206,7 @@ Make sure to use dislocation-density-based constitutive model for high-/low-stra
 
 ROM is constructed from FOM following these steps.
 
-1. Extract numerical values from FOM: set fields of interest (FoI)
+1. Extract numerical values from FOM: set fields of interest (FoI) - see `export2npy.py`
  ```
  ...
  FieldsOI = ['Mises(Cauchy)','Mises(ln(V))']
@@ -218,7 +218,7 @@ ROM is constructed from FOM following these steps.
 1. Train ML
 1. Predict POD coefficients
 1. Reconstruct ROM
-1. Parse ROM to FOM for visualization
+1. Parse ROM to FOM for visualization. See `parseRom.py`
 
 # Error analysis
 

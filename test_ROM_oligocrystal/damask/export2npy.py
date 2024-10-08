@@ -19,8 +19,7 @@ parser.add_argument("-f", "--fileName",
     type=str, default='', required=True)
 
 args = parser.parse_args()
-fileName = args.fileName
-# fileName = 'main_tension_inc19.txt' # debug
+fileName = args.fileName # fileName = 'main_tension_inc19.txt' # debug
 
 fileHandler = open(fileName)
 txt = fileHandler.readlines()
@@ -61,6 +60,7 @@ for fieldName in ['inc', 'elem', 'node', 'ip', 'grain']:
 np.save(fileName[:-4] + '.npy', df[FoI].to_numpy())
 print('Save data to %s' % (fileName[:-4] + '.npy'))
 
+# Diagnostics
 stopTime = time.time()
 elapsedTime = stopTime - startTime
 print(f'elapsedTime (seconds) = {elapsedTime:<.2f}')

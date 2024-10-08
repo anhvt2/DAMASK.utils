@@ -206,7 +206,13 @@ Make sure to use dislocation-density-based constitutive model for high-/low-stra
 
 ROM is constructed from FOM following these steps.
 
-1. Calculate mean ~~Extract numerical values from FOM~~.
+1. Extract numerical values from FOM: set fields of interest (FoI)
+ ```
+ ...
+ FieldsOI = ['Mises(Cauchy)','Mises(ln(V))']
+ ...
+ ```
+1. Calculate mean.
 1. Center the train/test datasets.
 1. Compute POD basis and POD coefficients
 1. Train ML
@@ -214,11 +220,11 @@ ROM is constructed from FOM following these steps.
 1. Reconstruct ROM
 1. Parse ROM to FOM for visualization
 
-## Error analysis
+# Error analysis
 
 Measure and visualize in $L_2$ and $L_1$ error. 
 
-## 3D Visualization
+# 3D Visualization
 
 ```shell
 export fileName='main_tension_inc19' # change this fileName
@@ -229,5 +235,12 @@ vtk_addRectilinearGridData \
  --vtk "${fileName}_pos(cell).vtr" \
  ${fileName}.txt
 
+vtk_addRectilinearGridData \
+ --data 'fluct(f).pos','avg(f).pos' \
+ --vtk "${fileName}_pos(cell).vtr" \
+ ${fileName}_nodal.txt
+
 # use PyVista to pick up .vtr and hide air+voids
+python3 plotStress3dDeformedGeom.py --vtr "${fileName}_pos(cell)_added.vtr"
+python3 plotStrain3dDeformedGeom.py --vtr "${fileName}_pos(cell)_added.vtr"
 ```

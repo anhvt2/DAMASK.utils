@@ -35,7 +35,8 @@ cmap = plt.cm.get_cmap('coolwarm')
 # cmap = cmocean.cm.phase
 
 ms = np.load(npyFileName)
-grid = pyvista.UniformGrid() # grid = pyvista.ImageData()
+# grid = pyvista.UniformGrid() # old pyvista
+grid = pyvista.ImageData() # new pyvista
 # grid = pyvista.RectilinearGrid()
 # grid['microstructure'] = ms
 grid.dimensions = np.array(ms.shape) + 1
@@ -64,8 +65,8 @@ pl.remove_scalar_bar()
 # pl.camera.azimuth += 25
 # pl.show(screenshot='%s.png' % fileName[:-4])
 # pl.show()
-pl.add_axes(color='k')
-pl.show_axes() # https://docs.pyvista.org/api/plotting/_autosummary/pyvista.renderer.add_axes
+# pl.add_axes(color='k')
+# pl.show_axes() # https://docs.pyvista.org/api/plotting/_autosummary/pyvista.renderer.add_axes
 
 if nameTag == '':
     pl.screenshot(npyFileName[:-4] + '.png', window_size=[1860*6,968*6])

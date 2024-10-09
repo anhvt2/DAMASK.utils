@@ -29,6 +29,8 @@ cmap = plt.cm.get_cmap('coolwarm')
 # import cmocean
 # cmap = cmocean.cm.phase
 
+grainInfo = np.loadtxt('grainInfo.dat')
+
 # for fileName in glob.glob('masked*.vti'): # screenshot for all *.vtr files
 
 reader = pyvista.get_reader(fileName)
@@ -36,10 +38,11 @@ msMesh = reader.read()
 ms = msMesh.get_array('microstructure')
 msMesh.cell_data['microstructure']
 msMesh.set_active_scalars('microstructure', preference='cell')
-threshed = msMesh.threshold(value=1.0+1e-3)
-# threshed = msMesh.threshold(value=(grainInfo[3], grainInfo[4]))
+# threshed = msMesh.threshold(value=1.0+1e-3)
+threshed = msMesh.threshold(value=(grainInfo[1], grainInfo[2]))
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)
+pl.add_mesh(msMesh.threshold(value=1.0+1e-3), show_edges=True, line_width=1, cmap=cmap, opacity=0.01) # enable dogbone background
 # pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)
 pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)
 pl.background_color = "white"
@@ -49,6 +52,9 @@ pl.remove_scalar_bar()
 # pl.camera.elevation = +10
 # pl.show(screenshot='%s.png' % fileName[:-4])
 # pl.show()
+pl.add_axes(color='k')
+pl.show_axes() # https://docs.pyvista.org/api/plotting/_autosummary/pyvista.renderer.add_axes
+
 if nameTag == '':
 	pl.screenshot(fileName[:-4] + '.png', window_size=[1860*6,968*6])
 else:

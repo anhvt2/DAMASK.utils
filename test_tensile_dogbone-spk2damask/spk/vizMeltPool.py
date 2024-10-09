@@ -8,12 +8,14 @@ This script
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 from matplotlib import cm
 from matplotlib import colors
 from matplotlib.ticker import LinearLocator
 from mpl_toolkits.mplot3d import Axes3D
 import random
-
+mpl.rcParams['xtick.labelsize'] = 12
+mpl.rcParams['ytick.labelsize'] = 12
 
 spkInp = 'in.potts_additive_dogbone' # SPPARKS input file
 
@@ -120,10 +122,12 @@ plotHalfEllipsoid(meltTailLength, spotWidth/2, meltDepth, 'trail', ax, optLR='bo
 plotHalfEllipsoid(capHaz, haz/2, depthHaz, 'lead', ax, optLR='both', alpha=0.5)
 plotHalfEllipsoid(tailHaz, haz/2, depthHaz, 'trail', ax, optLR='both', alpha=0.5)
 
+ax.scatter([0],[0],[0], marker='o', s=50, c="#"+''.join([random.choice('0123456789ABCDEF') for j in range(6)]) )
+
 plt.axis('equal')
-ax.set_xlabel('x')
-ax.set_ylabel('y')
-ax.set_zlabel('z')
+ax.set_xlabel(r'$x$', fontsize=24)
+ax.set_ylabel(r'$y$', fontsize=24)
+ax.set_zlabel(r'$z$', fontsize=24)
 # # https://matplotlib.org/stable/api/_as_gen/mpl_toolkits.mplot3d.axes3d.Axes3D.voxels.html#mpl_toolkits.mplot3d.axes3d.Axes3D.voxels
 # x,y,z = np.indices((int(tailHaz+capHaz+1), int(haz+1), int(depthHaz+1)))
 # x -= int(tailHaz)

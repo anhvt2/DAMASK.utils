@@ -74,6 +74,7 @@ phase = np.load(phaseFileName)
 initialMs = maskMs(phase, np.load(npyFolderList[0]))
 lastMs    = maskMs(phase, np.load(npyFolderList[-1]))
 
+# Re-index with j (instead of i) for continuous time frame
 j = 0
 for i in range(len(npyFolderList)):
     currentMs = maskMs(phase, np.load(npyFolderList[i]))

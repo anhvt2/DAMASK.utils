@@ -3,12 +3,12 @@
 
 The main utility of this folder is to create visualization for 
 
-1. Example how to use:
+1. Convert dump to npy using `dump2npy.py`
+1. Then
     ```shell
     python3 vizAM.py --npyFolderName='npy' --phaseFileName='void+phase_dump_12_out.npy'
     ```
-1. 
-    then
+1. Then
     ```shell
     bash highlight.sh # python3 ../../../npy2png.py --threshold=1
     ```

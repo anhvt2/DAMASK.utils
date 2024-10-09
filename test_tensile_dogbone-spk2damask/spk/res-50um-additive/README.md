@@ -12,6 +12,9 @@ The main utility of this folder is to create visualization for
     ```shell
     bash highlight.sh # python3 ../../../npy2png.py --threshold=1
     ```
+Note: in `../../../npy2png.py`
+* Newer pyvista (0.44.1) will ask for `grid = pyvista.ImageData() # new pyvista`
+* Old pyvista (0.37.0) will ask for `grid = pyvista.UniformGrid() # old pyvista`
 
 This folder 
 1. converts a series of microstructures formatted in `*.npy` (must be)

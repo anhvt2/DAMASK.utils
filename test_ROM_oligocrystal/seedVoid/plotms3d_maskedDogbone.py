@@ -44,13 +44,12 @@ pl = pyvista.Plotter(off_screen=True)
 print(f'nameTag = {nameTag}')
 
 if nameTag == 'voids':
-    pl.add_mesh(msMesh.threshold(value=1.0+1e-3), show_edges=True, line_width=1, cmap=cmap, opacity=0.05) # enable dogbone background -- only when plotting voids
+    pl.add_mesh(msMesh.threshold(value=1.0+1e-3), show_edges=True, line_width=1, cmap=cmap, opacity=0.2) # enable dogbone background -- only when plotting voids
     threshed = msMesh.threshold(value=(grainInfo[1], grainInfo[2])) # plot voids
     pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)
 elif nameTag == 'solids':
-    pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap) # plot solids
     threshed = msMesh.threshold(value=(grainInfo[3], grainInfo[4])) # plot solids
-    pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)
+    pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap) # plot solids
 else:
     threshed = msMesh.threshold(value=1.0+1e-3) # general settings
     pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)

@@ -3,16 +3,15 @@
 
 The main utility of this folder is to create visualization for 
 
-Example how to use:
-```shell
-python3 vizAM.py --npyFolderName='npy' --phaseFileName='void+phase_dump_12_out.npy'
-```
-
-then
-```shell
-bash highlight.sh
-# python3 ../../../npy2png.py --threshold=1
-```
+1. Example how to use:
+    ```shell
+    python3 vizAM.py --npyFolderName='npy' --phaseFileName='void+phase_dump_12_out.npy'
+    ```
+1. 
+    then
+    ```shell
+    bash highlight.sh # python3 ../../../npy2png.py --threshold=1
+    ```
 
 This folder 
 1. converts a series of microstructures formatted in `*.npy` (must be)

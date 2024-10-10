@@ -44,8 +44,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--npyFolderName", help='provide folders that supply all *.npy', type=str, default='', required=True)
 parser.add_argument("-p", "--phaseFileName", help='provide masked phase', type=str, default='', required=True)
 args = parser.parse_args()
-npyFolderName = args.npyFolderName # 'npy'
-phaseFileName = args.phaseFileName # 'phase_dump_12_out.npy'
+npyFolderName = args.npyFolderName # npyFolderName = 'npy' # debug
+phaseFileName = args.phaseFileName # phaseFileName = 'phase_dump_12_out.npy' # debug
 
 def maskMs(phase, ms):
     '''
@@ -82,6 +82,13 @@ j = 0
 for i in range(len(npyFolderList)):
     currentMs = maskMs(phase, np.load(npyFolderList[i]))
     previousMs = maskMs(phase, np.load(npyFolderList[i-1]))
+    # Safeguard: automatically detect uniform shift and adjust
+    rs = (np.array(currentMs.shape) * 0.1).astype(int) # create a domain of random size that is less likely to be affected
+    isGrainIdxShift = currentMs[:rs[0],:rs[1],:rs[2]] - previousMs[:rs[0],:rs[1],:rs[2]]
+    if np.max(isGrainIdxShift) == np.min(isGrainIdxShift):
+        grainIdxShift = np.max(isGrainIdxShift)
+        previousMs += grainIdxShift # adjust grain ID shift
+    # Highlight the different
     if np.any(currentMs != previousMs):
         highlightedCurrentMs = highlightMs(currentMs, initialMs)
         # nextMs = maskMs(phase, np.load(npyFolderList[i+1]))

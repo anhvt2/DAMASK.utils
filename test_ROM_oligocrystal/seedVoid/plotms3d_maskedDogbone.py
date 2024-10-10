@@ -63,7 +63,11 @@ pl.remove_scalar_bar()
 # pl.show(screenshot='%s.png' % fileName[:-4])
 # pl.show()
 # pl.add_axes(color='k')
+# pl.add_axes(line_width=5,cone_radius=0.6,shaft_length=0.7,tip_length=0.3,ambient=0.5,label_size=(0.4, 0.16), color='k')
+# pl.add_axes_at_origin()
 # pl.show_axes() # https://docs.pyvista.org/api/plotting/_autosummary/pyvista.renderer.add_axes
+pl.store_image = True
+# pl.show()
 
 if nameTag == '':
     pl.screenshot(fileName[:-4] + '.png', window_size=[1860*6,968*6])

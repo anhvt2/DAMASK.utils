@@ -501,7 +501,7 @@ exec "$@"
 ##### Efficient masking implementation
 
 ```python
-# phase = {-1, np.inf}
+# phase = {-1, np.inf}: see geom_cad2phase.py: void id default=np.inf
 maskedPhase = np.array(~np.isinf(phase), dtype=int)
 maskedVti = np.multiply(maskedPhase, currentNpy)
 maskedVti += 1

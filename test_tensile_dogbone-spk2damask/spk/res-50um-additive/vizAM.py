@@ -15,7 +15,7 @@ This script
 * Work for any voxelized-STL file.
 
 How?
-Step-1: mask according to phase
+Step-1: mask according to phase (void default id = np.inf)
 Step-2: only show difference compared to initial microstructure
 
 Other random thoughts:
@@ -45,7 +45,7 @@ parser.add_argument("-n", "--npyFolderName", help='provide folders that supply a
 parser.add_argument("-p", "--phaseFileName", help='provide masked phase', type=str, default='', required=True)
 args = parser.parse_args()
 npyFolderName = args.npyFolderName # npyFolderName = 'npy' # debug
-phaseFileName = args.phaseFileName # phaseFileName = 'phase_dump_12_out.npy' # debug
+phaseFileName = args.phaseFileName # phaseFileName = 'void+phase_dump_12_out.npy' # debug
 
 def maskMs(phase, ms):
     '''
@@ -71,8 +71,11 @@ def highlightMs(currentMs, initialMs):
 
 npyFolderList = natsorted(glob.glob(npyFolderName + '/*.npy'))
 phase = np.load(phaseFileName)
-initialMs = maskMs(phase, np.load(npyFolderList[0]))
-lastMs    = maskMs(phase, np.load(npyFolderList[-1]))
+initialMs = maskMs(phase, np.load(npyFolderList[0]).astype(int))
+lastMs    = maskMs(phase, np.load(npyFolderList[-1]).astype(int))
+
+# Create a domain of random size that is less likely to be affected -- usually the last piece of AM path
+rS = (np.array(initialMs.shape) * 0.05).astype(int) # random size
 
 f = open('vizAM.py.log', 'w')
 f.write('imgIdx,dumpIdx\n')
@@ -80,16 +83,27 @@ f.write('imgIdx,dumpIdx\n')
 # Re-index with j (instead of i) for continuous time frame
 j = 0
 for i in range(len(npyFolderList)):
-    currentMs = maskMs(phase, np.load(npyFolderList[i]))
-    previousMs = maskMs(phase, np.load(npyFolderList[i-1]))
-    # Safeguard: automatically detect uniform shift and adjust
-    rs = (np.array(currentMs.shape) * 0.1).astype(int) # create a domain of random size that is less likely to be affected
-    isGrainIdxShift = currentMs[:rs[0],:rs[1],:rs[2]] - previousMs[:rs[0],:rs[1],:rs[2]]
-    if np.max(isGrainIdxShift) == np.min(isGrainIdxShift):
-        grainIdxShift = np.max(isGrainIdxShift)
-        previousMs += grainIdxShift # adjust grain ID shift
+    # Strategy: shift first, then mask (not the other way around)
+    initialMs = np.load(npyFolderList[0]).astype(int)
+    currentMs = np.load(npyFolderList[i]).astype(int)
+    prevMs = np.load(npyFolderList[i-1]).astype(int)
+    # Safeguard: automatically detect uniform shift & adjust 
+    # currentMs / prevMs
+    calibDom = currentMs[-rS[0]:,-rS[1]:,-rS[2]:] - prevMs[-rS[0]:,-rS[1]:,-rS[2]:] # last domain to be AM'ed
+    if np.max(calibDom) == np.min(calibDom):
+        grainIdxShift = np.max(calibDom)
+        prevMs += grainIdxShift # adjust grain ID shift
+    # currentMs / initialMs
+    calibDom = currentMs[-rS[0]:,-rS[1]:,-rS[2]:] - initialMs[-rS[0]:,-rS[1]:,-rS[2]:] # last domain to be AM'ed
+    if np.max(calibDom) == np.min(calibDom):
+        grainIdxShift = np.max(calibDom)
+        initialMs += grainIdxShift # adjust grain ID shift
+    # Mask with phase
+    initialMs = maskMs(phase, initialMs)
+    currentMs = maskMs(phase, currentMs)
+    prevMs = maskMs(phase, prevMs)
     # Highlight the different
-    if np.any(currentMs != previousMs):
+    if np.any(currentMs != prevMs):
         highlightedCurrentMs = highlightMs(currentMs, initialMs)
         # nextMs = maskMs(phase, np.load(npyFolderList[i+1]))
         np.save('highlighted_ms_%d.npy' % j, highlightedCurrentMs)

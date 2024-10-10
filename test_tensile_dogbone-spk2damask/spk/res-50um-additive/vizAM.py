@@ -74,6 +74,9 @@ phase = np.load(phaseFileName)
 initialMs = maskMs(phase, np.load(npyFolderList[0]))
 lastMs    = maskMs(phase, np.load(npyFolderList[-1]))
 
+f = open('vizAM.py.log', 'w')
+f.write('imgIdx,dumpIdx\n')
+
 # Re-index with j (instead of i) for continuous time frame
 j = 0
 for i in range(len(npyFolderList)):
@@ -85,3 +88,7 @@ for i in range(len(npyFolderList)):
         np.save('highlighted_ms_%d.npy' % j, highlightedCurrentMs)
         print(f'done {npyFolderList[i]}')
         j += 1
+        f.write(f'%d,%d\n' % (j,i))
+
+f.close()
+

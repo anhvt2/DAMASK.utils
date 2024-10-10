@@ -10,11 +10,10 @@
 import time
 import numpy as np
 import pandas as pd
-import argparse
 import glob, os
 from natsort import natsorted, ns
-parser = argparse.ArgumentParser()
-startTime = time.time()
+# import argparse
+# parser = argparse.ArgumentParser()
 
 # parser.add_argument("-f", "--fileName", 
 #     help='<geom>-<load>-inc*.txt', 
@@ -23,7 +22,9 @@ startTime = time.time()
 # args = parser.parse_args()
 # fileName = args.fileName # fileName = 'main_tension_inc19.txt' # debug
 
+startTime = time.time()
 fileNameList = natsorted(glob.glob('main_tension_inc??.txt'))
+logger = open('export2npy.py.log', 'w')
 
 for fileName in fileNameList:
     fileHandler = open(fileName)
@@ -61,4 +62,6 @@ for fileName in fileNameList:
 # Diagnostics
 stopTime = time.time()
 elapsedTime = stopTime - startTime
-print(f'elapsedTime (seconds) = {elapsedTime:<.2f}')
+logger.write(f'elapsedTime (seconds) = {elapsedTime:<.2f}\n')
+logger.close()
+

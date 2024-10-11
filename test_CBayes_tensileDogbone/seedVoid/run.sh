@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export spkFileName="${spkFileName}"
+export spkFileName="dump.additive_dogbone.2807"
 for i in $(seq 1); do
     cp ../spk/res-50um-additive-run-${i}/${spkFileName} . 
     python3 ../../dump2npy.py --dump ${spkFileName}

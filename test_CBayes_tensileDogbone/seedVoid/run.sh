@@ -22,6 +22,7 @@ for i in $(seq 1); do
     python3 findGaugeLocations.py --geom="padded_voidSeeded_${spkFileName}.npy" --resolution 50
     # Visualize voids for .png
     python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_${spkFileName}.vtr" --nameTag 'voids'
+    python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_${spkFileName}.vtr" --nameTag 'solids'
     # Make material.config for DAMASK
     cat material.config.preamble  | cat - material.config | sponge material.config
     # Rename

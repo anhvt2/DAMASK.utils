@@ -186,6 +186,8 @@ cd ..
 
 #### SPPARKS
 
+To reproduce the microstructure, run the input script on `$roglocal` computer with exactly the same seed. 
+
 ~~Run `in.potts_3d` with hybrid phase-field/kMC with sufficiently long trajectory.~~
 
 Run `in.potts_additive_dogbone` and visualize the whole AM process. Note: use an appropriate `.mp4` viewer (or risk having your computer shutdown for choking memory).

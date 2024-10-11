@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 np.random.seed(8)
 
-porosity = np.random.uniform(low=0, high=10, size=500)
+porosity = np.sort(np.random.uniform(low=0, high=10, size=500))
 
 np.savetxt('porosity.txt', porosity, fmt='%.16f')
 df = pd.DataFrame(porosity)

@@ -6,7 +6,7 @@ i=0 # Do not compare against the initial ms with itself
 
 for npyFileName in $(ls -1v highlighted_*.npy); do
 	if [ "$i" -ne "0" ]; then
-		python3 ../../../npy2png.py --npy="${npyFileName}" --threshold=1
+		python3 ../../../npy2png.py --npy="${npyFileName}" --threshold=0 # air/void = 0
 		echo "done ${npyFileName}"
 	fi
 	i=$((i+1))

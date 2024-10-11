@@ -32,8 +32,9 @@ for i in $(seq 1); do
     mv padded_voidSeeded_${spkFileName}.geom httDB_${i}.geom 
     mv padded_voidSeeded_${spkFileName}.vtr httDB_${i}.vtr
     mv padded_voidSeeded_${spkFileName}_voids.png httDB-voids-${i}.png 
+    mv padded_voidSeeded_${spkFileName}_voids.png httDB-solids-${i}.png 
     # Move output files (except for the original SPPARKS dump file) into the original folder
-    mv ${spkFileName}.npy ${spkFileName}.geom voidSeeded_${spkFileName}.npy voidSeeded_${spkFileName}.geom voidSeeded_${spkFileName}.vtr material.config grainInfo.dat httDB_${i}.geom httDB_${i}.vti httDB_${i}.npy httDB_${i}.vtr httDB-voids-${i}.png void+phase-httDB_${i}.npy seedVoid.log gaugeFilter.txt ../spk/res-50um-additive-run-${i}/
+    mv ${spkFileName}.npy ${spkFileName}.geom voidSeeded_${spkFileName}.npy voidSeeded_${spkFileName}.geom voidSeeded_${spkFileName}.vtr material.config grainInfo.dat httDB_${i}.geom httDB_${i}.vti httDB_${i}.npy httDB_${i}.vtr httDB-voids-${i}.png httDB-solids-${i}.png void+phase-httDB_${i}.npy seedVoid.log gaugeFilter.txt ../spk/res-50um-additive-run-${i}/
     # Clean up
     rm ${spkFileName}
 done

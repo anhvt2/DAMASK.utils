@@ -1,3 +1,9 @@
+
+# Seed voids to microstructure
+
+See `run.sh`
+
+```shell
 #!/bin/bash
 
 # export spkFileName="dump.additive_dogbone.2807"
@@ -31,3 +37,4 @@ python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_3.000pc_${spkFil
 cat material.config.preamble  | cat - material.config | sponge material.config
 
 cp padded_voidSeeded_3.000pc_${spkFileName}.geom ../damask/main.geom
+```

@@ -9,6 +9,8 @@ import argparse
 import time
 import logging
 
+np.random.seed(8)
+
 level    = logging.INFO
 format   = '  %(message)s'
 logFileName = 'seedVoid.log'
@@ -159,7 +161,7 @@ origGeomFileName = args.origGeomFileName # e.g. 'singleCrystal_res_50um.geom'
 phaseFileName = args.phaseFileName
 voidDictionary = args.voidDictionary
 voidPercentage = args.voidPercentage
-outFileName = 'voidSeeded_%.3fpc_' % voidPercentage + origGeomFileName 
+outFileName = 'voidSeeded_' + origGeomFileName 
 
 # Read from origGeomFileName
 Nx_grid, Ny_grid, Nz_grid, Nx_size, Ny_size, Nz_size, origGeom, headers = geom2npy(origGeomFileName)

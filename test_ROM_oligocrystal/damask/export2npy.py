@@ -29,46 +29,49 @@ logger = open('export2npy.py.log', 'w')
 for fileName in fileNameList:
     outFileName = fileName[:-4] + '.npy'
     if not os.path.exists(outFileName):
-        fileHandler = open(fileName)
-        txt = fileHandler.readlines()
-        fileHandler.close()
-        # Set fields of interest to dump .npy
-        FoI = ['Mises(Cauchy)','Mises(ln(V))']
-        # Pre-process
-        numHeaderRows = int(txt[0].split('\t')[0])
-        oldHeader = txt[numHeaderRows].replace('\n', '').split('\t')
         try:
-            data = np.loadtxt(fileName, skiprows=numHeaderRows+1)
-            df = pd.DataFrame(data, columns=oldHeader)
-            # Remove duplicate columns: https://stackoverflow.com/questions/14984119/python-pandas-remove-duplicate-columns
-            df = df.loc[:,~df.columns.duplicated()].copy()
-            newHeader = list(df)
-            # Save DAMASK header
-            DamaskCommandHistory = txt[:numHeaderRows]
-            DamaskCommandHistory += ['\t'.join(newHeader) + '\n'] # add the last line
-            # Reformat columns
-            for fieldName in ['inc', 'elem', 'node', 'ip', 'grain']:
-                df[fieldName] = df[fieldName].astype(int)
-            # # Write header
-            # f = open(fileName[:-4] + '_header.txt', 'w')
-            # for i in range(len(DamaskCommandHistory)):
-            #     f.write(DamaskCommandHistory[i])
-            # f.close()
-            # print('Dump header to %s' % (fileName[:-4] + '_header.txt'))
-            # # Write to .csv: Do not rewrite header (headers are confirmed to be the same with DamaskCommandHistory[-1])
-            # df.to_csv(fileName[:-4] + '_data.txt', sep='\t', header=False, index=False)
-            # print('Dump data to %s' % (fileName[:-4] + '_header.txt'))
-            # Check if FoI is contained in the dataframe
-            # https://stackoverflow.com/questions/2582911/how-to-check-if-a-list-is-contained-inside-another-list-without-a-loop
-            # https://stackoverflow.com/questions/23549231/check-if-a-value-exists-in-pandas-dataframe-index
-            if set(FoI) <= set(df.index):
-            # Save FoI to .npy
-                np.save(outFileName, df[FoI].to_numpy())
-                print('Save data to %s' % (fileName[:-4] + '.npy'))
-            else:
-                print('Dataframe in %s does not contain the field of interest.' % fileName)
+            fileHandler = open(fileName)
+            txt = fileHandler.readlines()
+            fileHandler.close()
+            # Set fields of interest to dump .npy
+            FoI = ['Mises(Cauchy)','Mises(ln(V))']
+            # Pre-process
+            numHeaderRows = int(txt[0].split('\t')[0])
+            oldHeader = txt[numHeaderRows].replace('\n', '').split('\t')
+            try:
+                data = np.loadtxt(fileName, skiprows=numHeaderRows+1)
+                df = pd.DataFrame(data, columns=oldHeader)
+                # Remove duplicate columns: https://stackoverflow.com/questions/14984119/python-pandas-remove-duplicate-columns
+                df = df.loc[:,~df.columns.duplicated()].copy()
+                newHeader = list(df)
+                # Save DAMASK header
+                DamaskCommandHistory = txt[:numHeaderRows]
+                DamaskCommandHistory += ['\t'.join(newHeader) + '\n'] # add the last line
+                # Reformat columns
+                for fieldName in ['inc', 'elem', 'node', 'ip', 'grain']:
+                    df[fieldName] = df[fieldName].astype(int)
+                # # Write header
+                # f = open(fileName[:-4] + '_header.txt', 'w')
+                # for i in range(len(DamaskCommandHistory)):
+                #     f.write(DamaskCommandHistory[i])
+                # f.close()
+                # print('Dump header to %s' % (fileName[:-4] + '_header.txt'))
+                # # Write to .csv: Do not rewrite header (headers are confirmed to be the same with DamaskCommandHistory[-1])
+                # df.to_csv(fileName[:-4] + '_data.txt', sep='\t', header=False, index=False)
+                # print('Dump data to %s' % (fileName[:-4] + '_header.txt'))
+                # Check if FoI is contained in the dataframe
+                # https://stackoverflow.com/questions/2582911/how-to-check-if-a-list-is-contained-inside-another-list-without-a-loop
+                # https://stackoverflow.com/questions/23549231/check-if-a-value-exists-in-pandas-dataframe-index
+                if set(FoI) <= set(df.columns):
+                # Save FoI to .npy
+                    np.save(outFileName, df[FoI].to_numpy())
+                    print('Save data to %s' % (fileName[:-4] + '.npy'))
+                else:
+                    print('Dataframe in %s does not contain the field of interest.' % fileName)
+            except:
+                print('Cannot load DAMASK output file in %s into numpy.' % fileName)
         except:
-            print('Cannot load DAMASK output file in %s into numpy.' % fileName)
+            print('Cannot readlines() in %s' % fileName)
     else:
         print('%s already exists. Skipping %s' % (outFileName, fileName))
 

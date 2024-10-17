@@ -48,7 +48,7 @@ plt.legend(fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=Tru
 
 plt.title('Input Distribution', fontsize=24)
 plt.xlabel(r'$\dot{\varepsilon}$ [s$^{-1}$]', fontsize=24)
-plt.ylabel(r'$T_0$ [K]', fontsize=24)
+plt.ylabel(r'$T$ [K]', fontsize=24)
 plt.xscale('log',base=10) 
 # plt.show()
 plt.savefig('TrainTestDistribution', dpi=300, facecolor='w', edgecolor='w',

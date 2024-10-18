@@ -56,10 +56,12 @@ for i in TrainIdx:
         except:
             logging.info(f'Cannot load damask/{int(i):<d}/postProc/{fileName.split("/")[-1]}')
 
+logging.info("constructGlobalBasis.py: extracted data in {:5.2f} seconds.\n".format(time.time() - t_start))
+
 np.save('d_MisesCauchy.npy', d_MisesCauchy)
 np.save('d_MisesLnV.npy', d_MisesLnV)
 
 elapsed = time.time() - t_start
-logging.info("seedVoid.py: finished in {:5.2f} seconds.\n".format(elapsed))
+logging.info("constructGlobalBasis.py: finished in {:5.2f} seconds.\n".format(elapsed))
 
 

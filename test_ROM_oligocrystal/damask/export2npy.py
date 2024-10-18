@@ -30,8 +30,9 @@ startTime = time.time()
 # If fileNameList is empty, then exporting every file
 if fileNameList != '':
     fileNameList = natsorted(glob.glob('main_tension_inc??.txt'))
-    print('export2npy.py: Going to export to .npy from ')
+    print('export2npy.py: Going to export to .npy from ...')
     print(fileNameList)
+    print('\n\n')
 
 logger = open('export2npy.py.log', 'w')
 

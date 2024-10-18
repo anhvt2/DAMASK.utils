@@ -19,7 +19,7 @@ This script
     (2) compute the mean vector,
 for projection-based ROM.
 """
-start_time = time.time()
+t_start = time.time()
 TrainIdx = np.loadtxt('TrainIdx.dat')
 FoI = ['Mises(Cauchy)','Mises(ln(V))'] # from export2npy.py
 

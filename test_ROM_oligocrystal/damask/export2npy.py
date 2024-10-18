@@ -12,23 +12,32 @@ import numpy as np
 import pandas as pd
 import glob, os
 from natsort import natsorted, ns
-# import argparse
-# parser = argparse.ArgumentParser()
+import argparse
+parser = argparse.ArgumentParser()
 
-# parser.add_argument("-f", "--fileName", 
-#     help='<geom>-<load>-inc*.txt', 
-#     type=str, default='', required=True)
+parser.add_argument("-f", "--fileNameList", 
+    help='specific fileName to convert to numpy', 
+    type=str, default='', required=False)
 
-# args = parser.parse_args()
-# fileName = args.fileName # fileName = 'main_tension_inc19.txt' # debug
+parse.add_argument("-overwrite", "--overwrite", type=bool, default=False, required=False)
+
+args = parser.parse_args()
+fileNameList = args.fileNameList # fileName = 'main_tension_inc19.txt' # debug
+isOverwrite = args.overwrite
 
 startTime = time.time()
-fileNameList = natsorted(glob.glob('main_tension_inc??.txt'))
+
+# If fileNameList is empty, then exporting every file
+if fileNameList != '':
+    fileNameList = natsorted(glob.glob('main_tension_inc??.txt'))
+    print('export2npy.py: Going to export to .npy from ')
+    print(fileNameList)
+
 logger = open('export2npy.py.log', 'w')
 
 for fileName in fileNameList:
     outFileName = fileName[:-4] + '.npy'
-    if not os.path.exists(outFileName):
+    if not os.path.exists(outFileName) and isOverwrite:
         try:
             fileHandler = open(fileName)
             txt = fileHandler.readlines()

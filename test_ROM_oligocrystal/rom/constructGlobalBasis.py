@@ -45,3 +45,7 @@ for i in TrainIdx:
             j += 1
         except:
             print(f'Cannot load damask/{int(i):<d}/postProc/{fileName.split("/")[-1]}')
+
+np.save('d_MisesCauchy.npy', d_MisesCauchy)
+np.save('d_MisesLnV.npy', d_MisesLnV)
+

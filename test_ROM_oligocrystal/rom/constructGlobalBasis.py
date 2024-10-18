@@ -43,7 +43,7 @@ d_MisesLnV    = np.zeros([576000, numSnapShot])
 j = 0
 for i in TrainIdx:
     folderName = str(i+1) # from randomizeLoad.py
-    logging.info(f'Processing damask/{int(i):<d}')
+    logging.info(f'Processing folder damask/{int(i+1):<d}')
     fileNameList = natsorted(glob.glob('../damask/%d/postProc/main_tension_inc??.npy' % i))
     for fileName in fileNameList:
         try:

@@ -47,8 +47,8 @@ def geom2npy(geomFileName):
 
     geom = geom.split(' ')
     geom = list(filter(('').__ne__, geom))
-    geomNpy = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
-    return geomNpy
+    geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
+    return geom
 
 def renumerate(geom, startIndex=0, cluster=False):
     ''' 

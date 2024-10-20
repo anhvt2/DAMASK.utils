@@ -25,8 +25,30 @@ parser = argparse.ArgumentParser(description='')
 parser.add_argument("-g" , "--geom", help='original geom fileName', type=str, required=True)
 
 args = parser.parse_args()
-geom = args.geom # e.g. 'singleCrystal_res_50um.geom'
+geomFileName = args.geom # e.g. geomFileName = 'singleCrystal_res_50um.geom'
 
+def geom2npy(geomFileName):
+    fileHandler = open(geomFileName)
+    txt = fileHandler.readlines()
+    fileHandler.close()
+    numSkippingLines = int(txt[0].split(' ')[0])+1 
+    # Search for 'size' within header:
+    for j in range(numSkippingLines):
+        if 'grid' in txt[j]:
+            cleanString = delete(txt[j].replace('\n', '').split(' '), '')
+            Nx = int(cleanString[2])
+            Ny = int(cleanString[4])
+            Nz = int(cleanString[6])
+
+    geomBlock = txt[numSkippingLines:]
+    geom = ''
+    for i in range(len(geomBlock)):
+        geom += geomBlock[i]
+
+    geom = geom.split(' ')
+    geom = list(filter(('').__ne__, geom))
+    geomNpy = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
+    return geomNpy
 
 def renumerate(geom, startIndex=0, cluster=False):
     ''' 

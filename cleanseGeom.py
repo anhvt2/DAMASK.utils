@@ -121,6 +121,11 @@ def renumerate(geom, startIndex=0, cluster=False):
                 renumeratedGeom[x[j],y[j],z[j]] = i+startIndex
     return renumeratedGeom
 
+# Read to .npy format
+geom = geom2npy(geomFileName)
+geom = renumerate(geom, startIndex=1, cluster=True)
+outFileName = 'cleansed_' + geomFileName
+
 # Convert 3d numpy array to 1d flatten array
 geom = geom.T.flatten()
 
@@ -152,4 +157,4 @@ f.close()
 ### diagnostics
 
 elapsed = time.time() - t_start
-logging.info("seedVoid.py: finished in {:5.2f} seconds.\n".format(elapsed))
+logging.info("cleanseGeom.py: finished in {:5.2f} seconds.\n".format(elapsed))

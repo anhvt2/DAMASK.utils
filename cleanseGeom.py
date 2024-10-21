@@ -126,7 +126,8 @@ geom = geom2npy(geomFileName)
 Nx_grid, Ny_grid, Nz_grid = geom.shape
 Nx_size, Ny_size, Nz_size = geom.shape
 
-geom = renumerate(geom, startIndex=1, cluster=True)
+geom = renumerate(geom, startIndex=1, cluster=True) # This doesn't renumerate but only clustering
+geom = renumerate(geom, startIndex=1) # This is absolutely necessary for renumerating grainIDs. 
 outFileName = 'cleansed_' + geomFileName
 
 # Convert 3d numpy array to 1d flatten array

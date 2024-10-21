@@ -319,7 +319,8 @@ for solidIdx in solidIdxList:
 
 # renumerate geom
 logging.info(f'-------------- RE-ENUMERATION ---------------')
-geom = renumerate(geom, startIndex=1) # index start at 1
+geom = renumerate(geom, startIndex=1, clustering=True)  # clustering: this step does not renumerate but only cluster
+geom = renumerate(geom, startIndex=1, clustering=False) # index start at 1: this step renumerate without clustering
 updatedNumVoids = len(voidIdxList)
 updatedSolidIdx = 1 + updatedNumVoids + 1
 updatedNumGrains = np.max(geom) - updatedSolidIdx + 1

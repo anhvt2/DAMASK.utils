@@ -112,7 +112,7 @@ def renumerate(geom, startIndex=0, cluster=False):
             grainIdx = grainIdxList[i]
             x, y, z = np.where(geom==grainIdx)
             X = np.hstack((np.atleast_2d(x).T, np.atleast_2d(y).T, np.atleast_2d(z).T))
-            clustering = DBSCAN(eps=2, min_samples=5).fit(X)
+            clustering = DBSCAN(eps=2, min_samples=1).fit(X)
             # Relabel grainId for every pixels needed relabel: Cluster labels for each point in the dataset given to fit(). Noisy samples are given the label -1.
             clustering.labels_ -= np.min(clustering.labels_) # re-start at 0: no noisy samples
             for j in range(clustering.labels_.shape[0]):

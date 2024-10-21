@@ -123,6 +123,9 @@ def renumerate(geom, startIndex=0, cluster=False):
 
 # Read to .npy format
 geom = geom2npy(geomFileName)
+Nx_grid, Ny_grid, Nz_grid = geom.shape
+Nx_size, Ny_size, Nz_size = geom.shape
+
 geom = renumerate(geom, startIndex=1, cluster=True)
 outFileName = 'cleansed_' + geomFileName
 
@@ -132,6 +135,7 @@ geom = geom.T.flatten()
 # Write output
 num_lines = int(np.floor(len(geom)) / 10)
 num_elems_last_line = int(len(geom) % 10)
+
 
 f = open(outFileName, 'w')
 f.write('6       header\n')

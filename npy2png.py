@@ -7,6 +7,7 @@ import pyvista
 import matplotlib.pyplot as plt
 import glob, os
 import argparse
+from distutils.util import strtobool # https://stackoverflow.com/questions/15008758/parsing-boolean-values-with-argparse
 import gc
 from natsort import natsorted, ns # natural-sort
 parser = argparse.ArgumentParser()
@@ -14,10 +15,12 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--npy", help='*.npy file', type=str, default='', required=True)
 parser.add_argument("-threshold", "--threshold", help='threshold', type=int, default=-1, required=False)
 parser.add_argument("-nameTag", "--nameTag", help='', type=str, default='', required=False)
+parser.add_argument("-show_edges", "--show_edges", help='pyvista show_edges', type=lambda x:bool(strtobool(x)), default=True, required=False, nargs='?', const=True)
 args = parser.parse_args()
 npyFileName = args.npy # 'npy'
 threshold = args.threshold
 nameTag = args.nameTag
+show_edges = bool(args.show_edges)
 
 # cmap = plt.cm.get_cmap("viridis", 5)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
@@ -35,8 +38,8 @@ cmap = plt.cm.get_cmap('coolwarm')
 # cmap = cmocean.cm.phase
 
 ms = np.load(npyFileName)
-# grid = pyvista.UniformGrid() # old pyvista
-grid = pyvista.ImageData() # new pyvista
+grid = pyvista.UniformGrid() # old pyvista
+# grid = pyvista.ImageData() # new pyvista
 # grid = pyvista.RectilinearGrid()
 # grid['microstructure'] = ms
 grid.dimensions = np.array(ms.shape) + 1
@@ -56,13 +59,16 @@ grid.cell_data["microstructure"] = ms.flatten(order="F") # ImageData()
 pl = pyvista.Plotter(off_screen=True)
 # pl.add_mesh(grid, scalars='microstructure', show_edges=True, line_width=1, cmap=cmap)
 # pl.add_mesh(grid.threshold(value=1e-6), scalars='microstructure', opacity=0.01, show_edges=True, line_width=1, cmap=cmap) # maybe replace by an optional phase for background masking
-pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure', show_edges=True, line_width=1, cmap=cmap)
+pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure', show_edges=show_edges, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()
-# pl.camera_position = 'yz'
+###
+# Leidong/Zihan custom view
+# pl.camera_position = 'xy'
 # pl.camera.elevation += 25
 # pl.camera.roll += 0
 # pl.camera.azimuth += 25
+###
 # pl.show(screenshot='%s.png' % fileName[:-4])
 # pl.show()
 # pl.add_axes(color='k')

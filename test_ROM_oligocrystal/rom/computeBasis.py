@@ -4,6 +4,7 @@ import os
 import time
 import scipy
 import numpy.linalg as nla
+import scipy.linalg as sla
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
@@ -26,7 +27,7 @@ for foi in fois:
     print(f'Centering time: {time.time() - tmpTime:<.2f} seconds') # Elapsed time: ? seconds
     # Perform thin SVD
     tmpTime = time.time()
-    u, s, vT = scipy.linalg.svd(d_MisesCauchy, full_matrices=False)
+    u, s, vT = sla.svd(d_MisesCauchy, full_matrices=False)
     print(f'SVD time: {time.time() - tmpTime:<.2f} seconds') # Elapsed time: ? seconds
     # Save POD basis
     np.save('podBasis_%s' % foi, u)

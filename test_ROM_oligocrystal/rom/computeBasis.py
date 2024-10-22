@@ -29,7 +29,7 @@ for foi in fois:
     u, s, vT = scipy.linalg.svd(d_MisesCauchy, full_matrices=False)
     print(f'SVD time: {time.time() - tmpTime:<.2f} seconds') # Elapsed time: ? seconds
     # Save POD basis
-    np.save('podBasis', u)
+    np.save('podBasis_%s' % foi, u)
     # Verify that: d = np.dot(u, np.dot(np.diag(s), vT))
     fig, ax1 = plt.subplots(num=None, figsize=(16, 9), dpi=300, facecolor='w', edgecolor='k')
     ax1.plot(s)

@@ -31,8 +31,10 @@ for foi in fois:
     u, s, vT = nla.svd(d, full_matrices=False)
     print(f'SVD time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 1699.88 seconds
     # Save POD basis and eigendecay
+    tmpTime = time.time()
     np.save('podBasis_%s' % foi, u)
     np.save('podEigen_%s' % foi, s)
+    print(f'Save time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: ? seconds
     # Verify that: d = np.dot(u, np.dot(np.diag(s), vT))
     fig, ax1 = plt.subplots(num=None, figsize=(16, 9), dpi=300, facecolor='w', edgecolor='k')
     ax1.plot(s)

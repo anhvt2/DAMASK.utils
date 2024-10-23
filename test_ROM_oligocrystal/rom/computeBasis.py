@@ -31,7 +31,7 @@ for foi in fois:
     tmpTime = time.time()
     # u, s, vT = sla.svd(d, full_matrices=False)
     # u, s, vT = nla.svd(d, full_matrices=False)
-    u, s, vT = skmath.randomized_svd(d, n_component=3000) 
+    u, s, vT = skmath.randomized_svd(d, n_components=3000) 
     print(f'SVD time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 1699.88 seconds
     # Save POD basis and eigendecay
     tmpTime = time.time()

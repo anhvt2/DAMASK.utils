@@ -3,8 +3,8 @@ import numpy as np
 import os
 import time
 import scipy
-import numpy.linalg as nla
-import scipy.linalg as sla
+import numpy.linalg as nla # 155G/188G -- can run on attaway-login12
+# import scipy.linalg as sla # Do not use due to memory inefficiency
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
@@ -14,7 +14,7 @@ t_start = time.time()
 
 for foi in fois:
     d = np.load('d_%s.npy' % foi)
-    print(f'Loading time: {time.time() - t_start:<.2f} seconds.') # Elapsed time: 163.34 seconds
+    print(f'Loading time: {time.time() - t_start:<.2f} seconds.') # Elapsed time: 446.34 seconds
     # Count/extract non-zero columns
     tmpTime = time.time() # tic
     normCols = np.linalg.norm(d, axis=0)
@@ -25,17 +25,19 @@ for foi in fois:
     meanCol = np.mean(d, axis=1)
     # Subtract mean column
     d = d - np.atleast_2d(meanCol).T
-    print(f'Centering time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 724.29 seconds
+    print(f'Centering time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 150.29 seconds
     # Perform thin SVD
     tmpTime = time.time()
-    u, s, vT = sla.svd(d, full_matrices=False)
-    print(f'SVD time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: ? seconds
-    # Save POD basis
+    u, s, vT = nla.svd(d, full_matrices=False)
+    print(f'SVD time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 1699.88 seconds
+    # Save POD basis and eigendecay
     np.save('podBasis_%s' % foi, u)
+    np.save('podEigen_%s' % foi, s)
     # Verify that: d = np.dot(u, np.dot(np.diag(s), vT))
     fig, ax1 = plt.subplots(num=None, figsize=(16, 9), dpi=300, facecolor='w', edgecolor='k')
     ax1.plot(s)
     ax1.plot(s, c='b', marker='o', markersize=1)
+    ax1.set_xscale('log')
     ax1.set_yscale('log')
     ax1.set_xlabel('index', fontsize=12)
     ax1.set_ylabel(r'$\sigma_i$', fontsize=12)

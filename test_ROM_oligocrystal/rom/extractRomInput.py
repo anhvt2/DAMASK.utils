@@ -20,21 +20,21 @@ This script comes in and extracts parameters from each CPFEM, including
 
 level    = logging.INFO
 format   = '  %(message)s'
-logFileName = 'extractInput.py.log'
+logFileName = 'extractRomInput.py.log'
 os.system('rm -fv %s' % logFileName)
 handlers = [logging.FileHandler(logFileName), logging.StreamHandler()]
 logging.basicConfig(level = level, format = format, handlers = handlers)
 
 t_start = time.time()
-TrainIdx = np.loadtxt('TrainIdx.dat')
-TestIdx  = np.loadtxt('TestIdx.dat')
+TrainIdx = np.loadtxt('TrainIdx.dat', dtype=int)
+TestIdx  = np.loadtxt('TestIdx.dat', dtype=int)
 FoI = ['Mises(Cauchy)','Mises(ln(V))'] # from export2npy.py
 controlInfo = np.loadtxt('control.log', delimiter=',', skiprows=1)
 
 # Write input for train dataset
 outFileName = 'inputRom_Train.dat'
 f = open(outFileName, 'w')
-f.write('dotVareps, initialT, vareps, sigma')
+f.write('dotVareps, initialT, vareps, sigma\n')
 for i in TrainIdx: # for i in range(1,501):
     folderName = str(i+1) # taken from randomizeLoad.py
     logging.info(f'Processing {int(i):<d}')
@@ -51,14 +51,14 @@ for i in TrainIdx: # for i in range(1,501):
         strain = data[:,1]
         stress = data[:,2]
         for j in range(len(strain)):
-            f.write('%.8e, %8.e, %8.e, %.1f'% (dotVareps, initialT, strain[j], stress[j]))
+            f.write('%.8e, %8.e, %8.e, %.1f\n'% (dotVareps, initialT, strain[j], stress[j]))
 
 f.close()
 
 # Write input for test dataset
 outFileName = 'inputRom_Test.dat'
 f = open(outFileName, 'w')
-f.write('dotVareps, initialT, vareps, sigma')
+f.write('dotVareps, initialT, vareps, sigma\n')
 for i in TestIdx:
 # for i in range(1,501):
     folderName = str(i+1) # from randomizeLoad.py
@@ -76,6 +76,6 @@ for i in TestIdx:
         strain = data[:,1]
         stress = data[:,2]
         for j in range(len(strain)):
-            f.write('%.8e, %8.e, %8.e, %.1f'% (dotVareps, initialT, strain[j], stress[j]))
+            f.write('%.8e, %8.e, %8.e, %.1f\n'% (dotVareps, initialT, strain[j], stress[j]))
 
 f.close()

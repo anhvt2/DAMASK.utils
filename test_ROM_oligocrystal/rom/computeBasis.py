@@ -14,7 +14,7 @@ t_start = time.time()
 
 for foi in fois:
     d = np.load('d_%s.npy' % foi)
-    print(f'Loading time: {time.time() - t_start:<.2f} seconds.') # Elapsed time: 479.84/774.08 seconds
+    print(f'Loading time: {time.time() - t_start:<.2f} seconds.') # Elapsed time: 163.34 seconds
     # Count/extract non-zero columns
     tmpTime = time.time() # tic
     normCols = np.linalg.norm(d, axis=0)

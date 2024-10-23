@@ -14,21 +14,22 @@ t_start = time.time()
 
 for foi in fois:
     d = np.load('d_%s.npy' % foi)
-    print(f'Loading time: {time.time() - t_start:<.2f} seconds') # Elapsed time: 774.08 seconds
+    print(f'Loading time: {time.time() - t_start:<.2f} seconds.') # Elapsed time: 479.84/774.08 seconds
     # Count/extract non-zero columns
     tmpTime = time.time() # tic
     normCols = np.linalg.norm(d, axis=0)
     nzElems = np.count_nonzero(normCols) # nz: 10969; z: 290
+    print(f'Non-zero elements = {int(nzElems):<d} elements.')
     d = d[:,:nzElems]
     # Compute mean column
     meanCol = np.mean(d, axis=1)
     # Subtract mean column
     d = d - np.atleast_2d(meanCol).T
-    print(f'Centering time: {time.time() - tmpTime:<.2f} seconds') # Elapsed time: ? seconds
+    print(f'Centering time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 724.29 seconds
     # Perform thin SVD
     tmpTime = time.time()
     u, s, vT = sla.svd(d, full_matrices=False)
-    print(f'SVD time: {time.time() - tmpTime:<.2f} seconds') # Elapsed time: ? seconds
+    print(f'SVD time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: ? seconds
     # Save POD basis
     np.save('podBasis_%s' % foi, u)
     # Verify that: d = np.dot(u, np.dot(np.diag(s), vT))
@@ -49,5 +50,5 @@ for foi in fois:
         orientation='landscape', format=None, transparent=False, 
         bbox_inches='tight', pad_inches=0.1, metadata=None)
 
-print(f'Total time for POD basis: {time.time() - t_start:<.2f} seconds') # Elapsed time: ? seconds
+print(f'Total time for POD basis: {time.time() - t_start:<.2f} seconds.') # Elapsed time: ? seconds
 os.system('htop')

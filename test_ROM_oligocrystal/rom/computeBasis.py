@@ -4,7 +4,8 @@ import os
 import time
 import scipy
 import numpy.linalg as nla # 155G/188G -- can run on attaway-login12
-# import scipy.linalg as sla # Do not use due to memory inefficiency
+import scipy.linalg as sla # Do not use due to memory inefficiency
+import sklearn.utils.extmath as skmath
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
@@ -28,7 +29,9 @@ for foi in fois:
     print(f'Centering time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 150.29 seconds
     # Perform thin SVD
     tmpTime = time.time()
-    u, s, vT = nla.svd(d, full_matrices=False)
+    # u, s, vT = sla.svd(d, full_matrices=False)
+    # u, s, vT = nla.svd(d, full_matrices=False)
+    u, s, vT = skmath.randomized_svd(d, n_component=3000) 
     print(f'SVD time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 1699.88 seconds
     # Save POD basis and eigendecay
     tmpTime = time.time()

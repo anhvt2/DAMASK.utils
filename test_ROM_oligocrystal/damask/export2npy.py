@@ -22,10 +22,9 @@ parser.add_argument("-f", "--fileNameList",
     type=str, default='', required=False)
 
 parser.add_argument("-overwrite", "--overwrite",
-    type=bool, default=False,
+    default=False,
     type=lambda x:bool(strtobool(x)),
-    nargs='?', const=True, default=False, required=False)
-
+    nargs='?', const=True, required=False)
 
 args = parser.parse_args()
 fileNameList = args.fileNameList # fileName = 'main_tension_inc19.txt' # debug
@@ -34,7 +33,7 @@ isOverwrite = args.overwrite
 startTime = time.time()
 
 # If fileNameList is empty, then exporting every file
-if fileNameList != '':
+if fileNameList == '':
     fileNameList = natsorted(glob.glob('main_tension_inc??.txt'))
     print('export2npy.py: Going to export to .npy from ...')
     print(fileNameList)
@@ -44,7 +43,7 @@ logger = open('export2npy.py.log', 'w')
 
 for fileName in fileNameList:
     outFileName = fileName[:-4] + '.npy'
-    if not os.path.exists(outFileName) and isOverwrite:
+    if not os.path.exists(outFileName) or isOverwrite:
         try:
             fileHandler = open(fileName)
             txt = fileHandler.readlines()

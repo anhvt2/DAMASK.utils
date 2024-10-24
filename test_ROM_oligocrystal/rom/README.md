@@ -1,6 +1,7 @@
 
 # Projection-based Reduced-order Model
 
+1. Sample train/test datasets: `sampleTrainTest.py`. Dump `{Train,Test}Idx.dat`
 1. Extract data: `extractData.py`
 1. Construct a global basis: `computeBasis.py`
 1. Compute POD coefficients: `computeCoefs.py`

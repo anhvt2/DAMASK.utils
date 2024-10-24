@@ -43,7 +43,7 @@ for MlType in ['Train', 'Test']:
         idx = TestIdx
     for i in idx: # for i in range(1,501):
         folderName = str(i+1) # taken from randomizeLoad.py
-        logging.info(f'Processing {int(i):<d}')
+        logging.info(f'Processing ../damask/{int(i+1):<d}/')
         fileName = '../damask/%d/postProc/stress_strain.log' % i
         dotVareps = controlInfo[i,1]
         initialT  = controlInfo[i,3]

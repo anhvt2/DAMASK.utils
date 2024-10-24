@@ -88,7 +88,7 @@ fig = plt.figure(num=None, figsize=(14, 12), dpi=300, facecolor='w', edgecolor='
 plt.scatter(dotVarEps_Train, initialT_Train, marker='o', s=30, c='tab:blue', label='train')
 plt.scatter(dotVarEps_Test_OOD, initialT_Test_OOD, marker='o', s=30, c='tab:orange', label='test (OOD)')
 plt.scatter(dotVarEps_Test_ID, initialT_Test_ID, marker='o', s=30, c='tab:green', label='test (ID)')
-plt.legend(fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=True, markerscale=3)
+plt.legend(fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=False, markerscale=3)
 
 plt.title('Input Distribution', fontsize=24)
 plt.xlabel(r'$\dot{\varepsilon}$ [s$^{-1}$]', fontsize=24)

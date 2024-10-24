@@ -13,13 +13,19 @@ import pandas as pd
 import glob, os
 from natsort import natsorted, ns
 import argparse
+from distutils.util import strtobool
+
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-f", "--fileNameList", 
     help='specific fileName to convert to numpy', 
     type=str, default='', required=False)
 
-parse.add_argument("-overwrite", "--overwrite", type=bool, default=False, required=False)
+parser.add_argument("-overwrite", "--overwrite",
+    type=bool, default=False,
+    type=lambda x:bool(strtobool(x)),
+    nargs='?', const=True, default=False, required=False)
+
 
 args = parser.parse_args()
 fileNameList = args.fileNameList # fileName = 'main_tension_inc19.txt' # debug

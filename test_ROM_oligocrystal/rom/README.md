@@ -1,6 +1,8 @@
 
 # Projection-based Reduced-order Model
 
+These are the steps to construct a projection-based ROM. 
+
 1. Sample train/test datasets: `sampleTrainTest.py`. Dump `{Train,Test}Idx.dat`
 1. Extract data snapshots: `extractData.py`
 1. Construct a global basis: `computeBasis.py`

@@ -3,7 +3,7 @@ import numpy as np
 import os
 import time
 import scipy
-import numpy.linalg as nla # 155G/188G -- can run on attaway-login12
+import numpy.linalg as nla
 import scipy.linalg as sla # Do not use due to memory inefficiency
 import sklearn.utils.extmath as skmath
 import matplotlib as mpl

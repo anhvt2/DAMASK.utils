@@ -19,7 +19,7 @@ labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
 
 t_start = time.time()
 
-for foi in fois:
+for foi, label in zip(fois, labels):
     d = np.load('d_%s.npy' % foi)
     print(f'Loading time: {time.time() - t_start:<.2f} seconds.')
     # Count/extract non-zero columns

@@ -10,6 +10,8 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 fois = ['MisesCauchy', 'MisesLnV'] # fields of interest
+# fois = ['MisesCauchy'] # fields of interest
+# fois = ['MisesLnV'] # fields of interest
 
 t_start = time.time()
 
@@ -29,9 +31,9 @@ for foi in fois:
     print(f'Centering time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 150.29 seconds
     # Perform thin SVD
     tmpTime = time.time()
-    # u, s, vT = sla.svd(d, full_matrices=False)
-    # u, s, vT = nla.svd(d, full_matrices=False)
-    u, s, vT = skmath.randomized_svd(d, n_components=3000) 
+    # u, s, vT = sla.svd(d, full_matrices=False) # full_matrices: full or thin SVD
+    u, s, vT = nla.svd(d, full_matrices=False) # full_matrices: full or thin SVD
+    # u, s, vT = skmath.randomized_svd(d, n_components=3000) 
     print(f'SVD time: {time.time() - tmpTime:<.2f} seconds.') # Elapsed time: 1699.88 seconds
     # Save POD basis and eigendecay
     tmpTime = time.time()
@@ -58,4 +60,4 @@ for foi in fois:
         bbox_inches='tight', pad_inches=0.1, metadata=None)
 
 print(f'Total time for POD basis: {time.time() - t_start:<.2f} seconds.') # Elapsed time: ? seconds
-os.system('htop')
+# os.system('htop')

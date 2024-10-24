@@ -38,6 +38,8 @@ if fileNameList == '':
     print('export2npy.py: Going to export to .npy from ...')
     print(fileNameList)
     print('\n\n')
+else:
+    fileNameList = [fileNameList] # avoid iterating through strings
 
 logger = open('export2npy.py.log', 'w')
 

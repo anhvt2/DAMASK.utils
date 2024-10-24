@@ -13,6 +13,7 @@ mpl.rcParams['xtick.labelsize'] = 18
 mpl.rcParams['ytick.labelsize'] = 24
 
 fois = ['MisesCauchy', 'MisesLnV'] # fields of interest
+labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
 # fois = ['MisesCauchy'] # fields of interest
 # fois = ['MisesLnV'] # fields of interest
 

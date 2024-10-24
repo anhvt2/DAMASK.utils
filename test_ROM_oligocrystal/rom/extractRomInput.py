@@ -59,9 +59,18 @@ for MlType in ['Train', 'Test']:
             inc = data[:,0]
             strain = data[:,1]
             stress = data[:,2]
+
             # Write to output file
             for j in range(1,len(strain)):
                 f.write('%.8e, %.8e, %.8e, %.1f, %d, %d\n'% (dotVareps, initialT, strain[j], stress[j], i, inc[j]))
+
+            # Copy the relevant portion in the same directory
+            localOutFileName = '../damask/%d/inputRom.dat' % i
+            lF.write('dotVareps, initialT, vareps, sigma, DamaskIndex, PostProcIndex\n')
+            lF = open(localOutFileName, 'w')
+            for j in range(1,len(strain)):
+                lF.write('%.8e, %.8e, %.8e, %.1f, %d, %d\n'% (dotVareps, initialT, strain[j], stress[j], i, inc[j]))
+            lF.close()
 
     f.close()
 

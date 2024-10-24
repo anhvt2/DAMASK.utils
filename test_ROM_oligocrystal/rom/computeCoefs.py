@@ -16,19 +16,22 @@ basis_MisesCauchy = np.load('podBasis_MisesCauchy.npy')
 basis_MisesLnV = np.load('podBasis_MisesLnV.npy')
 
 romPath = os.getcwd() + '/'
-damaskPath  = romPath + '../damask/'
+damaskPath  = romPath + '../damask'
 os.chdir(damaskPath)
 for i in range(1,1001):
     print(f'Computing POD coefs in damask/{int(i):<d}/')
-    os.chdir(damaskPath + '%s/postProc/')
+    os.chdir(damaskPath + '/%s/postProc/')
     for fileName in natsorted(glob.glob('main_tension_inc??.npy' % i)):
-        tmpData = np.load(fileName)
-        if tmpData.shape == (576000,2): # safeguard -- check shape
-            podCoefs_MisesCauchy = np.dot(basis_MisesCauchy, tmpData[:,0])
-            podCoefs_MisesLnV    = np.dot(basis_MisesLnV,    tmpData[:,1])
-            podCoefs = np.hstack((podCoefs_MisesCauchy, podCoefs_MisesLnV))
-            print(f'Finish calculating POD coefs in damask/{int(i):<d}/postProc/{fileName}')
-            np.save('podCoefs_' + fileName.split('.')[:-4], podCoefs)
+        try:
+            tmpData = np.load(fileName)
+            if tmpData.shape == (576000,2): # safeguard -- check shape
+                podCoefs_MisesCauchy = np.dot(basis_MisesCauchy, tmpData[:,0])
+                podCoefs_MisesLnV    = np.dot(basis_MisesLnV,    tmpData[:,1])
+                podCoefs = np.hstack((podCoefs_MisesCauchy, podCoefs_MisesLnV))
+                print(f'Finish calculating POD coefs in damask/{int(i):<d}/postProc/{fileName}')
+                np.save('podCoefs_' + fileName.split('.')[:-4], podCoefs)
+        except:
+            print(f'Cannot read {damaskPath}/{int(i):<d}/postProc/{fileName}')
 
     os.chdir(damaskPath)
 

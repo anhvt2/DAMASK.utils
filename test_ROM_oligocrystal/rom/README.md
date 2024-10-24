@@ -13,7 +13,11 @@ These are the steps to construct a projection-based ROM.
 
 # Computational cost
 
-1. Build snapshot matrix: `extractData.py: finished in 1610.32 seconds.`
+1. Build snapshot matrix: 
+```
+extractData.py: extracted data in 1049.07 seconds.
+extractData.py: finished in 1494.23 seconds.
+```
 1. Compute POD basis: 
 ```
 Loading time: 221.89 seconds.

@@ -30,6 +30,8 @@ for foi, label in zip(fois, labels):
     d = d[:,:nzElems]
     # Compute mean column
     meanCol = np.mean(d, axis=1)
+    # Save the mean
+    np.save('mean_%s' % foi, meanCol)
     # Subtract mean column
     d = d - np.atleast_2d(meanCol).T
     print(f'Centering time: {time.time() - tmpTime:<.2f} seconds.')

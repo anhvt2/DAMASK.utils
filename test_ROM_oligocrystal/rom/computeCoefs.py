@@ -45,7 +45,7 @@ for i in range(1,1001):
                     # # Save POD coefs
                     podCoefs = np.hstack((podCoefs_MisesCauchy, podCoefs_MisesLnV))
                     print(f'Finish calculating POD coefs in damask/{int(i):<d}/postProc/{fileName}')
-                    np.save('podCoefs_' + fileName.split[:-4], podCoefs)
+                    np.save('podCoefs_' + fileName[:-4], podCoefs)
                 except:
                     print(f'Fail to calculate POD coefs in damask/{int(i):<d}/postProc/{fileName}')
         except:

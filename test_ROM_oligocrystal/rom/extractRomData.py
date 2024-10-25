@@ -45,10 +45,9 @@ for MlType, idx in zip(['Train', 'Test'], [TrainIdx, TestIdx]):
     oF.write('%s\n' % ",".join(oFheader))
     for i in idx: # for i in range(1,501):
         folderName = str(i+1) # taken from randomizeLoad.py
-        logging.info(f'Processing ../damask/{int(i+1):<d}/')
+        logging.info(f'Processing ../damask/{int(i):<d}/')
         fileName = '../damask/%d/postProc/stress_strain.log' % i
-        dotVareps = controlInfo[i,1]
-        initialT  = controlInfo[i,3]
+        dotVareps, initialT = controlInfo[i,1], controlInfo[i,3]
         # Check if 'stress_strain.log' exists
         if os.path.exists(fileName):
             fileHandler = open(fileName)
@@ -58,9 +57,7 @@ for MlType, idx in zip(['Train', 'Test'], [TrainIdx, TestIdx]):
             oldHeader = txt[numHeaderRows].replace('\n', '').split('\t')
             data = np.loadtxt(fileName, skiprows=numHeaderRows+1)
             # Extract relevant data
-            inc = data[:,0]
-            strain = data[:,1]
-            stress = data[:,2]
+            inc, strain, stress = data[:,0], data[:,1], data[:,2]
 
             # Write to output file
             for j in range(1,len(strain)):
@@ -73,8 +70,8 @@ for MlType, idx in zip(['Train', 'Test'], [TrainIdx, TestIdx]):
 
             # Copy the relevant portion in the same directory
             localOutFileName = '../damask/%d/inputRom.dat' % i
-            lF.write('dotVareps, initialT, vareps, sigma, DamaskIndex, PostProcIndex\n')
             lF = open(localOutFileName, 'w')
+            lF.write('dotVareps, initialT, vareps, sigma, DamaskIndex, PostProcIndex\n')
             for j in range(1,len(strain)):
                 lF.write('%.8e, %.8e, %.8e, %.1f, %d, %d\n'% (dotVareps, initialT, strain[j], stress[j], i, inc[j]))
             lF.close()

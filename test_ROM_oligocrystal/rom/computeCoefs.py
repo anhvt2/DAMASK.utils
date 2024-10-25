@@ -22,6 +22,7 @@ logging.info(f'computeCoefs.py: Loading POD basis: Elapsed {time.time() - t_star
 mean_MisesCauchy = np.load('mean_MisesCauchy.npy')
 mean_MisesLnV    = np.load('mean_MisesLnV.npy')
 
+# romPath = '/ascldap/users/anhtran/gpfs/DAMASK.utils/test_ROM_oligocrystal/rom' # debug
 # os.chdir(romPath) # debug
 romPath = os.getcwd() + '/'
 damaskPath  = romPath + '../damask'

@@ -60,12 +60,12 @@ np.savetxt('TestDataOOD.dat',  TestDataOOD,
     fmt='%d, %.8e, %.8e, %.1f', 
     header='i, dotVareps, loadingTime, initialT',
     comments='')
-np.savetxt('TestIdxOOD.dat', testIdx, fmt='%d')
+np.savetxt('TestIdxOOD.dat', testIdxOOD, fmt='%d')
 np.savetxt('TestDataID.dat',  TestDataID,  
     fmt='%d, %.8e, %.8e, %.1f', 
     header='i, dotVareps, loadingTime, initialT',
     comments='')
-np.savetxt('TestIdxID.dat', testIdx, fmt='%d')
+np.savetxt('TestIdxID.dat', testIdxID, fmt='%d')
 
 # Plot: train/test
 fig = plt.figure(num=None, figsize=(14, 12), dpi=300, facecolor='w', edgecolor='k')

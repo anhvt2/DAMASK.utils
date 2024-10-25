@@ -5,6 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 import matplotlib.pyplot as plt
 import logging
+from sklearn.preprocessing import StandardScaler
 
 level    = logging.INFO
 format   = '  %(message)s'
@@ -12,6 +13,8 @@ logFileName = 'nn.py.log'
 os.system('rm -fv %s' % logFileName)
 handlers = [logging.FileHandler(logFileName), logging.StreamHandler()]
 logging.basicConfig(level = level, format = format, handlers = handlers)
+
+t_start = time.time()
 
 # Get device
 device = (
@@ -23,15 +26,31 @@ device = (
 )
 print(f"Using {device} device")
 
-x_train = torch.from_numpy(np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3])
-x_test  = torch.from_numpy(np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3])
-y_train = torch.from_numpy(np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:5540])
-y_test  = torch.from_numpy(np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:5540])
+x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3]
+x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3]
+y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:5540]
+y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:5540]
+
+logging.info(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
+
+# Initialize the scaler
+scaler = StandardScaler()
+# Fit the scaler on the training data
+scaler.fit(x_train)
+# Transform both training and test data
+x_train_scaled = scaler.transform(x_train)
+x_test_scaled = scaler.transform(x_test)
+
+# Convert to torch format
+x_train = torch.from_numpy(x_train)
+x_test = torch.from_numpy(x_test)
+y_train = torch.from_numpy(y_train)
+y_test = torch.from_numpy(y_test)
 
 # Define a multi-layer neural network with non-linear activation functions
-class NonlinearRegressionModel(nn.Module):
+class NNRegressor(nn.Module):
     def __init__(self):
-        super(NonlinearRegressionModel, self).__init__()
+        super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
             nn.Linear(3, 500),
             nn.Tanh(),
@@ -43,7 +62,7 @@ class NonlinearRegressionModel(nn.Module):
         return self.network(x)
 
 # Instantiate the model, loss function, and optimizer
-model = NonlinearRegressionModel()
+model = NNRegressor()
 model.double()
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.01)

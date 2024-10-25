@@ -67,6 +67,7 @@ for MlType, idx in zip(['Train', 'Test'], [TrainIdx, TestIdx]):
                     iF.write('%.8e, %.8e, %.8e, %.1f, %d, %d\n'% (dotVareps, initialT, strain[j], stress[j], i, inc[j]))
                     podCoefs = np.load(podFileName).ravel(order='F') # unravel in columns
                     oF.write(','.join(map(str, podCoefs)) + '\n')
+                    logging.info(f'Processing {podFileName}\n')
 
             # Copy the relevant portion in the same directory
             localOutFileName = '../damask/%d/inputRom.dat' % i
@@ -78,3 +79,6 @@ for MlType, idx in zip(['Train', 'Test'], [TrainIdx, TestIdx]):
 
     iF.close()
     oF.close()
+
+logging.info(f'Elapsed time: {time.time() - t_start} seconds.')
+

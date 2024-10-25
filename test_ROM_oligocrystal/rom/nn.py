@@ -7,7 +7,7 @@ import logging
 
 level    = logging.INFO
 format   = '  %(message)s'
-logFileName = 'extractData.py.log'
+logFileName = 'nn.py.log'
 os.system('rm -fv %s' % logFileName)
 handlers = [logging.FileHandler(logFileName), logging.StreamHandler()]
 logging.basicConfig(level = level, format = format, handlers = handlers)
@@ -22,10 +22,10 @@ device = (
 )
 print(f"Using {device} device")
 
-x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3]
-x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3]
-y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:5540]
-y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:5540]
+x_train = torch.from_numpy(np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3])
+x_test  = torch.from_numpy(np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3])
+y_train = torch.from_numpy(np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:5540])
+y_test  = torch.from_numpy(np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:5540])
 
 # Define a multi-layer neural network with non-linear activation functions
 class NonlinearRegressionModel(nn.Module):
@@ -42,12 +42,12 @@ class NonlinearRegressionModel(nn.Module):
             nn.ReLU(),
             nn.Linear(1024, 5540)  # Output layer: Produces a 5540-dimensional output
         )
-
     def forward(self, x):
         return self.network(x)
 
 # Instantiate the model, loss function, and optimizer
 model = NonlinearRegressionModel()
+model.double()
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.01)
 
@@ -56,28 +56,24 @@ train_losses = []
 test_losses = []
 
 # Training loop
-num_epochs = 500
+num_epochs = 50000
 for epoch in range(num_epochs):
     # Training phase
     model.train()
     y_train_pred = model(x_train)
     train_loss = criterion(y_train_pred, y_train)
-    
     # Backward pass and optimization
     optimizer.zero_grad()
     train_loss.backward()
     optimizer.step()
-    
     # Evaluation phase (test set)
     model.eval()
     with torch.no_grad():
         y_test_pred = model(x_test)
         test_loss = criterion(y_test_pred, y_test)
-    
     # Store losses for each epoch
     train_losses.append(train_loss.item())
     test_losses.append(test_loss.item())
-    
     # Print progress every 50 epochs
     if (epoch + 1) % 50 == 0:
         logging(f'Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss.item():.4f}, Test Loss: {test_loss.item():.4f}')
@@ -93,5 +89,5 @@ for epoch in range(num_epochs):
 
 # Save the model state dictionary
 torch.save(model.state_dict(), 'model.pth')
-print("Model saved to model.pth")
+print(f"Model saved to model.pth")
 

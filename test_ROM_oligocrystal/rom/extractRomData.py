@@ -28,12 +28,15 @@ logging.basicConfig(level = level, format = format, handlers = handlers)
 t_start = time.time()
 logging.info(f'Warning: Only run this file AFTER running computeCoefs.py!')
 time.sleep(3) # add delay to read the warning message
-TrainIdx = np.loadtxt('TrainIdx.dat', dtype=int)
-TestIdx  = np.loadtxt('TestIdx.dat', dtype=int)
+TrainIdx   = np.loadtxt('TrainIdx.dat', dtype=int)
+TestIdx    = np.loadtxt('TestIdx.dat', dtype=int)
+TestIdxOOD = np.loadtxt('TestIdxOOD.dat', dtype=int)
+TestIdxID  = np.loadtxt('TestIdxID.dat', dtype=int)
 FoI = ['Mises(Cauchy)','Mises(ln(V))'] # from export2npy.py
 controlInfo = np.loadtxt('control.log', delimiter=',', skiprows=1)
 
-for MlType, idx in zip(['Train', 'Test'], [TrainIdx, TestIdx]):
+# for MlType, idx in zip(['Train', 'Test', 'TestOOD', 'TestID'], [TrainIdx, TestIdx, TestIdxOOD, TestIdxID]): # long version
+for MlType, idx in zip(['TestOOD', 'TestID'], [TestIdxOOD, TestIdxID]): # short version
     # Write input/output datasets for train/test dataset
     inputRomFileName = 'inputRom_%s.dat' % MlType
     iF = open(inputRomFileName, 'w') # input file handler

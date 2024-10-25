@@ -1,4 +1,5 @@
 import os
+import time
 import numpy as np
 import torch
 import torch.nn as nn
@@ -28,8 +29,10 @@ print(f"Using {device} device")
 
 x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3]
 x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3]
-y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:5540]
-y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:5540]
+y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:numPodComponents]
+y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:numPodComponents]
+
+numPodComponents = 500
 
 logging.info(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
@@ -56,7 +59,7 @@ class NNRegressor(nn.Module):
             nn.Tanh(),
             nn.Linear(500, 1000),
             nn.Tanh(),
-            nn.Linear(1000, 5540),
+            nn.Linear(1000, numPodComponents),
         )
     def forward(self, x):
         return self.network(x)

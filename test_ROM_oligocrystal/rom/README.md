@@ -42,3 +42,6 @@ These are the steps to construct a projection-based ROM.
       computeCoefs.py: Elapsed time = 10713.857370376587 seconds.
     ```
 1. Extract ROM data:
+    ```
+      Elapsed time: 749.8915462493896 seconds
+    ```

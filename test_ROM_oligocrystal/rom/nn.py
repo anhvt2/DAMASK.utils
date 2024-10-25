@@ -1,10 +1,16 @@
 
-import os
-import numpy as np
 import torch
-from torch import nn
-from torch.utils.data import DataLoader
-from torchvision import datasets, transforms
+import torch.nn as nn
+import torch.optim as optim
+import matplotlib.pyplot as plt
+import logging
+
+level    = logging.INFO
+format   = '  %(message)s'
+logFileName = 'extractData.py.log'
+os.system('rm -fv %s' % logFileName)
+handlers = [logging.FileHandler(logFileName), logging.StreamHandler()]
+logging.basicConfig(level = level, format = format, handlers = handlers)
 
 # Get device
 device = (
@@ -16,64 +22,76 @@ device = (
 )
 print(f"Using {device} device")
 
-# Define a class
-class NeuralNetwork(nn.Module):
+x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3]
+x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3]
+y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:5540]
+y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:5540]
+
+# Define a multi-layer neural network with non-linear activation functions
+class NonlinearRegressionModel(nn.Module):
     def __init__(self):
-        super().__init__()
-        self.flatten = nn.Flatten()
-        self.linear_relu_stack = nn.Sequential(
-            nn.Linear(3, 60),
+        super(NonlinearRegressionModel, self).__init__()
+        self.network = nn.Sequential(
+            nn.Linear(3, 128),     # Layer 1: Input layer to first hidden layer with 128 neurons
+            nn.ReLU(),             # Activation function
+            nn.Linear(128, 256),   # Layer 2: Second hidden layer with 256 neurons
             nn.ReLU(),
-            nn.Linear(60, 120),
+            nn.Linear(256, 512),   # Layer 3: Third hidden layer with 512 neurons
             nn.ReLU(),
-            nn.Linear(120, 200),
+            nn.Linear(512, 1024),  # Layer 4: Fourth hidden layer with 1024 neurons
+            nn.ReLU(),
+            nn.Linear(1024, 5540)  # Output layer: Produces a 5540-dimensional output
         )
 
     def forward(self, x):
-        x = self.flatten(x)
-        podCoefs = self.linear_relu_stack(x)
-        return podCoefs
+        return self.network(x)
 
+# Instantiate the model, loss function, and optimizer
+model = NonlinearRegressionModel()
+criterion = nn.MSELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.01)
 
-optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+# Lists to store training and test losses
+train_losses = []
+test_losses = []
 
-
-def train_loop(dataloader, model, loss_fn, optimizer):
-    size = len(dataloader.dataset)
-    # Set the model to training mode - important for batch normalization and dropout layers
-    # Unnecessary in this situation but added for best practices
+# Training loop
+num_epochs = 500
+for epoch in range(num_epochs):
+    # Training phase
     model.train()
-    for batch, (X, y) in enumerate(dataloader):
-        # Compute prediction and loss
-        pred = model(X)
-        loss = loss_fn(pred, y)
-
-        # Backpropagation
-        loss.backward()
-        optimizer.step()
-        optimizer.zero_grad()
-
-        if batch % 100 == 0:
-            loss, current = loss.item(), batch * batch_size + len(X)
-            print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
-
-
-def test_loop(dataloader, model, loss_fn):
-    # Set the model to evaluation mode - important for batch normalization and dropout layers
-    # Unnecessary in this situation but added for best practices
+    y_train_pred = model(x_train)
+    train_loss = criterion(y_train_pred, y_train)
+    
+    # Backward pass and optimization
+    optimizer.zero_grad()
+    train_loss.backward()
+    optimizer.step()
+    
+    # Evaluation phase (test set)
     model.eval()
-    size = len(dataloader.dataset)
-    num_batches = len(dataloader)
-    test_loss, correct = 0, 0
-
-    # Evaluating the model with torch.no_grad() ensures that no gradients are computed during test mode
-    # also serves to reduce unnecessary gradient computations and memory usage for tensors with requires_grad=True
     with torch.no_grad():
-        for X, y in dataloader:
-            pred = model(X)
-            test_loss += loss_fn(pred, y).item()
-            correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+        y_test_pred = model(x_test)
+        test_loss = criterion(y_test_pred, y_test)
+    
+    # Store losses for each epoch
+    train_losses.append(train_loss.item())
+    test_losses.append(test_loss.item())
+    
+    # Print progress every 50 epochs
+    if (epoch + 1) % 50 == 0:
+        logging(f'Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss.item():.4f}, Test Loss: {test_loss.item():.4f}')
 
-    test_loss /= num_batches
-    correct /= size
-    print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
+# # Plotting the train and test loss curves
+# plt.figure(figsize=(10, 5))
+# plt.plot(train_losses, label='Train Loss')
+# plt.plot(test_losses, label='Test Loss')
+# plt.xlabel('Epoch')
+# plt.ylabel('MSE Loss')
+# plt.title('Train/Test Loss Convergence')
+# plt.legend()
+
+# Save the model state dictionary
+torch.save(model.state_dict(), 'model.pth')
+print("Model saved to model.pth")
+

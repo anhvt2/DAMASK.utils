@@ -76,7 +76,7 @@ for epoch in range(num_epochs):
     test_losses.append(test_loss.item())
     # Print progress every 50 epochs
     if (epoch + 1) % 50 == 0:
-        logging(f'Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss.item():.4f}, Test Loss: {test_loss.item():.4f}')
+        logging.info(f'Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss.item():.4f}, Test Loss: {test_loss.item():.4f}')
 
 # # Plotting the train and test loss curves
 # plt.figure(figsize=(10, 5))

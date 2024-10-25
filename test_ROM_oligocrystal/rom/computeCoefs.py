@@ -22,7 +22,7 @@ logging.info(f'computeCoefs.py: Loading POD basis: Elapsed {time.time() - t_star
 mean_MisesCauchy = np.load('mean_MisesCauchy.npy')
 mean_MisesLnV    = np.load('mean_MisesLnV.npy')
 
-os.chdir(romPath) # debug
+# os.chdir(romPath) # debug
 romPath = os.getcwd() + '/'
 damaskPath  = romPath + '../damask'
 os.chdir(damaskPath)

@@ -33,15 +33,11 @@ class NonlinearRegressionModel(nn.Module):
     def __init__(self):
         super(NonlinearRegressionModel, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(3, 128),     # Layer 1: Input layer to first hidden layer with 128 neurons
-            nn.ReLU(),             # Activation function
-            nn.Linear(128, 256),   # Layer 2: Second hidden layer with 256 neurons
-            nn.ReLU(),
-            nn.Linear(256, 512),   # Layer 3: Third hidden layer with 512 neurons
-            nn.ReLU(),
-            nn.Linear(512, 1024),  # Layer 4: Fourth hidden layer with 1024 neurons
-            nn.ReLU(),
-            nn.Linear(1024, 5540)  # Output layer: Produces a 5540-dimensional output
+            nn.Linear(3, 500),
+            nn.Tanh(),
+            nn.Linear(500, 1000),
+            nn.Tanh(),
+            nn.Linear(1000, 5540),
         )
     def forward(self, x):
         return self.network(x)

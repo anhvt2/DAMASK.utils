@@ -35,7 +35,7 @@ y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:numFtr
 x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3]
 y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:numFtrs]
 
-logging.info(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
+print(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
 # Reparameterize to convert a 3d -> 5540d problem to 4d -> 1d
 def reparam(x,y):
@@ -69,10 +69,14 @@ class NNRegressor(nn.Module):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
             nn.Linear(4, 8),
-            nn.LeakyReLU(),
+            nn.ReLU6(),
             nn.Linear(8, 16),
-            nn.LeakyReLU(),
-            nn.Linear(16, 1),
+            nn.ReLU6(),
+            nn.Linear(16, 8),
+            nn.ReLU6(),
+            nn.Linear(8, 4),
+            nn.ReLU6(),
+            nn.Linear(4, 1),
         )
     def forward(self, x):
         return self.network(x)

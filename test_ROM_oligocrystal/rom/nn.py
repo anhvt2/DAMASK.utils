@@ -28,7 +28,7 @@ device = (
 )
 print(f"Using {device} device")
 
-numFtrs = 10 # number of ROM/POD features
+numFtrs = 300 # number of ROM/POD features
 
 x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3]
 y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:numFtrs]
@@ -43,7 +43,8 @@ def reparam(x,y):
     i = np.tile(np.atleast_2d(np.arange(y.shape[1])).T, [y.shape[0], 1])
     x = np.hstack((x,i))
     y = np.atleast_2d(y.ravel(order='C')).T
-    return x,y 
+    y = np.log10(y)
+    return x,y
 
 x_train, y_train = reparam(x_train, y_train)
 x_test, y_test = reparam(x_test, y_test)
@@ -97,9 +98,6 @@ train_losses = []
 test_losses = []
 
 # Training loop
-
-
-
 start_epoch = 0
 num_epochs = 500000
 try:

@@ -43,7 +43,6 @@ def reparam(x,y):
     i = np.tile(np.atleast_2d(np.arange(y.shape[1])).T, [y.shape[0], 1])
     x = np.hstack((x,i))
     y = np.atleast_2d(y.ravel(order='C')).T
-    y = np.log10(y)
     return x,y
 
 x_train, y_train = reparam(x_train, y_train)
@@ -55,9 +54,12 @@ scaler.fit(x_train)
 x_train_scaled = scaler.transform(x_train)
 x_test_scaled = scaler.transform(x_test)
 
+y_train /= 1.e9
+y_test /= 1.e9
+
 # Convert to torch format
-x_train = torch.from_numpy(x_train)
-x_test = torch.from_numpy(x_test)
+x_train_scaled = torch.from_numpy(x_train_scaled)
+x_test_scaled = torch.from_numpy(x_test_scaled)
 y_train = torch.from_numpy(y_train)
 y_test = torch.from_numpy(y_test)
 
@@ -66,11 +68,9 @@ class NNRegressor(nn.Module):
     def __init__(self):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(4, 64),
+            nn.Linear(4, 8),
             nn.LeakyReLU(),
-            nn.Linear(64, 32),
-            nn.LeakyReLU(),
-            nn.Linear(32, 16),
+            nn.Linear(8, 16),
             nn.LeakyReLU(),
             nn.Linear(16, 1),
         )
@@ -89,7 +89,6 @@ def load_checkpoint(model, optimizer, filename="model.pth"):
 model = NNRegressor()
 model.double()
 criterion = nn.MSELoss()
-# optimizer = optim.Adam(model.parameters(), lr=0.1)
 optimizer = optim.Adam(model.parameters(), lr=0.1)
 # scheduler = ExponentialLR(optimizer, gamma=1.05)  # Increase LR by 5% every epoch
 
@@ -100,6 +99,7 @@ test_losses = []
 # Training loop
 start_epoch = 0
 num_epochs = 500000
+
 try:
     model, optimizer, start_epoch = load_checkpoint(model, optimizer)
     print(f"Resuming training from epoch {start_epoch}...")
@@ -109,7 +109,7 @@ except FileNotFoundError:
 for epoch in range(start_epoch, num_epochs):
     # Training phase
     model.train()
-    y_train_pred = model(x_train)
+    y_train_pred = model(x_train_scaled)
     train_loss = criterion(y_train_pred, y_train)
     # Backward pass and optimization
     optimizer.zero_grad()
@@ -119,7 +119,7 @@ for epoch in range(start_epoch, num_epochs):
     # Evaluation phase (test set)
     model.eval()
     with torch.no_grad():
-        y_test_pred = model(x_test)
+        y_test_pred = model(x_test_scaled)
         test_loss = criterion(y_test_pred, y_test)
     # Store losses for each epoch
     train_losses.append(train_loss.item())

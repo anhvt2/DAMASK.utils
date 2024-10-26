@@ -66,13 +66,23 @@ class NNRegressor(nn.Module):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
             nn.Linear(4, 64),
-            nn.ReLU(),
+            nn.LeakyReLU(),
             nn.Linear(64, 32),
-            nn.ReLU(),
-            nn.Linear(32, 1),
+            nn.LeakyReLU(),
+            nn.Linear(32, 16),
+            nn.LeakyReLU(),
+            nn.Linear(16, 1),
         )
     def forward(self, x):
         return self.network(x)
+
+# Function to load the model checkpoint
+def load_checkpoint(model, optimizer, filename="model.pth"):
+    checkpoint = torch.load(filename)
+    model.load_state_dict(checkpoint['model_state_dict'])
+    optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    start_epoch = checkpoint['epoch'] + 1
+    return model, optimizer, start_epoch
 
 # Instantiate the model, loss function, and optimizer
 model = NNRegressor()
@@ -87,8 +97,18 @@ train_losses = []
 test_losses = []
 
 # Training loop
-num_epochs = 50000
-for epoch in range(num_epochs):
+
+
+
+start_epoch = 0
+num_epochs = 500000
+try:
+    model, optimizer, start_epoch = load_checkpoint(model, optimizer)
+    print(f"Resuming training from epoch {start_epoch}...")
+except FileNotFoundError:
+    print("No saved model found. Starting training from scratch.")
+
+for epoch in range(start_epoch, num_epochs):
     # Training phase
     model.train()
     y_train_pred = model(x_train)
@@ -122,6 +142,11 @@ for epoch in range(num_epochs):
 # plt.legend()
 
 # Save the model state dictionary
-torch.save(model.state_dict(), 'model.pth')
+# torch.save(model.state_dict(), 'model.pth')
+torch.save({
+    'epoch': epoch,
+    'model_state_dict': model.state_dict(),
+    'optimizer_state_dict': optimizer.state_dict(),
+    }, 'model.pth')
 print(f"Model saved to model.pth")
 

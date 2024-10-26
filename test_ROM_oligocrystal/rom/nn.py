@@ -4,6 +4,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
+from torch.optim.lr_scheduler import ExponentialLR
 import matplotlib.pyplot as plt
 import logging
 from sklearn.preprocessing import StandardScaler
@@ -27,12 +28,12 @@ device = (
 )
 print(f"Using {device} device")
 
-x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3]
-x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3]
-y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:numPodComponents]
-y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:numPodComponents]
+numFtrs = 10 # number of ROM/POD features
 
-numPodComponents = 500
+x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3]
+y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:numFtrs]
+x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3]
+y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:numFtrs]
 
 logging.info(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
@@ -56,10 +57,10 @@ class NNRegressor(nn.Module):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
             nn.Linear(3, 500),
-            nn.Tanh(),
+            nn.ReLU(),
             nn.Linear(500, 1000),
-            nn.Tanh(),
-            nn.Linear(1000, numPodComponents),
+            nn.ReLU(),
+            nn.Linear(1000, numFtrs),
         )
     def forward(self, x):
         return self.network(x)
@@ -68,7 +69,9 @@ class NNRegressor(nn.Module):
 model = NNRegressor()
 model.double()
 criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.01)
+# optimizer = optim.Adam(model.parameters(), lr=0.1)
+optimizer = optim.Adam(model.parameters(), lr=0.1)
+# scheduler = ExponentialLR(optimizer, gamma=1.05)  # Increase LR by 5% every epoch
 
 # Lists to store training and test losses
 train_losses = []
@@ -85,6 +88,7 @@ for epoch in range(num_epochs):
     optimizer.zero_grad()
     train_loss.backward()
     optimizer.step()
+    # scheduler.step()
     # Evaluation phase (test set)
     model.eval()
     with torch.no_grad():
@@ -94,6 +98,8 @@ for epoch in range(num_epochs):
     train_losses.append(train_loss.item())
     test_losses.append(test_loss.item())
     # Print progress every 50 epochs
+    # current_lr = optimizer.param_groups[0]['lr']
+    # print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, Learning Rate: {current_lr:.6f}")
     if (epoch + 1) % 50 == 0:
         logging.info(f'Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss.item():.4f}, Test Loss: {test_loss.item():.4f}')
 

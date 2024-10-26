@@ -17,11 +17,15 @@ class RegressionModel(nn.Module):
     def __init__(self):
         super(RegressionModel, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(3, 64),    # Layer 1: 3D input to 64 neurons
-            nn.ReLU(),           # Activation function
-            nn.Linear(64, 32),   # Layer 2: 64 to 32 neurons
+            nn.Linear(3, 10),
             nn.ReLU(),
-            nn.Linear(32, 2)     # Output layer: 2D output
+            nn.Linear(10, 100),
+            nn.ReLU(),
+            nn.Linear(100, 500),
+            nn.ReLU(),
+            nn.Linear(500, 1000),
+            nn.ReLU(),
+            nn.Linear(1000, 5540),
         )
 
     def forward(self, x):

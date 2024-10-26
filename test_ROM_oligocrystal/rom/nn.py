@@ -50,9 +50,7 @@ x_test, y_test = reparam(x_test, y_test)
 
 # Initialize the scaler
 scaler = StandardScaler()
-# Fit the scaler on the training data
 scaler.fit(x_train)
-# Transform both training and test data
 x_train_scaled = scaler.transform(x_train)
 x_test_scaled = scaler.transform(x_test)
 
@@ -67,7 +65,7 @@ class NNRegressor(nn.Module):
     def __init__(self):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(3, 64),
+            nn.Linear(4, 64),
             nn.ReLU(),
             nn.Linear(64, 32),
             nn.ReLU(),

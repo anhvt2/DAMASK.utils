@@ -37,6 +37,17 @@ y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:numFtr
 
 logging.info(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
+# Reparameterize to convert a 3d -> 5540d problem to 4d -> 1d
+def reparam(x,y):
+    x = np.tile(x, [y.shape[1], 1])
+    i = np.tile(np.atleast_2d(np.arange(y.shape[1])).T, [y.shape[0], 1])
+    x = np.hstack((x,i))
+    y = np.atleast_2d(y.ravel(order='C')).T
+    return x,y 
+
+x_train, y_train = reparam(x_train, y_train)
+x_test, y_test = reparam(x_test, y_test)
+
 # Initialize the scaler
 scaler = StandardScaler()
 # Fit the scaler on the training data
@@ -56,11 +67,11 @@ class NNRegressor(nn.Module):
     def __init__(self):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(3, 500),
+            nn.Linear(3, 64),
             nn.ReLU(),
-            nn.Linear(500, 1000),
+            nn.Linear(64, 32),
             nn.ReLU(),
-            nn.Linear(1000, numFtrs),
+            nn.Linear(32, 1),
         )
     def forward(self, x):
         return self.network(x)

@@ -37,11 +37,12 @@ These are the steps to construct a projection-based ROM.
     ```
 1. Compute POD coefs:
     ```
-      computeCoefs.py: Loading POD basis: Elapsed 217.87353467941284 seconds.
-      computeCoefs.py: Loading POD basis: Elapsed 436.99397110939026 seconds.
-      computeCoefs.py: Elapsed time = 10713.857370376587 seconds.
+    computeCoefs.py: Loading POD basis: Elapsed 217.87353467941284 seconds.
+    computeCoefs.py: Loading POD basis: Elapsed 436.99397110939026 seconds.
+    computeCoefs.py: Elapsed time = 10713.857370376587 seconds.
     ```
 1. Extract ROM data:
     ```
-      Elapsed time: 749.8915462493896 seconds
+    Elapsed time: 749.8915462493896 seconds
+    Elapsed time: 976.0721864700317 seconds.
     ```

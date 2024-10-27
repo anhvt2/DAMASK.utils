@@ -73,13 +73,13 @@ class NNRegressor(nn.Module):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
             nn.Linear(4, 8),
-            nn.ReLU6(),
+            nn.ReLU(),
             nn.Linear(8, 16),
-            nn.ReLU6(),
+            nn.ReLU(),
             nn.Linear(16, 8),
-            nn.ReLU6(),
+            nn.ReLU(),
             nn.Linear(8, 4),
-            nn.ReLU6(),
+            nn.ReLU(),
             nn.Linear(4, 1),
         )
     def forward(self, x):
@@ -103,8 +103,6 @@ optimizer = optim.Adam(model.parameters(), lr=0.1)
 # Lists to store training and test losses
 train_losses = []
 test_losses = []
-test_id_losses = []
-test_ood_loses = []
 
 # Training loop
 start_epoch = 0

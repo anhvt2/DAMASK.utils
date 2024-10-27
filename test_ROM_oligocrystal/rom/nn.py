@@ -28,12 +28,16 @@ device = (
 )
 print(f"Using {device} device")
 
-numFtrs = 300 # number of ROM/POD features
+numFtrs = 100 # number of ROM/POD features
 
 x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3]
 y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:numFtrs]
 x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3]
 y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:numFtrs]
+
+# Take log of dotVarEps
+x_train[:,0] = np.log10(x_train[:,0])
+x_test[:,0]  = np.log10(x_test[:,0])
 
 print(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
@@ -54,12 +58,12 @@ scaler.fit(x_train)
 x_train_scaled = scaler.transform(x_train)
 x_test_scaled = scaler.transform(x_test)
 
-y_train /= 1.e9
-y_test /= 1.e9
+# y_train /= 1.e9
+# y_test /= 1.e9
 
 # Convert to torch format
-x_train_scaled = torch.from_numpy(x_train_scaled)
-x_test_scaled = torch.from_numpy(x_test_scaled)
+x_train = torch.from_numpy(x_train)
+x_test = torch.from_numpy(x_test)
 y_train = torch.from_numpy(y_train)
 y_test = torch.from_numpy(y_test)
 
@@ -99,6 +103,8 @@ optimizer = optim.Adam(model.parameters(), lr=0.1)
 # Lists to store training and test losses
 train_losses = []
 test_losses = []
+test_id_losses = []
+test_ood_loses = []
 
 # Training loop
 start_epoch = 0
@@ -113,7 +119,7 @@ except FileNotFoundError:
 for epoch in range(start_epoch, num_epochs):
     # Training phase
     model.train()
-    y_train_pred = model(x_train_scaled)
+    y_train_pred = model(x_train)
     train_loss = criterion(y_train_pred, y_train)
     # Backward pass and optimization
     optimizer.zero_grad()
@@ -123,7 +129,7 @@ for epoch in range(start_epoch, num_epochs):
     # Evaluation phase (test set)
     model.eval()
     with torch.no_grad():
-        y_test_pred = model(x_test_scaled)
+        y_test_pred = model(x_test)
         test_loss = criterion(y_test_pred, y_test)
     # Store losses for each epoch
     train_losses.append(train_loss.item())

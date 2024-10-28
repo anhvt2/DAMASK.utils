@@ -53,21 +53,22 @@ yscaler = StandardScaler()
 yscaler.fit(y_train)
 y_train_scaled = yscaler.transform(y_train)
 y_test_scaled  = yscaler.transform(y_test)
+weights = torch.from_numpy(np.sqrt(yscaler.var_ / yscaler.var_.min()))
 
-# Reparameterize to convert a 3d -> 5540d problem to 4d -> 1d
-def reparam(x,y):
-    x = np.tile(x, [y.shape[1], 1])
-    i = np.tile(np.atleast_2d(np.arange(y.shape[1])).T, [y.shape[0], 1])
-    x = np.hstack((x,i))
-    y = np.atleast_2d(y.ravel(order='C')).T
-    return x,y
+# # Reparameterize to convert a 3d -> 5540d problem to 4d -> 1d
+# def reparam(x,y):
+#     x = np.tile(x, [y.shape[1], 1])
+#     i = np.tile(np.atleast_2d(np.arange(y.shape[1])).T, [y.shape[0], 1])
+#     x = np.hstack((x,i))
+#     y = np.atleast_2d(y.ravel(order='C')).T
+#     return x,y
 
-x_train_scaled, y_train_scaled = reparam(x_train_scaled, y_train_scaled)
-x_test_scaled , y_test_scaled   = reparam(x_test_scaled, y_test_scaled)
+# x_train, y_train_scaled  = reparam(x_train, y_train_scaled)
+# x_test , y_test_scaled   = reparam(x_test , y_test_scaled)
 
 # Convert to torch format
-x_train_scaled = torch.from_numpy(x_train_scaled)
-x_test_scaled  = torch.from_numpy(x_test_scaled)
+x_train = torch.from_numpy(x_train)
+x_test  = torch.from_numpy(x_test)
 y_train_scaled = torch.from_numpy(y_train_scaled)
 y_test_scaled  = torch.from_numpy(y_test_scaled)
 
@@ -76,24 +77,19 @@ class NNRegressor(nn.Module):
     def __init__(self):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(4, 8),
+            nn.Linear(3, 16),
             nn.ReLU(),
-            nn.Linear(8, 16),
+            nn.Linear(16, 64),
             nn.ReLU(),
-            nn.Linear(16, 8),
-            nn.ReLU(),
-            nn.Linear(8, 4),
-            nn.ReLU(),
-            nn.Linear(4, 1),
+            nn.Linear(64, numFtrs),
         )
     def forward(self, x):
         return self.network(x)
 
-# Random weight initialization
+# Random weight initialization: Xavier Initialization for Linear layers
 def initialize_weights(model):
     for m in model.modules():
         if isinstance(m, nn.Linear):
-            # Xavier Initialization for Linear layers
             nn.init.xavier_uniform_(m.weight)
             nn.init.zeros_(m.bias)  # Initialize biases with zeros
 
@@ -104,6 +100,13 @@ def load_checkpoint(model, optimizer, filename="model.pth"):
     optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     start_epoch = checkpoint['epoch'] + 1
     return model, optimizer, start_epoch
+
+# Custom Weighted MSE Loss function
+def WeightedMSELoss(predicted, target, weights):
+    squared_difference = (predicted - target) ** 2
+    weighted_squared_difference = weights * squared_difference
+    weighted_mse = weighted_squared_difference.mean()
+    return weighted_mse
 
 # Instantiate the model, loss function, and optimizer
 model = NNRegressor()
@@ -129,8 +132,8 @@ except FileNotFoundError:
 for epoch in range(start_epoch, num_epochs):
     # Training phase
     model.train()
-    y_train_pred_scaled = model(x_train_scaled)
-    train_loss = criterion(y_train_pred_scaled, y_train_scaled)
+    y_train_pred_scaled = model(x_train)
+    train_loss = WeightedMSELoss(y_train_pred_scaled, y_train_scaled, weights)
     # Backward pass and optimization
     optimizer.zero_grad()
     train_loss.backward()
@@ -138,25 +141,13 @@ for epoch in range(start_epoch, num_epochs):
     # Evaluation phase (test set)
     model.eval()
     with torch.no_grad():
-        y_test_pred = model(x_test)
-        test_loss = criterion(y_test_pred, y_test)
+        y_test_pred_scaled = model(x_test)
+        test_loss = WeightedMSELoss(y_test_pred_scaled, y_test_scaled, weights)
     # Store losses for each epoch
     train_losses.append(train_loss.item())
     test_losses.append(test_loss.item())
-    # Print progress every 50 epochs
-    # current_lr = optimizer.param_groups[0]['lr']
-    # print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, Learning Rate: {current_lr:.6f}")
     if (epoch + 1) % 50 == 0:
         logging.info(f'Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss.item():.4f}, Test Loss: {test_loss.item():.4f}')
-
-# # Plotting the train and test loss curves
-# plt.figure(figsize=(10, 5))
-# plt.plot(train_losses, label='Train Loss')
-# plt.plot(test_losses, label='Test Loss')
-# plt.xlabel('Epoch')
-# plt.ylabel('MSE Loss')
-# plt.title('Train/Test Loss Convergence')
-# plt.legend()
 
 # Save the model state dictionary
 # torch.save(model.state_dict(), 'model.pth')

@@ -30,9 +30,9 @@ print(f"Using {device} device")
 
 numFtrs = 100 # number of ROM/POD features
 
-x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,5]]
+x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,4]]
 y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:numFtrs]
-x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,5]]
+x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,4]]
 y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:numFtrs]
 
 # Take log of dotVarEps
@@ -75,6 +75,18 @@ class NNRegressor(nn.Module):
     def __init__(self):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
+            nn.Linear(4, 4),
+            nn.ReLU(),
+            nn.Linear(4, 4),
+            nn.ReLU(),
+            nn.Linear(4, 4),
+            nn.ReLU(),
+            nn.Linear(4, 4),
+            nn.ReLU(),
+            nn.Linear(4, 4),
+            nn.ReLU(),
+            nn.Linear(4, 4),
+            nn.ReLU(),
             nn.Linear(4, 8),
             nn.ReLU(),
             nn.Linear(8, 16),
@@ -109,7 +121,7 @@ model = NNRegressor()
 model.double()
 initialize_weights(model)
 criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.1)
+optimizer = optim.Adam(model.parameters(), lr=0.001)
 # scheduler = ExponentialLR(optimizer, gamma=1.05)  # Increase LR by 5% every epoch
 
 # Lists to store training and test losses
@@ -118,7 +130,7 @@ test_losses = []
 
 # Training loop
 start_epoch = 0
-num_epochs = 500000
+num_epochs = 1000000
 
 try:
     model, optimizer, start_epoch = load_checkpoint(model, optimizer)

@@ -129,8 +129,8 @@ except FileNotFoundError:
 for epoch in range(start_epoch, num_epochs):
     # Training phase
     model.train()
-    y_train_pred = model(x_train)
-    train_loss = criterion(y_train_pred, y_train)
+    y_train_pred_scaled = model(x_train_scaled)
+    train_loss = criterion(y_train_pred_scaled, y_train_scaled)
     # Backward pass and optimization
     optimizer.zero_grad()
     train_loss.backward()

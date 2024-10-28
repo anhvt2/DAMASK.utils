@@ -35,8 +35,8 @@ TestIdxID  = np.loadtxt('TestIdxID.dat', dtype=int)
 FoI = ['Mises(Cauchy)','Mises(ln(V))'] # from export2npy.py
 controlInfo = np.loadtxt('control.log', delimiter=',', skiprows=1)
 
-# for MlType, idx in zip(['Train', 'Test', 'TestOOD', 'TestID'], [TrainIdx, TestIdx, TestIdxOOD, TestIdxID]): # long version
-for MlType, idx in zip(['TestOOD', 'TestID'], [TestIdxOOD, TestIdxID]): # short version
+for MlType, idx in zip(['Train', 'Test', 'TestOOD', 'TestID'], [TrainIdx, TestIdx, TestIdxOOD, TestIdxID]): # long version
+# for MlType, idx in zip(['TestOOD', 'TestID'], [TestIdxOOD, TestIdxID]): # short version
     # Write input/output datasets for train/test dataset
     inputRomFileName = 'inputRom_%s.dat' % MlType
     iF = open(inputRomFileName, 'w') # input file handler
@@ -65,14 +65,14 @@ for MlType, idx in zip(['TestOOD', 'TestID'], [TestIdxOOD, TestIdxID]): # short 
             # Write to output file
             for j in range(1,len(strain)):
                 # Calculate time from tension.load: see https://damask2.mpie.de/bin/view/Documentation/LoadDefinition.html
-                time = loadingTime * np.power(2, inc[j]-20)
+                damaskTime = loadingTime * np.power(2, inc[j]-20)
                 # Only write to global file if POD coefficients exists
                 podFileName = '../damask/%d/postProc/podCoefs_main_tension_inc%s.npy' % (i, str(j).zfill(2) )
                 if os.path.exists(podFileName):
-                    iF.write('%.8e, %.8e, %.8e, %.1f, %.8e, %d, %d\n'% (dotVareps, initialT, strain[j], stress[j], time, i, inc[j]))
+                    iF.write('%.8e, %.8e, %.8e, %.1f, %.8e, %d, %d\n'% (dotVareps, initialT, strain[j], stress[j], damaskTime, i, inc[j]))
                     podCoefs = np.load(podFileName).ravel(order='F') # unravel in columns
                     # oF.write(','.join(map(str, podCoefs)) + '\n')
-                    logging.info(f'Processing {podFileName}\n')
+                    logging.info(f'Processing {podFileName}')
 
             # Copy the relevant portion in the same directory
             localOutFileName = '../damask/%d/inputRom.dat' % i

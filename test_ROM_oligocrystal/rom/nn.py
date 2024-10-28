@@ -77,16 +77,21 @@ class NNRegressor(nn.Module):
         self.network = nn.Sequential(
             nn.Linear(4, 8),
             nn.ReLU(),
-            nn.Linear(8, 16),
+            nn.Linear(8, 32),
             nn.ReLU(),
-            nn.Linear(16, 8),
+            nn.Linear(32, 1),
             nn.ReLU(),
-            nn.Linear(8, 4),
-            nn.ReLU(),
-            nn.Linear(4, 1),
         )
     def forward(self, x):
         return self.network(x)
+
+# Random weight initialization
+def initialize_weights(model):
+    for m in model.modules():
+        if isinstance(m, nn.Linear):
+            # Xavier Initialization for Linear layers
+            nn.init.xavier_uniform_(m.weight)
+            nn.init.zeros_(m.bias)  # Initialize biases with zeros
 
 # Function to load the model checkpoint
 def load_checkpoint(model, optimizer, filename="model.pth"):
@@ -99,6 +104,7 @@ def load_checkpoint(model, optimizer, filename="model.pth"):
 # Instantiate the model, loss function, and optimizer
 model = NNRegressor()
 model.double()
+initialize_weights(model)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.1)
 # scheduler = ExponentialLR(optimizer, gamma=1.05)  # Increase LR by 5% every epoch

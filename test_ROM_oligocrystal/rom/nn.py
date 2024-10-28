@@ -77,10 +77,13 @@ class NNRegressor(nn.Module):
         self.network = nn.Sequential(
             nn.Linear(4, 8),
             nn.ReLU(),
-            nn.Linear(8, 32),
+            nn.Linear(8, 16),
             nn.ReLU(),
-            nn.Linear(32, 1),
+            nn.Linear(16, 8),
             nn.ReLU(),
+            nn.Linear(8, 4),
+            nn.ReLU(),
+            nn.Linear(4, 1),
         )
     def forward(self, x):
         return self.network(x)

@@ -30,14 +30,17 @@ print(f"Using {device} device")
 
 numFtrs = 100 # number of ROM/POD features
 
-x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,:3]
+x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,5]]
 y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:numFtrs]
-x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,:3]
+x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,5]]
 y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,:numFtrs]
 
 # Take log of dotVarEps
 x_train[:,0] = np.log10(x_train[:,0])
 x_test[:,0]  = np.log10(x_test[:,0])
+x_train[:,2] = np.log2(x_train[:,2])
+x_test[:,2]  = np.log2(x_test[:,2])
+
 
 print(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 

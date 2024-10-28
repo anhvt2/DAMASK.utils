@@ -4,7 +4,6 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.optim.lr_scheduler import ExponentialLR
 import matplotlib.pyplot as plt
 import logging
 from sklearn.preprocessing import StandardScaler
@@ -28,7 +27,7 @@ device = (
 )
 print(f"Using {device} device")
 
-numFtrs = 100 # number of ROM/POD features
+numFtrs = 200 # number of ROM/POD features
 
 x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,4]]
 y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,:numFtrs]
@@ -44,6 +43,17 @@ x_test[:,2]  = np.log2(x_test[:,2])
 
 print(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
+# Standardize datasets
+xscaler = StandardScaler()
+xscaler.fit(x_train)
+x_train_scaled = xscaler.transform(x_train)
+x_test_scaled  = xscaler.transform(x_test)
+
+yscaler = StandardScaler()
+yscaler.fit(y_train)
+y_train_scaled = yscaler.transform(y_train)
+y_test_scaled  = yscaler.transform(y_test)
+
 # Reparameterize to convert a 3d -> 5540d problem to 4d -> 1d
 def reparam(x,y):
     x = np.tile(x, [y.shape[1], 1])
@@ -52,41 +62,20 @@ def reparam(x,y):
     y = np.atleast_2d(y.ravel(order='C')).T
     return x,y
 
-x_train, y_train = reparam(x_train, y_train)
-x_test, y_test = reparam(x_test, y_test)
-
-# Initialize the scaler
-scaler = StandardScaler()
-scaler.fit(x_train)
-x_train_scaled = scaler.transform(x_train)
-x_test_scaled = scaler.transform(x_test)
-
-# y_train /= 1.e9
-# y_test /= 1.e9
+x_train_scaled, y_train_scaled = reparam(x_train_scaled, y_train_scaled)
+x_test_scaled , y_test_scaled   = reparam(x_test_scaled, y_test_scaled)
 
 # Convert to torch format
-x_train = torch.from_numpy(x_train)
-x_test = torch.from_numpy(x_test)
-y_train = torch.from_numpy(y_train)
-y_test = torch.from_numpy(y_test)
+x_train_scaled = torch.from_numpy(x_train_scaled)
+x_test_scaled  = torch.from_numpy(x_test_scaled)
+y_train_scaled = torch.from_numpy(y_train_scaled)
+y_test_scaled  = torch.from_numpy(y_test_scaled)
 
 # Define a multi-layer neural network with non-linear activation functions
 class NNRegressor(nn.Module):
     def __init__(self):
         super(NNRegressor, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(4, 4),
-            nn.ReLU(),
-            nn.Linear(4, 4),
-            nn.ReLU(),
-            nn.Linear(4, 4),
-            nn.ReLU(),
-            nn.Linear(4, 4),
-            nn.ReLU(),
-            nn.Linear(4, 4),
-            nn.ReLU(),
-            nn.Linear(4, 4),
-            nn.ReLU(),
             nn.Linear(4, 8),
             nn.ReLU(),
             nn.Linear(8, 16),
@@ -122,7 +111,6 @@ model.double()
 initialize_weights(model)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
-# scheduler = ExponentialLR(optimizer, gamma=1.05)  # Increase LR by 5% every epoch
 
 # Lists to store training and test losses
 train_losses = []
@@ -147,7 +135,6 @@ for epoch in range(start_epoch, num_epochs):
     optimizer.zero_grad()
     train_loss.backward()
     optimizer.step()
-    # scheduler.step()
     # Evaluation phase (test set)
     model.eval()
     with torch.no_grad():

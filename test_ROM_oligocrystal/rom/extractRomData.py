@@ -40,17 +40,17 @@ for MlType, idx in zip(['TestOOD', 'TestID'], [TestIdxOOD, TestIdxID]): # short 
     # Write input/output datasets for train/test dataset
     inputRomFileName = 'inputRom_%s.dat' % MlType
     iF = open(inputRomFileName, 'w') # input file handler
-    iF.write('dotVareps, initialT, vareps, sigma, DamaskIndex, PostProcIndex\n')
+    iF.write('dotVareps, initialT, vareps, sigma, time, DamaskIndex, PostProcIndex\n')
     # 
     outputRomFileName = 'outputRom_%s.dat' % MlType
-    oF = open(outputRomFileName, 'w') # output file handler
-    oFheader = ['podCoef-MisesCauchy-%d' % i for i in range(1,5541)] + ['podCoef-MisesLnV-%d' % i for i in range(1,5541)] # output file header
-    oF.write('%s\n' % ",".join(oFheader))
+    # oF = open(outputRomFileName, 'w') # output file handler
+    # oFheader = ['podCoef-MisesCauchy-%d' % i for i in range(1,5541)] + ['podCoef-MisesLnV-%d' % i for i in range(1,5541)] # output file header
+    # oF.write('%s\n' % ",".join(oFheader))
     for i in idx: # for i in range(1,501):
         folderName = str(i+1) # taken from randomizeLoad.py
         logging.info(f'Processing ../damask/{int(i):<d}/')
         fileName = '../damask/%d/postProc/stress_strain.log' % i
-        dotVareps, initialT = controlInfo[i,1], controlInfo[i,3]
+        dotVareps, loadingTime, initialT = controlInfo[i,1], controlInfo[i,2], controlInfo[i,3]
         # Check if 'stress_strain.log' exists
         if os.path.exists(fileName):
             fileHandler = open(fileName)
@@ -64,12 +64,14 @@ for MlType, idx in zip(['TestOOD', 'TestID'], [TestIdxOOD, TestIdxID]): # short 
 
             # Write to output file
             for j in range(1,len(strain)):
-                podFileName = '../damask/%d/postProc/podCoefs_main_tension_inc%s.npy' % (i, str(j).zfill(2) )
+                # Calculate time from tension.load: see https://damask2.mpie.de/bin/view/Documentation/LoadDefinition.html
+                time = loadingTime * np.power(2, inc[j]-20)
                 # Only write to global file if POD coefficients exists
+                podFileName = '../damask/%d/postProc/podCoefs_main_tension_inc%s.npy' % (i, str(j).zfill(2) )
                 if os.path.exists(podFileName):
-                    iF.write('%.8e, %.8e, %.8e, %.1f, %d, %d\n'% (dotVareps, initialT, strain[j], stress[j], i, inc[j]))
+                    iF.write('%.8e, %.8e, %.8e, %.1f, %.8e, %d, %d\n'% (dotVareps, initialT, strain[j], stress[j], time, i, inc[j]))
                     podCoefs = np.load(podFileName).ravel(order='F') # unravel in columns
-                    oF.write(','.join(map(str, podCoefs)) + '\n')
+                    # oF.write(','.join(map(str, podCoefs)) + '\n')
                     logging.info(f'Processing {podFileName}\n')
 
             # Copy the relevant portion in the same directory
@@ -81,7 +83,7 @@ for MlType, idx in zip(['TestOOD', 'TestID'], [TestIdxOOD, TestIdxID]): # short 
             lF.close()
 
     iF.close()
-    oF.close()
+    # oF.close()
 
 logging.info(f'Elapsed time: {time.time() - t_start} seconds.')
 

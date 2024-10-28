@@ -43,9 +43,9 @@ for MlType, idx in zip(['Train', 'Test', 'TestOOD', 'TestID'], [TrainIdx, TestId
     iF.write('dotVareps, initialT, vareps, sigma, time, DamaskIndex, PostProcIndex\n')
     # 
     outputRomFileName = 'outputRom_%s.dat' % MlType
-    # oF = open(outputRomFileName, 'w') # output file handler
-    # oFheader = ['podCoef-MisesCauchy-%d' % i for i in range(1,5541)] + ['podCoef-MisesLnV-%d' % i for i in range(1,5541)] # output file header
-    # oF.write('%s\n' % ",".join(oFheader))
+    oF = open(outputRomFileName, 'w') # output file handler
+    oFheader = ['podCoef-MisesCauchy-%d' % i for i in range(1,5541)] + ['podCoef-MisesLnV-%d' % i for i in range(1,5541)] # output file header
+    oF.write('%s\n' % ",".join(oFheader))
     for i in idx: # for i in range(1,501):
         folderName = str(i+1) # taken from randomizeLoad.py
         logging.info(f'Processing ../damask/{int(i):<d}/')
@@ -71,7 +71,7 @@ for MlType, idx in zip(['Train', 'Test', 'TestOOD', 'TestID'], [TrainIdx, TestId
                 if os.path.exists(podFileName):
                     iF.write('%.8e, %.8e, %.8e, %.1f, %.8e, %d, %d\n'% (dotVareps, initialT, strain[j], stress[j], damaskTime, i, inc[j]))
                     podCoefs = np.load(podFileName).ravel(order='F') # unravel in columns
-                    # oF.write(','.join(map(str, podCoefs)) + '\n')
+                    oF.write(','.join(map(str, podCoefs)) + '\n')
                     logging.info(f'Processing {podFileName}')
 
             # Copy the relevant portion in the same directory
@@ -83,7 +83,7 @@ for MlType, idx in zip(['Train', 'Test', 'TestOOD', 'TestID'], [TrainIdx, TestId
             lF.close()
 
     iF.close()
-    # oF.close()
+    oF.close()
 
 logging.info(f'Elapsed time: {time.time() - t_start} seconds.')
 

@@ -59,7 +59,7 @@ for foi, startId in zip(fois, startIds):
     y_test_scaled  = yscaler.transform(y_test)
     # weights = torch.from_numpy(np.sqrt(yscaler.var_ / yscaler.var_.min()))
     eigenvalues = np.load('podEigen_%s.npy' % foi)
-    weights = eigenvalues[:numFtrs] / np.min(eigenvalues[:numFtrs])
+    weights = torch.from_numpy(eigenvalues[:numFtrs] / np.min(eigenvalues[:numFtrs]))
 
     # Convert to torch format
     x_train = torch.from_numpy(x_train)
@@ -122,7 +122,7 @@ for foi, startId in zip(fois, startIds):
     num_epochs = 100000
 
     try:
-        model, optimizer, start_epoch = load_checkpoint(model, optimizer)
+        model, optimizer, start_epoch = load_checkpoint(model, optimizer, foi)
         print(f"Resuming training from epoch {start_epoch}...")
     except FileNotFoundError:
         print("No saved model found. Starting training from scratch.")

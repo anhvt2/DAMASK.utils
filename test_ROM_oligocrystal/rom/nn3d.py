@@ -119,7 +119,7 @@ for foi, startId in zip(fois, startIds):
 
     # Training loop
     start_epoch = 0
-    num_epochs = 100000
+    num_epochs = 1000000
 
     try:
         model, optimizer, start_epoch = load_checkpoint(model, optimizer, foi)

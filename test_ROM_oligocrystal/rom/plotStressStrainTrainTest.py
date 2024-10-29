@@ -78,9 +78,9 @@ def getTrueStressStrain(StressStrainFile):
     y = sigma / 1e6
     return x, y
 
-def getInterpStressStrain(StressStrainFile):
+def getInterpStressStrain(StressStrainFile, num=100):
     x, y = getTrueStressStrain(StressStrainFile)
-    interp_x = np.linspace(x.min(), x.max(), num=100)
+    interp_x = np.linspace(x.min(), x.max(), num)
     # splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
     splineInterp = PchipInterpolator(x, y, extrapolate=True)
     interp_y = splineInterp(interp_x)
@@ -92,17 +92,27 @@ trainIdx   = np.loadtxt('TrainIdx.dat')
 testIdxOOD = np.loadtxt('TestIdxOOD.dat')
 testIdxID  = np.loadtxt('TestIdxID.dat')
 
-labels = ['train', 'test (OOD)', 'test (ID)']
-colors = ['tab:blue', 'tab:orange', 'tab:green']
+labels = ['train'   ,'test (OOD)','test (ID)']
+colors = ['tab:blue','tab:orange','tab:green']
+alphas = [1, 0.6, 0.3]
 
 ax = fig.add_subplot(111)
 
-for idx, label, color in zip([trainIdx, testIdxOOD, testIdxID], labels, colors):
+for idx, label, color, alpha in zip([trainIdx, testIdxOOD, testIdxID], labels, colors, alphas):
     for i in idx:
         StressStrainFile = '../damask/%d/postProc/stress_strain.log' % i
         if os.path.exists(StressStrainFile):
-            x, y = getTrueStressStrain(StressStrainFile)
-            ax.plot(x, y, c=color, marker='o', linestyle='--', markersize=6, label=label)
+            # x, y = getTrueStressStrain(StressStrainFile)
+            # ax.plot(x, y, c=color, marker='o', linestyle='--', markersize=6, label=label)
+            x, y = getInterpStressStrain(StressStrainFile, num=100)
+            ax.plot(x, y, 
+                c=color, 
+                marker='o', 
+                linestyle='--', 
+                markersize=1, 
+                linewidth=1,
+                label=label, 
+                alpha=alpha)
 
 plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
@@ -113,10 +123,10 @@ if np.all(y * 1e6 > -1e-5):
 if np.all(x > -1e-5):
     plt.xlim(left=0)
 
-ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
+ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.2f'))
 plt.title(r'Variation of $\varepsilon-\sigma$ by train/test', fontsize=24)
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
-plt.legend(by_label.values(), by_label.keys(), fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=True, markerscale=3)
+plt.legend(by_label.values(), by_label.keys(), fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=True, markerscale=9)
 plt.savefig('StressStrainTrainTest.png', dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 

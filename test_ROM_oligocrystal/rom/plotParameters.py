@@ -17,9 +17,9 @@ plt.title('Input Distribution', fontsize=24)
 plt.xlabel(r'$\dot{\varepsilon}$ [s$^{-1}$]', fontsize=24)
 plt.ylabel(r'$T_0$ [K]', fontsize=24)
 plt.xscale('log',base=10) 
-# plt.show()
 plt.savefig('InputDistribution', dpi=300, facecolor='w', edgecolor='w',
         orientation='portrait', format=None,
         transparent=False, bbox_inches=None, pad_inches=0.1,
         metadata=None)
 
+# See more in sampleTrainTest.py

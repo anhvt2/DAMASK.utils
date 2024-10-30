@@ -27,8 +27,62 @@ numFtrs  = 300 # number of ROM/POD features
 fois     = ['MisesCauchy', 'MisesLnV'] # fields of interest
 startIds = [0, 5540]
 
-for foi, startId in zip(fois, startIds):
+# Define a multi-layer neural network with non-linear activation functions
+class NNRegressor_MisesCauchy(nn.Module):
+    def __init__(self):
+        super(NNRegressor_MisesCauchy, self).__init__()
+        self.network = nn.Sequential(
+            nn.Linear(3, 16),
+            nn.ReLU(),
+            nn.Linear(16, 64),
+            nn.ReLU(),
+            nn.Linear(64, 128),
+            nn.ReLU(),
+            nn.Linear(128, numFtrs),
+        )
+    def forward(self, x):
+        return self.network(x)
 
+class NNRegressor_MisesLnV(nn.Module):
+    def __init__(self):
+        super(NNRegressor_MisesLnV, self).__init__()
+        self.network = nn.Sequential(
+            nn.Linear(3, 16),
+            nn.Sigmoid(),
+            nn.Linear(16, 32),
+            nn.Sigmoid(),
+            nn.Linear(32, 64),
+            nn.Sigmoid(),
+            nn.Linear(64, numFtrs),
+        )
+    def forward(self, x):
+        return self.network(x)
+
+# Random weight initialization: Xavier Initialization for Linear layers
+def initialize_weights(model):
+    for m in model.modules():
+        if isinstance(m, nn.Linear):
+            nn.init.xavier_uniform_(m.weight)
+            nn.init.zeros_(m.bias)  # Initialize biases with zeros
+
+# Function to load the model checkpoint
+def load_checkpoint(model, optimizer, foi):
+    filename = "model_%s.pth" % foi
+    checkpoint = torch.load(filename)
+    model.load_state_dict(checkpoint['model_state_dict'])
+    optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    start_epoch = checkpoint['epoch'] + 1
+    return model, optimizer, start_epoch
+
+# Custom Weighted MSE Loss function
+def WeightedMSELoss(predicted, target, weights):
+    squared_difference = (predicted - target) ** 2
+    weighted_squared_difference = weights * squared_difference
+    weighted_mse = weighted_squared_difference.mean()
+    return weighted_mse
+
+
+for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNRegressor_MisesLnV()]):
     x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,4]]
     x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,4]]
     y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
@@ -40,15 +94,9 @@ for foi, startId in zip(fois, startIds):
     x_train[:,2] = np.log2(x_train[:,2])
     x_test[:,2]  = np.log2(x_test[:,2])
 
-
     print(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
     # Standardize datasets
-    xscaler = StandardScaler()
-    xscaler.fit(x_train)
-    x_train_scaled = xscaler.transform(x_train)
-    x_test_scaled  = xscaler.transform(x_test)
-
     yscaler = StandardScaler()
     yscaler.fit(y_train)
     y_train_scaled = yscaler.transform(y_train)
@@ -63,47 +111,7 @@ for foi, startId in zip(fois, startIds):
     y_train_scaled = torch.from_numpy(y_train_scaled)
     y_test_scaled  = torch.from_numpy(y_test_scaled)
 
-    # Define a multi-layer neural network with non-linear activation functions
-    class NNRegressor(nn.Module):
-        def __init__(self):
-            super(NNRegressor, self).__init__()
-            self.network = nn.Sequential(
-                nn.Linear(3, 16),
-                nn.ReLU(),
-                nn.Linear(16, 64),
-                nn.ReLU(),
-                nn.Linear(64, 128),
-                nn.ReLU(),
-                nn.Linear(128, numFtrs),
-            )
-        def forward(self, x):
-            return self.network(x)
-
-    # Random weight initialization: Xavier Initialization for Linear layers
-    def initialize_weights(model):
-        for m in model.modules():
-            if isinstance(m, nn.Linear):
-                nn.init.xavier_uniform_(m.weight)
-                nn.init.zeros_(m.bias)  # Initialize biases with zeros
-
-    # Function to load the model checkpoint
-    def load_checkpoint(model, optimizer, foi):
-        filename = "model_%s.pth" % foi
-        checkpoint = torch.load(filename)
-        model.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        start_epoch = checkpoint['epoch'] + 1
-        return model, optimizer, start_epoch
-
-    # Custom Weighted MSE Loss function
-    def WeightedMSELoss(predicted, target, weights):
-        squared_difference = (predicted - target) ** 2
-        weighted_squared_difference = weights * squared_difference
-        weighted_mse = weighted_squared_difference.mean()
-        return weighted_mse
-
     # Instantiate the model, loss function, and optimizer
-    model = NNRegressor()
     model.double()
     initialize_weights(model)
     criterion = nn.MSELoss()

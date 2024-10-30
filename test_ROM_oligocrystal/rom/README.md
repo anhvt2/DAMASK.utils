@@ -46,3 +46,57 @@ These are the steps to construct a projection-based ROM.
     Elapsed time: 749.8915462493896 seconds
     Elapsed time: 976.0721864700317 seconds.
     ```
+
+# Neural network architecture
+
+1. How to load a model?
+    ```python
+    import numpy as np
+    import torch
+    import torch.nn as nn
+    import torch.optim as optim
+    import logging
+    class NNRegressor(nn.Module):
+        def __init__(self):
+            super(NNRegressor, self).__init__()
+            self.network = nn.Sequential(
+                nn.Linear(3, 16),
+                nn.ReLU(),
+                nn.Linear(16, 64),
+                nn.ReLU(),
+                nn.Linear(64, 128),
+                nn.ReLU(),
+                nn.Linear(128, numFtrs),
+            )
+        def forward(self, x):
+            return self.network(x)
+
+    model = NNRegressor()
+    model.double()
+    checkpoint = torch.load(filename)
+    model.load_state_dict(checkpoint['model_state_dict'])
+    ```
+1. Best-so-far for `MisesCauchy`:
+    ```python
+    self.network = nn.Sequential(
+        nn.Linear(3, 16),
+        nn.ReLU(),
+        nn.Linear(16, 64),
+        nn.ReLU(),
+        nn.Linear(64, 128),
+        nn.ReLU(),
+        nn.Linear(128, numFtrs),
+    )
+    ```
+1. Best-so-far for `MisesLnV`:
+    ```python
+    self.network = nn.Sequential(
+        nn.Linear(3, 16),
+        nn.Sigmoid(),
+        nn.Linear(16, 32),
+        nn.Sigmoid(),
+        nn.Linear(32, 64),
+        nn.Sigmoid(),
+        nn.Linear(64, numFtrs),
+    )
+    ```

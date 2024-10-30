@@ -17,15 +17,26 @@ logging.basicConfig(level = level, format = format, handlers = handlers)
 
 t_start = time.time()
 
+# Get device
+device = (
+    "cuda"
+    if torch.cuda.is_available()
+    else "mps"
+    if torch.backends.mps.is_available()
+    else "cpu"
+)
+print(f"Using {device} device")
+
+numFtrs  = 300 # number of ROM/POD features
+fois     = ['MisesLnV'] # fields of interest
+startIds = [0, 5540]
+
 def r2_score(y_true, y_pred):
     ss_res = np.sum((y_true - y_pred) ** 2)
     ss_tot = np.sum((y_true - y_true.mean()) ** 2)
     r2 = 1 - (ss_res / ss_tot)
     return r2
 
-numFtrs  = 300 # number of ROM/POD features
-fois     = ['MisesCauchy', 'MisesLnV'] # fields of interest
-startIds = [0, 5540]
 
 for foi, startId in zip(fois, startIds):
 
@@ -69,12 +80,12 @@ for foi, startId in zip(fois, startIds):
             super(NNRegressor, self).__init__()
             self.network = nn.Sequential(
                 nn.Linear(3, 16),
-                nn.ReLU(),
-                nn.Linear(16, 64),
-                nn.ReLU(),
-                nn.Linear(64, 128),
-                nn.ReLU(),
-                nn.Linear(128, numFtrs),
+                nn.Sigmoid(),
+                nn.Linear(16, 32),
+                nn.Sigmoid(),
+                nn.Linear(32, 64),
+                nn.Sigmoid(),
+                nn.Linear(64, numFtrs),
             )
         def forward(self, x):
             return self.network(x)
@@ -85,15 +96,6 @@ for foi, startId in zip(fois, startIds):
             if isinstance(m, nn.Linear):
                 nn.init.xavier_uniform_(m.weight)
                 nn.init.zeros_(m.bias)  # Initialize biases with zeros
-
-    # Function to load the model checkpoint
-    def load_checkpoint(model, optimizer, foi):
-        filename = "model_%s.pth" % foi
-        checkpoint = torch.load(filename)
-        model.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        start_epoch = checkpoint['epoch'] + 1
-        return model, optimizer, start_epoch
 
     # Custom Weighted MSE Loss function
     def WeightedMSELoss(predicted, target, weights):
@@ -115,13 +117,7 @@ for foi, startId in zip(fois, startIds):
 
     # Training loop
     start_epoch = 0
-    num_epochs = 1000000
-
-    try:
-        model, optimizer, start_epoch = load_checkpoint(model, optimizer, foi)
-        print(f"Resuming training from epoch {start_epoch}...")
-    except FileNotFoundError:
-        print("No saved model found. Starting training from scratch.")
+    num_epochs = 100000
 
     for epoch in range(start_epoch, num_epochs):
         # Training phase
@@ -142,7 +138,6 @@ for foi, startId in zip(fois, startIds):
         test_losses.append(test_loss.item())
         if (epoch + 1) % 50 == 0:
             logging.info(f'Epoch [{epoch + 1}/{num_epochs}], Train Loss: {train_loss.item():.4f}, Test Loss: {test_loss.item():.4f}')
-        # Save the model state dictionary
         if (epoch + 1) % 5000 == 0:
             torch.save({
                 'epoch': epoch,
@@ -151,26 +146,11 @@ for foi, startId in zip(fois, startIds):
                 }, 'model_%s.pth' % foi)
             print(f"Model saved to model_{foi}.pth")
 
-    # Compare true/predicted POD coefs
     y_train_pred = yscaler.inverse_transform(model(x_train).detach())
     y_test_pred  = yscaler.inverse_transform(model(x_test).detach())
+
     print(f'R^2 of POD coefs train for {foi} = {r2_score(y_train_pred.ravel(), y_train.ravel())}')
     print(f'R^2 of POD coefs test for {foi} = {r2_score(y_test_pred.ravel() , y_test.ravel())}')
-    # Save unscaled results
+
     np.save('outputRom_Pred_%s' % foi, y_test_pred)
-
-# Parse predicted POD coefs across multiple FoIs
-x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)
-x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)
-y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)
-y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)
-
-predCoefs_MisesCauchy = np.load('outputRom_Pred_MisesCauchy.npy')
-predCoefs_MisesLnV    = np.load('outputRom_Pred_MisesLnV.npy')
-
-predCoefs = np.hstack((predCoefs_MisesCauchy, predCoefs_MisesLnV))
-headerStr = ['podCoef-MisesCauchy-%d' % i for i in range(1,numFtrs+1)] + ['podCoef-MisesLnV-%d' % i for i in range(1,numFtrs+1)] # output file header
-header = ','.join(map(str, headerStr))
-
-np.savetxt('outputRom_Pred.dat', predCoefs, delimiter=',', header=header, comments='')
 

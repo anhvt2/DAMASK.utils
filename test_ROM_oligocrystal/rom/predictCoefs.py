@@ -104,6 +104,7 @@ for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNReg
     print(f'R^2 of POD coefs train for {foi} = {r2_score(y_train_pred.ravel(), y_train.ravel())}')
     print(f'R^2 of POD coefs test for {foi} = {r2_score(y_test_pred.ravel() , y_test.ravel())}')
     np.save('outputRom_Pred_%s' % foi, y_test_pred)
+    print(f'Elapsed time: {time.time() - t_start} seconds.')
 
 
 predCoefs_MisesCauchy = np.load('outputRom_Pred_MisesCauchy.npy')
@@ -114,3 +115,25 @@ headerStr = ['podCoef-MisesCauchy-%d' % i for i in range(1,numFtrs+1)] + ['podCo
 header = ','.join(map(str, headerStr))
 
 np.savetxt('outputRom_Pred.dat', predCoefs, delimiter=',', header=header, comments='')
+print(f'Elapsed time for dumping predicted POD coefs: {time.time() - t_start} seconds.')
+
+print(f'Dumping predicted POD coefs to local folders...')
+time.sleep(3)
+
+# Write local predicted POD coefs in 
+x_test       = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)
+DamaskIdxs   = x_test[:,5].astype(int)
+PostProcIdxs = x_test[:,6].astype(int)
+
+numFolders = len(DamaskIdxs)
+
+for i in range(numFolders):
+    outFileName = '../damask/%d/postProc/predPodCoefs_main_tension_inc%d' % (DamaskIdxs[i], PostProcIdxs[i])
+    tmpCoefs = np.zeros([5540,2])
+    tmpCoefs[:numFtrs,0] = predCoefs_MisesCauchy[i,:]
+    tmpCoefs[:numFtrs,1] = predCoefs_MisesLnV[i,:]
+    np.save(outFileName, tmpCoefs)
+    logging.info(f'Processing {i:<d}/{numFolders} folders: dumped {outFileName}')
+
+logging.info(f'Finish dumping local POD coefs in {time.time() - t_start} seconds.')
+

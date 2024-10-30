@@ -73,6 +73,11 @@ for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNReg
     x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,4]]
     y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
     y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
+    # Take log of dotVarEps
+    x_train[:,0] = np.log10(x_train[:,0])
+    x_test[:,0]  = np.log10(x_test[:,0])
+    x_train[:,2] = np.log2(x_train[:,2])
+    x_test[:,2]  = np.log2(x_test[:,2])
     # Scale input
     xscaler = StandardScaler()
     xscaler.fit(x_train)
@@ -84,15 +89,15 @@ for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNReg
     y_train_scaled = yscaler.transform(y_train)
     y_test_scaled  = yscaler.transform(y_test)
     # Convert numpy to torch
-    x_train_scaled = torch.from_numpy(x_train_scaled)
-    x_test_scaled  = torch.from_numpy(x_test_scaled)
+    x_train = torch.from_numpy(x_train)
+    x_test  = torch.from_numpy(x_test)
     y_train_scaled = torch.from_numpy(y_train_scaled)
     y_test_scaled  = torch.from_numpy(y_test_scaled)
     # Load trained model
     model.double()
     model = load_checkpoint(model, foi)
-    y_train_pred = yscaler.inverse_transform(model(x_train_scaled).detach())
-    y_test_pred  = yscaler.inverse_transform(model(x_test_scaled).detach())
+    y_train_pred = yscaler.inverse_transform(model(x_train).detach())
+    y_test_pred  = yscaler.inverse_transform(model(x_test).detach())
     print(f'R^2 of POD coefs train for {foi} = {r2_score(y_train_pred.ravel(), y_train.ravel())}')
     print(f'R^2 of POD coefs test for {foi} = {r2_score(y_test_pred.ravel() , y_test.ravel())}')
     np.save('outputRom_Pred_%s' % foi, y_test_pred)

@@ -97,6 +97,8 @@ These are the steps to construct a projection-based ROM.
         nn.Sigmoid(),
         nn.Linear(32, 64),
         nn.Sigmoid(),
-        nn.Linear(64, numFtrs),
+        nn.Linear(64, 128),
+        nn.Sigmoid(),
+        nn.Linear(128, numFtrs),
     )
     ```

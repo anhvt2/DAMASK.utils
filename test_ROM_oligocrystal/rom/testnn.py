@@ -29,7 +29,7 @@ print(f"Using {device} device")
 
 numFtrs  = 300 # number of ROM/POD features
 fois     = ['MisesLnV'] # fields of interest
-startIds = [0, 5540]
+startIds = [5540]
 
 def r2_score(y_true, y_pred):
     ss_res = np.sum((y_true - y_pred) ** 2)
@@ -50,7 +50,6 @@ for foi, startId in zip(fois, startIds):
     x_test[:,0]  = np.log10(x_test[:,0])
     x_train[:,2] = np.log2(x_train[:,2])
     x_test[:,2]  = np.log2(x_test[:,2])
-
 
     print(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
@@ -85,7 +84,9 @@ for foi, startId in zip(fois, startIds):
                 nn.Sigmoid(),
                 nn.Linear(32, 64),
                 nn.Sigmoid(),
-                nn.Linear(64, numFtrs),
+                nn.Linear(64, 128),
+                nn.Sigmoid(),
+                nn.Linear(128, numFtrs),
             )
         def forward(self, x):
             return self.network(x)

@@ -127,6 +127,9 @@ ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.2f'))
 plt.title(r'Variation of $\varepsilon-\sigma$ by train/test', fontsize=24)
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
-plt.legend(by_label.values(), by_label.keys(), fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=False, markerscale=9)
+leg = plt.legend(by_label.values(), by_label.keys(), fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=False, markerscale=9)
+for lh in leg.legend_handles:
+    lh.set_alpha(1)
+
 plt.savefig('StressStrainTrainTest.png', dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 

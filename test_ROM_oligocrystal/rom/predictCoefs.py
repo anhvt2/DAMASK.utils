@@ -52,7 +52,9 @@ class NNRegressor_MisesLnV(nn.Module):
             nn.Sigmoid(),
             nn.Linear(32, 64),
             nn.Sigmoid(),
-            nn.Linear(64, numFtrs),
+            nn.Linear(64, 128),
+            nn.Sigmoid(),
+            nn.Linear(128, numFtrs),
         )
     def forward(self, x):
         return self.network(x)
@@ -62,6 +64,7 @@ class NNRegressor_MisesLnV(nn.Module):
 def load_checkpoint(model, foi):
     filename = "model_%s.pth" % foi
     checkpoint = torch.load(filename)
+    print(f'Loading model in {filename}')
     model.load_state_dict(checkpoint['model_state_dict'])
     # optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
     # start_epoch = checkpoint['epoch'] + 1
@@ -78,7 +81,7 @@ for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNReg
     x_test[:,0]  = np.log10(x_test[:,0])
     x_train[:,2] = np.log2(x_train[:,2])
     x_test[:,2]  = np.log2(x_test[:,2])
-    # Scale input
+    # Standardize datasets
     xscaler = StandardScaler()
     xscaler.fit(x_train)
     x_train_scaled = xscaler.transform(x_train)

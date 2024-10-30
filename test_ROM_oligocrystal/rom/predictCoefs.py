@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 
 level    = logging.INFO
 format   = '  %(message)s'
-logFileName = 'nn.py.log'
+logFileName = 'predictCoefs.py.log'
 os.system('rm -fv %s' % logFileName)
 handlers = [logging.FileHandler(logFileName), logging.StreamHandler()]
 logging.basicConfig(level = level, format = format, handlers = handlers)
@@ -84,15 +84,15 @@ for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNReg
     y_train_scaled = yscaler.transform(y_train)
     y_test_scaled  = yscaler.transform(y_test)
     # Convert numpy to torch
-    x_train = torch.from_numpy(x_train)
-    x_test  = torch.from_numpy(x_test)
+    x_train_scaled = torch.from_numpy(x_train_scaled)
+    x_test_scaled  = torch.from_numpy(x_test_scaled)
     y_train_scaled = torch.from_numpy(y_train_scaled)
     y_test_scaled  = torch.from_numpy(y_test_scaled)
     # Load trained model
     model.double()
     model = load_checkpoint(model, foi)
-    y_train_pred = yscaler.inverse_transform(model(x_train).detach())
-    y_test_pred  = yscaler.inverse_transform(model(x_test).detach())
+    y_train_pred = yscaler.inverse_transform(model(x_train_scaled).detach())
+    y_test_pred  = yscaler.inverse_transform(model(x_test_scaled).detach())
     print(f'R^2 of POD coefs train for {foi} = {r2_score(y_train_pred.ravel(), y_train.ravel())}')
     print(f'R^2 of POD coefs test for {foi} = {r2_score(y_test_pred.ravel() , y_test.ravel())}')
     np.save('outputRom_Pred_%s' % foi, y_test_pred)

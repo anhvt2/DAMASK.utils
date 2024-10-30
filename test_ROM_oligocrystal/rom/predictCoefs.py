@@ -27,49 +27,76 @@ def r2_score(y_true, y_pred):
     r2 = 1 - (ss_res / ss_tot)
     return r2
 
-for foi, startId in zip(fois, startIds):
+class NNRegressor_MisesCauchy(nn.Module):
+    def __init__(self):
+        super(NNRegressor_MisesCauchy, self).__init__()
+        self.network = nn.Sequential(
+            nn.Linear(3, 16),
+            nn.ReLU(),
+            nn.Linear(16, 64),
+            nn.ReLU(),
+            nn.Linear(64, 128),
+            nn.ReLU(),
+            nn.Linear(128, numFtrs),
+        )
+    def forward(self, x):
+        return self.network(x)
 
-    class NNRegressor(nn.Module):
-        def __init__(self):
-            super(NNRegressor, self).__init__()
-            self.network = nn.Sequential(
-                nn.Linear(3, 16),
-                nn.ReLU(),
-                nn.Linear(16, 64),
-                nn.ReLU(),
-                nn.Linear(64, 128),
-                nn.ReLU(),
-                nn.Linear(128, numFtrs),
-            )
-        def forward(self, x):
-            return self.network(x)
+class NNRegressor_MisesLnV(nn.Module):
+    def __init__(self):
+        super(NNRegressor_MisesLnV, self).__init__()
+        self.network = nn.Sequential(
+            nn.Linear(3, 16),
+            nn.Sigmoid(),
+            nn.Linear(16, 32),
+            nn.Sigmoid(),
+            nn.Linear(32, 64),
+            nn.Sigmoid(),
+            nn.Linear(64, numFtrs),
+        )
+    def forward(self, x):
+        return self.network(x)
 
-    # Function to load the model checkpoint
-    def load_checkpoint(model, optimizer, foi):
-        filename = "model_%s.pth" % foi
-        checkpoint = torch.load(filename)
-        model.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        start_epoch = checkpoint['epoch'] + 1
-        return model, optimizer, start_epoch
+# Function to load the model checkpoint
+# def load_checkpoint(model, optimizer, foi):
+def load_checkpoint(model, foi):
+    filename = "model_%s.pth" % foi
+    checkpoint = torch.load(filename)
+    model.load_state_dict(checkpoint['model_state_dict'])
+    # optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    # start_epoch = checkpoint['epoch'] + 1
+    # return model, optimizer, start_epoch
+    return model
 
+for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNRegressor_MisesLnV()]):
+    x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,4]]
+    x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,4]]
+    y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
+    y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
+    # Scale input
+    xscaler = StandardScaler()
+    xscaler.fit(x_train)
+    x_train_scaled = xscaler.transform(x_train)
+    x_test_scaled  = xscaler.transform(x_test)
+    # Scale output
+    yscaler = StandardScaler()
+    yscaler.fit(y_train)
+    y_train_scaled = yscaler.transform(y_train)
+    y_test_scaled  = yscaler.transform(y_test)
+    # Convert numpy to torch
+    x_train = torch.from_numpy(x_train)
+    x_test  = torch.from_numpy(x_test)
+    y_train_scaled = torch.from_numpy(y_train_scaled)
+    y_test_scaled  = torch.from_numpy(y_test_scaled)
     # Load trained model
-    model = NNRegressor()
     model.double()
-    model, optimizer, start_epoch = load_checkpoint(model, optimizer, foi)
-
+    model = load_checkpoint(model, foi)
     y_train_pred = yscaler.inverse_transform(model(x_train).detach())
     y_test_pred  = yscaler.inverse_transform(model(x_test).detach())
-
     print(f'R^2 of POD coefs train for {foi} = {r2_score(y_train_pred.ravel(), y_train.ravel())}')
     print(f'R^2 of POD coefs test for {foi} = {r2_score(y_test_pred.ravel() , y_test.ravel())}')
-
     np.save('outputRom_Pred_%s' % foi, y_test_pred)
 
-x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)
-x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)
-y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)
-y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)
 
 predCoefs_MisesCauchy = np.load('outputRom_Pred_MisesCauchy.npy')
 predCoefs_MisesLnV    = np.load('outputRom_Pred_MisesLnV.npy')

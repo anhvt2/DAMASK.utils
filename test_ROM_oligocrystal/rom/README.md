@@ -46,6 +46,10 @@ These are the steps to construct a projection-based ROM.
     Elapsed time: 749.8915462493896 seconds
     Elapsed time: 976.0721864700317 seconds.
     ```
+1. Dump predicted local POD coefs
+    ```
+    Finish dumping local POD coefs in 160.8946762084961 seconds.
+    ```
 
 # Neural network architecture
 
@@ -102,3 +106,10 @@ These are the steps to construct a projection-based ROM.
         nn.Linear(128, numFtrs),
     )
     ```
+    ```
+    R^2 of POD coefs train for MisesCauchy = 0.969124690335161
+    R^2 of POD coefs test for MisesCauchy = 0.9368248529449374
+    R^2 of POD coefs train for MisesLnV = 0.9280387877871558
+    R^2 of POD coefs test for MisesLnV = 0.9129412497228372
+    ```
+

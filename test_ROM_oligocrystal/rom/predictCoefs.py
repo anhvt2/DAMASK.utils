@@ -133,7 +133,7 @@ for i in range(numFolders):
     tmpCoefs[:numFtrs,0] = predCoefs_MisesCauchy[i,:]
     tmpCoefs[:numFtrs,1] = predCoefs_MisesLnV[i,:]
     np.save(outFileName, tmpCoefs)
-    logging.info(f'Processing {i+1:<d}/{numFolders} folders: dumped {outFileName}')
+    logging.info(f'Processing {i+1:<d}/{numFolders} folders: dumped {outFileName}.npy')
 
 logging.info(f'Finish dumping local POD coefs in {time.time() - t_start} seconds.')
 

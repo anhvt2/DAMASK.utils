@@ -80,11 +80,15 @@ def getTrueStressStrain(StressStrainFile):
 
 def getInterpStressStrain(StressStrainFile, num=100):
     x, y = getTrueStressStrain(StressStrainFile)
-    interp_x = np.linspace(x.min(), x.max(), num)
-    # splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
-    splineInterp = PchipInterpolator(x, y, extrapolate=True)
-    interp_y = splineInterp(interp_x)
-    return interp_x, interp_y
+    if x.max() < 0.05:
+        return None, None
+    else:
+        interp_x = np.linspace(x.min(), x.max(), num)
+        # interp_x = np.linspace(x.min(), np.max([0.06, x.max()]), num)
+        # splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
+        splineInterp = PchipInterpolator(x, y, extrapolate=True)
+        interp_y = splineInterp(interp_x)
+        return interp_x, interp_y
 
 fig = plt.figure(num=None, figsize=(14, 12), dpi=300, facecolor='w', edgecolor='k')
 
@@ -105,23 +109,24 @@ for idx, label, color, alpha in zip([trainIdx, testIdxOOD, testIdxID], labels, c
             # x, y = getTrueStressStrain(StressStrainFile)
             # ax.plot(x, y, c=color, marker='o', linestyle='--', markersize=6, label=label)
             x, y = getInterpStressStrain(StressStrainFile, num=100)
-            ax.plot(x, y, 
-                c=color, 
-                marker='o', 
-                linestyle='--', 
-                markersize=1, 
-                linewidth=1,
-                label=label, 
-                alpha=alpha)
+            if x is not None and y is not None:
+                ax.plot(x, y, 
+                    c=color, 
+                    marker='o', 
+                    linestyle='--', 
+                    markersize=1, 
+                    linewidth=1,
+                    label=label, 
+                    alpha=alpha)
 
 plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
 if np.all(y * 1e6 > -1e-5):
-    plt.ylim(bottom=0)
+    plt.ylim(bottom=0, top=150)
 
 if np.all(x > -1e-5):
-    plt.xlim(left=0)
+    plt.xlim(left=0, right=0.06)
 
 ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.2f'))
 plt.title(r'Variation of $\varepsilon-\sigma$ by train/test', fontsize=24)

@@ -88,7 +88,7 @@ msMesh.set_active_scalars(field, preference='cell')
 # pl.add_mesh(msMesh, opacity=0.02, show_edges=False, line_width=0.01) # show original geometry
 pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01, scalar_bar_args=args_cbar) # show original geometry
 
-pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap, scalar_bar_args=args_cbar) # add scalar_bar_args
+pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True) # add scalar_bar_args
 # pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap)
 # pl.add_mesh(threshedMs, opacity=0.90, show_edges=True, line_width=1, cmap=cmap) # functional
 

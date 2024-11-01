@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import glob, os
 import numpy as np
 import argparse
+from distutils.util import strtobool
 parser = argparse.ArgumentParser()
 
 '''
@@ -20,18 +21,30 @@ parser = argparse.ArgumentParser()
 
     How to use
     ----------
-    python3 ../../../plotStress3d.py  --fileName='main_tension_inc16_pos(cell)_added.vtr'
+    # deprecated: python3 ../../../plotStress3d.py  --fileName='main_tension_inc16_pos(cell)_added.vtr'
+    python3 ../../plotFieldsGeomDeformed.py --vtr='main_tension_inc19_pos(cell)_added.vtr' --field='Mises(ln(V))' --show_edges='False'
+    python3 ../../plotFieldsGeomDeformed.py --vtr='main_tension_inc19_pos(cell)_added.vtr' --field='Mises(Cauchy)' --show_edges='False'
 '''
 
 parser.add_argument("-f", "--vtr", help='.vtr file', type=str, default='', required=True) 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='Stress', required=False) 
-parser.add_argument("-show_edges", "--show_edges", help='append to fileName', type=bool, default=True, required=False)
+parser.add_argument("-field", "--field", help='field to plot', type=str, default=True, required=True) # e.g. 'Mises(ln(V))', 'Mises(Cauchy)'
+# parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False) 
+
+parser.add_argument("-show_edges", "--show_edges",
+    default=True, help='show mesh edge?',
+    type=lambda x:bool(strtobool(x)),
+    nargs='?', const=True, required=False)
+
 args = parser.parse_args()
 fileName = args.vtr
-nameTag = args.nameTag
+field = args.field # e.g. 'Mises(ln(V))', 'Mises(Cauchy)'
+# nameTag = args.nameTag
 show_edges = args.show_edges
 
-nameTag = nameTag.split('/')[0]
+# nameTag = nameTag.split('/')[0]
+nameTag = field.replace('(', '').replace(')', '')
+nameTag = 'MisesLnV' if field == 'Mises(ln(V))' else nameTag
+
 print(nameTag)
 
 
@@ -62,38 +75,36 @@ reader = pyvista.get_reader(fileName)
 msMesh = reader.read()
 msMesh.set_active_scalars('texture', preference='cell')
 try:
-    grainInfo = np.loadtxt('../grainInfo.dat')
+    grainInfo = np.loadtxt('../../grainInfo.dat')
 except:
-    grainInfo = np.loadtxt('./grainInfo.dat')
+    grainInfo = np.loadtxt('../grainInfo.dat')
 
 ## warped by deforming geometry with displacement field
 # https://docs.pyvista.org/version/stable/api/core/_autosummary/pyvista.DataSetFilters.warp_by_vector.html#pyvista.DataSetFilters.warp_by_vector
-# args_cbar = dict(height=0.75, vertical=True, position_x=0.25, position_y=0.15,
-#                  title_font_size=144, label_font_size=96, 
-#                  color='k') 
-args_cbar = dict(height=0.05, vertical=False, position_x=0.25, position_y=0.025,
-                 title_font_size=144, label_font_size=96, 
-                 color='k') 
+args_cbar = dict(height=0.75, width=0.05, vertical=True, 
+                position_x=0.75, position_y=0.10,
+                title_font_size=144, label_font_size=96, 
+                color='k') 
 
 # see more options at https://docs.pyvista.org/version/stable/_downloads/3ee46f61736bb2769dbf5ed73c33d5dc/scalar-bars.py
 
 
 threshedMs = msMesh.threshold(value=(grainInfo[3],grainInfo[4]), scalars='texture')
-threshedMs.set_active_scalars('Mises(Cauchy)', preference='cell')
+threshedMs.set_active_scalars(field, preference='cell')
 
-msMesh.set_active_scalars('Mises(Cauchy)', preference='cell')
-# pl.add_mesh(msMesh, opacity=0.02, show_edges=False, line_width=0.01) # show original geometry
-pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01, scalar_bar_args=args_cbar) # show original geometry
+msMesh.set_active_scalars(field, preference='cell')
+pl.add_mesh(threshedMs, opacity=0.05, show_edges=show_edges, line_width=0.01, scalar_bar_args=args_cbar) 
 
-pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap, scalar_bar_args=args_cbar) # add scalar_bar_args
-# pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=True, line_width=1, cmap=cmap)
-# pl.add_mesh(threshedMs, opacity=0.90, show_edges=True, line_width=1, cmap=cmap) # functional
+pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=show_edges, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True) # add scalar_bar_args
+# pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0), opacity=1.0, show_edges=show_edges, line_width=1, cmap=cmap)
+# pl.add_mesh(threshedMs, opacity=0.90, show_edges=show_edges, line_width=1, cmap=cmap) # functional
 
 pl.background_color = "white"
 # pl.remove_scalar_bar()
 # add_scalar_bar
 labels = dict(xlabel='X', ylabel='Y', zlabel='Z', color='black', line_width=5)
-pl.add_axes(**labels)
+# pl.add_axes(**labels)
+pl.hide_axes()
 # https://docs.pyvista.org/version/stable/api/plotting/_autosummary/pyvista.Plotter.add_axes.html#pyvista.Plotter.add_axes
 # pl.show_grid(**labels)
 # p.add_axes(x_color='pink', y_color='navy', z_color='tan', line_width=5)

@@ -16,15 +16,15 @@ arch = [
     to_connection( "conv1", "conv2"), 
     to_Pool("pool2", offset="(0,0,0)", to="(conv2-east)", height=8, depth=1, width=1, caption="ReLU"),
 
-    to_Conv("conv3", 1, 64, offset="(4,0,0)", to="(0,0,0)", height=16, depth=1, width=1),
+    to_Conv("conv3", 1, 64, offset="(4,0,0)", to="(0,0,0)", height=32, depth=1, width=1),
     to_connection( "pool2", "conv3"), 
-    to_Pool("pool3", offset="(0,0,0)", to="(conv3-east)",  height=16, depth=1, width=1, caption="ReLU"),
+    to_Pool("pool3", offset="(0,0,0)", to="(conv3-east)",  height=32, depth=1, width=1, caption="ReLU"),
 
-    to_Conv("conv4", 1, 128, offset="(6,0,0)", to="(0,0,0)", height=32, depth=1, width=1),
+    to_Conv("conv4", 1, 128, offset="(6,0,0)", to="(0,0,0)", height=64, depth=1, width=1),
     to_connection( "pool3", "conv4"), 
-    to_Pool("pool4", offset="(0,0,0)", to="(conv4-east)",  height=32, depth=1, width=1, caption="ReLU"),
+    to_Pool("pool4", offset="(0,0,0)", to="(conv4-east)",  height=64, depth=1, width=1, caption="ReLU"),
 
-    to_Conv("conv5", 1, 300, offset="(8,0,0)", to="(0,0,0)", height=64, depth=1, width=1),
+    to_Conv("conv5", 1, 300, offset="(8,0,0)", to="(0,0,0)", height=96, depth=1, width=1),
     to_connection( "pool4", "conv5"), 
 
 

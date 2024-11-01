@@ -24,14 +24,17 @@ parser = argparse.ArgumentParser()
 '''
 
 parser.add_argument("-f", "--vtr", help='.vtr file', type=str, default='', required=True) 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='Stress', required=False) 
+parser.add_argument("-field", "--field", help='field to plot', type=str, default=True, required=True) # e.g. 'Mises(ln(V))', 'Mises(Cauchy)'
+# parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False) 
 parser.add_argument("-show_edges", "--show_edges", help='append to fileName', type=bool, default=True, required=False)
 args = parser.parse_args()
 fileName = args.vtr
-nameTag = args.nameTag
+field = args.field # e.g. 'Mises(ln(V))', 'Mises(Cauchy)'
+# nameTag = args.nameTag
 show_edges = args.show_edges
 
-nameTag = nameTag.split('/')[0]
+# nameTag = nameTag.split('/')[0]
+nameTag = field.replace('(', '').replace(')', '')
 print(nameTag)
 
 
@@ -79,9 +82,9 @@ args_cbar = dict(height=0.75, vertical=True, position_x=0.25, position_y=0.15,
 
 
 threshedMs = msMesh.threshold(value=(grainInfo[3],grainInfo[4]), scalars='texture')
-threshedMs.set_active_scalars('Mises(Cauchy)', preference='cell')
+threshedMs.set_active_scalars(field, preference='cell')
 
-msMesh.set_active_scalars('Mises(Cauchy)', preference='cell')
+msMesh.set_active_scalars(field, preference='cell')
 # pl.add_mesh(msMesh, opacity=0.02, show_edges=False, line_width=0.01) # show original geometry
 pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01, scalar_bar_args=args_cbar) # show original geometry
 

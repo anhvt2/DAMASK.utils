@@ -20,7 +20,7 @@ import logging
 
 level    = logging.INFO
 format   = '  %(message)s'
-logFileName = 'reconstructRomSols.py.log'
+logFileName = 'reconstructRomSolution.py.log'
 os.system('rm -fv %s' % logFileName)
 handlers = [logging.FileHandler(logFileName), logging.StreamHandler()]
 logging.basicConfig(level = level, format = format, handlers = handlers)
@@ -47,11 +47,10 @@ NumCases = len(DamaskIdxs)
 
 t_local = time.time()
 basis_MisesCauchy = np.load('podBasis_MisesCauchy.npy')
-basis_MisesCauchy = np.load('podBasis_MisesLnV.npy')
+basis_MisesLnV    = np.load('podBasis_MisesLnV.npy')
 mean_MisesCauchy  = np.load('mean_MisesCauchy.npy')
 mean_MisesLnV     = np.load('mean_MisesLnV.npy')
-logging.info(f'reconstructRomSols.py: Load POD basis for {foi} in {time.time() - t_local:<.2f} seconds.')
-
+logging.info(f'reconstructRomSolution.py: Load POD basis in {time.time() - t_local:<.2f} seconds.')
 
 for i in range(NumCases):
     tmpSol = np.zeros([576000,2])
@@ -62,6 +61,6 @@ for i in range(NumCases):
     np.save(outFileName, tmpSol)
     logging.info(f'Processing {i+1:<d}/{NumCases} folders: dumped {outFileName}.npy')
 
-logging.info(f'reconstructRomSols.py: Total elapsed time: {time.time() - t_start} seconds.')
+logging.info(f'reconstructRomSolution.py: Total elapsed time: {time.time() - t_start} seconds.')
 os.system('htop')
 

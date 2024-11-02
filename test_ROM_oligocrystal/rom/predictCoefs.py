@@ -125,15 +125,15 @@ x_test       = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)
 DamaskIdxs   = x_test[:,5].astype(int)
 PostProcIdxs = x_test[:,6].astype(int)
 
-numFolders = len(DamaskIdxs)
+NumCases = len(DamaskIdxs)
 
-for i in range(numFolders):
+for i in range(NumCases):
     outFileName = '../damask/%d/postProc/predPodCoefs_main_tension_inc%s' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))
     tmpCoefs = np.zeros([5540,2])
     tmpCoefs[:numFtrs,0] = predCoefs_MisesCauchy[i,:]
     tmpCoefs[:numFtrs,1] = predCoefs_MisesLnV[i,:]
     np.save(outFileName, tmpCoefs)
-    logging.info(f'Processing {i+1:<d}/{numFolders} folders: dumped {outFileName}.npy')
+    logging.info(f'Processing {i+1:<d}/{NumCases} folders: dumped {outFileName}.npy')
 
 logging.info(f'Finish dumping local POD coefs in {time.time() - t_start} seconds.')
 

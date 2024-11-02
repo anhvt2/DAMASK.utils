@@ -3,14 +3,15 @@
 
 These are the steps to construct a projection-based ROM. 
 
+1. Export DAMASK output to `.npy` where only QoIs are extracted: `../damask/export2npy.py`
 1. Sample train/test datasets: `sampleTrainTest.py`. Dump `{Train,Test}Idx.dat`
 1. Extract data snapshots: `extractData.py`
 1. Construct a global basis: `computeBasis.py`. 
 1. Compute POD coefficients: `computeCoefs.py`
 1. Build train/test datasets of POD coefs: `extractRomData.py` (only run this file **AFTER** running `computeCoefs.py`)
-1. Train/Dump NN: `nn.py`
+1. Train/Dump NN: `nn3d.py`
 1. Predict POD coefficients $\widetilde{\boldsymbol{\lambda}}$ for unseen parameters $\widetilde{\mathbf{p}}$: `predictCoefs.py`
-1. Reconstruct state solution using the global POD basis with predicted POD coefficients. Using the previously computed mean $\overline{\mathbf{w}}$, we can reconstruct the state variable by using the predicted POD coefficients
+1. Reconstruct state solution using the global POD basis with predicted POD coefficients: `reconstructRomSols.py`
 
 # Computational cost
 
@@ -50,6 +51,11 @@ These are the steps to construct a projection-based ROM.
     ```
     Finish dumping local POD coefs in 160.8946762084961 seconds.
     ```
+1. Reconstruct ROM solution:
+    ```
+    reconstructRomSolution.py: Total elapsed time: 8394.798505783081 seconds.
+    ```
+
 
 # Neural network architecture
 
@@ -84,11 +90,13 @@ These are the steps to construct a projection-based ROM.
     ```python
     self.network = nn.Sequential(
         nn.Linear(3, 16),
-        nn.ReLU(),
-        nn.Linear(16, 64),
-        nn.ReLU(),
+        nn.Sigmoid(),
+        nn.Linear(16, 32),
+        nn.Sigmoid(),
+        nn.Linear(32, 64),
+        nn.Sigmoid(),
         nn.Linear(64, 128),
-        nn.ReLU(),
+        nn.Sigmoid(),
         nn.Linear(128, numFtrs),
     )
     ```
@@ -112,4 +120,3 @@ These are the steps to construct a projection-based ROM.
     R^2 of POD coefs train for MisesLnV = 0.9280387877871558
     R^2 of POD coefs test for MisesLnV = 0.9129412497228372
     ```
-

@@ -31,7 +31,7 @@ DamaskIdxs   = x_test[:,5].astype(int)
 PostProcIdxs = x_test[:,6].astype(int)
 NumCases = len(DamaskIdxs)
 
-t_local = time.time()
+t_start = time.time()
 
 def calcMeanRelErr(true, pred):
     return np.mean(np.abs(true-pred)/true)*100

@@ -32,11 +32,13 @@ class NNRegressor_MisesCauchy(nn.Module):
         super(NNRegressor_MisesCauchy, self).__init__()
         self.network = nn.Sequential(
             nn.Linear(3, 16),
-            nn.ReLU(),
-            nn.Linear(16, 64),
-            nn.ReLU(),
+            nn.Sigmoid(),
+            nn.Linear(16, 32),
+            nn.Sigmoid(),
+            nn.Linear(32, 64),
+            nn.Sigmoid(),
             nn.Linear(64, 128),
-            nn.ReLU(),
+            nn.Sigmoid(),
             nn.Linear(128, numFtrs),
         )
     def forward(self, x):

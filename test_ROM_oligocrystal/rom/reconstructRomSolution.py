@@ -27,19 +27,6 @@ logging.basicConfig(level = level, format = format, handlers = handlers)
 
 t_start = time.time()
 
-controlInfo = np.loadtxt('control.log', skiprows=1, delimiter=',')
-dotVarEps = controlInfo[:,1]
-loadingTime = controlInfo[:,2] # dependent - not an input
-initialT = controlInfo[:,3]
-
-TrainIdx   = np.loadtxt('TrainIdx.dat', dtype=int)
-TestIdx    = np.loadtxt('TestIdx.dat', dtype=int)
-TestIdxOOD = np.loadtxt('TestIdxOOD.dat', dtype=int)
-TestIdxID  = np.loadtxt('TestIdxID.dat', dtype=int)
-fois = ['MisesCauchy', 'MisesLnV'] # fields of interest
-labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
-FoI = ['Mises(Cauchy)','Mises(ln(V))'] # from export2npy.py
-
 x_test       = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)
 DamaskIdxs   = x_test[:,5].astype(int)
 PostProcIdxs = x_test[:,6].astype(int)

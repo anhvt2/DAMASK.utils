@@ -15,7 +15,7 @@ plt.figure(figsize=(12,12))
 plt.scatter(dotVarEps, initialT, marker='o', s=8, c='k')
 plt.title('Input Distribution', fontsize=24)
 plt.xlabel(r'$\dot{\varepsilon}$ [s$^{-1}$]', fontsize=24)
-plt.ylabel(r'$T_0$ [K]', fontsize=24)
+plt.ylabel(r'$T$ [K]', fontsize=24)
 plt.xscale('log',base=10) 
 plt.savefig('InputDistribution', dpi=300, facecolor='w', edgecolor='w',
         orientation='portrait', format=None,

@@ -20,25 +20,25 @@ numTrainPts = int(numDataPts * trainFraction)
 numTestPts = numDataPts - numTrainPts
 
 # Sample train/test datasets: OOD first, then ID, then train indices
-testIdxOOD = [] # test indices out-of-distribution
+TestIdxOOD = [] # test indices out-of-distribution
 for i in range(numDataPts):
     if (np.log10(dotVarEps[i]) < -3.5 or np.log10(dotVarEps[i]) > 1.5) or (initialT[i] < 350 or initialT[i] > 1000):
-        testIdxOOD += [i]
+        TestIdxOOD += [i]
 
-testIdxOOD = np.sort(np.array(testIdxOOD))
+TestIdxOOD = np.sort(np.array(TestIdxOOD))
 
-testIdxID = [] # test indices in-distribution
-testIdxID = np.random.choice( np.setdiff1d(np.arange(numDataPts), testIdxOOD), 
-    size=int(testFraction*numDataPts - len(testIdxOOD)), 
+TestIdxID = [] # test indices in-distribution
+TestIdxID = np.random.choice( np.setdiff1d(np.arange(numDataPts), TestIdxOOD), 
+    size=int(testFraction*numDataPts - len(TestIdxOOD)), 
     replace=False)
 
-testIdx = np.sort(np.union1d(testIdxID, testIdxOOD))
-trainIdx = np.setdiff1d(np.arange(numDataPts), testIdx)
+TestIdx = np.sort(np.union1d(TestIdxID, TestIdxOOD))
+TrainIdx = np.setdiff1d(np.arange(numDataPts), TestIdx)
 
-TrainData   = d[trainIdx]
-TestData    = d[testIdx]
-TestDataOOD = d[testIdxOOD]
-TestDataID  = d[testIdxID]
+TrainData   = d[TrainIdx]
+TestData    = d[TestIdx]
+TestDataOOD = d[TestIdxOOD]
+TestDataID  = d[TestIdxID]
 
 dotVarEps_Train, initialT_Train = TrainData[:,1], TrainData[:,3]
 dotVarEps_Test, initialT_Test = TestData[:,1], TestData[:,3]
@@ -50,22 +50,41 @@ np.savetxt('TrainData.dat', TrainData,
     fmt='%d, %.8e, %.8e, %.1f', 
     header='i, dotVareps, loadingTime, initialT',
     comments='')
-np.savetxt('TrainIdx.dat', trainIdx, fmt='%d')
+np.savetxt('TrainIdx.dat', TrainIdx, fmt='%d')
 np.savetxt('TestData.dat',  TestData,  
     fmt='%d, %.8e, %.8e, %.1f', 
     header='i, dotVareps, loadingTime, initialT',
     comments='')
-np.savetxt('TestIdx.dat', testIdx, fmt='%d')
+np.savetxt('TestIdx.dat', TestIdx, fmt='%d')
 np.savetxt('TestDataOOD.dat',  TestDataOOD,  
     fmt='%d, %.8e, %.8e, %.1f', 
     header='i, dotVareps, loadingTime, initialT',
     comments='')
-np.savetxt('TestIdxOOD.dat', testIdxOOD, fmt='%d')
+np.savetxt('TestIdxOOD.dat', TestIdxOOD, fmt='%d')
 np.savetxt('TestDataID.dat',  TestDataID,  
     fmt='%d, %.8e, %.8e, %.1f', 
     header='i, dotVareps, loadingTime, initialT',
     comments='')
-np.savetxt('TestIdxID.dat', testIdxID, fmt='%d')
+np.savetxt('TestIdxID.dat', TestIdxID, fmt='%d')
+
+IncompleteIdxType = []
+if os.path.exists('IncompleteIdx.dat'):
+    IncompleteIdx = np.loadtxt('IncompleteIdx.dat', dtype=int) - 1 # reset index start at 0 (instead of 1)
+    print(f'Detected existing IncompleteIdx.dat.')
+    print(f'Indices in IncompleteIdx.dat will be removed.')
+    for i in IncompleteIdx:
+        if i in TrainIdx:
+            IncompleteIdxType += ['Train']
+        elif i in TestIdxOOD:
+            IncompleteIdxType += ['TestOOD']
+        elif i in TestIdxID:
+            IncompleteIdxType += ['TestID']
+        else:
+            print(f'Index {i} does not belong to any dataset! Check!')
+    TrainIdx   = np.setdiff1d(TrainIdx, IncompleteIdx)
+    TestIdx    = np.setdiff1d(TestIdx, IncompleteIdx)
+    TestIdxOOD = np.setdiff1d(TestIdxOOD, IncompleteIdx)
+    TestIdxID  = np.setdiff1d(TestIdxID, IncompleteIdx)
 
 # Plot: train/test
 fig = plt.figure(num=None, figsize=(14, 12), dpi=300, facecolor='w', edgecolor='k')
@@ -101,9 +120,9 @@ plt.savefig('TrainTestDistribution-OOD-ID', dpi=300, facecolor='w', edgecolor='w
     metadata=None)
 
 # Diagnostics
-print(f'Number of train points: {TrainData.shape[0]:<d}')
-print(f'Number of test points: {TestData.shape[0]:<d}')
-print(f'Number of test points (out-of-distribution or OOD): {TestDataOOD.shape[0]:<d}')
-print(f'Number of test points (in-distribution or ID): {TestDataID.shape[0]:<d}')
+print(f'Number of train points: {TrainIdx.shape[0]:<d}')
+print(f'Number of test points: {TestIdx.shape[0]:<d}')
+print(f'Number of test points (out-of-distribution or OOD): {TestIdxOOD.shape[0]:<d}')
+print(f'Number of test points (in-distribution or ID): {TestIdxID.shape[0]:<d}')
 
 

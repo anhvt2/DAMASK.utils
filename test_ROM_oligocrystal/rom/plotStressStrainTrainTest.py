@@ -80,21 +80,29 @@ def getTrueStressStrain(StressStrainFile):
 
 def getInterpStressStrain(StressStrainFile, num=100):
     x, y = getTrueStressStrain(StressStrainFile)
-    if x.max() < 0.05:
-        return None, None
-    else:
-        interp_x = np.linspace(x.min(), x.max(), num)
-        # interp_x = np.linspace(x.min(), np.max([0.06, x.max()]), num)
-        # splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
-        splineInterp = PchipInterpolator(x, y, extrapolate=True)
-        interp_y = splineInterp(interp_x)
-        return interp_x, interp_y
+    # if x.max() < 0.05:
+    #     return None, None
+    # else:
+    interp_x = np.linspace(x.min(), x.max(), num)
+    # interp_x = np.linspace(x.min(), np.max([0.06, x.max()]), num)
+    # splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
+    splineInterp = PchipInterpolator(x, y, extrapolate=True)
+    interp_y = splineInterp(interp_x)
+    return interp_x, interp_y
 
 fig = plt.figure(num=None, figsize=(14, 12), dpi=300, facecolor='w', edgecolor='k')
 
-trainIdx   = np.loadtxt('TrainIdx.dat')
-testIdxOOD = np.loadtxt('TestIdxOOD.dat')
-testIdxID  = np.loadtxt('TestIdxID.dat')
+TrainIdx   = np.loadtxt('TrainIdx.dat')
+TestIdxOOD = np.loadtxt('TestIdxOOD.dat')
+TestIdxID  = np.loadtxt('TestIdxID.dat')
+
+if os.path.exists('IncompleteIdx.dat'):
+    IncompleteIdx = np.loadtxt('IncompleteIdx.dat', dtype=int) - 1 # reset index start at 0 (instead of 1)
+    print(f'Detected existing IncompleteIdx.dat.')
+    print(f'Indices in IncompleteIdx.dat will be removed.')
+    TrainIdx   = np.setdiff1d(TrainIdx, IncompleteIdx)
+    TestIdxOOD = np.setdiff1d(TestIdxOOD, IncompleteIdx)
+    TestIdxID  = np.setdiff1d(TestIdxID, IncompleteIdx)
 
 labels = ['train'   ,'test (OOD)','test (ID)']
 colors = ['tab:blue','tab:orange','tab:green']
@@ -102,7 +110,7 @@ alphas = [1, 0.6, 0.3]
 
 ax = fig.add_subplot(111)
 
-for idx, label, color, alpha in zip([trainIdx, testIdxOOD, testIdxID], labels, colors, alphas):
+for idx, label, color, alpha in zip([TrainIdx, TestIdxOOD, TestIdxID], labels, colors, alphas):
     for i in idx:
         StressStrainFile = '../damask/%d/postProc/stress_strain.log' % i
         if os.path.exists(StressStrainFile):
@@ -123,16 +131,18 @@ plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
 if np.all(y * 1e6 > -1e-5):
-    plt.ylim(bottom=0, top=150)
+    plt.ylim(bottom=0)
+    # plt.ylim(bottom=0, top=150)
 
 if np.all(x > -1e-5):
-    plt.xlim(left=0, right=0.06)
+    plt.xlim(left=0)
+    # plt.xlim(left=0, right=0.06)
 
 ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.2f'))
 plt.title(r'Variation of $\varepsilon-\sigma$ by train/test', fontsize=24)
 handles, labels = plt.gca().get_legend_handles_labels()
 by_label = dict(zip(labels, handles))
-leg = plt.legend(by_label.values(), by_label.keys(), fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=False, markerscale=9)
+leg = plt.legend(by_label.values(), by_label.keys(), fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=False, markerscale=12)
 for lh in leg.legend_handles:
     lh.set_alpha(1)
 

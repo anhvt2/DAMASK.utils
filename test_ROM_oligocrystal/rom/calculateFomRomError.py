@@ -10,7 +10,7 @@ handlers = [logging.FileHandler(logFileName), logging.StreamHandler()]
 logging.basicConfig(level = level, format = format, handlers = handlers)
 
 controlInfo = np.loadtxt('control.log', skiprows=1, delimiter=',')
-dotVarEps = controlInfo[SolidIdx,1]
+dotVarEps = controlInfo[:,1]
 loadingTime = controlInfo[:,2] # dependent - not an input
 initialT = controlInfo[:,3]
 

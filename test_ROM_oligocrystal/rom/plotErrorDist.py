@@ -3,6 +3,8 @@ import glob, os, time
 import numpy as np
 import matplotlib as mpl
 import logging
+import pandas as pd
+cmap = plt.cm.get_cmap('coolwarm')
 
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
@@ -23,66 +25,96 @@ TrainIdx   = np.loadtxt('TrainIdx.dat', dtype=int)
 TestIdx    = np.loadtxt('TestIdx.dat', dtype=int)
 TestIdxOOD = np.loadtxt('TestIdxOOD.dat', dtype=int)
 TestIdxID  = np.loadtxt('TestIdxID.dat', dtype=int)
-fois = ['MisesCauchy', 'MisesLnV'] # fields of interest
-labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
+fois    = ['MisesCauchy', 'MisesLnV'] # fields of interest
+labels = ['test (OOD)','test (ID)']
+colors = ['tab:orange','tab:green']
+cols   = ['MeanRelError_MisesCauchy', 'MeanRelError_MisesLnV']
+titles = [r'Relative Error [%]: $\sigma_{vM}$', r'Relative Error [%]: $\varepsilon_{vM}$']
 
 x_test       = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)
+# dfError      = np.loadtxt('FomRomErrors.dat', skiprows=1) #
+dfError      = pd.read_csv('FomRomErrors.dat', skipinitialspace=True)
 DamaskIdxs   = x_test[:,5].astype(int)
 PostProcIdxs = x_test[:,6].astype(int)
 NumCases = len(DamaskIdxs)
 
+# Augment dfError with error_type = 'OOD' or 'ID'
+error_types = []
+for i in range(dfError.shape[0]):
+    # Get label for OOD and ID
+    if dfError['DamaskIndex'].iloc[i] in TestIdxOOD:
+        error_types += ['OOD']
+    elif dfError['DamaskIndex'].iloc[i] in TestIdxID:
+        error_types += ['ID']
+
+dfError['ErrorTypes'] = error_types
+
+dfError19 = dfError[dfError['PostProcIndex'] == 19]
+dfError19_OOD = dfError[(dfError['PostProcIndex'] == 19) & (dfError['ErrorTypes'] == 'OOD')]
+dfError19_ID  = dfError[(dfError['PostProcIndex'] == 19) & (dfError['ErrorTypes'] == 'ID')]
+
 t_start = time.time()
 
-def calcMeanRelErr(true, pred):
-    return np.mean(np.abs(true-pred)/true)*100
+def plotDataframe(df, marker, label):
+    plt.scatter(df['dotVareps'], df['initialT'], 
+            c=scalarMap.to_rgba(df[col]),
+            s=4+(100-4)*(np.log(df[col]) - np.log(df[col]).min()) / (np.log(df[col]).max() - np.log(df[col]).min()),
+            vmin=df[col].min(),
+            vmax=df[col].max(),
+            marker=marker, 
+            alpha=1.0,
+            label=label)
+    return None
 
-def calcMeanAbsErr(true, pred):
-    return np.mean(np.abs(true-pred))   
+# foi, label, col = fois[0], labels[0], cols[0] # debug
+for foi, label, col, title in zip(fois, labels, cols, titles):
+    # Normalize colors
+    cNorm = mpl.colors.Normalize(vmin=dfError19[col].min(),vmax=dfError19[col].max())
+    # LogNorm = mpl.colors.LogNorm(vmin=dfError19[col].min(),vmax=dfError19[col].max())
+    scalarMap = mpl.cm.ScalarMappable(norm=cNorm, cmap=cmap) # linear colorbar
+    # scalarMap = mpl.cm.ScalarMappable(norm=LogNorm, cmap=cmap) # log colorbar
+    fig, ax = plt.subplots(num=None, figsize=(20, 20), dpi=300, facecolor='w', edgecolor='k')
+    # plt.scatter(dfError19['dotVareps'], dfError19['initialT'], 
+    #             c=scalarMap.to_rgba(dfError19[col]),
+    #             s=4+(200-4)*(np.log(dfError19[col]) - np.log(dfError19[col]).min()) / (np.log(dfError19[col]).max() - np.log(dfError19[col]).min()),
+    #             vmin=dfError19[col].min(),
+    #             vmax=dfError19[col].max(),
+    #             marker='o', 
+    #             alpha=1.0,
+    #             label=label)
+    plotDataframe(dfError19_OOD, marker='o', label='test (OOD)')
+    plotDataframe(dfError19_ID , marker='h', label='test (ID)')
+    # plt.scatter(dfError19_OOD['dotVareps'], dfError19_OOD['initialT'], 
+    #             c=scalarMap.to_rgba(dfError19_OOD[col]),
+    #             s=2+(100-4)*(np.log(dfError19_OOD[col]) - np.log(dfError19_OOD[col]).min()) / (np.log(dfError19_OOD[col]).max() - np.log(dfError19_OOD[col]).min()),
+    #             vmin=dfError19_OOD[col].min(),
+    #             vmax=dfError19_OOD[col].max(),
+    #             marker='o', 
+    #             alpha=1.0,
+    #             label='test (OOD)')
+    # plt.scatter(dfError19_ID['dotVareps'], dfError19_ID['initialT'], 
+    #             c=scalarMap.to_rgba(dfError19_ID[col]),
+    #             s=2+(100-4)*(np.log(dfError19_ID[col]) - np.log(dfError19_ID[col]).min()) / (np.log(dfError19_ID[col]).max() - np.log(dfError19_ID[col]).min()),
+    #             vmin=dfError19_ID[col].min(),
+    #             vmax=dfError19_ID[col].max(),
+    #             marker='h', 
+    #             alpha=1.0,
+    #             label='test (ID)')
+    handles, labels = plt.gca().get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))
+    # leg = plt.legend(by_label.values(), by_label.keys(), fontsize=24, loc='upper left', bbox_to_anchor=(1.05,.0),frameon=False, markerscale=5)
+    # Colorbar
+    sm = plt.cm.ScalarMappable(cmap=cmap)
+    sm.set_clim(vmin=dfError19[col].min(), vmax=dfError19[col].max())
+    cbar = plt.colorbar(sm, orientation='horizontal', aspect=50, pad=0.1)
+    cbar.set_label('Relative Error [%]', fontsize=24, rotation=0)
+    plt.xscale('log',base=10)
+    plt.title(title, fontsize=24)
+    plt.xlabel(r'$\dot{\varepsilon}$ [s$^{-1}$]', fontsize=24)
+    plt.ylabel(r'$T$ [K]', fontsize=24)
+    plt.legend(fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=False, markerscale=4)
+    plt.savefig(f'MeanRelErr{foi}.png', dpi=None, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 
-for i in range(NumCases):
-    predFileName = '../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))
-    trueFileName = '../damask/%d/postProc/main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))
-    y_pred = np.load(predFileName)
-    y_true = np.load(trueFileName)
-    logging.info(f'Processing damask/{DamaskIdxs[i]+1:<d}/inc{str(PostProcIdxs[i]).zfill(2)}: MeanRelError(MisesCauchy) = {calcMeanRelErr(y_true[:,0], y_pred[:,0]):<.4e}; MeanRelError(MisesLnV) = {calcMeanRelErr(y_true[:,1], y_pred[:,1]):<.4e}; MeanAbsError(MisesCauchy) = {calcMeanAbsErr(y_true[:,0], y_pred[:,0]):<.4e}; MeanAbsError(MisesLnV) = {calcMeanAbsErr(y_true[:,1], y_pred[:,1]):<.4e};')
 
-logging.info(f'plotErrorDist.py: Total elapsed time: {time.time() - t_start} seconds.')
-
-    
-
-
-# fig = plt.figure(num=None, figsize=(14, 12), dpi=300, facecolor='w', edgecolor='k')
-# plt.scatter(dotVarEps_Train, initialT_Train, marker='o', s=30, c='tab:blue', label='train')
-# plt.scatter(dotVarEps_Test, initialT_Test, marker='o', s=30, c='tab:orange', label='test')
-# plt.legend(fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=True, markerscale=3)
-
-# plt.title('Input Distribution', fontsize=24)
-# plt.xlabel(r'$\dot{\varepsilon}$ [s$^{-1}$]', fontsize=24)
-# plt.ylabel(r'$T$ [K]', fontsize=24)
-# plt.xscale('log',base=10) 
-# # plt.show()
-# plt.savefig('TrainTestDistribution', dpi=300, facecolor='w', edgecolor='w',
-#     orientation='portrait', format=None,
-#     transparent=False, bbox_inches='tight', pad_inches=0.1,
-#     metadata=None)
-
-# # Plot: train/test-OOD/test-ID
-# fig = plt.figure(num=None, figsize=(14, 12), dpi=300, facecolor='w', edgecolor='k')
-# plt.scatter(dotVarEps_Train, initialT_Train, marker='o', s=30, c='tab:blue', label='train')
-# plt.scatter(dotVarEps_Test_OOD, initialT_Test_OOD, marker='o', s=30, c='tab:orange', label='test (OOD)')
-# plt.scatter(dotVarEps_Test_ID, initialT_Test_ID, marker='o', s=30, c='tab:green', label='test (ID)')
-# plt.legend(fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=False, markerscale=3)
-
-# plt.title('Input Distribution', fontsize=24)
-# plt.xlabel(r'$\dot{\varepsilon}$ [s$^{-1}$]', fontsize=24)
-# plt.ylabel(r'$T$ [K]', fontsize=24)
-# plt.xscale('log',base=10) 
-# # plt.show()
-# plt.savefig('TrainTestDistribution-OOD-ID', dpi=300, facecolor='w', edgecolor='w',
-#     orientation='portrait', format=None,
-#     transparent=False, bbox_inches='tight', pad_inches=0.1,
-#     metadata=None)
-
-
-
+logging.info(f'plotErrorDist.py: Elapsed in {time.time() - t_start} seconds.')
 

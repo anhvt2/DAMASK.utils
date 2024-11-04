@@ -204,6 +204,8 @@ Sample void throughout the computational domain where voids are sampled from a d
 
 Make sure to use dislocation-density-based constitutive model for high-/low-strain rate with different temperature. 
 
+For loading conditions, see [https://damask2.mpie.de/bin/view/Documentation/LoadDefinition.html](https://damask2.mpie.de/bin/view/Documentation/LoadDefinition.html)
+
 # ROM
 
 ROM is constructed from FOM following these steps.

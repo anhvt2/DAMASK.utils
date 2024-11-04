@@ -52,7 +52,7 @@ for i in range(NumCases):
     MeanAbsError_MisesLnV = calcMeanAbsErr(y_true[:,1], y_pred[:,1])
     # Print/log info
     logging.info(f'Processing damask/{DamaskIdxs[i]+1:<d}/inc{str(PostProcIdxs[i]).zfill(2)}: MeanRelError(MisesCauchy) = {MeanRelError_MisesCauchy:<.4e}; MeanRelError(MisesLnV) = {MeanRelError_MisesLnV:<.4e}; MeanAbsError(MisesCauchy) = {MeanAbsError_MisesCauchy:<.4e}; MeanAbsError(MisesLnV) = {MeanAbsError_MisesLnV:<.4e};')
-    f.write(f'{_dotVareps:<.8e}, {_initialT:<.8e}, {_vareps::<.8e}, {_sigma::<.8e}, {_time::<.8e}, {_DamaskIndex::<d}, {_PostProcIndex:<d}, {MeanRelError_MisesCauchy:<.8e}, {MeanRelError_MisesLnV:<.8e}, {MeanAbsError_MisesCauchy:<.8e}, {MeanAbsError_MisesLnV:<.8e}\n')
+    f.write(f'{_dotVareps:<.8e}, {_initialT:<.8e}, {_vareps::<.8e}, {_sigma::<.8e}, {_time::<.8e}, {int(_DamaskIndex)::<d}, {int(_PostProcIndex):<d}, {MeanRelError_MisesCauchy:<.8e}, {MeanRelError_MisesLnV:<.8e}, {MeanAbsError_MisesCauchy:<.8e}, {MeanAbsError_MisesLnV:<.8e}\n')
 
 logging.info(f'calculateFomRomError.py: Total elapsed time: {time.time() - t_start} seconds.')
 

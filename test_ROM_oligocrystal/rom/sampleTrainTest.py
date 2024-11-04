@@ -69,7 +69,7 @@ np.savetxt('TestIdxID.dat', TestIdxID, fmt='%d')
 
 IncompleteIdxType = []
 if os.path.exists('IncompleteIdx.dat'):
-    IncompleteIdx = np.loadtxt('IncompleteIdx.dat', dtype=int) - 1 # reset index start at 0 (instead of 1)
+    IncompleteIdx = np.loadtxt('IncompleteIdx.dat', dtype=int)
     print(f'Detected existing IncompleteIdx.dat.')
     print(f'Indices in IncompleteIdx.dat will be removed.')
     for i in IncompleteIdx:

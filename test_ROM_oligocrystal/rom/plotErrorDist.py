@@ -4,7 +4,10 @@ import numpy as np
 import matplotlib as mpl
 import logging
 import pandas as pd
-cmap = plt.cm.get_cmap('coolwarm')
+# cmap = plt.cm.get_cmap('coolwarm')
+# cmap = plt.cm.get_cmap('RdBu_r')
+# cmap = plt.cm.get_cmap('Reds')
+cmap = plt.cm.get_cmap('PuRd')
 
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
@@ -25,11 +28,12 @@ TrainIdx   = np.loadtxt('TrainIdx.dat', dtype=int)
 TestIdx    = np.loadtxt('TestIdx.dat', dtype=int)
 TestIdxOOD = np.loadtxt('TestIdxOOD.dat', dtype=int)
 TestIdxID  = np.loadtxt('TestIdxID.dat', dtype=int)
-fois   = ['MisesCauchy', 'MisesLnV'] # fields of interest
-labels = ['test (OOD)','test (ID)']
-colors = ['tab:orange','tab:green']
-cols   = ['MeanRelError_MisesCauchy', 'MeanRelError_MisesLnV']
-titles = [r'Relative Error [%]: $\sigma_{vM}$', r'Relative Error [%]: $\varepsilon_{vM}$']
+# fois   = ['MisesCauchy', 'MisesLnV'] # fields of interest
+# labels = ['test (OOD)','test (ID)']
+# colors = ['tab:orange','tab:green']
+cols   = ['MeanRelError_MisesCauchy', 'MeanRelError_MisesLnV', 'MeanAbsError_MisesCauchy', 'MeanAbsError_MisesLnV']
+titles = [r'Mean Relative Absolute Error [%]: $\sigma_{vM}$', r'Mean Relative Absolute Error [%]: $\varepsilon_{vM}$', r'Mean Absolute Error [MPa]: $\sigma_{vM}$', r'Mean Absolute Error [-]: $\varepsilon_{vM}$']
+filenames = ['MRAE-MisesCauchy', 'MRAE-MisesLnV', 'MAE-MisesCauchy', 'MAE-MisesLnV']
 
 x_test       = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)
 dfError      = pd.read_csv('FomRomErrors.dat', skipinitialspace=True)
@@ -57,7 +61,7 @@ def plotDataframe(df, marker, label):
     z = df[col]
     sc = plt.scatter(df['dotVareps'], df['initialT'], 
             c=scalarMap.to_rgba(z),
-            s=4+(100-4)*(np.log(z) - np.log(z).min()) / (np.log(z).max() - np.log(z).min()),
+            s=10+(100-10)*(np.log(z) - np.log(z).min()) / (np.log(z).max() - np.log(z).min()),
             vmin=z.min(),
             vmax=z.max(),
             marker=marker, 
@@ -66,7 +70,7 @@ def plotDataframe(df, marker, label):
     return sc
 
 # foi, label, col = fois[0], labels[0], cols[0] # debug
-for foi, label, col, title in zip(fois, labels, cols, titles):
+for col, title, filename in zip(cols, titles, filenames):
     # Get column data of interest
     z = dfError19[col]
     # Normalize colors
@@ -89,13 +93,28 @@ for foi, label, col, title in zip(fois, labels, cols, titles):
     sm.set_clim(vmin=z.min(), vmax=z.max())
     cbar = fig.colorbar(sm, cmap=cmap, orientation='horizontal', aspect=50, pad=0.1)
     # cbar = plt.colorbar(scOOD, cmap=cmap, orientation='horizontal', aspect=50, pad=0.1)
-    cbar.set_label('Relative Error [%]', fontsize=24, rotation=0)
+    # Set colorbar title case-by-case
+    if 'MeanRelError' in col:
+        cbar.set_label('Relative Error [%]', fontsize=24, rotation=0)
+    elif 'MeanAbsError' in col:
+        if 'MisesCauchy' in col:
+            cbar.set_label('Absolute Error [MPa]', fontsize=24, rotation=0)
+        elif 'MisesLnV' in col:
+            cbar.set_label('Absolute Error [-]', fontsize=24, rotation=0)
     cbar.ax.minorticks_on()
+    cbar.ax.tick_params(axis='x', which='minor', length=6)
+    # Customize the ticks and their format
+    if 'MeanRelError' in col:
+        cbar.ax.xaxis.set_major_locator(mpl.ticker.LogLocator(base=10.0, subs=[1.0, 2.0, 3.0, 4.0, 5.0, 7.0], numticks=10))
+        cbar.ax.xaxis.set_major_formatter(mpl.ticker.FuncFormatter(lambda x, _: f"{x:.1f}"))
+    elif 'MeanAbsError' in col:
+        cbar.ax.xaxis.set_major_locator(mpl.ticker.LogLocator(base=10.0, subs=[1.0, 2.0, 3.0, 4.0, 5.0, 7.0], numticks=10))
+        cbar.ax.xaxis.set_major_formatter(mpl.ticker.FuncFormatter(lambda x, _: f"{x:.0e}".replace("e-0", "e-").replace("e+0", "e")))
     plt.xscale('log',base=10)
     plt.title(title, fontsize=24)
     plt.xlabel(r'$\dot{\varepsilon}$ [s$^{-1}$]', fontsize=24)
     plt.ylabel(r'$T$ [K]', fontsize=24)
-    plt.savefig(f'MeanRelErr{foi}.png', dpi=None, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
+    plt.savefig(f'{filename}.png', dpi=None, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 
 
 logging.info(f'plotErrorDist.py: Elapsed in {time.time() - t_start} seconds.')

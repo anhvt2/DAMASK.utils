@@ -129,6 +129,7 @@ These are the steps to construct a projection-based ROM.
 # To-do
 
 1. Plot FOM vs ROM.
-2. Implement error metrics. 
-3. Plot error vs. parameters
-4. Remove incomplete dataset in `IncompleteIdx.dat` in `sampleTrainTest.py`: replot sampling parameters
+1. ~~Only calculate error on solids (not voids)~~
+1. ~~Implement error metrics.~~ 
+1. ~~Plot error vs. parameters~~
+1. ~~Remove incomplete dataset in `IncompleteIdx.dat` in `sampleTrainTest.py`: replot sampling parameters~~

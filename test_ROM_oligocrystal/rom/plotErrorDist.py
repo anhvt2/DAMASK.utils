@@ -25,7 +25,7 @@ TrainIdx   = np.loadtxt('TrainIdx.dat', dtype=int)
 TestIdx    = np.loadtxt('TestIdx.dat', dtype=int)
 TestIdxOOD = np.loadtxt('TestIdxOOD.dat', dtype=int)
 TestIdxID  = np.loadtxt('TestIdxID.dat', dtype=int)
-fois    = ['MisesCauchy', 'MisesLnV'] # fields of interest
+fois   = ['MisesCauchy', 'MisesLnV'] # fields of interest
 labels = ['test (OOD)','test (ID)']
 colors = ['tab:orange','tab:green']
 cols   = ['MeanRelError_MisesCauchy', 'MeanRelError_MisesLnV']
@@ -77,20 +77,24 @@ for foi, label, col, title in zip(fois, labels, cols, titles):
     fig, ax = plt.subplots(num=None, figsize=(20, 20), dpi=300, facecolor='w', edgecolor='k')
     scOOD = plotDataframe(dfError19_OOD, marker='o', label='test (OOD)')
     scID  = plotDataframe(dfError19_ID , marker='h', label='test (ID)')
+    # Set legend
     handles, labels = plt.gca().get_legend_handles_labels()
     by_label = dict(zip(labels, handles))
     # leg = plt.legend(by_label.values(), by_label.keys(), fontsize=24, loc='upper left', bbox_to_anchor=(1.05,.0),frameon=False, markerscale=5)
+    leg = plt.legend(fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=False, markerscale=4)
+    for marker in leg.legendHandles:
+        marker.set_color('tab:green')
     # Colorbar
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=mpl.colors.LogNorm(vmin=z.min(), vmax=z.max()))
     sm.set_clim(vmin=z.min(), vmax=z.max())
     cbar = fig.colorbar(sm, cmap=cmap, orientation='horizontal', aspect=50, pad=0.1)
     # cbar = plt.colorbar(scOOD, cmap=cmap, orientation='horizontal', aspect=50, pad=0.1)
     cbar.set_label('Relative Error [%]', fontsize=24, rotation=0)
+    cbar.ax.minorticks_on()
     plt.xscale('log',base=10)
     plt.title(title, fontsize=24)
     plt.xlabel(r'$\dot{\varepsilon}$ [s$^{-1}$]', fontsize=24)
     plt.ylabel(r'$T$ [K]', fontsize=24)
-    plt.legend(fontsize=24, loc='upper left', bbox_to_anchor=(1.05, 1.0),frameon=False, markerscale=4)
     plt.savefig(f'MeanRelErr{foi}.png', dpi=None, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 
 

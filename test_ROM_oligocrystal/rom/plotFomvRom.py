@@ -25,7 +25,10 @@ pl = pyvista.Plotter(off_screen=True)
 # reader = pyvista.get_reader('main_tension_inc16_pos(cell).vtr')
 
 ms   = np.load('main.npy')
-grid = pyvista.UniformGrid() # old pyvista
+try:
+    grid = pyvista.UniformGrid() # old pyvista
+except:
+    grid = pyvista.ImageData() # new pyvista
 grid.dimensions = np.array(ms.shape) + 1
 grid.origin = (0, 0, 0)     # The bottom left corner of the data set
 grid.spacing = (1, 1, 1)    # These are the cell sizes along each axis
@@ -34,8 +37,8 @@ grid.cell_data["microstructure"] = ms.flatten(order="F") # ImageData()
 # for damaskNpyFile in natsorted(glob.glob('main_tension_inc??.npy')):
 for i in range(NumCases):
     # Load and parse FOM/ROM data
-    true = np.load('../damask/%d/postProc/pred_main_tension_inc%s' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
-    pred = np.load('../damask/%d/postProc/pred_main_tension_inc%s' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
+    true = np.load('../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
+    pred = np.load('../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
     climMisesCauchy = (np.min([true[:,0].min(), pred[:,0].min()]), np.max([true[:,0].max(), pred[:,0].max()]))
     climMisesLnV    = (np.min([true[:,1].min(), pred[:,1].min()]), np.max([true[:,1].max(), pred[:,1].max()]))
     clims = [climMisesCauchy, climMisesLnV, climMisesCauchy, climMisesLnV]
@@ -58,7 +61,8 @@ for i in range(NumCases):
         pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
         pl.background_color = "white"
         pl.hide_axes()
-        pl.screenshot(f'damask-{DamaskIdxs[i]:<d}-inc{str(PostProcIdxs[i]).zfill(2)}-{filename}.png', window_size=[1860*6,968*6])
+        pl.screenshot(f'png/damask-{DamaskIdxs[i]:<d}-inc{str(PostProcIdxs[i]).zfill(2)}-{filename}.png', window_size=[1860*6,968*6])
         pl.clear()
+        print(f'Finished damask/{DamaskIdxs[i]:<d}/inc{str(PostProcIdxs[i]).zfill(2)}/{filename}.png')
 
 print(f'Elapsed: {time.time() - t_start} seconds.')

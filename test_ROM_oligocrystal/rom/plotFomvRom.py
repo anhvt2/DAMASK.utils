@@ -58,8 +58,8 @@ for i in range(NumCases):
         # Set limits for colorbar
         climMisesCauchy = (np.min(np.abs(MisesCauchy)), np.max(np.abs(MisesCauchy)))
         climMisesLnV = (np.min(np.abs(MisesLnV)), np.max(np.abs(MisesLnV)))
-        climL1ErrorCauchy = np.min(grid.cell_data["L1Error(Cauchy)"]), np.max(grid.cell_data["L1Error(Cauchy)"])
-        climL1ErrorLnV = np.min(grid.cell_data["L1Error(LnV)"]), np.max(grid.cell_data["L1Error(LnV)"])
+        climL1ErrorCauchy = (np.min(grid.cell_data["L1Error(Cauchy)"]), np.max(grid.cell_data["L1Error(Cauchy)"]))
+        climL1ErrorLnV = (np.min(grid.cell_data["L1Error(LnV)"]), np.max(grid.cell_data["L1Error(LnV)"]))
         clims = [climMisesCauchy, climMisesLnV, climMisesCauchy, climMisesLnV, climL1ErrorCauchy, climL1ErrorLnV]
 
         fois = ["Mises(Cauchy)-FOM", "Mises(LnV)-FOM", "Mises(Cauchy)-ROM", "Mises(LnV)-ROM", "L1Error(Cauchy)", "L1Error(LnV)"]

@@ -35,6 +35,7 @@ try:
     grid = pyvista.UniformGrid() # old pyvista
 except:
     grid = pyvista.ImageData() # new pyvista
+
 grid.dimensions = np.array(ms.shape) + 1
 grid.origin = (0, 0, 0)     # The bottom left corner of the data set
 grid.spacing = (1, 1, 1)    # These are the cell sizes along each axis
@@ -43,8 +44,9 @@ grid.cell_data["microstructure"] = ms.flatten(order="F") # ImageData()
 # for damaskNpyFile in natsorted(glob.glob('main_tension_inc??.npy')):
 for i in range(NumCases):
     if PostProcIdxs[i] == 19 and DamaskIdxs[i] == DamaskCase:
+        # print(i) # debug: e.g. i = 3832
         # Load and parse FOM/ROM data
-        true = np.load('../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
+        true = np.load('../damask/%d/postProc/main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
         pred = np.load('../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
         MisesCauchy = np.hstack((true[SolidIdx,0], pred[SolidIdx,0]))
         MisesLnV    = np.hstack((true[SolidIdx,1], pred[SolidIdx,1]))
@@ -58,10 +60,10 @@ for i in range(NumCases):
         # Set limits for colorbar
         climMisesCauchy = (np.min(np.abs(MisesCauchy)), np.max(np.abs(MisesCauchy)))
         climMisesLnV = (np.min(np.abs(MisesLnV)), np.max(np.abs(MisesLnV)))
-        climL1ErrorCauchy = (np.min(grid.cell_data["L1Error(Cauchy)"]), np.max(grid.cell_data["L1Error(Cauchy)"]))
-        climL1ErrorLnV = (np.min(grid.cell_data["L1Error(LnV)"]), np.max(grid.cell_data["L1Error(LnV)"]))
+        climL1ErrorCauchy = (np.min(grid.cell_data["L1Error(Cauchy)"][SolidIdx]), np.max(grid.cell_data["L1Error(Cauchy)"][SolidIdx]))
+        climL1ErrorLnV = (np.min(grid.cell_data["L1Error(LnV)"][SolidIdx]), np.max(grid.cell_data["L1Error(LnV)"][SolidIdx]))
         clims = [climMisesCauchy, climMisesLnV, climMisesCauchy, climMisesLnV, climL1ErrorCauchy, climL1ErrorLnV]
-
+        # Assign list to iterate
         fois = ["Mises(Cauchy)-FOM", "Mises(LnV)-FOM", "Mises(Cauchy)-ROM", "Mises(LnV)-ROM", "L1Error(Cauchy)", "L1Error(LnV)"]
         filenames = ["MisesCauchy-FOM", "MisesLnV-FOM", "MisesCauchy-ROM", "MisesLnV-ROM", "L1ErrorCauchy", "L1ErrorLnV"]
 

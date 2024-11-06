@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 mpl.rcParams['xtick.labelsize'] = 18
 mpl.rcParams['ytick.labelsize'] = 24
+SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
 
 fois = ['MisesCauchy', 'MisesLnV'] # fields of interest
 labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
@@ -27,7 +28,8 @@ for foi, label in zip(fois, labels):
     normCols = np.linalg.norm(d, axis=0)
     nzElems = np.count_nonzero(normCols)
     print(f'Non-zero elements = {int(nzElems):<d} elements.')
-    d = d[:,:nzElems]
+    # d = d[:,:nzElems] # Compute ROM for the whole domain
+    d = d[SolidIdx,:nzElems] # Compute ROM only for the solids domain
     # Compute mean column
     meanCol = np.mean(d, axis=1)
     # Save the mean

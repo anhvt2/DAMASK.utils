@@ -37,7 +37,11 @@ for i in range(1,1001):
             # print(tmpData.shape) # debug
             if tmpData.shape == (576000,2): # safeguard -- check shape
                 try:
-                    # Subtract the mean
+                    # # Subtract the mean
+                    # Option: whole domain
+                    # fluct_MisesCauchy = np.atleast_2d(tmpData[:,0] - mean_MisesCauchy).T
+                    # fluct_MisesLnV    = np.atleast_2d(tmpData[:,1] - mean_MisesLnV).T
+                    # Option: solid domain only
                     fluct_MisesCauchy = np.atleast_2d(tmpData[:,0] - mean_MisesCauchy).T
                     fluct_MisesLnV    = np.atleast_2d(tmpData[:,1] - mean_MisesLnV).T
                     # Project into POD space

@@ -74,7 +74,12 @@ for i in range(NumCases):
                             position_x=0.75, position_y=0.10,
                             title_font_size=144, label_font_size=96, 
                             color='k') 
-            pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
+            if 'Cauchy' in foi:
+                # set log_scale = True for MisesCauchy
+                pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
+            if 'LnV' in foi: 
+                # set log_scale = False for MisesLnV
+                pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=False, clim=clim)
             pl.background_color = "white"
             pl.hide_axes()
             pl.screenshot(f'png/damask-{DamaskIdxs[i]:<d}-inc{str(PostProcIdxs[i]).zfill(2)}-{filename}.png', window_size=[1860*6,968*6])

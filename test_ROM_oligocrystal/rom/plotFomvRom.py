@@ -15,6 +15,11 @@ cmap = plt.cm.get_cmap('coolwarm')
 
 t_start = time.time()
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-d", "--DamaskCase", help='specific DAMASK simulation (1<i<1000)', type=int, default='', required=True) 
+args = parser.parse_args()
+DamaskCase = args.DamaskCase
+
 grainInfo = np.loadtxt('grainInfo.dat')
 x_test       = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)
 DamaskIdxs   = x_test[:,5].astype(int)
@@ -37,21 +42,28 @@ grid.cell_data["microstructure"] = ms.flatten(order="F") # ImageData()
 
 # for damaskNpyFile in natsorted(glob.glob('main_tension_inc??.npy')):
 for i in range(NumCases):
-    if PostProcIdxs[i] == 19:
+    if PostProcIdxs[i] == 19 and DamaskIdxs[i] == DamaskCase:
         # Load and parse FOM/ROM data
         true = np.load('../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
         pred = np.load('../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
-        climMisesCauchy = (np.min([true[SolidIdx,0].min(), pred[SolidIdx,0].min()]), np.max([true[SolidIdx,0].max(), pred[SolidIdx,0].max()]))
-        climMisesLnV    = (np.min([true[SolidIdx,1].min(), pred[SolidIdx,1].min()]), np.max([true[SolidIdx,1].max(), pred[SolidIdx,1].max()]))
-        clims = [climMisesCauchy, climMisesLnV, climMisesCauchy, climMisesLnV]
-
+        MisesCauchy = np.hstack((true[SolidIdx,0], pred[SolidIdx,0]))
+        MisesLnV    = np.hstack((true[SolidIdx,1], pred[SolidIdx,1]))
+        # Assign data
         grid.cell_data["Mises(Cauchy)-FOM"] = true[:,0]
         grid.cell_data["Mises(LnV)-FOM"]    = true[:,1]
         grid.cell_data["Mises(Cauchy)-ROM"] = pred[:,0]
         grid.cell_data["Mises(LnV)-ROM"]    = pred[:,1]
+        grid.cell_data["L1Error(Cauchy)"]   = np.abs(pred[:,0] - true[:,0])
+        grid.cell_data["L1Error(LnV)"]      = np.abs(pred[:,1] - true[:,1])
+        # Set limits for colorbar
+        climMisesCauchy = (np.min(np.abs(MisesCauchy)), np.max(np.abs(MisesCauchy)))
+        climMisesLnV = (np.min(np.abs(MisesLnV)), np.max(np.abs(MisesLnV)))
+        climL1ErrorCauchy = np.min(grid.cell_data["L1Error(Cauchy)"]), np.max(grid.cell_data["L1Error(Cauchy)"])
+        climL1ErrorLnV = np.min(grid.cell_data["L1Error(LnV)"]), np.max(grid.cell_data["L1Error(LnV)"])
+        clims = [climMisesCauchy, climMisesLnV, climMisesCauchy, climMisesLnV, climL1ErrorCauchy, climL1ErrorLnV]
 
-        fois = ["Mises(Cauchy)-FOM", "Mises(LnV)-FOM", "Mises(Cauchy)-ROM", "Mises(LnV)-ROM"]
-        filenames = ["MisesCauchy-FOM", "MisesLnV-FOM", "MisesCauchy-ROM", "MisesLnV-ROM"]
+        fois = ["Mises(Cauchy)-FOM", "Mises(LnV)-FOM", "Mises(Cauchy)-ROM", "Mises(LnV)-ROM", "L1Error(Cauchy)", "L1Error(LnV)"]
+        filenames = ["MisesCauchy-FOM", "MisesLnV-FOM", "MisesCauchy-ROM", "MisesLnV-ROM", "L1ErrorCauchy", "L1ErrorLnV"]
 
         for foi, clim, filename in zip(fois, clims, filenames):
             threshedGrid = grid.threshold(value=(grainInfo[3],grainInfo[4]), scalars='microstructure')

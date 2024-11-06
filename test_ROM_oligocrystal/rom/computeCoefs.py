@@ -13,6 +13,8 @@ os.system('rm -fv %s' % logFileName)
 handlers = [logging.FileHandler(logFileName), logging.StreamHandler()]
 logging.basicConfig(level = level, format = format, handlers = handlers)
 
+# 
+SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
 # Load POD bases
 basis_MisesCauchy = np.load('podBasis_MisesCauchy.npy')
 logging.info(f'computeCoefs.py: Loading POD basis: Elapsed {time.time() - t_start} seconds.')
@@ -42,8 +44,8 @@ for i in range(1,1001):
                     # fluct_MisesCauchy = np.atleast_2d(tmpData[:,0] - mean_MisesCauchy).T
                     # fluct_MisesLnV    = np.atleast_2d(tmpData[:,1] - mean_MisesLnV).T
                     # Option: solid domain only
-                    fluct_MisesCauchy = np.atleast_2d(tmpData[:,0] - mean_MisesCauchy).T
-                    fluct_MisesLnV    = np.atleast_2d(tmpData[:,1] - mean_MisesLnV).T
+                    fluct_MisesCauchy = np.atleast_2d(tmpData[SolidIdx,0] - mean_MisesCauchy).T
+                    fluct_MisesLnV    = np.atleast_2d(tmpData[SolidIdx,1] - mean_MisesLnV).T
                     # Project into POD space
                     podCoefs_MisesCauchy = np.dot(basis_MisesCauchy.T, fluct_MisesCauchy)
                     podCoefs_MisesLnV    = np.dot(basis_MisesLnV.T,    fluct_MisesLnV)

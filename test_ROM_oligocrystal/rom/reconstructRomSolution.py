@@ -37,13 +37,18 @@ basis_MisesCauchy = np.load('podBasis_MisesCauchy.npy')
 basis_MisesLnV    = np.load('podBasis_MisesLnV.npy')
 mean_MisesCauchy  = np.load('mean_MisesCauchy.npy')
 mean_MisesLnV     = np.load('mean_MisesLnV.npy')
+SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
 logging.info(f'reconstructRomSolution.py: Load POD basis in {time.time() - t_local:<.2f} seconds.')
 
 for i in range(NumCases):
     tmpSol = np.zeros([576000,2])
     predPodCoefs = np.load('../damask/%d/postProc/podCoefs_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))) # shape: (5540, 2)
-    tmpSol[:,0] = np.dot(basis_MisesCauchy, predPodCoefs[:,0]) + mean_MisesCauchy
-    tmpSol[:,1] = np.dot(basis_MisesLnV,    predPodCoefs[:,1]) + mean_MisesLnV
+    # Option: whole domain
+    # tmpSol[:,0] = np.dot(basis_MisesCauchy, predPodCoefs[:,0]) + mean_MisesCauchy
+    # tmpSol[:,1] = np.dot(basis_MisesLnV,    predPodCoefs[:,1]) + mean_MisesLnV
+    # Option: solid domain only
+    tmpSol[SolidIdx,0] = np.dot(basis_MisesCauchy, predPodCoefs[:,0]) + mean_MisesCauchy
+    tmpSol[SolidIdx,1] = np.dot(basis_MisesLnV,    predPodCoefs[:,1]) + mean_MisesLnV
     outFileName = '../damask/%d/postProc/pred_main_tension_inc%s' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))
     np.save(outFileName, tmpSol)
     logging.info(f'Processing {i+1:<d}/{NumCases} folders: dumped {outFileName}.npy')

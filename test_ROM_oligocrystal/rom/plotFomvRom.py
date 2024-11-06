@@ -41,8 +41,8 @@ for i in range(NumCases):
         # Load and parse FOM/ROM data
         true = np.load('../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
         pred = np.load('../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
-        climMisesCauchy = (np.min([true[solidIdx,0].min(), pred[solidIdx,0].min()]), np.max([true[solidIdx,0].max(), pred[solidIdx,0].max()]))
-        climMisesLnV    = (np.min([true[solidIdx,1].min(), pred[solidIdx,1].min()]), np.max([true[solidIdx,1].max(), pred[solidIdx,1].max()]))
+        climMisesCauchy = (np.min([true[SolidIdx,0].min(), pred[SolidIdx,0].min()]), np.max([true[SolidIdx,0].max(), pred[SolidIdx,0].max()]))
+        climMisesLnV    = (np.min([true[SolidIdx,1].min(), pred[SolidIdx,1].min()]), np.max([true[SolidIdx,1].max(), pred[SolidIdx,1].max()]))
         clims = [climMisesCauchy, climMisesLnV, climMisesCauchy, climMisesLnV]
 
         grid.cell_data["Mises(Cauchy)-FOM"] = true[:,0]

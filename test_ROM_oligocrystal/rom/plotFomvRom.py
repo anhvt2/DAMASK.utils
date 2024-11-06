@@ -11,7 +11,8 @@ import logging
 import pandas as pd
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
-cmap = plt.cm.get_cmap('coolwarm')
+# cmap = plt.cm.get_cmap('coolwarm')
+cmap = plt.cm.get_cmap('RdBu_r')
 
 t_start = time.time()
 
@@ -77,9 +78,11 @@ for i in range(NumCases):
             if 'Cauchy' in foi:
                 # set log_scale = True for MisesCauchy
                 pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
-            if 'LnV' in foi: 
+            elif 'LnV' in foi: 
                 # set log_scale = False for MisesLnV
                 pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=False, clim=clim)
+            else:
+                print(f'Check pl.add_mesh() for {foi}!')
             pl.background_color = "white"
             pl.hide_axes()
             pl.screenshot(f'png/damask-{DamaskIdxs[i]:<d}-inc{str(PostProcIdxs[i]).zfill(2)}-{filename}.png', window_size=[1860*6,968*6])

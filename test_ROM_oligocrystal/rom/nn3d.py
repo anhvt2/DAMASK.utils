@@ -32,9 +32,11 @@ class NNRegressor_MisesCauchy(nn.Module):
     def __init__(self):
         super(NNRegressor_MisesCauchy, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(3, 16),
+            nn.Linear(5, 16),
             nn.ReLU(),
-            nn.Linear(16, 64),
+            nn.Linear(16, 32),
+            nn.ReLU(),
+            nn.Linear(32, 64),
             nn.ReLU(),
             nn.Linear(64, 128),
             nn.ReLU(),
@@ -47,13 +49,15 @@ class NNRegressor_MisesLnV(nn.Module):
     def __init__(self):
         super(NNRegressor_MisesLnV, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(3, 16),
-            nn.Sigmoid(),
+            nn.Linear(5, 16),
+            nn.ReLU(),
             nn.Linear(16, 32),
-            nn.Sigmoid(),
+            nn.ReLU(),
             nn.Linear(32, 64),
-            nn.Sigmoid(),
-            nn.Linear(64, numFtrs),
+            nn.ReLU(),
+            nn.Linear(64, 128),
+            nn.ReLU(),
+            nn.Linear(128, numFtrs),
         )
     def forward(self, x):
         return self.network(x)
@@ -83,16 +87,20 @@ def WeightedMSELoss(predicted, target, weights):
 
 
 for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNRegressor_MisesLnV()]):
-    x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,4]]
-    x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,4]]
+    x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
+    x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
     y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
     y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
 
-    # Take log of dotVarEps
+    # Take logarithms of: dotVarEps, vareps, sigma, time
     x_train[:,0] = np.log10(x_train[:,0])
     x_test[:,0]  = np.log10(x_test[:,0])
-    x_train[:,2] = np.log2(x_train[:,2])
-    x_test[:,2]  = np.log2(x_test[:,2])
+    x_train[:,2] = np.log10(x_train[:,2])
+    x_test[:,2]  = np.log10(x_test[:,2])
+    x_train[:,3] = np.log10(x_train[:,3])
+    x_test[:,3]  = np.log10(x_test[:,3])
+    x_train[:,4] = np.log2(x_train[:,4])
+    x_test[:,4]  = np.log2(x_test[:,4])
 
     print(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
@@ -123,7 +131,7 @@ for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNReg
 
     # Training loop
     start_epoch = 0
-    num_epochs = 1000000
+    num_epochs = 10000
 
     try:
         model, optimizer, start_epoch = load_checkpoint(model, optimizer, foi)

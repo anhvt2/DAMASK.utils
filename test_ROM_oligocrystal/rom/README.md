@@ -81,12 +81,12 @@ These are the steps to construct a projection-based ROM.
 
 # Computational cost
 
-1. Build snapshot matrix: 
+1. Build snapshot matrix: `extractData.py`
     ```
     extractData.py: extracted data in 1049.07 seconds.
     extractData.py: finished in 1494.23 seconds.
     ```
-1. Compute POD basis: 
+1. Compute POD basis: `computeBasis.py`
     ```
     Loading time: 221.89 seconds.
     Non-zero elements = 5524 elements.
@@ -102,33 +102,33 @@ These are the steps to construct a projection-based ROM.
 
     Total time for POD basis: 2177.61 seconds.
     ```
-1. Compute POD coefs:
+1. Compute POD coefs: `computeCoefs.py`
     ```
     computeCoefs.py: Loading POD basis: Elapsed 217.87353467941284 seconds.
     computeCoefs.py: Loading POD basis: Elapsed 436.99397110939026 seconds.
     computeCoefs.py: Elapsed time = 10713.857370376587 seconds.
     ```
-1. Extract ROM data:
+1. Extract ROM data: `extractRomData.py`
     ```
     Elapsed time: 749.8915462493896 seconds
     Elapsed time: 976.0721864700317 seconds.
     ```
-1. Dump predicted local POD coefs
+1. Dump predicted local POD coefs: `predictCoefs.py`
     ```
-    Finish dumping local POD coefs in 160.8946762084961 seconds.
+    predictCoefs.py: Finish dumping local POD coefs in 160.8946762084961 seconds.
     ```
-1. Reconstruct ROM solution:
+1. Reconstruct ROM solution: `reconstructRomSolution.py`
     ```
     reconstructRomSolution.py: Total elapsed time: 8394.798505783081 seconds.
     ```
-1. Calculate FOM vs. ROM error:
+1. Calculate FOM vs. ROM error: `calculateFomRomError.py`
     ```
     calculateFomRomError.py: Total elapsed time: 5243.82993721962 seconds.
     ```
 
 # To-do
 
-1. Plot FOM vs ROM.
+1. ~~Plot FOM vs ROM~~ (see `plotFomvRom.py`)
 1. ~~Only calculate error on solids (not voids)~~
 1. ~~Implement error metrics.~~ 
 1. ~~Plot error vs. parameters~~

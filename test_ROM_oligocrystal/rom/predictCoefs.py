@@ -137,5 +137,5 @@ for i in range(NumCases):
     np.save(outFileName, tmpCoefs)
     logging.info(f'Processing {i+1:<d}/{NumCases} folders: dumped {outFileName}.npy')
 
-logging.info(f'Finish dumping local POD coefs in {time.time() - t_start} seconds.')
+logging.info(f'predictCoefs.py: Finish dumping local POD coefs in {time.time() - t_start} seconds.')
 

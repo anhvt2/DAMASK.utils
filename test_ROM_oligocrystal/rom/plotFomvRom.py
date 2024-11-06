@@ -11,8 +11,8 @@ import logging
 import pandas as pd
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
-# cmap = plt.cm.get_cmap('coolwarm')
-cmap = plt.cm.get_cmap('RdBu_r')
+cmap = plt.cm.get_cmap('coolwarm')
+# cmap = plt.cm.get_cmap('RdBu_r')
 
 t_start = time.time()
 

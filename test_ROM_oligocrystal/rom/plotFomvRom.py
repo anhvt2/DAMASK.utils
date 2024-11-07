@@ -7,12 +7,14 @@ import glob, os, time
 import numpy as np
 import argparse
 from distutils.util import strtobool
+import proplot as pplt
 import logging
 import pandas as pd
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 cmap = plt.cm.get_cmap('coolwarm')
 # cmap = plt.cm.get_cmap('RdBu_r')
+# cmap = plt.cm.get_cmap('Greys')
 
 t_start = time.time()
 
@@ -80,7 +82,7 @@ for i in range(NumCases):
                 pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
             elif 'LnV' in foi: 
                 # set log_scale = False for MisesLnV
-                pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=False, clim=clim)
+                pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
             else:
                 print(f'Check pl.add_mesh() for {foi}!')
             pl.background_color = "white"
@@ -88,5 +90,7 @@ for i in range(NumCases):
             pl.screenshot(f'png/damask-{DamaskIdxs[i]:<d}-inc{str(PostProcIdxs[i]).zfill(2)}-{filename}.png', window_size=[1860*6,968*6])
             pl.clear()
             print(f'Finished damask/{DamaskIdxs[i]:<d}/inc{str(PostProcIdxs[i]).zfill(2)}/{filename}.png')
+
+
 
 print(f'Elapsed: {time.time() - t_start} seconds.')

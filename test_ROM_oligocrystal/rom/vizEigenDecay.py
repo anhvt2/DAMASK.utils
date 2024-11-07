@@ -9,8 +9,6 @@ mpl.rcParams['xtick.labelsize'] = 18
 mpl.rcParams['ytick.labelsize'] = 24
 
 fois = ['MisesCauchy', 'MisesLnV'] # fields of interest
-# fois = ['MisesCauchy'] # fields of interest
-# fois = ['MisesLnV'] # fields of interest
 labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
 
 for foi, label in zip(fois, labels):
@@ -27,7 +25,7 @@ for foi, label in zip(fois, labels):
     ax1.grid(None)
 
     ax2 = ax1.twinx()
-    ax2.plot(np.cumsum(s) / np.sum(s), c='tab:green', linestyle='None', marker='s', markersize=1, label=r'relative energy')
+    ax2.plot(np.cumsum(s**2) / np.sum(s**2), c='tab:green', linestyle='None', marker='s', markersize=1, label=r'relative energy')
     ax2.set_ylim(top=1.0)
     ax2.xaxis.set_major_locator(mpl.ticker.MultipleLocator(500))
     ax2.xaxis.set_minor_locator(mpl.ticker.MultipleLocator(250))

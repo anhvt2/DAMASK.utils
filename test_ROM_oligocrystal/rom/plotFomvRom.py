@@ -126,8 +126,8 @@ def density_scatter( x , y, ax = None, sort = True, bins = 20, **kwargs )   :
         x, y, z = x[idx], y[idx], z[idx]
     cmap = plt.cm.get_cmap('coolwarm')
     ax.scatter( x, y, c=z, cmap=cmap, **kwargs )
-    norm = Normalize(vmin = np.max([np.min(z),0]), vmax = np.max(z))
-    # norm = LogNorm(vmin = np.min(z), vmax = np.max(z))
+    # norm = Normalize(vmin = np.max([np.min(z),0]), vmax = np.max(z))
+    norm = LogNorm(vmin = np.min(z), vmax = np.max(z))
     cbar = fig.colorbar(mpl.cm.ScalarMappable(norm = norm, cmap=cmap), ax=ax)
     # cbar.ax.set_ylabel('density', fontsize=18)
     # cbar.set_ticks([]) # https://stackoverflow.com/questions/56094845/matplotlib-remove-the-ticks-axis-from-the-colorbar
@@ -149,7 +149,12 @@ js = [0,1] # column index
 
 for foi, filename, j, title in zip(fois, filenames, js, titles):
     fig = plt.figure(num=None, figsize=(16, 9), dpi=400, facecolor='w', edgecolor='k') # screen size
+    y = np.hstack((true[SolidIdx,j], pred[SolidIdx,j]))
+    refs = np.linspace(np.min(y), np.max(y), num=100)
+    plt.plot(refs, refs, linewidth=0.25, alpha=0.2, c='k')
     density_scatter(true[SolidIdx,j], pred[SolidIdx,j], bins=[50,50])
+    plt.xscale('log')
+    plt.yscale('log')
     plt.xlabel('FOM', fontsize=24)
     plt.ylabel('ROM', fontsize=24)
     plt.title(title + f': $R^2$ = {r2(true[:,j], pred[:,j]):<.4f}')

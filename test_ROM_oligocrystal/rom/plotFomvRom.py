@@ -7,9 +7,10 @@ import glob, os, time
 import numpy as np
 import argparse
 from distutils.util import strtobool
-import proplot as pplt
 import logging
 import pandas as pd
+from matplotlib.colors import Normalize, LogNorm
+from scipy.interpolate import interpn
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 cmap = plt.cm.get_cmap('coolwarm')
@@ -92,5 +93,69 @@ for i in range(NumCases):
             print(f'Finished damask/{DamaskIdxs[i]:<d}/inc{str(PostProcIdxs[i]).zfill(2)}/{filename}.png')
 
 
+# Scatter plot - adopted from eshelby-3d/plotScatterDensityTrain.py
+
+def r2(y,f):
+    '''
+    https://en.wikipedia.org/wiki/Coefficient_of_determination
+    Parameters
+    ----------
+    y: observations
+    f: predictions
+    '''
+    ymean = np.mean(y)
+    ssRes = np.sum((y - f)**2)
+    ssTot = np.sum((y - ymean)**2)
+    r2Score = 1 - ssRes / ssTot
+    return r2Score
+
+def density_scatter( x , y, ax = None, sort = True, bins = 20, **kwargs )   :
+    """
+    Scatter plot colored by 2d histogram
+    """
+    if ax is None :
+        fig , ax = plt.subplots()
+    plt.gcf().set_size_inches(14, 14)
+    data , x_e, y_e = np.histogram2d( x, y, bins = bins, density = True )
+    z = interpn( ( 0.5*(x_e[1:] + x_e[:-1]) , 0.5*(y_e[1:]+y_e[:-1]) ) , data , np.vstack([x,y]).T , method = "splinef2d", bounds_error = False)
+    #To be sure to plot all data
+    z[np.where(np.isnan(z))] = 0.0
+    # Sort the points by density, so that the densest points are plotted last
+    if sort :
+        idx = z.argsort()
+        x, y, z = x[idx], y[idx], z[idx]
+    cmap = plt.cm.get_cmap('coolwarm')
+    ax.scatter( x, y, c=z, cmap=cmap, **kwargs )
+    norm = Normalize(vmin = np.max([np.min(z),0]), vmax = np.max(z))
+    # norm = LogNorm(vmin = np.min(z), vmax = np.max(z))
+    cbar = fig.colorbar(mpl.cm.ScalarMappable(norm = norm, cmap=cmap), ax=ax)
+    # cbar.ax.set_ylabel('density', fontsize=18)
+    # cbar.set_ticks([]) # https://stackoverflow.com/questions/56094845/matplotlib-remove-the-ticks-axis-from-the-colorbar
+    # cbar.remove() # remove colorbar
+    return ax
+
+pl.close()
+plt.close()
+
+grid.cell_data["Mises(Cauchy)-FOM"] = true[:,0]
+grid.cell_data["Mises(LnV)-FOM"]    = true[:,1]
+grid.cell_data["Mises(Cauchy)-ROM"] = pred[:,0]
+grid.cell_data["Mises(LnV)-ROM"]    = pred[:,1]
+
+fois = ['Mises(Cauchy)', 'Mises(LnV)']
+filenames = [f'damask-{DamaskCase}-Scatter-MisesCauchy', f'damask-{DamaskCase}-Scatter-MisesLnV']
+titles = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
+js = [0,1] # column index
+
+for foi, filename, j, title in zip(fois, filenames, js, titles):
+    fig = plt.figure(num=None, figsize=(16, 9), dpi=400, facecolor='w', edgecolor='k') # screen size
+    density_scatter(true[SolidIdx,j], pred[SolidIdx,j], bins=[50,50])
+    plt.xlabel('FOM', fontsize=24)
+    plt.ylabel('ROM', fontsize=24)
+    plt.title(title + f': $R^2$ = {r2(true[:,j], pred[:,j]):<.4f}')
+    plt.savefig(f'png/{filename}.png', dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
+    plt.clf()
+    plt.close()
 
 print(f'Elapsed: {time.time() - t_start} seconds.')
+

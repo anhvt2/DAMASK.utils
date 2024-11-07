@@ -33,13 +33,13 @@ class NNRegressor_MisesCauchy(nn.Module):
         super(NNRegressor_MisesCauchy, self).__init__()
         self.network = nn.Sequential(
             nn.Linear(5, 16),
-            nn.ReLU(),
+            nn.Sigmoid(),
             nn.Linear(16, 32),
-            nn.ReLU(),
+            nn.Sigmoid(),
             nn.Linear(32, 64),
-            nn.ReLU(),
+            nn.Sigmoid(),
             nn.Linear(64, 128),
-            nn.ReLU(),
+            nn.Sigmoid(),
             nn.Linear(128, numFtrs),
         )
     def forward(self, x):
@@ -50,13 +50,13 @@ class NNRegressor_MisesLnV(nn.Module):
         super(NNRegressor_MisesLnV, self).__init__()
         self.network = nn.Sequential(
             nn.Linear(5, 16),
-            nn.ReLU(),
+            nn.Sigmoid(),
             nn.Linear(16, 32),
-            nn.ReLU(),
+            nn.Sigmoid(),
             nn.Linear(32, 64),
-            nn.ReLU(),
+            nn.Sigmoid(),
             nn.Linear(64, 128),
-            nn.ReLU(),
+            nn.Sigmoid(),
             nn.Linear(128, numFtrs),
         )
     def forward(self, x):
@@ -131,7 +131,7 @@ for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNReg
 
     # Training loop
     start_epoch = 0
-    num_epochs = 10000
+    num_epochs = 100000
 
     try:
         model, optimizer, start_epoch = load_checkpoint(model, optimizer, foi)

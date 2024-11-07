@@ -31,7 +31,7 @@ class NNRegressor_MisesCauchy(nn.Module):
     def __init__(self):
         super(NNRegressor_MisesCauchy, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(3, 16),
+            nn.Linear(5, 16),
             nn.Sigmoid(),
             nn.Linear(16, 32),
             nn.Sigmoid(),
@@ -48,7 +48,7 @@ class NNRegressor_MisesLnV(nn.Module):
     def __init__(self):
         super(NNRegressor_MisesLnV, self).__init__()
         self.network = nn.Sequential(
-            nn.Linear(3, 16),
+            nn.Linear(5, 16),
             nn.Sigmoid(),
             nn.Linear(16, 32),
             nn.Sigmoid(),

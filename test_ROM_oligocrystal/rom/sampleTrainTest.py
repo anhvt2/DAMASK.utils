@@ -32,6 +32,7 @@ TestIdxID = np.random.choice( np.setdiff1d(np.arange(numDataPts), TestIdxOOD),
     size=int(testFraction*numDataPts - len(TestIdxOOD)), 
     replace=False)
 
+TestIdxID = np.sort(TestIdxID)
 TestIdx = np.sort(np.union1d(TestIdxID, TestIdxOOD))
 TrainIdx = np.setdiff1d(np.arange(numDataPts), TestIdx)
 

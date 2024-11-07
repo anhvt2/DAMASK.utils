@@ -88,19 +88,29 @@ These are the steps to construct a projection-based ROM.
     ```
 1. Compute POD basis: `computeBasis.py`
     ```
-    Loading time: 221.89 seconds.
-    Non-zero elements = 5524 elements.
-    Centering time: 34.98 seconds.
-    SVD time: 633.08 seconds.
-    Save time: 215.23 seconds.
+    Loading time: 226.97 seconds.
+    Non-zero elements = 5540 elements.
+    Centering time: 17.85 seconds.
+    SVD time: 55.44 seconds.
+    Save time: 96.75 seconds.
+    MisesCauchy: 90.0% quantile = 84 POD components
+    MisesCauchy: 95.0% quantile = 168 POD components
+    MisesCauchy: 99.0% quantile = 460 POD components
+    MisesCauchy: 99.5% quantile = 586 POD components
 
-    Loading time: 1334.92 seconds.
-    Non-zero elements = 5524 elements.
-    Centering time: 24.71 seconds.
-    SVD time: 594.55 seconds.
-    Save time: 220.47 seconds.
 
-    Total time for POD basis: 2177.61 seconds.
+    Loading time: 635.07 seconds.
+    Non-zero elements = 5540 elements.
+    Centering time: 18.24 seconds.
+    SVD time: 80.38 seconds.
+    Save time: 104.07 seconds.
+    MisesLnV  : 90.0% quantile = 71 POD components
+    MisesLnV  : 95.0% quantile = 149 POD components
+    MisesLnV  : 99.0% quantile = 405 POD components
+    MisesLnV  : 99.5% quantile = 514 POD components
+
+
+    computeBasis.py: Total time for POD basis: 838.64 seconds.
     ```
 1. Compute POD coefs: `computeCoefs.py`
     ```

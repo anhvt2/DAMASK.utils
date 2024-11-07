@@ -83,4 +83,4 @@ for foi, label in zip(fois, labels):
     print('\n')
 
 
-print(f'Total time for POD basis: {time.time() - t_start:<.2f} seconds.')
+print(f'computeBasis.py: Total time for POD basis: {time.time() - t_start:<.2f} seconds.')

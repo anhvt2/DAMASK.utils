@@ -126,9 +126,9 @@ def density_scatter( x , y, ax = None, sort = True, bins = 20, **kwargs )   :
         x, y, z = x[idx], y[idx], z[idx]
     cmap = plt.cm.get_cmap('coolwarm')
     ax.scatter( x, y, c=z, cmap=cmap, **kwargs )
-    # norm = Normalize(vmin = np.max([np.min(z),0]), vmax = np.max(z))
-    norm = LogNorm(vmin = np.min(z), vmax = np.max(z))
-    cbar = fig.colorbar(mpl.cm.ScalarMappable(norm = norm, cmap=cmap), ax=ax)
+    norm = Normalize(vmin=np.max([np.min(z),0]), vmax=np.max(z))
+    # norm = LogNorm(vmin=np.min(z), vmax=np.max(z))
+    cbar = fig.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=cmap), ax=ax)
     # cbar.ax.set_ylabel('density', fontsize=18)
     # cbar.set_ticks([]) # https://stackoverflow.com/questions/56094845/matplotlib-remove-the-ticks-axis-from-the-colorbar
     # cbar.remove() # remove colorbar
@@ -142,6 +142,7 @@ grid.cell_data["Mises(LnV)-FOM"]    = true[:,1]
 grid.cell_data["Mises(Cauchy)-ROM"] = pred[:,0]
 grid.cell_data["Mises(LnV)-ROM"]    = pred[:,1]
 
+labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
 fois = ['Mises(Cauchy)', 'Mises(LnV)']
 filenames = [f'damask-{DamaskCase}-Scatter-MisesCauchy', f'damask-{DamaskCase}-Scatter-MisesLnV']
 titles = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
@@ -155,9 +156,9 @@ for foi, filename, j, title in zip(fois, filenames, js, titles):
     density_scatter(true[SolidIdx,j], pred[SolidIdx,j], bins=[50,50])
     plt.xscale('log')
     plt.yscale('log')
-    plt.xlabel('FOM', fontsize=24)
-    plt.ylabel('ROM', fontsize=24)
-    plt.title(title + f': $R^2$ = {r2(true[:,j], pred[:,j]):<.4f}')
+    plt.xlabel(label + ' (FOM)', fontsize=24)
+    plt.xlabel(label + ' (ROM)', fontsize=24)
+    plt.title(title + f': $R^2$ = {r2(true[:,j], pred[:,j]):<.4f}', fontsize=24)
     plt.savefig(f'png/{filename}.png', dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
     plt.clf()
     plt.close()

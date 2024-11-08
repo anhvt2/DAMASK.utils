@@ -60,17 +60,17 @@ for i in range(NumCases):
         grid.cell_data["Mises(LnV)-FOM"]    = true[:,1]
         grid.cell_data["Mises(Cauchy)-ROM"] = pred[:,0]
         grid.cell_data["Mises(LnV)-ROM"]    = pred[:,1]
-        grid.cell_data["L1Error(Cauchy)"]   = np.abs(pred[:,0] - true[:,0])
-        grid.cell_data["L1Error(LnV)"]      = np.abs(pred[:,1] - true[:,1])
+        grid.cell_data["AbsErr(Cauchy)"]   = np.abs(pred[:,0] - true[:,0])
+        grid.cell_data["AbsErr(LnV)"]      = np.abs(pred[:,1] - true[:,1])
         # Set limits for colorbar
         climMisesCauchy = (np.min(np.abs(MisesCauchy)), np.max(np.abs(MisesCauchy)))
         climMisesLnV = (np.min(np.abs(MisesLnV)), np.max(np.abs(MisesLnV)))
-        climL1ErrorCauchy = (np.min(grid.cell_data["L1Error(Cauchy)"][SolidIdx]), np.max(grid.cell_data["L1Error(Cauchy)"][SolidIdx]))
-        climL1ErrorLnV = (np.min(grid.cell_data["L1Error(LnV)"][SolidIdx]), np.max(grid.cell_data["L1Error(LnV)"][SolidIdx]))
-        clims = [climMisesCauchy, climMisesLnV, climMisesCauchy, climMisesLnV, climL1ErrorCauchy, climL1ErrorLnV]
+        climAbsErrCauchy = (np.min(grid.cell_data["AbsErr(Cauchy)"][SolidIdx]), np.max(grid.cell_data["AbsErr(Cauchy)"][SolidIdx]))
+        climAbsErrLnV = (np.min(grid.cell_data["AbsErr(LnV)"][SolidIdx]), np.max(grid.cell_data["AbsErr(LnV)"][SolidIdx]))
+        clims = [climMisesCauchy, climMisesLnV, climMisesCauchy, climMisesLnV, climAbsErrCauchy, climAbsErrLnV]
         # Assign list to iterate
-        fois = ["Mises(Cauchy)-FOM", "Mises(LnV)-FOM", "Mises(Cauchy)-ROM", "Mises(LnV)-ROM", "L1Error(Cauchy)", "L1Error(LnV)"]
-        filenames = ["MisesCauchy-FOM", "MisesLnV-FOM", "MisesCauchy-ROM", "MisesLnV-ROM", "L1ErrorCauchy", "L1ErrorLnV"]
+        fois = ["Mises(Cauchy)-FOM", "Mises(LnV)-FOM", "Mises(Cauchy)-ROM", "Mises(LnV)-ROM", "AbsErr(Cauchy)", "AbsErr(LnV)"]
+        filenames = ["MisesCauchy-FOM", "MisesLnV-FOM", "MisesCauchy-ROM", "MisesLnV-ROM", "AbsErrCauchy", "AbsErrLnV"]
 
         for foi, clim, filename in zip(fois, clims, filenames):
             threshedGrid = grid.threshold(value=(grainInfo[3],grainInfo[4]), scalars='microstructure')

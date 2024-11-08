@@ -67,3 +67,20 @@ for col in cols:
 print(f"----------------------------------------------")
 
 # Print statistics min/max/avg
+
+fois   = ['MisesCauchy', 'MisesLnV'] # fields of interest
+error_types = ['OOD', 'ID']
+error_metrics = ['Rel', 'Abs']
+
+for error_metric in error_metrics:
+    print(f'Error metric: {error_metric}')
+    for foi in fois:
+        for error_type in error_types:
+            col = f'Mean{error_metric}Error_{foi}'
+            subdf = dfError[(dfError['PostProcIndex'] == 19) & (dfError['ErrorTypes'] == error_type)]
+            if error_metric == 'Rel':
+                print(f'{foi} ({error_type}): {subdf[col].min():<.4e}%, {subdf[col].mean():<.4e}%, {subdf[col].max():<.4e}%')
+            elif error_metric == 'Abs':
+                print(f'{foi} ({error_type}): {subdf[col].min():<.4e}, {subdf[col].mean():<.4e}, {subdf[col].max():<.4e}')
+
+# print(f"----------------------------------------------")

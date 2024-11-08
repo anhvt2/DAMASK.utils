@@ -134,6 +134,10 @@ These are the steps to construct a projection-based ROM.
     Elapsed time: 749.8915462493896 seconds
     extractRomData.py: Elapsed time: 976.0721864700317 seconds.
     ```
+1. Train NN: `nn3d.py`
+    ```
+    nn3d.py: Elapsed time = 3825.140154361725 seconds.
+    ```
 1. Dump predicted local POD coefs: `predictCoefs.py`
     ```
     predictCoefs.py: Finish dumping local POD coefs in 190.77394485473633 seconds.

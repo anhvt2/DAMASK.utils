@@ -175,6 +175,8 @@ for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNReg
     # Save unscaled results
     np.save('outputRom_Pred_%s' % foi, y_test_pred)
 
+logging.info(f'nn3d.py: Elapsed time = {time.time() - t_start} seconds.')
+
 # Parse predicted POD coefs across multiple FoIs
 x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)
 x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)

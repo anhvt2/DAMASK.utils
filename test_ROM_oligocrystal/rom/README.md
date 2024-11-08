@@ -85,6 +85,7 @@ These are the steps to construct a projection-based ROM.
 1. `computeBasis.py`
 1. `computeCoefs.py`
 1. `extractRomData.py`
+1. `nn3d.py`
 1. `predictCoefs.py`
 1. `reconstructRomSolution.py`
 1. `calculateFomRomError.py`
@@ -131,7 +132,7 @@ These are the steps to construct a projection-based ROM.
 1. Extract ROM data: `extractRomData.py`
     ```
     Elapsed time: 749.8915462493896 seconds
-    Elapsed time: 976.0721864700317 seconds.
+    extractRomData.py: Elapsed time: 976.0721864700317 seconds.
     ```
 1. Dump predicted local POD coefs: `predictCoefs.py`
     ```

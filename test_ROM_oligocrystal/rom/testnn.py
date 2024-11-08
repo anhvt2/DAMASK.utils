@@ -40,16 +40,21 @@ def r2_score(y_true, y_pred):
 
 for foi, startId in zip(fois, startIds):
 
-    x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,4]]
-    x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,4]]
+    x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
+    x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
     y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
     y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
 
-    # Take log of dotVarEps
+
+    # Take logarithms of: dotVarEps, vareps, sigma, time
     x_train[:,0] = np.log10(x_train[:,0])
     x_test[:,0]  = np.log10(x_test[:,0])
-    x_train[:,2] = np.log2(x_train[:,2])
-    x_test[:,2]  = np.log2(x_test[:,2])
+    x_train[:,2] = np.log10(x_train[:,2])
+    x_test[:,2]  = np.log10(x_test[:,2])
+    x_train[:,3] = np.log10(x_train[:,3])
+    x_test[:,3]  = np.log10(x_test[:,3])
+    x_train[:,4] = np.log2(x_train[:,4])
+    x_test[:,4]  = np.log2(x_test[:,4])
 
     print(f'Elapsed time for loading datasets: {time.time() - t_start} seconds.')
 
@@ -78,7 +83,7 @@ for foi, startId in zip(fois, startIds):
         def __init__(self):
             super(NNRegressor, self).__init__()
             self.network = nn.Sequential(
-                nn.Linear(3, 16),
+                nn.Linear(5, 16),
                 nn.Sigmoid(),
                 nn.Linear(16, 32),
                 nn.Sigmoid(),

@@ -11,6 +11,7 @@ import logging
 import pandas as pd
 from matplotlib.colors import Normalize, LogNorm
 from scipy.interpolate import interpn
+from sklearn.metrics import r2_score
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 cmap = plt.cm.get_cmap('coolwarm')
@@ -92,15 +93,6 @@ for i in range(NumCases):
             pl.clear()
             print(f'Finished damask/{DamaskIdxs[i]:<d}/inc{str(PostProcIdxs[i]).zfill(2)}/{filename}.png')
 
-
-# Scatter plot - adopted from eshelby-3d/plotScatterDensityTrain.py
-
-def r2(true,pred):
-    ssRes = np.sum((true - np.mean(true))**2)
-    ssTot = np.sum((true - pred)**2)
-    r2Score = 1 - ssRes / ssTot
-    return r2Score
-
 def density_scatter( x , y, ax = None, sort = True, bins = 20, **kwargs )   :
     """
     Scatter plot colored by 2d histogram
@@ -150,7 +142,9 @@ for foi, filename, j, title, label in zip(fois, filenames, js, titles, labels):
     plt.yscale('log')
     plt.xlabel(label + ' (FOM)', fontsize=24)
     plt.xlabel(label + ' (ROM)', fontsize=24)
-    plt.title(title + f': $R^2$ = {r2(true[:,j], pred[:,j]):<.4f}', fontsize=24)
+    r2Score = r2_score(true[SolidIdx,j], pred[SolidIdx,j])
+    plt.title(title + f': $R^2$ = {r2Score:<.4f}', fontsize=24)
+    print(f'R^2 for {foi}: {r2Score:<.4f}')
     plt.savefig(f'png/{filename}.png', dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
     plt.clf()
     plt.close()

@@ -62,9 +62,16 @@ logging.info("extractData.py: extracted data in {:5.2f} seconds.\n".format(time.
 np.save('d_MisesCauchy.npy', d_MisesCauchy)
 np.save('d_MisesLnV.npy'   , d_MisesLnV)
 
-# Save the logarithm data
-np.save('logd_MisesCauchy.npy', np.log10(d_MisesCauchy))
-np.save('logd_MisesLnV.npy'   , np.log10(d_MisesLnV))
+# Save the logarithm data -- avoid np.log10(0) by adding some 'numerical' noise (smallest non-zero value in the dataset)
+def findSmallestNonzero(d):
+    t = np.sort(d.ravel())
+    idx = len(t) - (t>0).sum()
+    return t[idx]
+
+np.save('log10d_MisesCauchy.npy', np.log10(d_MisesCauchy+findSmallestNonzero(d_MisesCauchy)))
+np.save('log10d_MisesLnV.npy'   , np.log10(d_MisesLnV+findSmallestNonzero(d_MisesLnV)))
+# np.save('log10d_MisesCauchy.npy', np.log10(d_MisesCauchy+11.3364777529))
+# np.save('log10d_MisesLnV.npy'   , np.log10(d_MisesLnV+2.18415723949e-09))
 
 elapsed = time.time() - t_start
 logging.info("extractData.py: finished in {:5.2f} seconds.\n".format(elapsed))

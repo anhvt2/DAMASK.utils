@@ -79,6 +79,16 @@ These are the steps to construct a projection-based ROM.
     R^2 of POD coefs test for MisesLnV = 0.9129412497228372
     ```
 
+# Workflow
+
+1. `extractData.py`
+1. `computeBasis.py`
+1. `computeCoefs.py`
+1. `extractRomData.py`
+1. `predictCoefs.py`
+1. `reconstructRomSolution.py`
+1. `calculateFomRomError.py`
+
 # Computational cost
 
 1. Build snapshot matrix: `extractData.py`

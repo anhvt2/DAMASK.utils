@@ -21,7 +21,8 @@ labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
 t_start = time.time()
 
 for foi, label in zip(fois, labels):
-    d = np.load('d_%s.npy' % foi)
+    d = np.load(f'd_{foi}.npy') # Original data
+    # d = np.load(f'log10d_{foi}.npy') # Log10 data
     print(f'Loading time: {time.time() - t_start:<.2f} seconds.')
     # Count/extract non-zero columns
     tmpTime = time.time() # tic
@@ -33,7 +34,7 @@ for foi, label in zip(fois, labels):
     # Compute mean column
     meanCol = np.mean(d, axis=1)
     # Save the mean
-    np.save('mean_%s' % foi, meanCol)
+    np.save(f'mean_{foi}', meanCol)
     # Subtract mean column
     d = d - np.atleast_2d(meanCol).T
     print(f'Centering time: {time.time() - tmpTime:<.2f} seconds.')
@@ -45,8 +46,8 @@ for foi, label in zip(fois, labels):
     print(f'SVD time: {time.time() - tmpTime:<.2f} seconds.')
     # Save POD basis and eigendecay
     tmpTime = time.time()
-    np.save('podBasis_%s' % foi, u)
-    np.save('podEigen_%s' % foi, s)
+    np.save(f'podBasis_{foi}', u)
+    np.save(f'podEigen_{foi}', s)
     print(f'Save time: {time.time() - tmpTime:<.2f} seconds.')
     # Verify that: d = np.dot(u, np.dot(np.diag(s), vT))
     fig, ax1 = plt.subplots(num=None, figsize=(16, 9), dpi=300, facecolor='w', edgecolor='k')

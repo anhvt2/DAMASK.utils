@@ -58,8 +58,13 @@ for i in TrainIdx:
 
 logging.info("extractData.py: extracted data in {:5.2f} seconds.\n".format(time.time() - t_start))
 
+# Save the original data
 np.save('d_MisesCauchy.npy', d_MisesCauchy)
-np.save('d_MisesLnV.npy', d_MisesLnV)
+np.save('d_MisesLnV.npy'   , d_MisesLnV)
+
+# Save the logarithm data
+np.save('logd_MisesCauchy.npy', np.log10(d_MisesCauchy))
+np.save('logd_MisesLnV.npy'   , np.log10(d_MisesLnV))
 
 elapsed = time.time() - t_start
 logging.info("extractData.py: finished in {:5.2f} seconds.\n".format(elapsed))

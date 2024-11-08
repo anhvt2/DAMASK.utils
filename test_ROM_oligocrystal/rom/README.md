@@ -133,7 +133,7 @@ These are the steps to construct a projection-based ROM.
     ```
 1. Calculate FOM vs. ROM error: `calculateFomRomError.py`
     ```
-    calculateFomRomError.py: Total elapsed time: 5243.82993721962 seconds.
+    calculateFomRomError.py: Total elapsed time: 7869.626697301865 seconds.
     ```
 
 # To-do

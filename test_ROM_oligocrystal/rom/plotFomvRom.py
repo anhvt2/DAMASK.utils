@@ -113,9 +113,9 @@ def density_scatter( x , y, ax = None, sort = True, bins = 20, **kwargs )   :
     norm = Normalize(vmin=np.max([np.min(z),0]), vmax=np.max(z))
     # norm = LogNorm(vmin=np.min(z), vmax=np.max(z))
     cbar = fig.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=cmap), ax=ax)
-    cbar.set_ticks([]) # remove ticks from cbar
+    # cbar.set_ticks([]) # remove ticks from cbar
     # cbar.ax.set_ylabel('density', fontsize=18)
-    # cbar.remove() # remove colorbar
+    cbar.remove() # remove colorbar
     return ax
 
 pl.close()
@@ -136,10 +136,10 @@ for foi, filename, j, title, label in zip(fois, filenames, js, titles, labels):
     fig = plt.figure(num=None, figsize=(16, 9), dpi=400, facecolor='w', edgecolor='k') # screen size
     y = np.hstack((true[SolidIdx,j], pred[SolidIdx,j]))
     refs = np.linspace(np.min(y), np.max(y), num=100)
-    plt.plot(refs, refs, linewidth=0.25, alpha=0.2, c='k')
     density_scatter(true[SolidIdx,j], pred[SolidIdx,j], bins=[50,50])
-    plt.xscale('log')
-    plt.yscale('log')
+    plt.plot(refs, refs, linewidth=0.25, alpha=0.5, c='k')
+    # plt.xscale('log')
+    # plt.yscale('log')
     plt.xlabel(label + ' (FOM)', fontsize=24)
     plt.xlabel(label + ' (ROM)', fontsize=24)
     r2Score = r2_score(true[SolidIdx,j], pred[SolidIdx,j])

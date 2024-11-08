@@ -141,7 +141,7 @@ for foi, filename, j, title, label in zip(fois, filenames, js, titles, labels):
     # plt.xscale('log')
     # plt.yscale('log')
     plt.xlabel(label + ' (FOM)', fontsize=24)
-    plt.xlabel(label + ' (ROM)', fontsize=24)
+    plt.ylabel(label + ' (ROM)', fontsize=24)
     r2Score = r2_score(true[SolidIdx,j], pred[SolidIdx,j])
     plt.title(title + f': $R^2$ = {r2Score:<.4f}', fontsize=24)
     print(f'R^2 for {foi}: {r2Score:<.4f}')

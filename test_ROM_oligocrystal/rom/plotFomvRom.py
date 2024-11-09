@@ -32,9 +32,6 @@ PostProcIdxs = x_test[:,6].astype(int)
 NumCases = len(DamaskIdxs)
 SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
 
-pl = pyvista.Plotter(off_screen=True)
-# reader = pyvista.get_reader('main_tension_inc16_pos(cell).vtr')
-
 ms   = np.load('main.npy')
 try:
     grid = pyvista.UniformGrid() # old pyvista
@@ -75,6 +72,7 @@ for i in range(NumCases):
         filenames = ["MisesCauchy-FOM", "MisesLnV-FOM", "MisesCauchy-ROM", "MisesLnV-ROM", "AbsErrCauchy", "AbsErrLnV"]
 
         for foi, clim, filename in zip(fois, clims, filenames):
+            pl = pyvista.Plotter(off_screen=True)
             threshedGrid = grid.threshold(value=(grainInfo[3],grainInfo[4]), scalars='microstructure')
             threshedGrid.set_active_scalars(foi, preference='cell')
             args_cbar = dict(height=0.75, width=0.05, vertical=True, 
@@ -121,7 +119,6 @@ def density_scatter(x, y, ax=None, sort=True, bins=20, **kwargs):
     cbar.remove() # remove colorbar
     return ax
 
-pl.close()
 plt.close()
 
 labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
@@ -132,6 +129,8 @@ js = [0,1] # column index
 
 for foi, filename, j, title, label in zip(fois, filenames, js, titles, labels):
     fig = plt.figure(num=None, figsize=(16, 9), dpi=400, facecolor='w', edgecolor='k') # screen size
+    true = np.load('../damask/%d/postProc/main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
+    pred = np.load('../damask/%d/postProc/pred_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2)))
     y = np.hstack((true[SolidIdx,j], pred[SolidIdx,j]))
     refs = np.linspace(np.min(y), np.max(y), num=100)
     density_scatter(true[SolidIdx,j], pred[SolidIdx,j], bins=[50,50])

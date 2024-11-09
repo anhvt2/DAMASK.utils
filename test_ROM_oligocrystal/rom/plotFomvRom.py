@@ -60,8 +60,10 @@ for i in range(NumCases):
         grid.cell_data["Mises(LnV)-FOM"]    = true[:,1]
         grid.cell_data["Mises(Cauchy)-ROM"] = pred[:,0]
         grid.cell_data["Mises(LnV)-ROM"]    = pred[:,1]
-        grid.cell_data["AbsErr(Cauchy)"]   = np.abs(pred[:,0] - true[:,0])
-        grid.cell_data["AbsErr(LnV)"]      = np.abs(pred[:,1] - true[:,1])
+        grid.cell_data["AbsErr(Cauchy)"]    = np.abs(pred[:,0] - true[:,0])
+        grid.cell_data["AbsErr(LnV)"]       = np.abs(pred[:,1] - true[:,1])
+        grid.cell_data["Err(Cauchy)"]       = pred[:,0] - true[:,0]
+        grid.cell_data["Err(LnV)"]          = pred[:,1] - true[:,1]
         # Set limits for colorbar
         climMisesCauchy = (np.min(np.abs(MisesCauchy)), np.max(np.abs(MisesCauchy)))
         climMisesLnV = (np.min(np.abs(MisesLnV)), np.max(np.abs(MisesLnV)))
@@ -91,9 +93,10 @@ for i in range(NumCases):
             pl.hide_axes()
             pl.screenshot(f'png/damask-{DamaskIdxs[i]:<d}-inc{str(PostProcIdxs[i]).zfill(2)}-{filename}.png', window_size=[1860*6,968*6])
             pl.clear()
+            grid.save(f'png/damask-{DamaskIdxs[i]:<d}-inc{str(PostProcIdxs[i]).zfill(2)}.vtk')
             print(f'Finished damask/{DamaskIdxs[i]:<d}/inc{str(PostProcIdxs[i]).zfill(2)}/{filename}.png')
 
-def density_scatter( x , y, ax = None, sort = True, bins = 20, **kwargs )   :
+def density_scatter(x, y, ax=None, sort=True, bins=20, **kwargs):
     """
     Scatter plot colored by 2d histogram
     """
@@ -120,11 +123,6 @@ def density_scatter( x , y, ax = None, sort = True, bins = 20, **kwargs )   :
 
 pl.close()
 plt.close()
-
-grid.cell_data["Mises(Cauchy)-FOM"] = true[:,0]
-grid.cell_data["Mises(LnV)-FOM"]    = true[:,1]
-grid.cell_data["Mises(Cauchy)-ROM"] = pred[:,0]
-grid.cell_data["Mises(LnV)-ROM"]    = pred[:,1]
 
 labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
 fois = ['Mises(Cauchy)', 'Mises(LnV)']

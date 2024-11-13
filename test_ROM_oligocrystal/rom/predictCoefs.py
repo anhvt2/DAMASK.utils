@@ -17,7 +17,7 @@ logging.basicConfig(level = level, format = format, handlers = handlers)
 
 t_start = time.time()
 
-numFtrs  = 300 # number of ROM/POD features
+NumFtrs  = 300 # number of ROM/POD features
 fois     = ['MisesCauchy', 'MisesLnV'] # fields of interest
 startIds = [0, 5540]
 
@@ -39,7 +39,7 @@ class NNRegressor_MisesCauchy(nn.Module):
             nn.Sigmoid(),
             nn.Linear(64, 128),
             nn.Sigmoid(),
-            nn.Linear(128, numFtrs),
+            nn.Linear(128, NumFtrs),
         )
     def forward(self, x):
         return self.network(x)
@@ -56,7 +56,7 @@ class NNRegressor_MisesLnV(nn.Module):
             nn.Sigmoid(),
             nn.Linear(64, 128),
             nn.Sigmoid(),
-            nn.Linear(128, numFtrs),
+            nn.Linear(128, NumFtrs),
         )
     def forward(self, x):
         return self.network(x)
@@ -76,8 +76,8 @@ def load_checkpoint(model, foi):
 for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNRegressor_MisesLnV()]):
     x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
     x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
-    y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
-    y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
+    y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+NumFtrs]
+    y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+NumFtrs]
     # Take log of dotVarEps
     x_train[:,0] = np.log10(x_train[:,0])
     x_test[:,0]  = np.log10(x_test[:,0])
@@ -113,7 +113,7 @@ predCoefs_MisesCauchy = np.load('outputRom_Pred_MisesCauchy.npy')
 predCoefs_MisesLnV    = np.load('outputRom_Pred_MisesLnV.npy')
 
 predCoefs = np.hstack((predCoefs_MisesCauchy, predCoefs_MisesLnV))
-headerStr = ['podCoef-MisesCauchy-%d' % i for i in range(1,numFtrs+1)] + ['podCoef-MisesLnV-%d' % i for i in range(1,numFtrs+1)] # output file header
+headerStr = ['podCoef-MisesCauchy-%d' % i for i in range(1,NumFtrs+1)] + ['podCoef-MisesLnV-%d' % i for i in range(1,NumFtrs+1)] # output file header
 header = ','.join(map(str, headerStr))
 
 np.savetxt('outputRom_Pred.dat', predCoefs, delimiter=',', header=header, comments='')
@@ -132,8 +132,8 @@ NumCases = len(DamaskIdxs)
 for i in range(NumCases):
     outFileName = '../damask/%d/postProc/predPodCoefs_main_tension_inc%s' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))
     tmpCoefs = np.zeros([5540,2])
-    tmpCoefs[:numFtrs,0] = predCoefs_MisesCauchy[i,:]
-    tmpCoefs[:numFtrs,1] = predCoefs_MisesLnV[i,:]
+    tmpCoefs[:NumFtrs,0] = predCoefs_MisesCauchy[i,:]
+    tmpCoefs[:NumFtrs,1] = predCoefs_MisesLnV[i,:]
     np.save(outFileName, tmpCoefs)
     logging.info(f'Processing {i+1:<d}/{NumCases} folders: dumped {outFileName}.npy')
 

@@ -23,7 +23,7 @@ def r2_score(y_true, y_pred):
     r2 = 1 - (ss_res / ss_tot)
     return r2
 
-numFtrs  = 300 # number of ROM/POD features
+NumFtrs  = 300 # number of ROM/POD features
 fois     = ['MisesCauchy', 'MisesLnV'] # fields of interest
 startIds = [0, 5540]
 
@@ -40,7 +40,7 @@ class NNRegressor_MisesCauchy(nn.Module):
             nn.Sigmoid(),
             nn.Linear(64, 128),
             nn.Sigmoid(),
-            nn.Linear(128, numFtrs),
+            nn.Linear(128, NumFtrs),
         )
     def forward(self, x):
         return self.network(x)
@@ -57,7 +57,7 @@ class NNRegressor_MisesLnV(nn.Module):
             nn.Sigmoid(),
             nn.Linear(64, 128),
             nn.Sigmoid(),
-            nn.Linear(128, numFtrs),
+            nn.Linear(128, NumFtrs),
         )
     def forward(self, x):
         return self.network(x)
@@ -89,8 +89,8 @@ def WeightedMSELoss(predicted, target, weights):
 for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNRegressor_MisesLnV()]):
     x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
     x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
-    y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
-    y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
+    y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+NumFtrs]
+    y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+NumFtrs]
 
     # Take logarithms of: dotVarEps, vareps, sigma, time
     x_train[:,0] = np.log10(x_train[:,0])
@@ -111,7 +111,7 @@ for foi, startId, model in zip(fois, startIds, [NNRegressor_MisesCauchy(), NNReg
     y_test_scaled  = yscaler.transform(y_test)
     # weights = torch.from_numpy(np.sqrt(yscaler.var_ / yscaler.var_.min()))
     eigenvalues = np.load('podEigen_%s.npy' % foi)
-    weights = torch.from_numpy(eigenvalues[:numFtrs] / np.min(eigenvalues[:numFtrs]))
+    weights = torch.from_numpy(eigenvalues[:NumFtrs] / np.min(eigenvalues[:NumFtrs]))
 
     # Convert to torch format
     x_train = torch.from_numpy(x_train)
@@ -187,7 +187,7 @@ predCoefs_MisesCauchy = np.load('outputRom_Pred_MisesCauchy.npy')
 predCoefs_MisesLnV    = np.load('outputRom_Pred_MisesLnV.npy')
 
 predCoefs = np.hstack((predCoefs_MisesCauchy, predCoefs_MisesLnV))
-headerStr = ['podCoef-MisesCauchy-%d' % i for i in range(1,numFtrs+1)] + ['podCoef-MisesLnV-%d' % i for i in range(1,numFtrs+1)] # output file header
+headerStr = ['podCoef-MisesCauchy-%d' % i for i in range(1,NumFtrs+1)] + ['podCoef-MisesLnV-%d' % i for i in range(1,NumFtrs+1)] # output file header
 header = ','.join(map(str, headerStr))
 
 np.savetxt('outputRom_Pred.dat', predCoefs, delimiter=',', header=header, comments='')

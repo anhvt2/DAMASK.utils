@@ -27,7 +27,7 @@ device = (
 )
 print(f"Using {device} device")
 
-numFtrs  = 300 # number of ROM/POD features
+NumFtrs  = 300 # number of ROM/POD features
 fois     = ['MisesLnV'] # fields of interest
 startIds = [5540]
 
@@ -42,8 +42,8 @@ for foi, startId in zip(fois, startIds):
 
     x_train = np.loadtxt('inputRom_Train.dat', delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
     x_test  = np.loadtxt('inputRom_Test.dat',  delimiter=',', skiprows=1)[:,[0,1,2,3,4]]
-    y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
-    y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+numFtrs]
+    y_train = np.loadtxt('outputRom_Train.dat', delimiter=',', skiprows=1)[:,startId:startId+NumFtrs]
+    y_test  = np.loadtxt('outputRom_Test.dat',  delimiter=',', skiprows=1)[:,startId:startId+NumFtrs]
 
 
     # Take logarithms of: dotVarEps, vareps, sigma, time
@@ -70,7 +70,7 @@ for foi, startId in zip(fois, startIds):
     y_test_scaled  = yscaler.transform(y_test)
     # weights = torch.from_numpy(np.sqrt(yscaler.var_ / yscaler.var_.min()))
     eigenvalues = np.load('podEigen_%s.npy' % foi)
-    weights = torch.from_numpy(eigenvalues[:numFtrs] / np.min(eigenvalues[:numFtrs]))
+    weights = torch.from_numpy(eigenvalues[:NumFtrs] / np.min(eigenvalues[:NumFtrs]))
 
     # Convert to torch format
     x_train = torch.from_numpy(x_train)
@@ -91,7 +91,7 @@ for foi, startId in zip(fois, startIds):
                 nn.Sigmoid(),
                 nn.Linear(64, 128),
                 nn.Sigmoid(),
-                nn.Linear(128, numFtrs),
+                nn.Linear(128, NumFtrs),
             )
         def forward(self, x):
             return self.network(x)

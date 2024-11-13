@@ -41,7 +41,6 @@ SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
 logging.info(f'checkPodConvergence.py: Load POD basis in {time.time() - t_local:<.2f} seconds.')
 
 for NumFtrs in [1,2,4,8,16,32,64,128,256]:
-    MaskMat = np.zeros()
     for i in range(NumCases):
         tmpSol = np.zeros([576000,2])
         predPodCoefs = np.load('../damask/%d/postProc/podCoefs_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))) # shape: (5540, 2)

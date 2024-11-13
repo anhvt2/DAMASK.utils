@@ -32,7 +32,7 @@ colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:b
 x = ['Offline\n Training', 'Online\n Prediction']
 FomCost = 5 * 96 * 2 * 18 * (279 + 370)
 
-CostOffline     = np.array([1494.23, 838.64, 10713.857370376587, 976.0721864700317, 3825.140154361725]) / 3600
+CostOffline     = np.array([1494.23, 838.64, 10713.857370376587, 976.0721864700317, 3825.140154361725 * 36]) / 3600
 LabelsOffline   = ['Build snapshot matrix',
                     'Compute POD basis',
                     'Compute POD coefs',

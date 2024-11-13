@@ -55,6 +55,9 @@ dfError19 = dfError[dfError['PostProcIndex'] == 19]
 dfError19_OOD = dfError[(dfError['PostProcIndex'] == 19) & (dfError['ErrorTypes'] == 'OOD')]
 dfError19_ID  = dfError[(dfError['PostProcIndex'] == 19) & (dfError['ErrorTypes'] == 'ID')]
 
+def printStat(dfError19, idx):
+    return dfError19[dfError19['DamaskIndex'] == idx].iloc[0]
+
 # Print ranking
 for col in cols:
     dfSorted = dfError19.sort_values(by=col, ascending=False)

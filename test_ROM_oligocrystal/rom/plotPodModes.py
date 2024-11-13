@@ -62,8 +62,8 @@ for i in range(NumPodModes):
         threshedGrid = grid.threshold(value=(grainInfo[3],grainInfo[4]), scalars='microstructure')
         threshedGrid.set_active_scalars(fieldName, preference='cell')
         args_cbar = dict(vertical=False, 
-                        height=0.05, width=0.5, 
-                        position_x=0.25, position_y=0.00,
+                        height=0.05, width=0.25, 
+                        position_x=0.375, position_y=0.00,
                         title_font_size=144, label_font_size=96, 
                         color='k') 
         pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=False)
@@ -75,4 +75,4 @@ for i in range(NumPodModes):
 
 print(f'Elapsed: {time.time() - t_start} seconds.')
 
-hang()
+# hang()

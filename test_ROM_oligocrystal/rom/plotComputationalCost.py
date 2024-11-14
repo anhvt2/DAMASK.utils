@@ -32,7 +32,7 @@ colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:b
 x = ['Offline\n Training', 'Online\n Prediction']
 FomCost = 5 * 96 * 2 * 18 * (279 + 370)
 
-CostOffline     = np.array([1494.23, 838.64, 10713.857370376587, 976.0721864700317, 3825.140154361725 * 36]) / 3600
+CostOffline     = np.array([1494.23, 838.64, 10713.857370376587, 976.0721864700317, 3825.140154361725 * 6/10 * 36]) / 3600
 LabelsOffline   = ['Build snapshot matrix',
                     'Compute POD basis',
                     'Compute POD coefs',
@@ -45,12 +45,17 @@ LabelsOnline    = ['Predict POD coefs',
                     'Reconstruct ROM solutions',
                     ] 
 # Offline cost breakdown
+print(f'\n')
 for i, cost, label, color in zip(range(len(CostOffline)), CostOffline, LabelsOffline, colors[:len(CostOffline)]):
     plt.bar(x[0], CostOffline[i], bottom=np.sum(CostOffline[:i]), color=color, label=label)
+    print(f'{label}: {cost*3600} seconds')
 
 # Online cost breakdown
 for i, cost, label, color in zip(range(len(CostOnline)), CostOnline, LabelsOnline, colors[len(CostOffline):len(CostOffline)+len(CostOnline)]):
     plt.bar(x[1], CostOnline[i], bottom=np.sum(CostOnline[:i]), color=color, label=label)
+    print(f'{label}: {cost*3600} seconds')
+
+print(f'\n')
 
 plt.legend([LabelsOffline + LabelsOnline], fontsize=24)
 plt.ylabel(r'Time [CPU hr]', fontsize=24)
@@ -62,5 +67,6 @@ plt.savefig('CostRom.png', dpi=300, facecolor='w', edgecolor='w', orientation='p
 plt.close()
 
 print(f'Speedup factor: {FomCost / np.sum(np.hstack((CostOffline, CostOnline)))} x.')
-print(f'Offline training: {np.sum(CostOffline)}')
-print(f'Online prediction: {np.sum(CostOnline)}')
+print(f'Offline training: {np.sum(CostOffline)} CPU hr.')
+print(f'Online prediction: {np.sum(CostOnline)} CPU hr.')
+print(f'Online prediction: {np.sum(CostOffline) + np.sum(CostOnline)} CPU hr.')

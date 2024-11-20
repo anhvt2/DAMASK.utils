@@ -61,7 +61,8 @@ for j, NumFtr in zip(range(len(NumFtrs)), NumFtrs):
             _aeCauchy, _aeLnV = ae[:,0], ae[:,1]
             aeCauchy += [list(_aeCauchy)]
             aeLnV += [list(_aeLnV)]
-    mean_rmse[j,0], mean_rmse[j,1] = np.mean(aeCauchy), np.mean(aeLnV)
+    aeCauchy, aeLnV = np.array(aeCauchy), np.array(aeLnV)
+    mean_rmse[j,0], mean_rmse[j,1] = np.sqrt(np.mean(np.sum(aeCauchy**2))), np.sqrt(np.mean(np.sum(aeLnV**2)))
     std_rmse[j,0], std_rmse[j,1] = np.std(aeCauchy), np.std(aeLnV)
 
 np.save('PodConvergenceMean_Rmse', mean_rmse)

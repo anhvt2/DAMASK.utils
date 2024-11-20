@@ -5,7 +5,6 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import glob, os, time
 import numpy as np
-import argparse
 from distutils.util import strtobool
 import logging
 import pandas as pd

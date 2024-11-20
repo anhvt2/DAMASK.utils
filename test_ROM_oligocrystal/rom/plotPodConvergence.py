@@ -1,16 +1,17 @@
 
 from natsort import natsorted, ns
-import pyvista
+# import pyvista
+# import argparse
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib.colors import Normalize, LogNorm
 import glob, os, time
 import numpy as np
-from distutils.util import strtobool
+# from distutils.util import strtobool
 import logging
-import pandas as pd
-from matplotlib.colors import Normalize, LogNorm
-from scipy.interpolate import interpn
-from sklearn.metrics import r2_score
+# import pandas as pd
+# from scipy.interpolate import interpn
+# from sklearn.metrics import r2_score
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 cmap = plt.cm.get_cmap('coolwarm')
@@ -47,7 +48,7 @@ mean_rmse, std_rmse = np.zeros([len(NumFtrs), 2]), np.zeros([len(NumFtrs), 2])
 for j, NumFtr in zip(range(len(NumFtrs)), NumFtrs):
     NumObs = 0
     # Initialize
-    aeCauchy, _aeLnV = [], []
+    aeCauchy, aeLnV = [], []
     # Read every case
     for i in range(NumCases):
         predFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtrs_%d.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtr)
@@ -60,7 +61,6 @@ for j, NumFtr in zip(range(len(NumFtrs)), NumFtrs):
             _aeCauchy, _aeLnV = ae[:,0], ae[:,1]
             aeCauchy += [list(_aeCauchy)]
             aeLnV += [list(_aeLnV)]
-
     mean_rmse[j,0], mean_rmse[j,1] = np.mean(aeCauchy), np.mean(aeLnV)
     std_rmse[j,0], std_rmse[j,1] = np.std(aeCauchy), np.std(aeLnV)
 

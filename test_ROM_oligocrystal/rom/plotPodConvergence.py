@@ -39,22 +39,33 @@ logging.info(f'plotPodConvergence.py: Load POD basis in {time.time() - t_local:<
 
 fois = ["Mises(Cauchy)", "Mises(LnV)"]
 filetags = ["MisesCauchy", "MisesLnV"]
+NumFtrs = [1,2,4,8,16,32,64,128,256]
 
-for NumFtrs in [1,2,4,8,16,32,64,128,256]:
+# Initialize
+mean_rmse, std_rmse = np.zeros([len(NumFtrs), 2]), np.zeros([len(NumFtrs), 2])
+
+for j, NumFtr in zip(range(len(NumFtrs)), NumFtrs):
+    NumObs = 0
     # Initialize
-    trueList = []
-    predList = []
-    absList  = []
+    aeCauchy, _aeLnV = [], []
     # Read every case
     for i in range(NumCases):
-        predFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtrs_%d.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtrs)
+        predFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtrs_%d.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtr)
         trueFileName = '../damask/%d/postProc/main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))
         if os.path.exists(predFileName) and os.path.exists(trueFileName):
-            logging.info(f'Processing NumFtrs={NumFtrs}, {i+1:<d}/{NumCases} folders...')
-            pred = np.load(predFileName)
-            true = np.load(trueFileName)
-            for foi, filetag in zip(fois, filetags):
-                absError = np.abs(pred - true)
+            logging.info(f'Processing NumFtr={NumFtr}, {i+1:<d}/{NumCases} folders...')
+            pred = np.load(predFileName)[SolidIdx,:]
+            true = np.load(trueFileName)[SolidIdx,:]
+            ae = np.abs(pred - true)
+            _aeCauchy, _aeLnV = ae[:,0], ae[:,1]
+            aeCauchy += [list(_aeCauchy)]
+            aeLnV += [list(_aeLnV)]
+
+    mean_rmse[j,0], mean_rmse[j,1] = np.mean(aeCauchy), np.mean(aeLnV)
+    std_rmse[j,0], std_rmse[j,1] = np.std(aeCauchy), np.std(aeLnV)
+
+np.save('PodConvergenceMean_Rmse', mean_rmse)
+np.save('PodConvergenceStd_Rmse', std_rmse)
 
 logging.info(f'plotPodConvergence.py: Total elapsed time: {time.time() - t_start} seconds.')
 

@@ -8,7 +8,7 @@ arch = [
     to_head( '..' ),
     to_cor(),
     to_begin(),
-    to_Conv("conv1", 1, 5, offset="(0,0,0)", to="(0,0,0)", height=2, depth=1, width=1),
+    to_Conv("conv1", 1, 3, offset="(0,0,0)", to="(0,0,0)", height=2, depth=1, width=1),
     
     # to_Pool("pool1", offset="(0,0,0)", to="(conv1-east)", height=1.5, depth=1, width=1, caption="Sigmoid"),
     to_Conv("conv2", 1, 16, offset="(2,0,0)", to="(0,0,0)", height=4, depth=1, width=1),

@@ -37,10 +37,14 @@ mean_MisesLnV     = np.load('mean_MisesLnV.npy')
 SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
 logging.info(f'plotPodConvergence.py: Load POD basis in {time.time() - t_local:<.2f} seconds.')
 
+fois = ["Mises(Cauchy)", "Mises(LnV)"]
+filetags = ["MisesCauchy", "MisesLnV"]
+
 for NumFtrs in [1,2,4,8,16,32,64,128,256]:
     # Initialize
     trueList = []
     predList = []
+    absList  = []
     # Read every case
     for i in range(NumCases):
         predFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtrs_%d.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtrs)
@@ -49,6 +53,8 @@ for NumFtrs in [1,2,4,8,16,32,64,128,256]:
             logging.info(f'Processing NumFtrs={NumFtrs}, {i+1:<d}/{NumCases} folders...')
             pred = np.load(predFileName)
             true = np.load(trueFileName)
+            for foi, filetag in zip(fois, filetags):
+                absError = np.abs(pred - true)
 
 logging.info(f'plotPodConvergence.py: Total elapsed time: {time.time() - t_start} seconds.')
 

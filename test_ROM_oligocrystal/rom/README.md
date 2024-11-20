@@ -150,6 +150,11 @@ These are the steps to construct a projection-based ROM.
     ```
     calculateFomRomError.py: Total elapsed time: 7869.626697301865 seconds.
     ```
+1. Check POD convergence by adding more basis
+    ```
+    checkPodConvergence.py: Total elapsed time: 40077.97937321663 seconds.
+    ```
+
 
 # To-do
 

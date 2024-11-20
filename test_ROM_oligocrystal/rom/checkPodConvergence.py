@@ -58,5 +58,5 @@ for NumFtrs in [1,2,4,8,16,32,64,128,256]:
             logging.info(f'Processing {i+1:<d}/{NumCases} folders: dumped {outFileName}.npy')
 
 logging.info(f'checkPodConvergence.py: Total elapsed time: {time.time() - t_start} seconds.')
-os.system('htop')
+# os.system('htop')
 

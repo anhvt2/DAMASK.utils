@@ -31,43 +31,54 @@ PostProcIdxs = x_test[:,6].astype(int)
 NumCases = len(DamaskIdxs)
 
 t_local = time.time()
-basis_MisesCauchy = np.load('podBasis_MisesCauchy.npy')
-basis_MisesLnV    = np.load('podBasis_MisesLnV.npy')
-mean_MisesCauchy  = np.load('mean_MisesCauchy.npy')
-mean_MisesLnV     = np.load('mean_MisesLnV.npy')
 SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
 logging.info(f'plotPodConvergence.py: Load POD basis in {time.time() - t_local:<.2f} seconds.')
+NumFtrs = [1,2,4,8,16,32,64,128,256]
+
+if not os.path.exists('PodConvergenceMean_Rmse.npy') or not os.path.exists('PodConvergenceStd_Rmse.npy'):
+    # Initialize
+    mean_rmse, std_rmse = np.zeros([len(NumFtrs), 2]), np.zeros([len(NumFtrs), 2])
+
+    for j, NumFtr in zip(range(len(NumFtrs)), NumFtrs):
+        NumObs = 0
+        # Initialize
+        aeCauchy, aeLnV = [], []
+        # Read every case
+        SelIdxs = np.sort(np.random.randint(0, high=NumCases, size=1000, dtype=int))
+        for i in SelIdxs:
+            predFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtrs_%d.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtr)
+            trueFileName = '../damask/%d/postProc/main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))
+            if os.path.exists(predFileName) and os.path.exists(trueFileName):
+                logging.info(f'Processing NumFtr={NumFtr}, {i+1:<d}/{NumCases} folders...')
+                pred = np.load(predFileName)[SolidIdx,:]
+                true = np.load(trueFileName)[SolidIdx,:]
+                ae = np.abs(pred - true)
+                _aeCauchy, _aeLnV = ae[:,0], ae[:,1]
+                aeCauchy += [list(_aeCauchy)]
+                aeLnV += [list(_aeLnV)]
+        aeCauchy, aeLnV = np.array(aeCauchy), np.array(aeLnV)
+        mean_rmse[j,0], mean_rmse[j,1] = np.sqrt(np.mean(np.sum(aeCauchy**2))), np.sqrt(np.mean(np.sum(aeLnV**2)))
+        std_rmse[j,0], std_rmse[j,1] = np.std(aeCauchy), np.std(aeLnV)
+
+    np.save('PodConvergenceMean_Rmse', mean_rmse)
+    np.save('PodConvergenceStd_Rmse', std_rmse)
+
+RmseMean = np.load('PodConvergenceMean_Rmse.npy')
+RmseStd  = np.load('PodConvergenceStd_Rmse.npy')
 
 fois = ["Mises(Cauchy)", "Mises(LnV)"]
 filetags = ["MisesCauchy", "MisesLnV"]
-NumFtrs = [1,2,4,8,16,32,64,128,256]
+titles = [r'POD convergence for $\sigma_{vM}$', r'POD convergence for $\varepsilon_{vM}$']
 
-# Initialize
-mean_rmse, std_rmse = np.zeros([len(NumFtrs), 2]), np.zeros([len(NumFtrs), 2])
+for j, foi, filetag, title in zip(range(2), fois, filetags, titles):
+    plt.figure(figsize=(12,12))
+    plt.errorbar(NumFtrs, RmseMean[:,j], yerr=RmseStd[:,j])
+    # plt.xscale('log',base=2)
+    plt.title(title, fontsize=24)
+    plt.xlabel(r'Number of POD modes', fontsize=24)
+    plt.ylabel(r'RMSE', fontsize=24)
+    plt.savefig(f'PodConvergence_{filetag}.png', dpi=None, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 
-for j, NumFtr in zip(range(len(NumFtrs)), NumFtrs):
-    NumObs = 0
-    # Initialize
-    aeCauchy, aeLnV = [], []
-    # Read every case
-    SelIdxs = np.sort(np.random.randint(0, high=NumCases, size=1000, dtype=int))
-    for i in range(SelIdxs):
-        predFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtrs_%d.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtr)
-        trueFileName = '../damask/%d/postProc/main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))
-        if os.path.exists(predFileName) and os.path.exists(trueFileName):
-            logging.info(f'Processing NumFtr={NumFtr}, {i+1:<d}/{len(SelIdxs)} folders...')
-            pred = np.load(predFileName)[SolidIdx,:]
-            true = np.load(trueFileName)[SolidIdx,:]
-            ae = np.abs(pred - true)
-            _aeCauchy, _aeLnV = ae[:,0], ae[:,1]
-            aeCauchy += [list(_aeCauchy)]
-            aeLnV += [list(_aeLnV)]
-    aeCauchy, aeLnV = np.array(aeCauchy), np.array(aeLnV)
-    mean_rmse[j,0], mean_rmse[j,1] = np.sqrt(np.mean(np.sum(aeCauchy**2))), np.sqrt(np.mean(np.sum(aeLnV**2)))
-    std_rmse[j,0], std_rmse[j,1] = np.std(aeCauchy), np.std(aeLnV)
-
-np.save('PodConvergenceMean_Rmse', mean_rmse)
-np.save('PodConvergenceStd_Rmse', std_rmse)
 
 logging.info(f'plotPodConvergence.py: Total elapsed time: {time.time() - t_start} seconds.')
 

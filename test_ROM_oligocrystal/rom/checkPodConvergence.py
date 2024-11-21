@@ -39,15 +39,16 @@ mean_MisesCauchy  = np.load('mean_MisesCauchy.npy')
 mean_MisesLnV     = np.load('mean_MisesLnV.npy')
 SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
 logging.info(f'checkPodConvergence.py: Load POD basis in {time.time() - t_local:<.2f} seconds.')
+NumFtrs = [1,2,4,8,16,32,64,128,256]
 
-for NumFtrs in [1,2,4,8,16,32,64,128,256]:
+for NumFtr in NumFtrs:
     for i in range(NumCases):
-        outFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtrs_%d' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtrs)
+        outFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtr_%d' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtr)
         if not os.path.exists(outFileName):
             tmpSol = np.zeros([576000,2])
             predPodCoefs = np.load('../damask/%d/postProc/podCoefs_main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))) # shape: (5540, 2)
-            # Exclude POD coefs after NumFtrs to check POD convergence
-            predPodCoefs[NumFtrs:,:] = 0
+            # Exclude POD coefs after NumFtr to check POD convergence
+            predPodCoefs[NumFtr:,:] = 0
             # Option: whole domain
             # tmpSol[:,0] = np.dot(basis_MisesCauchy, predPodCoefs[:,0]) + mean_MisesCauchy
             # tmpSol[:,1] = np.dot(basis_MisesLnV,    predPodCoefs[:,1]) + mean_MisesLnV

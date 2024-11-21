@@ -44,7 +44,7 @@ if not os.path.exists('PodConvergenceMean_Rmse.npy') or not os.path.exists('PodC
         # Initialize
         aeCauchy, aeLnV = [], []
         # Read every case
-        SelIdxs = np.sort(np.random.randint(0, high=NumCases, size=1000, dtype=int))
+        SelIdxs = np.sort(np.random.randint(0, high=NumCases, size=100, dtype=int))
         for i in SelIdxs:
             predFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtrs_%d.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtr)
             trueFileName = '../damask/%d/postProc/main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))

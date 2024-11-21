@@ -40,7 +40,7 @@ for foi, label in zip(fois, labels):
         orientation='landscape', format=None, transparent=False, 
         bbox_inches='tight', pad_inches=0.1, metadata=None)
     # Diagnostics
-    q = np.cumsum(s) / np.sum(s) # quantile
+    q = np.cumsum(s**2) / np.sum(s**2) # quantile
     # Print quantile with POD components
     for qPrint in [0.90, 0.95, 0.99, 0.995]:
         print(f'{foi:10}: {qPrint*100:<.1f}% quantile = {np.where(q>qPrint)[0][0]:<d} POD components')

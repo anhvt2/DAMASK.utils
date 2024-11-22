@@ -32,7 +32,6 @@ NumCases = len(DamaskIdxs)
 
 t_local = time.time()
 SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
-logging.info(f'plotPodConvergence.py: Load POD basis in {time.time() - t_local:<.2f} seconds.')
 NumFtrs = [1,2,4,8,16,32,64,128,256]
 
 if not os.path.exists('PodConvergenceMean_Rmse.npy') or not os.path.exists('PodConvergenceStd_Rmse.npy'):

@@ -38,7 +38,6 @@ NumFtrs = [1,2,4,8,16,32,64,128,256]
 if not os.path.exists('PodConvergenceMean_Rmse.npy') or not os.path.exists('PodConvergenceStd_Rmse.npy'):
     # Initialize
     mean_rmse, std_rmse = np.zeros([len(NumFtrs), 2]), np.zeros([len(NumFtrs), 2])
-
     for j, NumFtr in zip(range(len(NumFtrs)), NumFtrs):
         NumObs = 0
         # Initialize
@@ -46,7 +45,7 @@ if not os.path.exists('PodConvergenceMean_Rmse.npy') or not os.path.exists('PodC
         # Read every case
         SelIdxs = np.sort(np.random.randint(0, high=NumCases, size=100, dtype=int))
         for i in SelIdxs:
-            predFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtrs_%d.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtr)
+            predFileName = '../damask/%d/postProc/pred_main_tension_inc%s_NumFtr_%d.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2), NumFtr)
             trueFileName = '../damask/%d/postProc/main_tension_inc%s.npy' % (DamaskIdxs[i], str(PostProcIdxs[i]).zfill(2))
             if os.path.exists(predFileName) and os.path.exists(trueFileName):
                 logging.info(f'Processing NumFtr={NumFtr}, {i+1:<d}/{NumCases} folders...')
@@ -59,7 +58,6 @@ if not os.path.exists('PodConvergenceMean_Rmse.npy') or not os.path.exists('PodC
         aeCauchy, aeLnV = np.array(aeCauchy), np.array(aeLnV)
         mean_rmse[j,0], mean_rmse[j,1] = np.sqrt(np.mean(np.sum(aeCauchy**2))), np.sqrt(np.mean(np.sum(aeLnV**2)))
         std_rmse[j,0], std_rmse[j,1] = np.std(aeCauchy), np.std(aeLnV)
-
     np.save('PodConvergenceMean_Rmse', mean_rmse)
     np.save('PodConvergenceStd_Rmse', std_rmse)
 

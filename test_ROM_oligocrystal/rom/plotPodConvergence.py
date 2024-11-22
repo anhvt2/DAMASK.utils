@@ -15,6 +15,7 @@ import logging
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 cmap = plt.cm.get_cmap('coolwarm')
+from matplotlib.ticker import LogLocator, ScalarFormatter
 
 level    = logging.INFO
 format   = '  %(message)s'
@@ -69,8 +70,16 @@ titles = [r'POD convergence for $\sigma_{vM}$', r'POD convergence for $\varepsil
 
 for j, foi, filetag, title in zip(range(2), fois, filetags, titles):
     plt.figure(figsize=(12,12))
-    plt.errorbar(NumFtrs, RmseMean[:,j], yerr=RmseStd[:,j])
-    # plt.xscale('log',base=2)
+    plt.errorbar(NumFtrs, RmseMean[:,j], yerr=RmseStd[:,j], marker='o', linewidth=2, capsize=3, markersize=5)
+    plt.xscale('log')
+    plt.yscale('log')
+    plt.gca().xaxis.set_major_formatter(ScalarFormatter())
+    plt.gca().xaxis.set_minor_formatter(ScalarFormatter())
+    plt.gca().yaxis.set_major_formatter(ScalarFormatter())
+    plt.gca().yaxis.set_minor_formatter(ScalarFormatter())
+    plt.gca().xaxis.set_major_locator(LogLocator(base=10.0, subs=None, numticks=10))
+    plt.gca().yaxis.set_major_locator(LogLocator(base=10.0, subs=None, numticks=10))
+    plt.grid(True, which="both", linestyle='--', linewidth=0.5)
     plt.title(title, fontsize=24)
     plt.xlabel(r'Number of POD modes', fontsize=24)
     plt.ylabel(r'RMSE', fontsize=24)

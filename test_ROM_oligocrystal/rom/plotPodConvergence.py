@@ -56,7 +56,7 @@ if not os.path.exists('PodConvergenceMean_Rmse.npy') or not os.path.exists('PodC
                 aeCauchy += [list(_aeCauchy)]
                 aeLnV += [list(_aeLnV)]
         aeCauchy, aeLnV = np.array(aeCauchy), np.array(aeLnV)
-        mean_rmse[j,0], mean_rmse[j,1] = np.sqrt(np.mean(np.sum(aeCauchy**2))), np.sqrt(np.mean(np.sum(aeLnV**2)))
+        mean_rmse[j,0], mean_rmse[j,1] = np.sqrt(np.mean(aeCauchy**2)), np.sqrt(np.mean(aeLnV**2))
         std_rmse[j,0], std_rmse[j,1] = np.std(aeCauchy), np.std(aeLnV)
     np.save('PodConvergenceMean_Rmse', mean_rmse)
     np.save('PodConvergenceStd_Rmse', std_rmse)
@@ -73,12 +73,12 @@ for j, foi, filetag, title in zip(range(2), fois, filetags, titles):
     plt.errorbar(NumFtrs, RmseMean[:,j], yerr=RmseStd[:,j], marker='o', linewidth=2, capsize=3, markersize=5)
     plt.xscale('log')
     plt.yscale('log')
-    plt.gca().xaxis.set_major_formatter(ScalarFormatter())
-    plt.gca().xaxis.set_minor_formatter(ScalarFormatter())
     plt.gca().yaxis.set_major_formatter(ScalarFormatter())
     plt.gca().yaxis.set_minor_formatter(ScalarFormatter())
-    plt.gca().xaxis.set_major_locator(LogLocator(base=10.0, subs=None, numticks=10))
-    plt.gca().yaxis.set_major_locator(LogLocator(base=10.0, subs=None, numticks=10))
+    plt.gca().yaxis.set_major_locator(LogLocator(base=10.0, subs=None))
+    ticks = [1, 5, 10, 50, 100, 300]
+    plt.gca().set_xticks(ticks)
+    plt.gca().set_xticklabels(ticks)
     plt.grid(True, which="both", linestyle='--', linewidth=0.5)
     plt.title(title, fontsize=24)
     plt.xlabel(r'Number of POD modes', fontsize=24)

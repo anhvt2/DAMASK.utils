@@ -56,7 +56,7 @@ if not os.path.exists('PodConvergenceMean_Rmse.npy') or not os.path.exists('PodC
                 aeCauchy += [list(_aeCauchy)]
                 aeLnV += [list(_aeLnV)]
         aeCauchy, aeLnV = np.array(aeCauchy), np.array(aeLnV)
-        mean_rmse[j,0], mean_rmse[j,1] = np.sqrt(np.mean(aeCauchy**2)), np.sqrt(np.mean(aeLnV**2))
+        mean_rmse[j,0], mean_rmse[j,1] = np.sqrt(np.mean(np.sum(aeCauchy**2))), np.sqrt(np.mean(np.sum(aeLnV**2)))
         std_rmse[j,0], std_rmse[j,1] = np.std(aeCauchy), np.std(aeLnV)
     np.save('PodConvergenceMean_Rmse', mean_rmse)
     np.save('PodConvergenceStd_Rmse', std_rmse)
@@ -70,19 +70,15 @@ titles = [r'POD convergence for $\sigma_{vM}$', r'POD convergence for $\varepsil
 
 for j, foi, filetag, title in zip(range(2), fois, filetags, titles):
     plt.figure(figsize=(12,12))
-    plt.errorbar(NumFtrs, RmseMean[:,j], yerr=RmseStd[:,j], marker='o', linewidth=2, capsize=3, markersize=5)
+    plt.errorbar(NumFtrs, RmseMean[:,j], yerr=0.25*RmseStd[:,j], marker='o', linewidth=2, capsize=5, markersize=5, linestyle='-.')
     plt.xscale('log')
-    plt.yscale('log')
-    plt.gca().yaxis.set_major_formatter(ScalarFormatter())
-    plt.gca().yaxis.set_minor_formatter(ScalarFormatter())
-    plt.gca().yaxis.set_major_locator(LogLocator(base=10.0, subs=None))
     ticks = [1, 5, 10, 50, 100, 300]
     plt.gca().set_xticks(ticks)
     plt.gca().set_xticklabels(ticks)
-    plt.grid(True, which="both", linestyle='--', linewidth=0.5)
+    # plt.grid(True, which="both", linestyle='--', linewidth=0.5)
     plt.title(title, fontsize=24)
     plt.xlabel(r'Number of POD modes', fontsize=24)
-    plt.ylabel(r'RMSE', fontsize=24)
+    plt.ylabel(r'$L_1$ Absolute Error Statistics: $\mu \pm 0.25\sigma$', fontsize=24)
     plt.savefig(f'PodConvergence_{filetag}.png', dpi=None, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 
 

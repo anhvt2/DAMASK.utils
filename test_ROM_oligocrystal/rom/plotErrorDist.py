@@ -6,9 +6,9 @@ import logging
 import pandas as pd
 # cmap = plt.cm.get_cmap('coolwarm')
 # cmap = plt.cm.get_cmap('RdBu_r')
-# cmap = plt.cm.get_cmap('Reds')
+cmap = plt.cm.get_cmap('Reds')
 # cmap = plt.cm.get_cmap('PuRd')
-cmap = plt.cm.get_cmap('Greys')
+# cmap = plt.cm.get_cmap('Greys')
 
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
@@ -80,7 +80,7 @@ for col, title, filename in zip(cols, titles, filenames):
     LogNorm = mpl.colors.LogNorm(vmin=z.min(), vmax=z.max())
     # scalarMap = mpl.cm.ScalarMappable(norm=cNorm, cmap=cmap) # linear colorbar
     scalarMap = mpl.cm.ScalarMappable(norm=mpl.colors.LogNorm(vmin=z.min(), vmax=z.max()), cmap=cmap) # log colorbar
-    fig, ax = plt.subplots(num=None, figsize=(20, 20), dpi=300, facecolor='w', edgecolor='k')
+    fig, ax = plt.subplots(num=None, figsize=(20, 20), dpi=300, facecolor='w', edgecolor='r')
     scOOD = plotDataframe(dfError19_OOD, marker='o', label='test (OOD)')
     scID  = plotDataframe(dfError19_ID , marker='.', label='test (ID)')
     # Set legend

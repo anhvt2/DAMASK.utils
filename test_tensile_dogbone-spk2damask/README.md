@@ -8,7 +8,7 @@ Sandia hosted a few videos about the high-throughput tensile testing (HTT) on [h
 * **High-throughput tensile testing**: To rapidly and inexpensively generate a statistically meaningful database for AM metal properties, Sandia created a unique, automated, high-throughput tensile testing system capable of testing approximately 100 samples/hour.
 * **Computed tomography**: Computed tomography (CT) imaging of porosity in the gauge section of an AM printed “dog bone” tensile sample.
 
-Here is a few versions of the dogbone specimens and their references:
+Here is a few versions of the dogbone specimens and their **References:**
 
 How are these mades? See [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)
 ```
@@ -35,11 +35,12 @@ Printed arrays were designed specifically for the high-throughput set-up where e
 |:--:|
 | *Defect distribution shown in Figure 3 of [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102)* |
 
-References:
+**References:**
 * [https://doi.org/10.1016/j.jmatprotec.2016.10.023](https://dx.doi.org/10.1016/j.jmatprotec.2016.10.023): Salzbrenner, B. C., Rodelas, J. M., Madison, J. D., Jared, B. H., Swiler, L. P., Shen, Y. L., & Boyce, B. L. (2017). High-throughput stochastic tensile performance of additively manufactured stainless steel. Journal of Materials Processing Technology, 241, 1-12.
 * [Combining Measure Theory and Bayes Rule to Solve a Stochastic Inverse Problem](https://www.osti.gov/servlets/purl/1877851): slides from Tim Wildey
 * [https://doi.org/10.1002/adem.201700102](https://doi.org/10.1002/adem.201700102): Boyce, B. L., Salzbrenner, B. C., Rodelas, J. M., Swiler, L. P., Madison, J. D., Jared, B. H., & Shen, Y. L. (2017). Extreme‐value statistics reveal rare failure‐critical defects in additive manufacturing. Advanced Engineering Materials, 19(8), 1700102.
-
+* [https://doi.org/10.1063/1.5031506](https://doi.org/10.1063/1.5031506): J.D. Madison, O.D. Underwood, L.P. Swiler, B.L. Boyce, B.H. Jared, J.M. Rodelas, B.C. Salzbrenner, Corroborating Tomographic Defect Metrics with Mechanical Response in an Additively Manufactured Precipitation-Hardened Stainless Steel, 44th Annual Review of Progress in Quantitative Nondestructive Evaluation, Vol 37 1949(1) (2018) 020009.
+* [https://doi.org/10.5006/2365](https://doi.org/10.5006/2365): R.F. Schaller, J.M. Taylor, J. Rodelas, E.J. Schindelholz, Corrosion Properties of Powder Bed Fusion Additively Manufactured 17-4 PH Stainless Steel, Corrosion 73(7) (2017) 796-807.
 
 
 
@@ -59,12 +60,10 @@ References:
 |:--:|
 | *Figure 1 in [https://doi.org/10.1007/s11340-021-00696-8](https://doi.org/10.1007/s11340-021-00696-8)* |
 
-References:
+**References:**
 * [https://doi.org/10.1016/j.msea.2020.139922](https://doi.org/10.1016/j.msea.2020.139922): Laursen, C. M., DeJong, S. A., Dickens, S. M., Exil, A. N., Susan, D. F., & Carroll, J. D. (2020). Relationship between ductility and the porosity of additively manufactured AlSi10Mg. Materials Science and Engineering: A, 795, 139922.
 * [https://doi.org/10.1007/s11837-021-04888-4](https://doi.org/10.1007/s11837-021-04888-4): Carroll, Jay D., Andrea N. Exil, Stephanie A. DeJong, Isaac A. Valdez, Christopher M. Laursen, Lisa A. Deibler, Christopher B. Finfrock, and Brad L. Boyce. "High-throughput statistical interrogation of mechanical properties with build plate location and powder reuse in AlSi10Mg." Jom 73 (2021): 3356-3370.
 * [https://doi.org/10.1007/s11340-021-00696-8](https://doi.org/10.1007/s11340-021-00696-8): (*intentionally precipitated voids*) Smith, B. A., Laursen, C. M., Bartanus, J., Carroll, J. D., & Pataky, G. J. (2021). The interplay of geometric defects and porosity on the mechanical behavior of additively manufactured components. Experimental Mechanics, 61, 685-698.
-* [https://doi.org/10.1063/1.5031506](https://doi.org/10.1063/1.5031506): J.D. Madison, O.D. Underwood, L.P. Swiler, B.L. Boyce, B.H. Jared, J.M. Rodelas, B.C. Salzbrenner, Corroborating Tomographic Defect Metrics with Mechanical Response in an Additively Manufactured Precipitation-Hardened Stainless Steel, 44th Annual Review of Progress in Quantitative Nondestructive Evaluation, Vol 37 1949(1) (2018) 020009.
-* [https://doi.org/10.5006/2365](https://doi.org/10.5006/2365): R.F. Schaller, J.M. Taylor, J. Rodelas, E.J. Schindelholz, Corrosion Properties of Powder Bed Fusion Additively Manufactured 17-4 PH Stainless Steel, Corrosion 73(7) (2017) 796-807.
 
 Microstructure info are in
 
@@ -112,7 +111,7 @@ Microstructure info are in
 | *Figure 3 in [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632)* |
 
 
-References:
+**References:**
 * [https://doi.org/10.1016/j.msea.2019.138632](https://doi.org/10.1016/j.msea.2019.138632): Heckman, Nathan M., Thomas A. Ivanoff, Ashley M. Roach, Bradley H. Jared, Daniel J. Tung, Harlan J. Brown-Shaklee, Todd Huber et al. "Automated high-throughput tensile testing reveals stochastic process parameter sensitivity." Materials Science and Engineering: A 772 (2020): 138632.
 * [https://doi.org/10.1016/j.addma.2020.101090](https://doi.org/10.1016/j.addma.2020.101090): Roach, A. M., White, B. C., Garland, A., Jared, B. H., Carroll, J. D., & Boyce, B. L. (2020). Size-dependent stochastic tensile properties in additively manufactured 316L stainless steel. Additive Manufacturing, 32, 101090.
 * [https://doi.org/10.1016/j.addma.2022.102943](https://doi.org/10.1016/j.addma.2022.102943): Jensen, S. C., Koepke, J. R., Saiz, D. J., Heiden, M. J., Carroll, J. D., Boyce, B. L., & Jared, B. H. (2022). Optimization of stochastic feature properties in laser powder bed fusion. Additive Manufacturing, 56, 102943.
@@ -475,7 +474,7 @@ What to do with such simulations is a good question. We all know that averaged r
 
 8. Add `damage` and simulate fracture 
 
-References:
+**References:**
 1. [https://doi.org/10.1002/adem.201901044](https://doi.org/10.1002/adem.201901044) Diehl, Martin, Ding Wang, Chuanlai Liu, Jaber Rezaei Mianroodi, Fengbo Han, Duancheng Ma, Piet JJ Kok, Franz Roters, and Pratheek Shanthraj. "Solving material mechanics and multiphysics problems of metals with complex microstructures using DAMASK—The Düsseldorf advanced material simulation kit." Advanced Engineering Materials 22, no. 3 (2020): 1901044.
 2. [https://doi.org/10.1007/s11837-017-2308-8](https://doi.org/10.1007/s11837-017-2308-8) Diehl, M., Wicke, M., Shanthraj, P., Roters, F., Brueckner-Foit, A., & Raabe, D. (2017). Coupled crystal plasticity–phase field fracture simulation study on damage evolution around a void: Pore shape versus crystallographic orientation. JOM, 69, 872-878.
 3. [https://doi.org/10.1016/j.cma.2016.05.006](https://doi.org/10.1016/j.cma.2016.05.006) Shanthraj, P., Sharma, L., Svendsen, B., Roters, F., & Raabe, D. (2016). A phase field model for damage in elasto-viscoplastic materials. Computer Methods in Applied Mechanics and Engineering, 312, 167-185.

@@ -17,6 +17,7 @@ mpl.rcParams['ytick.labelsize'] = 24
 cmap = plt.cm.get_cmap('coolwarm')
 # cmap = plt.cm.get_cmap('RdBu_r')
 # cmap = plt.cm.get_cmap('Greys')
+cmapError = plt.cm.get_cmap('Reds')
 
 t_start = time.time()
 
@@ -79,12 +80,12 @@ for i in range(NumCases):
                             position_x=0.75, position_y=0.10,
                             title_font_size=144, label_font_size=96, 
                             color='k') 
-            if 'Cauchy' in foi:
-                # set log_scale = True for MisesCauchy
+            if 'Mises(Cauchy)' in foi:
                 pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
-            elif 'LnV' in foi: 
-                # set log_scale = False for MisesLnV
+            elif 'Mises(LnV)' in foi: 
                 pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
+            elif 'AbsErr' in foi: 
+                pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmapError, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
             else:
                 print(f'Check pl.add_mesh() for {foi}!')
             pl.background_color = "white"

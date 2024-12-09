@@ -19,6 +19,13 @@ cmap = plt.cm.get_cmap('coolwarm')
 # cmap = plt.cm.get_cmap('Greys')
 cmapError = plt.cm.get_cmap('Reds')
 
+# Enable LaTeX rendering in Matplotlib
+plt.rcParams.update({
+    "text.usetex": True,
+    "font.family": "serif",
+    "text.latex.preamble": r"\usepackage{amsmath}"  # Add additional LaTeX packages if needed
+})
+
 t_start = time.time()
 
 parser = argparse.ArgumentParser()
@@ -71,15 +78,16 @@ for i in range(NumCases):
         # Assign list to iterate
         fois = ["Mises(Cauchy)-FOM", "Mises(LnV)-FOM", "Mises(Cauchy)-ROM", "Mises(LnV)-ROM", "AbsErr(Cauchy)", "AbsErr(LnV)"]
         filenames = ["MisesCauchy-FOM", "MisesLnV-FOM", "MisesCauchy-ROM", "MisesLnV-ROM", "AbsErrCauchy", "AbsErrLnV"]
+        cbartitles = [r"$\sigma_{vM}$ (FOM)", r"$\varepsilon_{vM}$ (FOM)", r"$\sigma_{vM}$ (ROM)", r"$\varepsilon_{vM}$ (FOM)", "AbsErrCauchy", "AbsErrLnV"]
 
-        for foi, clim, filename in zip(fois, clims, filenames):
+        for foi, clim, filename, cbartitle in zip(fois, clims, filenames, cbartitles):
             pl = pyvista.Plotter(off_screen=True)
             threshedGrid = grid.threshold(value=(grainInfo[3],grainInfo[4]), scalars='microstructure')
             threshedGrid.set_active_scalars(foi, preference='cell')
             args_cbar = dict(height=0.75, width=0.05, vertical=True, 
                             position_x=0.75, position_y=0.10,
                             title_font_size=144, label_font_size=96, 
-                            color='k') 
+                            color='k', title=cbartitle)
             if 'Mises(Cauchy)' in foi:
                 pl.add_mesh(threshedGrid, opacity=1.0, show_edges=False, line_width=1, cmap=cmap, scalar_bar_args=args_cbar, log_scale=True, clim=clim)
             elif 'Mises(LnV)' in foi: 

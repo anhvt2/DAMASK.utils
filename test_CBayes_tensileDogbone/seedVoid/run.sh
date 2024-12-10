@@ -2,7 +2,7 @@
 
 export spkFileName="dump.additive_dogbone.2807"
 for i in $(seq 500); do
-    cp ../spk/res-50um-additive-run-${i}/${spkFileName} . 
+    cp ../spk/res-50um-additive-run-${i}/${spkFileName} .
     python3 ../../dump2npy.py --dump ${spkFileName}
     python3 ../../npy2geom.py --npy ${spkFileName}.npy
     # Seed voids

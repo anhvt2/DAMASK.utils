@@ -1,6 +1,7 @@
 
 from natsort import natsorted, ns
 import pyvista
+import vtk
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import glob, os, time
@@ -78,7 +79,8 @@ for i in range(NumCases):
         # Assign list to iterate
         fois = ["Mises(Cauchy)-FOM", "Mises(LnV)-FOM", "Mises(Cauchy)-ROM", "Mises(LnV)-ROM", "AbsErr(Cauchy)", "AbsErr(LnV)"]
         filenames = ["MisesCauchy-FOM", "MisesLnV-FOM", "MisesCauchy-ROM", "MisesLnV-ROM", "AbsErrCauchy", "AbsErrLnV"]
-        cbartitles = [r"$\sigma_{vM}$ (FOM)", r"$\varepsilon_{vM}$ (FOM)", r"$\sigma_{vM}$ (ROM)", r"$\varepsilon_{vM}$ (FOM)", "AbsErrCauchy", "AbsErrLnV"]
+        # cbartitles = [r"$\sigma_{vM}$ (FOM)", r"$\varepsilon_{vM}$ (FOM)", r"$\sigma_{vM}$ (ROM)", r"$\varepsilon_{vM}$ (FOM)", "AbsErrCauchy", "AbsErrLnV"]
+        cbartitles = filenames
 
         for foi, clim, filename, cbartitle in zip(fois, clims, filenames, cbartitles):
             pl = pyvista.Plotter(off_screen=True)

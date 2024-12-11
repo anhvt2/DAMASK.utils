@@ -1,8 +1,8 @@
 #!/!bin/bash
-for TestIdx in $(cat TestIdxs.txt); do
-    for i in $(seq 120); do
-        foldername="test-run-${TestIdx}-${i}"
-        sourceFolderName="res-50um-additive-run-${TestIdx}"
+for i in $(cat TestIdxs.txt); do
+    for j in $(seq 120); do
+        foldername="test-run-${i}-${j}"
+        sourceFolderName="res-50um-additive-run-${i}"
         mkdir -p ${foldername}
         cd ${foldername}
         cp -f ../${sourceFolderName}/{sbatch,in,dump}.* .

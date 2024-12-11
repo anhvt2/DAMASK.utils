@@ -10,6 +10,7 @@ Step-2: Convert SPPARKS geometry to DAMASK-readable, helped by `orientations.dat
 Step-3: Pad air and seed voids into the newly generated microstructure geometry
 Step-4: Run and post-process DAMASK
 Step-5: Build a physics-constrained ML model (monotonic GPR)
+Step-6: Create mock-up test cases (see `makeTestExamples.sh`)
 Step-6: Perform data-consistent inversion
 
 # Roadmap

@@ -16,7 +16,7 @@ grainInfo = np.loadtxt('grainInfo.dat')
 geom = np.load(glob.glob('htt*.npy')[0])
 
 runIdx = int(os.getcwd().split('run-')[-1].split('-')[0]) - 1 # reset start index = 0
-targetPoro = porosity[runIdx]
+targetPoro = porosity[runIdx] / 1e2 # convert from percentage
 
 # Global: Count how many void voxels in the WHOLE domain
 numSolidVoxels = np.where((geom >= grainInfo[3]))[0].shape[0]
@@ -27,7 +27,7 @@ globalPoro = numVoidVoxels / numSolidVoxels
 gaugeGeom = geom[51:69+1, 2:21+1, 70:130+1]
 numSolidVoxels = np.where((gaugeGeom >= grainInfo[3]))[0].shape[0]
 numVoidVoxels = np.where((gaugeGeom >= 3) & (gaugeGeom <= grainInfo[2]))[0].shape[0]
-localPoro = numVoidVoxels / numSolidVoxels1
+localPoro = numVoidVoxels / numSolidVoxels
 
 print(f'In {os.getcwd().split('/')[-1]}:')
 print(f'(whole specimen) Global porosity = {globalPoro:<.4f}')

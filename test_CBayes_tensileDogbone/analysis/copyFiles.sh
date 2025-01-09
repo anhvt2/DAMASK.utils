@@ -10,12 +10,13 @@ for i in $(seq 500); do
     cp -fv ../../../spk/res-50um-additive-run-${i}/postProc/stress_strain.log .
     cd ..
 done
-
 cd ..
+
 cd test/
 
-for testIdx in $(cat testFolders.txt); do
+for testIdx in $(cat ../testFolders.txt); do
     testFolder="test-run-${testIdx}"
+    mkdir -p ${testFolder}
     cd ${testFolder}
     cp -fv ../../../spk/${testFolder}/porosity.txt .
     cp -fv ../../../spk/${testFolder}/postProc/main_tension.txt .

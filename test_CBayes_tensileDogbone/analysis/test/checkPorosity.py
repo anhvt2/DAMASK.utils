@@ -12,6 +12,7 @@ mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
 testIdxs = [20,90,180,437]
+labels = ['A','B','C','D']
 folders = natsorted(glob.glob('*/'))
 porosityInfo = np.loadtxt('porosity.txt')
 
@@ -24,12 +25,13 @@ porosities = []
 
 for folder in folders:
     tmp = np.loadtxt(f'{folder}/porosity.txt', dtype=float)
-    testIdx = folder.split('-')[2]
+    testIdx = int(folder.split('-')[2])
+    label = labels[np.where(np.array(testIdxs) == testIdx)[0][0]]
     porosities.append({
         'global': tmp[0], 
         'local': tmp[1], 
         'target': tmp[2], 
-        'case': int(testIdx),
+        'group': label,
         })
 
 df = pd.DataFrame(porosities)
@@ -56,7 +58,13 @@ plt.savefig('porosities.png', dpi=300, facecolor='w', edgecolor='w', orientation
 mpl.rcParams['xtick.labelsize'] = 12
 mpl.rcParams['ytick.labelsize'] = 12
 plt.figure(num=None, figsize=(168, 100), dpi=300, facecolor='w', edgecolor='k')
-sns.jointplot(data=df, x="global", y="local", hue='case')
+sns.jointplot(data=df, x="global", y="local", hue='group', 
+    marginal_kws={
+    'fill': True,    # Fill the area under the KDE curve
+    'color': 'purple',  # Set the color of the KDE curve
+    'alpha': 0.6,    # Set the transparency of the filled area
+    'linewidth': 2   # Set the line width of the KDE curve)
+    })
 
 # sns.jointplot(data=df, x="global", y="local", kind='scatter', 
 #     marginal_kind='kde',

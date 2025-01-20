@@ -35,6 +35,13 @@ for folder in folders:
         })
 
 df = pd.DataFrame(porosities)
+tmp = []
+for index, row in df.iterrows():
+    meanPoro = df[df['group'] == df.iloc[index]['group']]['global'].mean() * 100
+    tmp += [meanPoro] # df[df['group'] == df.iloc[index]['group']]['local'].mean()
+
+df[r'avg $\phi$'] = tmp
+df[r'avg $\phi$'] = df[r'avg $\phi$'].map(lambda x: f"{x:.2f}%")
 
 fig = plt.figure(num=None, figsize=(14, 14), dpi=300, facecolor='w', edgecolor='k')
 plt.plot(df['global'], df['local'], 'bo', ms=10)
@@ -58,7 +65,7 @@ plt.savefig('porosities.png', dpi=300, facecolor='w', edgecolor='w', orientation
 mpl.rcParams['xtick.labelsize'] = 12
 mpl.rcParams['ytick.labelsize'] = 12
 plt.figure(num=None, figsize=(168, 100), dpi=300, facecolor='w', edgecolor='k')
-sns.jointplot(data=df, x="global", y="local", hue='group', 
+sns.jointplot(data=df, x="global", y="local", hue=r'avg $\phi$', 
     marginal_kws={
     'fill': True,    # Fill the area under the KDE curve
     'color': 'purple',  # Set the color of the KDE curve

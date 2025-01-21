@@ -86,20 +86,20 @@ ax = fig.add_subplot(111)
 # ax.plot([], [], marker='o', linestyle='-', markersize=2, color='tab:orange', label='train')
 # ax.plot([], [], marker='o', linestyle='-', markersize=2, color='tab:green',  label='test')
 
-for mltype, color, alpha in zip(['train/', 'test/test-run-437-', 'test/test-run-180-', 'test/test-run-90-', 'test/test-run-20-'], ['tab:gray', 'tab:red', 'tab:green', 'tab:orange', 'tab:blue'], [0.75, 0.75, 0.65, 0.55, 0.45]):
+for mltype, color, alpha, marker in zip(['train/', 'test/test-run-437-', 'test/test-run-180-', 'test/test-run-90-', 'test/test-run-20-'], ['tab:gray', 'tab:red', 'tab:green', 'tab:orange', 'tab:blue'], [0.75, 0.75, 0.65, 0.55, 0.45], ['o','s','p','h','D']):
     for folderName in glob.glob(f'{mltype}*/'):
         StressStrainFile = folderName + '/' + 'stress_strain.log'
         x, y = getTrueStressStrain(StressStrainFile)
         interp_x, interp_y = getInterpStressStrain(StressStrainFile)
         # ax.plot(x, y, marker='o', linestyle='--', markersize=6)
-        ax.plot(interp_x, interp_y, marker='o', color=color, alpha=alpha, linestyle=':', markersize=2)
+        ax.plot(interp_x, interp_y, marker=marker, color=color, alpha=alpha, linestyle=':', markersize=2)
         # plt.legend(['true', 'cubic'], fontsize=24, frameon=False, markerscale=3)
 
 ax.plot([], [], marker='o', linestyle='-', markersize=2, color='tab:gray', label='train')
-ax.plot([], [], marker='s', linestyle='-', markersize=2, color='tab:blue',  label=r'test: $\overline{\phi} = 0.11%$')
-ax.plot([], [], marker='^', linestyle='-', markersize=2, color='tab:orange',  label=r'test: $\overline{\phi} = 0.84%$')
-ax.plot([], [], marker='v', linestyle='-', markersize=2, color='tab:green',  label=r'test: $\overline{\phi} = 1.63%$')
-ax.plot([], [], marker='D', linestyle='-', markersize=2, color='tab:red',  label=r'test: $\overline{\phi} = 4.14%$')
+ax.plot([], [], marker='d', linestyle='-', markersize=2, color='tab:blue',  label=r'test: $\overline{\phi} = 0.11%$')
+ax.plot([], [], marker='h', linestyle='-', markersize=2, color='tab:orange',  label=r'test: $\overline{\phi} = 0.84%$')
+ax.plot([], [], marker='p', linestyle='-', markersize=2, color='tab:green',  label=r'test: $\overline{\phi} = 1.63%$')
+ax.plot([], [], marker='s', linestyle='-', markersize=2, color='tab:red',  label=r'test: $\overline{\phi} = 4.14%$')
 
 plt.legend(loc='best', fontsize=24, frameon=False, markerscale=8)
 plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)

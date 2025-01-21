@@ -73,8 +73,21 @@ fig = plt.figure(num=None, figsize=(14, 12), dpi=300, facecolor='w', edgecolor='
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 ax = fig.add_subplot(111)
-for mltype, color, alpha in zip(['train','test'], ['tab:orange','tab:green'], [0.50, 0.25]):
-    for folderName in glob.glob(f'{mltype}/*'):
+
+# for mltype, color, alpha in zip(['train','test'], ['tab:orange','tab:green'], [0.50, 0.25]):
+#     for folderName in glob.glob(f'{mltype}/*'):
+#         StressStrainFile = folderName + '/' + 'stress_strain.log'
+#         x, y = getTrueStressStrain(StressStrainFile)
+#         interp_x, interp_y = getInterpStressStrain(StressStrainFile)
+#         # ax.plot(x, y, marker='o', linestyle='--', markersize=6)
+#         ax.plot(interp_x, interp_y, marker='o', color=color, alpha=alpha, linestyle=':', markersize=2)
+#         # plt.legend(['true', 'cubic'], fontsize=24, frameon=False, markerscale=3)
+#
+# ax.plot([], [], marker='o', linestyle='-', markersize=2, color='tab:orange', label='train')
+# ax.plot([], [], marker='o', linestyle='-', markersize=2, color='tab:green',  label='test')
+
+for mltype, color, alpha in zip(['train/', 'test/test-run-437-', 'test/test-run-180-', 'test/test-run-90-', 'test/test-run-20-'], ['tab:gray', 'tab:red', 'tab:green', 'tab:orange', 'tab:blue'], [0.75, 0.75, 0.65, 0.55, 0.45]):
+    for folderName in glob.glob(f'{mltype}*/'):
         StressStrainFile = folderName + '/' + 'stress_strain.log'
         x, y = getTrueStressStrain(StressStrainFile)
         interp_x, interp_y = getInterpStressStrain(StressStrainFile)
@@ -82,9 +95,13 @@ for mltype, color, alpha in zip(['train','test'], ['tab:orange','tab:green'], [0
         ax.plot(interp_x, interp_y, marker='o', color=color, alpha=alpha, linestyle=':', markersize=2)
         # plt.legend(['true', 'cubic'], fontsize=24, frameon=False, markerscale=3)
 
-ax.plot([], [], marker='o', linestyle='-', markersize=2, color='tab:orange', label='train')
-ax.plot([], [], marker='o', linestyle='-', markersize=2, color='tab:green',  label='test')
-plt.legend(loc='best', fontsize=24, frameon=False, markerscale=5)
+ax.plot([], [], marker='o', linestyle='-', markersize=2, color='tab:gray', label='train')
+ax.plot([], [], marker='s', linestyle='-', markersize=2, color='tab:blue',  label=r'test: $\overline{\phi} = 0.11%$')
+ax.plot([], [], marker='^', linestyle='-', markersize=2, color='tab:orange',  label=r'test: $\overline{\phi} = 0.84%$')
+ax.plot([], [], marker='v', linestyle='-', markersize=2, color='tab:green',  label=r'test: $\overline{\phi} = 1.63%$')
+ax.plot([], [], marker='D', linestyle='-', markersize=2, color='tab:red',  label=r'test: $\overline{\phi} = 4.14%$')
+
+plt.legend(loc='best', fontsize=24, frameon=False, markerscale=8)
 plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 if np.all(y * 1e6 > -1e-5):

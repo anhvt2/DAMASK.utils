@@ -24,8 +24,8 @@ def getMetaInfo(StressStrainFile):
         print('Reading results in %s...' % (StressStrainFile))
     for i in range(len(fieldsList)):
         fieldsList[i] = fieldsList[i].replace('\n', '')
-    print('numLinesHeader = ', numLinesHeader)
-    print('fieldsList = ', fieldsList)
+    # print('numLinesHeader = ', numLinesHeader)
+    # print('fieldsList = ', fieldsList)
     return numLinesHeader, fieldsList
 
 def readLoadFile(LoadFile):
@@ -63,9 +63,16 @@ def getTrueStressStrain(StressStrainFile):
 
 def getInterpStressStrain(StressStrainFile):
     x, y = getTrueStressStrain(StressStrainFile)
-    interp_x = np.linspace(x.min(), x.max(), num=100)
+    interp_x = np.linspace(0, 0.025, num=26)
     # splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
     splineInterp = PchipInterpolator(x, y, extrapolate=True)
     interp_y = splineInterp(interp_x)
     return interp_x, interp_y
 
+for mltype, color, alpha in zip(['train/', 'test/test-run-437-', 'test/test-run-180-', 'test/test-run-90-', 'test/test-run-20-'], ['tab:gray', 'tab:red', 'tab:green', 'tab:orange', 'tab:blue'], [0.75, 0.75, 0.65, 0.55, 0.45]):
+    for folderName in glob.glob(f'{mltype}*/'):
+        StressStrainFile = folderName + '/' + 'stress_strain.log'
+        x, y = getTrueStressStrain(StressStrainFile)
+        interp_x, interp_y = getInterpStressStrain(StressStrainFile)
+        d = np.hstack(( np.atleast_2d(interp_x).T, np.atleast_2d(interp_y).T ))
+        np.savetxt(folderName + '/' + 'interp_stress_strain.log', d, delimiter=',', header='interp_strain, interp_stress', comments='')

@@ -96,10 +96,10 @@ for mltype, color, alpha, marker in zip(['train/', 'test/test-run-437-', 'test/t
         # plt.legend(['true', 'cubic'], fontsize=24, frameon=False, markerscale=3)
 
 ax.plot([], [], marker='o', linestyle='-', markersize=2, color='tab:gray', label='train')
-ax.plot([], [], marker='d', linestyle='-', markersize=2, color='tab:blue',  label=r'test: $\overline{\phi} = 0.11%$')
-ax.plot([], [], marker='h', linestyle='-', markersize=2, color='tab:orange',  label=r'test: $\overline{\phi} = 0.84%$')
-ax.plot([], [], marker='p', linestyle='-', markersize=2, color='tab:green',  label=r'test: $\overline{\phi} = 1.63%$')
-ax.plot([], [], marker='s', linestyle='-', markersize=2, color='tab:red',  label=r'test: $\overline{\phi} = 4.14%$')
+ax.plot([], [], marker='d', linestyle='-', markersize=2, color='tab:blue',  label=r'test: $\overline{\phi} = 0.11\%$')
+ax.plot([], [], marker='h', linestyle='-', markersize=2, color='tab:orange',  label=r'test: $\overline{\phi} = 0.84\%$')
+ax.plot([], [], marker='p', linestyle='-', markersize=2, color='tab:green',  label=r'test: $\overline{\phi} = 1.63\%$')
+ax.plot([], [], marker='s', linestyle='-', markersize=2, color='tab:red',  label=r'test: $\overline{\phi} = 4.14\%$')
 
 plt.legend(loc='best', fontsize=24, frameon=False, markerscale=8)
 plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)

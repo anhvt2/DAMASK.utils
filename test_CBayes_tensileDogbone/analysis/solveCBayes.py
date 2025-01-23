@@ -76,7 +76,7 @@ def getInterpStressStrain(StressStrainFile):
     return interp_x, interp_y
 
 # Set indices
-idxStressStrain = 2
+idxStressStrain = 4
 poroType = 'local'
 poroIdx = 1
 
@@ -109,7 +109,7 @@ kernel = C(1.0, (1e-3, 1e3)) * RBF(1.0, (1e-2, 1e2))
 x = df[(df['mltype'] == 'train')]['local'].to_numpy() 
 y = df[(df['mltype'] == 'train')]['interpStress'].to_numpy()
 x, y = np.atleast_2d(x).T, np.atleast_2d(y).T
-gp = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=10, alpha=4e1)
+gp = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=10, alpha=np.var(y)*9)
 gp.fit(x, y)
 x_pred = np.linspace(x.min(), x.max(), 100).reshape(-1, 1)
 y_pred, sigma = gp.predict(x_pred, return_std=True)

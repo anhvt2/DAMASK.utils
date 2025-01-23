@@ -126,17 +126,34 @@ plt.xlim(left=x.min(), right=x.max())
 plt.savefig('gpr.png', dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 
 # Solve consistent Bayesian (or DCI)
-M = int(1e4)
-lambdaInit = np.random.uniform(low=x.min(), high=x.max(), size=M)
+def QoI(lam, gp): # defing a QoI mapping function
+    return gp.predict(lam.reshape(-1, 1), return_std=False)
+
+def rejection_sampling(r):
+    N = r.size # size of proposal sample set
+    check = np.random.uniform(low=0,high=1,size=N) # create random uniform weights to check r against
+    M = np.max(r)
+    new_r = r/M # normalize weights 
+    idx = np.where(new_r>=check)[0] # rejection criterion
+    return idx
+
+N = int(1e4)
+lambdaInit = np.random.uniform(low=x.min(), high=x.max(), size=N)
 # qplot = np.linspace(x.min(), x.max(), num=100)
-yInit = gp.predict(lambdaInit.reshape(-1, 1), return_std=False)
+
+yInit = QoI(lambdaInit, gp)
 yObs = df[df['testMsIdx'] == '20']['interpStress'].to_numpy()
 qInit = GKDE(yInit)
-qObs  = GKDE(yObs) # Construct a KDE approx
+qObs  = GKDE(yObs)
+
+r = np.divide(qObs(QoI(lambdaInit, gp)), qInit(yInit))
+samples_to_keep = rejection_sampling(r)
+
+fig, (ax1, ax2) = plt.subplots(1, 2) # horizontal stacked subplots
+
 qplot = np.linspace(yInit.min(), yInit.max(), num=1000)
-
-
-plt.plot(qplot, qInit(qplot), c='b', linewidth=4, label=r'$Q(\pi_{init}(\phi))$')
-plt.plot(qplot, qObs(qplot) , c='r', linewidth=4, label=r'$\pi^{obs}$')
+ax2.plot(qplot, qInit(qplot), c='b', linewidth=4, label=r'$Q(\pi_{init}(\phi))$')
+ax2.plot(qplot, qObs(qplot) , c='r', linewidth=4, label=r'$\pi^{obs}$')
+# ax2.plot(qplot, qObs(qplo) , c='r', linewidth=4, label=r'$\pi^{obs}$')
 plt.legend(loc='best',fontsize=24)
 plt.show()

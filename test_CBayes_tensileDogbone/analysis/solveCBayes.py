@@ -137,23 +137,44 @@ def rejection_sampling(r):
     idx = np.where(new_r>=check)[0] # rejection criterion
     return idx
 
-N = int(1e4)
-lambdaInit = np.random.uniform(low=x.min(), high=x.max(), size=N)
-# qplot = np.linspace(x.min(), x.max(), num=100)
+N = int(1e5)
+xPrior = np.random.uniform(low=x.min(), high=x.max(), size=N)
+yPrior = QoI(xPrior, gp)
+# testIdx = 90 # ['20', '90', '180', '437']
+for testIdx in ['20', '90', '180', '437']:
+    yObs = df[df['testMsIdx'] == str(testIdx)]['interpStress'].to_numpy()
+    xObs = df[df['testMsIdx'] == str(testIdx)]['local'].to_numpy() # true xObs
 
-yInit = QoI(lambdaInit, gp)
-yObs = df[df['testMsIdx'] == '20']['interpStress'].to_numpy()
-qInit = GKDE(yInit)
-qObs  = GKDE(yObs)
+    qPrior = GKDE(yPrior)
+    qObs  = GKDE(yObs)
 
-r = np.divide(qObs(QoI(lambdaInit, gp)), qInit(yInit))
-samples_to_keep = rejection_sampling(r)
+    r = np.divide(qObs(QoI(xPrior, gp)), qPrior(yPrior))
+    samples_to_keep = rejection_sampling(r)
+    xPost = xPrior[samples_to_keep]
+    qPost = GKDE(QoI(xPost, gp))
 
-fig, (ax1, ax2) = plt.subplots(1, 2) # horizontal stacked subplots
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(24, 12)) # horizontal stacked subplots
+    xPlot = np.linspace(x.min(), x.max(), num=10000)
+    qxTrue = GKDE(xObs)
+    qxTest = GKDE(xPost) # posterior in x
+    ax1.plot(xPlot, 1/(x.max()-x.min()*np.ones(xPlot.shape)), c='tab:blue', linestyle='-', linewidth=4, label=r'$\pi^{init}(\phi)$')
+    ax1.plot(xPlot, qxTest(xPlot), c='tab:red',  linestyle='--', linewidth=4, label=r'$\pi^{up}(\phi)$')
+    ax1.plot(xPlot, qxTrue(xPlot), c='tab:green',  linestyle=':', linewidth=4, label=r'$\pi^{true}(\phi)$')
+    ax1.axvline(x=xPlot[np.argmax(qxTest(xPlot))], color='tab:red', linestyle='-', linewidth=4, label=r'MAP: $\pi^{up}(\phi)$', alpha=0.25)
+    ax1.axvline(x=xPlot[np.argmax(qxTrue(xPlot))], color='tab:green', linestyle='-', linewidth=4, label=r'MAP: $\pi^{true}(\phi)$', alpha=0.25)
+    ax1.legend(loc='best',fontsize=24, frameon=False)
+    ax1.set_xlabel(r'$\phi$', fontsize=24)
+    ax1.set_ylabel(r'pdf($\phi$)', fontsize=24)
+    ax1.set_ylim(bottom=1e-4)
+    ax1.set_xlim(left=x.min(), right=x.max())
 
-qplot = np.linspace(yInit.min(), yInit.max(), num=1000)
-ax2.plot(qplot, qInit(qplot), c='b', linewidth=4, label=r'$Q(\pi_{init}(\phi))$')
-ax2.plot(qplot, qObs(qplot) , c='r', linewidth=4, label=r'$\pi^{obs}$')
-# ax2.plot(qplot, qObs(qplo) , c='r', linewidth=4, label=r'$\pi^{obs}$')
-plt.legend(loc='best',fontsize=24)
-plt.show()
+    qplot = np.linspace(yPrior.min(), yPrior.max(), num=1000)
+    ax2.plot(qplot, qPrior(qplot), c='tab:blue', linestyle='-', linewidth=4, label=r'$Q(\pi^{init}(\phi))$')
+    ax2.plot(qplot, qObs(qplot) ,  c='tab:red', linestyle='--', linewidth=4, label=r'$\pi^{obs}$', alpha=1)
+    ax2.plot(qplot, qPost(qplot),  c='tab:green',  linestyle=':', linewidth=4, label=r'$Q(\pi^{up}(\phi))$', alpha=1)
+    ax2.legend(loc='best',fontsize=24, frameon=False)
+    ax2.set_xlabel(r'$\sigma$', fontsize=24)
+    ax2.set_ylabel(r'pdf($\sigma$)', fontsize=24)
+    ax2.set_ylim(bottom=1e-4)
+    ax2.set_xlim(left=yPrior.min(), right=yPrior.max())
+    plt.savefig('CBayesResults-%s.png' % str(testIdx), dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)

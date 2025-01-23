@@ -125,3 +125,18 @@ plt.legend(fontsize=24)
 plt.xlim(left=x.min(), right=x.max())
 plt.savefig('gpr.png', dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 
+# Solve consistent Bayesian (or DCI)
+M = int(1e4)
+lambdaInit = np.random.uniform(low=x.min(), high=x.max(), size=M)
+# qplot = np.linspace(x.min(), x.max(), num=100)
+yInit = gp.predict(lambdaInit.reshape(-1, 1), return_std=False)
+yObs = df[df['testMsIdx'] == '20']['interpStress'].to_numpy()
+qInit = GKDE(yInit)
+qObs  = GKDE(yObs) # Construct a KDE approx
+qplot = np.linspace(yInit.min(), yInit.max(), num=1000)
+
+
+plt.plot(qplot, qInit(qplot), c='b', linewidth=4, label=r'$Q(\pi_{init}(\phi))$')
+plt.plot(qplot, qObs(qplot) , c='r', linewidth=4, label=r'$\pi^{obs}$')
+plt.legend(loc='best',fontsize=24)
+plt.show()

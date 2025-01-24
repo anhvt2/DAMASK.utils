@@ -76,7 +76,7 @@ def getInterpStressStrain(StressStrainFile):
     return interp_x, interp_y
 
 # Set indices
-idxStressStrain = 2
+idxStressStrain = 25
 poroType = 'local'
 poroIdx = 1
 

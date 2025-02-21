@@ -57,7 +57,7 @@ g = sns.jointplot(data=df, x="global", y="local", kind='reg',
     scatter_kws={'s': 3},
     joint_kws={'color': 'tab:gray'},
     marginal_kws={
-    'bins': 23,
+    'bins': 30,
     'fill': True,    # Fill the area under the KDE curve
     'color': 'tab:gray',  # Set the color of the KDE curve
     'alpha': 0.2,    # Set the transparency of the filled area
@@ -92,7 +92,7 @@ g = sns.jointplot(data=df, x="global", y="local", kind='reg',
 #     })
 plt.xlabel(r'global $\phi$', fontsize=12)
 plt.ylabel(r'local (gauge) $\phi$', fontsize=12)
-plt.xlim(left=0,right=0.05)
-plt.ylim(bottom=0,top=0.05)
+plt.xlim(left=0,right=0.065)
+plt.ylim(bottom=0,top=0.065)
 plt.savefig('JointplotPorosities.png', dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
 

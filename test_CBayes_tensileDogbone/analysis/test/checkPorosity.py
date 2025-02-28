@@ -65,13 +65,22 @@ plt.savefig('porosities.png', dpi=300, facecolor='w', edgecolor='w', orientation
 mpl.rcParams['xtick.labelsize'] = 12
 mpl.rcParams['ytick.labelsize'] = 12
 plt.figure(num=None, figsize=(168, 100), dpi=300, facecolor='w', edgecolor='k')
-sns.jointplot(data=df, x="global", y="local", hue=r'avg $\phi$', 
+
+sns.jointplot(data=df, x="global", y="local", hue='group', 
     marginal_kws={
     'fill': True,    # Fill the area under the KDE curve
     'color': 'purple',  # Set the color of the KDE curve
     'alpha': 0.6,    # Set the transparency of the filled area
     'linewidth': 2   # Set the line width of the KDE curve)
     })
+
+# sns.jointplot(data=df, x="global", y="local", hue=r'avg $\phi$', 
+#     marginal_kws={
+#     'fill': True,    # Fill the area under the KDE curve
+#     'color': 'purple',  # Set the color of the KDE curve
+#     'alpha': 0.6,    # Set the transparency of the filled area
+#     'linewidth': 2   # Set the line width of the KDE curve)
+#     })
 
 # sns.jointplot(data=df, x="global", y="local", kind='scatter', 
 #     marginal_kind='kde',
@@ -83,6 +92,15 @@ sns.jointplot(data=df, x="global", y="local", hue=r'avg $\phi$',
 #     })
 plt.xlabel(r'global $\phi$', fontsize=12)
 plt.ylabel(r'local (gauge) $\phi$', fontsize=12)
-plt.xlim(left=0,right=0.05)
-plt.ylim(bottom=0,top=0.05)
+plt.xlim(left=0,right=0.06)
+plt.ylim(bottom=0,top=0.06)
 plt.savefig('JointplotPorosities.png', dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
+
+# Print statistics
+print('------------------------')
+for label in labels:
+    print(f'Group = {label}')
+    print(df[df['group'] == label].mean())
+    print(df[df['group'] == label].var())
+    print('------------------------')
+

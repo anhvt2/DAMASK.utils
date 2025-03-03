@@ -11,6 +11,8 @@ from scipy.interpolate import PchipInterpolator
 from scipy.stats import norm # The standard Normal distribution
 from scipy.stats import gaussian_kde as GKDE # A standard kernel density estimator
 
+isFigureSaved = False # True or False: whether to dump figures or not 
+
 mpl.rcParams['xtick.labelsize'] = 36
 mpl.rcParams['ytick.labelsize'] = 36
 
@@ -77,7 +79,8 @@ def getInterpStressStrain(StressStrainFile):
 
 # Set indices
 # idxStressStrain = 25
-for idxStressStrain in range(1,26):
+for idxStressStrain in range(20,26):
+    statsDiagnostics = [idxStressStrain] # parse strings to print stat diagnostics
     poroType = 'local'
     poroIdx = 1
 
@@ -114,19 +117,20 @@ for idxStressStrain in range(1,26):
     gp.fit(x, y)
     x_pred = np.linspace(x.min(), x.max(), 100).reshape(-1, 1)
     y_pred, sigma = gp.predict(x_pred, return_std=True)
-    print("Predicted Values:", y_pred)
-    print("Uncertainty (Standard Deviation):", sigma)
-    plt.figure(num=None, figsize=(14, 14), dpi=300, facecolor='w', edgecolor='k')
-    plt.scatter(x, y, c='r', label='Training data')
-    plt.plot(x_pred, y_pred, c='b', linewidth=4, label='Prediction')
-    plt.fill_between(x_pred.ravel(), y_pred - 1.96 * sigma, y_pred + 1.96 * sigma, color='blue', alpha=0.2, label='95% Confidence Interval')
-    plt.title('Gaussian Process Regression', fontsize=36)
-    plt.xlabel(r'(local) $\phi$', fontsize=36)
-    plt.ylabel(r'conditional stress $\sigma | \varepsilon$ at fixed $\varepsilon$', fontsize=36)
-    plt.legend(fontsize=36)
-    plt.xlim(left=x.min(), right=x.max())
-    plt.savefig('results/idxStressStrain-%d-gpr.png' % (idxStressStrain), dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
-    plt.clf()
+    # print("Predicted Values:", y_pred)
+    # print("Uncertainty (Standard Deviation):", sigma)
+    if isFigureSaved:
+        plt.figure(num=None, figsize=(14, 14), dpi=300, facecolor='w', edgecolor='k')
+        plt.scatter(x, y, c='r', label='Training data')
+        plt.plot(x_pred, y_pred, c='b', linewidth=4, label='Prediction')
+        plt.fill_between(x_pred.ravel(), y_pred - 1.96 * sigma, y_pred + 1.96 * sigma, color='blue', alpha=0.2, label='95% Confidence Interval')
+        plt.title('Gaussian Process Regression', fontsize=36)
+        plt.xlabel(r'(local) $\phi$', fontsize=36)
+        plt.ylabel(r'conditional stress $\sigma | \varepsilon$ at fixed $\varepsilon$', fontsize=36)
+        plt.legend(fontsize=36)
+        plt.xlim(left=x.min(), right=x.max())
+        plt.savefig('results/idxStressStrain-%d-gpr.png' % (idxStressStrain), dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
+        plt.clf()
 
     # Solve consistent Bayesian (or DCI)
     def QoI(lam, gp): # defing a QoI mapping function
@@ -156,28 +160,36 @@ for idxStressStrain in range(1,26):
         xPost = xPrior[samples_to_keep]
         qPost = GKDE(QoI(xPost, gp))
 
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(24, 12)) # horizontal stacked subplots
+        # fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(24, 12)) # horizontal stacked subplots
         xPlot = np.linspace(x.min(), x.max(), num=10000)
         qxTrue = GKDE(xObs)
         qxTest = GKDE(xPost) # posterior in x
-        ax1.plot(xPlot, 1/(x.max()-x.min()*np.ones(xPlot.shape)), c='tab:blue', linestyle='-', linewidth=4, label=r'$\pi^{init}(\phi)$')
-        ax1.plot(xPlot, qxTest(xPlot), c='tab:red',  linestyle='--', linewidth=4, label=r'$\pi^{up}(\phi)$')
-        ax1.plot(xPlot, qxTrue(xPlot), c='tab:green',  linestyle=':', linewidth=4, label=r'$\pi^{true}(\phi)$')
-        ax1.axvline(x=xPlot[np.argmax(qxTest(xPlot))], color='tab:red', linestyle='-', linewidth=4, label=r'MAP: $\pi^{up}(\phi)$', alpha=0.25)
-        ax1.axvline(x=xPlot[np.argmax(qxTrue(xPlot))], color='tab:green', linestyle='-', linewidth=4, label=r'MAP: $\pi^{true}(\phi)$', alpha=0.25)
-        ax1.legend(loc='best',fontsize=36, frameon=False)
-        ax1.set_xlabel(r'$\phi$', fontsize=36)
-        ax1.set_ylabel(r'pdf($\phi$)', fontsize=36)
-        ax1.set_ylim(bottom=1e-4)
-        ax1.set_xlim(left=x.min(), right=x.max())
+
+        if isFigureSaved: # plot on parameter space
+            ax1.plot(xPlot, 1/(x.max()-x.min()*np.ones(xPlot.shape)), c='tab:blue', linestyle='-', linewidth=4, label=r'$\pi^{init}(\phi)$')
+            ax1.plot(xPlot, qxTest(xPlot), c='tab:red',  linestyle='--', linewidth=4, label=r'$\pi^{up}(\phi)$')
+            ax1.plot(xPlot, qxTrue(xPlot), c='tab:green',  linestyle=':', linewidth=4, label=r'$\pi^{true}(\phi)$')
+            ax1.axvline(x=xPlot[np.argmax(qxTest(xPlot))], color='tab:red', linestyle='-', linewidth=4, label=r'MAP: $\pi^{up}(\phi)$', alpha=0.25)
+            ax1.axvline(x=xPlot[np.argmax(qxTrue(xPlot))], color='tab:green', linestyle='-', linewidth=4, label=r'MAP: $\pi^{true}(\phi)$', alpha=0.25)
+            ax1.legend(loc='best',fontsize=36, frameon=False)
+            ax1.set_xlabel(r'$\phi$', fontsize=36)
+            ax1.set_ylabel(r'pdf($\phi$)', fontsize=36)
+            ax1.set_ylim(bottom=1e-4)
+            ax1.set_xlim(left=x.min(), right=x.max())
+
+        # collect diagnostics info
+        statsDiagnostics += [xPlot[np.argmax(qxTest(xPlot))], xPlot[np.argmax(qxTrue(xPlot))]]
 
         qplot = np.linspace(yPrior.min(), yPrior.max(), num=1000)
-        ax2.plot(qplot, qPrior(qplot), c='tab:blue', linestyle='-', linewidth=4, label=r'$Q(\pi^{init}(\phi))$')
-        ax2.plot(qplot, qObs(qplot) ,  c='tab:red', linestyle='--', linewidth=4, label=r'$\pi^{obs}$', alpha=1)
-        ax2.plot(qplot, qPost(qplot),  c='tab:green',  linestyle=':', linewidth=4, label=r'$Q(\pi^{up}(\phi))$', alpha=1)
-        ax2.legend(loc='best',fontsize=36, frameon=False)
-        ax2.set_xlabel(r'$\sigma$', fontsize=36)
-        ax2.set_ylabel(r'pdf($\sigma$)', fontsize=36)
-        ax2.set_ylim(bottom=1e-4)
-        ax2.set_xlim(left=yPrior.min(), right=yPrior.max())
-        plt.savefig('results/idxStressStrain-%d-CBayesResults-%s.png' % (idxStressStrain, str(testIdx)), dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
+        if isFigureSaved: # plot on observation spaces
+            ax2.plot(qplot, qPrior(qplot), c='tab:blue', linestyle='-', linewidth=4, label=r'$Q(\pi^{init}(\phi))$')
+            ax2.plot(qplot, qObs(qplot) ,  c='tab:red', linestyle='--', linewidth=4, label=r'$\pi^{obs}$', alpha=1)
+            ax2.plot(qplot, qPost(qplot),  c='tab:green',  linestyle=':', linewidth=4, label=r'$Q(\pi^{up}(\phi))$', alpha=1)
+            ax2.legend(loc='best',fontsize=36, frameon=False)
+            ax2.set_xlabel(r'$\sigma$', fontsize=36)
+            ax2.set_ylabel(r'pdf($\sigma$)', fontsize=36)
+            ax2.set_ylim(bottom=1e-4)
+            ax2.set_xlim(left=yPrior.min(), right=yPrior.max())
+            plt.savefig('results/idxStressStrain-%d-CBayesResults-%s.png' % (idxStressStrain, str(testIdx)), dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
+
+    print(statsDiagnostics) # print diagnostics to screen

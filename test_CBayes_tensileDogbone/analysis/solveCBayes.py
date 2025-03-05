@@ -84,7 +84,7 @@ def getInterpStressStrain(StressStrainFile):
 
 # Set indices
 # idxStressStrain = 25
-for idxStressStrain in range(2,3):
+for idxStressStrain in range(2,26):
     statsDiagnostics = [idxStressStrain] # parse strings to print stat diagnostics
     poroType = 'local'
     poroIdx = 1
@@ -165,7 +165,7 @@ for idxStressStrain in range(2,3):
         xPost = xPrior[samples_to_keep]
         qPost = GKDE(QoI(xPost, gp))
 
-        # fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(24, 12)) # horizontal stacked subplots
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(24, 12)) # horizontal stacked subplots
         xPlot = np.linspace(x.min(), x.max(), num=10000)
         qxTrue = GKDE(xObs)
         qxTest = GKDE(xPost) # posterior in x

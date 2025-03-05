@@ -10,8 +10,13 @@ from scipy.interpolate import interp1d
 from scipy.interpolate import PchipInterpolator
 from scipy.stats import norm # The standard Normal distribution
 from scipy.stats import gaussian_kde as GKDE # A standard kernel density estimator
+import argparse
 
-isFigureSaved = False # True or False: whether to dump figures or not 
+parser = argparse.ArgumentParser(description="option to save figures")
+parser.add_argument("--save-figure", default=False, help="Save the figure (default: False)")
+
+args = parser.parse_args()
+isFigureSaved = args.save_figure # False or True: whether to dump figures or not 
 
 mpl.rcParams['xtick.labelsize'] = 36
 mpl.rcParams['ytick.labelsize'] = 36
@@ -79,7 +84,7 @@ def getInterpStressStrain(StressStrainFile):
 
 # Set indices
 # idxStressStrain = 25
-for idxStressStrain in range(20,26):
+for idxStressStrain in range(2,3):
     statsDiagnostics = [idxStressStrain] # parse strings to print stat diagnostics
     poroType = 'local'
     poroIdx = 1

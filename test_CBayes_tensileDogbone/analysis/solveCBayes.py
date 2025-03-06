@@ -136,6 +136,7 @@ for idxStressStrain in range(2,26):
         plt.xlim(left=x.min(), right=x.max())
         plt.savefig('results/idxStressStrain-%d-gpr.png' % (idxStressStrain), dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
         plt.clf()
+        plt.close()
 
     # Solve consistent Bayesian (or DCI)
     def QoI(lam, gp): # defing a QoI mapping function
@@ -196,5 +197,7 @@ for idxStressStrain in range(2,26):
             ax2.set_ylim(bottom=1e-4)
             ax2.set_xlim(left=yPrior.min(), right=yPrior.max())
             plt.savefig('results/idxStressStrain-%d-CBayesResults-%s.png' % (idxStressStrain, str(testIdx)), dpi=300, facecolor='w', edgecolor='w', orientation='portrait', format=None, transparent=False, bbox_inches='tight', pad_inches=0.1, metadata=None)
+            plt.clf()
+            plt.close()
 
     print(statsDiagnostics) # print diagnostics to screen

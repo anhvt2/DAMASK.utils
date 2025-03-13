@@ -93,5 +93,5 @@ Graph(g,
 
 # nx.draw(g, with_labels=False, node_color=node_color.values(), edge_color="gray", node_size=1000, font_size=12)
 
-plt.show()
-
+# plt.show()
+plt.savefig('graph_' + fileName.split('.')[0] + '.png')

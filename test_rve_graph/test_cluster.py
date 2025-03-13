@@ -1,13 +1,15 @@
 # https://stackoverflow.com/questions/43541376/how-to-draw-communities-with-networkx
 import matplotlib.pyplot as plt
 import networkx as nx
+import numpy as np
+import matplotlib.colors as mcolors
 
 # installation easiest via pip:
 # pip install netgraph
 from netgraph import Graph
 
 # create a modular graph
-partition_sizes = [1, 2, 3, 4]
+partition_sizes = np.array([1, 2, 3, 4])*3
 g = nx.random_partition_graph(partition_sizes, 0.5, 0.1)
 
 # since we created the graph, we know the best partition:
@@ -24,10 +26,10 @@ for community_id, size in enumerate(partition_sizes):
 
 cmap = plt.get_cmap('coolwarm')
 community_to_color = {
-    0 : cmap(0),
-    1 : cmap(0.25),
-    2 : cmap(0.50),
-    3 : cmap(0.75),
+    0 : mcolors.to_hex(cmap(0)),
+    1 : mcolors.to_hex(cmap(0.33)),
+    2 : mcolors.to_hex(cmap(0.66)),
+    3 : mcolors.to_hex(cmap(1.0)),
 }
 node_color = {node: community_to_color[community_id] for node, community_id in node_to_community.items()}
 

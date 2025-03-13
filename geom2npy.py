@@ -96,7 +96,7 @@ geom = geom.split(' ')
 geom = list(filter(('').__ne__, geom))
 
 # Convert from 1 line format to 3d format
-geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
+geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T # to reverse: geom = geom.T.flatten()
 
 # Save output
 np.save(outFileName + '.npy', geom)

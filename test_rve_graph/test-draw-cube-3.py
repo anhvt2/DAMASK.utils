@@ -3,7 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 
 axes = [5, 5, 5]
-data = np.ones(axes, dtype=np.bool)
+data = np.ones(axes, dtype=np.bool_)
 
 colors = np.empty(axes + [4], dtype=np.float32)
 

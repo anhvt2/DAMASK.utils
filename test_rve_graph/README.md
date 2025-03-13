@@ -8,6 +8,10 @@ Connection:
 
 We will address graph in terms of cut/edit distance, and maybe attributes of the nodes.
 
+# Packages
+
+`netgraph` from https://github.com/paulbrodersen/netgraph
+
 # TODO
 
 Develop a function from RVE to graph

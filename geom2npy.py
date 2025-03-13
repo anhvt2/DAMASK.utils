@@ -94,7 +94,11 @@ for i in range(len(geomBlock)):
 
 geom = geom.split(' ')
 geom = list(filter(('').__ne__, geom))
+
+# Convert from 1 line format to 3d format
 geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
+
+# Save output
 np.save(outFileName + '.npy', geom)
 save_array2vti(outFileName + '.vti', geom)
 

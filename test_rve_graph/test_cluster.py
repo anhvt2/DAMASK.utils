@@ -7,7 +7,7 @@ import networkx as nx
 from netgraph import Graph
 
 # create a modular graph
-partition_sizes = [10, 20, 30, 40]
+partition_sizes = [1, 2, 3, 4]
 g = nx.random_partition_graph(partition_sizes, 0.5, 0.1)
 
 # since we created the graph, we know the best partition:
@@ -22,11 +22,12 @@ for community_id, size in enumerate(partition_sizes):
 # from community import community_louvain
 # node_to_community = community_louvain.best_partition(g)
 
+cmap = plt.get_cmap('coolwarm')
 community_to_color = {
-    0 : 'tab:blue',
-    1 : 'tab:orange',
-    2 : 'tab:green',
-    3 : 'tab:red',
+    0 : cmap(0),
+    1 : cmap(0.25),
+    2 : cmap(0.50),
+    3 : cmap(0.75),
 }
 node_color = {node: community_to_color[community_id] for node, community_id in node_to_community.items()}
 

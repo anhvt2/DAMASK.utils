@@ -1,6 +1,29 @@
+import numpy as np
+import os, sys
+import time
+import scipy
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
+
+
+mpl.rcParams['xtick.labelsize'] = 18
+mpl.rcParams['ytick.labelsize'] = 24
+SolidIdx = np.loadtxt('SolidIdx.dat', dtype=int)
+
+fois = ['MisesCauchy', 'MisesLnV'] # fields of interest
+labels = [r'$\sigma_{vM}$', r'$\varepsilon_{vM}$']
+# fois = ['MisesCauchy'] # fields of interest
+# fois = ['MisesLnV'] # fields of interest
+
+t_start = time.time()
+
+foi = 'MisesCauchy'
+# Load data
+d = np.load(f'd_{foi}.npy') # Original data
 
 # Define the Autoencoder class
 class Autoencoder(nn.Module):
@@ -17,7 +40,7 @@ class Autoencoder(nn.Module):
         return decoded
 
 # Function to train the autoencoder
-def train_autoencoder(data, latent_dim=10, epochs=100, lr=0.001, lambda_reg=0.01):
+def train_autoencoder(data, latent_dim=10, epochs=100, lr=0.001, lambda_reg=4e0):
     input_dim = data.shape[0]  # Each column is a sample
     data = torch.tensor(data, dtype=torch.float32).T  # Transpose to have samples as rows
     

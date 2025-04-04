@@ -89,7 +89,7 @@ def geom2npy(fileName):
     headers = txt[:numSkippingLines] # also return headers
     return Nx_grid, Ny_grid, Nz_grid, Nx_size, Ny_size, Nz_size, geom, headers
 
-def renumerate(geom, startIndex=0, cluster=False):
+def renumerate(geom, startIndex=0, cluster=False, excludeList=None):
     ''' 
     This function renumerates so that the DEFAULT grain index starts at ZERO (0) and (gradually) increases by 1. 
     Input
@@ -104,6 +104,11 @@ def renumerate(geom, startIndex=0, cluster=False):
         3d npy array
     '''
     grainIdxList = np.sort(np.unique(geom))
+
+    # Remove grains from excludeList from being segmented, e.g. air
+    if excludeList is not None:
+        grainIdxList = np.setdiff1d(grainIdxList, excludeList)
+
     renumeratedGeom = np.copy(geom) # make a deep copy
     maxGrainId = np.max(grainIdxList)
     if cluster==True:
@@ -317,8 +322,8 @@ for solidIdx in solidIdxList:
 
 # renumerate geom
 logging.info(f'-------------- RE-ENUMERATION ---------------')
-geom = renumerate(geom, startIndex=1, cluster=True)  # clustering: this step does not renumerate but only cluster
-geom = renumerate(geom, startIndex=1, cluster=False) # index start at 1: this step renumerate without clustering
+geom = renumerate(geom, startIndex=1, cluster=True, excludeList=[1])  # clustering: this step does not renumerate but only cluster
+geom = renumerate(geom, startIndex=1, cluster=False, excludeList=[1]) # index start at 1: this step renumerate without clustering
 updatedNumVoids = len(voidIdxList)
 updatedSolidIdx = 1 + updatedNumVoids + 1
 updatedNumGrains = np.max(geom) - updatedSolidIdx + 1

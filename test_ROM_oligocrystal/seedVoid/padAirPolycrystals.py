@@ -71,15 +71,16 @@ def geom2npy(fileName):
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument("-g", "--origGeomFileName", help='original geom fileName', type=str, required=True)
+parser.add_argument("-numAirVoxels", "--numAirVoxels", help='number of air voxels to break PBC', type=int, required=False, default=2)
 args = parser.parse_args()
 origGeomFileName = args.origGeomFileName # e.g. 'singleCrystal_res_50um.geom'
-
+numAirVoxels = args.numAirVoxels # default = 2, for MF-ROM set = 4
 
 paddedGeomFileName = 'padded_' + origGeomFileName
 Nx_grid, Ny_grid, Nz_grid, Nx_size, Ny_size, Nz_size, origGeom, headers = geom2npy(origGeomFileName)
 
 # Create paddedGeom with air
-numAirVoxels = 2 # number of air voxels on each side
+# numAirVoxels = 2 # number of air voxels on each side
 paddedGeom = np.ones([Nx_grid, Ny_grid+2*numAirVoxels, Nz_grid]) # assume void id = 1
 paddedGeom[:, numAirVoxels:Ny_grid+numAirVoxels] = origGeom # copy original geom
 

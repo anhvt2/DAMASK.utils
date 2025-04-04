@@ -1,20 +1,20 @@
 #!/bin/bash
 
-# export spkFileName="dump.additive_dogbone.2807"
-
-# python3 seedVoid.py \
-#     --origGeomFileName ${spkFileName}.geom \
-#     --voidPercentage 3 \
-#     --voidDictionary voidEquiaxed.geom \
-#     --phaseFileName phase_dump_12_out.npy
-
-export spkFileName="additive_dogbone.1817"
-
+### 50um attempt
+export spkFileName="dump.additive_dogbone.2807"
 python3 seedVoid.py \
     --origGeomFileName ${spkFileName}.geom \
     --voidPercentage 3 \
     --voidDictionary voidEquiaxed.geom \
-    --phaseFileName phase_dump_10_out.npy
+    --phaseFileName phase_dump_12_out.npy
+
+### 10 um attempt
+# export spkFileName="additive_dogbone.1817"
+# python3 seedVoid.py \
+#     --origGeomFileName ${spkFileName}.geom \
+#     --voidPercentage 3 \
+#     --voidDictionary voidEquiaxed.geom \
+#     --phaseFileName phase_dump_10_out.npy
 
 python3 padAirPolycrystals.py --origGeomFileName="voidSeeded_3.000pc_${spkFileName}.geom"
 

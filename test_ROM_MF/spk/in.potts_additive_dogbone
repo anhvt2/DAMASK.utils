@@ -36,10 +36,10 @@ variable    tailHaz         equal   25
 variable    depthHaz        equal   12
 variable    capHaz          equal   5
 
-variable    thickness       equal   ${meltDepth}
+variable    thickness       equal   floor((${meltDepth}+${depthHaz})/2)
 variable    numLayers       equal   floor(${Nz}/${meltDepth})+1
 
-variable    speed           equal   10
+variable    speed           equal   12
 variable    hatchSpacing    equal   10
 
 #———————————————————————————————————————————

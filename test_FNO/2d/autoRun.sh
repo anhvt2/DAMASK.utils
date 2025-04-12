@@ -12,7 +12,7 @@ for ((i=1; i<=${numSimulations}; i++)); do
 
     # Move file to local folder
     mkdir -p ${i}
-    mv dream3d.material.config material.config simple2d.geom simple2d.png $i
+    mv dream3d.material.config material.config simple2d.geom $i
 
     # Run simulations
     cd ${i}

@@ -1,0 +1,281 @@
+---
+stages:
+  - prepare
+  - python
+  - compile
+  - fortran
+  - statistics
+  - finalize
+
+
+###################################################################################################
+default:
+  before_script:
+    - ${LOCAL_HOME}/bin/queue2 ${CI_JOB_ID} ${TOKEN}
+    - source env/DAMASK.sh
+    - export PATH=${TESTROOT}/bin:${PATH}
+    - echo Job start:" $(date)"
+  after_script:
+    - echo Job end:" $(date)"
+
+
+###################################################################################################
+variables:
+  # ===============================================================================================
+  # GitLab Settings
+  # ===============================================================================================
+  GIT_SUBMODULE_STRATEGY: normal
+
+  # ===============================================================================================
+  # Shortcut names
+  # ===============================================================================================
+  TESTROOT:   "$LOCAL_HOME/GitLabCI_Pipeline_$CI_PIPELINE_ID"
+
+  # ===============================================================================================
+  # Names of module files to load
+  # ===============================================================================================
+  # ++++++++++++ Compiler +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  COMPILER_GNU: "Compiler/GNU/10"
+  COMPILER_INTELLLVM: "Compiler/oneAPI/2022.0.1 Libraries/IMKL/2022.0.1"
+  COMPILER_INTEL: "Compiler/Intel/2022.0.1 Libraries/IMKL/2022.0.1"
+  # ++++++++++++ MPI ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  MPI_GNU: "MPI/GNU/10/OpenMPI/4.1.2"
+  MPI_INTELLLVM: "MPI/oneAPI/2022.0.1/IntelMPI/2021.5.0"
+  MPI_INTEL: "MPI/Intel/2022.0.1/IntelMPI/2021.5.0"
+  # ++++++++++++ PETSc ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  PETSC_GNU: "Libraries/PETSc/3.16.4/GNU-10-OpenMPI-4.1.2"
+  PETSC_INTELLLVM: "Libraries/PETSc/3.16.3/oneAPI-2022.0.1-IntelMPI-2021.5.0"
+  PETSC_INTEL: "Libraries/PETSc/3.16.5/Intel-2022.0.1-IntelMPI-2021.5.0"
+  # ++++++++++++ MSC Marc +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  MSC: "FEM/MSC/2023.4"
+  IntelMarc: "Compiler/Intel/19.1.2 Libraries/IMKL/2020"
+  HDF5Marc: "HDF5/1.12.2/Intel-19.1.2"
+
+
+###################################################################################################
+create_testroot:
+  stage: prepare
+  before_script:
+    - ${LOCAL_HOME}/bin/queue2 ${CI_JOB_ID} ${TOKEN}
+    - echo Job start:" $(date)"
+  script:
+    - mkdir -p ${TESTROOT}
+
+
+###################################################################################################
+setuptools:
+  stage: python
+  script:
+    - sed -i 's/-[[:digit:]]*-.*//' VERSION
+    - cd python
+    - python3 -m build --wheel --no-isolation
+
+pytest:
+  stage: python
+  script:
+    - cd python
+    - pytest --basetemp ${TESTROOT}/python -v --cov --damaskroot=${CI_PROJECT_DIR}
+    - coverage report --fail-under=90 --show-missing
+
+mypy:
+  stage: python
+  script:
+    - cd python
+    - mypy damask
+
+
+###################################################################################################
+unittest_GNU_DEBUG:
+  stage: compile
+  script:
+    - module load ${COMPILER_GNU} ${MPI_GNU} ${PETSC_GNU}
+    - TEMPDIR=$(mktemp -d)
+    - cmake -B ${TEMPDIR} -DDAMASK_SOLVER=test -DCMAKE_INSTALL_PREFIX=${TEMPDIR} -DCMAKE_BUILD_TYPE=RELEASE -DBUILDCMD_POST=-coverage
+    - cmake --build ${TEMPDIR} --target install
+    - cd ${TEMPDIR}
+    - ./bin/DAMASK_test
+    - find -name \*.gcda -not -path "**/test/*" | xargs gcov
+
+unittest_GNU_RELEASE:
+  stage: compile
+  script:
+    - module load ${COMPILER_GNU} ${MPI_GNU} ${PETSC_GNU}
+    - TEMPDIR=$(mktemp -d)
+    - cmake -B ${TEMPDIR} -DDAMASK_SOLVER=test -DCMAKE_INSTALL_PREFIX=${TEMPDIR} -DCMAKE_BUILD_TYPE=RELEASE -DBUILDCMD_POST=-coverage
+    - cmake --build ${TEMPDIR} --target install
+    - cd ${TEMPDIR}
+    - ./bin/DAMASK_test
+    - find -name \*.gcda -not -path "**/test/*" | xargs gcov
+
+unittest_GNU_PERFORMANCE:
+  stage: compile
+  script:
+    - module load ${COMPILER_GNU} ${MPI_GNU} ${PETSC_GNU}
+    - TEMPDIR=$(mktemp -d)
+    - cmake -B ${TEMPDIR} -DDAMASK_SOLVER=test -DCMAKE_INSTALL_PREFIX=${TEMPDIR} -DCMAKE_BUILD_TYPE=PERFORMANCE -DBUILDCMD_POST=-coverage
+    - cmake --build ${TEMPDIR} --target install
+    - cd ${TEMPDIR}
+    - ./bin/DAMASK_test
+    - find -name \*.gcda -not -path "**/test/*" | xargs gcov
+
+
+grid_GNU:
+  stage: compile
+  script:
+    - module load ${COMPILER_GNU} ${MPI_GNU} ${PETSC_GNU}
+    - cd PRIVATE/testing
+    - pytest -k 'compile and grid' --basetemp ${TESTROOT}/compile_grid_GNU
+
+mesh_GNU:
+  stage: compile
+  script:
+    - module load ${COMPILER_GNU} ${MPI_GNU} ${PETSC_GNU}
+    - cd PRIVATE/testing
+    - pytest -k 'compile and mesh' --basetemp ${TESTROOT}/compile_mesh_GNU
+
+grid_GNU-64bit:
+  stage: compile
+  script:
+    - module load Compiler/GNU/10 Libraries/PETSc/3.16.4/64bit
+    - cd PRIVATE/testing
+    - pytest -k 'compile and grid' --basetemp ${TESTROOT}/compile_grid_GNU-64bit
+
+mesh_GNU-64bit:
+  stage: compile
+  script:
+    - module load Compiler/GNU/10 Libraries/PETSc/3.16.4/64bit
+    - cd PRIVATE/testing
+    - pytest -k 'compile and mesh' --basetemp ${TESTROOT}/compile_mesh_GNU-64bit
+
+grid_IntelLLVM:
+  stage: compile
+  script:
+    - module load ${COMPILER_INTELLLVM} ${MPI_INTELLLVM} ${PETSC_INTELLLVM}
+    - cd PRIVATE/testing
+    - pytest -k 'compile and grid' --basetemp ${TESTROOT}/compile_grid_IntelLLVM
+
+mesh_IntelLLVM:
+  stage: compile
+  script:
+    - module load ${COMPILER_INTELLLVM} ${MPI_INTELLLVM} ${PETSC_INTELLLVM}
+    - cd PRIVATE/testing
+    - pytest -k 'compile and mesh' --basetemp ${TESTROOT}/compile_mesh_IntelLLVM
+
+grid_Intel:
+  stage: compile
+  script:
+    - module load ${COMPILER_INTEL} ${MPI_INTEL} ${PETSC_INTEL}
+    - cd PRIVATE/testing
+    - pytest -k 'compile and grid' --basetemp ${TESTROOT}/compile_grid_Intel
+
+mesh_Intel:
+  stage: compile
+  script:
+    - module load ${COMPILER_INTEL} ${MPI_INTEL} ${PETSC_INTEL}
+    - cd PRIVATE/testing
+    - pytest -k 'compile and mesh' --basetemp ${TESTROOT}/compile_mesh_Intel
+
+Marc_Intel:
+  stage: compile
+  script:
+    - module load $IntelMarc $HDF5Marc $MSC
+    - cd PRIVATE/testing
+    - pytest -k 'compile and Marc' --basetemp ${TESTROOT}/compile_Marc
+
+setup_grid:
+  stage: compile
+  script:
+    - module load ${COMPILER_INTEL} ${MPI_INTEL} ${PETSC_INTEL}
+    - cd $(mktemp -d)
+    - cmake -DDAMASK_SOLVER=GRID -DCMAKE_INSTALL_PREFIX=${TESTROOT} ${CI_PROJECT_DIR}
+    - make -j2 all install
+
+setup_mesh:
+  stage: compile
+  script:
+    - module load ${COMPILER_INTEL} ${MPI_INTEL} ${PETSC_INTEL}
+    - cd $(mktemp -d)
+    - cmake -DDAMASK_SOLVER=MESH -DCMAKE_INSTALL_PREFIX=${TESTROOT} ${CI_PROJECT_DIR}
+    - make -j2 all install
+
+setup_Marc:
+  stage: compile
+  script:
+    - module load $IntelMarc $HDF5Marc $MSC
+    - cd $(mktemp -d)
+    - cp ${CI_PROJECT_DIR}/examples/Marc/* .
+    - python3 -c "import damask;damask.solver.Marc().submit_job('r-value','texture',True,'h')"
+    - mkdir -p ${TESTROOT}/src/Marc
+    - mv ${CI_PROJECT_DIR}/src/Marc/DAMASK_Marc.marc ${TESTROOT}/src/Marc
+
+
+###################################################################################################
+open-source:
+  stage: fortran
+  script:
+    - module load ${COMPILER_INTEL} ${MPI_INTEL} ${PETSC_INTEL}
+    - cd PRIVATE/testing
+    - pytest -k 'not compile and not Marc' -m 'not cifail' --basetemp ${TESTROOT}/open-source -v
+
+Marc:
+  stage: fortran
+  script:
+    - cd PRIVATE/testing
+    - pytest -k 'not compile and Marc' -m 'not cifail' --damask-root=${TESTROOT} --basetemp ${TESTROOT}/Marc -v
+
+# Needs closer look
+# Phenopowerlaw_singleSlip:
+#   stage: fortran
+#   script: Phenopowerlaw_singleSlip/test.py
+
+
+###################################################################################################
+grid_performance:
+  stage: statistics
+  before_script:
+    - ${LOCAL_HOME}/bin/queue2 ${CI_JOB_ID} ${TOKEN} --blocking
+    - source env/DAMASK.sh
+    - echo Job start:" $(date)"
+  script:
+    - module load ${COMPILER_INTEL} ${MPI_INTEL} ${PETSC_INTEL}
+    - cd $(mktemp -d)
+    - cmake -DOPTIMIZATION=AGGRESSIVE -DDAMASK_SOLVER=GRID -DCMAKE_INSTALL_PREFIX=./ ${CI_PROJECT_DIR}
+    - make -j2 all install
+    - export PATH=${PWD}/bin:${PATH}
+    - cd $(mktemp -d)
+    - git clone -q git@git.damask.mpie.de:damask/statistics.git .
+    - ./measure_performance.py --input_dir ${CI_PROJECT_DIR}/examples/grid --tag ${CI_COMMIT_SHA}
+    - >
+        if [ ${CI_COMMIT_BRANCH} == development ]; then
+          git add performance.txt
+          git commit -m ${CI_PIPELINE_ID}_${CI_COMMIT_SHA}
+          git push
+        fi
+
+
+###################################################################################################
+update_website:
+  stage: finalize
+  trigger:
+    project: damask/website
+    branch: master
+  only:
+    - development
+
+update_revision:
+  stage: finalize
+  before_script:
+    - ${LOCAL_HOME}/bin/queue2 ${CI_JOB_ID} ${TOKEN}
+    - echo Job start:" $(date)"
+  script:
+    - cd $(mktemp -d)
+    - git clone -q git@git.damask.mpie.de:damask/DAMASK.git .
+    - git pull
+    - export VERSION=$(git describe ${CI_COMMIT_SHA})
+    - echo ${VERSION:1} > VERSION
+    - >
+       git diff-index --quiet HEAD ||
+       git commit VERSION -m "[skip ci] updated version information after successful test of $VERSION"
+    - if [ ${CI_COMMIT_SHA} == $(git rev-parse HEAD^) ]; then git push --atomic --no-verify origin HEAD:development HEAD:master; fi
+  only:
+    - development

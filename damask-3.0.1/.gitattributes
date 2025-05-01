@@ -1,0 +1,24 @@
+# from https://help.github.com/articles/dealing-with-line-endings/
+#
+# always use LF, even if the files are edited on windows, they need to be compiled/used on unix
+* text eol=lf
+
+# Denote all files that are binary and should not be modified.
+*.png binary
+*.jpg binary
+*.hdf5 binary
+*.pdf binary
+*.dream3d binary
+*.pbz2 binary
+*.vtk binary
+
+# ignore files from MSC.Marc in language statistics
+install/MarcMentat/** linguist-vendored
+src/Marc/include/* linguist-vendored
+install/MarcMentat/MSC_modifications.py linguist-vendored=false
+
+# ignore reference files for tests in language statistics
+python/tests/resources/** linguist-vendored
+
+# ignore deprecated scripts
+processing/legacy/** linguist-vendored

@@ -19,7 +19,10 @@ for ((i=1; i<=${numSimulations}; i++)); do
 	cp ../tension.load .
 	cp ../numProcessors.dat .
 	cp ../sbatch.damask.srn .
-	# ssubmit
+
+	# ssubmit # SRN
+	$DAMASK_spectral --geom simple2d.geom --load tension.load # s1057681
+
     cd ..
 
     echo "End simulation $i"

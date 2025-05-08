@@ -72,7 +72,8 @@ gnu_list = [
 def load_random_module(module_list):
     seed = np.random.randint(low=0,high=len(module_list)+1)
     if seed < len(module_list): # if seed = len(module_list) then don't load this module
-        print(f'module load {module_list[seed]}')
+        # print(f'module load {module_list[seed]}')
+        os.system(f'module load {module_list[seed]}')
     # else:
     #     print(f"Did not load module in {module_list}")
 
@@ -96,3 +97,4 @@ while not os.path.isfile('./bin/DAMASK_spectral'):
     os.system('module list ')
     os.system(f"make clean")
     os.system(f"make")
+    os.system('sleep 2')

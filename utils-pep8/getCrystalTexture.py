@@ -36,7 +36,8 @@ while i < len(lines):
             grain_id = int(grain_match.group(1))
             if i + 1 < len(lines):
                 data_line = lines[i + 1]
-                angle_match = re.search(r'phi1\s+([0-9.]+)\s+Phi\s+([0-9.]+)\s+phi2\s+([0-9.]+)', data_line)
+                angle_match = re.search(
+                    r'phi1\s+([0-9.]+)\s+Phi\s+([0-9.]+)\s+phi2\s+([0-9.]+)', data_line)
                 if angle_match:
                     phi1 = float(angle_match.group(1))
                     Phi = float(angle_match.group(2))

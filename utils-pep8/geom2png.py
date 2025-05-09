@@ -1,7 +1,8 @@
 
 import numpy as np
-import glob, os
-from natsort import natsorted, ns # natural-sort
+import glob
+import os
+from natsort import natsorted, ns  # natural-sort
 import pyvista
 import argparse
 import matplotlib.pyplot as plt
@@ -26,15 +27,19 @@ vti file: spk_dump_12_out.vti
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-g", "--geom", type=str, required=True)
-parser.add_argument("-threshold", "--threshold", help='threshold', type=int, default=-1, required=False)
-parser.add_argument("-nameTag", "--nameTag", help='', type=str, default='', required=False)
-parser.add_argument("-show_edges", "--show_edges", help='pyvista show_edges', type=lambda x:bool(strtobool(x)), default=True, required=False, nargs='?', const=True)
+parser.add_argument("-threshold", "--threshold",
+                    help='threshold', type=int, default=-1, required=False)
+parser.add_argument("-nameTag", "--nameTag", help='',
+                    type=str, default='', required=False)
+parser.add_argument("-show_edges", "--show_edges", help='pyvista show_edges',
+                    type=lambda x: bool(strtobool(x)), default=True, required=False, nargs='?', const=True)
 args = parser.parse_args()
 
 filename = args.geom
 threshold = args.threshold
 show_edges = bool(args.show_edges)
 nameTag = args.nameTag
+
 
 def save_array2vti(file_name, array):
     import vtk
@@ -55,7 +60,8 @@ def save_array2vti(file_name, array):
     - None
     """
     # Convert the numpy array to a VTK array
-    vtk_data_array = numpy_to_vtk(array.T.flatten(), deep=True, array_type=vtk.VTK_INT)
+    vtk_data_array = numpy_to_vtk(
+        array.T.flatten(), deep=True, array_type=vtk.VTK_INT)
     # Create an image data object and set its dimensions and scalars
     image_data = vtk.vtkImageData()
     image_data.SetDimensions(array.shape)
@@ -82,11 +88,13 @@ def delete(lst, to_delete):
     '''
     return [element for element in lst if element != to_delete]
 
-outFileName = filename[:-5] # deprecate filename.split('.')[0] to avoid '.' in outFileName
+
+# deprecate filename.split('.')[0] to avoid '.' in outFileName
+outFileName = filename[:-5]
 fileHandler = open(filename)
 txt = fileHandler.readlines()
 fileHandler.close()
-numSkippingLines = int(txt[0].split(' ')[0])+1 
+numSkippingLines = int(txt[0].split(' ')[0])+1
 # Search for 'size' within header:
 for j in range(numSkippingLines):
     if 'grid' in txt[j]:
@@ -104,19 +112,21 @@ geom = geom.split(' ')
 geom = list(filter(('').__ne__, geom))
 
 # Convert from 1 line format to 3d format
-geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T # to reverse: geom = geom.T.flatten()
+geom = np.array(geom, dtype=int).reshape(
+    Nz, Ny, Nx).T  # to reverse: geom = geom.T.flatten()
 
-grid = pyvista.UniformGrid() # old pyvista
+grid = pyvista.UniformGrid()  # old pyvista
 # grid = pyvista.ImageData() # new pyvista
 # grid = pyvista.RectilinearGrid()
 grid.dimensions = np.array(geom.shape) + 1
 grid.origin = (0, 0, 0)     # The bottom left corner of the data set
 grid.spacing = (1, 1, 1)    # These are the cell sizes along each axis
-grid.cell_data["microstructure"] = geom.flatten(order="F") # ImageData()
+grid.cell_data["microstructure"] = geom.flatten(order="F")  # ImageData()
 
 pl = pyvista.Plotter(off_screen=True)
 cmap = plt.cm.get_cmap('coolwarm')
-pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure', show_edges=show_edges, line_width=1, cmap=cmap)
+pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure',
+            show_edges=show_edges, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()
 # pl.show(screenshot='%s.png' % filename[:-4])
@@ -128,15 +138,10 @@ if geom.shape[2] == 1:
     pl.camera_position = 'xy'
 
 if nameTag == '':
-    pl.screenshot(filename[:-5] + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-5] + '.png', window_size=[1860*6, 968*6])
 else:
-    pl.screenshot(filename[:-5] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-5] + '_' + nameTag +
+                  '.png', window_size=[1860*6, 968*6])
 
 # pl.close()
 gc.collect()
-
-
-
-
-
-

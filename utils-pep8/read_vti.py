@@ -1,7 +1,8 @@
-### Copyright by Leidong Xu and Zihan Wang
+# Copyright by Leidong Xu and Zihan Wang
 
 import vtk
 from vtk.util.numpy_support import vtk_to_numpy
+
 
 def load_vti_to_array(file_name):
     """
@@ -28,6 +29,7 @@ def load_vti_to_array(file_name):
 
     # Reshape the numpy array to the dimensions of the image data
     dimensions = image_data.GetDimensions()
-    np_array = np_array.reshape(dimensions, order='F')  # 'F' to match VTK's Fortran-style order
+    # 'F' to match VTK's Fortran-style order
+    np_array = np_array.reshape(dimensions, order='F')
 
     return np_array

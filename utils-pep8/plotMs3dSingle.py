@@ -2,7 +2,8 @@
 
 import pyvista
 import matplotlib.pyplot as plt
-import glob, os
+import glob
+import os
 import argparse
 parser = argparse.ArgumentParser()
 
@@ -17,9 +18,12 @@ parser = argparse.ArgumentParser()
     an image: filename.split('.')[0] + '_' + nameTag + '.png'
 '''
 
-parser.add_argument("-f", "--filename", help='.vtr file', type=str, default='', required=True) 
-parser.add_argument("-n", "--nameTag", help='append to filename', type=str, default='', required=False) 
-parser.add_argument("-show_edges", "--show_edges", help='append to filename', type=bool, default=True, required=False)
+parser.add_argument("-f", "--filename", help='.vtr file',
+                    type=str, default='', required=True)
+parser.add_argument("-n", "--nameTag", help='append to filename',
+                    type=str, default='', required=False)
+parser.add_argument("-show_edges", "--show_edges",
+                    help='append to filename', type=bool, default=True, required=False)
 args = parser.parse_args()
 filename = args.filename
 nameTag = args.nameTag
@@ -68,10 +72,9 @@ pl.remove_scalar_bar()
 # pl.show()
 if nameTag == '':
     # pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860*6,968*6])
-    pl.screenshot(filename[:-4] + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-4] + '.png', window_size=[1860*6, 968*6])
 else:
     # pl.screenshot(filename.split('.')[0] + nameTag + '.png', window_size=[1860*6,968*6])
-    pl.screenshot(filename[:-4] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-4] + '_' + nameTag +
+                  '.png', window_size=[1860*6, 968*6])
 # pl.close()
-
-

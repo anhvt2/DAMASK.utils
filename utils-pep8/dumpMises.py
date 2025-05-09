@@ -16,7 +16,8 @@ import matplotlib.pyplot as plt
 import argparse
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-f", "--filename", help='.vtr file', type=str, default='', required=True)
+parser.add_argument("-f", "--filename", help='.vtr file',
+                    type=str, default='', required=True)
 args = parser.parse_args()
 filename = args.filename
 # filename = 'main_tension_inc01.txt' # debug
@@ -25,14 +26,14 @@ fileHandler = open(filename)
 txt = fileHandler.readlines()
 fileHandler.close()
 
-### Pre-process
+# Pre-process
 numHeaderRows = int(txt[0].split('\t')[0])
 oldHeader = txt[numHeaderRows].replace('\n', '').split('\t')
 data = np.loadtxt(filename, skiprows=numHeaderRows+1)
 df = pd.DataFrame(data, columns=oldHeader)
 
 # Remove duplicate columns: https://stackoverflow.com/questions/14984119/python-pandas-remove-duplicate-columns
-df = df.loc[:,~df.columns.duplicated()].copy()
+df = df.loc[:, ~df.columns.duplicated()].copy()
 newHeader = list(df)
 
 # Get 3d coordinates: follow geom2npy.py principles
@@ -45,10 +46,8 @@ y = np.array(df['2_pos'] - 0.5).astype(int).reshape(Nz, Ny, Nx).T
 z = np.array(df['3_pos'] - 0.5).astype(int).reshape(Nz, Ny, Nx).T
 
 MisesCauchy = np.array(df['Mises(Cauchy)']).reshape(Nz, Ny, Nx).T
-MisesLnV    = np.array(df['Mises(ln(V))']).reshape(Nz, Ny, Nx).T
+MisesLnV = np.array(df['Mises(ln(V))']).reshape(Nz, Ny, Nx).T
 
 # Dump to .npy
 np.save('MisesCauchy.npy', MisesCauchy)
 np.save('MisesLnV.npy', MisesLnV)
-
-

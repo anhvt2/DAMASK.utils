@@ -35,17 +35,21 @@ Show us with threshold, hide the rest.
 import numpy as np
 import pyvista
 import matplotlib.pyplot as plt
-import glob, os
+import glob
+import os
 import argparse
 import gc
-from natsort import natsorted, ns # natural-sort
+from natsort import natsorted, ns  # natural-sort
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", "--npyFolderName", help='provide folders that supply all *.npy', type=str, default='', required=True)
-parser.add_argument("-p", "--phaseFileName", help='provide masked phase', type=str, default='', required=True)
+parser.add_argument("-n", "--npyFolderName",
+                    help='provide folders that supply all *.npy', type=str, default='', required=True)
+parser.add_argument("-p", "--phaseFileName",
+                    help='provide masked phase', type=str, default='', required=True)
 args = parser.parse_args()
-npyFolderName = args.npyFolderName # 'npy'
-phaseFileName = args.phaseFileName # 'phase_dump_12_out.npy'
+npyFolderName = args.npyFolderName  # 'npy'
+phaseFileName = args.phaseFileName  # 'phase_dump_12_out.npy'
+
 
 def maskMs(phase, ms):
     '''
@@ -56,6 +60,7 @@ def maskMs(phase, ms):
     maskedMs = np.multiply(maskedPhase, ms)
     maskedMs += 1
     return maskedMs
+
 
 def highlightMs(currentMs, initialMs):
     '''
@@ -72,7 +77,7 @@ def highlightMs(currentMs, initialMs):
 npyFolderList = natsorted(glob.glob(npyFolderName + '/*.npy'))
 phase = np.load(phaseFileName)
 initialMs = maskMs(phase, np.load(npyFolderList[0]))
-lastMs    = maskMs(phase, np.load(npyFolderList[-1]))
+lastMs = maskMs(phase, np.load(npyFolderList[-1]))
 
 j = 0
 for i in range(len(npyFolderList)):

@@ -1,10 +1,12 @@
 
 import numpy as np
-import glob, os
-from natsort import natsorted, ns # natural-sort
+import glob
+import os
+from natsort import natsorted, ns  # natural-sort
 import pyvista
 import vtk
 from vtk.util.numpy_support import vtk_to_numpy, numpy_to_vtk
+
 
 def save_array2vti(file_name, array):
     """
@@ -20,7 +22,8 @@ def save_array2vti(file_name, array):
     - None
     """
     # Convert the numpy array to a VTK array
-    vtk_data_array = numpy_to_vtk(array.T.flatten(), deep=True, array_type=vtk.VTK_INT)
+    vtk_data_array = numpy_to_vtk(
+        array.T.flatten(), deep=True, array_type=vtk.VTK_INT)
     # Create an image data object and set its dimensions and scalars
     image_data = vtk.vtkImageData()
     image_data.SetDimensions(array.shape)
@@ -47,6 +50,7 @@ def delete(lst, to_delete):
     '''
     return [element for element in lst if element != to_delete]
 
+
 def geom2npy(filename):
     '''
     Read a .geom file and return a numpy array with meta-data
@@ -55,7 +59,7 @@ def geom2npy(filename):
     fileHandler = open(filename)
     txt = fileHandler.readlines()
     fileHandler.close()
-    numSkippingLines = int(txt[0].split(' ')[0])+1 
+    numSkippingLines = int(txt[0].split(' ')[0])+1
     # Search for 'size' within header:
     for j in range(numSkippingLines):
         if 'size' in txt[j]:
@@ -72,9 +76,5 @@ def geom2npy(filename):
     geom = geom.split(' ')
     geom = list(filter(('').__ne__, geom))
     geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
-    headers = txt[:numSkippingLines] # also return headers
+    headers = txt[:numSkippingLines]  # also return headers
     return Nx, Ny, Nz, geom, headers
-
-
-
-

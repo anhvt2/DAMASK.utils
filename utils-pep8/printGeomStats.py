@@ -1,13 +1,16 @@
 import numpy as np
-import glob, os
-from natsort import natsorted, ns # natural-sort
+import glob
+import os
+from natsort import natsorted, ns  # natural-sort
 import argparse
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument("-g" , "--geom", help='original geom filename', type=str, required=True)
+parser.add_argument(
+    "-g", "--geom", help='original geom filename', type=str, required=True)
 
 args = parser.parse_args()
-geomFileName = args.geom # e.g. geomFileName = 'singleCrystal_res_50um.geom'
+geomFileName = args.geom  # e.g. geomFileName = 'singleCrystal_res_50um.geom'
+
 
 def delete(lst, to_delete):
     '''
@@ -28,7 +31,7 @@ def geom2npy(geomFileName):
     fileHandler = open(geomFileName)
     txt = fileHandler.readlines()
     fileHandler.close()
-    numSkippingLines = int(txt[0].split(' ')[0])+1 
+    numSkippingLines = int(txt[0].split(' ')[0])+1
     # Search for 'size' within header:
     for j in range(numSkippingLines):
         if 'grid' in txt[j]:
@@ -47,6 +50,7 @@ def geom2npy(geomFileName):
     geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
     return geom
 
+
 geom = geom2npy(geomFileName)
 
 grainList = np.unique(geom)
@@ -54,6 +58,5 @@ numGrains = len(grainList)
 print('Number of grains = %d\n' % numGrains)
 
 for grainId in grainList:
-    x,y,z = np.where(geom==grainId)
+    x, y, z = np.where(geom == grainId)
     print('Grain %s: %d voxel' % (grainId, len(x)))
-

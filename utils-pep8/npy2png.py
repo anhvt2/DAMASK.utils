@@ -5,19 +5,25 @@
 import numpy as np
 import pyvista
 import matplotlib.pyplot as plt
-import glob, os
+import glob
+import os
 import argparse
-from distutils.util import strtobool # https://stackoverflow.com/questions/15008758/parsing-boolean-values-with-argparse
+# https://stackoverflow.com/questions/15008758/parsing-boolean-values-with-argparse
+from distutils.util import strtobool
 import gc
-from natsort import natsorted, ns # natural-sort
+from natsort import natsorted, ns  # natural-sort
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", "--npy", help='*.npy file', type=str, default='', required=True)
-parser.add_argument("-threshold", "--threshold", help='threshold', type=int, default=-1, required=False)
-parser.add_argument("-nameTag", "--nameTag", help='', type=str, default='', required=False)
-parser.add_argument("-show_edges", "--show_edges", help='pyvista show_edges', type=lambda x:bool(strtobool(x)), default=True, required=False, nargs='?', const=True)
+parser.add_argument("-n", "--npy", help='*.npy file',
+                    type=str, default='', required=True)
+parser.add_argument("-threshold", "--threshold",
+                    help='threshold', type=int, default=-1, required=False)
+parser.add_argument("-nameTag", "--nameTag", help='',
+                    type=str, default='', required=False)
+parser.add_argument("-show_edges", "--show_edges", help='pyvista show_edges',
+                    type=lambda x: bool(strtobool(x)), default=True, required=False, nargs='?', const=True)
 args = parser.parse_args()
-npyFileName = args.npy # 'npy'
+npyFileName = args.npy  # 'npy'
 threshold = args.threshold
 nameTag = args.nameTag
 show_edges = bool(args.show_edges)
@@ -38,14 +44,14 @@ cmap = plt.cm.get_cmap('coolwarm')
 # cmap = cmocean.cm.phase
 
 ms = np.load(npyFileName)
-grid = pyvista.UniformGrid() # old pyvista
+grid = pyvista.UniformGrid()  # old pyvista
 # grid = pyvista.ImageData() # new pyvista
 # grid = pyvista.RectilinearGrid()
 # grid['microstructure'] = ms
 grid.dimensions = np.array(ms.shape) + 1
 grid.origin = (0, 0, 0)     # The bottom left corner of the data set
 grid.spacing = (1, 1, 1)    # These are the cell sizes along each axis
-grid.cell_data["microstructure"] = ms.flatten(order="F") # ImageData()
+grid.cell_data["microstructure"] = ms.flatten(order="F")  # ImageData()
 
 # reader = pyvista.get_reader(filename)
 # msMesh = reader.read()
@@ -59,7 +65,8 @@ grid.cell_data["microstructure"] = ms.flatten(order="F") # ImageData()
 pl = pyvista.Plotter(off_screen=True)
 # pl.add_mesh(grid, scalars='microstructure', show_edges=True, line_width=1, cmap=cmap)
 # pl.add_mesh(grid.threshold(value=1e-6), scalars='microstructure', opacity=0.01, show_edges=True, line_width=1, cmap=cmap) # maybe replace by an optional phase for background masking
-pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure', show_edges=show_edges, line_width=1, cmap=cmap)
+pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure',
+            show_edges=show_edges, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()
 ###
@@ -78,11 +85,10 @@ if ms.shape[2] == 1:
     pl.camera_position = 'xy'
 
 if nameTag == '':
-    pl.screenshot(npyFileName[:-4] + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(npyFileName[:-4] + '.png', window_size=[1860*6, 968*6])
 else:
-    pl.screenshot(npyFileName[:-4] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(npyFileName[:-4] + '_' + nameTag +
+                  '.png', window_size=[1860*6, 968*6])
 
 # pl.close()
 gc.collect()
-
-

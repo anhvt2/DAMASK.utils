@@ -64,7 +64,7 @@ pl.background_color = "white"
 pl.remove_scalar_bar()
 ###
 # Leidong/Zihan custom view
-# pl.camera_position = 'xy'
+# pl.camera_position = 'yz'
 # pl.camera.elevation += 25
 # pl.camera.roll += 0
 # pl.camera.azimuth += 25
@@ -73,6 +73,9 @@ pl.remove_scalar_bar()
 # pl.show()
 # pl.add_axes(color='k')
 # pl.show_axes() # https://docs.pyvista.org/api/plotting/_autosummary/pyvista.renderer.add_axes
+
+if ms.shape[2] == 1:
+    pl.camera_position = 'xy'
 
 if nameTag == '':
     pl.screenshot(npyFileName[:-4] + '.png', window_size=[1860*6,968*6])

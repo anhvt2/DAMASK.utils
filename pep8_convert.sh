@@ -1,6 +1,7 @@
 #!/bin/bash
 rm -fv *-pep8.py
 
+cd utils/
 # Loop through all Python files in the current directory
 for file in *.py; do
     # Skip already converted files
@@ -10,10 +11,11 @@ for file in *.py; do
 
     # Strip extension and append -pep8.py
     base="${file%.py}"
-    output="${base}-pep8.py"
+    output="${base}.py"
 
     echo "Converting $file -> $output"
-    autopep8 "$file" > "$output"
+    autopep8 "$file" > ../utils-pep8/"$output"
 done
 
 echo "All files processed."
+cd ..

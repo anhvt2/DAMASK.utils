@@ -6,7 +6,7 @@ import glob, os
 import argparse
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False)
+parser.add_argument("-n", "--nameTag", help='append to filename', type=str, default='', required=False)
 args = parser.parse_args()
 nameTag = args.nameTag
 
@@ -46,10 +46,10 @@ for filename in glob.glob('*.vtr'): # screenshot for all *.vtr files
 	# pl.show()
 	if nameTag == '':
 		# pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860*6,968*6])
-		pl.screenshot(fileName[:-4] + '.png', window_size=[1860*6,968*6])
+		pl.screenshot(filename[:-4] + '.png', window_size=[1860*6,968*6])
 	else:
 		# pl.screenshot(filename.split('.')[0] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
-		pl.screenshot(fileName[:-4] + nameTag + '.png', window_size=[1860*6,968*6])
+		pl.screenshot(filename[:-4] + nameTag + '.png', window_size=[1860*6,968*6])
 	# pl.close()
 
 

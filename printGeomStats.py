@@ -4,7 +4,7 @@ from natsort import natsorted, ns # natural-sort
 import argparse
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument("-g" , "--geom", help='original geom fileName', type=str, required=True)
+parser.add_argument("-g" , "--geom", help='original geom filename', type=str, required=True)
 
 args = parser.parse_args()
 geomFileName = args.geom # e.g. geomFileName = 'singleCrystal_res_50um.geom'

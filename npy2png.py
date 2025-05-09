@@ -47,7 +47,7 @@ grid.origin = (0, 0, 0)     # The bottom left corner of the data set
 grid.spacing = (1, 1, 1)    # These are the cell sizes along each axis
 grid.cell_data["microstructure"] = ms.flatten(order="F") # ImageData()
 
-# reader = pyvista.get_reader(fileName)
+# reader = pyvista.get_reader(filename)
 # msMesh = reader.read()
 # ms = msMesh.get_array('microstructure')
 # msMesh.cell_data['microstructure']
@@ -69,7 +69,7 @@ pl.remove_scalar_bar()
 # pl.camera.roll += 0
 # pl.camera.azimuth += 25
 ###
-# pl.show(screenshot='%s.png' % fileName[:-4])
+# pl.show(screenshot='%s.png' % filename[:-4])
 # pl.show()
 # pl.add_axes(color='k')
 # pl.show_axes() # https://docs.pyvista.org/api/plotting/_autosummary/pyvista.renderer.add_axes

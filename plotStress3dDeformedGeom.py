@@ -11,23 +11,23 @@ parser = argparse.ArgumentParser()
 
     Parameters
     ----------
-    fileName: str
+    filename: str
     e.g. 'main_tension_inc16_pos(cell)_added.vtr'
 
     Output
     ------
-    an image: fileName.split('.')[0] + '_' + nameTag + '.png'
+    an image: filename.split('.')[0] + '_' + nameTag + '.png'
 
     How to use
     ----------
-    python3 ../../../plotStress3d.py  --fileName='main_tension_inc16_pos(cell)_added.vtr'
+    python3 ../../../plotStress3d.py  --filename='main_tension_inc16_pos(cell)_added.vtr'
 '''
 
-parser.add_argument("-f", "--fileName", help='.vtr file', type=str, default='', required=True) 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False) 
-parser.add_argument("-show_edges", "--show_edges", help='append to fileName', type=bool, default=True, required=False)
+parser.add_argument("-f", "--filename", help='.vtr file', type=str, default='', required=True) 
+parser.add_argument("-n", "--nameTag", help='append to filename', type=str, default='', required=False) 
+parser.add_argument("-show_edges", "--show_edges", help='append to filename', type=bool, default=True, required=False)
 args = parser.parse_args()
-fileName = args.fileName
+filename = args.filename
 nameTag = args.nameTag
 show_edges = args.show_edges
 
@@ -55,7 +55,7 @@ cmap = plt.cm.get_cmap('coolwarm')
 
 pl = pyvista.Plotter(off_screen=True)
 # reader = pyvista.get_reader('main_tension_inc16_pos(cell).vtr')
-reader = pyvista.get_reader(fileName)
+reader = pyvista.get_reader(filename)
 msMesh = reader.read()
 msMesh.set_active_scalars('texture', preference='cell')
 threshedMs = msMesh.threshold(value=(779,816), scalars='texture')
@@ -74,7 +74,7 @@ pl.background_color = "white"
 pl.remove_scalar_bar()
 
 if nameTag == '':
-    pl.screenshot(fileName.split('.')[0] + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860*6,968*6])
 else:
-    pl.screenshot(fileName.split('.')[0] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename.split('.')[0] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
 

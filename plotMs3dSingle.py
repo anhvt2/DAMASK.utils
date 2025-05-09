@@ -14,14 +14,14 @@ parser = argparse.ArgumentParser()
 
     Output
     ------
-    an image: fileName.split('.')[0] + '_' + nameTag + '.png'
+    an image: filename.split('.')[0] + '_' + nameTag + '.png'
 '''
 
-parser.add_argument("-f", "--fileName", help='.vtr file', type=str, default='', required=True) 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False) 
-parser.add_argument("-show_edges", "--show_edges", help='append to fileName', type=bool, default=True, required=False)
+parser.add_argument("-f", "--filename", help='.vtr file', type=str, default='', required=True) 
+parser.add_argument("-n", "--nameTag", help='append to filename', type=str, default='', required=False) 
+parser.add_argument("-show_edges", "--show_edges", help='append to filename', type=bool, default=True, required=False)
 args = parser.parse_args()
-fileName = args.fileName
+filename = args.filename
 nameTag = args.nameTag
 show_edges = args.show_edges
 
@@ -44,10 +44,10 @@ cmap = plt.cm.get_cmap('coolwarm')
 # import cmocean
 # cmap = cmocean.cm.phase
 
-# fileName = 'single_phase_equiaxed_8x8x8.vtr'
-# for fileName in glob.glob('*.vtr'): # screenshot for all *.vtr files
+# filename = 'single_phase_equiaxed_8x8x8.vtr'
+# for filename in glob.glob('*.vtr'): # screenshot for all *.vtr files
 
-reader = pyvista.get_reader(fileName)
+reader = pyvista.get_reader(filename)
 msMesh = reader.read()
 # print(msMesh.array_names)
 ms = msMesh.get_array('microstructure')
@@ -64,14 +64,14 @@ pl.remove_scalar_bar()
 # pl.camera.elevation += 25
 # pl.camera.roll += 0
 # pl.camera.azimuth += 25
-# pl.show(screenshot='%s.png' % fileName.split('.')[0])
+# pl.show(screenshot='%s.png' % filename.split('.')[0])
 # pl.show()
 if nameTag == '':
-    # pl.screenshot(fileName.split('.')[0] + '.png', window_size=[1860*6,968*6])
-    pl.screenshot(fileName[:-4] + '.png', window_size=[1860*6,968*6])
+    # pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-4] + '.png', window_size=[1860*6,968*6])
 else:
-    # pl.screenshot(fileName.split('.')[0] + nameTag + '.png', window_size=[1860*6,968*6])
-    pl.screenshot(fileName[:-4] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+    # pl.screenshot(filename.split('.')[0] + nameTag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-4] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
 # pl.close()
 
 

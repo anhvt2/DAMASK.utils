@@ -31,7 +31,7 @@ parser.add_argument("-nameTag", "--nameTag", help='', type=str, default='', requ
 parser.add_argument("-show_edges", "--show_edges", help='pyvista show_edges', type=lambda x:bool(strtobool(x)), default=True, required=False, nargs='?', const=True)
 args = parser.parse_args()
 
-fileName = args.geom
+filename = args.geom
 threshold = args.threshold
 show_edges = bool(args.show_edges)
 nameTag = args.nameTag
@@ -82,8 +82,8 @@ def delete(lst, to_delete):
     '''
     return [element for element in lst if element != to_delete]
 
-outFileName = fileName[:-5] # deprecate fileName.split('.')[0] to avoid '.' in outFileName
-fileHandler = open(fileName)
+outFileName = filename[:-5] # deprecate filename.split('.')[0] to avoid '.' in outFileName
+fileHandler = open(filename)
 txt = fileHandler.readlines()
 fileHandler.close()
 numSkippingLines = int(txt[0].split(' ')[0])+1 
@@ -119,7 +119,7 @@ cmap = plt.cm.get_cmap('coolwarm')
 pl.add_mesh(grid.threshold(value=threshold+1e-6), scalars='microstructure', show_edges=show_edges, line_width=1, cmap=cmap)
 pl.background_color = "white"
 pl.remove_scalar_bar()
-# pl.show(screenshot='%s.png' % fileName[:-4])
+# pl.show(screenshot='%s.png' % filename[:-4])
 # pl.show()
 # pl.add_axes(color='k')
 # pl.show_axes() # https://docs.pyvista.org/api/plotting/_autosummary/pyvista.renderer.add_axes
@@ -128,9 +128,9 @@ if geom.shape[2] == 1:
     pl.camera_position = 'xy'
 
 if nameTag == '':
-    pl.screenshot(fileName[:-5] + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-5] + '.png', window_size=[1860*6,968*6])
 else:
-    pl.screenshot(fileName[:-5] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-5] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
 
 # pl.close()
 gc.collect()

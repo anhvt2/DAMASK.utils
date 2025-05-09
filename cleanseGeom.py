@@ -22,7 +22,7 @@ logging.basicConfig(level = level, format = format, handlers = handlers)
 t_start = time.time()
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument("-g" , "--geom", help='original geom fileName', type=str, required=True)
+parser.add_argument("-g" , "--geom", help='original geom filename', type=str, required=True)
 
 args = parser.parse_args()
 geomFileName = args.geom # e.g. geomFileName = 'singleCrystal_res_50um.geom'

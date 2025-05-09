@@ -6,7 +6,7 @@ import glob, os
 import argparse
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", "--nameTag", help='append to fileName', type=str, default='', required=False)
+parser.add_argument("-n", "--nameTag", help='append to filename', type=str, default='', required=False)
 args = parser.parse_args()
 nameTag = args.nameTag
 

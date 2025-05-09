@@ -47,12 +47,12 @@ def delete(lst, to_delete):
     '''
     return [element for element in lst if element != to_delete]
 
-def geom2npy(fileName):
+def geom2npy(filename):
     '''
     Read a .geom file and return a numpy array with meta-data
     '''
-    outFileName = fileName.split('.')[0]
-    fileHandler = open(fileName)
+    outFileName = filename.split('.')[0]
+    fileHandler = open(filename)
     txt = fileHandler.readlines()
     fileHandler.close()
     numSkippingLines = int(txt[0].split(' ')[0])+1 

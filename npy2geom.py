@@ -24,12 +24,12 @@ def writeGeom(geomFileName, geom, headers=defaultHeaders):
     """
     Parameters
     ----------
+    - geomFileName: output file
     - geom (np.ndarray): 3D numpy array to be saved
     - complete headers for geom (no sanity check)
-    - fileName: output file
     Returns
     -------
-    .geom file written in fileName    
+    .geom file written in geomFileName
     """
     geom = geom.T.flatten()
 

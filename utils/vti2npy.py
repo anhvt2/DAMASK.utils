@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 import pyvista
 import numpy as np

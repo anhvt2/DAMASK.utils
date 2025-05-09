@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 # addStrainTensors one_phase_equiaxed_tensionX.txt --left --logarithmic
 # addCauchy one_phase_equiaxed_tensionX.txt

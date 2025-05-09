@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 """
 The objective of this script is to randomly search for a suitable combination of modules.

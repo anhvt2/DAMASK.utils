@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 import glob, os
 from natsort import natsorted, ns # natural-sort

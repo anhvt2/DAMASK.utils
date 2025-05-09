@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 from scipy.ndimage import zoom
 d = np.load('voidSeeded_3.000pc_potts-12_3d.975.npy')

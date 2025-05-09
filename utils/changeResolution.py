@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 d = np.load('voidSeeded_3.000pc_potts-12_3d.975.npy')
 # (120, 20, 200)

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 """ This script:
     (1) reads a material.config from DAMASK, 

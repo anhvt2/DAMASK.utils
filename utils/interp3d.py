@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RegularGridInterpolator.html
 # https://stackoverflow.com/questions/21836067/interpolate-3d-volume-with-numpy-and-or-scipy

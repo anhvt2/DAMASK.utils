@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 # https://stackoverflow.com/questions/77696805/pyvista-3d-visualization-issue
 # https://tutorial.pyvista.org/tutorial/02_mesh/solutions/c_create-uniform-grid.html#sphx-glr-tutorial-02-mesh-solutions-c-create-uniform-grid-py

@@ -2,7 +2,7 @@
 
 # postResults single_phase_equiaxed_tension.spectralOut --cr f,p
 # filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
-# python3 plotStressStrain.py --StressStrainFile "stress_strain.log"
+# python3 plotStressStrain.py --stress_strain_file "stress_strain.log"
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,9 +13,9 @@ import datetime
 import argparse
 
 parser = argparse.ArgumentParser(description='')
-# parser.add_argument("-StressStrainFile", "--StressStrainFile", default='stress_strain.log', type=str)
-parser.add_argument("-StressStrainFile",
-                    "--StressStrainFile", default=None, type=str)
+# parser.add_argument("-stress_strain_file", "--stress_strain_file", default='stress_strain.log', type=str)
+parser.add_argument("-stress_strain_file",
+                    "--stress_strain_file", default=None, type=str)
 parser.add_argument("-LoadFile", "--LoadFile",
                     default='tension.load', type=str)
 parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
@@ -23,13 +23,13 @@ args = parser.parse_args()
 
 print('Looking for .txt file output from DAMASK postResult.py!')
 if len(glob.glob('*.txt')) > 0:
-    StressStrainFile = np.loadtxt(glob.glob('*.txt')[0])
+    stress_strain_file = np.loadtxt(glob.glob('*.txt')[0])
     print('Reading %s!' % glob.glob('*.txt')[0])
-elif os.path.exists(args.StressStrainFile):
-    StressStrainFile = args.StressStrainFile
-    print('Reading %s!' % args.StressStrainFile)
+elif os.path.exists(args.stress_strain_file):
+    stress_strain_file = args.stress_strain_file
+    print('Reading %s!' % args.stress_strain_file)
 else:
-    print('No StressStrainFile is found! Error!')
+    print('No stress_strain_file is found! Error!')
 
 LoadFile = args.LoadFile
 
@@ -54,10 +54,10 @@ def readLoadFile(LoadFile):
     return Fdot11, totalTime, totalIncrement
 
 
-mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24
+mpl.rc_params['xtick.labelsize'] = 24
+mpl.rc_params['ytick.labelsize'] = 24
 
-d = np.loadtxt(StressStrainFile, skiprows=4)
+d = np.loadtxt(stress_strain_file, skiprows=4)
 vareps = d[:, 1]  # strain
 sigma = d[:, 2]  # stress
 

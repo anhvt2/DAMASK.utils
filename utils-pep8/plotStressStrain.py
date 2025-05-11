@@ -2,7 +2,7 @@
 
 # postResults single_phase_equiaxed_tension.spectralOut --cr f,p
 # filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
-# python3 plotStressStrain.py --StressStrainFile "stress_strain.log"
+# python3 plotStressStrain.py --stress_strain_file "stress_strain.log"
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,7 +16,7 @@ from scipy.interpolate import interp1d
 from scipy.interpolate import PchipInterpolator
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument("-StressStrainFile", "--StressStrainFile",
+parser.add_argument("-stress_strain_file", "--stress_strain_file",
                     default='stress_strain.log', type=str)
 parser.add_argument("-LoadFile", "--LoadFile",
                     default='tension.load', type=str)
@@ -26,7 +26,7 @@ parser.add_argument("-PlotTitle", "--PlotTitle",
 # parser.add_argument("-skiprows", "--skiprows", type=int, default=4) # deprecated
 
 args = parser.parse_args()
-StressStrainFile = args.StressStrainFile
+stress_strain_file = args.stress_strain_file
 LoadFile = args.LoadFile
 OptSaveFig = args.OptSaveFig
 PlotTitle = args.PlotTitle
@@ -34,31 +34,31 @@ PlotTitle = args.PlotTitle
 # skiprows = args.skiprows # deprecated
 
 
-def getMetaInfo(StressStrainFile):
+def getMetaInfo(stress_strain_file):
     """
     return 
     (1) number of lines for headers 
     (2) list of outputs for pandas dataframe
     """
-    fileHandler = open(StressStrainFile)
-    txtInStressStrainFile = fileHandler.readlines()
-    fileHandler.close()
+    file_handler = open(stress_strain_file)
+    txt_in_stress_strain_file = file_handler.readlines()
+    file_handler.close()
     try:
-        numLinesHeader = int(txtInStressStrainFile[0].split('\t')[0])
-        fieldsList = txtInStressStrainFile[numLinesHeader].split('\t')
+        num_lines_header = int(txt_in_stress_strain_file[0].split('\t')[0])
+        fields_list = txt_in_stress_strain_file[num_lines_header].split('\t')
     except:
-        numLinesHeader = int(txtInStressStrainFile[0].split(' ')[0])
-        fieldsList = txtInStressStrainFile[numLinesHeader].split(' ')
-        fieldsList = list(filter(('').__ne__, fieldsList))  # remove all ''
+        num_lines_header = int(txt_in_stress_strain_file[0].split(' ')[0])
+        fields_list = txt_in_stress_strain_file[num_lines_header].split(' ')
+        fields_list = list(filter(('').__ne__, fields_list))  # remove all ''
         print('%s is not natural - i.e. it may have been copied/pasted.' %
-              (StressStrainFile))
+              (stress_strain_file))
     else:
-        print('Reading results in %s...' % (StressStrainFile))
-    for i in range(len(fieldsList)):
-        fieldsList[i] = fieldsList[i].replace('\n', '')
-    print('numLinesHeader = ', numLinesHeader)
-    print('fieldsList = ', fieldsList)
-    return numLinesHeader, fieldsList
+        print('Reading results in %s...' % (stress_strain_file))
+    for i in range(len(fields_list)):
+        fields_list[i] = fields_list[i].replace('\n', '')
+    print('numLinesHeader = ', num_lines_header)
+    print('fieldsList = ', fields_list)
+    return num_lines_header, fields_list
 
 
 def readLoadFile(LoadFile):
@@ -81,11 +81,11 @@ def readLoadFile(LoadFile):
     return Fdot11, totalTime, totalIncrement
 
 
-def getTrueStressStrain(StressStrainFile):
-    # d = np.loadtxt(StressStrainFile, skiprows=4)
-    numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
-    # d = np.loadtxt(StressStrainFile, skiprows=skiprows)
-    d = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
+def get_true_stress_strain(stress_strain_file):
+    # d = np.loadtxt(stress_strain_file, skiprows=4)
+    numLinesHeader, fieldsList = getMetaInfo(stress_strain_file)
+    # d = np.loadtxt(stress_strain_file, skiprows=skiprows)
+    d = np.loadtxt(stress_strain_file, skiprows=numLinesHeader+1)
     # df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
     df = pd.DataFrame(d, columns=fieldsList)
     # vareps = [1] + list(df['1_f']) # d[:,1]  # strain -- pad original
@@ -101,13 +101,13 @@ def getTrueStressStrain(StressStrainFile):
     return x, y
 
 
-def getInterpStressStrain(StressStrainFile):
-    x, y = getTrueStressStrain(StressStrainFile)
+def get_interp_stress_strain(stress_strain_file):
+    x, y = get_true_stress_strain(stress_strain_file)
     interp_x = np.linspace(x.min(), x.max(), num=100)
     # splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
     splineInterp = PchipInterpolator(x, y, extrapolate=True)
     interp_y = splineInterp(interp_x)
-    return interp_x, interp_y
+    return interp_x,rc_paramsy
 
 
 fig = plt.figure()
@@ -115,10 +115,10 @@ mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
 ax = fig.add_subplot(111)
-x, y = getTrueStressStrain(StressStrainFile)
+x, y = get_true_stress_strain(stress_strain_file)
 ax.plot(x, y, c='b', marker='o', linestyle='--', markersize=6)
 
-interp_x, interp_y = getInterpStressStrain(StressStrainFile)
+interp_x, interp_y = get_interp_stress_strain(stress_strain_file)
 ax.plot(interp_x, interp_y, c='r', marker='^', linestyle=':', markersize=6)
 plt.legend(['true', 'cubic'], fontsize=24, frameon=False, markerscale=3)
 

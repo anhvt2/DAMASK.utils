@@ -15,10 +15,10 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import argparse
 
-print('Running computeYieldStress.py at: %s' % os.getcwd())
+print('Running computeyield_stress.py at: %s' % os.getcwd())
 
-mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24
+mpl.rc_params['xtick.labelsize'] = 24
+mpl.rc_params['ytick.labelsize'] = 24
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile",
@@ -146,19 +146,19 @@ def intersection(L1, L2):
 # 	print "No single intersection point detected"
 
 
-maxStrain = np.max(strain)
-yieldStrain = 0.002
-RefL = line([yieldStrain, 0], [maxStrain,
-            youngModulus * (maxStrain - yieldStrain)])
+max_strain = np.max(strain)
+yield_strain = 0.002
+RefL = line([yield_strain, 0], [max_strain,
+            youngModulus * (max_strain - yield_strain)])
 
 """ 
 EXPLANATION:
 Step 1: Compute / Estimate Young modulus using linear regression with a certain number of points
 
-Step 2: From the point of (Strain = yieldStrain [defined at 0.2%], Stress = 0), draw a line with the slope of Young modulus that ends at (maxStrain)
-		If visualizing, the end point is at (maxStrain, youngModulus * (maxStrain - yieldStrain)).
+Step 2: From the point of (Strain = yield_strain [defined at 0.2%], Stress = 0), draw a line with the slope of Young modulus that ends at (max_strain)
+		If visualizing, the end point is at (max_strain, youngModulus * (max_strain - yield_strain)).
 
-Step 3: Check if any segment in the stress strain curve intersects with this line. If yes, return the intersection and we shall call it yieldStress.	
+Step 3: Check if any segment in the stress strain curve intersects with this line. If yes, return the intersection and we shall call it yield_stress.	
 """
 
 
@@ -173,27 +173,27 @@ try:
         R = intersection(RefL, Ltest)
         if R:
             print("Intersection detected: ", R)
-            computed_yieldStrain = R[0]
-            computed_yieldStress = R[1]
+            computed_yield_strain = R[0]
+            computed_yield_stress = R[1]
 
         # print('\n')
 
     outFile = open('output.dat', 'w')
-    outFile.write('%.6e\n' % computed_yieldStrain)
-    outFile.write('%.6e\n' % computed_yieldStress)
+    outFile.write('%.6e\n' % computed_yield_strain)
+    outFile.write('%.6e\n' % computed_yield_stress)
     outFile.close()
 
     print("##########")
     print(r"Intersection with Young modulus (obtained from linear regression) with $\sigma-\varepsilon$ occured at:")
-    print("Yield Strain = %.4f" % computed_yieldStrain)
-    print("Yield Stress = %.4f GPa" % (computed_yieldStress / 1e9))
+    print("Yield Strain = %.4f" % computed_yield_strain)
+    print("Yield Stress = %.4f GPa" % (computed_yield_stress / 1e9))
     print("##########\n")
 
     # plot check
 
-    strain_intersect_line = np.linspace(yieldStrain, maxStrain)
+    strain_intersect_line = np.linspace(yield_strain, max_strain)
     stress_intersect_line = np.linspace(
-        0, youngModulus * (maxStrain - yieldStrain))
+        0, youngModulus * (max_strain - yield_strain))
     plt.figure()
     from scipy.interpolate import interp1d
     splineInterp = interp1d(strain.ravel(), stress.ravel(
@@ -206,7 +206,7 @@ try:
 
     bPlt, = plt.plot(strain_intersect_line, stress_intersect_line / 1e6,
                      color='tab:red', marker='s', linestyle=':', markersize=5, label=r'0.2% offset')
-    cPlt, = plt.plot(computed_yieldStrain, computed_yieldStress / 1e6, c='black',
+    cPlt, = plt.plot(computed_yield_strain, computed_yield_stress / 1e6, c='black',
                      marker='*', linestyle='None', markersize=20, label=r'yield point')
     plt.xlabel(r'$\varepsilon_{vM}$ [-]', fontsize=30)
     plt.ylabel(r'$\sigma_{vM}$ [MPa]', fontsize=30)

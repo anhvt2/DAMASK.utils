@@ -16,10 +16,10 @@ filename = args.vti
 
 def load_vti_to_array(filename):
     reader = pyvista.get_reader(filename)
-    msMesh = reader.read()
-    ms = msMesh.get_array('Spin')
-    x, y, z = int(msMesh.bounds[1]), int(
-        msMesh.bounds[3]), int(msMesh.bounds[5])
+    ms_mesh = reader.read()
+    ms = ms_mesh.get_array('Spin')
+    x, y, z = int(ms_mesh.bounds[1]), int(
+        ms_mesh.bounds[3]), int(ms_mesh.bounds[5])
     ms = ms.reshape(z, y, x).T
     return np.array(ms)
 

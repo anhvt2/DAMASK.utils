@@ -68,32 +68,32 @@ def getDumpMs(dumpFileName):
     d = np.loadtxt(dumpFileName, skiprows=9, dtype=int)
     # Get indices of relevant fields
     # print(header) # debug
-    typeIdx = np.where(header == 'i1')[0]  # header=='type' or 'i1'
-    xIdx = np.where(header == 'x')[0]
-    yIdx = np.where(header == 'y')[0]
-    zIdx = np.where(header == 'z')[0]
+    type_idx = np.where(header == 'i1')[0]  # header=='type' or 'i1'
+    x_idx = np.where(header == 'x')[0]
+    y_idx = np.where(header == 'y')[0]
+    z_idx = np.where(header == 'z')[0]
     # print(typeIdx, xIdx, yIdx, zIdx) # debug
     '''
     Renumerate grains: instead of having unique but sparse grain id, e.g. [1,2,4,7], now renumerate to [0,1,2,3]
     '''
-    numGrains = len(np.unique(d[:, typeIdx]))
-    oldGrainIds = np.unique(d[:, typeIdx])
-    newGrainIds = range(len(np.unique(d[:, typeIdx])))
+    num_grains = len(np.unique(d[:, type_idx]))
+    old_grain_ids = np.unique(d[:, type_idx])
+    new_grain_ids = range(len(np.unique(d[:, type_idx])))
     # Create ms in .npy format
     ms = np.zeros([Nx, Ny, Nz])  # initialize
     for ii in range(len(d)):
-        i = int(d[ii, xIdx])  # 'x'
-        j = int(d[ii, yIdx])  # 'y'
-        k = int(d[ii, zIdx])  # 'z'
-        grain_id = int(d[ii, typeIdx])  # grain id
+        i = int(d[ii, x_idx])  # 'x'
+        j = int(d[ii, y_idx])  # 'y'
+        k = int(d[ii, z_idx])  # 'z'
+        grain_id = int(d[ii, type_idx])  # grain id
         # option: DO renumerate
-        lookupIdx = np.where(oldGrainIds == grain_id)[0][0]
-        new_grain_id = newGrainIds[lookupIdx]
+        lookup_idx = np.where(old_grain_ids == grain_id)[0][0]
+        new_grain_id = new_grain_ids[lookup_idx]
         ms[i, j, k] = new_grain_id
         # option: DO NOT renumerate
         # m[i,j,k] = grain_id # TODO: implement renumerate grain_id
         # print(f"finish ({x},{y}, {z})")
-    return ms, Nx, Ny, Nz, numGrains
+    return ms, Nx, Ny, Nz, num_grains
 
 
 def renumerate(ms):
@@ -117,10 +117,10 @@ def renumerate(ms):
     ------
     ms (updated)
     '''
-    grainIdList = np.sort(np.unique(ms))
-    maxGrainId = np.max(grainIdList)
+    grain_id_list = np.sort(np.unique(ms))
+    max_grain_id = np.max(grain_id_list)
     # Segregate grains with the same grainId by clustering
-    for grainId in grainIdList:
+    for grainId in grain_id_list:
         # Collect location information
         x, y, z = np.where(ms == grainId)
         # Combine to a 3-column array
@@ -136,15 +136,15 @@ def renumerate(ms):
         # print(f"n_clusters = {len(set(clustering.labels_))}")
         # Relabel grainId for every pixels needed relabel
         for j in range(clustering.labels_.shape[0]):
-            ms[x[j], y[j], z[j]] = maxGrainId+clustering.labels_[j]+1
+            ms[x[j], y[j], z[j]] = max_grain_id+clustering.labels_[j]+1
         # Update maxGrainId
-        maxGrainId = np.max(np.sort(np.unique(ms)))
+        max_grain_id = np.max(np.sort(np.unique(ms)))
         print(f'Segregating grains for grainId {grainId.astype(int)}')
     # Reorder
     print(f'Renumerating microstructure ... ', end='')
-    grainIdList = np.sort(np.unique(ms))
-    for i in range(len(grainIdList)):
-        grainId = grainIdList[i]
+    grain_id_list = np.sort(np.unique(ms))
+    for i in range(len(grain_id_list)):
+        grainId = grain_id_list[i]
         # Collect location information
         x, y, z = np.where(ms == grainId)
         for j in range(x.shape[0]):

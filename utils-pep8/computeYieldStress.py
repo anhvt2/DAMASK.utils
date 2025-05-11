@@ -17,8 +17,8 @@ import argparse
 
 print('Running computeYieldStress.py at: %s' % os.getcwd())
 
-mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24
+mpl.rc_params['xtick.labelsize'] = 24
+mpl.rc_params['ytick.labelsize'] = 24
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile",

@@ -56,26 +56,26 @@ def geom2npy(filename):
     '''
     Read a .geom file and return a numpy array with meta-data
     '''
-    outFileName = filename.split('.')[0]
-    fileHandler = open(filename)
-    txt = fileHandler.readlines()
-    fileHandler.close()
-    numSkippingLines = int(txt[0].split(' ')[0])+1
+    out_file_name = filename.split('.')[0]
+    file_handler = open(filename)
+    txt = file_handler.readlines()
+    file_handler.close()
+    num_skipping_lines = int(txt[0].split(' ')[0])+1
     # Search for 'size' within header:
-    for j in range(numSkippingLines):
+    for j in range(num_skipping_lines):
         if 'size' in txt[j]:
-            cleanString = delete(txt[j].replace('\n', '').split(' '), '')
-            Nx = int(cleanString[2])
-            Ny = int(cleanString[4])
-            Nz = int(cleanString[6])
+            clean_string = delete(txt[j].replace('\n', '').split(' '), '')
+            Nx = int(clean_string[2])
+            Ny = int(clean_string[4])
+            Nz = int(clean_string[6])
 
-    geomBlock = txt[numSkippingLines:]
+    geom_block = txt[num_skipping_lines:]
     geom = ''
-    for i in range(len(geomBlock)):
-        geom += geomBlock[i]
+    for i in range(len(geom_block)):
+        geom += geom_block[i]
 
     geom = geom.split(' ')
     geom = list(filter(('').__ne__, geom))
     geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
-    headers = txt[:numSkippingLines]  # also return headers
+    headers = txt[:num_skipping_lines]  # also return headers
     return Nx, Ny, Nz, geom, headers

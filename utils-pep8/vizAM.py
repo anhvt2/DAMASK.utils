@@ -57,10 +57,10 @@ def maskMs(phase, ms):
     This function masks a microstructure (ms) using phase.
     The resulting microstructure has grainID += 1 due to masking.
     '''
-    maskedPhase = np.array(~np.isinf(phase), dtype=int)
-    maskedMs = np.multiply(maskedPhase, ms)
-    maskedMs += 1
-    return maskedMs
+    masked_phase = np.array(~np.isinf(phase), dtype=int)
+    masked_ms = np.multiply(masked_phase, ms)
+    masked_ms += 1
+    return masked_ms
 
 
 def highlightMs(currentMs, initialMs):
@@ -71,8 +71,8 @@ def highlightMs(currentMs, initialMs):
     '''
     dimensions = currentMs.shape
     mask = np.array(currentMs != initialMs, dtype=int)
-    highlightedCurrentMs = np.multiply(currentMs, mask)
-    return highlightedCurrentMs
+    highlighted_current_ms = np.multiply(currentMs, mask)
+    return highlighted_current_ms
 
 
 npyFolderList = natsorted(glob.glob(npyFolderName + '/*.npy'))

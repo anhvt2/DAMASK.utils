@@ -61,21 +61,21 @@ cmap = plt.cm.get_cmap('coolwarm')
 pl = pyvista.Plotter(off_screen=True)
 # reader = pyvista.get_reader('main_tension_inc16_pos(cell).vtr')
 reader = pyvista.get_reader(filename)
-msMesh = reader.read()
-msMesh.set_active_scalars('texture', preference='cell')
-threshedMs = msMesh.threshold(value=(779, 816), scalars='texture')
-threshedMs.set_active_scalars('Mises(Cauchy)', preference='cell')
+ms_mesh = reader.read()
+ms_mesh.set_active_scalars('texture', preference='cell')
+threshed_ms = ms_mesh.threshold(value=(779, 816), scalars='texture')
+threshed_ms.set_active_scalars('Mises(Cauchy)', preference='cell')
 
-msMesh.set_active_scalars('Mises(Cauchy)', preference='cell')
-pl.add_mesh(msMesh.threshold(value=1+1e-6), opacity=0.02,
+ms_mesh.set_active_scalars('Mises(Cauchy)', preference='cell')
+pl.add_mesh(ms_mesh.threshold(value=1+1e-6), opacity=0.02,
             show_edges=False, line_width=0.01)  # show original geometry
-# pl.add_mesh(threshedMs, opacity=0.05, show_edges=True, line_width=0.01) # show original geometry
+# pl.add_mesh(threshed_ms, opacity=0.05, show_edges=True, line_width=0.01) # show original geometry
 
 # warped by deforming geometry with displacement field
 # https://docs.pyvista.org/version/stable/api/core/_autosummary/pyvista.DataSetFilters.warp_by_vector.html#pyvista.DataSetFilters.warp_by_vector
-pl.add_mesh(threshedMs.warp_by_vector(vectors='avg(f).pos', factor=1.0),
+pl.add_mesh(threshed_ms.warp_by_vector(vectors='avg(f).pos', factor=1.0),
             opacity=1.0, show_edges=True, line_width=1, cmap=cmap)
-# pl.add_mesh(threshedMs, opacity=0.90, show_edges=True, line_width=1, cmap=cmap) # functional
+# pl.add_mesh(threshed_ms, opacity=0.90, show_edges=True, line_width=1, cmap=cmap) # functional
 
 pl.background_color = "white"
 pl.remove_scalar_bar()

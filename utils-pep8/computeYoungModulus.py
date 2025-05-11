@@ -17,8 +17,8 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import argparse
 
-mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24
+mpl.rc_params['xtick.labelsize'] = 24
+mpl.rc_params['ytick.labelsize'] = 24
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument("-StressStrainFile", "--StressStrainFile",

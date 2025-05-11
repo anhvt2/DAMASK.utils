@@ -8,13 +8,13 @@ import os
 import argparse
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", "--nameTag", help='append to filename',
+parser.add_argument("-n", "--name_tag", help='append to filename',
                     type=str, default='', required=False)
 args = parser.parse_args()
-nameTag = args.nameTag
+name_tag = args.name_tag
 
-nameTag = nameTag.split('/')[0]
-print(nameTag)
+name_tag = name_tag.split('/')[0]
+print(name_tag)
 
 
 # cmap = plt.cm.get_cmap("viridis", 5)
@@ -36,14 +36,14 @@ cmap = plt.cm.get_cmap('coolwarm')
 for filename in glob.glob('*.vtr'):  # screenshot for all *.vtr files
     reader = pyvista.get_reader(filename)
     # camera = pyvista.Camera()
-    msMesh = reader.read()
-    ms = msMesh.get_array('microstructure')
-    msMesh.cell_data['microstructure']
-    msMesh.set_active_scalars('microstructure', preference='cell')
+    ms_mesh = reader.read()
+    ms = ms_mesh.get_array('microstructure')
+    ms_mesh.cell_data['microstructure']
+    ms_mesh.set_active_scalars('microstructure', preference='cell')
 
     # pl = pyvista.Plotter()
     pl = pyvista.Plotter(off_screen=True)
-    pl.add_mesh(msMesh, show_edges=False, line_width=1, cmap=cmap)
+    pl.add_mesh(ms_mesh, show_edges=False, line_width=1, cmap=cmap)
     pl.background_color = "white"
     # light = pyvista.Light(position=(16, 16, 10), color='white')
     # light.positional = True
@@ -53,10 +53,10 @@ for filename in glob.glob('*.vtr'):  # screenshot for all *.vtr files
     # pl.show(screenshot='%s.png' % filename.split('.')[0])
     # pl.show()
     # pl.close()
-    if nameTag == '':
+    if name_tag == '':
         pl.screenshot(filename.split(
             '.')[0] + '.png', window_size=[1860*3, 968*3])
         # pl.screenshot(filename.split('.')[0] + '.png', window_size=[3200,3200])
     else:
         pl.screenshot(filename.split(
-            '.')[0] + '_' + nameTag + '.png', window_size=[968*3, 968*3])
+            '.')[0] + '_' + name_tag + '.png', window_size=[968*3, 968*3])

@@ -7,10 +7,10 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-npy", "--npy", type=str, required=True)
 args = parser.parse_args()
 
-npyFileName = args.npy
-geomFileName = npyFileName[:-4] + '.geom'
+npy_file_name = args.npy
+geomFileName = npy_file_name[:-4] + '.geom'
 
-geom = np.load(npyFileName)
+geom = np.load(npy_file_name)
 Nx, Ny, Nz = geom.shape
 
 defaultHeaders = ['6       header\n',

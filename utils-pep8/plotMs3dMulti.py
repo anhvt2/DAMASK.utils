@@ -8,13 +8,13 @@ import os
 import argparse
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-n", "--nameTag", help='append to filename',
+parser.add_argument("-n", "--name_tag", help='append to filename',
                     type=str, default='', required=False)
 args = parser.parse_args()
-nameTag = args.nameTag
+name_tag = args.name_tag
 
-nameTag = nameTag.split('/')[0]
-print(nameTag)
+name_tag = name_tag.split('/')[0]
+print(name_tag)
 
 
 # cmap = plt.cm.get_cmap("viridis", 5)
@@ -47,11 +47,11 @@ for filename in glob.glob('*.vtr'):  # screenshot for all *.vtr files
     pl.remove_scalar_bar()
     # pl.show(screenshot='%s.png' % filename.split('.')[0])
     # pl.show()
-    if nameTag == '':
+    if name_tag == '':
         # pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860*6,968*6])
         pl.screenshot(filename[:-4] + '.png', window_size=[1860*6, 968*6])
     else:
-        # pl.screenshot(filename.split('.')[0] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
-        pl.screenshot(filename[:-4] + nameTag + '.png',
+        # pl.screenshot(filename.split('.')[0] + '_' + name_tag + '.png', window_size=[1860*6,968*6])
+        pl.screenshot(filename[:-4] + name_tag + '.png',
                       window_size=[1860*6, 968*6])
     # pl.close()

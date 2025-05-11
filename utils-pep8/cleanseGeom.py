@@ -19,7 +19,7 @@ logFileName = 'cleanseGeom.log'
 os.system('rm -fv %s' % logFileName)
 handlers = [logging.FileHandler(logFileName), logging.StreamHandler()]
 
-logging.basicConfig(level=level, format=format, handlers=handlers)
+logging.basic_config(level=level, format=format, handlers=handlers)
 
 t_start = time.time()
 
@@ -47,9 +47,9 @@ def delete(lst, to_delete):
 
 
 def geom2npy(geomFileName):
-    fileHandler = open(geomFileName)
-    txt = fileHandler.readlines()
-    fileHandler.close()
+   file_handlerr = open(geomFileName)
+    txt =file_handlerr.readlines()
+   file_handlerr.close()
     numSkippingLines = int(txt[0].split(' ')[0])+1
     # Search for 'size' within header:
     for j in range(numSkippingLines):

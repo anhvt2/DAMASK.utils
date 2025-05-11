@@ -16,22 +16,22 @@ parser = argparse.ArgumentParser()
 
     Output
     ------
-    an image: filename.split('.')[0] + '_' + nameTag + '.png'
+    an image: filename.split('.')[0] + '_' + name_tag + '.png'
 '''
 
 parser.add_argument("-f", "--filename", help='.vtr file',
                     type=str, default='', required=True)
-parser.add_argument("-n", "--nameTag", help='append to filename',
+parser.add_argument("-n", "--name_tag", help='append to filename',
                     type=str, default='', required=False)
 parser.add_argument("-show_edges", "--show_edges",
                     help='append to filename', type=bool, default=True, required=False)
 args = parser.parse_args()
 filename = args.filename
-nameTag = args.nameTag
+name_tag = args.name_tag
 show_edges = args.show_edges
 
-nameTag = nameTag.split('/')[0]
-print(nameTag)
+name_tag = name_tag.split('/')[0]
+print(name_tag)
 
 
 # cmap = plt.cm.get_cmap("viridis", 5)
@@ -71,11 +71,11 @@ pl.remove_scalar_bar()
 # pl.camera.azimuth += 25
 # pl.show(screenshot='%s.png' % filename.split('.')[0])
 # pl.show()
-if nameTag == '':
+if name_tag == '':
     # pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860*6,968*6])
     pl.screenshot(filename[:-4] + '.png', window_size=[1860*6, 968*6])
 else:
-    # pl.screenshot(filename.split('.')[0] + nameTag + '.png', window_size=[1860*6,968*6])
-    pl.screenshot(filename[:-4] + '_' + nameTag +
+    # pl.screenshot(filename.split('.')[0] + name_tag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-4] + '_' + name_tag +
                   '.png', window_size=[1860*6, 968*6])
 # pl.close()

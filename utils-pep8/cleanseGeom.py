@@ -71,8 +71,8 @@ def geom2npy(geomFileName):
 
 
 def renumerate(geom, startIndex=0, cluster=False):
-    ''' 
-    This function renumerates so that the DEFAULT grain index starts at ZERO (0) and (gradually) increases by 1. 
+    '''
+    This function renumerates so that the DEFAULT grain index starts at ZERO (0) and (gradually) increases by 1.
     Input
     -----
         3d npy array

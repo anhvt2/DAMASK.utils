@@ -1,81 +1,53 @@
 #!/usr/bin/env python3
 
 
-import pyvista
-import matplotlib.pyplot as plt
-import glob
-import os
 import argparse
-parser = argparse.ArgumentParser()
 
-'''
-    This util script uses PyVista to visualize and create a 3d microstructure image
+import matplotlib.pyplot as plt
+import pyvista
 
-    Parameters
-    ----------
-
-    Output
-    ------
-    an image: filename.split('.')[0] + '_' + name_tag + '.png'
-'''
-
-parser.add_argument("-f", "--filename", help='.vtr file',
-                    type=str, default='', required=True)
-parser.add_argument("-n", "--name_tag", help='append to filename',
-                    type=str, default='', required=False)
-parser.add_argument("-show_edges", "--show_edges",
-                    help='append to filename', type=bool, default=True, required=False)
-args = parser.parse_args()
-filename = args.filename
-name_tag = args.name_tag
-show_edges = args.show_edges
-
-name_tag = name_tag.split('/')[0]
-print(name_tag)
+PARSER = argparse.ArgumentParser()
 
 
-# cmap = plt.cm.get_cmap("viridis", 5)
+PARSER.add_argument("-f", "--filename", help='.vtr file', type=str, default='', required=True)
+
+PARSER.add_argument(
+    "-n", "--name_tag", help='append to filename', type=str, default='', required=False
+)
+
+PARSER.add_argument(
+    "-show_edges",
+    "--show_edges",
+    help='append to filename',
+    type=bool,
+    default=True,
+    required=False,
+)
+
+ARGS = PARSER.parse_args()
+FILENAME = ARGS.filename
+NAME_TAG = ARGS.name_tag
+SHOW_EDGES = ARGS.show_edges
+
+NAME_TAG = NAME_TAG.split('/')[0]
+print(NAME_TAG)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
 # https://matplotlib.org/stable/tutorials/colors/colormaps.html
 # Ranking: (1) 'coolwarm', (2) 'ocean', (3) 'plasma' or 'inferno' or 'viridis'
-cmap = plt.cm.get_cmap('coolwarm')
-# cmap = plt.cm.get_cmap('viridis')
-# cmap = plt.cm.get_cmap('plasma')
-# cmap = plt.cm.get_cmap('inferno')
-# cmap = plt.cm.get_cmap('ocean')
-# cmap = plt.cm.get_cmap('gnuplot2')
-
+CMAP = plt.cm.get_cmap('coolwarm')
 # https://matplotlib.org/cmocean/#thermal
-# import cmocean
-# cmap = cmocean.cm.phase
-
-# filename = 'single_phase_equiaxed_8x8x8.vtr'
 # for filename in glob.glob('*.vtr'): # screenshot for all *.vtr files
 
-reader = pyvista.get_reader(filename)
-msMesh = reader.read()
-# print(msMesh.array_names)
-ms = msMesh.get_array('microstructure')
-msMesh.cell_data['microstructure']
-msMesh.set_active_scalars('microstructure', preference='cell')
+READER = pyvista.get_reader(FILENAME)
+MS_MESH = READER.read()
+MS_MESH.get_array('microstructure')
+MS_MESH.set_active_scalars('microstructure', preference='cell')
 
-# pl = pyvista.Plotter()
-pl = pyvista.Plotter(off_screen=True)
-pl.add_mesh(msMesh, show_edges=show_edges, line_width=1, cmap=cmap)
-# pl.add_mesh(msMesh.threshold(0.1), show_edges=show_edges, line_width=1, cmap=cmap)
-pl.background_color = "white"
-pl.remove_scalar_bar()
-# pl.camera_position = 'yz'
-# pl.camera.elevation += 25
-# pl.camera.roll += 0
-# pl.camera.azimuth += 25
-# pl.show(screenshot='%s.png' % filename.split('.')[0])
-# pl.show()
-if name_tag == '':
-    # pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860*6,968*6])
-    pl.screenshot(filename[:-4] + '.png', window_size=[1860*6, 968*6])
+PL = pyvista.Plotter(off_screen=True)
+PL.add_mesh(MS_MESH, show_edges=SHOW_EDGES, line_width=1, cmap=CMAP)
+PL.background_color = "white"
+PL.remove_scalar_bar()
+if NAME_TAG == '':
+    PL.screenshot(FILENAME[:-4] + '.png', window_size=[1860 * 6, 968 * 6])
 else:
-    # pl.screenshot(filename.split('.')[0] + name_tag + '.png', window_size=[1860*6,968*6])
-    pl.screenshot(filename[:-4] + '_' + name_tag +
-                  '.png', window_size=[1860*6, 968*6])
-# pl.close()
+    PL.screenshot(FILENAME[:-4] + '_' + NAME_TAG + '.png', window_size=[1860 * 6, 968 * 6])

@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
-import numpy as np
-import glob
-import os
-from natsort import natsorted, ns  # natural-sort
 import argparse
 
-parser = argparse.ArgumentParser(description='')
-parser.add_argument(
-    "-g", "--geom", help='original geom filename', type=str, required=True)
+  # natural-sort
+import numpy as np
 
-args = parser.parse_args()
-geomFileName = args.geom  # e.g. geomFileName = 'singleCrystal_res_50um.geom'
+PARSER = argparse.ArgumentParser(description='')
+PARSER.add_argument("-g", "--geom", help='original geom filename', type=str, required=True)
+
+ARGS = PARSER.parse_args()
+GEOM_FILE_NAME = ARGS.geom  # e.g. geomFileName = 'singleCrystal_res_50um.geom'
 
 
-def delete(lst, to_delete):
+def _delete(lst, to_delete):
     '''
     Recursively delete an element with content described by  'to_delete' variable
     https://stackoverflow.com/questions/53265275/deleting-a-value-from-a-list-using-recursion/
@@ -28,36 +26,32 @@ def delete(lst, to_delete):
     return [element for element in lst if element != to_delete]
 
 
-def geom2npy(geomFileName):
-    file_handler = open(geomFileName)
-    txt = file_handler.readlines()
-    file_handler.close()
-    num_skipping_lines = int(txt[0].split(' ')[0])+1
-    # Search for 'size' within header:
+def _geom2_npy(geomFileName):
+    with open(geomFileName) as file_handler:
+        txt = file_handler.readlines()
+    num_skipping_lines = int(txt[0].split(' ')[0]) + 1
     for j in range(num_skipping_lines):
         if 'grid' in txt[j]:
-            clean_string = delete(txt[j].replace('\n', '').split(' '), '')
+            clean_string = _delete(txt[j].replace('\n', '').split(' '), '')
             Nx = int(clean_string[2])
             Ny = int(clean_string[4])
             Nz = int(clean_string[6])
 
     geom_block = txt[num_skipping_lines:]
-    geom = ''
-    for i in range(len(geom_block)):
-        geom += geom_block[i]
+    geom = sum(geom_block)
 
     geom = geom.split(' ')
-    geom = list(filter(('').__ne__, geom))
+    geom = list(filter(''.__ne__, geom))
     geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
     return geom
 
 
-geom = geom2npy(geomFileName)
+GEOM = _geom2_npy(GEOM_FILE_NAME)
 
-grainList = np.unique(geom)
-numGrains = len(grainList)
-print('Number of grains = %d\n' % numGrains)
+GRAIN_LIST = np.unique(GEOM)
+NUM_GRAINS = len(GRAIN_LIST)
+print('Number of grains = %d\n' % NUM_GRAINS)
 
-for grainId in grainList:
-    x, y, z = np.where(geom == grainId)
+for grainId in GRAIN_LIST:
+    x, _, _ = np.where(GEOM == grainId)
     print('Grain %s: %d voxel' % (grainId, len(x)))

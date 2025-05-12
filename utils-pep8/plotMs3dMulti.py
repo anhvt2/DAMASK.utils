@@ -1,57 +1,40 @@
 #!/usr/bin/env python3
 
 
-import pyvista
-import matplotlib.pyplot as plt
-import glob
-import os
 import argparse
-parser = argparse.ArgumentParser()
+import glob
 
-parser.add_argument("-n", "--name_tag", help='append to filename',
-                    type=str, default='', required=False)
-args = parser.parse_args()
-name_tag = args.name_tag
+import matplotlib.pyplot as plt
+import pyvista
 
-name_tag = name_tag.split('/')[0]
-print(name_tag)
+PARSER = argparse.ArgumentParser()
 
+PARSER.add_argument(
+    "-n", "--name_tag", help='append to filename', type=str, default='', required=False
+)
 
-# cmap = plt.cm.get_cmap("viridis", 5)
+ARGS = PARSER.parse_args()
+NAME_TAG = ARGS.name_tag
+
+NAME_TAG = NAME_TAG.split('/')[0]
+print(NAME_TAG)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
 # https://matplotlib.org/stable/tutorials/colors/colormaps.html
 # Ranking: (1) 'coolwarm', (2) 'ocean', (3) 'plasma' or 'inferno' or 'viridis'
-cmap = plt.cm.get_cmap('coolwarm')
-# cmap = plt.cm.get_cmap('viridis')
-# cmap = plt.cm.get_cmap('plasma')
-# cmap = plt.cm.get_cmap('inferno')
-# cmap = plt.cm.get_cmap('ocean')
-# cmap = plt.cm.get_cmap('gnuplot2')
-
+CMAP = plt.cm.get_cmap('coolwarm')
 # https://matplotlib.org/cmocean/#thermal
-# import cmocean
-# cmap = cmocean.cm.phase
 
-# filename = 'single_phase_equiaxed_8x8x8.vtr'
 for filename in glob.glob('*.vtr'):  # screenshot for all *.vtr files
     reader = pyvista.get_reader(filename)
     msMesh = reader.read()
-    ms = msMesh.get_array('microstructure')
-    msMesh.cell_data['microstructure']
+    msMesh.get_array('microstructure')
     msMesh.set_active_scalars('microstructure', preference='cell')
 
-    # pl = pyvista.Plotter()
     pl = pyvista.Plotter(off_screen=True)
-    pl.add_mesh(msMesh, show_edges=True, line_width=1, cmap=cmap)
+    pl.add_mesh(msMesh, show_edges=True, line_width=1, cmap=CMAP)
     pl.background_color = "white"
     pl.remove_scalar_bar()
-    # pl.show(screenshot='%s.png' % filename.split('.')[0])
-    # pl.show()
-    if name_tag == '':
-        # pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860*6,968*6])
-        pl.screenshot(filename[:-4] + '.png', window_size=[1860*6, 968*6])
+    if NAME_TAG == '':
+        pl.screenshot(filename[:-4] + '.png', window_size=[1860 * 6, 968 * 6])
     else:
-        # pl.screenshot(filename.split('.')[0] + '_' + name_tag + '.png', window_size=[1860*6,968*6])
-        pl.screenshot(filename[:-4] + name_tag + '.png',
-                      window_size=[1860*6, 968*6])
-    # pl.close()
+        pl.screenshot(filename[:-4] + NAME_TAG + '.png', window_size=[1860 * 6, 968 * 6])

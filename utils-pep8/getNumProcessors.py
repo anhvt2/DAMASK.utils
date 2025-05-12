@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 
-import numpy as np
-import os
 import glob
-from natsort import natsorted, ns
+import os
 
-currentPath = os.getcwd()
+import numpy as np
+from natsort import natsorted
 
-print('Current path = %s' % currentPath)
+CURRENT_PATH = os.getcwd()
+
+print('Current path = %s' % CURRENT_PATH)
 for folderName in natsorted(glob.glob('*x*x*')):
-    # print(folderName)
     dimX, dimY, dimZ = folderName.split('x')
-    dimX, dimY, dimZ = int(dimX), int(dimY), int(dimZ)
-    numProcessors = int(np.floor(dimZ / 4.))
+    _, _, dimZ = int(dimX), int(dimY), int(dimZ)
+    numProcessors = int(np.floor(dimZ / 4.0))
     if numProcessors <= 0:
         numProcessors += 1
     print('Assigning %d processors to %s' % (numProcessors, folderName))

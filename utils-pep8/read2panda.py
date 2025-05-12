@@ -1,50 +1,47 @@
 #!/usr/bin/env python3
 
 """
-    This script 
-        (1) Reads an output from DAMASK and convert it to a panda frame
-        (2) (Optionally) Remove duplicate columns
-        (3) Write to .csv with a relatively close output (w/ changed headers)
+This script
+    (1) Reads an output from DAMASK and convert it to a panda frame
+    (2) (Optionally) Remove duplicate columns
+    (3) Write to .csv with a relatively close output (w/ changed headers)
 
 """
 
+import argparse
+
 import numpy as np
 import pandas as pd
-import time
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-import argparse
-parser = argparse.ArgumentParser()
 
-parser.add_argument("-f", "--filename", help='.vtr file',
-                    type=str, default='', required=True)
-args = parser.parse_args()
-filename = args.filename
-# filename = 'main_tension_inc01.txt' # debug
+PARSER = argparse.ArgumentParser()
 
-fileHandler = open(filename)
-txt = fileHandler.readlines()
-fileHandler.close()
+PARSER.add_argument("-f", "--filename", help='.vtr file', type=str, default='', required=True)
+
+ARGS = PARSER.parse_args()
+FILENAME = ARGS.filename
+
+with open(FILENAME) as fileHandler:
+    txt = fileHandler.readlines()
+
 
 # Pre-process
-numHeaderRows = int(txt[0].split('\t')[0])
-oldHeader = txt[numHeaderRows].replace('\n', '').split('\t')
-data = np.loadtxt(filename, skiprows=numHeaderRows+1)
-df = pd.DataFrame(data, columns=oldHeader)
+NUM_HEADER_ROWS = int(txt[0].split('\t')[0])
+OLD_HEADER = txt[NUM_HEADER_ROWS].replace('\n', '').split('\t')
+DATA = np.loadtxt(FILENAME, skiprows=NUM_HEADER_ROWS + 1)
+DF = pd.DataFrame(DATA, columns=OLD_HEADER)
 
 # Remove duplicate columns: https://stackoverflow.com/questions/14984119/python-pandas-remove-duplicate-columns
-df = df.loc[:, ~df.columns.duplicated()].copy()
-newHeader = list(df)
+DF = DF.loc[:, ~DF.columns.duplicated()].copy()
+NEW_HEADER = list(DF)
 
-DamaskCommandHistory = txt[:numHeaderRows]
-DamaskCommandHistory += ['\t'.join(newHeader) + '\n']  # add the last line
+DAMASK_COMMAND_HISTORY = txt[:NUM_HEADER_ROWS]
+DAMASK_COMMAND_HISTORY += ['\t'.join(NEW_HEADER) + '\n']
+  # add the last line
 
-f = open(filename[:-4] + '_header.txt', 'w')
-for i in range(len(DamaskCommandHistory)):
-    f.write(DamaskCommandHistory[i])
+with open(FILENAME[:-4] + '_header.txt', 'w') as f:
+    for i in range(len(DAMASK_COMMAND_HISTORY)):
+        f.write(DAMASK_COMMAND_HISTORY[i])
 
-f.close()
 
-df.to_csv(filename[:-4] + '_data.txt', sep='\t',
-          header=False)  # do not rewrite header
-# np.savetxt(filename[:-4] + '_data.txt', df.to_numpy(), fmt='%.16e', delimiter='\t')
+DF.to_csv(FILENAME[:-4] + '_data.txt', sep='\t', header=False)
+  # do not rewrite header

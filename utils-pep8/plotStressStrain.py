@@ -2,143 +2,110 @@
 
 # postResults single_phase_equiaxed_tension.spectralOut --cr f,p
 # filterTable < single_phase_equiaxed_tension.txt --white inc,1_f,1_p > stress_strain.log
-# python3 plotStressStrain.py --StressStrainFile "stress_strain.log"
+# python3 plotStressStrain.py --stress_strain_file "stress_strain.log"
 
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-import os
-import sys
-import datetime
 import argparse
+import os
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
-from scipy.interpolate import interp1d
 from scipy.interpolate import PchipInterpolator
 
-parser = argparse.ArgumentParser(description='')
-parser.add_argument("-StressStrainFile", "--StressStrainFile",
-                    default='stress_strain.log', type=str)
-parser.add_argument("-LoadFile", "--LoadFile",
-                    default='tension.load', type=str)
-parser.add_argument("-OptSaveFig", "--OptSaveFig", type=bool, default=False)
-parser.add_argument("-PlotTitle", "--PlotTitle",
-                    default='', type=str, required=False)
-# parser.add_argument("-skiprows", "--skiprows", type=int, default=4) # deprecated
+PARSER = argparse.ArgumentParser(description='')
+PARSER.add_argument(
+    "-stress_strain_file", "--stress_strain_file", default='stress_strain.log', type=str
+)
 
-args = parser.parse_args()
-StressStrainFile = args.StressStrainFile
-LoadFile = args.LoadFile
-OptSaveFig = args.OptSaveFig
-PlotTitle = args.PlotTitle
+PARSER.add_argument("-LoadFile", "--LoadFile", default='tension.load', type=str)
 
-# skiprows = args.skiprows # deprecated
+PARSER.add_argument("-OptSaveFig", "--OptSaveFig", type=bool, default=False)
+PARSER.add_argument("-PlotTitle", "--PlotTitle", default='', type=str, required=False)
 
 
-def getMetaInfo(StressStrainFile):
+ARGS = PARSER.parse_args()
+STRESS_STRAIN_FILE = ARGS.stress_strain_file
+PLOT_TITLE = ARGS.PlotTitle
+
+
+def _get_meta_info(stress_strain_file):
     """
-    return 
-    (1) number of lines for headers 
+    return
+    (1) number of lines for headers
     (2) list of outputs for pandas dataframe
     """
-    fileHandler = open(StressStrainFile)
-    txtInStressStrainFile = fileHandler.readlines()
-    fileHandler.close()
+    with open(stress_strain_file) as file_handler:
+        txt_in_stress_strain_file = file_handler.readlines()
+
     try:
-        numLinesHeader = int(txtInStressStrainFile[0].split('\t')[0])
-        fieldsList = txtInStressStrainFile[numLinesHeader].split('\t')
+        num_lines_header = int(txt_in_stress_strain_file[0].split('\t')[0])
+        fields_list = txt_in_stress_strain_file[num_lines_header].split('\t')
     except:
-        numLinesHeader = int(txtInStressStrainFile[0].split(' ')[0])
-        fieldsList = txtInStressStrainFile[numLinesHeader].split(' ')
-        fieldsList = list(filter(('').__ne__, fieldsList))  # remove all ''
-        print('%s is not natural - i.e. it may have been copied/pasted.' %
-              (StressStrainFile))
+        num_lines_header = int(txt_in_stress_strain_file[0].split(' ')[0])
+        fields_list = txt_in_stress_strain_file[num_lines_header].split(' ')
+        fields_list = list(filter(''.__ne__, fields_list))
+        print('%s is not natural - i.e. it may have been copied/pasted.' % stress_strain_file)
     else:
-        print('Reading results in %s...' % (StressStrainFile))
-    for i in range(len(fieldsList)):
-        fieldsList[i] = fieldsList[i].replace('\n', '')
-    print('numLinesHeader = ', numLinesHeader)
-    print('fieldsList = ', fieldsList)
-    return numLinesHeader, fieldsList
+        print('Reading results in %s...' % stress_strain_file)
+    for i in range(len(fields_list)):
+        fields_list[i] = fields_list[i].replace('\n', '')
+    print('numLinesHeader = ', num_lines_header)
+    print('fieldsList = ', fields_list)
+    return (num_lines_header, fields_list)
 
 
-def readLoadFile(LoadFile):
-    load_data = np.loadtxt(LoadFile, dtype=str)
-    n_fields = len(load_data)
-    # assume uniaxial:
-    for i in range(n_fields):
-        if load_data[i] == 'Fdot' or load_data[i] == 'fdot':
-            print('Found *Fdot*!')
-            Fdot11 = float(load_data[i+1])
-        if load_data[i] == 'time':
-            print('Found *totalTime*!')
-            totalTime = float(load_data[i+1])
-        if load_data[i] == 'incs':
-            print('Found *totalIncrement*!')
-            totalIncrement = float(load_data[i+1])
-        if load_data[i] == 'freq':
-            print('Found *freq*!')
-            freq = float(load_data[i+1])
-    return Fdot11, totalTime, totalIncrement
-
-
-def getTrueStressStrain(StressStrainFile):
-    # d = np.loadtxt(StressStrainFile, skiprows=4)
-    numLinesHeader, fieldsList = getMetaInfo(StressStrainFile)
-    # d = np.loadtxt(StressStrainFile, skiprows=skiprows)
-    d = np.loadtxt(StressStrainFile, skiprows=numLinesHeader+1)
-    # df = pd.DataFrame(d, columns=['inc','elem','node','ip','grain','1_pos','2_pos','3_pos','1_f','2_f','3_f','4_f','5_f','6_f','7_f','8_f','9_f','1_p','2_p','3_p','4_p','5_p','6_p','7_p','8_p','9_p'])
+def _get_true_stress_strain(stress_strain_file):
+    (numLinesHeader, fieldsList) = _get_meta_info(stress_strain_file)
+    d = np.loadtxt(stress_strain_file, skiprows=numLinesHeader + 1)
     df = pd.DataFrame(d, columns=fieldsList)
-    # vareps = [1] + list(df['1_f']) # d[:,1]  # strain -- pad original
-    # sigma  = [0] + list(df['1_p']) # d[:,2]  # stress -- pad original
-    vareps = list(df['Mises(ln(V))'])  # strain -- pad original
-    sigma = list(df['Mises(Cauchy)'])  # stress -- pad original
-    _, uniq_idx = np.unique(np.array(vareps), return_index=True)
+    vareps = list(df['Mises(ln(V))'])
+    sigma = list(df['Mises(Cauchy)'])
+    (_, uniq_idx) = np.unique(np.array(vareps), return_index=True)
     vareps = np.array(vareps)[uniq_idx]
     sigma = np.array(sigma)[uniq_idx]
-    # x = (vareps - 1)
-    x = (vareps)
-    y = sigma / 1e6
-    return x, y
+    x = vareps
+    y = sigma / 1000000.0
+    return (x, y)
 
 
-def getInterpStressStrain(StressStrainFile):
-    x, y = getTrueStressStrain(StressStrainFile)
+def _get_interp_stress_strain(stress_strain_file):
+    (x, y) = _get_true_stress_strain(stress_strain_file)
     interp_x = np.linspace(x.min(), x.max(), num=100)
-    # splineInterp = interp1d(x, y, kind='cubic', fill_value='extrapolate')
-    splineInterp = PchipInterpolator(x, y, extrapolate=True)
-    interp_y = splineInterp(interp_x)
-    return interp_x, interp_y
+    spline_interp = PchipInterpolator(x, y, extrapolate=True)
+    spline_interp(interp_x)
+    return (interp_x, rc_paramsy)
 
 
-fig = plt.figure()
+FIG = plt.figure()
 mpl.rcParams['xtick.labelsize'] = 24
 mpl.rcParams['ytick.labelsize'] = 24
 
-ax = fig.add_subplot(111)
-x, y = getTrueStressStrain(StressStrainFile)
-ax.plot(x, y, c='b', marker='o', linestyle='--', markersize=6)
+AX = FIG.add_subplot(111)
+X, Y = _get_true_stress_strain(STRESS_STRAIN_FILE)
+AX.plot(X, Y, c='b', marker='o', linestyle='--', markersize=6)
 
-interp_x, interp_y = getInterpStressStrain(StressStrainFile)
-ax.plot(interp_x, interp_y, c='r', marker='^', linestyle=':', markersize=6)
+INTERP_X, INTERP_Y = _get_interp_stress_strain(STRESS_STRAIN_FILE)
+AX.plot(INTERP_X, INTERP_Y, c='r', marker='^', linestyle=':', markersize=6)
 plt.legend(['true', 'cubic'], fontsize=24, frameon=False, markerscale=3)
 
 
 plt.xlabel(r'$\varepsilon$ [-]', fontsize=30)
 plt.ylabel(r'$\sigma$ [MPa]', fontsize=30)
 
-if np.all(y * 1e6 > -1e-5):
+if np.all(Y * 1e6 > -1e-5):
     plt.ylim(bottom=0)
 
-if np.all(x > -1e-5):
+if np.all(X > -1e-5):
     plt.xlim(left=0)
 
-ax.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
+AX.xaxis.set_major_formatter(mpl.ticker.FormatStrFormatter('%.4f'))
 
-parentFolderName = os.getcwd().split('/')[-4:-1]
+PARENT_FOLDER_NAME = os.getcwd().split('/')[-4:-1]
 
-if PlotTitle == '':
-    plt.title('%s' % parentFolderName, fontsize=24)
+if PLOT_TITLE == '':
+    plt.title('%s' % PARENT_FOLDER_NAME, fontsize=24)
 else:
-    plt.title(PlotTitle, fontsize=24)
+    plt.title(PLOT_TITLE, fontsize=24)
 
 plt.show()

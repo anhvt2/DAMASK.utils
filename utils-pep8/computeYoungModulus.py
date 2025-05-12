@@ -9,87 +9,68 @@
 # http://materials.iisc.ernet.in/~praveenk/CrystalPlasticity/PE_N_DAMASK.pdf
 # also see E.1.5 in [Multiscale simulation of metal deformation in deep drawing using machine learning by Verwijs, Floor]
 
-from sklearn.linear_model import LinearRegression
-import numpy as np
-import glob
-import os
-import matplotlib.pyplot as plt
-import matplotlib as mpl
 import argparse
 
-mpl.rcParams['xtick.labelsize'] = 24
-mpl.rcParams['ytick.labelsize'] = 24
+import matplotlib as mpl
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
-parser = argparse.ArgumentParser(description='')
-parser.add_argument("-StressStrainFile", "--StressStrainFile",
-                    default='stress_strain.log', type=str)
-parser.add_argument("-LoadFile", "--LoadFile",
-                    default='tension.load', type=str)
-parser.add_argument("-optSaveFig", "--optSaveFig", type=bool, default=False)
-parser.add_argument("-nElasticPoints", "--nElasticPoints", type=int, default=3)
-args = parser.parse_args()
-StressStrainFile = args.StressStrainFile
-LoadFile = args.LoadFile
-nElasticPoints = args.nElasticPoints
+mpl.rc_params['xtick.labelsize'] = 24
+mpl.rc_params['ytick.labelsize'] = 24
+
+PARSER = argparse.ArgumentParser(description='')
+PARSER.add_argument(
+    "-stress_strain_file", "--stress_strain_file", default='stress_strain.log', type=str
+)
+
+PARSER.add_argument("-load_file", "--load_file", default='tension.load', type=str)
+
+PARSER.add_argument("-opt_save_fig", "--opt_save_fig", type=bool, default=False)
+PARSER.add_argument("-n_elastic_points", "--n_elastic_points", type=int, default=3)
+ARGS = PARSER.parse_args()
+LOAD_FILE = ARGS.load_file
+N_ELASTIC_POINTS = ARGS.n_elastic_points
 
 
-def readLoadFile(LoadFile):
-    load_data = np.loadtxt(LoadFile, dtype=str)
+def _read_load_file(load_file):
+    load_data = np.loadtxt(load_file, dtype=str)
     n_fields = len(load_data)
-    # assume uniaxial:
     for i in range(n_fields):
         if load_data[i] == 'Fdot' or load_data[i] == 'fdot':
             print('Found *Fdot*!')
-            Fdot11 = float(load_data[i+1])
         if load_data[i] == 'time':
             print('Found *totalTime*!')
-            totalTime = float(load_data[i+1])
         if load_data[i] == 'incs':
             print('Found *totalIncrement*!')
-            totalIncrement = float(load_data[i+1])
         if load_data[i] == 'freq':
             print('Found *freq*!')
-            freq = float(load_data[i+1])
-    return Fdot11, totalTime, totalIncrement
+    return (FDOT11, TOTAL_TIME, TOTAL_INCREMENT)
 
 
-stress_strain_data = np.loadtxt('stress_strain.log', skiprows=7)
-increment = np.atleast_2d(stress_strain_data[:, 1])
-Fdot11, totalTime, totalIncrement = readLoadFile(LoadFile)
-Fdot = Fdot11
-n = len(stress_strain_data)
-n = int(n) + 1
-
-
-# increment = np.atleast_2d(stress_strain_data[:, 0])
-# stress = np.atleast_2d(stress_strain_data[:, 2])
-
-# tensionLoadFile = np.loadtxt('../tension.load', dtype=str)
-
+STRESS_STRAIN_DATA = np.loadtxt('stress_strain.log', skiprows=7)
+np.atleast_2d(STRESS_STRAIN_DATA[:, 1])
+FDOT11, TOTAL_TIME, TOTAL_INCREMENT = _read_load_file(LOAD_FILE)
+FDOT = FDOT11
+N = len(STRESS_STRAIN_DATA)
+N = int(N) + 1
 # get Stress and Strain
-stress = np.atleast_2d(stress_strain_data[:n, 2])
-strain = np.atleast_2d(stress_strain_data[:n, 1])
-strain -= 1.0  # offset for DAMASK, as strain = 1 when started
+STRESS = np.atleast_2d(STRESS_STRAIN_DATA[:N, 2])
+STRAIN = np.atleast_2d(STRESS_STRAIN_DATA[:N, 1])
+STRAIN -= 1.0  # offset for DAMASK, as strain = 1 when started
 print('Stress:')
-print(stress.ravel())
+print(STRESS.ravel())
 print('\n\n')
 
 print('Strain:')
-print(strain.ravel())
+print(STRAIN.ravel())
 print('\n\n')
-
-
-# Fdot = float(tensionLoadFile[1])
-# totalTime = float(tensionLoadFile[11])
-# totalIncrement = float(tensionLoadFile[13])
-# strain = Fdot * increment * totalTime / totalIncrement
 # varepsilon (strain) = varepsilonDot (or strainDot) * time = varepsilonDot * increment / totalIncrement * totalTime
 
 print("#############################")
 print("Reading *tension.load* file:")
-print("Fdot = %.4e" % Fdot)
-print("totalTime = %.1f" % totalTime)
-print("totalIncrement = %.1f" % totalIncrement)
+print("Fdot = %.4e" % FDOT)
+print("totalTime = %.1f" % TOTAL_TIME)
+print("totalIncrement = %.1f" % TOTAL_INCREMENT)
 print("#############################")
 
 
@@ -97,21 +78,16 @@ print("#############################")
 
 
 # extract elastic part
-elasticStress = np.atleast_2d(stress[0, 1:nElasticPoints]).T
-elasticStrain = np.atleast_2d(strain[0, 1:nElasticPoints]).T
-
-# print(elasticStrain.shape)
-# print(elasticStress.shape)
-
+ELASTIC_STRESS = np.atleast_2d(STRESS[0, 1:N_ELASTIC_POINTS]).T
+ELASTIC_STRAIN = np.atleast_2d(STRAIN[0, 1:N_ELASTIC_POINTS]).T
 # perform linear regression
-reg = LinearRegression().fit(elasticStrain, elasticStress)
-reg.score(elasticStrain, elasticStress)
-youngModulusInGPa = reg.coef_[0, 0] / 1e9
+REG = LinearRegression().fit(ELASTIC_STRAIN, ELASTIC_STRESS)
+REG.score(ELASTIC_STRAIN, ELASTIC_STRESS)
+YOUNG_MODULUS_IN_G_PA = REG.coef_[0, 0] / 1e9
 
-print('Elastic Young modulus = %.4f GPa' % youngModulusInGPa)
-print('Intercept = %.4f' % (reg.intercept_ / 1e9))
+print('Elastic Young modulus = %.4f GPa' % YOUNG_MODULUS_IN_G_PA)
+print('Intercept = %.4f' % (REG.intercept_ / 1e9))
 
 
-outFile = open('output.dat', 'w')
-outFile.write('%.6e\n' % youngModulusInGPa)
-outFile.close()
+with open('output.dat', 'w') as outFile:
+    outFile.write('%.6e\n' % YOUNG_MODULUS_IN_G_PA)

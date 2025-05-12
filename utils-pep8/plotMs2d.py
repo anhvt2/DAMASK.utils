@@ -1,62 +1,43 @@
 #!/usr/bin/env python3
 
 
-import pyvista
-import matplotlib.pyplot as plt
-import glob
-import os
 import argparse
-parser = argparse.ArgumentParser()
+import glob
 
-parser.add_argument("-n", "--nameTag", help='append to filename',
-                    type=str, default='', required=False)
-args = parser.parse_args()
-nameTag = args.nameTag
+import matplotlib.pyplot as plt
+import pyvista
 
-nameTag = nameTag.split('/')[0]
-print(nameTag)
+PARSER = argparse.ArgumentParser()
 
+PARSER.add_argument(
+    "-n", "--name_tag", help='append to filename', type=str, default='', required=False
+)
 
-# cmap = plt.cm.get_cmap("viridis", 5)
+ARGS = PARSER.parse_args()
+NAME_TAG = ARGS.name_tag
+
+NAME_TAG = NAME_TAG.split('/')[0]
+print(NAME_TAG)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
 # https://matplotlib.org/stable/tutorials/colors/colormaps.html
 # Ranking: (1) 'coolwarm', (2) 'ocean', (3) 'plasma' or 'inferno' or 'viridis'
-cmap = plt.cm.get_cmap('coolwarm')
-# cmap = plt.cm.get_cmap('viridis')
-# cmap = plt.cm.get_cmap('plasma')
-# cmap = plt.cm.get_cmap('inferno')
-# cmap = plt.cm.get_cmap('ocean')
-# cmap = plt.cm.get_cmap('gnuplot2')
-
+CMAP = plt.cm.get_cmap('coolwarm')
 # https://matplotlib.org/cmocean/#thermal
-# import cmocean
-# cmap = cmocean.cm.phase
 
-# filename = 'single_phase_equiaxed_8x8x8.vtr'
 for filename in glob.glob('*.vtr'):  # screenshot for all *.vtr files
     reader = pyvista.get_reader(filename)
-    # camera = pyvista.Camera()
-    msMesh = reader.read()
-    ms = msMesh.get_array('microstructure')
-    msMesh.cell_data['microstructure']
-    msMesh.set_active_scalars('microstructure', preference='cell')
+    ms_mesh = reader.read()
+    ms_mesh.get_array('microstructure')
+    ms_mesh.set_active_scalars('microstructure', preference='cell')
 
-    # pl = pyvista.Plotter()
     pl = pyvista.Plotter(off_screen=True)
-    pl.add_mesh(msMesh, show_edges=False, line_width=1, cmap=cmap)
+    pl.add_mesh(ms_mesh, show_edges=False, line_width=1, cmap=CMAP)
     pl.background_color = "white"
-    # light = pyvista.Light(position=(16, 16, 10), color='white')
-    # light.positional = True
     pl.view_xy()
     pl.remove_scalar_bar()
-    # pl.add_light(light)
-    # pl.show(screenshot='%s.png' % filename.split('.')[0])
-    # pl.show()
-    # pl.close()
-    if nameTag == '':
-        pl.screenshot(filename.split(
-            '.')[0] + '.png', window_size=[1860*3, 968*3])
-        # pl.screenshot(filename.split('.')[0] + '.png', window_size=[3200,3200])
+    if NAME_TAG == '':
+        pl.screenshot(filename.split('.')[0] + '.png', window_size=[1860 * 3, 968 * 3])
     else:
-        pl.screenshot(filename.split(
-            '.')[0] + '_' + nameTag + '.png', window_size=[968*3, 968*3])
+        pl.screenshot(
+            filename.split('.')[0] + '_' + NAME_TAG + '.png', window_size=[968 * 3, 968 * 3]
+        )

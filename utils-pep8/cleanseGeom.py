@@ -28,7 +28,7 @@ parser.add_argument(
     "-g", "--geom", help='original geom filename', type=str, required=True)
 
 args = parser.parse_args()
-geomFileName = args.geom  # e.g. geomFileName = 'singleCrystal_res_50um.geom'
+geom_filename = args.geom  # e.g. geom_filename = 'singleCrystal_res_50um.geom'
 
 
 def delete(lst, to_delete):
@@ -46,8 +46,8 @@ def delete(lst, to_delete):
     return [element for element in lst if element != to_delete]
 
 
-def geom2npy(geomFileName):
-    fileHandler = open(geomFileName)
+def geom2npy(geom_filename):
+    fileHandler = open(geom_filename)
     txt = fileHandler.readlines()
     fileHandler.close()
     numSkippingLines = int(txt[0].split(' ')[0])+1
@@ -137,7 +137,7 @@ def renumerate(geom, startIndex=0, cluster=False):
 
 
 # Read to .npy format
-geom = geom2npy(geomFileName)
+geom = geom2npy(geom_filename)
 Nx_grid, Ny_grid, Nz_grid = geom.shape
 Nx_size, Ny_size, Nz_size = geom.shape
 
@@ -145,7 +145,7 @@ Nx_size, Ny_size, Nz_size = geom.shape
 geom = renumerate(geom, startIndex=1, cluster=True)
 # This is absolutely necessary for renumerating grainIDs.
 geom = renumerate(geom, startIndex=1)
-outFileName = 'cleansed_' + geomFileName
+outFileName = 'cleansed_' + geom_filename
 
 # Convert 3d numpy array to 1d flatten array
 geom = geom.T.flatten()

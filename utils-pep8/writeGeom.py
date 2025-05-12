@@ -19,11 +19,11 @@ defaultHeaders = ['6       header\n',
                   'microstructures 2\n']
 
 
-def writeGeom(geomFileName, geom, headers=defaultHeaders):
+def writeGeom(geom_filename, geom, headers=defaultHeaders):
     """
     Parameters
     ----------
-    - geomFileName: output file
+    - geom_filename: output file
     - geom (np.ndarray): 3D numpy array to be saved
     - complete headers for geom (no sanity check)
     Returns
@@ -32,7 +32,7 @@ def writeGeom(geomFileName, geom, headers=defaultHeaders):
     """
     geom = geom.T.flatten()
 
-    f = open(geomFileName, 'w')
+    f = open(geom_filename, 'w')
 
     # write headers
     for i in range(len(headers)):

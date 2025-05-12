@@ -8,7 +8,7 @@ parser.add_argument("-npy", "--npy", type=str, required=True)
 args = parser.parse_args()
 
 npyFileName = args.npy
-geomFileName = npyFileName[:-4] + '.geom'
+geom_filename = npyFileName[:-4] + '.geom'
 
 geom = np.load(npyFileName)
 Nx, Ny, Nz = geom.shape
@@ -22,20 +22,20 @@ defaultHeaders = ['6       header\n',
                   'microstructures %d\n' % np.max(geom)]
 
 
-def writeGeom(geomFileName, geom, headers=defaultHeaders):
+def writeGeom(geom_filename, geom, headers=defaultHeaders):
     """
     Parameters
     ----------
-    - geomFileName: output file
+    - geom_filename: output file
     - geom (np.ndarray): 3D numpy array to be saved
     - complete headers for geom (no sanity check)
     Returns
     -------
-    .geom file written in geomFileName
+    .geom file written in geom_filename
     """
     geom = geom.T.flatten()
 
-    f = open(geomFileName, 'w')
+    f = open(geom_filename, 'w')
 
     # write headers
     for i in range(len(headers)):
@@ -58,4 +58,4 @@ def writeGeom(geomFileName, geom, headers=defaultHeaders):
     f.close()
 
 
-writeGeom(geomFileName, geom, defaultHeaders)
+writeGeom(geom_filename, geom, defaultHeaders)

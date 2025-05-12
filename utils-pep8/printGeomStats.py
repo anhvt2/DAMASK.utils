@@ -10,7 +10,7 @@ parser.add_argument(
     "-g", "--geom", help='original geom filename', type=str, required=True)
 
 args = parser.parse_args()
-geomFileName = args.geom  # e.g. geomFileName = 'singleCrystal_res_50um.geom'
+geom_filename = args.geom  # e.g. geom_filename = 'singleCrystal_res_50um.geom'
 
 
 def delete(lst, to_delete):
@@ -28,20 +28,20 @@ def delete(lst, to_delete):
     return [element for element in lst if element != to_delete]
 
 
-def geom2npy(geomFileName):
-    fileHandler = open(geomFileName)
-    txt = fileHandler.readlines()
-    fileHandler.close()
-    numSkippingLines = int(txt[0].split(' ')[0])+1
+def geom2npy(geom_filename):
+    file_handler = open(geom_filename)
+    txt = file_handler.readlines()
+    file_handler.close()
+    num_skipping_lines = int(txt[0].split(' ')[0])+1
     # Search for 'size' within header:
-    for j in range(numSkippingLines):
+    for j in range(num_skipping_lines):
         if 'grid' in txt[j]:
-            cleanString = delete(txt[j].replace('\n', '').split(' '), '')
-            Nx = int(cleanString[2])
-            Ny = int(cleanString[4])
-            Nz = int(cleanString[6])
+            clean_string = delete(txt[j].replace('\n', '').split(' '), '')
+            Nx = int(clean_string[2])
+            Ny = int(clean_string[4])
+            Nz = int(clean_string[6])
 
-    geomBlock = txt[numSkippingLines:]
+    geomBlock = txt[num_skipping_lines:]
     geom = ''
     for i in range(len(geomBlock)):
         geom += geomBlock[i]
@@ -52,7 +52,7 @@ def geom2npy(geomFileName):
     return geom
 
 
-geom = geom2npy(geomFileName)
+geom = geom2npy(geom_filename)
 
 grainList = np.unique(geom)
 numGrains = len(grainList)

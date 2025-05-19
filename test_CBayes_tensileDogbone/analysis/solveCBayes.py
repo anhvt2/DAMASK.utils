@@ -172,10 +172,10 @@ for idxStressStrain in range(2,26):
         qxTest = GKDE(xPost) # posterior in x
 
         if isFigureSaved: # plot on parameter space
-            ax1.plot(xPlot, 1/(x.max()-x.min()*np.ones(xPlot.shape)), c='tab:blue', linestyle='-', linewidth=4, label=r'$\pi^{prior}(\phi)$')
-            ax1.plot(xPlot, qxTest(xPlot), c='tab:red',  linestyle='--', linewidth=4, label=r'$\pi^{post}(\phi)$')
+            ax1.plot(xPlot, 1/(x.max()-x.min()*np.ones(xPlot.shape)), c='tab:blue', linestyle='-', linewidth=4, label=r'$\pi^{init}(\phi)$')
+            ax1.plot(xPlot, qxTest(xPlot), c='tab:red',  linestyle='--', linewidth=4, label=r'$\pi^{up}(\phi)$')
             ax1.plot(xPlot, qxTrue(xPlot), c='tab:green',  linestyle=':', linewidth=4, label=r'$\pi^{true}(\phi)$')
-            ax1.axvline(x=xPlot[np.argmax(qxTest(xPlot))], color='tab:red', linestyle='-', linewidth=4, label=r'MAP: $\pi^{post}(\phi)$', alpha=0.25)
+            ax1.axvline(x=xPlot[np.argmax(qxTest(xPlot))], color='tab:red', linestyle='-', linewidth=4, label=r'MAP: $\pi^{up}(\phi)$', alpha=0.25)
             ax1.axvline(x=xPlot[np.argmax(qxTrue(xPlot))], color='tab:green', linestyle='-', linewidth=4, label=r'MAP: $\pi^{true}(\phi)$', alpha=0.25)
             ax1.legend(loc='best',fontsize=36, frameon=False)
             ax1.set_xlabel(r'$\phi$', fontsize=36)
@@ -188,9 +188,9 @@ for idxStressStrain in range(2,26):
 
         qplot = np.linspace(yPrior.min(), yPrior.max(), num=1000)
         if isFigureSaved: # plot on observation spaces
-            ax2.plot(qplot, qPrior(qplot), c='tab:blue', linestyle='-', linewidth=4, label=r'$Q(\pi^{prior}(\phi))$')
+            ax2.plot(qplot, qPrior(qplot), c='tab:blue', linestyle='-', linewidth=4, label=r'$Q(\pi^{init}(\phi))$')
             ax2.plot(qplot, qObs(qplot) ,  c='tab:red', linestyle='--', linewidth=4, label=r'$\pi^{obs}$', alpha=1)
-            ax2.plot(qplot, qPost(qplot),  c='tab:green',  linestyle=':', linewidth=4, label=r'$Q(\pi^{post}(\phi))$', alpha=1)
+            ax2.plot(qplot, qPost(qplot),  c='tab:green',  linestyle=':', linewidth=4, label=r'$Q(\pi^{up}(\phi))$', alpha=1)
             ax2.legend(loc='best',fontsize=36, frameon=False)
             ax2.set_xlabel(r'$\sigma$', fontsize=36)
             ax2.set_ylabel(r'pdf($\sigma$)', fontsize=36)

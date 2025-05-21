@@ -8,11 +8,11 @@ import gc
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-f", "--filename", type=str, required=True)
-parser.add_argument("-n", "--name_tag", type=str, default='', required=False)
+parser.add_argument("-n", "--nametag", type=str, default='', required=False)
 
 args = parser.parse_args()
 filename = args.filename
-name_tag  = args.name_tag
+nametag  = args.nametag
 
 # cmap = plt.cm.get_cmap("viridis", 5)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
@@ -41,13 +41,13 @@ msMesh.set_active_scalars('microstructure', preference='cell')
 
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)
-print(f'name_tag = {name_tag}')
+print(f'nametag = {nametag}')
 
-if name_tag == 'voids':
+if nametag == 'voids':
     pl.add_mesh(msMesh.threshold(value=1.0+1e-3), show_edges=True, line_width=1, cmap=cmap, opacity=0.2) # enable dogbone background -- only when plotting voids
     threshed = msMesh.threshold(value=(grainInfo[1], grainInfo[2])) # plot voids
     pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)
-elif name_tag == 'solids':
+elif nametag == 'solids':
     threshed = msMesh.threshold(value=(grainInfo[3], grainInfo[4])) # plot solids
     pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap) # plot solids
 else:
@@ -69,10 +69,10 @@ pl.remove_scalar_bar()
 pl.store_image = True
 # pl.show()
 
-if name_tag == '':
+if nametag == '':
     pl.screenshot(filename[:-4] + '.png', window_size=[1860*6,968*6])
 else:
-    pl.screenshot(filename[:-4] + '_' + name_tag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-4] + '_' + nametag + '.png', window_size=[1860*6,968*6])
 # pl.close()
 gc.collect()
 

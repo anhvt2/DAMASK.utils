@@ -4,8 +4,8 @@
 export spkFileName="dump.additive_dogbone.2339"
 export voidPc="3.000"
 
-python3 $(which dump2npy) --dump ${spkFileName}
-python3 $(which npy2geom) --npy ${spkFileName}.npy
+python3 dump2npy.py --dump ${spkFileName}
+python3 npy2geom.py --npy ${spkFileName}.npy
 
 python3 seedVoid.py \
     --origGeomFileName ${spkFileName}.geom \

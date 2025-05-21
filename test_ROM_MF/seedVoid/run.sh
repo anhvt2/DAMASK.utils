@@ -2,7 +2,7 @@
 
 ### 50um attempt
 export spkFileName="dump.additive_dogbone.2339"
-export voidPc="5.000"
+export voidPc="3.000"
 
 python3 $(which dump2npy) --dump ${spkFileName}
 python3 $(which npy2geom) --npy ${spkFileName}.npy
@@ -32,3 +32,4 @@ python3 plotms3d_maskedDogbone.py --filename="padded_voidSeeded_${voidPc}pc_${sp
 cat material.config.preamble  | cat - material.config | sponge material.config
 
 cp padded_voidSeeded_${voidPc}pc_${spkFileName}.geom main.geom
+python3 $(which geom2npy) --geom main.geom

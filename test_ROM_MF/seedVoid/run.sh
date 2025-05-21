@@ -1,27 +1,32 @@
 #!/bin/bash
 
 ### 50um attempt
-export spkFileName="dump.additive_dogbone.2807"
+export spkFileName="dump.additive_dogbone.2339"
+export voidPc="3.000"
+
+python3 $(which dump2npy) --dump ${spkFileName}
+python3 $(which npy2geom) --npy ${spkFileName}.npy
+
 python3 seedVoid.py \
     --origGeomFileName ${spkFileName}.geom \
-    --voidPercentage 3.000 \
+    --voidPercentage ${voidPc} \
     --voidDictionary voidEquiaxed.geom \
     --phaseFileName phase_dump_12_out.npy
 
 python3 padAirPolycrystals.py \
     --numAirVoxels=4 \
-    --origGeomFileName="voidSeeded_3.000pc_${spkFileName}.geom"
+    --origGeomFileName="voidSeeded_${voidPc}pc_${spkFileName}.geom"
 
-geom_check voidSeeded_3.000pc_${spkFileName}.geom
+geom_check voidSeeded_${voidPc}pc_${spkFileName}.geom
 
-geom_check padded_voidSeeded_3.000pc_${spkFileName}.geom
+geom_check padded_voidSeeded_${voidPc}pc_${spkFileName}.geom
 
-python3 geom2npy.py --geom="padded_voidSeeded_3.000pc_${spkFileName}.geom"
+python3 geom2npy.py --geom="padded_voidSeeded_${voidPc}pc_${spkFileName}.geom"
 
-# python3 findGaugeLocations.py --geom="padded_voidSeeded_3.000pc_${spkFileName}.npy" --resolution 50
+# python3 findGaugeLocations.py --geom="padded_voidSeeded_${voidPc}pc_${spkFileName}.npy" --resolution 50
 
-python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_3.000pc_${spkFileName}.vtr"
+python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_${voidPc}pc_${spkFileName}.vtr"
 
 cat material.config.preamble  | cat - material.config | sponge material.config
 
-cp padded_voidSeeded_3.000pc_${spkFileName}.geom main.geom
+cp padded_voidSeeded_${voidPc}pc_${spkFileName}.geom main.geom

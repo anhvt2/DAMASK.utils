@@ -26,6 +26,8 @@ python3 geom2npy.py --geom="padded_voidSeeded_${voidPc}pc_${spkFileName}.geom"
 # python3 findGaugeLocations.py --geom="padded_voidSeeded_${voidPc}pc_${spkFileName}.npy" --resolution 50
 
 python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_${voidPc}pc_${spkFileName}.vtr"
+python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_${voidPc}pc_${spkFileName}.vtr" --name_tag = "voids"
+python3 plotms3d_maskedDogbone.py --fileName="padded_voidSeeded_${voidPc}pc_${spkFileName}.vtr" --name_tag = "solids"
 
 cat material.config.preamble  | cat - material.config | sponge material.config
 

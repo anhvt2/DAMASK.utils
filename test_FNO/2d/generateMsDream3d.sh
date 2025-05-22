@@ -27,7 +27,7 @@ echo
 
 ${execPath}/PipelineRunner -p $(pwd)/${inputFile}
 
-# cat material.config.preamble  | cat - material.config | sponge material.config
+cat material.config.preamble  | cat - material.config | sponge material.config
 
 
 # echo "Microstructure files are generated at:"

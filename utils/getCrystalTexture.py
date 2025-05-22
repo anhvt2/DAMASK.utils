@@ -2,9 +2,9 @@
 
 """ This script:
     (1) reads a material.config from DAMASK, 
-    (2) extracts crystallographic orientations (Euler angles)
-    (3) dumps to a .npy file
-    Note: mostly written by ChatGPT
+    (2) extracts crystallographic orientations (Euler angles) from <texture>
+    (3) extracts microstructure mapping from <microstructure>
+    (4) dumps both to .npy files
 """
 
 import numpy as np
@@ -14,7 +14,9 @@ filename = "material.config"
 
 # Flags and storage
 in_texture_section = False
-grain_data = []
+in_microstructure_section = False
+texture_data = []
+microstructure_data = []
 
 with open(filename, 'r') as file:
     lines = file.readlines()
@@ -22,16 +24,24 @@ with open(filename, 'r') as file:
 i = 0
 while i < len(lines):
     line = lines[i].strip()
-    # Check for section start
+
+    # --- Detect section changes ---
     if re.match(r"<texture>", line):
         in_texture_section = True
+        in_microstructure_section = False
         i += 1
         continue
-    elif re.match(r"<\w+>", line) and not line.startswith("<texture>"):
-        # Exit texture section if another section starts
+    elif re.match(r"<microstructure>", line):
         in_texture_section = False
+        in_microstructure_section = True
+        i += 1
+        continue
+    elif re.match(r"<\w+>", line):
+        in_texture_section = False
+        in_microstructure_section = False
+
+    # --- Parse <texture> section ---
     if in_texture_section:
-        # Check for grain header
         grain_match = re.match(r'\[grain(\d+)\]', line)
         if grain_match:
             grain_id = int(grain_match.group(1))
@@ -42,9 +52,33 @@ while i < len(lines):
                     phi1 = float(angle_match.group(1))
                     Phi = float(angle_match.group(2))
                     phi2 = float(angle_match.group(3))
-                    grain_data.append((grain_id, phi1, Phi, phi2))
+                    texture_data.append((grain_id, phi1, Phi, phi2))
             i += 2
             continue
+
+    # --- Parse <microstructure> section ---
+    elif in_microstructure_section:
+        grain_match = re.match(r'\[grain(\d+)\]', line)
+        if grain_match and i + 2 < len(lines):
+            grain_id = int(grain_match.group(1))
+            crystallite_line = lines[i + 1].strip()
+            constituent_line = lines[i + 2].strip()
+
+            # Extract crystallite number
+            crystallite_match = re.search(r'crystallite\s+(\d+)', crystallite_line)
+            crystallite = int(crystallite_match.group(1)) if crystallite_match else None
+
+            # Extract phase, texture, fraction
+            constituent_match = re.search(r'phase\s+(\d+)\s+texture\s+(\d+)\s+fraction\s+([0-9.]+)', constituent_line)
+            if constituent_match:
+                phase = int(constituent_match.group(1))
+                texture = int(constituent_match.group(2))
+                fraction = float(constituent_match.group(3))
+                microstructure_data.append((grain_id, crystallite, phase, texture, fraction))
+
+            i += 3
+            continue
+
     i += 1
 
 # # Output results
@@ -53,4 +87,7 @@ while i < len(lines):
 # for grain in grain_data:
 #     print(f"Grain {grain[0]}: phi1={grain[1]}, Phi={grain[2]}, phi2={grain[3]}")
 
-np.save('texture.npy', np.array(grain_data))
+
+# Save results
+np.save('texture.npy', np.array(texture_data))
+np.save('microstructure.npy', np.array(microstructure_data))

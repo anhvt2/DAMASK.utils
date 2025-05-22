@@ -7,12 +7,12 @@ import argparse
 import gc
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-f", "--fileName", type=str, required=True)
-parser.add_argument("-n", "--nameTag", type=str, default='', required=False)
+parser.add_argument("-f", "--filename", type=str, required=True)
+parser.add_argument("-n", "--nametag", type=str, default='', required=False)
 
 args = parser.parse_args()
-fileName = args.fileName
-nameTag  = args.nameTag
+filename = args.filename
+nametag  = args.nametag
 
 # cmap = plt.cm.get_cmap("viridis", 5)
 # https://predictablynoisy.com/matplotlib/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py
@@ -31,9 +31,9 @@ cmap = plt.cm.get_cmap('coolwarm')
 
 grainInfo = np.loadtxt('grainInfo.dat')
 
-# for fileName in glob.glob('masked*.vti'): # screenshot for all *.vtr files
+# for filename in glob.glob('masked*.vti'): # screenshot for all *.vtr files
 
-reader = pyvista.get_reader(fileName)
+reader = pyvista.get_reader(filename)
 msMesh = reader.read()
 ms = msMesh.get_array('microstructure')
 msMesh.cell_data['microstructure']
@@ -41,13 +41,13 @@ msMesh.set_active_scalars('microstructure', preference='cell')
 
 # pl = pyvista.Plotter()
 pl = pyvista.Plotter(off_screen=True)
-print(f'nameTag = {nameTag}')
+print(f'nametag = {nametag}')
 
-if nameTag == 'voids':
+if nametag == 'voids':
     pl.add_mesh(msMesh.threshold(value=1.0+1e-3), show_edges=True, line_width=1, cmap=cmap, opacity=0.2) # enable dogbone background -- only when plotting voids
     threshed = msMesh.threshold(value=(grainInfo[1], grainInfo[2])) # plot voids
     pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap)
-elif nameTag == 'solids':
+elif nametag == 'solids':
     threshed = msMesh.threshold(value=(grainInfo[3], grainInfo[4])) # plot solids
     pl.add_mesh(threshed, show_edges=True, line_width=1, cmap=cmap) # plot solids
 else:
@@ -60,7 +60,7 @@ pl.remove_scalar_bar()
 # pl.camera_position = 'xz'
 # pl.camera.azimuth = -10
 # pl.camera.elevation = +10
-# pl.show(screenshot='%s.png' % fileName[:-4])
+# pl.show(screenshot='%s.png' % filename[:-4])
 # pl.show()
 # pl.add_axes(color='k')
 # pl.add_axes(line_width=5,cone_radius=0.6,shaft_length=0.7,tip_length=0.3,ambient=0.5,label_size=(0.4, 0.16), color='k')
@@ -69,10 +69,10 @@ pl.remove_scalar_bar()
 pl.store_image = True
 # pl.show()
 
-if nameTag == '':
-    pl.screenshot(fileName[:-4] + '.png', window_size=[1860*6,968*6])
+if nametag == '':
+    pl.screenshot(filename[:-4] + '.png', window_size=[1860*6,968*6])
 else:
-    pl.screenshot(fileName[:-4] + '_' + nameTag + '.png', window_size=[1860*6,968*6])
+    pl.screenshot(filename[:-4] + '_' + nametag + '.png', window_size=[1860*6,968*6])
 # pl.close()
 gc.collect()
 

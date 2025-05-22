@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+import numpy as np
+import glob
+import os
+from natsort import natsorted, ns  # natural-sort
+import argparse
+
+parser = argparse.ArgumentParser(description='')
+parser.add_argument(
+    "-g", "--geom", help='original geom filename', type=str, required=True)
+
+args = parser.parse_args()
+geom_filename = args.geom  # e.g. geom_filename = 'singleCrystal_res_50um.geom'
+
+
+def delete(lst, to_delete):
+    '''
+    Recursively delete an element with content described by  'to_delete' variable
+    https://stackoverflow.com/questions/53265275/deleting-a-value-from-a-list-using-recursion/
+    Parameter
+    ---------
+    to_delete: content needs removing
+    lst: list
+    Return
+    ------
+    a list without to_delete element
+    '''
+    return [element for element in lst if element != to_delete]
+
+
+def geom2npy(geom_filename):
+    file_handler = open(geom_filename)
+    txt = file_handler.readlines()
+    file_handler.close()
+    num_skipping_lines = int(txt[0].split(' ')[0])+1
+    # Search for 'size' within header:
+    for j in range(num_skipping_lines):
+        if 'grid' in txt[j]:
+            clean_string = delete(txt[j].replace('\n', '').split(' '), '')
+            Nx = int(clean_string[2])
+            Ny = int(clean_string[4])
+            Nz = int(clean_string[6])
+
+    geomBlock = txt[num_skipping_lines:]
+    geom = ''
+    for i in range(len(geomBlock)):
+        geom += geomBlock[i]
+
+    geom = geom.split(' ')
+    geom = list(filter(('').__ne__, geom))
+    geom = np.array(geom, dtype=int).reshape(Nz, Ny, Nx).T
+    return geom
+
+
+geom = geom2npy(geom_filename)
+
+grainList = np.unique(geom)
+numGrains = len(grainList)
+print('Number of grains = %d\n' % numGrains)
+
+for grainId in grainList:
+    x, y, z = np.where(geom == grainId)
+    print('Grain %s: %d voxel' % (grainId, len(x)))

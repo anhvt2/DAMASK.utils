@@ -1,1 +1,1 @@
-../../changeResolution.py
+../../utils-pep8/changeResolution.py

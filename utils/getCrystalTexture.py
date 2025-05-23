@@ -9,6 +9,7 @@
 
 import numpy as np
 import re
+import pandas as pd
 
 filename = "material.config"
 
@@ -24,7 +25,6 @@ with open(filename, 'r') as file:
 i = 0
 while i < len(lines):
     line = lines[i].strip()
-
     # --- Detect section changes ---
     if re.match(r"<texture>", line):
         in_texture_section = True
@@ -81,13 +81,20 @@ while i < len(lines):
 
     i += 1
 
-# # Output results
-# verbose = True
-# if verbose:
-# for grain in grain_data:
-#     print(f"Grain {grain[0]}: phi1={grain[1]}, Phi={grain[2]}, phi2={grain[3]}")
+# # Save results
+# np.save('texture.npy', np.array(texture_data))
+# np.save('microstructure.npy', np.array(microstructure_data))
 
+# Convert to DataFrames
+texture_df = pd.DataFrame(texture_data, columns=["grain_id", "phi1", "Phi", "phi2"])
+microstructure_df = pd.DataFrame(microstructure_data, columns=["grain_id", "crystallite", "phase", "texture", "fraction"])
 
-# Save results
-np.save('texture.npy', np.array(texture_data))
-np.save('microstructure.npy', np.array(microstructure_data))
+# Merge on grain_id
+df = pd.merge(texture_df, microstructure_df, on="grain_id", how="outer")
+
+# Sort by grain_id (optional)
+df.sort_values(by="grain_id", inplace=True)
+
+# Save to CSV or pickle
+df.to_csv("material_config.csv", index=False)
+
